@@ -19,7 +19,7 @@
 """
 
 from gi.repository import Gtk, GObject, Gio, PangoCairo, Pango, GWeather
-from gi.repository import Gdk, TimezoneMap, GdkPixbuf
+from gi.repository import Gdk, GdkPixbuf
 import cairo, time
 
 class NewWorldClockWidget (Gtk.Box):
