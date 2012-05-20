@@ -108,7 +108,8 @@ class DigitalClock ():
         self.view_iter = None
         self.list_store = None
 
-        self.drawing = DigitalClockDawing()
+        self.drawing = DigitalClockDrawing ()
+        self.standalone = DigitalClockStandalone ()
         self.update ()
         GObject.timeout_add(1000, self.update)
 
@@ -144,6 +145,7 @@ class DigitalClock ():
             self.drawing.render(t, img, self.get_is_day ())
             if self.view_iter and self.list_store:
                 self.list_store.set_value(self.view_iter, 0, self.drawing.pixbuf)
+            self.standalone.update (img, t)
         self._last_time = t
         return True
 
@@ -151,7 +153,25 @@ class DigitalClock ():
         self.view_iter = view_iter
         self.list_store = list_store
 
-class DigitalClockDawing (Gtk.DrawingArea):
+    def get_standalone_widget (self):
+        return self.standalone
+
+
+class DigitalClockStandalone (Gtk.HBox):
+    def __init__ (self):
+        Gtk.HBox.__init__ (self, True)
+        self.img = Gtk.Image ()
+        self.label = Gtk.Label ()
+        self.pack_start (self.img, True, True, 0)
+        self.pack_start (self.label, True, True, 0)
+
+    def update (self, img, text):
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size (img, 256, 256)
+        self.img.set_from_pixbuf (pixbuf)
+        self.label.set_markup ("<span size='xx-large'><b>%s</b></span>" %(text,))
+
+
+class DigitalClockDrawing (Gtk.DrawingArea):
     width = 160
     height = 160
 

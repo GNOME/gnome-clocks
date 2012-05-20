@@ -22,6 +22,8 @@ from gi.repository import Gtk, GObject, Gio, Gdk
 from gi.repository.GdkPixbuf import Pixbuf
 
 from widgets import NewWorldClockWidget, DigitalClock
+from storage import worldclockstorage
+
 from datetime import datetime, timedelta
 from pytz import timezone
 import pytz, time, os
@@ -51,7 +53,10 @@ class ToggleButton(Gtk.ToggleButton):
 
 class Clock (Gtk.EventBox):
     __gsignals__ = {'show-requested': (GObject.SignalFlags.RUN_LAST,
-                    None, ())}
+                    None, ()),
+                    'show-clock': (GObject.SignalFlags.RUN_LAST,
+                    None, (GObject.TYPE_PYOBJECT,))}
+
     def __init__ (self, label, hasNew = False):
         Gtk.EventBox.__init__ (self)
         self.button = ToggleButton (label)
@@ -75,7 +80,7 @@ class World (Clock):
         #self.grid.set_column_spacing (15)
         #self.add(self.grid)
         
-        self.liststore = liststore = Gtk.ListStore(Pixbuf, str)
+        self.liststore = liststore = Gtk.ListStore(Pixbuf, str, GObject.TYPE_PYOBJECT)
         iconview = Gtk.IconView.new()
         
         iconview.set_model(liststore)
@@ -84,34 +89,39 @@ class World (Clock):
         iconview.set_pixbuf_column(0)
         iconview.set_markup_column(1)
         iconview.set_item_width(160)
-        
+
         scrolledwindow = Gtk.ScrolledWindow()
         scrolledwindow.add(iconview)
         self.add(scrolledwindow)
-        
+
+        iconview.connect ("selection-changed", self._on_selection_changed)
+
         self.clocks = []
         self.load_clocks()
         self.show_all()
-        
+
+    def _on_selection_changed (self, iconview):
+        path = iconview.get_selected_items ()[0]
+        d = self.liststore [path][2]
+        self.emit ("show-clock", d)
+
     def set_addButton(self, btn):
         self.addButton = btn
-        
+
     def load_clocks(self):
-        #d = DigitalClock("Berlin", "data/cities/berlin.png")
-        #self.grid.add(d)
-        #d = DigitalClock("London", "data/cities/london.png", 60*60*1000)
-        #self.grid.add(d)
-        #self.show_all()
-        pass
-    
+        self.clocks = worldclockstorage.load_clocks ()
+        for clock in self.clocks:
+            self.add_clock (clock)
+
     def add_clock(self, location):
         d = DigitalClock(location)
         self.clocks.append(d)
         #self.grid.add(d)
-        view_iter = self.liststore.append([d.drawing.pixbuf, "<b>"+d.location.get_city_name()+"</b>"])
+        view_iter = self.liststore.append([d.drawing.pixbuf, "<b>"+d.location.get_city_name()+"</b>", d])
         d.set_iter(self.liststore, view_iter)
         self.show_all()
-        
+        worldclockstorage.save_clocks (location)
+
     def open_new_dialog(self):
         #self.newWorldClockWidget.
         #self.newWorldClockWidget.searchEntry.grab_focus()
@@ -131,14 +141,7 @@ class World (Clock):
         self.notebook.set_current_page(0)
         self.addButton.set_sensitive(False)
         self.emit('show-requested')
-    
-    def add_new_clock(self):
-        location = self.newWorldClockWidget.get_selection()
-        self.add_clock(location)
-        self.newWorldClockWidget.reset()
-        self.notebook.set_current_page(0)
-        self.addButton.set_sensitive(False)
-        self.emit('show-requested')
+
 
 class Alarm (Clock):
     def __init__ (self):

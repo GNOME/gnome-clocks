@@ -42,33 +42,43 @@ class Window (Gtk.Window):
         self.toolbar = ClocksToolbar ()
         
         vbox.pack_start (self.toolbar, False, False, 0)
-        
+
         self.world = World ()
         self.alarm = Alarm ()
         self.stopwatch = Stopwatch ()
         self.timer = Timer ()
-        
+
         self.views = (self.world, self.alarm, self.stopwatch, self.timer)
         self.toolbar.set_clocks (self.views)
-        
+        self.single_evbox = Gtk.EventBox ()
+
         self.show_all ()
-        
+
         vbox.pack_end (self.notebook, True, True, 0)
         vbox.pack_end (Gtk.Separator(), False, False, 1)
         for view in self.views:
             self.notebook.append_page (view, Gtk.Label(str(view)))
-        
+        self.notebook.append_page (self.single_evbox, Gtk.Label("Widget"))
+
+        self.world.connect ("show-clock", self._on_show_clock)
         self.toolbar.connect("view-clock", self._on_view_clock)
         self.toolbar.newButton.connect("clicked", self._on_new_clicked)
         self.show_all ()
-        
-        
+
+    def _on_show_clock (self, widget, d):
+        self.toolbar._set_single_toolbar ()
+        self.notebook.set_current_page (-1)
+        for child in self.single_evbox.get_children ():
+            self.single_evbox.remove (child)
+        self.single_evbox.add (d.get_standalone_widget ())
+        self.single_evbox.show_all ()
+
     def _on_view_clock (self, button, index):
         self.notebook.set_current_page (index)
-        
+
     def _on_new_clicked (self, button):
         self.show_all()
-    
+
     def _on_cancel_clicked (self, button):
         self.show_all()
 
@@ -100,6 +110,12 @@ class ClocksToolbar (Gtk.Toolbar):
         box.pack_start (self.newButton, False, False, 3)
         toolbox.pack_start (box, True, True, 0)
         
+        self.backButton = Gtk.Button ()
+        icon = Gio.ThemedIcon.new_with_default_fallbacks ("go-previous-symbolic")
+        image = Gtk.Image ()
+        image.set_from_gicon (icon, Gtk.IconSize.BUTTON)
+        self.backButton.add(image)
+        
         self.newButton.connect("clicked", self._on_new_clicked)
         
         toolbox.pack_start (Gtk.Label(""), True, True, 0)
@@ -115,11 +131,12 @@ class ClocksToolbar (Gtk.Toolbar):
         #self.applyButton.get_style_context ().add_class ('raised');
         icon = Gio.ThemedIcon.new_with_default_fallbacks ("action-unavailable-symbolic")
         image = Gtk.Image ()
-        image.set_from_gicon (icon, Gtk.IconSize.LARGE_TOOLBAR)
+        image.set_from_gicon (icon, Gtk.IconSize.BUTTON)
         self.applyButton.add (image)
         self.rightBox = box = Gtk.Box ()
         box.pack_end (self.applyButton, False, False, 3)
         toolbox.pack_start (box, True, True, 0)
+        
         
         self._buttonMap = {}
         self._busy = False
@@ -128,12 +145,6 @@ class ClocksToolbar (Gtk.Toolbar):
         for view in self.views:
             if view.button.get_active():
                 view.open_new_dialog()
-                break
-    
-    def _on_cancel_clicked (self, widget):
-        for view in self.views:
-            if view.button.get_active():
-                view.close_new_dialog()
                 break
 
     def set_clocks (self, views):
@@ -146,6 +157,19 @@ class ClocksToolbar (Gtk.Toolbar):
             self._buttonMap[view.button] = i
             if i == 0:
                 view.button.set_active (True)
+
+    def _set_overview_toolbar (self):
+        self.buttonBox.show ()
+        self.newButton.show ()
+        self.applyButton.show ()
+        self.backButton.hide ()
+
+    def _set_single_toolbar (self):
+        self.buttonBox.hide ()
+        self.newButton.hide ()
+        self.applyButton.hide ()
+        self.leftBox.pack_start (self.backButton, False, False, 3)
+        self.backButton.show_all ()
 
     def _on_toggled (self, widget):
         if not self._busy:
