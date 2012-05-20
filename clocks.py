@@ -105,12 +105,10 @@ class World (Clock):
         pass
     
     def add_clock(self, location):
-        print "====="
-        print "====="
         d = DigitalClock(location)
         self.clocks.append(d)
         #self.grid.add(d)
-        view_iter = self.liststore.append([d.get_pixbuf(), "<b>"+d.location.get_city_name()+"</b>"])
+        view_iter = self.liststore.append([d.drawing.pixbuf, "<b>"+d.location.get_city_name()+"</b>"])
         d.set_iter(self.liststore, view_iter)
         self.show_all()
         
