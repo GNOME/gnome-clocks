@@ -75,6 +75,7 @@ class Window (Gtk.Window):
 
     def _on_view_clock (self, button, index):
         self.notebook.set_current_page (index)
+        self.toolbar._set_overview_toolbar ()
 
     def _on_new_clicked (self, button):
         self.show_all()
@@ -115,6 +116,7 @@ class ClocksToolbar (Gtk.Toolbar):
         image = Gtk.Image ()
         image.set_from_gicon (icon, Gtk.IconSize.BUTTON)
         self.backButton.add(image)
+        self.backButton.connect ("clicked", lambda w: self.emit ("view-clock", self._buttonMap[self.last_widget]))
         
         self.newButton.connect("clicked", self._on_new_clicked)
         
@@ -190,7 +192,7 @@ class ClocksToolbar (Gtk.Toolbar):
                         self.newButton.set_sensitive (False)
                         self.newButton.set_size_request(width, -1)
                         self.newButton.get_children()[0].hide()
-
+            self.last_widget = widget
             self._busy = False
             self.emit ("view-clock", self._buttonMap[widget])
 
