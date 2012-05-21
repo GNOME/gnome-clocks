@@ -109,7 +109,7 @@ class DigitalClock ():
         self.list_store = None
 
         self.drawing = DigitalClockDrawing ()
-        self.standalone = DigitalClockStandalone ()
+        self.standalone = DigitalClockStandalone (self.location)
         self.update ()
         GObject.timeout_add(1000, self.update)
 
@@ -157,18 +157,33 @@ class DigitalClock ():
         return self.standalone
 
 
-class DigitalClockStandalone (Gtk.HBox):
-    def __init__ (self):
-        Gtk.HBox.__init__ (self, True)
+class DigitalClockStandalone (Gtk.VBox):
+    def __init__ (self, location):
+        Gtk.VBox.__init__ (self, False)
         self.img = Gtk.Image ()
-        self.label = Gtk.Label ()
-        self.pack_start (self.img, True, True, 0)
-        self.pack_start (self.label, True, True, 0)
+        self.time_label = Gtk.Label ()
+        self.city_label = Gtk.Label ()
+        self.city_label.set_markup ("<b>"+location.get_city_name()+"</b>")
+
+        box = Gtk.VBox ()
+        box.pack_start (self.img, False, False, 3)
+        box.pack_start (self.city_label, False, False, 3)
+
+        hbox = Gtk.HBox ()
+        hbox.pack_start (Gtk.Label (), True, True, 0)
+        hbox.pack_start (box, False, False, 16)
+        hbox.pack_start (Gtk.Label (), True, True, 0)
+        hbox.pack_start (self.time_label, False, False, 16)
+        hbox.pack_start (Gtk.Label (), True, True, 0)
+        self.pack_start (Gtk.Label (), True, True, 3)
+        self.pack_start (hbox, True, True, 0)
+        self.pack_start (Gtk.Label (), True, True, 6)
 
     def update (self, img, text):
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size (img, 256, 256)
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size (img, 500, 380)
+        pixbuf = pixbuf.new_subpixbuf(0 , 0 , 208, 208)
         self.img.set_from_pixbuf (pixbuf)
-        self.label.set_markup ("<span size='xx-large'><b>%s</b></span>" %(text,))
+        self.time_label.set_markup ("<span size='72000'><b>%s</b></span>" %(text,))
 
 
 class DigitalClockDrawing (Gtk.DrawingArea):

@@ -170,7 +170,8 @@ class ClocksToolbar (Gtk.Toolbar):
         self.buttonBox.hide ()
         self.newButton.hide ()
         self.applyButton.hide ()
-        self.leftBox.pack_start (self.backButton, False, False, 3)
+        if not self.backButton.get_parent ():
+          self.leftBox.pack_start (self.backButton, False, False, 3)
         self.backButton.show_all ()
 
     def _on_toggled (self, widget):
