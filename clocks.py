@@ -70,6 +70,9 @@ class Clock (Gtk.EventBox):
     
     def add_new_clock(self):
         pass
+        
+    def unselect_all (self):
+        pass
 
 class World (Clock):
     def __init__ (self):
@@ -81,14 +84,14 @@ class World (Clock):
         #self.add(self.grid)
         
         self.liststore = liststore = Gtk.ListStore(Pixbuf, str, GObject.TYPE_PYOBJECT)
-        iconview = Gtk.IconView.new()
+        self.iconview = iconview = Gtk.IconView.new()
         
         iconview.set_model(liststore)
         
         iconview.set_spacing(3)
         iconview.set_pixbuf_column(0)
         iconview.set_markup_column(1)
-        iconview.set_item_width(160)
+        iconview.set_item_width(32)
 
         scrolledwindow = Gtk.ScrolledWindow()
         scrolledwindow.add(iconview)
@@ -100,10 +103,15 @@ class World (Clock):
         self.load_clocks()
         self.show_all()
 
+    def unselect_all (self):
+        self.iconview.unselect_all ()
+
     def _on_selection_changed (self, iconview):
-        path = iconview.get_selected_items ()[0]
-        d = self.liststore [path][2]
-        self.emit ("show-clock", d)
+        items = iconview.get_selected_items ()
+        if items:
+            path = iconview.get_selected_items ()[0]
+            d = self.liststore [path][2]
+            self.emit ("show-clock", d)
 
     def set_addButton(self, btn):
         self.addButton = btn

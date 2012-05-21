@@ -76,6 +76,7 @@ class Window (Gtk.Window):
     def _on_view_clock (self, button, index):
         self.notebook.set_current_page (index)
         self.toolbar._set_overview_toolbar ()
+        self.notebook.get_nth_page(index).unselect_all()
 
     def _on_new_clicked (self, button):
         self.show_all()
@@ -88,7 +89,7 @@ class ClocksToolbar (Gtk.Toolbar):
                     None, (GObject.TYPE_INT,))}
     def __init__ (self):
         Gtk.Toolbar.__init__ (self)
-        self.get_style_context ().add_class ("osd");
+        #self.get_style_context ().add_class ("osd");
         self.set_size_request(-1, -1)
         self.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUBAR);
         
