@@ -33,7 +33,7 @@ import pytz, time, os
 STOPWATCH_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%04.1f</span>"
 STOPWATCH_BUTTON_MARKUP = "<span font_desc=\"24.0\">%s</span>"
 
-TIMER_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i</span>"
+TIMER_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
 TIMER = "<span font_desc=\"64.0\">%02i</span>"
 TIMER_BUTTON_MARKUP = "<span font_desc=\"24.0\">%s</span>"
 
@@ -311,6 +311,7 @@ class Timer (Clock):
 		if self.g_id == 0: 
 			hours = self.timer_welcome_screen.hours.get_value()
 			minutes = self.timer_welcome_screen.minutes.get_value()
+			self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, 60))
 			self.time = (hours * 60 * 60) + (minutes * 60) 
 			self.state = 1
 			self.g_id = GObject.timeout_add(1000, self.count)
@@ -334,7 +335,7 @@ class Timer (Clock):
 		minutes, sec = divmod(self.time, 60)
 		hours, minutes = divmod(minutes, 60)
 
-		self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes))
+		self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, sec))
 		if hours == 00 and minutes == 00 and sec == 00:
 			return False
 		else:
