@@ -177,14 +177,11 @@ class Stopwatch (Clock):
         box.pack_start (Gtk.Box(), True, True, 0)
         box.pack_start (vbox, False, False, 0)
         box.pack_end (Gtk.Box(), True, True, 0)
-        
-        vbox.pack_start(Gtk.Label(""), True, True, 0)
-        
+
         self.stopwatchLabel = Gtk.Label ()
         self.stopwatchLabel.set_alignment (0.5, 0.5)
         self.stopwatchLabel.set_markup (STOPWATCH_LABEL_MARKUP%(0,0))
-        vbox.pack_start (self.stopwatchLabel, False, False, 0)
-        
+
         hbox = Gtk.Box()
         self.leftButton = Gtk.Button ()
         self.leftButton.set_size_request(200, -1)
@@ -202,12 +199,9 @@ class Stopwatch (Clock):
         hbox.pack_start (Gtk.Box(), True, True, 24)
         hbox.pack_start (self.rightButton, True, True, 0)
 
-        box = Gtk.Box ()
-        box.pack_start (Gtk.Box (), True, True, 0)
-        box.pack_start (hbox, True, True, 0)
-        box.pack_start (Gtk.Box (), True, True, 0)
-
-        vbox.pack_start (box, False, False, 32)
+        vbox.pack_start (Gtk.Label(""), True, True, 0)
+        vbox.pack_start (self.stopwatchLabel, False, False, 0)
+        vbox.pack_start (hbox, False, False, 32)
         vbox.pack_start (Gtk.Box(), True, True, 0)
         vbox.pack_start (Gtk.Box(), True, True, 0)
 
