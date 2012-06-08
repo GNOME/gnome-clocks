@@ -22,78 +22,64 @@ from gi.repository import Gtk, GObject, Gio, PangoCairo, Pango, GWeather
 from gi.repository import Gdk, GdkPixbuf
 import cairo, time
 
-class NewWorldClockWidget (Gtk.Box):
+class NewWorldClockWidget (Gtk.Dialog):
 
     __gsignals__ = {'add-clock': (GObject.SignalFlags.RUN_LAST,
                     None, (GObject.TYPE_PYOBJECT,))}
 
-    def __init__ (self):
-        Gtk.Box.__init__(self)
+    def __init__ (self, parent):
+        Gtk.Dialog.__init__(self, "Add New Clock", parent)
+        self.set_transient_for(parent)
+        self.set_modal(True)
         self.set_border_width (9)
-        self.set_size_request(400,-1)
+        self.set_size_request(-1,-1)
         box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
         box.set_spacing(9)
-        self.pack_start(Gtk.Label(), True, True, 0)
-        self.pack_start(box, True, True, 9)
-        self.pack_start(Gtk.Label(), True, True, 0)
-        
+        area = self.get_content_area()
+        area.pack_start(box, True, True, 9)
+
         self.label = Gtk.Label()
         self.label.set_markup("Search for a city or a time zone...")
         self.label.set_alignment(0.0, 0.5)
-        
+
         world = GWeather.Location.new_world(True)
         self.searchEntry = GWeather.LocationEntry.new(world)
         #self.searchEntry.set_placeholder_text("Search for a city or a time zone...")
-        
+
         header = Gtk.Label("Add New Clock")
         header.set_markup("<span size='x-large'><b>Add New Clock</b></span>")
         
         btnBox = Gtk.Box()
-        
-        self.addBtn = Gtk.Button()
-        label = Gtk.Label ("Add")
-        label.set_padding(6, 0)
-        self.addBtn.add(label)
-        #self.addBtn.get_style_context ().add_class ("clocks-continue");
-        
-        self.addBtn.set_sensitive(False)
-        
-        self.cancelBtn = Gtk.Button()
-        label = Gtk.Label ("Cancel")
-        label.set_padding(6, 0)
-        self.cancelBtn.add(label)
-        
-        btnBox.set_size_request (-1, 33)
-        btnBox.set_spacing(9)
-        btnBox.pack_end(self.addBtn, False, False, 0)
-        btnBox.pack_end(self.cancelBtn, False, False, 0)
-        
+
+        self.add_buttons("Cancel", 0, "Save", 1)
+        widget = self.get_widget_for_response (1)
+        widget.set_sensitive (False)
+
         box.pack_start(header, True, True, 0)
         box.pack_start(Gtk.Label(), True, True, 3)
         box.pack_start(self.label, False, False, 0)
         box.pack_start(self.searchEntry, False, False, 9)
-        box.pack_start(btnBox, True, True, 0)
-        
+
         self.searchEntry.connect("activate", self._set_city)
         self.searchEntry.connect("changed", self._set_city)
-        self.addBtn.connect("clicked", self._add_clock)
+        self.connect("response", self._on_response_clicked)
         self.location = None
         self.show_all ()
-        
-    def _set_city (self, widget):
-        location = widget.get_location()
-        if location:
-            self.addBtn.set_sensitive(True)
-        else:
-            self.addBtn.set_sensitive(False)
-    
-    def _add_clock(self, widget):
+
+    def _on_response_clicked (self, widget, response_id):
+      if response_id == 1:
         location = self.searchEntry.get_location()
         self.emit("add-clock", location)
-    
-    def reset(self):
-        self.searchEntry.set_text("")
-    
+      self.destroy ()
+
+    def _set_city (self, widget):
+        location = widget.get_location()
+        widget = self.get_widget_for_response (1)
+        if location:
+            widget.set_sensitive(True)
+        else:
+            widget.set_sensitive(False)
+
     def get_selection (self):
         return self.location
 
@@ -199,7 +185,7 @@ class DigitalClockDrawing (Gtk.DrawingArea):
 
     def __init__(self):
         Gtk.DrawingArea.__init__(self)
-        self.set_size_request(160,160)
+        #self.set_size_request(width,height)
         self.pango_context = None
         self.ctx = None
         self.pixbuf = None

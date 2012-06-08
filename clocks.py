@@ -84,20 +84,14 @@ class World (Clock):
     def __init__ (self):
         Clock.__init__ (self, "World", True)
         self.addButton = None
-        #self.grid = Gtk.Grid()
-        #self.grid.set_border_width(15)
-        #self.grid.set_column_spacing (15)
-        #self.add(self.grid)
         
         self.liststore = liststore = Gtk.ListStore(Pixbuf, str, GObject.TYPE_PYOBJECT)
         self.iconview = iconview = Gtk.IconView.new()
         
         iconview.set_model(liststore)
-        
         iconview.set_spacing(3)
         iconview.set_pixbuf_column(0)
         iconview.set_markup_column(1)
-        #iconview.set_item_width(32)
 
         scrolledwindow = Gtk.ScrolledWindow()
         scrolledwindow.add(iconview)
@@ -130,28 +124,20 @@ class World (Clock):
     def add_clock(self, location):
         d = DigitalClock(location)
         self.clocks.append(d)
-        #self.grid.add(d)
         view_iter = self.liststore.append([d.drawing.pixbuf, "<b>"+d.location.get_city_name()+"</b>", d])
         d.set_iter(self.liststore, view_iter)
         self.show_all()
         worldclockstorage.save_clocks (location)
 
     def open_new_dialog(self):
-        #self.newWorldClockWidget.
-        #self.newWorldClockWidget.searchEntry.grab_focus()
-        window = Gtk.Dialog("Add New Clock")
         parent = self.get_parent().get_parent().get_parent()
-        window.set_transient_for(parent)
-        window.set_modal(True)
-        widget = NewWorldClockWidget()
-        #window.add(widget)
-        window.get_children()[0].pack_start(widget, False, False, 0)
-        widget.connect("add-clock", lambda w, l: self.add_clock(l))
-        widget.connect_after("add-clock", lambda w, e: window.destroy())
+        window = NewWorldClockWidget(parent)
+
+        #window.get_children()[0].pack_start(widget, False, False, 0)
+        window.connect("add-clock", lambda w, l: self.add_clock(l))
         window.show_all()
 
     def close_new_dialog(self):
-        self.newWorldClockWidget.reset()
         self.notebook.set_current_page(0)
         self.addButton.set_sensitive(False)
         self.emit('show-requested')
@@ -263,13 +249,9 @@ class Stopwatch (Clock):
     def count(self):
         timediff = time.time() - self.start_time + self.time_diff
         (elapsed_minutes, elapsed_seconds) = divmod(timediff, 60.0)
-        
         self.stopwatchLabel.set_markup (STOPWATCH_LABEL_MARKUP%(elapsed_minutes,
             elapsed_seconds))
-        
         return True
-        
-
 
 class Timer (Clock):
 	
@@ -311,7 +293,7 @@ class Timer (Clock):
 		if self.g_id == 0: 
 			hours = self.timer_welcome_screen.hours.get_value()
 			minutes = self.timer_welcome_screen.minutes.get_value()
-			self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, 60))
+			self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, 00))
 			self.time = (hours * 60 * 60) + (minutes * 60) 
 			self.state = 1
 			self.g_id = GObject.timeout_add(1000, self.count)
