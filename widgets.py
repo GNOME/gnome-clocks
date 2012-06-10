@@ -20,7 +20,9 @@
 
 from gi.repository import Gtk, GObject, Gio, PangoCairo, Pango, GWeather
 from gi.repository import Gdk, GdkPixbuf
+from storage import Location
 import cairo, time
+
 
 class NewWorldClockWidget (Gtk.Dialog):
 
@@ -67,13 +69,14 @@ class NewWorldClockWidget (Gtk.Dialog):
         self.show_all ()
 
     def _on_response_clicked (self, widget, response_id):
-      if response_id == 1:
-        location = self.searchEntry.get_location()
-        self.emit("add-clock", location)
-      self.destroy ()
+        if response_id == 1:
+            location = self.searchEntry.get_location()
+            location = Location (location)
+            self.emit("add-clock", location)
+        self.destroy ()
 
     def _set_city (self, widget):
-        location = widget.get_location()
+        location = self.searchEntry.get_location()
         widget = self.get_widget_for_response (1)
         if location:
             widget.set_sensitive(True)
@@ -85,7 +88,8 @@ class NewWorldClockWidget (Gtk.Dialog):
 
 class DigitalClock ():
     def __init__(self, location):
-        self.location = location
+        self.location = location.location
+        self.id = location.id
         self.timezone = self.location.get_timezone()
         self.offset = self.timezone.get_offset() * 60
         self.isDay = None

@@ -119,15 +119,20 @@ class World (Clock):
     def load_clocks(self):
         self.clocks = worldclockstorage.load_clocks ()
         for clock in self.clocks:
-            self.add_clock (clock)
+            d = DigitalClock (clock)
+            view_iter = self.liststore.append([d.drawing.pixbuf, "<b>"+d.location.get_city_name()+"</b>", d])
+            d.set_iter(self.liststore, view_iter)
+            self.show_all()
 
     def add_clock(self, location):
-        d = DigitalClock(location)
-        self.clocks.append(d)
-        view_iter = self.liststore.append([d.drawing.pixbuf, "<b>"+d.location.get_city_name()+"</b>", d])
-        d.set_iter(self.liststore, view_iter)
-        self.show_all()
-        worldclockstorage.save_clocks (location)
+        location_id = location.id + "---" + location.location.get_code ()
+        if not location_id in worldclockstorage.locations_dump:
+            d = DigitalClock(location)
+            self.clocks.append(location)
+            view_iter = self.liststore.append([d.drawing.pixbuf, "<b>"+d.location.get_city_name()+"</b>", d])
+            d.set_iter(self.liststore, view_iter)
+            self.show_all()
+        worldclockstorage.save_clocks (self.clocks)
 
     def open_new_dialog(self):
         parent = self.get_parent().get_parent().get_parent()
