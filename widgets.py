@@ -114,6 +114,11 @@ class DigitalClock ():
             text = text[1:]
         return text
 
+	def get_system_clock_format(self):
+		settings = Gio.Settings.new('org.gnome.desktop.interface')
+		systemClockFormat = settings.get_string('clock-format')
+		return systemClockFormat
+		
     def get_image(self):
         local_time = self.get_local_time ()
         if local_time.tm_hour > 7 and local_time.tm_hour < 19:
@@ -131,6 +136,19 @@ class DigitalClock ():
     def update(self):
         t = self.get_local_time_text ()
         if not t == self._last_time:
+			systemClockFormat = self.get_system_clock_format ()
+			if systemClockFormat == '12h':
+				pass
+			else:
+				#Convert to 24h
+				hours = t[0:2]
+				hours = int(hours)+12
+				if hours == 24:
+					hours = '00'
+				else:
+					hours = str(hours)
+				minutes = t[3:5]
+				t = '%s:%s' % (hours, minutes)
             img = self.get_image ()
             self.drawing.render(t, img, self.get_is_day ())
             if self.view_iter and self.list_store:
