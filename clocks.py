@@ -21,12 +21,13 @@
 from gi.repository import Gtk, GObject, Gio, Gdk
 from gi.repository.GdkPixbuf import Pixbuf
 
-from widgets import NewWorldClockWidget, DigitalClock
+from widgets import NewWorldClockWidget, DigitalClock, NewAlarm
 from storage import worldclockstorage
 
 from datetime import datetime, timedelta
 from pytz import timezone
 from timer import TimerWelcomeScreen, TimerScreen, Spinner
+from alarm import AlarmItem
 import pytz, time, os
 
 
@@ -151,7 +152,11 @@ class World (Clock):
 class Alarm (Clock):
     def __init__ (self):
         Clock.__init__ (self, "Alarm", True)
-        self.button.set_sensitive (False)
+        self.button.set_sensitive (True)
+
+    def open_new_dialog(self):
+        window = NewAlarm()
+        window.show_all ()
 
 class Stopwatch (Clock):
 

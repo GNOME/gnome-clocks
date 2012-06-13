@@ -156,7 +156,6 @@ class DigitalClock ():
     def get_standalone_widget (self):
         return self.standalone
 
-
 class DigitalClockStandalone (Gtk.VBox):
     def __init__ (self, location):
         Gtk.VBox.__init__ (self, False)
