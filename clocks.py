@@ -298,8 +298,9 @@ class Timer (Clock):
 		if self.g_id == 0: 
 			hours = self.timer_welcome_screen.hours.get_value()
 			minutes = self.timer_welcome_screen.minutes.get_value()
-			self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, 00))
-			self.time = (hours * 60 * 60) + (minutes * 60) 
+			seconds = self.timer_welcome_screen.seconds.get_value()
+			self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, seconds))
+			self.time = (hours * 60 * 60) + (minutes * 60) + seconds
 			self.state = 1
 			self.g_id = GObject.timeout_add(1000, self.count)
 		
@@ -319,11 +320,12 @@ class Timer (Clock):
 	
 	def count(self):
 		self.time -= 1
-		minutes, sec = divmod(self.time, 60)
+		minutes, seconds = divmod(self.time, 60)
 		hours, minutes = divmod(minutes, 60)
+		#seconds, minutes = divmod(hours, 0.60)
 
-		self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, sec))
-		if hours == 00 and minutes == 00 and sec == 00:
+		self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, seconds))
+		if hours == 00 and minutes == 00 and seconds == 00:
 			return False
 		else:
 			return True

@@ -47,6 +47,8 @@ class Spinner(Gtk.Box):
 		self.down = Gtk.Button()
 		self.down.set_image(imageDown)
 		self.down.set_relief(Gtk.ReliefStyle.NONE)
+		if self.vType == 'hours':
+			self.down.set_sensitive(False)
 		#
 		self.pack_start(self.up, False, False, 0)
 		self.pack_start(self.value, True, True, 0)
@@ -64,33 +66,39 @@ class Spinner(Gtk.Box):
 	def _increase(self, widget):
 		value = self.get_value()
 		if self.vType == 'hours':
-			if value == 23:
-				value = 0
-			else:
 				value += 1
-			self.set_value(value)
+				self.down.set_sensitive(True)
 		elif self.vType == 'minutes':
 			if value == 59:
 				value = 0
 			else:
 				value += 1
-			self.set_value(value)
+		elif self.vType == 'seconds':
+			if value == 60:
+				value = 0
+			else:
+				value += 1
+		self.set_value(value)
 		self.timer_welcome_screen.update_start_button_status()
 			
 	def _decrease(self, widget):
 		value = self.get_value()
 		if self.vType == 'hours':
 			if value == 0:
-				value = 23
+				self.down.set_sensitive(False)
 			else:
-				value -= 1
-			self.set_value(value)
+				value -= 1			
 		elif self.vType == 'minutes':
 			if value == 0:
 				value = 59
 			else:
+				value -= 1			
+		elif self.vType == 'seconds':
+			if value == 0:
+				value = 60
+			else:
 				value -= 1
-			self.set_value(value)	
+		self.set_value(value)
 		self.timer_welcome_screen.update_start_button_status()
 			
 class TimerScreen (Gtk.Box):
@@ -166,13 +174,18 @@ class TimerWelcomeScreen (Gtk.Box):
 		
 		self.hours = Spinner('hours', self)
 		self.minutes = Spinner('minutes', self)
+		self.seconds = Spinner('seconds', self)
 		colon = Gtk.Label('')
 		colon.set_markup('<span font_desc=\"64.0\">:</span>')
+		another_colon = Gtk.Label('')
+		another_colon.set_markup('<span font_desc=\"64.0\">:</span>')
 		
 		spinner.pack_start(self.hours, False, False, 0)
 		spinner.pack_start(colon, False, False, 0)
 		spinner.pack_start(self.minutes, False, False, 0)
-			
+		spinner.pack_start(another_colon, False, False, 0)
+		spinner.pack_start(self.seconds, False, False, 0)
+		
 		#Start Button
 		self.startButton = Gtk.Button()
 		self.startButton.set_sensitive(False)

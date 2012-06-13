@@ -134,8 +134,8 @@ class DigitalClock ():
             return False
 
     def update(self):
-        t = self.get_local_time_text ()
-        if not t == self._last_time:
+		t = self.get_local_time_text ()
+		if not t == self._last_time:
 			systemClockFormat = self.get_system_clock_format ()
 			if systemClockFormat == '12h':
 				pass
@@ -149,13 +149,13 @@ class DigitalClock ():
 					hours = str(hours)
 				minutes = t[3:5]
 				t = '%s:%s' % (hours, minutes)
-            img = self.get_image ()
-            self.drawing.render(t, img, self.get_is_day ())
-            if self.view_iter and self.list_store:
-                self.list_store.set_value(self.view_iter, 0, self.drawing.pixbuf)
-            self.standalone.update (img, t)
-        self._last_time = t
-        return True
+			img = self.get_image ()
+			self.drawing.render(t, img, self.get_is_day ())
+			if self.view_iter and self.list_store:
+				self.list_store.set_value(self.view_iter, 0, self.drawing.pixbuf)
+			self.standalone.update (img, t)
+		self._last_time = t
+		return True
 
     def set_iter (self, list_store, view_iter):
         self.view_iter = view_iter
