@@ -114,11 +114,11 @@ class DigitalClock ():
             text = text[1:]
         return text
 
-	def get_system_clock_format(self):
-		settings = Gio.Settings.new('org.gnome.desktop.interface')
-		systemClockFormat = settings.get_string('clock-format')
-		return systemClockFormat
-		
+    def get_system_clock_format(self):
+      settings = Gio.Settings.new('org.gnome.desktop.interface')
+      systemClockFormat = settings.get_string('clock-format')
+      return systemClockFormat
+    
     def get_image(self):
         local_time = self.get_local_time ()
         if local_time.tm_hour > 7 and local_time.tm_hour < 19:
@@ -134,20 +134,20 @@ class DigitalClock ():
             return False
 
     def update(self):
-		t = self.get_local_time_text ()
-		if not t == self._last_time:
-			systemClockFormat = self.get_system_clock_format ()
-			if systemClockFormat == '12h':
-				t = time.strftime("%I:%M %p", self.get_local_time ())
-			else:
-				t = time.strftime("%H:%M", self.get_local_time ()) #Convert to 24h
-			img = self.get_image ()
-			self.drawing.render(t, img, self.get_is_day ())
-			if self.view_iter and self.list_store:
-				self.list_store.set_value(self.view_iter, 0, self.drawing.pixbuf)
-			self.standalone.update (img, t)
-		self._last_time = t
-		return True
+      t = self.get_local_time_text ()
+      systemClockFormat = self.get_system_clock_format ()
+      if systemClockFormat == '12h':
+        t = time.strftime("%I:%M %p", self.get_local_time ())
+      else:
+        t = time.strftime("%H:%M", self.get_local_time ()) #Convert to 24h
+      if not t == self._last_time:
+        img = self.get_image ()
+        self.drawing.render(t, img, self.get_is_day ())
+        if self.view_iter and self.list_store:
+          self.list_store.set_value(self.view_iter, 0, self.drawing.pixbuf)
+        self.standalone.update (img, t)
+      self._last_time = t
+      return True
 
     def set_iter (self, list_store, view_iter):
         self.view_iter = view_iter
