@@ -250,6 +250,121 @@ class DigitalClockDrawing (Gtk.DrawingArea):
         self.pixbuf = pixbuf
         return self.pixbuf
 
+class NewAlarm(Gtk.Dialog):
+
+    def __init__(self):
+        Gtk.Dialog.__init__(self, title="New Alarm")
+        self.set_border_width (12)
+    
+        table1 = Gtk.Table(4, 5, False) 
+        table1.set_row_spacings(9)
+        table1.set_col_spacings(9)
+        content_area = self.get_content_area ()        
+        content_area.pack_start(table1, True, True, 0)
+        self.add_buttons("Cancel", 0, "Save", 1)
+        self.connect("response", self.on_response)
+        table1.set_border_width (5)
+        
+        hour = Gtk.Label ("Hour")
+        hour.set_alignment(1.0, 0.5)
+        minute = Gtk.Label ("Minutes")
+        minute.set_alignment(1.0, 0.5)
+
+        houradjust = Gtk.Adjustment(0, 0, 24, 1, 1, 0)
+        self.hourselect = hourselect = Gtk.SpinButton()
+        hourselect.set_adjustment(houradjust)        
+        hourbox = Gtk.Box(True, 0)
+        hourbox.pack_start (hourselect, True, True, 0)
+        
+        minuteadjust = Gtk.Adjustment(0, 0, 60, 1, 1, 0)
+        self.minuteselect = minuteselect = Gtk.SpinButton()
+        minuteselect.set_adjustment(minuteadjust)
+        minutebox = Gtk.Box(True, 0)        
+        minutebox.pack_start (minuteselect, True, True, 0)
+    
+        table1.attach (hour, 0, 1, 0, 1)
+        table1.attach (hourbox, 1, 2, 0, 1)
+        table1.attach (minute, 2, 3, 0, 1)
+        table1.attach (minutebox, 3, 4, 0, 1)  
+        
+        name = Gtk.Label ("Name")
+        name.set_alignment(1.0, 0.5)
+        repeat = Gtk.Label ("Repeat Every")
+        repeat.set_alignment(1.0, 0.5)
+        sound = Gtk.Label ("Sound")
+        sound.set_alignment(1.0, 0.5)
+        
+        table1.attach(name, 0, 1, 1, 2)
+        table1.attach(repeat, 0, 1, 2, 3)
+        table1.attach(sound, 0, 1, 3, 4)
+        
+        self.entry = entry = Gtk.Entry ()
+        entry.set_text("New Alarm")
+        entry.set_editable (True)
+        table1.attach(entry, 1, 4, 1, 2) 
+        
+        buttond1 = Gtk.ToggleButton(label="Sun")
+        buttond1.connect("clicked", self.on_d1_clicked)
+        buttond2 = Gtk.ToggleButton(label="Mon")
+        buttond2.connect("clicked", self.on_d2_clicked)
+        buttond3 = Gtk.ToggleButton(label="Tue")
+        buttond3.connect("clicked", self.on_d3_clicked)
+        buttond4 = Gtk.ToggleButton(label="Wed")
+        buttond4.connect("clicked", self.on_d4_clicked)
+        buttond5 = Gtk.ToggleButton(label="Thu")
+        buttond5.connect("clicked", self.on_d5_clicked)
+        buttond6 = Gtk.ToggleButton(label="Fri")
+        buttond6.connect("clicked", self.on_d6_clicked)
+        buttond7 = Gtk.ToggleButton(label="Sat")
+        buttond7.connect("clicked", self.on_d7_clicked)
+        
+        # create a box and put them all in it
+        box = Gtk.Box (True, 0)
+        box.get_style_context().add_class("linked")
+        box.pack_start (buttond1, True, True, 0)
+        box.pack_start (buttond2, True, True, 0)
+        box.pack_start (buttond3, True, True, 0)
+        box.pack_start (buttond4, True, True, 0)
+        box.pack_start (buttond5, True, True, 0)
+        box.pack_start (buttond6, True, True, 0)
+        box.pack_start (buttond7, True, True, 0)
+        table1.attach(box, 1, 4, 2, 3) 
+       
+        soundbox = Gtk.ComboBox ()
+        table1.attach(soundbox, 1, 3, 3, 4)
+      
+    def on_response(self, widget, id):
+        if id == 0:
+            Gtk.main_quit()
+        if id == 1:
+            name = self.entry.get_text()  #Perfect
+            time = self.hourselect.get_value_as_int() * 60 * 60 +     self.minuteselect.get_value_as_int() * 60
+            repeat = True
+            new_alarm = AlarmItem(name, time, repeat)
+        else:
+            pass
+
+    def on_d1_clicked(self, buttond1):
+        d1 = day1
+                  
+    def on_d2_clicked(self, buttond2):
+        d2 = day2
+    
+    def on_d3_clicked(self, buttond3):
+        d3 = day3
+    
+    def on_d4_clicked(self, buttond4):
+        pass
+    
+    def on_d5_clicked(self, buttond5):
+        pass
+    
+    def on_d6_clicked(self, buttond6):
+        pass
+    
+    def on_d7_clicked(self, buttond7):
+        pass
+
 """
 if text.startswith("0"):
     text = text[1:]
