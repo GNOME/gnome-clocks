@@ -24,7 +24,7 @@ from storage import Location
 import cairo, time
 
 
-class NewWorldClockWidget (Gtk.Dialog):
+class NewWorldClockDialog (Gtk.Dialog):
 
     __gsignals__ = {'add-clock': (GObject.SignalFlags.RUN_LAST,
                     None, (GObject.TYPE_PYOBJECT,))}
@@ -249,12 +249,15 @@ class DigitalClockDrawing (Gtk.DrawingArea):
         self.pixbuf = pixbuf
         return self.pixbuf
 
-class NewAlarm(Gtk.Dialog):
+class NewAlarmDialog (Gtk.Dialog):
 
-    def __init__(self):
-        Gtk.Dialog.__init__(self, title="New Alarm")
+    def __init__(self, parent):
+        Gtk.Dialog.__init__(self, "New Alarm", parent)
         self.set_border_width (12)
-    
+        self.parent = parent
+        self.set_transient_for(parent)
+        self.set_modal(True)
+
         table1 = Gtk.Table(4, 5, False) 
         table1.set_row_spacings(9)
         table1.set_col_spacings(9)
