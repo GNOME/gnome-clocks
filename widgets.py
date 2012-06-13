@@ -21,6 +21,7 @@
 from gi.repository import Gtk, GObject, Gio, PangoCairo, Pango, GWeather
 from gi.repository import Gdk, GdkPixbuf
 from storage import Location
+from alarm import AlarmItem
 import cairo, time
 
 
