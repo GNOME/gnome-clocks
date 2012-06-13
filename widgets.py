@@ -138,17 +138,9 @@ class DigitalClock ():
 		if not t == self._last_time:
 			systemClockFormat = self.get_system_clock_format ()
 			if systemClockFormat == '12h':
-				pass
+				t = time.strftime("%I:%M %p", self.get_local_time ())
 			else:
-				#Convert to 24h
-				hours = t[0:2]
-				hours = int(hours)+12
-				if hours == 24:
-					hours = '00'
-				else:
-					hours = str(hours)
-				minutes = t[3:5]
-				t = '%s:%s' % (hours, minutes)
+				t = time.strftime("%H:%M", self.get_local_time ()) #Convert to 24h
 			img = self.get_image ()
 			self.drawing.render(t, img, self.get_is_day ())
 			if self.view_iter and self.list_store:
