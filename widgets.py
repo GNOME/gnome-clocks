@@ -338,7 +338,7 @@ class NewAlarmDialog (Gtk.Dialog):
       
     def on_response(self, widget, id):
         if id == 0:
-            Gtk.main_quit()
+            self.destroy ()
         if id == 1:
             name = self.entry.get_text()  #Perfect
             time = self.hourselect.get_value_as_int() * 60 * 60 +     self.minuteselect.get_value_as_int() * 60
