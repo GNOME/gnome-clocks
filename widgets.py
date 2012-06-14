@@ -200,6 +200,7 @@ class DigitalClockDrawing (Gtk.DrawingArea):
     def __init__(self):
         Gtk.DrawingArea.__init__(self)
         #self.set_size_request(width,height)
+        
         self.pango_context = None
         self.ctx = None
         self.pixbuf = None

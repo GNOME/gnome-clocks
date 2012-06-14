@@ -74,7 +74,7 @@ class Spinner(Gtk.Box):
 			else:
 				value += 1
 		elif self.vType == 'seconds':
-			if value == 60:
+			if value == 59:
 				value = 0
 			else:
 				value += 1
@@ -95,7 +95,7 @@ class Spinner(Gtk.Box):
 				value -= 1			
 		elif self.vType == 'seconds':
 			if value == 0:
-				value = 60
+				value = 59
 			else:
 				value -= 1
 		self.set_value(value)
@@ -207,7 +207,8 @@ class TimerWelcomeScreen (Gtk.Box):
 	def update_start_button_status(self):
 		hours = self.hours.get_value()
 		minutes = self.minutes.get_value()
-		if hours == 0 and minutes == 0:
+		seconds = self.seconds.get_value()
+		if hours == 0 and minutes == 0 and seconds == 0:
 			self.startButton.set_sensitive(False)
 		else:
 			self.startButton.set_sensitive(True)

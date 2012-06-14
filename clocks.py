@@ -327,7 +327,7 @@ class Timer (Clock):
 		self.time -= 1
 		minutes, seconds = divmod(self.time, 60)
 		hours, minutes = divmod(minutes, 60)
-		#seconds, minutes = divmod(hours, 0.60)
+		#minutes, seconds = divmod(hours, 60)
 
 		self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, seconds))
 		if hours == 00 and minutes == 00 and seconds == 00:
