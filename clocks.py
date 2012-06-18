@@ -135,6 +135,11 @@ class World (Clock):
             self.show_all()
         worldclockstorage.save_clocks (self.clocks)
 
+    def delete_clock (self, d):
+        #self.clocks.remove (d)
+        self.liststore.remove (d.view_iter)
+        self.iconview.unselect_all ()
+
     def open_new_dialog(self):
         parent = self.get_parent().get_parent().get_parent()
         window = NewWorldClockDialog(parent)

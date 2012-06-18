@@ -27,6 +27,7 @@ class Window (Gtk.Window):
         Gtk.Window.__init__ (self)
         css_provider = Gtk.CssProvider()
         css_provider.load_from_path("gtk-style.css")
+        self.set_hide_titlebar_when_maximized (True)
         context = Gtk.StyleContext()
         context.add_provider_for_screen (Gdk.Screen.get_default (),
                                          css_provider,
@@ -72,6 +73,13 @@ class Window (Gtk.Window):
             self.single_evbox.remove (child)
         self.single_evbox.add (d.get_standalone_widget ())
         self.single_evbox.show_all ()
+        self.toolbar.delete_button.connect ('clicked', self._delete_clock, d)
+
+
+    def _delete_clock (self, button , d):
+        self.world.delete_clock (d)
+        self.notebook.set_current_page (0)
+        self.toolbar._set_overview_toolbar ()
 
     def _on_view_clock (self, button, index):
         self.notebook.set_current_page (index)
@@ -137,9 +145,11 @@ class ClocksToolbar (Gtk.Toolbar):
         image.set_from_gicon (icon, Gtk.IconSize.BUTTON)
         self.applyButton.add (image)
         self.rightBox = box = Gtk.Box ()
+        self.delete_button = Gtk.Button ('Delete')
         box.pack_end (self.applyButton, False, False, 3)
+        box.pack_end (self.delete_button, False, False, 0)
         toolbox.pack_start (box, True, True, 0)
-        
+
         
         self._buttonMap = {}
         self._busy = False
@@ -166,6 +176,7 @@ class ClocksToolbar (Gtk.Toolbar):
         self.newButton.show ()
         self.applyButton.show ()
         self.backButton.hide ()
+        self.delete_button.hide ()
 
     def _set_single_toolbar (self):
         self.buttonBox.hide ()
@@ -174,6 +185,7 @@ class ClocksToolbar (Gtk.Toolbar):
         if not self.backButton.get_parent ():
           self.leftBox.pack_start (self.backButton, False, False, 3)
         self.backButton.show_all ()
+        self.delete_button.show ()
 
     def _on_toggled (self, widget):
         if not self._busy:
@@ -197,6 +209,9 @@ class ClocksToolbar (Gtk.Toolbar):
             self.last_widget = widget
             self._busy = False
             self.emit ("view-clock", self._buttonMap[widget])
+
+    def _delete_clock (self, button):
+        pass
 
 if __name__=="__main__":
     window = Window()
