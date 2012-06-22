@@ -28,6 +28,8 @@ class Window (Gtk.Window):
         css_provider = Gtk.CssProvider()
         css_provider.load_from_path("gtk-style.css")
         self.set_hide_titlebar_when_maximized (True)
+        self.maximize ()
+        self.set_icon_from_file ('data/preferences-system-time.png')
         context = Gtk.StyleContext()
         context.add_provider_for_screen (Gdk.Screen.get_default (),
                                          css_provider,
@@ -73,13 +75,7 @@ class Window (Gtk.Window):
             self.single_evbox.remove (child)
         self.single_evbox.add (d.get_standalone_widget ())
         self.single_evbox.show_all ()
-        self.toolbar.delete_button.connect ('clicked', self._delete_clock, d)
 
-
-    def _delete_clock (self, button , d):
-        self.world.delete_clock (d)
-        self.notebook.set_current_page (0)
-        self.toolbar._set_overview_toolbar ()
 
     def _on_view_clock (self, button, index):
         self.notebook.set_current_page (index)
@@ -150,7 +146,6 @@ class ClocksToolbar (Gtk.Toolbar):
         box.pack_end (self.delete_button, False, False, 0)
         toolbox.pack_start (box, True, True, 0)
 
-        
         self._buttonMap = {}
         self._busy = False
 
@@ -211,7 +206,10 @@ class ClocksToolbar (Gtk.Toolbar):
             self.emit ("view-clock", self._buttonMap[widget])
 
     def _delete_clock (self, button):
-        pass
+        # d = 
+#        self.views[0].delete_clock (d)
+         pass
+
 
 if __name__=="__main__":
     window = Window()

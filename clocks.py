@@ -136,7 +136,7 @@ class World (Clock):
         worldclockstorage.save_clocks (self.clocks)
 
     def delete_clock (self, d):
-        #self.clocks.remove (d)
+        self.clocks.remove (d.location)
         self.liststore.remove (d.view_iter)
         self.iconview.unselect_all ()
 
@@ -269,73 +269,78 @@ class Stopwatch (Clock):
         return True
 
 class Timer (Clock):
-	
-	#State
-	#Zero: 0
-	#Running: 1
-	#Paused: 2
-	
-	def __init__ (self):
-		Clock.__init__ (self, "Timer")
-		self.state = 0
-		self.g_id = 0
-		#
-		self.vbox = Gtk.Box (orientation = Gtk.Orientation.VERTICAL)
-		box = Gtk.Box ()
-		self.add (box)
-		box.pack_start (Gtk.Box(), True, True, 0)
-		box.pack_start (self.vbox, False, False, 0)
-		box.pack_end (Gtk.Box(), True, True, 0)
-		self.timer_welcome_screen = TimerWelcomeScreen(self)
-		self.timer_screen = TimerScreen(self)
-		self.show_timer_welcome_screen()
-		
-	def show_timer_welcome_screen(self):
-		self.vbox.pack_start(self.timer_welcome_screen, True, True, 0)
-		
-	def start_timer_screen(self):
-		self.vbox.remove(self.timer_welcome_screen)
-		self.vbox.pack_start(self.timer_screen, True, True, 0)
-		self.vbox.show_all()
-	
-	def end_timer_screen(self):
-		self.timer_screen.rightButton.get_style_context ().add_class ("clocks-lap")
-		self.timer_screen.rightLabel.set_markup (TIMER_BUTTON_MARKUP%("Pause"))
-		self.vbox.remove(self.timer_screen)
-		self.show_timer_welcome_screen()
-			
-	def start(self):
-		if self.g_id == 0: 
-			hours = self.timer_welcome_screen.hours.get_value()
-			minutes = self.timer_welcome_screen.minutes.get_value()
-			seconds = self.timer_welcome_screen.seconds.get_value()
-			self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, seconds))
-			self.time = (hours * 60 * 60) + (minutes * 60) + seconds
-			self.state = 1
-			self.g_id = GObject.timeout_add(1000, self.count)
-		
-	def cancel(self):
-		self.state = 0
-		self.end_timer_screen()
-		if self.g_id != 0:
-			GObject.source_remove(self.g_id)
-			self.g_id = 0
-		
-	def pause(self):
-		GObject.source_remove(self.g_id)
-		self.g_id = 0
-		
-	def cont(self):
-		self.g_id = GObject.timeout_add(1000, self.count)
-	
-	def count(self):
-		self.time -= 1
-		minutes, seconds = divmod(self.time, 60)
-		hours, minutes = divmod(minutes, 60)
-		#minutes, seconds = divmod(hours, 60)
 
-		self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, seconds))
-		if hours == 00 and minutes == 00 and seconds == 00:
-			return False
-		else:
-			return True
+  #State
+  #Zero: 0
+  #Running: 1
+  #Paused: 2
+
+    def __init__ (self):
+        Clock.__init__ (self, "Timer")
+        self.state = 0
+        self.g_id = 0
+        #
+        self.vbox = Gtk.Box (orientation = Gtk.Orientation.VERTICAL)
+        box = Gtk.Box ()
+        self.add (box)
+        box.pack_start (Gtk.Box (), True, True, 0)
+        box.pack_start (self.vbox, False, False, 0)
+        box.pack_end (Gtk.Box (), True, True, 0)
+        self.timer_welcome_screen = TimerWelcomeScreen(self)
+        self.timer_screen = TimerScreen(self)
+        self.show_timer_welcome_screen()
+
+    def show_timer_welcome_screen(self):
+        self.vbox.pack_start(self.timer_welcome_screen, True, True, 0)
+
+    def start_timer_screen(self):
+        self.vbox.remove(self.timer_welcome_screen)
+        self.vbox.pack_start(self.timer_screen, True, True, 0)
+        self.vbox.show_all()
+
+    def end_timer_screen(self):
+        #self.timer_screen.rightButton.get_style_context ().add_class ("clocks-lap")
+        self.timer_screen.leftLabel.set_markup (TIMER_BUTTON_MARKUP%("Pause"))
+        self.vbox.remove(self.timer_screen)
+        self.show_timer_welcome_screen()
+        self.timer_welcome_screen.hours.set_value(0)
+        self.timer_welcome_screen.minutes.set_value(0)
+        self.timer_welcome_screen.seconds.set_value(0)
+        self.timer_welcome_screen.startButton.set_sensitive(False)
+        self.timer_welcome_screen.hours.down.set_sensitive(False)
+
+    def start(self):
+        if self.g_id == 0: 
+            hours = self.timer_welcome_screen.hours.get_value()
+            minutes = self.timer_welcome_screen.minutes.get_value()
+            seconds = self.timer_welcome_screen.seconds.get_value()
+            self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, seconds))
+            self.time = (hours * 60 * 60) + (minutes * 60) + seconds
+            self.state = 1
+            self.g_id = GObject.timeout_add(1000, self.count)
+
+    def reset(self):
+        self.state = 0
+        self.end_timer_screen()
+        if self.g_id != 0:
+            GObject.source_remove(self.g_id)
+        self.g_id = 0
+
+    def pause(self):
+        GObject.source_remove(self.g_id)
+        self.g_id = 0
+
+    def cont(self):
+        self.g_id = GObject.timeout_add(1000, self.count)
+
+    def count(self):
+        self.time -= 1
+        minutes, seconds = divmod(self.time, 60)
+        hours, minutes = divmod(minutes, 60)
+        #minutes, seconds = divmod(hours, 60)
+
+        self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, seconds))
+        if hours == 00 and minutes == 00 and seconds == 00:
+            return False
+        else:
+            return True
