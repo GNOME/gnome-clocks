@@ -3,6 +3,13 @@
 @define-color clocks_lap_color #999999;
 @define-color clocks_stop_color #ff0000;
 
+.black-bg {
+    background-color: mix (@entry-color,
+                           shade (#000, 0.5),
+                           0.8);
+    color: #ffffff;
+}
+
 .clocks-continue {
     background-image: -gtk-gradient (linear,
                                      left top, left bottom,
