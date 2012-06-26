@@ -55,8 +55,6 @@ class Window (Gtk.Window):
         self.toolbar.set_clocks (self.views)
         self.single_evbox = Gtk.EventBox ()
 
-        self.show_all ()
-
         vbox.pack_end (self.notebook, True, True, 0)
         vbox.pack_end (Gtk.Separator(), False, False, 1)
         for view in self.views:
@@ -74,8 +72,7 @@ class Window (Gtk.Window):
         for child in self.single_evbox.get_children ():
             self.single_evbox.remove (child)
         self.single_evbox.add (d.get_standalone_widget ())
-        self.single_evbox.show_all ()
-
+        self.single_evbox.show ()
 
     def _on_view_clock (self, button, index):
         self.notebook.set_current_page (index)
@@ -83,10 +80,10 @@ class Window (Gtk.Window):
         self.notebook.get_nth_page(index).unselect_all()
 
     def _on_new_clicked (self, button):
-        self.show_all()
+        pass
 
     def _on_cancel_clicked (self, button):
-        self.show_all()
+        pass
 
 class ClocksToolbar (Gtk.Toolbar):
     __gsignals__ = {'view-clock': (GObject.SignalFlags.RUN_LAST,
@@ -141,9 +138,7 @@ class ClocksToolbar (Gtk.Toolbar):
         image.set_from_gicon (icon, Gtk.IconSize.BUTTON)
         self.applyButton.add (image)
         self.rightBox = box = Gtk.Box ()
-        self.delete_button = Gtk.Button ('Delete')
         box.pack_end (self.applyButton, False, False, 3)
-        box.pack_end (self.delete_button, False, False, 0)
         toolbox.pack_start (box, True, True, 0)
 
         self._buttonMap = {}
@@ -154,6 +149,7 @@ class ClocksToolbar (Gtk.Toolbar):
             if view.button.get_active():
                 view.open_new_dialog()
                 break
+        self.backButton.hide ()
 
     def set_clocks (self, views):
         self.views = views
@@ -171,7 +167,6 @@ class ClocksToolbar (Gtk.Toolbar):
         self.newButton.show ()
         self.applyButton.show ()
         self.backButton.hide ()
-        self.delete_button.hide ()
 
     def _set_single_toolbar (self):
         self.buttonBox.hide ()
@@ -180,7 +175,6 @@ class ClocksToolbar (Gtk.Toolbar):
         if not self.backButton.get_parent ():
           self.leftBox.pack_start (self.backButton, False, False, 3)
         self.backButton.show_all ()
-        self.delete_button.show ()
 
     def _on_toggled (self, widget):
         if not self._busy:
