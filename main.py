@@ -72,7 +72,7 @@ class Window (Gtk.Window):
         for child in self.single_evbox.get_children ():
             self.single_evbox.remove (child)
         self.single_evbox.add (d.get_standalone_widget ())
-        self.single_evbox.show ()
+        self.single_evbox.show_all ()
 
     def _on_view_clock (self, button, index):
         self.notebook.set_current_page (index)
@@ -80,10 +80,10 @@ class Window (Gtk.Window):
         self.notebook.get_nth_page(index).unselect_all()
 
     def _on_new_clicked (self, button):
-        pass
+        self.show()
 
     def _on_cancel_clicked (self, button):
-        pass
+        self.show()
 
 class ClocksToolbar (Gtk.Toolbar):
     __gsignals__ = {'view-clock': (GObject.SignalFlags.RUN_LAST,
@@ -149,6 +149,7 @@ class ClocksToolbar (Gtk.Toolbar):
             if view.button.get_active():
                 view.open_new_dialog()
                 break
+        self._set_overview_toolbar ()
         self.backButton.hide ()
 
     def set_clocks (self, views):
