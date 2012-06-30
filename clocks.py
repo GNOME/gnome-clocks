@@ -93,6 +93,7 @@ class World (Clock):
         iconview.set_spacing(3)
         iconview.set_pixbuf_column(0)
         iconview.set_markup_column(1)
+        iconview.get_style_context ().add_class ('grey-bg')
 
         scrolledwindow = Gtk.ScrolledWindow()
         scrolledwindow.add(iconview)

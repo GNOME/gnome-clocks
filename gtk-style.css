@@ -3,11 +3,11 @@
 @define-color clocks_lap_color #999999;
 @define-color clocks_stop_color #ff0000;
 
-.black-bg {
+.grey-bg {
     background-color: mix (@entry-color,
-                           shade (#000, 0.5),
+                           shade (#f1f2f1, 0.5),
                            0.8);
-    color: #ffffff;
+    color: #000000;
 }
 
 .clocks-continue {
