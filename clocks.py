@@ -68,6 +68,7 @@ class Clock (Gtk.EventBox):
         Gtk.EventBox.__init__ (self)
         self.button = ToggleButton (label)
         self.hasNew = hasNew
+        self.get_style_context ().add_class ('grey-bg')
     
     def open_new_dialog(self):
         pass
