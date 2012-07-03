@@ -25,6 +25,7 @@ from clocks import World, Alarm, Timer, Stopwatch
 class Window (Gtk.Window):
     def __init__ (self):
         Gtk.Window.__init__ (self)
+        self.set_wmclass("Clocks", "Clocks")
         css_provider = Gtk.CssProvider()
         css_provider.load_from_path("gtk-style.css")
         self.set_hide_titlebar_when_maximized (True)
