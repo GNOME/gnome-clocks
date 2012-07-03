@@ -19,17 +19,20 @@
 """
 
 from gi.repository import Gtk, Gio, GObject, Gdk
-
 from clocks import World, Alarm, Timer, Stopwatch
 
-class Window (Gtk.Window):
-    def __init__ (self):
-        Gtk.Window.__init__ (self)
+import sys
+
+class Window (Gtk.ApplicationWindow):
+    def __init__ (self, app):
+        Gtk.ApplicationWindow.__init__ (self, title="Welcome to GNOME", application=app)
+
         self.set_wmclass("Clocks", "Clocks")
+
         css_provider = Gtk.CssProvider()
         css_provider.load_from_path("gtk-style.css")
         self.set_hide_titlebar_when_maximized (True)
-        self.maximize ()
+        #self.maximize ()
         self.set_icon_from_file ('data/preferences-system-time.png')
         context = Gtk.StyleContext()
         context.add_provider_for_screen (Gdk.Screen.get_default (),
@@ -37,7 +40,6 @@ class Window (Gtk.Window):
                                          Gtk.STYLE_PROVIDER_PRIORITY_USER)
         
         self.set_size_request(640, 480)
-        self.set_title("Clocks")
         self.vbox  = vbox = Gtk.VBox()
         self.add (vbox)
         self.notebook = Gtk.Notebook ()
@@ -67,6 +69,9 @@ class Window (Gtk.Window):
         self.toolbar.newButton.connect("clicked", self._on_new_clicked)
         self.show_all ()
 
+    def _set_up_menu (self):
+      pass
+
     def _on_show_clock (self, widget, d):
         self.toolbar._set_single_toolbar ()
         self.notebook.set_current_page (-1)
@@ -85,6 +90,36 @@ class Window (Gtk.Window):
 
     def _on_cancel_clicked (self, button):
         self.show()
+
+    def show_about (self):
+        about = Gtk.AboutDialog (title = "About GNOME Clocks")
+        about.set_title("About Clocks")
+        about.set_program_name("GNOME Clocks")
+        about.set_copyright("(c) Seif Lotfy, Emily Gonyer, Eslam Mostafa")
+        about.set_comments("Clocks is a clock application for the GNOME Desktop")
+        about.set_authors(["Seif Lotfy, Emily Gonyer, Eslam Mostafa"])
+        about.connect("response", lambda w, r: about.destroy())
+        about.set_wrap_license("true")
+        about.set_license_type (Gtk.License.GPL_2_0)
+        about.set_license("GNOME Clocks is free software;"         
+            "you can redistribute it and/or modify it under the terms"
+            " of the GNU General Public License as published by the"
+            " Free Software Foundation; either version 2 of the"
+            " License, or (at your option) any later version.\n"
+            "  \n"
+            "GNOME Clocks is distributed in the hope that it will be"
+            " useful, but WITHOUT ANY WARRANTY; without even the"
+            " implied warranty of MERCHANTABILITY or FITNESS FOR"
+            " A PARTICULAR PURPOSE.  See the GNU General Public"
+            " License for more details.\n"
+            "  \n" 
+            "You should have received a copy of the GNU General" 
+            " Public License along with GNOME Clocks; if not, write" 
+            " to the Free Software Foundation, Inc., 51 Franklin"
+            " Street, Fifth Floor, Boston, MA  02110-1301  USA\n")
+        about.modal = True;
+        about.transient_for = self;
+        about.run ()
 
 class ClocksToolbar (Gtk.Toolbar):
     __gsignals__ = {'view-clock': (GObject.SignalFlags.RUN_LAST,
@@ -202,13 +237,41 @@ class ClocksToolbar (Gtk.Toolbar):
             self.emit ("view-clock", self._buttonMap[widget])
 
     def _delete_clock (self, button):
-        # d = 
-#        self.views[0].delete_clock (d)
          pass
 
+class Clocks(Gtk.Application):
+    def __init__(self):
+        Gtk.Application.__init__(self)
+
+    def do_activate(self):
+        self.win = win = Window(self)
+        win.show_all()
+
+    def quit_cb(self, action, parameter):
+        self.quit()
+
+    def about_cb(self, action, parameter):
+        self.win.show_about ()
+
+    def do_startup (self):
+        Gtk.Application.do_startup(self)
+
+        menu = Gio.Menu()
+
+        menu.append ("About Clocks", "app.about")
+        menu.append("Quit", "app.quit")
+        self.set_app_menu (menu)
+
+        about_action = Gio.SimpleAction.new("about", None)
+        about_action.connect("activate", self.about_cb)
+        self.add_action(about_action)
+
+        quit_action = Gio.SimpleAction.new("quit", None)
+        quit_action.connect("activate", self.quit_cb)
+        self.add_action(quit_action)
 
 if __name__=="__main__":
-    window = Window()
-    window.connect("destroy", lambda w: Gtk.main_quit())
-    Gtk.main()
+    app = Clocks ()
+    exit_status = app.run(sys.argv)
+    sys.exit(exit_status)
 
