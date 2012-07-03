@@ -92,8 +92,12 @@ class World (Clock):
         iconview.set_model(liststore)
         iconview.set_spacing(3)
         iconview.set_pixbuf_column(0)
-        iconview.set_markup_column(1)
         iconview.get_style_context ().add_class ('grey-bg')
+
+        renderer_text = Gtk.CellRendererText()
+        renderer_text.set_alignment (0.5, 0.5)
+        iconview.pack_start(renderer_text, True)
+        iconview.add_attribute(renderer_text, "markup", 1)
 
         scrolledwindow = Gtk.ScrolledWindow()
         scrolledwindow.add(iconview)
