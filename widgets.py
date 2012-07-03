@@ -164,33 +164,43 @@ class DigitalClockStandalone (Gtk.VBox):
         self.time_label = Gtk.Label ()
         self.city_label = Gtk.Label ()
         self.city_label.set_markup ("<b>"+location.get_city_name()+"</b>")
+        self.text = ""
 
-        box = Gtk.VBox ()
-        box.pack_start (self.img, False, False, 3)
-        box.pack_start (self.city_label, False, False, 3)
+        self.connect ("size-allocate", lambda x, y: self.update (None, self.text))
 
-        hbox = Gtk.HBox ()
-        hbox.pack_start (Gtk.Label (), True, True, 0)
-        hbox.pack_start (box, False, False, 16)
-        hbox.pack_start (Gtk.Label (), True, True, 0)
+        imagebox = Gtk.VBox ()
+        imagebox.pack_start (self.img, False, False, 6)
+        imagebox.pack_start (self.city_label, False, False, 0)
+        imagebox.set_size_request (230, 230)
 
-        box = Gtk.VBox ()
-        box.pack_start (Gtk.Label (), True, True, 3)
-        box.pack_start (self.time_label, False, False, 3)
-        box.pack_start (Gtk.Label (), True, True, 66)
+        self.timebox = timebox = Gtk.VBox ()
+        self.time_label.set_alignment (0.0, 0.5)
+        timebox.pack_start (self.time_label, True, True, 0)
 
-        hbox.pack_start (box, False, False, 16)
-        hbox.pack_start (Gtk.Label (), True, True, 0)
+        self.hbox = hbox = Gtk.HBox ()
+        self.hbox.set_homogeneous (True)
 
-        self.pack_start (Gtk.Label (), True, True, 12)
-        self.pack_start (hbox, True, True, 0)
-        self.pack_start (Gtk.Label (), True, True, 3)
+        leftbox = Gtk.HBox ()
+        leftbox.pack_start (Gtk.Label(), True, True, 0)
+        leftbox.pack_start (imagebox, False, False, 60)
+
+        self.hbox.pack_start (leftbox, True, True, 0)
+        self.hbox.pack_start (timebox, True, True, 0)
+
+
+        self.pack_start (Gtk.Label (), True, True, 25)
+        self.pack_start (hbox, False, False, 0)
+        self.pack_start (Gtk.Label (), True, True, 55)
 
     def update (self, img, text):
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size (img, 500, 380)
-        pixbuf = pixbuf.new_subpixbuf(0 , 0 , 208, 208)
-        self.img.set_from_pixbuf (pixbuf)
-        self.time_label.set_markup ("<span size='72000'><b>%s</b></span>" %(text,))
+        size = (self.get_allocation ().height / 300) * 72000
+        if img:
+            pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size (img, 500, 380)
+            pixbuf = pixbuf.new_subpixbuf(0 , 0 , 208, 208)
+            self.img.set_from_pixbuf (pixbuf)
+        self.text = text
+        self.time_label.set_markup ("<span size='%i'><b>%s</b></span>" %(size, text))
+
 
 
 class DigitalClockDrawing (Gtk.DrawingArea):
