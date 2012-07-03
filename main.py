@@ -92,7 +92,7 @@ class Window (Gtk.ApplicationWindow):
         self.show()
 
     def show_about (self):
-        about = Gtk.AboutDialog (title = "About GNOME Clocks")
+        about = Gtk.AboutDialog (title="About GNOME Clocks")
         about.set_title("About Clocks")
         about.set_program_name("GNOME Clocks")
         about.set_copyright("(c) Seif Lotfy, Emily Gonyer, Eslam Mostafa")
@@ -117,9 +117,9 @@ class Window (Gtk.ApplicationWindow):
             " Public License along with GNOME Clocks; if not, write" 
             " to the Free Software Foundation, Inc., 51 Franklin"
             " Street, Fifth Floor, Boston, MA  02110-1301  USA\n")
-        about.modal = True;
-        about.transient_for = self;
-        about.run ()
+        about.set_modal(True)
+        about.set_transient_for (self)
+        about.show ()
 
 class ClocksToolbar (Gtk.Toolbar):
     __gsignals__ = {'view-clock': (GObject.SignalFlags.RUN_LAST,
