@@ -178,14 +178,14 @@ class DigitalClockStandalone (Gtk.VBox):
         timebox.pack_start (self.time_label, True, True, 0)
 
         self.hbox = hbox = Gtk.HBox ()
-        self.hbox.set_homogeneous (True)
+        self.hbox.set_homogeneous (False)
 
-        leftbox = Gtk.HBox ()
-        leftbox.pack_start (Gtk.Label(), True, True, 0)
-        leftbox.pack_start (imagebox, False, False, 60)
 
-        self.hbox.pack_start (leftbox, True, True, 0)
-        self.hbox.pack_start (timebox, True, True, 0)
+        self.hbox.pack_start (Gtk.Label(), True, True, 0)
+        self.hbox.pack_start (imagebox, False, False, 0)
+        self.hbox.pack_start (Gtk.Label (), False, False, 30)
+        self.hbox.pack_start (timebox, False, False, 0)
+        self.hbox.pack_start (Gtk.Label(), True, True, 0)
 
 
         self.pack_start (Gtk.Label (), True, True, 25)
@@ -193,7 +193,7 @@ class DigitalClockStandalone (Gtk.VBox):
         self.pack_start (Gtk.Label (), True, True, 55)
 
     def update (self, img, text):
-        size = (self.get_allocation ().height / 300) * 72000
+        size = 72000 #(self.get_allocation ().height / 300) * 72000
         if img:
             pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size (img, 500, 380)
             pixbuf = pixbuf.new_subpixbuf(0 , 0 , 208, 208)
