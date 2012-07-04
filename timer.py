@@ -108,7 +108,6 @@ class TimerScreen (Gtk.Box):
         self.timer = timer
 
         top_spacer = Gtk.Box ()
-        top_spacer.set_size_request (-1, 50)
         center = Gtk.Box (orientation=Gtk.Orientation.VERTICAL)
         bottom_spacer = Gtk.Box (orientation=Gtk.Orientation.VERTICAL)
 
@@ -145,12 +144,10 @@ class TimerScreen (Gtk.Box):
         self.leftButton.connect('clicked', self._on_left_button_clicked)
         self.rightButton.connect('clicked', self._on_right_button_clicked)
 
-        bottom_spacer.pack_start (hbox, False, False, 0)
-        bottom_spacer.pack_end (Gtk.Box (), True, True, 0)
+        self.pack_start(Gtk.Box (), False, False, 7)
+        self.pack_start(center, False, False, 6)		
+        self.pack_start(hbox, False, False, 6)
 
-        self.pack_start(top_spacer, False, True, 6)
-        self.pack_start(center, False, True, 6)		
-        self.pack_start(bottom_spacer, True, True, 6)
 
     def _on_right_button_clicked(self, data):
         self.timer.reset()
@@ -176,7 +173,6 @@ class TimerWelcomeScreen (Gtk.Box):
         self.set_orientation(Gtk.Orientation.VERTICAL)
 
         top_spacer = Gtk. Box ()
-        top_spacer.set_size_request (-1, 50)
         center = Gtk.Box (orientation=Gtk.Orientation.VERTICAL)
         bottom_spacer = Gtk.Box (orientation=Gtk.Orientation.VERTICAL) #Contains Start Button
 
@@ -206,16 +202,14 @@ class TimerWelcomeScreen (Gtk.Box):
         self.startButton.add(self.startLabel)
         self.startButton.connect('clicked', self._on_start_clicked)
         bottom_spacer.pack_start (self.startButton, False, False, 0)
-        bottom_spacer.pack_start (Gtk.Label(""), True, True, 0)
 
 
         center.pack_start (Gtk.Label (""), False, True, 16)
-        center.pack_start (spinner, False, True, 3)
+        center.pack_start (spinner, False, True, 5)
         center.pack_start (Gtk.Label (""), False, True, 3)
 
-        self.pack_start (top_spacer, False, True, 0)
-        self.pack_start (center, False, True, 6)
-        self.pack_start (bottom_spacer, True, True, 6)
+        self.pack_start (center, False, False, 6)
+        self.pack_start (bottom_spacer, False, False, 6)
 
     def update_start_button_status(self):
         hours = self.hours.get_value()
