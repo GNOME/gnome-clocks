@@ -31,7 +31,7 @@ from alarm import AlarmItem
 import pytz, time, os
 
 
-STOPWATCH_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%04.1f</span>"
+STOPWATCH_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
 STOPWATCH_BUTTON_MARKUP = "<span font_desc=\"24.0\">%s</span>"
 
 TIMER_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
@@ -187,7 +187,7 @@ class Stopwatch (Clock):
 
         self.stopwatchLabel = Gtk.Label ()
         self.stopwatchLabel.set_alignment (0.5, 0.5)
-        self.stopwatchLabel.set_markup (STOPWATCH_LABEL_MARKUP%(0,0))
+        self.stopwatchLabel.set_markup (STOPWATCH_LABEL_MARKUP%(0,0,0))
 
         hbox = Gtk.Box()
         self.leftButton = Gtk.Button ()
@@ -275,9 +275,10 @@ class Stopwatch (Clock):
 
     def count(self):
         timediff = time.time() - self.start_time + self.time_diff
-        (elapsed_minutes, elapsed_seconds) = divmod(timediff, 60.0)
+        (elapsed_minutes, elapsed_seconds) = divmod(timediff, 60)
+        elapsed_milli_seconds = int ((elapsed_seconds*100)%100)
         self.stopwatchLabel.set_markup (STOPWATCH_LABEL_MARKUP%(elapsed_minutes,
-            elapsed_seconds))
+            elapsed_seconds, elapsed_milli_seconds))
         return True
 
 class Timer (Clock):
