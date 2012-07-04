@@ -146,7 +146,7 @@ class DigitalClock ():
         self.drawing.render(t, img, self.get_is_day ())
         if self.view_iter and self.list_store:
           self.list_store.set_value(self.view_iter, 0, self.drawing.pixbuf)
-        self.standalone.update (img, t)
+        self.standalone.update (img, t, systemClockFormat)
       self._last_time = t
       return True
 
@@ -166,11 +166,13 @@ class DigitalClockStandalone (Gtk.VBox):
         self.city_label.set_markup ("<b>"+location.get_city_name()+"</b>")
         self.text = ""
 
-        self.connect ("size-allocate", lambda x, y: self.update (None, self.text))
+        self.systemClockFormat = None
+
+        self.connect ("size-allocate", lambda x, y: self.update (None, self.text, self.systemClockFormat))
 
         imagebox = Gtk.VBox ()
-        imagebox.pack_start (self.img, False, False, 6)
-        imagebox.pack_start (self.city_label, False, False, 0)
+        imagebox.pack_start (self.img, False, False, 0)
+        #imagebox.pack_start (self.city_label, False, False, 0)
         imagebox.set_size_request (230, 230)
 
         self.timebox = timebox = Gtk.VBox ()
@@ -180,26 +182,64 @@ class DigitalClockStandalone (Gtk.VBox):
         self.hbox = hbox = Gtk.HBox ()
         self.hbox.set_homogeneous (False)
 
-
         self.hbox.pack_start (Gtk.Label(), True, True, 0)
         self.hbox.pack_start (imagebox, False, False, 0)
         self.hbox.pack_start (Gtk.Label (), False, False, 30)
         self.hbox.pack_start (timebox, False, False, 0)
         self.hbox.pack_start (Gtk.Label(), True, True, 0)
 
-
         self.pack_start (Gtk.Label (), True, True, 25)
         self.pack_start (hbox, False, False, 0)
-        self.pack_start (Gtk.Label (), True, True, 55)
+        self.pack_start (Gtk.Label (), True, True, 0)
 
-    def update (self, img, text):
+        sunrise_label = Gtk.Label ()
+        sunrise_label.set_markup ("<span size ='large' color='dimgray'> Sunrise </span>")
+        self.sunrise_time_label = Gtk.Label ()
+        sunrise_label.set_alignment (1.0, 0.5)
+        self.sunrise_time_label.set_alignment (0.0, 0.5)
+        sunrise_hbox = Gtk.Box (True, 9)
+        sunrise_hbox.pack_start (sunrise_label, False, False, 0)
+        sunrise_hbox.pack_start (self.sunrise_time_label, False, False, 0)
+
+        sunset_label = Gtk.Label ()
+        sunset_label.set_markup ("<span size ='large' color='dimgray'> Sunset </span>")
+        sunset_label.set_alignment (1.0, 0.5)
+        self.sunset_time_label = Gtk.Label ()
+        self.sunset_time_label.set_alignment (0.0, 0.5)
+        sunset_hbox = Gtk.Box (True, 9)
+        sunset_hbox.pack_start (sunset_label, False, False, 0)
+        sunset_hbox.pack_start (self.sunset_time_label, False, False, 0)
+
+        sunbox = Gtk.VBox (True, 3)
+        sunbox.pack_start (sunrise_hbox, False, False, 3)
+        sunbox.pack_start (sunset_hbox, False, False, 3)
+        
+        hbox = Gtk.HBox ()
+        hbox.pack_start (Gtk.Label (), True, True, 0)
+        hbox.pack_start (sunbox, False, False, 0)
+        hbox.pack_start (Gtk.Label (), True, True, 0)
+        self.pack_end (hbox, False, False, 30)
+
+    def update (self, img, text, systemClockFormat):
         size = 72000 #(self.get_allocation ().height / 300) * 72000
         if img:
             pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size (img, 500, 380)
             pixbuf = pixbuf.new_subpixbuf(0 , 0 , 208, 208)
             self.img.set_from_pixbuf (pixbuf)
         self.text = text
-        self.time_label.set_markup ("<span size='%i'><b>%s</b></span>" %(size, text))
+        self.time_label.set_markup ("<span size='%i' color='dimgray'><b>%s</b></span>" %(size, text))
+        if systemClockFormat != self.systemClockFormat:
+            sunrise_markup = ""
+            sunset_markup = ""
+            if systemClockFormat == "12h":
+                sunrise_markup = sunrise_markup + "<span size ='large'>" + "7:00 AM" + "</span>"
+                sunset_markup = sunset_markup + "<span size ='large'>" + "7:00 PM" + "</span>"
+            else:
+                sunrise_markup = sunrise_markup + "<span size ='large'>" + "07:00" + "</span>"
+                sunset_markup = sunset_markup + "<span size ='large'>" + "19:00" + "</span>"
+            self.sunrise_time_label.set_markup (sunrise_markup)
+            self.sunset_time_label.set_markup (sunset_markup)
+        self.systemClockFormat = systemClockFormat
 
 
 

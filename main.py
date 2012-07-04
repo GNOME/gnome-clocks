@@ -79,6 +79,7 @@ class Window (Gtk.ApplicationWindow):
             self.single_evbox.remove (child)
         self.single_evbox.add (d.get_standalone_widget ())
         self.single_evbox.show_all ()
+        self.toolbar.city_label.set_markup ("<b>"+ d.id + "</b>")
 
     def _on_view_clock (self, button, index):
         self.notebook.set_current_page (index)
@@ -95,7 +96,7 @@ class Window (Gtk.ApplicationWindow):
         about = Gtk.AboutDialog (title="About GNOME Clocks")
         about.set_title("About Clocks")
         about.set_program_name("GNOME Clocks")
-        about.set_copyright("(c) Seif Lotfy, Emily Gonyer, Eslam Mostafa")
+        about.set_copyright("(c) Collabora Ltd\n(c) Emily Gonyer\n(c) Eslam Mostafa")
         about.set_comments("Clocks is a clock application for the GNOME Desktop")
         about.set_authors(["Seif Lotfy, Emily Gonyer, Eslam Mostafa"])
         about.connect("response", lambda w, r: about.destroy())
@@ -127,7 +128,7 @@ class ClocksToolbar (Gtk.Toolbar):
     def __init__ (self):
         Gtk.Toolbar.__init__ (self)
         #self.get_style_context ().add_class ("osd");
-        self.set_size_request(-1, -1)
+        self.set_size_request(-1, 42)
         self.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUBAR);
         
         toolitem = Gtk.ToolItem ()
@@ -152,7 +153,7 @@ class ClocksToolbar (Gtk.Toolbar):
         self.backButton = Gtk.Button ()
         icon = Gio.ThemedIcon.new_with_default_fallbacks ("go-previous-symbolic")
         image = Gtk.Image ()
-        image.set_from_gicon (icon, Gtk.IconSize.BUTTON)
+        image.set_from_gicon (icon, Gtk.IconSize.LARGE_TOOLBAR)
         self.backButton.add(image)
         self.backButton.connect ("clicked", lambda w: self.emit ("view-clock", self._buttonMap[self.last_widget]))
         
@@ -164,14 +165,18 @@ class ClocksToolbar (Gtk.Toolbar):
         self.buttonBox.set_homogeneous (True)
         self.buttonBox.get_style_context ().add_class ("linked")
         toolbox.pack_start (self.buttonBox, False, False, 0)
-        
+
+        self.city_label = Gtk.Label ()
+        toolbox.pack_start (self.city_label, False, False, 0)
+        toolbox.pack_start (Gtk.Box (), False, False, 15)
+
         toolbox.pack_start (Gtk.Label(""), True, True, 0)
         
         self.applyButton = Gtk.Button ()
         #self.applyButton.get_style_context ().add_class ('raised');
         icon = Gio.ThemedIcon.new_with_default_fallbacks ("action-unavailable-symbolic")
         image = Gtk.Image ()
-        image.set_from_gicon (icon, Gtk.IconSize.BUTTON)
+        image.set_from_gicon (icon, Gtk.IconSize.LARGE_TOOLBAR)
         self.applyButton.add (image)
         self.rightBox = box = Gtk.Box ()
         box.pack_end (self.applyButton, False, False, 3)
@@ -187,6 +192,7 @@ class ClocksToolbar (Gtk.Toolbar):
                 break
         self._set_overview_toolbar ()
         self.backButton.hide ()
+        self.city_label.hide ()
 
     def set_clocks (self, views):
         self.views = views
@@ -204,6 +210,7 @@ class ClocksToolbar (Gtk.Toolbar):
         self.newButton.show ()
         self.applyButton.show ()
         self.backButton.hide ()
+        self.city_label.hide ()
 
     def _set_single_toolbar (self):
         self.buttonBox.hide ()
@@ -212,6 +219,7 @@ class ClocksToolbar (Gtk.Toolbar):
         if not self.backButton.get_parent ():
           self.leftBox.pack_start (self.backButton, False, False, 3)
         self.backButton.show_all ()
+        self.city_label.show ()
 
     def _on_toggled (self, widget):
         if not self._busy:
