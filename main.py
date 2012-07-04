@@ -129,7 +129,7 @@ class Window (Gtk.ApplicationWindow):
         if event.state and Gdk.ModifierType.CONTROL_MASK:
             if keyname == 'n':
                 self.toolbar._on_new_clicked (None)                
-            if keyname == 'q':
+            elif keyname in ('q', 'w'):
                 app.quit()
 
 class ClocksToolbar (Gtk.Toolbar):
