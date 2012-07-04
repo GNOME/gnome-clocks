@@ -216,7 +216,7 @@ class Stopwatch (Clock):
         center.pack_start (self.stopwatchLabel, False, False, 0)
         space = Gtk.EventBox()
         center.pack_start (Gtk.Box (), True, True, 41)
-        center.pack_start (hbox, False, False, 1)
+        center.pack_start (hbox, False, False, 0)
         
         self.state = 0
         self.g_id = 0

@@ -146,7 +146,7 @@ class TimerScreen (Gtk.Box):
 
         self.pack_start(Gtk.Box (), False, False, 7)
         self.pack_start(center, False, False, 6)		
-        self.pack_start(hbox, False, False, 6)
+        self.pack_start(hbox, False, False, 5)
 
 
     def _on_right_button_clicked(self, data):
@@ -209,7 +209,7 @@ class TimerWelcomeScreen (Gtk.Box):
         center.pack_start (Gtk.Label (""), False, True, 3)
 
         self.pack_start (center, False, False, 6)
-        self.pack_start (bottom_spacer, False, False, 7)
+        self.pack_start (bottom_spacer, False, False, 6)
 
     def update_start_button_status(self):
         hours = self.hours.get_value()
