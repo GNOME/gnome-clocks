@@ -68,6 +68,8 @@ class Window (Gtk.ApplicationWindow):
         self.toolbar.connect("view-clock", self._on_view_clock)
         self.toolbar.newButton.connect("clicked", self._on_new_clicked)
         self.show_all ()
+        
+        self.connect('key-press-event', self._on_key_press)
 
     def _set_up_menu (self):
       pass
@@ -121,6 +123,14 @@ class Window (Gtk.ApplicationWindow):
         about.set_modal(True)
         about.set_transient_for (self)
         about.show ()
+        
+    def _on_key_press(self, widget, event):
+        keyname = Gdk.keyval_name(event.keyval)
+        if event.state and Gdk.ModifierType.CONTROL_MASK:
+            if keyname == 'n':
+                self.toolbar._on_new_clicked (None)                
+            if keyname == 'q':
+                app.quit()
 
 class ClocksToolbar (Gtk.Toolbar):
     __gsignals__ = {'view-clock': (GObject.SignalFlags.RUN_LAST,
