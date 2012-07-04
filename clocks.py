@@ -200,7 +200,7 @@ class Stopwatch (Clock):
         self.rightButton.add (self.rightLabel)
 
         self.leftButton.get_style_context ().add_class ("clocks-start")
-        self.rightButton.get_style_context ().add_class ("clocks-lap")
+        #self.rightButton.get_style_context ().add_class ("clocks-lap")
 
         hbox.pack_start (Gtk.Box(), True, False, 0)
         hbox.pack_start (self.leftButton, False, False, 0)
@@ -254,8 +254,8 @@ class Stopwatch (Clock):
             self.time_diff = 0
             self.leftLabel.set_markup (STOPWATCH_BUTTON_MARKUP%("Start"))
             self.leftButton.get_style_context ().add_class ("clocks-start")
-            self.rightButton.get_style_context ().add_class ("clocks-lap")
-            self.stopwatchLabel.set_markup (STOPWATCH_LABEL_MARKUP%(0,0))
+            #self.rightButton.get_style_context ().add_class ("clocks-lap")
+            self.stopwatchLabel.set_markup (STOPWATCH_LABEL_MARKUP%(0,0,0))
 
     def start(self):
         if self.g_id == 0:
@@ -312,6 +312,7 @@ class Timer (Clock):
 
     def show_timer_welcome_screen(self):
         self.timerbox.pack_start(self.timer_welcome_screen, True, True, 0)
+        self.timer_welcome_screen.update_start_button_status()
 
     def start_timer_screen(self):
         self.timerbox.remove(self.timer_welcome_screen)
