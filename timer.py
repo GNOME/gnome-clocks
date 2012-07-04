@@ -107,7 +107,7 @@ class TimerScreen (Gtk.Box):
         self.set_orientation(Gtk.Orientation.VERTICAL)
         self.timer = timer
 
-        top_spacer = Gtk.Label ("")
+        top_spacer = Gtk.Box ()
         top_spacer.set_size_request (-1, 50)
         center = Gtk.Box (orientation=Gtk.Orientation.VERTICAL)
         bottom_spacer = Gtk.Box (orientation=Gtk.Orientation.VERTICAL)
@@ -116,7 +116,7 @@ class TimerScreen (Gtk.Box):
         self.timerLabel.set_alignment (0.5, 0.5)
         self.timerLabel.set_markup (TIMER_LABEL_MARKUP%(0,0,0))
 
-        center.pack_start (Gtk.Label (""), True, True, 30)
+        center.pack_start (Gtk.Label (""), False, True, 30)
         center.pack_start (self.timerLabel, False, True, 6)
         center.pack_start (Gtk.Label (""), False, True, 24)
 
@@ -145,7 +145,7 @@ class TimerScreen (Gtk.Box):
         self.leftButton.connect('clicked', self._on_left_button_clicked)
         self.rightButton.connect('clicked', self._on_right_button_clicked)
 
-        bottom_spacer.pack_start (hbox, False, True, 0)
+        bottom_spacer.pack_start (hbox, False, False, 0)
         bottom_spacer.pack_end (Gtk.Box (), True, True, 0)
 
         self.pack_start(top_spacer, False, True, 6)
@@ -178,7 +178,6 @@ class TimerWelcomeScreen (Gtk.Box):
         top_spacer = Gtk. Box ()
         top_spacer.set_size_request (-1, 50)
         center = Gtk.Box (orientation=Gtk.Orientation.VERTICAL)
-#        center.set_size_request (-1, 300)
         bottom_spacer = Gtk.Box (orientation=Gtk.Orientation.VERTICAL) #Contains Start Button
 
         self.hours = Spinner('hours', self)

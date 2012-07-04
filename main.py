@@ -25,7 +25,7 @@ import sys
 
 class Window (Gtk.ApplicationWindow):
     def __init__ (self, app):
-        Gtk.ApplicationWindow.__init__ (self, title="Welcome to GNOME", application=app)
+        Gtk.ApplicationWindow.__init__ (self, title="Clocks", application=app)
 
         self.set_wmclass("Clocks", "Clocks")
 

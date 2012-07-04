@@ -178,16 +178,21 @@ class Stopwatch (Clock):
 
     def __init__ (self):
         Clock.__init__ (self, "Stopwatch")
-        vbox = Gtk.Box (orientation = Gtk.Orientation.VERTICAL)
-        box = Gtk.Box ()
-        self.add (box)
-        box.pack_start (Gtk.Box(), True, True, 0)
-        box.pack_start (vbox, False, False, 0)
-        box.pack_end (Gtk.Box(), True, True, 0)
+        vbox = Gtk.Box (orientation = Gtk.Orientation.VERTICAL)        
+        self.add (vbox)        
+        
+        top_spacer = Gtk.Box()
+        top_spacer.set_size_request (-1, 50)
+        center = Gtk.Box (orientation=Gtk.Orientation.VERTICAL)
+        bottom_spacer = Gtk.Box (orientation=Gtk.Orientation.VERTICAL)
 
         self.stopwatchLabel = Gtk.Label ()
         self.stopwatchLabel.set_alignment (0.5, 0.5)
         self.stopwatchLabel.set_markup (STOPWATCH_LABEL_MARKUP%(0,0))
+        
+        center.pack_start (Gtk.Label (""), False, True, 30)
+        center.pack_start (self.stopwatchLabel, False, True, 6)
+        center.pack_start (Gtk.Label (""), False, True, 24)
 
         hbox = Gtk.Box()
         self.leftButton = Gtk.Button ()
@@ -202,25 +207,28 @@ class Stopwatch (Clock):
         self.leftButton.get_style_context ().add_class ("clocks-start")
         self.rightButton.get_style_context ().add_class ("clocks-lap")
 
-        hbox.pack_start (self.leftButton, True, True, 0)
-        hbox.pack_start (Gtk.Box(), True, True, 24)
-        hbox.pack_start (self.rightButton, True, True, 0)
-
-        vbox.pack_start (Gtk.Label(""), True, True, 0)
-        vbox.pack_start (self.stopwatchLabel, False, False, 0)
-        vbox.pack_start (hbox, False, False, 32)
-        vbox.pack_start (Gtk.Box(), True, True, 0)
-        vbox.pack_start (Gtk.Box(), True, True, 0)
+        hbox.pack_start (Gtk.Box(), True, False, 0)
+        hbox.pack_start (self.leftButton, False, False, 0)
+        hbox.pack_start (Gtk.Box(), False, False, 24)
+        hbox.pack_start (self.rightButton, False, False, 0)            
+        hbox.pack_start (Gtk.Box(), True, False, 0)
 
         self.leftLabel.set_markup (STOPWATCH_BUTTON_MARKUP%("Start"))
         self.leftLabel.set_padding (6, 0)
         self.rightLabel.set_markup (STOPWATCH_BUTTON_MARKUP%("Lap"))
         self.rightLabel.set_padding (6, 0)
         
+        bottom_spacer.pack_start (hbox, False, False, 0)
+        bottom_spacer.pack_end (Gtk.Box(), True, True, 0)
+        
         self.state = 0
         self.g_id = 0
         self.start_time = 0
         self.time_diff = 0
+        
+        vbox.pack_start(top_spacer, False, True, 6)
+        vbox.pack_start(center, False, True, 6)		
+        vbox.pack_start(bottom_spacer, True, True, 6)
         
         self.leftButton.connect("clicked", self._on_left_button_clicked)
         self.rightButton.connect("clicked", self._on_right_button_clicked)
@@ -343,7 +351,6 @@ class Timer (Clock):
         self.time -= 1
         minutes, seconds = divmod(self.time, 60)
         hours, minutes = divmod(minutes, 60)
-        #minutes, seconds = divmod(hours, 60)
 
         self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, seconds))
         if hours == 00 and minutes == 00 and seconds == 00:
