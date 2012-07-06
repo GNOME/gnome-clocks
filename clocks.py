@@ -18,7 +18,7 @@
  Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 """
 
-from gi.repository import Gtk, GObject, Gio, Gdk
+from gi.repository import Gtk, GObject, Gio, Gdk, Gst, Notify
 from gi.repository.GdkPixbuf import Pixbuf
 
 from widgets import NewWorldClockDialog, DigitalClock, NewAlarmDialog
@@ -293,6 +293,7 @@ class Timer (Clock):
         self.state = 0
         self.g_id = 0
         #
+        self.alert = Alert()
         self.vbox = Gtk.Box (orientation = Gtk.Orientation.VERTICAL)
         box = Gtk.Box ()
         self.add (box)
@@ -361,6 +362,28 @@ class Timer (Clock):
 
         self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, seconds))
         if hours == 00 and minutes == 00 and seconds == 00:
+            self.alert.do_alert("Ta Da !")
+            self.state = 0
+            self.timerbox.remove(self.timer_screen)
+            self.show_timer_welcome_screen()
+            if self.g_id != 0:
+                GObject.source_remove(self.g_id)
+            self.g_id = 0
             return False
         else:
             return True
+
+class Alert:
+    def __init__(self):
+        Gst.init('gst') 
+
+    def do_alert(self, msg):
+        if Notify.init("GNOME Clocks"):
+            Alert = Notify.Notification.new("Clocks", msg, 'test')
+            Alert.show()    
+            playbin = Gst.ElementFactory.make('playbin', None)
+            playbin.set_property('uri', 'file:///usr/share/sounds/gnome/default/alerts/glass.ogg')
+            playbin.set_state(Gst.State.PLAYING)
+        else:
+            print "error"
+

@@ -184,10 +184,11 @@ class ClocksToolbar (Gtk.Toolbar):
         
         self.applyButton = Gtk.Button ()
         #self.applyButton.get_style_context ().add_class ('raised');
-        icon = Gio.ThemedIcon.new_with_default_fallbacks ("action-unavailable-symbolic")
+        icon = Gio.ThemedIcon.new_with_default_fallbacks ("emblem-default-symbolic")
         image = Gtk.Image ()
-        image.set_from_gicon (icon, Gtk.IconSize.LARGE_TOOLBAR)
+        image.set_from_gicon (icon, Gtk.IconSize.SMALL_TOOLBAR)
         self.applyButton.add (image)
+        self.applyButton.connect('clicked', self._on_selection_mode)
         self.rightBox = box = Gtk.Box ()
         box.pack_end (self.applyButton, False, False, 3)
         toolbox.pack_start (box, True, True, 0)
@@ -253,6 +254,15 @@ class ClocksToolbar (Gtk.Toolbar):
             self.last_widget = widget
             self._busy = False
             self.emit ("view-clock", self._buttonMap[widget])
+
+    def _on_selection_mode(self, button):
+        self.set_selection_mode(True)
+
+    def set_selection_mode(self, val):
+        if val == True:
+            pass
+        else:
+            self.set_single_toolbar()
 
     def _delete_clock (self, button):
          pass
