@@ -18,10 +18,11 @@
  Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 """
 
-from gi.repository import Gtk, GObject, Gio, Gdk, Gst, Notify
+from gi.repository import Gtk, GObject, Gio, Gdk, Gst, Notify, cairo
 from gi.repository.GdkPixbuf import Pixbuf
 
-from widgets import NewWorldClockDialog, DigitalClock, NewAlarmDialog
+from widgets import NewWorldClockDialog, DigitalClock, NewAlarmDialog, AlarmWidget
+from alarms_handler import AlarmsHandler
 from storage import worldclockstorage
 
 from datetime import datetime, timedelta
@@ -163,10 +164,51 @@ class World (Clock):
 class Alarm (Clock):
     def __init__ (self):
         Clock.__init__ (self, "Alarm", True)
+        
+        self.liststore = liststore = Gtk.ListStore(Pixbuf, str, GObject.TYPE_PYOBJECT)
+        self.iconview = iconview = Gtk.IconView.new()
+        
+        iconview.set_model(liststore)
+        iconview.set_spacing(3)
+        iconview.set_pixbuf_column(0)        
+        iconview.get_style_context ().add_class ('grey-bg')
+
+        renderer_text = Gtk.CellRendererText()
+        renderer_text.set_alignment (0.5, 0.5)                
+        iconview.pack_start(renderer_text, True)                
+        iconview.add_attribute(renderer_text, "markup", 1)        
+
+        scrolledwindow = Gtk.ScrolledWindow()
+        scrolledwindow.add(iconview)
+        self.add(scrolledwindow)
+        
+        self.alarms = []
+        self.load_alarms()
+        self.show_all()
+        
+    def load_alarms(self):
+        ah = AlarmsHandler()
+        alarms = ah.load_alarms()        
+        for alarm in alarms:         
+            name = alarm.title.value        
+            trigger = alarm.dtend.value                      
+            d = AlarmWidget(trigger)                        
+            view_iter = self.liststore.append([d.drawing.pixbuf, "<b>" + name + "</b>", d])
+            d.set_iter(self.liststore, view_iter)          
+        self.show_all()
+      
+    def add_alarm(self, alarm):
+        ah = AlarmsHandler()
+        ah.add_alarm(alarm.get_vobject())
+        d = AlarmWidget(datetime.utcfromtimestamp(alarm.time))            
+        view_iter = self.liststore.append([d.drawing.pixbuf, "<b>" + alarm.get_alarm_name() + "</b>", d])
+        d.set_iter(self.liststore, view_iter)
+        self.show_all()
 
     def open_new_dialog(self):
         parent = self.get_parent ().get_parent ().get_parent ()
-        window = NewAlarmDialog (parent)
+        window = NewAlarmDialog (parent)        
+        window.connect("add-alarm", lambda w, l: self.add_alarm(l))
         window.show_all ()
 
 class Stopwatch (Clock):

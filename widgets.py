@@ -88,7 +88,7 @@ class NewWorldClockDialog (Gtk.Dialog):
         return self.location
 
 class DigitalClock ():
-    def __init__(self, location):
+    def __init__(self, location):              
         self.location = location.location
         self.id = location.id
         self.timezone = self.location.get_timezone()
@@ -100,7 +100,7 @@ class DigitalClock ():
         self.list_store = None
 
         self.drawing = DigitalClockDrawing ()
-        self.standalone = DigitalClockStandalone (self.location)
+        self.standalone = DigitalClockStandalone (self.location)        
         self.update ()
         GObject.timeout_add(1000, self.update)
 
@@ -157,6 +157,27 @@ class DigitalClock ():
     def get_standalone_widget (self):
         return self.standalone
 
+class AlarmWidget():
+    def __init__(self, time_given):              
+        t = time_given.strftime("%I:%M %p")        
+        self.drawing = DigitalClockDrawing ()
+        isDay = self.get_is_day(t)
+        if isDay == True:
+            img = "data/cities/day.png"
+        else:
+            img = "data/cities/night.png"
+        self.drawing.render(t, img, isDay)
+        
+    def get_is_day(self, t):
+        if t[6:8] == 'AM':
+          return True
+        else:
+          return False
+        
+    def set_iter (self, list_store, view_iter):
+        self.view_iter = view_iter
+        self.list_store = list_store
+      
 class DigitalClockStandalone (Gtk.VBox):
     def __init__ (self, location):
         Gtk.VBox.__init__ (self, False)
@@ -240,9 +261,7 @@ class DigitalClockStandalone (Gtk.VBox):
             self.sunrise_time_label.set_markup (sunrise_markup)
             self.sunset_time_label.set_markup (sunset_markup)
         self.systemClockFormat = systemClockFormat
-
-
-
+        
 class DigitalClockDrawing (Gtk.DrawingArea):
     width = 160
     height = 160
@@ -256,6 +275,7 @@ class DigitalClockDrawing (Gtk.DrawingArea):
         self.pixbuf = None
         self.surface = None
         self.show_all()
+        
 
     def render(self, text, img, isDay):
         print "updating"
@@ -302,6 +322,9 @@ class DigitalClockDrawing (Gtk.DrawingArea):
         return self.pixbuf
 
 class NewAlarmDialog (Gtk.Dialog):
+    
+    __gsignals__ = {'add-alarm': (GObject.SignalFlags.RUN_LAST,
+                    None, (GObject.TYPE_PYOBJECT,))}
 
     def __init__(self, parent):
         Gtk.Dialog.__init__(self, "New Alarm", parent)
@@ -309,6 +332,7 @@ class NewAlarmDialog (Gtk.Dialog):
         self.parent = parent
         self.set_transient_for(parent)
         self.set_modal(True)
+        self.repeat_days = []
 
         table1 = Gtk.Table(4, 5, False) 
         table1.set_row_spacings(9)
@@ -350,7 +374,7 @@ class NewAlarmDialog (Gtk.Dialog):
         
         table1.attach(name, 0, 1, 1, 2)
         table1.attach(repeat, 0, 1, 2, 3)
-        table1.attach(sound, 0, 1, 3, 4)
+        #table1.attach(sound, 0, 1, 3, 4)
         
         self.entry = entry = Gtk.Entry ()
         entry.set_text("New Alarm")
@@ -385,39 +409,41 @@ class NewAlarmDialog (Gtk.Dialog):
         table1.attach(box, 1, 4, 2, 3) 
        
         soundbox = Gtk.ComboBox ()
-        table1.attach(soundbox, 1, 3, 3, 4)
+        #table1.attach(soundbox, 1, 3, 3, 4)
       
     def on_response(self, widget, id):
         if id == 0:
             self.destroy ()
         if id == 1:
             name = self.entry.get_text()  #Perfect
-            time = self.hourselect.get_value_as_int() * 60 * 60 +     self.minuteselect.get_value_as_int() * 60
-            repeat = True
-            new_alarm = AlarmItem(name, time, repeat)
+            time = self.hourselect.get_value_as_int() * 60 * 60 + self.minuteselect.get_value_as_int() * 60            
+            repeat = self.repeat_days
+            new_alarm = AlarmItem(name, time, repeat)            
+            self.emit('add-alarm', new_alarm)
+            self.destroy ()
         else:
             pass
 
     def on_d1_clicked(self, buttond1):
-        d1 = day1
+        self.repeat_days.append('SU')
                   
     def on_d2_clicked(self, buttond2):
-        d2 = day2
+        self.repeat_days.append('MO')
     
     def on_d3_clicked(self, buttond3):
-        d3 = day3
+        self.repeat_days.append('TU')
     
     def on_d4_clicked(self, buttond4):
-        pass
+        self.repeat_days.append('WE')
     
     def on_d5_clicked(self, buttond5):
-        pass
+        self.repeat_days.append('TH')
     
     def on_d6_clicked(self, buttond6):
-        pass
+        self.repeat_days.append('FR')
     
     def on_d7_clicked(self, buttond7):
-        pass
+        self.repeat_days.append('SA')
 
 """
 if text.startswith("0"):

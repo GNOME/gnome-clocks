@@ -1,32 +1,43 @@
-#WEEKDAYS:
-day1 = "day1"
-day2 = "day2"
-day3 = "day3"
-day4 = "day4"
-day5 = "day5"
-day6 = "day6"
-day7 = "day7"
+import datetime, vobject, time
 
 class AlarmItem:
     def __init__(self, name, time, repeat):
-        self.n = name
-        self.t = time
-        self.r = repeat
+        self.name = name
+        self.time = time
+        self.repeat = repeat
 
     def set_alarm_time(self, time):
-        self.t = time 
+        self.time = time 
         
     def get_alarm_time(self):
-        return self.t
+        return self.time
         
     def set_alarm_name(self, name):
-        self.n = name
+        self.name = name
     
     def get_alarm_name(self):
-        return self.n
+        return self.name
         
     def set_alarm_repeat(self, repeat):
-        self.r = repeat
+        self.repeat = repeat
 
     def get_alarm_repeat(self):
-	return self.r
+        return self.repeat
+    
+    def get_vobject(self):                
+        alarm = vobject.newFromBehavior('vevent')            
+        alarm.add('title').value = self.name        
+        alarm.add('dtstart').value = datetime.datetime.utcnow()        
+        t =  datetime.datetime.utcfromtimestamp(self.time)
+        alarm.add('dtend').value = t
+        alarm.add('rrule').value = 'FREQ=WEEKLY;BYDAY=%s' % ','.join(self.repeat)
+        #alarm.add('enddate').value =       
+        #alarm.add('repeat').value = '4' #self.repeat
+        #alarm.add('duration').value = '15M'        
+        #date = datetime.date(datetime.date.today())
+        #print date
+        #alarm.add('trigger')#.value = datetime.datetime.utcnow() #fromtimestamp(self.time)
+        #datetime.datetime.combine(datetime.date.today(), self.time) #Convert self.time to datetime
+        alarm.add('action').value = 'audio'
+        alarm.add('attach').value = '/usr/share/sounds/gnome/default/alerts/glass.ogg'
+        return alarm        
