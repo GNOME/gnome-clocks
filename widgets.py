@@ -418,32 +418,53 @@ class NewAlarmDialog (Gtk.Dialog):
             name = self.entry.get_text()  #Perfect
             time = self.hourselect.get_value_as_int() * 60 * 60 + self.minuteselect.get_value_as_int() * 60            
             repeat = self.repeat_days
-            new_alarm = AlarmItem(name, time, repeat)            
+            new_alarm = AlarmItem(name, time, repeat, self.hourselect.get_value_as_int(), self.minuteselect.get_value_as_int())            
             self.emit('add-alarm', new_alarm)
             self.destroy ()
         else:
             pass
 
-    def on_d1_clicked(self, buttond1):
-        self.repeat_days.append('SU')
+    def on_d1_clicked(self, btn):
+        if btn.get_active() == True:
+            self.repeat_days.append('SU')
+        if btn.get_active() == False:
+            self.repeat_days.remove('SU')
                   
-    def on_d2_clicked(self, buttond2):
-        self.repeat_days.append('MO')
+    def on_d2_clicked(self, btn):    
+        if btn.get_active() == True:
+            self.repeat_days.append('MO')
+        if btn.get_active() == False:
+            self.repeat_days.remove('MO')
     
-    def on_d3_clicked(self, buttond3):
-        self.repeat_days.append('TU')
+    def on_d3_clicked(self, btn):        
+        if btn.get_active() == True:
+            self.repeat_days.append('TU')
+        if btn.get_active() == False:
+            self.repeat_days.remove('TU')
     
-    def on_d4_clicked(self, buttond4):
-        self.repeat_days.append('WE')
+    def on_d4_clicked(self, btn):
+        if btn.get_active() == True:
+            self.repeat_days.append('WE')
+        if btn.get_active() == False:
+            self.repeat_days.remove('WE')
     
-    def on_d5_clicked(self, buttond5):
-        self.repeat_days.append('TH')
+    def on_d5_clicked(self, btn):        
+        if btn.get_active() == True:
+            self.repeat_days.append('TH')
+        if btn.get_active() == False:
+            self.repeat_days.remove('TH')
     
-    def on_d6_clicked(self, buttond6):
-        self.repeat_days.append('FR')
+    def on_d6_clicked(self, btn):        
+        if btn.get_active() == True:
+            self.repeat_days.append('FR')
+        if btn.get_active() == False:
+            self.repeat_days.remove('FR')
     
-    def on_d7_clicked(self, buttond7):
-        self.repeat_days.append('SA')
+    def on_d7_clicked(self, btn):        
+        if btn.get_active() == True:
+            self.repeat_days.append('SA')
+        if btn.get_active() == False:
+            self.repeat_days.remove('SA')
 
 """
 if text.startswith("0"):

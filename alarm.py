@@ -1,10 +1,12 @@
 import datetime, vobject, time
 
 class AlarmItem:
-    def __init__(self, name, time, repeat):
+    def __init__(self, name, time, repeat, h, m):
         self.name = name
         self.time = time
         self.repeat = repeat
+        self.h = h
+        self.m = m
 
     def set_alarm_time(self, time):
         self.time = time 
@@ -26,18 +28,11 @@ class AlarmItem:
     
     def get_vobject(self):                
         alarm = vobject.newFromBehavior('vevent')            
-        alarm.add('title').value = self.name        
-        alarm.add('dtstart').value = datetime.datetime.utcnow()        
-        t =  datetime.datetime.utcfromtimestamp(self.time)
-        alarm.add('dtend').value = t
+        alarm.add('summary').value = self.name                
+        #t = datetime.datetime.utcfromtimestamp(self.time)
+        alarm.add('dtstart').value = datetime.datetime.combine(datetime.date.today(), datetime.time(self.h, self.m))        
+        alarm.add('dtend').value = datetime.datetime.combine(datetime.date.today(), datetime.time(self.h+1, self.m))
         alarm.add('rrule').value = 'FREQ=WEEKLY;BYDAY=%s' % ','.join(self.repeat)
-        #alarm.add('enddate').value =       
-        #alarm.add('repeat').value = '4' #self.repeat
-        #alarm.add('duration').value = '15M'        
-        #date = datetime.date(datetime.date.today())
-        #print date
-        #alarm.add('trigger')#.value = datetime.datetime.utcnow() #fromtimestamp(self.time)
-        #datetime.datetime.combine(datetime.date.today(), self.time) #Convert self.time to datetime
         alarm.add('action').value = 'audio'
         alarm.add('attach').value = '/usr/share/sounds/gnome/default/alerts/glass.ogg'
         return alarm        

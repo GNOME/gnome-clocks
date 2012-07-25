@@ -190,8 +190,8 @@ class Alarm (Clock):
         ah = AlarmsHandler()
         alarms = ah.load_alarms()        
         for alarm in alarms:         
-            name = alarm.title.value        
-            trigger = alarm.dtend.value                      
+            name = alarm.summary.value        
+            trigger = alarm.dtstart.value                      
             d = AlarmWidget(trigger)                        
             view_iter = self.liststore.append([d.drawing.pixbuf, "<b>" + name + "</b>", d])
             d.set_iter(self.liststore, view_iter)          
