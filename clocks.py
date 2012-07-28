@@ -32,7 +32,7 @@ from alarm import AlarmItem
 import pytz, time, os
 
 
-STOPWATCH_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
+STOPWATCH_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i</span>"
 STOPWATCH_BUTTON_MARKUP = "<span font_desc=\"24.0\">%s</span>"
 
 TIMER_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
@@ -229,7 +229,7 @@ class Stopwatch (Clock):
 
         self.stopwatchLabel = Gtk.Label ()
         self.stopwatchLabel.set_alignment (0.5, 0.5)
-        self.stopwatchLabel.set_markup (STOPWATCH_LABEL_MARKUP%(0,0,0))
+        self.stopwatchLabel.set_markup (STOPWATCH_LABEL_MARKUP%(0,0))
 
         hbox = Gtk.Box()
         self.leftButton = Gtk.Button ()
@@ -298,7 +298,7 @@ class Stopwatch (Clock):
             self.leftLabel.set_markup (STOPWATCH_BUTTON_MARKUP%("Start"))
             self.leftButton.get_style_context ().add_class ("clocks-start")
             #self.rightButton.get_style_context ().add_class ("clocks-lap")
-            self.stopwatchLabel.set_markup (STOPWATCH_LABEL_MARKUP%(0,0,0))
+            self.stopwatchLabel.set_markup (STOPWATCH_LABEL_MARKUP%(0,0))
             self.rightButton.set_sensitive(False)
 
     def start(self):
@@ -310,7 +310,7 @@ class Stopwatch (Clock):
         GObject.source_remove(self.g_id)
         self.g_id = 0
         self.time_diff = self.time_diff + (time.time() - self.start_time)
-        print self.time_diff
+        #print self.time_diff
 
     def reset(self):
         self.time_diff = 0
@@ -322,7 +322,7 @@ class Stopwatch (Clock):
         (elapsed_minutes, elapsed_seconds) = divmod(timediff, 60)
         elapsed_milli_seconds = int ((elapsed_seconds*100)%100)
         self.stopwatchLabel.set_markup (STOPWATCH_LABEL_MARKUP%(elapsed_minutes,
-            elapsed_seconds, elapsed_milli_seconds))
+            elapsed_seconds))
         return True
 
 class Timer (Clock):
