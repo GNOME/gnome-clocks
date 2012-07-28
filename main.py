@@ -184,7 +184,7 @@ class ClocksToolbar (Gtk.Toolbar):
         
         self.applyButton = Gtk.Button ()
         #self.applyButton.get_style_context ().add_class ('raised');
-        icon = Gio.ThemedIcon.new_with_default_fallbacks ("emblem-default-symbolic")
+        icon = Gio.ThemedIcon.new_with_default_fallbacks ("object-select-symbolic")
         image = Gtk.Image ()
         image.set_from_gicon (icon, Gtk.IconSize.SMALL_TOOLBAR)
         self.applyButton.add (image)
