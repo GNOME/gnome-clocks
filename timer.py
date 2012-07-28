@@ -46,9 +46,7 @@ class Spinner(Gtk.Box):
         #Down Button
         self.down = Gtk.Button()
         self.down.set_image(imageDown)
-        self.down.set_relief(Gtk.ReliefStyle.NONE)
-        if self.vType == 'hours':
-            self.down.set_sensitive(False)
+        self.down.set_relief(Gtk.ReliefStyle.NONE)        
         #
         self.pack_start(self.up, False, False, 0)
         self.pack_start(self.value, True, True, 0)
@@ -66,8 +64,10 @@ class Spinner(Gtk.Box):
     def _increase(self, widget):
         value = self.get_value()
         if self.vType == 'hours':
-            value += 1
-            self.down.set_sensitive(True)
+            if value == 24:
+                value = 0
+            else:
+                value += 1                
         elif self.vType == 'minutes':
               if value == 59:
                   value = 0
@@ -85,7 +85,7 @@ class Spinner(Gtk.Box):
         value = self.get_value()
         if self.vType == 'hours':
             if value == 0:
-                self.down.set_sensitive(False)
+                value = 24
             else:
                 value -= 1
         elif self.vType == 'minutes':
