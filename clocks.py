@@ -280,6 +280,7 @@ class Stopwatch (Clock):
             self.leftLabel.set_markup (STOPWATCH_BUTTON_MARKUP%("Stop"))
             self.rightLabel.set_markup (STOPWATCH_BUTTON_MARKUP%("Lap"))
             self.leftButton.get_style_context ().add_class ("clocks-stop")
+            self.rightButton.set_sensitive(True)
         elif self.state == 1:
             self.state = 2
             self.stop()
@@ -293,11 +294,12 @@ class Stopwatch (Clock):
             pass
         if self.state == 2:
             self.state = 0
-            self.time_diff = 0
+            self.time_diff = 0          
             self.leftLabel.set_markup (STOPWATCH_BUTTON_MARKUP%("Start"))
             self.leftButton.get_style_context ().add_class ("clocks-start")
             #self.rightButton.get_style_context ().add_class ("clocks-lap")
             self.stopwatchLabel.set_markup (STOPWATCH_LABEL_MARKUP%(0,0,0))
+            self.rightButton.set_sensitive(False)
 
     def start(self):
         if self.g_id == 0:
