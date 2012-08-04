@@ -1,3 +1,5 @@
+#! /usr/bin/env python
+# -.- coding: utf-8 -.-
 """
  Copyright (c) 2011-2012 Collabora, Ltd.
 
@@ -157,14 +159,15 @@ class ClocksToolbar (Gtk.Toolbar):
         self.newButton.add(label)
         
         self.leftBox = box = Gtk.Box ()
-        box.pack_start (self.newButton, False, False, 3)
+        box.pack_start (self.newButton, False, False, 0)
         toolbox.pack_start (box, True, True, 0)
         
         self.backButton = Gtk.Button ()
         icon = Gio.ThemedIcon.new_with_default_fallbacks ("go-previous-symbolic")
         image = Gtk.Image ()
-        image.set_from_gicon (icon, Gtk.IconSize.LARGE_TOOLBAR)
+        image.set_from_gicon (icon, Gtk.IconSize.MENU)
         self.backButton.add(image)
+        self.backButton.set_size_request (33, 33)
         self.backButton.connect ("clicked", lambda w: self.emit ("view-clock", self._buttonMap[self.last_widget]))
         
         self.newButton.connect("clicked", self._on_new_clicked)
@@ -186,11 +189,12 @@ class ClocksToolbar (Gtk.Toolbar):
         #self.applyButton.get_style_context ().add_class ('raised');
         icon = Gio.ThemedIcon.new_with_default_fallbacks ("object-select-symbolic")
         image = Gtk.Image ()
-        image.set_from_gicon (icon, Gtk.IconSize.SMALL_TOOLBAR)
+        image.set_from_gicon (icon, Gtk.IconSize.MENU)
         self.applyButton.add (image)
+        self.applyButton.set_size_request (32, 32)
         self.applyButton.connect('clicked', self._on_selection_mode)
         self.rightBox = box = Gtk.Box ()
-        box.pack_end (self.applyButton, False, False, 3)
+        box.pack_end (self.applyButton, False, False, 0)
         toolbox.pack_start (box, True, True, 0)
 
         self._buttonMap = {}
@@ -228,7 +232,7 @@ class ClocksToolbar (Gtk.Toolbar):
         self.newButton.hide ()
         self.applyButton.hide ()
         if not self.backButton.get_parent ():
-          self.leftBox.pack_start (self.backButton, False, False, 3)
+          self.leftBox.pack_start (self.backButton, False, False, 0)
         self.backButton.show_all ()
         self.city_label.show ()
 

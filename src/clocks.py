@@ -21,7 +21,7 @@
 from gi.repository import Gtk, GObject, Gio, Gdk, Gst, Notify, cairo
 from gi.repository.GdkPixbuf import Pixbuf
 
-from widgets import NewWorldClockDialog, DigitalClock, NewAlarmDialog, AlarmWidget
+from widgets import NewWorldClockDialog, DigitalClock, NewAlarmDialog, AlarmWidget, WorldEmpty
 from alarms_handler import AlarmsHandler
 from storage import worldclockstorage
 
@@ -91,6 +91,8 @@ class World (Clock):
         self.liststore = liststore = Gtk.ListStore(Pixbuf, str, GObject.TYPE_PYOBJECT)
         self.iconview = iconview = Gtk.IconView.new()
         
+        self.empty_view = WorldEmpty ()
+        
         iconview.set_model(liststore)
         iconview.set_spacing(3)
         iconview.set_pixbuf_column(0)
@@ -101,9 +103,9 @@ class World (Clock):
         iconview.pack_start(renderer_text, True)
         iconview.add_attribute(renderer_text, "markup", 1)
 
-        scrolledwindow = Gtk.ScrolledWindow()
+        self.scrolledwindow = scrolledwindow = Gtk.ScrolledWindow()
         scrolledwindow.add(iconview)
-        self.add(scrolledwindow)
+        #self.add(scrolledwindow)
 
         iconview.connect ("selection-changed", self._on_selection_changed)
 
@@ -126,11 +128,15 @@ class World (Clock):
 
     def load_clocks(self):
         self.clocks = worldclockstorage.load_clocks ()
-        for clock in self.clocks:
-            d = DigitalClock (clock)
-            view_iter = self.liststore.append([d.drawing.pixbuf, "<b>"+d.location.get_city_name()+"</b>", d])
-            d.set_iter(self.liststore, view_iter)
-            self.show_all()
+        print self.clocks
+        if len(self.clocks) == 0:
+            self.load_empty_clocks_view ()
+        else:
+            for clock in self.clocks:
+                d = DigitalClock (clock)
+                view_iter = self.liststore.append([d.drawing.pixbuf, "<b>"+d.location.get_city_name()+"</b>", d])
+                d.set_iter(self.liststore, view_iter)
+            self.load_clocks_view ()
 
     def add_clock(self, location):
         location_id = location.id + "---" + location.location.get_code ()
@@ -141,16 +147,19 @@ class World (Clock):
             d.set_iter(self.liststore, view_iter)
             self.show_all()
         worldclockstorage.save_clocks (self.clocks)
+        if len(self.clocks) > 0:
+            self.load_clocks_view ()
 
     def delete_clock (self, d):
         self.clocks.remove (d.location)
         self.liststore.remove (d.view_iter)
         self.iconview.unselect_all ()
+        if len(self.clocks) == 0:
+            self.load_empty_clocks_view ()
 
     def open_new_dialog(self):
         parent = self.get_parent().get_parent().get_parent()
         window = NewWorldClockDialog(parent)
-
         #window.get_children()[0].pack_start(widget, False, False, 0)
         window.connect("add-clock", lambda w, l: self.add_clock(l))
         window.show_all()
@@ -160,6 +169,17 @@ class World (Clock):
         self.addButton.set_sensitive(False)
         self.emit('show-requested')
 
+    def load_clocks_view (self):
+        if self.empty_view in self.get_children ():
+            self.remove (self.empty_view)
+        self.add (self.scrolledwindow)
+        self.show_all ()
+
+    def load_empty_clocks_view (self):
+        if self.scrolledwindow in self.get_children ():
+            self.remove (self.scrolledwindow)
+        self.add (self.empty_view)
+        self.show_all ()
 
 class Alarm (Clock):
     def __init__ (self):
@@ -191,8 +211,8 @@ class Alarm (Clock):
         alarms = ah.load_alarms()        
         for alarm in alarms:         
             name = alarm.summary.value        
-            trigger = alarm.dtstart.value                      
-            d = AlarmWidget(trigger)                        
+            time = alarm.dtstart.value                                  
+            d = AlarmWidget(time)                        
             view_iter = self.liststore.append([d.drawing.pixbuf, "<b>" + name + "</b>", d])
             d.set_iter(self.liststore, view_iter)          
         self.show_all()
@@ -200,7 +220,7 @@ class Alarm (Clock):
     def add_alarm(self, alarm):
         ah = AlarmsHandler()
         ah.add_alarm(alarm.get_vobject())
-        d = AlarmWidget(datetime.utcfromtimestamp(alarm.time))            
+        d = AlarmWidget(datetime.utcfromtimestamp(alarm.time))
         view_iter = self.liststore.append([d.drawing.pixbuf, "<b>" + alarm.get_alarm_name() + "</b>", d])
         d.set_iter(self.liststore, view_iter)
         self.show_all()
@@ -267,7 +287,7 @@ class Stopwatch (Clock):
 
         vbox.pack_start (Gtk.Box (), True, True, 48)
         vbox.pack_start (center, False, False, 0)
-        vbox.pack_start (Gtk.Box (), True, True, 0)
+        vbox.pack_start (Gtk.Box (), True, True, 1)
         vbox.pack_start (Gtk.Box (), True, True, 41)
         
         self.leftButton.connect("clicked", self._on_left_button_clicked)
