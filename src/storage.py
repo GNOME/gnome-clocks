@@ -69,5 +69,11 @@ class WorldClockStorage ():
         except Exception, e:
           print "--", e
           return []
+          
+    def delete_all_clocks(self):
+        f = open(DATA_PATH, "w")
+        f.write("")
+        f.close()
 
 worldclockstorage = WorldClockStorage ()
+worldclockstorage.delete_all_clocks()

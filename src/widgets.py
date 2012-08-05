@@ -139,9 +139,9 @@ class DigitalClock ():
     def get_image(self):
         local_time = self.get_local_time ()
         if local_time.tm_hour > 7 and local_time.tm_hour < 19:
-            return "data/cities/day.png"
+            return "../data/cities/day.png"
         else:
-            return "data/cities/night.png"
+            return "../data/cities/night.png"
 
     def get_is_day(self):
         local_time = self.get_local_time ()
@@ -172,36 +172,6 @@ class DigitalClock ():
         
     def get_standalone_widget (self):
         return self.standalone
-
-class AlarmWidget():
-    def __init__(self, t_given):                          
-        self.drawing = DigitalClockDrawing ()        
-        clockformat = self.get_system_clock_format()
-        if clockformat == '12h':
-            t = t_given.strftime("%I:%M %p")        
-        else:
-            t = t_given.strftime("%H:%M")        
-        isDay = self.get_is_day(t)
-        if isDay == True:
-            img = "data/cities/day.png"
-        else:
-            img = "data/cities/night.png"
-        self.drawing.render(t, img, isDay)
-    
-    def get_system_clock_format(self):
-        settings = Gio.Settings.new('org.gnome.desktop.interface')
-        systemClockFormat = settings.get_string('clock-format')
-        return systemClockFormat
-        
-    def get_is_day(self, t):
-        if t[6:8] == 'AM':
-            return True
-        else:
-            return False
-        
-    def set_iter (self, list_store, view_iter):
-        self.view_iter = view_iter
-        self.list_store = list_store
       
 class DigitalClockStandalone (Gtk.VBox):
     def __init__ (self, location):
@@ -346,6 +316,33 @@ class DigitalClockDrawing (Gtk.DrawingArea):
         self.pixbuf = pixbuf
         return self.pixbuf
 
+class AlarmWidget():
+    def __init__(self, time_given):                              
+        self.drawing = DigitalClockDrawing ()        
+        clockformat = self.get_system_clock_format()            
+        t = time_given
+        isDay = self.get_is_day(t)
+        if isDay == True:
+            img = "../data/cities/day.png"
+        else:
+            img = "../data/cities/night.png"
+        self.drawing.render(t, img, isDay)
+    
+    def get_system_clock_format(self):
+        settings = Gio.Settings.new('org.gnome.desktop.interface')
+        systemClockFormat = settings.get_string('clock-format')
+        return systemClockFormat
+        
+    def get_is_day(self, t):
+        if t[6:8] == 'AM':
+            return True
+        else:
+            return False
+        
+    def set_iter (self, list_store, view_iter):
+        self.view_iter = view_iter
+        self.list_store = list_store
+
 class NewAlarmDialog (Gtk.Dialog):
     
     __gsignals__ = {'add-alarm': (GObject.SignalFlags.RUN_LAST,
@@ -368,10 +365,7 @@ class NewAlarmDialog (Gtk.Dialog):
         table1.set_col_spacings(9)
         content_area = self.get_content_area ()        
         content_area.pack_start(table1, True, True, 0)
-        cancel = self.add_button("Cancel", 0)
-        self.save = save = self.add_button("Save", 1)
-        save.get_style_context().add_class('raised')        
-        save.set_sensitive(False)
+        self.add_buttons("Cancel", 0, "Save", 1)        
         self.connect("response", self.on_response)
         table1.set_border_width (5)
         
@@ -385,21 +379,13 @@ class NewAlarmDialog (Gtk.Dialog):
         points.set_alignment(0.5, 0.5)
 
         if cf == "12h":
-            houradjust = Gtk.Adjustment(h, 0, 12, 1, 1, 0)
+            if p == "PM":
+                h = h-12            
+            self.hourselect = hourselect = AlarmDialogSpin(h, 1, 12)
         else:
-            houradjust = Gtk.Adjustment(h, 0, 23, 1, 1, 0)
-        self.hourselect = hourselect = Gtk.SpinButton()
-        hourselect.connect('value-changed', self._on_hours_changed)
-        hourselect.set_adjustment(houradjust)        
-        hourbox = Gtk.Box(True, 0)
-        hourbox.pack_start (hourselect, False, True, 0)
+            self.hourselect = hourselect = AlarmDialogSpin(h, 0, 23)                 
+        self.minuteselect = minuteselect = AlarmDialogSpin(m, 0, 59)
         
-        minuteadjust = Gtk.Adjustment(m, 0, 59, 1, 1, 0)
-        self.minuteselect = minuteselect = Gtk.SpinButton()
-        minuteselect.connect('value-changed', self._on_minutes_changed)
-        minuteselect.set_adjustment(minuteadjust)
-        minutebox = Gtk.Box(True, 0)        
-        minutebox.pack_start (minuteselect, False, True, 0)
         
         
         if cf == "12h":
@@ -412,15 +398,15 @@ class NewAlarmDialog (Gtk.Dialog):
                 ampm.set_active(1)    
             
             table1.attach (time_label, 0, 1, 0, 1)
-            table1.attach (hourbox, 1, 2, 0, 1)
+            table1.attach (hourselect, 1, 2, 0, 1)
             table1.attach (points, 2, 3, 0, 1)
-            table1.attach (minutebox, 3, 4, 0, 1)  
+            table1.attach (minuteselect, 3, 4, 0, 1)  
             table1.attach (ampm, 4, 5, 0, 1)  
         else:
             table1.attach (time_label, 0, 1, 0, 1)
-            table1.attach (hourbox, 1, 2, 0, 1)
+            table1.attach (hourselect, 1, 2, 0, 1)
             table1.attach (points, 2, 3, 0, 1)
-            table1.attach (minutebox, 3, 4, 0, 1)              
+            table1.attach (minuteselect, 3, 4, 0, 1)              
             
         name = Gtk.Label ("Name")
         name.set_alignment(1.0, 0.5)
@@ -483,90 +469,146 @@ class NewAlarmDialog (Gtk.Dialog):
         if id == 0:
             self.destroy ()
         if id == 1:
-            name = self.entry.get_text()  #Perfect
-            time = self.hourselect.get_value_as_int() * 60 * 60 + self.minuteselect.get_value_as_int() * 60            
+            name = self.entry.get_text()  #Perfect            
             repeat = self.repeat_days
+            h = self.hourselect.get_value_as_int()            
+            m = self.minuteselect.get_value_as_int()
             if self.cf == "12h":
                 r = self.ampm.get_active()
                 if r == 0:
-                    p = 'AM'
+                    p = "AM"
                 else:
-                    p = 'PM'
-                new_alarm = AlarmItem(name, time, repeat, self.hourselect.get_value_as_int(), self.minuteselect.get_value_as_int(), p)            
+                    p = "PM"
             else:
-                new_alarm = AlarmItem(name, time, repeat, self.hourselect.get_value_as_int(), self.minuteselect.get_value_as_int(), None)            
+                p = None
+            new_alarm = AlarmItem(name, repeat, h, m, p)              
             self.emit('add-alarm', new_alarm)
             self.destroy ()
         else:
             pass
-            
-    def _on_hours_changed(self, btn):
-        self.check_save_button_status()
-        
-    def _on_minutes_changed(self, btn):
-        self.check_save_button_status()
-        
-    def check_save_button_status(self):
-        if len(self.repeat_days) != 0:              
-            self.save.set_sensitive(True)
-        else:
-            self.save.set_sensitive(False)
+                
                     
     def on_d1_clicked(self, btn):        
         if btn.get_active() == True:
             self.repeat_days.append('MO')
         if btn.get_active() == False:
             self.repeat_days.remove('MO')
-        self.check_save_button_status()
-                  
+                      
     def on_d2_clicked(self, btn):    
         if btn.get_active() == True:
             self.repeat_days.append('TU')
         else:
-            self.repeat_days.remove('TU')
-        self.check_save_button_status()
+            self.repeat_days.remove('TU')        
     
     def on_d3_clicked(self, btn):        
         if btn.get_active() == True:
             self.repeat_days.append('WE')
         else:
             self.repeat_days.remove('WE')
-        self.check_save_button_status()
     
     def on_d4_clicked(self, btn):
         if btn.get_active() == True:
             self.repeat_days.append('TH')
         else:
             self.repeat_days.remove('TH')
-        self.check_save_button_status()
     
     def on_d5_clicked(self, btn):        
         if btn.get_active() == True:
             self.repeat_days.append('FR')
         else:
             self.repeat_days.remove('FR')
-        self.check_save_button_status()
     
     def on_d6_clicked(self, btn):        
         if btn.get_active() == True:
             self.repeat_days.append('SA')
         else:
             self.repeat_days.remove('SA')
-        self.check_save_button_status()
     
     def on_d7_clicked(self, btn):        
         if btn.get_active() == True:
             self.repeat_days.append('SU')
         else:
             self.repeat_days.remove('SU')
-        self.check_save_button_status()
-
-class ClocksHome(Gtk.Box):
-    def __init__(self):
-        Gt.Box.__init__(self)
-        self.set_orientation(Gtk.Orientation.VERTICAL)
+            
+class AlarmDialogSpin(Gtk.Box):
+    def __init__(self, value, min_num, max_num):
+        Gtk.Box.__init__(self)
+        self.get_style_context().add_class('linked')
+        self.max_num = max_num
+        self.min_num = min_num
+        #
+        group = Gtk.SizeGroup()        
+        group.set_mode(Gtk.SizeGroupMode.VERTICAL)        
+        self.entry = entry = Gtk.Entry()
+        entry.set_size_request(-1, -1)
+        self.entry.set_text(str(value))
+        self.entry.set_max_length(2)
+        self.entry.set_alignment(1)
+        height = self.entry.get_allocated_height()
+        
+        group.add_widget(entry)
+        #
+        m_gicon = Gio.ThemedIcon.new_with_default_fallbacks("list-remove-symbolic")
+        m_img = Gtk.Image.new_from_gicon(m_gicon, Gtk.IconSize.MENU)
+        minus = Gtk.Button()
+      #  minus.set_size_request(-1, 10)
+        minus.set_image(m_img)
+        minus.connect("clicked", self._on_click_minus)
+        group.add_widget(minus)
+        #
+        p_gicon = Gio.ThemedIcon.new_with_default_fallbacks("list-add-symbolic")
+        p_img = Gtk.Image.new_from_gicon(p_gicon, Gtk.IconSize.MENU)
+        plus = Gtk.Button()        
+        #plus.set_size_request(-1, 10)
+        plus.set_image(p_img)
+        plus.connect("clicked", self._on_click_plus)
+        group.add_widget(plus)
+        #
+        self.pack_start(entry, False, False, 0)
+        self.pack_start(minus, False, False, 0)
+        self.pack_start(plus, False, False, 0)
+        self.show_all()
+        
+    def get_value_as_int(self):
+        text = self.entry.get_text()
+        return int(text)
+        
+    def _on_click_minus(self, btn):
+        value = self.get_value_as_int()
+        if value == self.min_num:
+            new_value = self.max_num
+        else:
+            new_value = value - 1
+        self.entry.set_text(str(new_value))
+        
+    def _on_click_plus(self, btn):
+        value = self.get_value_as_int()
+        if value == self.max_num:
+            new_value = self.min_num
+        else:
+            new_value = value + 1
+        self.entry.set_text(str(new_value))
         
 class WorldEmpty(Gtk.Box):
+    def __init__(self):
+        Gtk.Box.__init__(self)
+        self.set_orientation(Gtk.Orientation.VERTICAL)
+        gicon = Gio.ThemedIcon.new_with_default_fallbacks("document-open-recent-symbolic")
+        image = Gtk.Image.new_from_gicon(gicon, Gtk.IconSize.DIALOG)
+        image.set_sensitive (False)
+        text = Gtk.Label("")
+        text.set_markup("<span color='darkgrey'>Select <b>New</b> to add a world clock</span>")
+        self.pack_start(Gtk.Label(""), True, True, 0)
+        self.pack_start(image, False, False, 6)
+        self.pack_start(text, False, False, 6)
+        self.pack_start(Gtk.Label(""), True, True, 0)
+        self.button = Gtk.ToggleButton()
+        self.show_all()
+
+    def unselect_all(self):
+        pass
+
+class AlarmsEmpty(Gtk.Box):
     def __init__(self):
         Gtk.Box.__init__(self)
         self.set_orientation(Gtk.Orientation.VERTICAL)

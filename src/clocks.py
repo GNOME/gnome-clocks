@@ -22,13 +22,12 @@ from gi.repository import Gtk, GObject, Gio, Gdk, Gst, Notify, cairo
 from gi.repository.GdkPixbuf import Pixbuf
 
 from widgets import NewWorldClockDialog, DigitalClock, NewAlarmDialog, AlarmWidget, WorldEmpty
-from alarms_handler import AlarmsHandler
 from storage import worldclockstorage
 
 from datetime import datetime, timedelta
 from pytz import timezone
 from timer import TimerWelcomeScreen, TimerScreen, Spinner
-from alarm import AlarmItem
+from alarm import AlarmItem, ICSHandler
 import pytz, time, os
 
 
@@ -205,22 +204,36 @@ class Alarm (Clock):
         self.alarms = []
         self.load_alarms()
         self.show_all()
+    
+    def get_system_clock_format(self):
+        settings = Gio.Settings.new('org.gnome.desktop.interface')
+        systemClockFormat = settings.get_string('clock-format')
+        return systemClockFormat
         
     def load_alarms(self):
-        ah = AlarmsHandler()
-        alarms = ah.load_alarms()        
-        for alarm in alarms:         
-            name = alarm.summary.value        
-            time = alarm.dtstart.value                                  
-            d = AlarmWidget(time)                        
-            view_iter = self.liststore.append([d.drawing.pixbuf, "<b>" + name + "</b>", d])
-            d.set_iter(self.liststore, view_iter)          
+        handler = ICSHandler()
+        vevents = handler.load_vevents()        
+        if vevents:
+            for vevent in vevents:         
+                alarm = AlarmItem()
+                alarm.new_from_vevent(vevent)                        
+                scf = self.get_system_clock_format()
+                if scf == "12h":
+                    d = AlarmWidget(alarm.get_time_12h_as_string())                        
+                else:
+                    d = AlarmWidget(alarm.get_time_24h_as_string())                        
+                view_iter = self.liststore.append([d.drawing.pixbuf, "<b>" + alarm.get_alarm_name() + "</b>", d])
+                d.set_iter(self.liststore, view_iter)          
         self.show_all()
       
     def add_alarm(self, alarm):
-        ah = AlarmsHandler()
-        ah.add_alarm(alarm.get_vobject())
-        d = AlarmWidget(datetime.utcfromtimestamp(alarm.time))
+        handler = ICSHandler()
+        handler.add_vevent(alarm.get_vevent())        
+        scf = self.get_system_clock_format()
+        if scf == "12h":
+            d = AlarmWidget(alarm.get_time_12h_as_string())
+        else:
+            d = AlarmWidget(alarm.get_time_24h_as_string())                               
         view_iter = self.liststore.append([d.drawing.pixbuf, "<b>" + alarm.get_alarm_name() + "</b>", d])
         d.set_iter(self.liststore, view_iter)
         self.show_all()
