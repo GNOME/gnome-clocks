@@ -32,7 +32,7 @@ class Window (Gtk.ApplicationWindow):
         self.set_wmclass("Clocks", "Clocks")
 
         css_provider = Gtk.CssProvider()
-        css_provider.load_from_path("../gtk-style.css")
+        css_provider.load_from_path("../data/gtk-style.css")
         #self.set_hide_titlebar_when_maximized (True)        
         self.set_icon_from_file ('../data/preferences-system-time.png')
         context = Gtk.StyleContext()
