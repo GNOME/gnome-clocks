@@ -21,10 +21,27 @@
  Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 """
 
+import os
+import sys
+
+# Detect if we are running from the source dir
+if os.path.exists("gnome-clocks.doap"):
+    ENV_PATHS = {
+        "GNOME_CLOCKS_DATA_PATH": "data/",
+        "GNOME_CLOCKS_IMAGE_PATH": "data/",
+    }
+else:
+    ENV_PATHS = {
+        "GNOME_CLOCKS_DATA_PATH": "/usr/share/gnome-clocks/",
+        "GNOME_CLOCKS_IMAGE_PATH": "/usr/share/gnome-clocks/pixmaps/",
+    }
+
+for var, path in ENV_PATHS.iteritems():
+    os.environ.setdefault(var, path)
+
 from gi.repository import Gtk, Gio, GObject, Gdk
 from gnomeclocks.clocks import World, Alarm, Timer, Stopwatch
-
-import sys
+from gnomeclocks.utils import Dirs
 
 class Window (Gtk.ApplicationWindow):
     def __init__ (self, app):
@@ -33,9 +50,8 @@ class Window (Gtk.ApplicationWindow):
         self.set_wmclass("Clocks", "Clocks")
 
         css_provider = Gtk.CssProvider()
-        css_provider.load_from_path("data/gtk-style.css")
-        #self.set_hide_titlebar_when_maximized (True)        
-        self.set_icon_from_file ('data/preferences-system-time.png')
+        css_provider.load_from_path(os.path.join (Dirs.get_data_dir (), "gtk-style.css"))
+        self.set_icon_from_file (os.path.join (Dirs.get_image_dir (), 'preferences-system-time.png'))
         context = Gtk.StyleContext()
         context.add_provider_for_screen (Gdk.Screen.get_default (),
                                          css_provider,
