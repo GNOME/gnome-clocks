@@ -10,11 +10,11 @@
  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
  for more details.
- 
+
  You should have received a copy of the GNU General Public License along
  with Gnome Documents; if not, write to the Free Software Foundation,
  Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- 
+
  Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 """
 
@@ -23,11 +23,13 @@ import pickle
 from xdg import BaseDirectory
 from gi.repository import GWeather
 
+
 DATA_PATH = BaseDirectory.save_data_path("clocks") + "/clocks"
 
-class Location ():
-    def __init__ (self, location):
-        self._id = location.get_city_name ()
+
+class Location():
+    def __init__(self, location):
+        self._id = location.get_city_name()
         self._location = location
 
     @property
@@ -38,38 +40,39 @@ class Location ():
     def location(self):
         return self._location
 
-class WorldClockStorage ():
-    def __init__ (self):
+
+class WorldClockStorage():
+    def __init__(self):
         world = GWeather.Location.new_world(True)
         self.searchEntry = GWeather.LocationEntry.new(world)
         self.searchEntry.show_all ()
         self.locations_dump = ""
         pass
 
-    def save_clocks (self, locations):
+    def save_clocks(self, locations):
         self.locations_dump = locations = "|".join([location.id + "---" + location.location.get_code () for location in locations])
-        f = open (DATA_PATH, "wb")
-        pickle.dump (locations, f)
-        f.close ()
+        f = open(DATA_PATH, "wb")
+        pickle.dump(locations, f)
+        f.close()
 
-    def load_clocks (self):
+    def load_clocks(self):
         try:
-          f = open (DATA_PATH, "rb")
+          f = open(DATA_PATH, "rb")
           self.locations_dump = locations = pickle.load (f)
           f.close ()
-          locations = locations.split ("|")
+          locations = locations.split("|")
           clocks = []
           for location in locations:
-              loc = location.split ("---")
-              if self.searchEntry.set_city (loc[0], loc[1]):
+              loc = location.split("---")
+              if self.searchEntry.set_city(loc[0], loc[1]):
                   loc = self.searchEntry.get_location ()
-                  loc = Location (self.searchEntry.get_location ())
-                  clocks.append (loc)
+                  loc = Location(self.searchEntry.get_location ())
+                  clocks.append(loc)
           return clocks
         except Exception, e:
           print "--", e
           return []
-          
+
     def delete_all_clocks(self):
         f = open(DATA_PATH, "w")
         f.write("")

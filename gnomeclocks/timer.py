@@ -11,7 +11,7 @@
  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
  for more details.
- 
+
  You should have received a copy of the GNU General Public License along
  with Gnome Documents; if not, write to the Free Software Foundation,
  Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
@@ -24,6 +24,7 @@ TIMER = "<span font_desc=\"64.0\">%02i</span>"
 TIMER_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
 TIMER = "<span font_desc=\"64.0\">%02i</span>"
 TIMER_BUTTON_MARKUP = "<span font_desc=\"24.0\">%s</span>"
+
 
 class Spinner(Gtk.Box):
     def __init__(self, value_type, timer_welcome_screen):
@@ -46,7 +47,7 @@ class Spinner(Gtk.Box):
         #Down Button
         self.down = Gtk.Button()
         self.down.set_image(imageDown)
-        self.down.set_relief(Gtk.ReliefStyle.NONE)        
+        self.down.set_relief(Gtk.ReliefStyle.NONE)
         #
         self.pack_start(self.up, False, False, 0)
         self.pack_start(self.value, True, True, 0)
@@ -67,7 +68,7 @@ class Spinner(Gtk.Box):
             if value == 24:
                 value = 0
             else:
-                value += 1                
+                value += 1
         elif self.vType == 'minutes':
               if value == 59:
                   value = 0
@@ -101,6 +102,7 @@ class Spinner(Gtk.Box):
         self.set_value(value)
         self.timer_welcome_screen.update_start_button_status()
 
+
 class TimerScreen (Gtk.Box):
     def __init__(self, timer):
         super(TimerScreen, self).__init__()
@@ -119,7 +121,7 @@ class TimerScreen (Gtk.Box):
         center.pack_start (self.timerLabel, False, True, 6)
         center.pack_start (Gtk.Label (""), False, True, 24)
 
-        hbox = Gtk.Box()		
+        hbox = Gtk.Box()
         self.leftButton = Gtk.Button ()
         self.leftButton.set_size_request(200, -1)
         self.leftLabel = Gtk.Label ()
@@ -145,9 +147,8 @@ class TimerScreen (Gtk.Box):
         self.rightButton.connect('clicked', self._on_right_button_clicked)
 
         self.pack_start(Gtk.Box (), False, False, 7)
-        self.pack_start(center, False, False, 6)		
+        self.pack_start(center, False, False, 6)
         self.pack_start(hbox, False, False, 5)
-
 
     def _on_right_button_clicked(self, data):
         self.timer.reset()
@@ -203,7 +204,6 @@ class TimerWelcomeScreen (Gtk.Box):
         self.startButton.connect('clicked', self._on_start_clicked)
         bottom_spacer.pack_start (self.startButton, False, False, 0)
 
-
         center.pack_start (Gtk.Label (""), False, True, 16)
         center.pack_start (spinner, False, True, 5)
         center.pack_start (Gtk.Label (""), False, True, 3)
@@ -219,7 +219,6 @@ class TimerWelcomeScreen (Gtk.Box):
             self.startButton.set_sensitive(False)
         else:
             self.startButton.set_sensitive(True)
-
 
     def _on_start_clicked(self, data):
         if self.timer.state == 0:

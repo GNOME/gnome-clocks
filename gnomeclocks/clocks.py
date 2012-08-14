@@ -10,11 +10,11 @@
  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
  for more details.
- 
+
  You should have received a copy of the GNU General Public License along
  with Gnome Documents; if not, write to the Free Software Foundation,
  Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- 
+
  Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 """
 
@@ -51,7 +51,7 @@ class ToggleButton(Gtk.ToggleButton):
         self.add(self.label)
         self.connect("toggled", self._on_toggled)
         self.set_size_request(100, 34)
-        
+
     def _on_toggled(self, label):
         if self.get_active():
             self.label.set_markup("<b>%s</b>"%self.text)
@@ -69,16 +69,16 @@ class Clock (Gtk.EventBox):
         self.button = ToggleButton (label)
         self.hasNew = hasNew
         self.get_style_context ().add_class ('grey-bg')
-    
+
     def open_new_dialog(self):
         pass
-        
+
     def close_new_dialog(self):
         pass
-    
+
     def add_new_clock(self):
         pass
-        
+
     def unselect_all (self):
         pass
 
@@ -86,12 +86,12 @@ class World (Clock):
     def __init__ (self):
         Clock.__init__ (self, "World", True)
         self.addButton = None
-        
+
         self.liststore = liststore = Gtk.ListStore(Pixbuf, str, GObject.TYPE_PYOBJECT)
         self.iconview = iconview = Gtk.IconView.new()
-        
+
         self.empty_view = WorldEmpty ()
-        
+
         iconview.set_model(liststore)
         iconview.set_spacing(3)
         iconview.set_pixbuf_column(0)
@@ -183,64 +183,64 @@ class World (Clock):
 class Alarm (Clock):
     def __init__ (self):
         Clock.__init__ (self, "Alarm", True)
-        
+
         self.liststore = liststore = Gtk.ListStore(Pixbuf, str, GObject.TYPE_PYOBJECT)
         self.iconview = iconview = Gtk.IconView.new()
-        
+
         iconview.set_model(liststore)
         iconview.set_spacing(3)
-        iconview.set_pixbuf_column(0)        
+        iconview.set_pixbuf_column(0)
         iconview.get_style_context ().add_class ('grey-bg')
 
         renderer_text = Gtk.CellRendererText()
-        renderer_text.set_alignment (0.5, 0.5)                
-        iconview.pack_start(renderer_text, True)                
-        iconview.add_attribute(renderer_text, "markup", 1)        
+        renderer_text.set_alignment (0.5, 0.5)
+        iconview.pack_start(renderer_text, True)
+        iconview.add_attribute(renderer_text, "markup", 1)
 
         scrolledwindow = Gtk.ScrolledWindow()
         scrolledwindow.add(iconview)
         self.add(scrolledwindow)
-        
+
         self.alarms = []
         self.load_alarms()
         self.show_all()
-    
+
     def get_system_clock_format(self):
         settings = Gio.Settings.new('org.gnome.desktop.interface')
         systemClockFormat = settings.get_string('clock-format')
         return systemClockFormat
-        
+
     def load_alarms(self):
         handler = ICSHandler()
-        vevents = handler.load_vevents()        
+        vevents = handler.load_vevents()
         if vevents:
-            for vevent in vevents:         
+            for vevent in vevents:
                 alarm = AlarmItem()
-                alarm.new_from_vevent(vevent)                        
+                alarm.new_from_vevent(vevent)
                 scf = self.get_system_clock_format()
                 if scf == "12h":
-                    d = AlarmWidget(alarm.get_time_12h_as_string())                        
+                    d = AlarmWidget(alarm.get_time_12h_as_string())
                 else:
-                    d = AlarmWidget(alarm.get_time_24h_as_string())                        
+                    d = AlarmWidget(alarm.get_time_24h_as_string())
                 view_iter = self.liststore.append([d.drawing.pixbuf, "<b>" + alarm.get_alarm_name() + "</b>", d])
-                d.set_iter(self.liststore, view_iter)          
+                d.set_iter(self.liststore, view_iter)
         self.show_all()
-      
+
     def add_alarm(self, alarm):
         handler = ICSHandler()
-        handler.add_vevent(alarm.get_vevent())        
+        handler.add_vevent(alarm.get_vevent())
         scf = self.get_system_clock_format()
         if scf == "12h":
             d = AlarmWidget(alarm.get_time_12h_as_string())
         else:
-            d = AlarmWidget(alarm.get_time_24h_as_string())                               
+            d = AlarmWidget(alarm.get_time_24h_as_string())
         view_iter = self.liststore.append([d.drawing.pixbuf, "<b>" + alarm.get_alarm_name() + "</b>", d])
         d.set_iter(self.liststore, view_iter)
         self.show_all()
 
     def open_new_dialog(self):
         parent = self.get_parent ().get_parent ().get_parent ()
-        window = NewAlarmDialog (parent)        
+        window = NewAlarmDialog (parent)
         window.connect("add-alarm", lambda w, l: self.add_alarm(l))
         window.show_all ()
 
@@ -253,9 +253,9 @@ class Stopwatch (Clock):
 
     def __init__ (self):
         Clock.__init__ (self, "Stopwatch")
-        vbox = Gtk.Box (orientation = Gtk.Orientation.VERTICAL)        
-        self.add (vbox)        
-        
+        vbox = Gtk.Box (orientation = Gtk.Orientation.VERTICAL)
+        self.add (vbox)
+
         top_spacer = Gtk.Box()
         center = Gtk.Box (orientation=Gtk.Orientation.VERTICAL)
         bottom_spacer = Gtk.Box (orientation=Gtk.Orientation.VERTICAL)
@@ -280,7 +280,7 @@ class Stopwatch (Clock):
         hbox.pack_start (Gtk.Box(), True, False, 0)
         hbox.pack_start (self.leftButton, False, False, 0)
         hbox.pack_start (Gtk.Box(), False, False, 24)
-        hbox.pack_start (self.rightButton, False, False, 0)            
+        hbox.pack_start (self.rightButton, False, False, 0)
         hbox.pack_start (Gtk.Box(), True, False, 0)
 
         self.leftLabel.set_markup (STOPWATCH_BUTTON_MARKUP%("Start"))
@@ -292,7 +292,7 @@ class Stopwatch (Clock):
         space = Gtk.EventBox()
         center.pack_start (Gtk.Box (), True, True, 41)
         center.pack_start (hbox, False, False, 0)
-        
+
         self.state = 0
         self.g_id = 0
         self.start_time = 0
@@ -302,10 +302,10 @@ class Stopwatch (Clock):
         vbox.pack_start (center, False, False, 0)
         vbox.pack_start (Gtk.Box (), True, True, 1)
         vbox.pack_start (Gtk.Box (), True, True, 41)
-        
+
         self.leftButton.connect("clicked", self._on_left_button_clicked)
         self.rightButton.connect("clicked", self._on_right_button_clicked)
-    
+
     def _on_left_button_clicked (self, widget):
         if self.state == 0 or self.state == 2:
             self.state = 1
@@ -327,7 +327,7 @@ class Stopwatch (Clock):
             pass
         if self.state == 2:
             self.state = 0
-            self.time_diff = 0          
+            self.time_diff = 0
             self.leftLabel.set_markup (STOPWATCH_BUTTON_MARKUP%("Start"))
             self.leftButton.get_style_context ().add_class ("clocks-start")
             #self.rightButton.get_style_context ().add_class ("clocks-lap")
@@ -409,7 +409,7 @@ class Timer (Clock):
         self.timer_welcome_screen.hours.down.set_sensitive(False)
 
     def start(self):
-        if self.g_id == 0: 
+        if self.g_id == 0:
             hours = self.timer_welcome_screen.hours.get_value()
             minutes = self.timer_welcome_screen.minutes.get_value()
             seconds = self.timer_welcome_screen.seconds.get_value()
@@ -452,12 +452,12 @@ class Timer (Clock):
 
 class Alert:
     def __init__(self):
-        Gst.init('gst') 
+        Gst.init('gst')
 
     def do_alert(self, msg):
         if Notify.init("GNOME Clocks"):
             Alert = Notify.Notification.new("Clocks", msg, 'test')
-            Alert.show()    
+            Alert.show()
             playbin = Gst.ElementFactory.make('playbin', None)
             playbin.set_property('uri', 'file:///usr/share/sounds/gnome/default/alerts/glass.ogg')
             playbin.set_state(Gst.State.PLAYING)
