@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 # -.- coding: utf-8 -.-
+
 """
  Copyright (c) 2011-2012 Collabora, Ltd.
 
@@ -21,7 +22,7 @@
 """
 
 from gi.repository import Gtk, Gio, GObject, Gdk
-from clocks import World, Alarm, Timer, Stopwatch
+from gnomeclocks.clocks import World, Alarm, Timer, Stopwatch
 
 import sys
 
@@ -32,9 +33,9 @@ class Window (Gtk.ApplicationWindow):
         self.set_wmclass("Clocks", "Clocks")
 
         css_provider = Gtk.CssProvider()
-        css_provider.load_from_path("../data/gtk-style.css")
+        css_provider.load_from_path("data/gtk-style.css")
         #self.set_hide_titlebar_when_maximized (True)        
-        self.set_icon_from_file ('../data/preferences-system-time.png')
+        self.set_icon_from_file ('data/preferences-system-time.png')
         context = Gtk.StyleContext()
         context.add_provider_for_screen (Gdk.Screen.get_default (),
                                          css_provider,
@@ -301,8 +302,7 @@ class Clocks(Gtk.Application):
         quit_action.connect("activate", self.quit_cb)
         self.add_action(quit_action)
 
-if __name__=="__main__":
+if __name__ == "__main__":
     app = Clocks ()
     exit_status = app.run(sys.argv)
     sys.exit(exit_status)
-

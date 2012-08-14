@@ -138,9 +138,9 @@ class DigitalClock ():
     def get_image(self):
         local_time = self.get_local_time ()
         if local_time.tm_hour > 7 and local_time.tm_hour < 19:
-            return "../data/cities/day.png"
+            return "data/cities/day.png"
         else:
-            return "../data/cities/night.png"
+            return "data/cities/night.png"
 
     def get_is_day(self):
         local_time = self.get_local_time ()
@@ -321,9 +321,9 @@ class AlarmWidget():
         t = time_given
         isDay = self.get_is_day(t)
         if isDay == True:
-            img = "../data/cities/day.png"
+            img = "data/cities/day.png"
         else:
-            img = "../data/cities/night.png"
+            img = "data/cities/night.png"
         self.drawing.render(t, img, isDay)
 
     def get_system_clock_format(self):
