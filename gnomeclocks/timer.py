@@ -28,9 +28,9 @@ TIMER_BUTTON_MARKUP = "<span font_desc=\"24.0\">%s</span>"
 
 
 class Spinner(Gtk.Box):
-    def __init__(self, value_type, timer_welcome_screen):
+    def __init__(self, max_value, timer_welcome_screen):
         super(Spinner, self).__init__()
-        self.vType = value_type
+        self.max_value = max_value
         self.timer_welcome_screen = timer_welcome_screen
         self.set_orientation(Gtk.Orientation.VERTICAL)
         iconUp = Gio.ThemedIcon.new_with_default_fallbacks ("go-up-symbolic")
@@ -65,41 +65,19 @@ class Spinner(Gtk.Box):
 
     def _increase(self, widget):
         value = self.get_value()
-        if self.vType == 'hours':
-            if value == 24:
-                value = 0
-            else:
-                value += 1
-        elif self.vType == 'minutes':
-              if value == 59:
-                  value = 0
-              else:
-                  value += 1
-        elif self.vType == 'seconds':
-              if value == 59:
-                  value = 0
-              else:
-                  value += 1
+        if value == self.max_value:
+            value = 0
+        else:
+            value += 1
         self.set_value(value)
         self.timer_welcome_screen.update_start_button_status()
 
     def _decrease(self, widget):
         value = self.get_value()
-        if self.vType == 'hours':
-            if value == 0:
-                value = 24
-            else:
-                value -= 1
-        elif self.vType == 'minutes':
-            if value == 0:
-                value = 59
-            else:
-                value -= 1
-        elif self.vType == 'seconds':
-            if value == 0:
-                value = 59
-            else:
-                value -= 1
+        if value == 0:
+            value = self.max_value
+        else:
+            value -= 1
         self.set_value(value)
         self.timer_welcome_screen.update_start_button_status()
 
@@ -178,9 +156,9 @@ class TimerWelcomeScreen (Gtk.Box):
         center = Gtk.Box (orientation=Gtk.Orientation.VERTICAL)
         bottom_spacer = Gtk.Box (orientation=Gtk.Orientation.VERTICAL) #Contains Start Button
 
-        self.hours = Spinner('hours', self)
-        self.minutes = Spinner('minutes', self)
-        self.seconds = Spinner('seconds', self)
+        self.hours = Spinner(24, self)
+        self.minutes = Spinner(59, self)
+        self.seconds = Spinner(59, self)
         colon = Gtk.Label('')
         colon.set_markup('<span font_desc=\"64.0\">:</span>')
         another_colon = Gtk.Label('')
