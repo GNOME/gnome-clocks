@@ -47,6 +47,7 @@ class Window(Gtk.ApplicationWindow):
         self.add(vbox)
         self.notebook = Gtk.Notebook()
         self.notebook.set_show_tabs(False)
+        self.notebook.set_show_border(False)
 
         self.toolbar = ClocksToolbar()
 
@@ -62,7 +63,6 @@ class Window(Gtk.ApplicationWindow):
         self.single_evbox = Gtk.EventBox()
 
         vbox.pack_end(self.notebook, True, True, 0)
-        vbox.pack_end(Gtk.Separator(), False, False, 1)
         for view in self.views:
             self.notebook.append_page(view, Gtk.Label(str(view)))
         self.notebook.append_page(self.single_evbox, Gtk.Label("Widget"))
@@ -142,9 +142,7 @@ class ClocksToolbar(Gtk.Toolbar):
 
     def __init__(self):
         Gtk.Toolbar.__init__(self)
-        #self.get_style_context().add_class("osd")
-        self.set_size_request(-1, 42)
-        self.get_style_context().add_class(Gtk.STYLE_CLASS_MENUBAR)
+        self.get_style_context().add_class("clocks-toolbar")
 
         toolitem = Gtk.ToolItem()
         toolitem.set_expand(True)

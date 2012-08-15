@@ -3,6 +3,12 @@
 @define-color clocks_lap_color #999999;
 @define-color clocks_stop_color #ff0000;
 
+.clocks-toolbar.toolbar {
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    border-radius: 0;
+}
+
 .grey-bg {
     background-color: #f1f2f1
 }
@@ -16,7 +22,6 @@
     border-image: none;
     border-width: 0;
 }
-
 
 .clocks-continue:active {
     background-image: -gtk-gradient (linear,
