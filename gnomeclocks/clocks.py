@@ -40,10 +40,6 @@ TIMER_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
 TIMER = "<span font_desc=\"64.0\">%02i</span>"
 TIMER_BUTTON_MARKUP = "<span font_desc=\"24.0\">%s</span>"
 
-GFILE = Gio.File.new_for_uri ('widgets.css')
-CSS_PROVIDER = Gtk.CssProvider()
-#CSS_PROVIDER.load_from_file(GFILE)
-
 class ToggleButton(Gtk.ToggleButton):
     def __init__(self, text):
         Gtk.ToggleButton.__init__(self)
