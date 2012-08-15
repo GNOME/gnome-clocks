@@ -244,10 +244,10 @@ class Alarm (Clock):
 
 class Stopwatch (Clock):
 
-    # State
-    # Reset: 0
-    # Running: 1
-    # Stopped: 2
+    class State:
+        RESET = 0
+        RUNNING = 1
+        STOPPED = 2
 
     def __init__ (self):
         Clock.__init__ (self, _("Stopwatch"))
@@ -291,7 +291,7 @@ class Stopwatch (Clock):
         center.pack_start (Gtk.Box (), True, True, 41)
         center.pack_start (hbox, False, False, 0)
 
-        self.state = 0
+        self.state = Stopwatch.State.RESET
         self.g_id = 0
         self.start_time = 0
         self.time_diff = 0
@@ -305,15 +305,15 @@ class Stopwatch (Clock):
         self.rightButton.connect("clicked", self._on_right_button_clicked)
 
     def _on_left_button_clicked (self, widget):
-        if self.state == 0 or self.state == 2:
-            self.state = 1
+        if self.state == Stopwatch.State.RESET or self.state == Stopwatch.State.STOPPED:
+            self.state = Stopwatch.State.RUNNING
             self.start()
             self.leftLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Stop")))
             self.rightLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Lap")))
             self.leftButton.get_style_context ().add_class ("clocks-stop")
             self.rightButton.set_sensitive(True)
-        elif self.state == 1:
-            self.state = 2
+        elif self.state == Stopwatch.State.RUNNING:
+            self.state = Stopwatch.State.STOPPED
             self.stop()
             self.leftLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Continue")))
             self.rightLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Reset")))
@@ -321,10 +321,10 @@ class Stopwatch (Clock):
             self.leftButton.get_style_context ().add_class ("clocks-start")
 
     def _on_right_button_clicked (self, widget):
-        if self.state == 1:
+        if self.state == Stopwatch.State.RUNNING:
             pass
-        if self.state == 2:
-            self.state = 0
+        if self.state == Stopwatch.State.STOPPED:
+            self.state = Stopwatch.State.RESET
             self.time_diff = 0
             self.leftLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Start")))
             self.leftButton.get_style_context ().add_class ("clocks-start")
@@ -358,16 +358,16 @@ class Stopwatch (Clock):
 
 class Timer (Clock):
 
-  #State
-  #Zero: 0
-  #Running: 1
-  #Paused: 2
+    class State:
+        STOPPED = 0
+        RUNNING = 1
+        PAUSED = 2
 
     def __init__ (self):
         Clock.__init__ (self, _("Timer"))
-        self.state = 0
+        self.state = Timer.State.STOPPED
         self.g_id = 0
-        #
+
         self.alert = Alert()
         self.vbox = Gtk.Box (orientation = Gtk.Orientation.VERTICAL)
         box = Gtk.Box ()
@@ -413,17 +413,18 @@ class Timer (Clock):
             seconds = self.timer_welcome_screen.seconds.get_value()
             self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, seconds))
             self.time = (hours * 60 * 60) + (minutes * 60) + seconds
-            self.state = 1
+            self.state = Timer.State.RUNNING
             self.g_id = GObject.timeout_add(1000, self.count)
 
     def reset(self):
-        self.state = 0
+        self.state = Timer.State.STOPPED
         self.end_timer_screen()
         if self.g_id != 0:
             GObject.source_remove(self.g_id)
         self.g_id = 0
 
     def pause(self):
+        self.state = Timer.State.PAUSED
         GObject.source_remove(self.g_id)
         self.g_id = 0
 
@@ -438,7 +439,7 @@ class Timer (Clock):
         self.timer_screen.timerLabel.set_markup (TIMER_LABEL_MARKUP%(hours, minutes, seconds))
         if hours == 00 and minutes == 00 and seconds == 00:
             self.alert.do_alert("Ta Da !")
-            self.state = 0
+            self.state = Timer.State.STOPPED
             self.timerbox.remove(self.timer_screen)
             self.show_timer_welcome_screen()
             if self.g_id != 0:
