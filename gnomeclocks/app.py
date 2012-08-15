@@ -20,14 +20,17 @@
 
 import os
 
+from gettext import gettext as _
+
 from gi.repository import Gtk, Gdk, GObject, Gio
+
 from clocks import World, Alarm, Timer, Stopwatch
 from utils import Dirs
 
 
 class Window(Gtk.ApplicationWindow):
     def __init__(self, app):
-        Gtk.ApplicationWindow.__init__(self, title="Clocks", application=app, hide_titlebar_when_maximized=True)
+        Gtk.ApplicationWindow.__init__(self, title=_("Clocks"), application=app, hide_titlebar_when_maximized=True)
 
         self.set_wmclass("Clocks", "Clocks")
 
@@ -95,11 +98,11 @@ class Window(Gtk.ApplicationWindow):
         self.show()
 
     def show_about(self):
-        about = Gtk.AboutDialog(title="About GNOME Clocks")
-        about.set_title("About Clocks")
+        about = Gtk.AboutDialog(title=_("About GNOME Clocks"))
+        about.set_title(_("About Clocks"))
         about.set_program_name("GNOME Clocks")
         about.set_copyright("(c) Collabora Ltd\n(c) Emily Gonyer\n(c) Eslam Mostafa")
-        about.set_comments("Clocks is a clock application for the GNOME Desktop")
+        about.set_comments(_("Clocks is a clock application for the GNOME Desktop"))
         about.set_authors(["Seif Lotfy, Emily Gonyer, Eslam Mostafa"])
         about.connect("response", lambda w, r: about.destroy())
         about.set_wrap_license("true")
@@ -291,8 +294,8 @@ class ClocksApplication(Gtk.Application):
 
         menu = Gio.Menu()
 
-        menu.append("About Clocks", "app.about")
-        menu.append("Quit", "app.quit")
+        menu.append(_("About Clocks"), "app.about")
+        menu.append(_("Quit"), "app.quit")
         self.set_app_menu(menu)
 
         about_action = Gio.SimpleAction.new("about", None)

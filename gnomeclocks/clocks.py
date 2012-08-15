@@ -18,6 +18,8 @@
  Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 """
 
+from gettext import gettext as _
+
 from gi.repository import Gtk, GObject, Gio, Gdk, Gst, Notify, cairo
 from gi.repository.GdkPixbuf import Pixbuf
 
@@ -84,7 +86,7 @@ class Clock (Gtk.EventBox):
 
 class World (Clock):
     def __init__ (self):
-        Clock.__init__ (self, "World", True)
+        Clock.__init__ (self, _("World"), True)
         self.addButton = None
 
         self.liststore = liststore = Gtk.ListStore(Pixbuf, str, GObject.TYPE_PYOBJECT)
@@ -182,7 +184,7 @@ class World (Clock):
 
 class Alarm (Clock):
     def __init__ (self):
-        Clock.__init__ (self, "Alarm", True)
+        Clock.__init__ (self, _("Alarm"), True)
 
         self.liststore = liststore = Gtk.ListStore(Pixbuf, str, GObject.TYPE_PYOBJECT)
         self.iconview = iconview = Gtk.IconView.new()
@@ -252,7 +254,7 @@ class Stopwatch (Clock):
     # Stopped: 2
 
     def __init__ (self):
-        Clock.__init__ (self, "Stopwatch")
+        Clock.__init__ (self, _("Stopwatch"))
         vbox = Gtk.Box (orientation = Gtk.Orientation.VERTICAL)
         self.add (vbox)
 
@@ -283,9 +285,9 @@ class Stopwatch (Clock):
         hbox.pack_start (self.rightButton, False, False, 0)
         hbox.pack_start (Gtk.Box(), True, False, 0)
 
-        self.leftLabel.set_markup (STOPWATCH_BUTTON_MARKUP%("Start"))
+        self.leftLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Start")))
         self.leftLabel.set_padding (6, 0)
-        self.rightLabel.set_markup (STOPWATCH_BUTTON_MARKUP%("Lap"))
+        self.rightLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Lap")))
         self.rightLabel.set_padding (6, 0)
 
         center.pack_start (self.stopwatchLabel, False, False, 0)
@@ -310,15 +312,15 @@ class Stopwatch (Clock):
         if self.state == 0 or self.state == 2:
             self.state = 1
             self.start()
-            self.leftLabel.set_markup (STOPWATCH_BUTTON_MARKUP%("Stop"))
-            self.rightLabel.set_markup (STOPWATCH_BUTTON_MARKUP%("Lap"))
+            self.leftLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Stop")))
+            self.rightLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Lap")))
             self.leftButton.get_style_context ().add_class ("clocks-stop")
             self.rightButton.set_sensitive(True)
         elif self.state == 1:
             self.state = 2
             self.stop()
-            self.leftLabel.set_markup (STOPWATCH_BUTTON_MARKUP%("Continue"))
-            self.rightLabel.set_markup (STOPWATCH_BUTTON_MARKUP%("Reset"))
+            self.leftLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Continue")))
+            self.rightLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Reset")))
             self.leftButton.get_style_context ().remove_class ("clocks-stop")
             self.leftButton.get_style_context ().add_class ("clocks-start")
 
@@ -328,7 +330,7 @@ class Stopwatch (Clock):
         if self.state == 2:
             self.state = 0
             self.time_diff = 0
-            self.leftLabel.set_markup (STOPWATCH_BUTTON_MARKUP%("Start"))
+            self.leftLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Start")))
             self.leftButton.get_style_context ().add_class ("clocks-start")
             #self.rightButton.get_style_context ().add_class ("clocks-lap")
             self.stopwatchLabel.set_markup (STOPWATCH_LABEL_MARKUP%(0,0))
@@ -366,7 +368,7 @@ class Timer (Clock):
   #Paused: 2
 
     def __init__ (self):
-        Clock.__init__ (self, "Timer")
+        Clock.__init__ (self, _("Timer"))
         self.state = 0
         self.g_id = 0
         #
@@ -399,7 +401,7 @@ class Timer (Clock):
 
     def end_timer_screen(self):
         #self.timer_screen.rightButton.get_style_context ().add_class ("clocks-lap")
-        self.timer_screen.leftLabel.set_markup (TIMER_BUTTON_MARKUP%("Pause"))
+        self.timer_screen.leftLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Pause")))
         self.timerbox.remove(self.timer_screen)
         self.show_timer_welcome_screen()
         self.timer_welcome_screen.hours.set_value(0)

@@ -17,6 +17,7 @@
  Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 """
 
+from gettext import gettext as _
 
 from gi.repository import Gtk, Gio, Gdk
 
@@ -138,9 +139,9 @@ class TimerScreen (Gtk.Box):
         hbox.pack_start (Gtk.Box(), True, True, 24)
         hbox.pack_start (self.rightButton, True, True, 0)
 
-        self.leftLabel.set_markup (TIMER_BUTTON_MARKUP%("Pause"))
+        self.leftLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Pause")))
         self.leftLabel.set_padding (6, 0)
-        self.rightLabel.set_markup (TIMER_BUTTON_MARKUP%("Reset"))
+        self.rightLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Reset")))
         self.rightLabel.set_padding (6, 0)
 
         self.leftButton.connect('clicked', self._on_left_button_clicked)
@@ -157,13 +158,13 @@ class TimerScreen (Gtk.Box):
         if self.timer.state == 1: #Pause
             self.timer.state = 2
             self.timer.pause()
-            self.leftLabel.set_markup(TIMER_BUTTON_MARKUP%("Continue"))
+            self.leftLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Continue")))
             #self.leftButton.get_style_context ().remove_class ("clocks-stop")
             self.leftButton.get_style_context ().add_class ("clocks-start")
         elif self.timer.state == 2: #Continue
             self.timer.state = 1
             self.timer.cont()
-            self.leftLabel.set_markup(TIMER_BUTTON_MARKUP%("Pause"))
+            self.leftLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Pause")))
             self.leftButton.get_style_context ().remove_class ("clocks-start")
             #self.leftButton.get_style_context ().add_class ("clocks-lap")
 
@@ -198,7 +199,7 @@ class TimerWelcomeScreen (Gtk.Box):
         self.startButton.set_size_request(200, -1)
         self.startButton.get_style_context ().add_class ("clocks-start")
         self.startLabel = Gtk.Label()
-        self.startLabel.set_markup (TIMER_BUTTON_MARKUP%("Start"))
+        self.startLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Start")))
         self.startLabel.set_padding (6, 0)
         self.startButton.add(self.startLabel)
         self.startButton.connect('clicked', self._on_start_clicked)

@@ -37,3 +37,11 @@ class Dirs:
         except:
             path = "../data"
         return path
+
+    @staticmethod
+    def get_locale_dir():
+        try:
+            path = os.environ['GNOME_CLOCKS_LOCALE_PATH']
+        except:
+            path = "locale"
+        return path

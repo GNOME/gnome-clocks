@@ -18,10 +18,14 @@
  Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 """
 
+from gettext import gettext as _
+
 from gi.repository import Gtk, Gdk, GdkPixbuf, GObject, Gio, PangoCairo, Pango, GWeather
+
 from storage import Location
 from alarm import AlarmItem
 from utils import Dirs
+
 import os
 import cairo, time
 
@@ -32,7 +36,7 @@ class NewWorldClockDialog (Gtk.Dialog):
                     None, (GObject.TYPE_PYOBJECT,))}
 
     def __init__ (self, parent):
-        Gtk.Dialog.__init__(self, "Add New Clock", parent)
+        Gtk.Dialog.__init__(self, _("Add New Clock"), parent)
         self.set_transient_for(parent)
         self.set_modal(True)
         self.set_border_width (9)
@@ -43,7 +47,7 @@ class NewWorldClockDialog (Gtk.Dialog):
         area.pack_start(box, True, True, 9)
 
         self.label = Gtk.Label()
-        self.label.set_markup("Search for a city or a time zone...")
+        self.label.set_markup(_("Search for a city or a time zone..."))
         self.label.set_alignment(0.0, 0.5)
 
         world = GWeather.Location.new_world(True)
@@ -52,14 +56,14 @@ class NewWorldClockDialog (Gtk.Dialog):
         self.clear_gicon = Gio.ThemedIcon.new_with_default_fallbacks('edit-clear-symbolic')
         self.searchEntry.set_icon_from_gicon(Gtk.EntryIconPosition.SECONDARY, self.find_gicon)
         #self.searchEntry.set_can_focus(False)
-        self.searchEntry.set_placeholder_text("Search for a city or a time zone...")
+        self.searchEntry.set_placeholder_text(_("Search for a city or a time zone..."))
 
-        header = Gtk.Label("Add New Clock")
-        header.set_markup("<span size='x-large'><b>Add a New World Clock</b></span>")
+        header = Gtk.Label(_("Add New Clock"))
+        header.set_markup("<span size='x-large'><b>%s</b></span>" % (_("Add a New World Clock")))
 
         btnBox = Gtk.Box()
 
-        self.add_buttons("Cancel", 0, "Save", 1)
+        self.add_buttons(_("Cancel"), 0, _("Save"), 1)
         widget = self.get_widget_for_response (1)
         widget.set_sensitive (False)
 
@@ -408,11 +412,11 @@ class NewAlarmDialog (Gtk.Dialog):
             table1.attach (points, 2, 3, 0, 1)
             table1.attach (minuteselect, 3, 4, 0, 1)
 
-        name = Gtk.Label ("Name")
+        name = Gtk.Label(_("Name"))
         name.set_alignment(1.0, 0.5)
-        repeat = Gtk.Label ("Repeat Every")
+        repeat = Gtk.Label(_("Repeat Every"))
         repeat.set_alignment(1.0, 0.5)
-        sound = Gtk.Label ("Sound")
+        sound = Gtk.Label(_("Sound"))
         sound.set_alignment(1.0, 0.5)
 
         table1.attach(name, 0, 1, 1, 2)
@@ -420,7 +424,7 @@ class NewAlarmDialog (Gtk.Dialog):
         #table1.attach(sound, 0, 1, 3, 4)
 
         self.entry = entry = Gtk.Entry ()
-        entry.set_text("New Alarm")
+        entry.set_text(_("New Alarm"))
         entry.set_editable (True)
         if cf == "12h":
             table1.attach(entry, 1, 5, 1, 2)

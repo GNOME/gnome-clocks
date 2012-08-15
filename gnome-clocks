@@ -29,15 +29,28 @@ if os.path.exists("gnome-clocks.doap"):
     ENV_PATHS = {
         "GNOME_CLOCKS_DATA_PATH": "data/",
         "GNOME_CLOCKS_IMAGE_PATH": "data/",
+        "GNOME_CLOCKS_LOCALE_PATH": "locale/",
     }
 else:
     ENV_PATHS = {
         "GNOME_CLOCKS_DATA_PATH": "/usr/share/gnome-clocks/",
         "GNOME_CLOCKS_IMAGE_PATH": "/usr/share/gnome-clocks/pixmaps/",
+        "GNOME_CLOCKS_LOCALE_PATH": "/usr/share/locale/",
     }
 
 for var, path in ENV_PATHS.iteritems():
     os.environ.setdefault(var, path)
+
+# Setup i18n support
+import locale
+import gettext
+
+from gnomeclocks.utils import Dirs
+
+locale_domain = "gnome-clocks"
+locale.setlocale(locale.LC_ALL,'')
+gettext.bindtextdomain(locale_domain, Dirs.get_locale_dir ())
+gettext.textdomain(locale_domain)
 
 from gnomeclocks.app import ClocksApplication
 
