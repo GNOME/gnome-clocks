@@ -85,7 +85,7 @@ class AlarmItem:
                 h = self.h - 12
         else:
             h = self.h
-        return "%2i:%2i %s" % (h, self.m, self.p)
+        return "%2i:%02i %s" % (h, self.m, self.p)
 
 
     def get_time_24h_as_string(self):
@@ -95,7 +95,7 @@ class AlarmItem:
                 h = 12
         else:
             h = self.h
-        return "%2i:%2i" % (h, self.m)
+        return "%2i:%02i" % (h, self.m)
 
     def set_alarm_name(self, name):
         self.name = name

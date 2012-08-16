@@ -385,6 +385,7 @@ class NewAlarmDialog (Gtk.Dialog):
         minute_spinbutton = Gtk.SpinButton()
         minute_spinbutton.set_increments(1.0, 1.0)
         minute_spinbutton.set_wrap(True)
+        minute_spinbutton.connect('output', self.show_leading_zeros)
 
         if cf == "12h":
             if p == "PM":
@@ -399,8 +400,6 @@ class NewAlarmDialog (Gtk.Dialog):
         minute_spinbutton.set_range(0.0, 59.0)
         minute_spinbutton.set_value(m)
         self.minuteselect = minuteselect = minute_spinbutton
-
-
 
         if cf == "12h":
             self.ampm = ampm = Gtk.ComboBoxText()
@@ -473,6 +472,10 @@ class NewAlarmDialog (Gtk.Dialog):
 
         soundbox = Gtk.ComboBox ()
         #table1.attach(soundbox, 1, 3, 3, 4)
+
+    def show_leading_zeros(self, spin_button):
+        spin_button.set_text('{:02d}'.format(spin_button.get_value_as_int()))
+        return True
 
     def get_system_clock_format(self):
         settings = Gio.Settings.new('org.gnome.desktop.interface')
