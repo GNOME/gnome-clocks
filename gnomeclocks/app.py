@@ -29,11 +29,8 @@ class Window(Gtk.ApplicationWindow):
     def __init__(self, app):
         Gtk.ApplicationWindow.__init__(self, title=_("Clocks"), application=app, hide_titlebar_when_maximized=True)
 
-        self.set_wmclass("Clocks", "Clocks")
-
         css_provider = Gtk.CssProvider()
         css_provider.load_from_path(os.path.join(Dirs.get_data_dir(), "gtk-style.css"))
-        self.set_icon_from_file(os.path.join(Dirs.get_image_dir(), 'preferences-system-time.png'))
         context = Gtk.StyleContext()
         context.add_provider_for_screen(Gdk.Screen.get_default(),
                                          css_provider,
