@@ -269,9 +269,9 @@ class Stopwatch (Clock):
         self.rightButton.set_size_request(200, -1)
         self.rightLabel = Gtk.Label ()
         self.rightButton.add (self.rightLabel)
-
+        self.rightButton.set_sensitive(False)
         self.leftButton.get_style_context ().add_class ("clocks-start")
-        #self.rightButton.get_style_context ().add_class ("clocks-lap")
+
 
         hbox.pack_start (Gtk.Box(), True, False, 0)
         hbox.pack_start (self.leftButton, False, False, 0)
@@ -281,7 +281,8 @@ class Stopwatch (Clock):
 
         self.leftLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Start")))
         self.leftLabel.set_padding (6, 0)
-
+        self.rightLabel.set_markup (STOPWATCH_BUTTON_MARKUP % (_("Reset")))
+        self.rightLabel.set_padding (6, 0)
 
         center.pack_start (self.stopwatchLabel, False, False, 0)
         space = Gtk.EventBox()
