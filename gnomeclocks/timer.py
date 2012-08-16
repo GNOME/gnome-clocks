@@ -190,8 +190,10 @@ class TimerWelcomeScreen (Gtk.Box):
         seconds = self.seconds.get_value()
         if hours == 0 and minutes == 0 and seconds == 0:
             self.startButton.set_sensitive(False)
+            self.startButton.get_style_context ().remove_class ("clocks-go")
         else:
             self.startButton.set_sensitive(True)
+            self.startButton.get_style_context ().add_class ("clocks-go")
 
     def _on_start_clicked(self, data):
         if self.timer.state == 0:
