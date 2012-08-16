@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-15 15:51+0200\n"
+"POT-Creation-Date: 2012-08-16 18:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,63 +17,103 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../gnomeclocks/widgets.py:39 ../gnomeclocks/widgets.py:61
+#. self.searchEntry.set_can_focus(False)
+#: ../gnomeclocks/widgets.py:37 ../gnomeclocks/widgets.py:58
 msgid "Add New Clock"
 msgstr ""
 
-#. self.searchEntry.set_can_focus(False)
-#: ../gnomeclocks/widgets.py:50 ../gnomeclocks/widgets.py:59
-msgid "Search for a city or a time zone..."
+#: ../gnomeclocks/widgets.py:48
+msgid "Search for a city:"
 msgstr ""
 
-#: ../gnomeclocks/widgets.py:62
+#: ../gnomeclocks/widgets.py:59
 msgid "Add a New World Clock"
 msgstr ""
 
-#: ../gnomeclocks/widgets.py:66
+#: ../gnomeclocks/widgets.py:63 ../gnomeclocks/widgets.py:369
 msgid "Cancel"
 msgstr ""
 
-#: ../gnomeclocks/widgets.py:66
-msgid "Save"
+#: ../gnomeclocks/widgets.py:63
+msgid "Add"
 msgstr ""
 
-#: ../gnomeclocks/widgets.py:415
-msgid "Name"
-msgstr ""
-
-#: ../gnomeclocks/widgets.py:417
-msgid "Repeat Every"
-msgstr ""
-
-#: ../gnomeclocks/widgets.py:419
-msgid "Sound"
-msgstr ""
-
-#: ../gnomeclocks/widgets.py:427
+#: ../gnomeclocks/widgets.py:353 ../gnomeclocks/widgets.py:424
 msgid "New Alarm"
 msgstr ""
 
+#: ../gnomeclocks/widgets.py:369
+msgid "Save"
+msgstr ""
+
+#: ../gnomeclocks/widgets.py:377
+msgid "Time"
+msgstr ""
+
+#: ../gnomeclocks/widgets.py:412
+msgid "Name"
+msgstr ""
+
+#: ../gnomeclocks/widgets.py:414
+msgid "Repeat Every"
+msgstr ""
+
+#: ../gnomeclocks/widgets.py:416
+msgid "Sound"
+msgstr ""
+
+#: ../gnomeclocks/widgets.py:431
+msgid "Mon"
+msgstr ""
+
+#: ../gnomeclocks/widgets.py:433
+msgid "Tue"
+msgstr ""
+
+#: ../gnomeclocks/widgets.py:435
+msgid "Wed"
+msgstr ""
+
+#: ../gnomeclocks/widgets.py:437
+msgid "Thu"
+msgstr ""
+
+#: ../gnomeclocks/widgets.py:439
+msgid "Fri"
+msgstr ""
+
+#: ../gnomeclocks/widgets.py:441
+msgid "Sat"
+msgstr ""
+
+#: ../gnomeclocks/widgets.py:443
+msgid "Sun"
+msgstr ""
+
+#: ../gnomeclocks/widgets.py:601 ../gnomeclocks/widgets.py:620
+msgid "Select <b>New</b> to add a world clock"
+msgstr ""
+
 #. self.timer_screen.rightButton.get_style_context ().add_class ("clocks-lap")
-#: ../gnomeclocks/timer.py:142 ../gnomeclocks/timer.py:167
-#: ../gnomeclocks/clocks.py:404
+#: ../gnomeclocks/timer.py:118 ../gnomeclocks/timer.py:143
+#: ../gnomeclocks/clocks.py:397
 msgid "Pause"
 msgstr ""
 
-#: ../gnomeclocks/timer.py:144 ../gnomeclocks/clocks.py:323
+#: ../gnomeclocks/timer.py:120 ../gnomeclocks/clocks.py:316
 msgid "Reset"
 msgstr ""
 
-#: ../gnomeclocks/timer.py:161 ../gnomeclocks/clocks.py:322
+#: ../gnomeclocks/timer.py:137 ../gnomeclocks/clocks.py:315
 msgid "Continue"
 msgstr ""
 
-#: ../gnomeclocks/timer.py:202 ../gnomeclocks/clocks.py:288
-#: ../gnomeclocks/clocks.py:333
+#: ../gnomeclocks/timer.py:178 ../gnomeclocks/clocks.py:282
+#: ../gnomeclocks/clocks.py:326
 msgid "Start"
 msgstr ""
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:33
+#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:32
 msgid "Clocks"
 msgstr ""
 
@@ -85,35 +125,31 @@ msgstr ""
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr ""
 
-#: ../gnomeclocks/clocks.py:89
+#: ../gnomeclocks/clocks.py:83
 msgid "World"
 msgstr ""
 
-#: ../gnomeclocks/clocks.py:187
+#: ../gnomeclocks/clocks.py:181
 msgid "Alarm"
 msgstr ""
 
-#: ../gnomeclocks/clocks.py:257
+#: ../gnomeclocks/clocks.py:251
 msgid "Stopwatch"
 msgstr ""
 
-#: ../gnomeclocks/clocks.py:290 ../gnomeclocks/clocks.py:316
-msgid "Lap"
-msgstr ""
-
-#: ../gnomeclocks/clocks.py:315
+#: ../gnomeclocks/clocks.py:308
 msgid "Stop"
 msgstr ""
 
-#: ../gnomeclocks/clocks.py:371
+#: ../gnomeclocks/clocks.py:364
 msgid "Timer"
 msgstr ""
 
-#: ../gnomeclocks/app.py:101
+#: ../gnomeclocks/app.py:100
 msgid "About GNOME Clocks"
 msgstr ""
 
-#: ../gnomeclocks/app.py:102 ../gnomeclocks/app.py:297
+#: ../gnomeclocks/app.py:101 ../gnomeclocks/app.py:295
 msgid "About Clocks"
 msgstr ""
 
@@ -121,6 +157,10 @@ msgstr ""
 msgid "Clocks is a clock application for the GNOME Desktop"
 msgstr ""
 
-#: ../gnomeclocks/app.py:298
+#: ../gnomeclocks/app.py:158
+msgid "  New  "
+msgstr ""
+
+#: ../gnomeclocks/app.py:296
 msgid "Quit"
 msgstr ""
