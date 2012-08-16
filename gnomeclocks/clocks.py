@@ -270,8 +270,8 @@ class Stopwatch (Clock):
         self.rightLabel = Gtk.Label ()
         self.rightButton.add (self.rightLabel)
         self.rightButton.set_sensitive(False)
-        self.leftButton.get_style_context ().add_class ("clocks-start")
-
+        self.leftButton.get_style_context ().add_class ("clocks-go")
+        #self.rightButton.get_style_context ().add_class ("clocks-lap")
 
         hbox.pack_start (Gtk.Box(), True, False, 0)
         hbox.pack_start (self.leftButton, False, False, 0)
@@ -316,7 +316,7 @@ class Stopwatch (Clock):
             self.leftLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Continue")))
             self.rightLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Reset")))
             self.leftButton.get_style_context ().remove_class ("clocks-stop")
-            self.leftButton.get_style_context ().add_class ("clocks-start")
+            self.leftButton.get_style_context ().add_class ("clocks-go")
 
     def _on_right_button_clicked (self, widget):
         if self.state == Stopwatch.State.RUNNING:
@@ -325,7 +325,7 @@ class Stopwatch (Clock):
             self.state = Stopwatch.State.RESET
             self.time_diff = 0
             self.leftLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Start")))
-            self.leftButton.get_style_context ().add_class ("clocks-start")
+            self.leftButton.get_style_context ().add_class ("clocks-go")
             #self.rightButton.get_style_context ().add_class ("clocks-lap")
             self.stopwatchLabel.set_markup (STOPWATCH_LABEL_MARKUP%(0,0))
             self.rightButton.set_sensitive(False)

@@ -136,12 +136,12 @@ class TimerScreen (Gtk.Box):
             self.timer.pause()
             self.leftLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Continue")))
             #self.leftButton.get_style_context ().remove_class ("clocks-stop")
-            self.leftButton.get_style_context ().add_class ("clocks-start")
+            self.leftButton.get_style_context ().add_class ("clocks-go")
         elif self.timer.state == 2: #Continue
             self.timer.state = 1
             self.timer.cont()
             self.leftLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Pause")))
-            self.leftButton.get_style_context ().remove_class ("clocks-start")
+            self.leftButton.get_style_context ().remove_class ("clocks-go")
             #self.leftButton.get_style_context ().add_class ("clocks-lap")
 
 class TimerWelcomeScreen (Gtk.Box):
@@ -173,7 +173,7 @@ class TimerWelcomeScreen (Gtk.Box):
         self.startButton = Gtk.Button()
         self.startButton.set_sensitive(False)
         self.startButton.set_size_request(200, -1)
-        self.startButton.get_style_context ().add_class ("clocks-start")
+        self.startButton.get_style_context ().add_class ("clocks-go")
         self.startLabel = Gtk.Label()
         self.startLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Start")))
         self.startLabel.set_padding (6, 0)
