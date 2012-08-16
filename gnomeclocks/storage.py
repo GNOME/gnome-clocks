@@ -79,4 +79,3 @@ class WorldClockStorage():
         f.close()
 
 worldclockstorage = WorldClockStorage ()
-worldclockstorage.delete_all_clocks()
