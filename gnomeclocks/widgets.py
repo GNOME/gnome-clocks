@@ -37,12 +37,10 @@ class NewWorldClockDialog (Gtk.Dialog):
         Gtk.Dialog.__init__(self, _("Add New Clock"), parent)
         self.set_transient_for(parent)
         self.set_modal(True)
-        self.set_border_width (9)
         self.set_size_request(400,-1)
         box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
-        box.set_spacing(3)
         area = self.get_content_area()
-        area.pack_start(box, True, True, 9)
+        area.pack_start(box, True, True, 0)
 
         self.label = Gtk.Label()
         self.label.set_markup(_("Search for a city:"))
@@ -65,9 +63,10 @@ class NewWorldClockDialog (Gtk.Dialog):
         widget.set_sensitive (False)
 
         box.pack_start(header, True, True, 0)
-        box.pack_start(Gtk.Label(), True, True, 3)
+        box.pack_start(Gtk.Label(), True, True, 1)
         box.pack_start(self.label, False, False, 0)
         box.pack_start(self.searchEntry, False, False, 9)
+        box.set_border_width(5)
 
         self.searchEntry.connect("activate", self._set_city)
         self.searchEntry.connect("changed", self._set_city)
