@@ -104,6 +104,7 @@ class Window(Gtk.ApplicationWindow):
         about.set_copyright("(c) Collabora Ltd\n(c) Emily Gonyer\n(c) Eslam Mostafa")
         about.set_comments(_("Clocks is a clock application for the GNOME Desktop"))
         about.set_authors(["Seif Lotfy, Emily Gonyer, Eslam Mostafa"])
+        about.set_translator_credits(_("translator-credits"))
         about.connect("response", lambda w, r: about.destroy())
         about.set_wrap_license("true")
         about.set_license_type(Gtk.License.GPL_2_0)
