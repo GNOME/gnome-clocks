@@ -121,7 +121,6 @@ class World (Clock):
 
     def load_clocks(self):
         self.clocks = worldclockstorage.load_clocks ()
-        print self.clocks
         if len(self.clocks) == 0:
             self.load_empty_clocks_view ()
         else:
@@ -337,7 +336,6 @@ class Stopwatch (Clock):
         GObject.source_remove(self.g_id)
         self.g_id = 0
         self.time_diff = self.time_diff + (time.time() - self.start_time)
-        #print self.time_diff
 
     def reset(self):
         self.time_diff = 0
@@ -457,5 +455,5 @@ class Alert:
             playbin.set_property('uri', 'file:///usr/share/sounds/gnome/default/alerts/glass.ogg')
             playbin.set_state(Gst.State.PLAYING)
         else:
-            print "error"
+            print "Error: Could not trigger Alert"
 

@@ -271,7 +271,6 @@ class DigitalClockDrawing (Gtk.DrawingArea):
         self.show_all()
 
     def render(self, text, img, isDay):
-        print "updating"
         self.surface = cairo.ImageSurface.create_from_png(img)
         ctx = cairo.Context(self.surface)
         ctx.scale(1.0, 1.0)
