@@ -414,8 +414,7 @@ class Timer (Clock):
         self.timer_welcome_screen.hours.set_value(0)
         self.timer_welcome_screen.minutes.set_value(0)
         self.timer_welcome_screen.seconds.set_value(0)
-        self.timer_welcome_screen.startButton.set_sensitive(False)
-        self.timer_welcome_screen.hours.down.set_sensitive(False)
+        self.timer_welcome_screen.update_start_button_status()
 
     def start(self):
         if self.g_id == 0:

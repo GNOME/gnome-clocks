@@ -169,7 +169,6 @@ class TimerWelcomeScreen (Gtk.Box):
         self.startButton = Gtk.Button()
         self.startButton.set_sensitive(False)
         self.startButton.set_size_request(200, -1)
-        self.startButton.get_style_context ().add_class ("clocks-go")
         self.startLabel = Gtk.Label()
         self.startLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Start")))
         self.startLabel.set_padding (6, 0)
