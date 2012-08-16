@@ -58,10 +58,11 @@ class Clock (Gtk.EventBox):
                     'show-clock': (GObject.SignalFlags.RUN_LAST,
                     None, (GObject.TYPE_PYOBJECT,))}
 
-    def __init__ (self, label, hasNew = False):
+    def __init__ (self, label, hasNew = False, hasSelectionMode = False):
         Gtk.EventBox.__init__ (self)
         self.button = ToggleButton (label)
         self.hasNew = hasNew
+        self.hasSelectionMode = hasSelectionMode
         self.get_style_context ().add_class ('grey-bg')
 
     def open_new_dialog(self):
@@ -78,7 +79,7 @@ class Clock (Gtk.EventBox):
 
 class World (Clock):
     def __init__ (self):
-        Clock.__init__ (self, _("World"), True)
+        Clock.__init__ (self, _("World"), True, True)
         self.addButton = None
 
         self.liststore = liststore = Gtk.ListStore(Pixbuf, str, GObject.TYPE_PYOBJECT)
@@ -175,7 +176,7 @@ class World (Clock):
 
 class Alarm (Clock):
     def __init__ (self):
-        Clock.__init__ (self, _("Alarm"), True)
+        Clock.__init__ (self, _("Alarm"), True, True)
 
         self.liststore = liststore = Gtk.ListStore(Pixbuf, str, GObject.TYPE_PYOBJECT)
         self.iconview = iconview = Gtk.IconView.new()

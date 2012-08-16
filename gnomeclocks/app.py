@@ -252,6 +252,18 @@ class ClocksToolbar(Gtk.Toolbar):
                         self.newButton.set_sensitive(False)
                         self.newButton.set_size_request(width, -1)
                         self.newButton.get_children()[0].hide()
+                    if view.hasSelectionMode:
+                        self.applyButton.get_children()[0].show_all()
+                        self.applyButton.show_all()
+                        self.applyButton.set_relief(Gtk.ReliefStyle.NORMAL)
+                        self.applyButton.set_sensitive(True)
+                    else:
+                        width = self.applyButton.get_allocation().width
+                        self.applyButton.set_relief(Gtk.ReliefStyle.NONE)
+                        self.applyButton.set_sensitive(False)
+                        self.applyButton.set_size_request(width, -1)
+                        self.applyButton.get_children()[0].hide()
+
             self.last_widget = widget
             self._busy = False
             self.emit("view-clock", self._buttonMap[widget])
