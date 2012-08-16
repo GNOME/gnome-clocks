@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-16 18:59+0200\n"
-"PO-Revision-Date: 2012-08-16 19:00+0200\n"
+"POT-Creation-Date: 2012-08-16 19:12+0200\n"
+"PO-Revision-Date: 2012-08-16 19:13+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -37,7 +37,7 @@ msgstr "Zegar światowy, budzik, stoper i minutnik"
 msgid "About GNOME Clocks"
 msgstr "O zegarze GNOME"
 
-#: ../gnomeclocks/app.py:101 ../gnomeclocks/app.py:295
+#: ../gnomeclocks/app.py:101 ../gnomeclocks/app.py:296
 msgid "About Clocks"
 msgstr "O zegarze"
 
@@ -45,11 +45,15 @@ msgstr "O zegarze"
 msgid "Clocks is a clock application for the GNOME Desktop"
 msgstr "Zegar jest programem do mierzenia czasu dla środowiska GNOME"
 
-#: ../gnomeclocks/app.py:158
+#: ../gnomeclocks/app.py:107
+msgid "translator-credits"
+msgstr "Aviary.pl <gnomepl@aviary.pl>, 2012"
+
+#: ../gnomeclocks/app.py:159
 msgid "  New  "
 msgstr "  Nowy  "
 
-#: ../gnomeclocks/app.py:296
+#: ../gnomeclocks/app.py:297
 msgid "Quit"
 msgstr "Zakończ"
 
@@ -65,29 +69,30 @@ msgstr "Budzik"
 msgid "Stopwatch"
 msgstr "Stoper"
 
-#: ../gnomeclocks/clocks.py:282 ../gnomeclocks/clocks.py:326
+#: ../gnomeclocks/clocks.py:282 ../gnomeclocks/clocks.py:327
 #: ../gnomeclocks/timer.py:178
 msgid "Start"
 msgstr "Rozpocznij"
 
-#: ../gnomeclocks/clocks.py:308
-msgid "Stop"
-msgstr "Zatrzymaj"
-
-#: ../gnomeclocks/clocks.py:315 ../gnomeclocks/timer.py:137
-msgid "Continue"
-msgstr "Kontynuuj"
-
-#: ../gnomeclocks/clocks.py:316 ../gnomeclocks/timer.py:120
+#: ../gnomeclocks/clocks.py:284 ../gnomeclocks/clocks.py:317
+#: ../gnomeclocks/timer.py:120
 msgid "Reset"
 msgstr "Przywróć"
 
-#: ../gnomeclocks/clocks.py:364
+#: ../gnomeclocks/clocks.py:309
+msgid "Stop"
+msgstr "Zatrzymaj"
+
+#: ../gnomeclocks/clocks.py:316 ../gnomeclocks/timer.py:137
+msgid "Continue"
+msgstr "Kontynuuj"
+
+#: ../gnomeclocks/clocks.py:365
 msgid "Timer"
 msgstr "Minutnik"
 
 #. self.timer_screen.rightButton.get_style_context ().add_class ("clocks-lap")
-#: ../gnomeclocks/clocks.py:397 ../gnomeclocks/timer.py:118
+#: ../gnomeclocks/clocks.py:398 ../gnomeclocks/timer.py:118
 #: ../gnomeclocks/timer.py:143
 msgid "Pause"
 msgstr "Wstrzymaj"
