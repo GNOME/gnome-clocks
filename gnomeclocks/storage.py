@@ -17,6 +17,7 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import os
+import errno
 import pickle
 from xdg import BaseDirectory
 from gi.repository import GWeather
@@ -54,22 +55,28 @@ class WorldClockStorage():
         f.close()
 
     def load_clocks(self):
+        clocks = []
         try:
-          f = open(DATA_PATH, "rb")
-          self.locations_dump = locations = pickle.load (f)
-          f.close ()
-          locations = locations.split("|")
-          clocks = []
-          for location in locations:
-              loc = location.split("---")
-              if self.searchEntry.set_city(loc[0], loc[1]):
-                  loc = self.searchEntry.get_location ()
-                  loc = Location(self.searchEntry.get_location ())
-                  clocks.append(loc)
-          return clocks
+            f = open(DATA_PATH, "rb")
+            self.locations_dump = locations = pickle.load (f)
+            f.close ()
+            locations = locations.split("|")
+            for location in locations:
+                loc = location.split("---")
+                if self.searchEntry.set_city(loc[0], loc[1]):
+                    loc = self.searchEntry.get_location ()
+                    loc = Location(self.searchEntry.get_location ())
+                    clocks.append(loc)
+        except IOError as e:
+            if e.errno == errno.ENOENT:
+                # File does not exist yet, that's ok
+                pass
+            else:
+                print "--", e
         except Exception, e:
-          print "--", e
-          return []
+            print "--", e
+
+        return clocks
 
     def delete_all_clocks(self):
         f = open(DATA_PATH, "w")
