@@ -21,7 +21,7 @@ from gi.repository import Gtk, Gio, Gdk
 TIMER = "<span font_desc=\"64.0\">%02i</span>"
 TIMER_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
 TIMER = "<span font_desc=\"64.0\">%02i</span>"
-TIMER_BUTTON_MARKUP = "<span font_desc=\"24.0\">%s</span>"
+TIMER_BUTTON_MARKUP = "<span font_desc=\"18.0\">%s</span>"
 
 
 class Spinner(Gtk.Box):
@@ -124,6 +124,7 @@ class TimerScreen (Gtk.Box):
         self.pack_start(hbox, False, False, 5)
 
     def _on_right_button_clicked(self, data):
+        self.leftLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Pause")))
         self.timer.reset()
 
     def _on_left_button_clicked(self, widget):

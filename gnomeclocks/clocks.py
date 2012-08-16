@@ -30,11 +30,10 @@ import pytz, time, os
 
 
 STOPWATCH_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i</span>"
-STOPWATCH_BUTTON_MARKUP = "<span font_desc=\"24.0\">%s</span>"
+STOPWATCH_BUTTON_MARKUP = "<span font_desc=\"18.0\">%s</span>"
 
 TIMER_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
 TIMER = "<span font_desc=\"64.0\">%02i</span>"
-TIMER_BUTTON_MARKUP = "<span font_desc=\"24.0\">%s</span>"
 
 class ToggleButton(Gtk.ToggleButton):
     def __init__(self, text):
@@ -408,7 +407,6 @@ class Timer (Clock):
         self.timerbox.show_all()
 
     def end_timer_screen(self):
-        self.timer_screen.leftLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Pause")))
         self.timerbox.remove(self.timer_screen)
         self.show_timer_welcome_screen()
         self.timer_welcome_screen.hours.set_value(0)
