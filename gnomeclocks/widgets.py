@@ -42,12 +42,12 @@ class NewWorldClockDialog (Gtk.Dialog):
         self.set_border_width (9)
         self.set_size_request(400,-1)
         box = Gtk.Box(orientation = Gtk.Orientation.VERTICAL)
-        box.set_spacing(9)
+        box.set_spacing(3)
         area = self.get_content_area()
         area.pack_start(box, True, True, 9)
 
         self.label = Gtk.Label()
-        self.label.set_markup(_("Search for a city or a time zone..."))
+        self.label.set_markup(_("Search for a city:"))
         self.label.set_alignment(0.0, 0.5)
 
         world = GWeather.Location.new_world(True)
@@ -56,14 +56,13 @@ class NewWorldClockDialog (Gtk.Dialog):
         self.clear_gicon = Gio.ThemedIcon.new_with_default_fallbacks('edit-clear-symbolic')
         self.searchEntry.set_icon_from_gicon(Gtk.EntryIconPosition.SECONDARY, self.find_gicon)
         #self.searchEntry.set_can_focus(False)
-        self.searchEntry.set_placeholder_text(_("Search for a city or a time zone..."))
 
         header = Gtk.Label(_("Add New Clock"))
-        header.set_markup("<span size='x-large'><b>%s</b></span>" % (_("Add a New World Clock")))
+        header.set_markup("<span size='medium'><b>%s</b></span>" % (_("Add a New World Clock")))
 
         btnBox = Gtk.Box()
 
-        self.add_buttons(_("Cancel"), 0, _("Save"), 1)
+        self.add_buttons(_("Cancel"), 0, _("Add"), 1)
         widget = self.get_widget_for_response (1)
         widget.set_sensitive (False)
 

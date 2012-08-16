@@ -283,8 +283,7 @@ class Stopwatch (Clock):
 
         self.leftLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Start")))
         self.leftLabel.set_padding (6, 0)
-        self.rightLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Lap")))
-        self.rightLabel.set_padding (6, 0)
+
 
         center.pack_start (self.stopwatchLabel, False, False, 0)
         space = Gtk.EventBox()
@@ -309,7 +308,7 @@ class Stopwatch (Clock):
             self.state = Stopwatch.State.RUNNING
             self.start()
             self.leftLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Stop")))
-            self.rightLabel.set_markup(STOPWATCH_BUTTON_MARKUP % (_("Lap")))
+
             self.leftButton.get_style_context ().add_class ("clocks-stop")
             self.rightButton.set_sensitive(True)
         elif self.state == Stopwatch.State.RUNNING:
