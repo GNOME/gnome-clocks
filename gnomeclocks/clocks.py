@@ -19,7 +19,7 @@
 from gi.repository import Gtk, GObject, Gio, Gdk, Gst, Notify, cairo
 from gi.repository.GdkPixbuf import Pixbuf
 
-from widgets import NewWorldClockDialog, DigitalClock, NewAlarmDialog, AlarmWidget, WorldEmpty
+from widgets import NewWorldClockDialog, DigitalClock, NewAlarmDialog, AlarmWidget, WorldEmpty, AlarmsEmpty
 from storage import worldclockstorage
 
 from datetime import datetime, timedelta
@@ -99,7 +99,6 @@ class World (Clock):
 
         self.scrolledwindow = scrolledwindow = Gtk.ScrolledWindow()
         scrolledwindow.add(iconview)
-        #self.add(scrolledwindow)
 
         iconview.connect ("selection-changed", self._on_selection_changed)
 
@@ -181,6 +180,8 @@ class Alarm (Clock):
         self.liststore = liststore = Gtk.ListStore(Pixbuf, str, GObject.TYPE_PYOBJECT)
         self.iconview = iconview = Gtk.IconView.new()
 
+        self.empty_view = AlarmsEmpty()
+
         iconview.set_model(liststore)
         iconview.set_spacing(3)
         iconview.set_pixbuf_column(0)
@@ -191,9 +192,8 @@ class Alarm (Clock):
         iconview.pack_start(renderer_text, True)
         iconview.add_attribute(renderer_text, "markup", 1)
 
-        scrolledwindow = Gtk.ScrolledWindow()
-        scrolledwindow.add(iconview)
-        self.add(scrolledwindow)
+        self.scrolledwindow = Gtk.ScrolledWindow()
+        self.scrolledwindow.add(iconview)
 
         self.alarms = []
         self.load_alarms()
@@ -218,6 +218,20 @@ class Alarm (Clock):
                     d = AlarmWidget(alarm.get_time_24h_as_string())
                 view_iter = self.liststore.append([d.drawing.pixbuf, "<b>" + alarm.get_alarm_name() + "</b>", d])
                 d.set_iter(self.liststore, view_iter)
+                self.load_alarms_view()
+        else:
+            self.load_empty_alarms_view ()
+
+    def load_alarms_view(self):
+        if self.empty_view in self.get_children():
+            self.remove(self.empty_view)
+        self.add(self.scrolledwindow)
+        self.show_all()
+
+    def load_empty_alarms_view(self):
+        if self.scrolledwindow in self.get_children():
+            self.remove(self.scrolledwindow)
+        self.add(self.empty_view)
         self.show_all()
 
     def add_alarm(self, alarm):
@@ -231,6 +245,9 @@ class Alarm (Clock):
         view_iter = self.liststore.append([d.drawing.pixbuf, "<b>" + alarm.get_alarm_name() + "</b>", d])
         d.set_iter(self.liststore, view_iter)
         self.show_all()
+        vevents = handler.load_vevents()
+        if vevents:
+            self.load_alarms_view()
 
     def open_new_dialog(self):
         parent = self.get_parent ().get_parent ().get_parent ()

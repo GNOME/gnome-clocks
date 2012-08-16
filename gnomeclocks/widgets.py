@@ -567,11 +567,11 @@ class AlarmsEmpty(Gtk.Box):
     def __init__(self):
         Gtk.Box.__init__(self)
         self.set_orientation(Gtk.Orientation.VERTICAL)
-        gicon = Gio.ThemedIcon.new_with_default_fallbacks("document-open-recent-symbolic")
+        gicon = Gio.ThemedIcon.new_with_default_fallbacks("alarm-symbolic")
         image = Gtk.Image.new_from_gicon(gicon, Gtk.IconSize.DIALOG)
         image.set_sensitive (False)
         text = Gtk.Label("")
-        text.set_markup("<span color='darkgrey'>" + _("Select <b>New</b> to add a world clock") + "</span>")
+        text.set_markup("<span color='darkgrey'>" + _("Select <b>New</b> to add an alarm") + "</span>")
         self.pack_start(Gtk.Label(""), True, True, 0)
         self.pack_start(image, False, False, 6)
         self.pack_start(text, False, False, 6)
