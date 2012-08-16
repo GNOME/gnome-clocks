@@ -18,8 +18,6 @@
  Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 """
 
-from gettext import gettext as _
-
 from gi.repository import Gtk, Gdk, GdkPixbuf, GObject, Gio, PangoCairo, Pango, GWeather
 
 from storage import Location
@@ -352,7 +350,7 @@ class NewAlarmDialog (Gtk.Dialog):
                     None, (GObject.TYPE_PYOBJECT,))}
 
     def __init__(self, parent):
-        Gtk.Dialog.__init__(self, "New Alarm", parent)
+        Gtk.Dialog.__init__(self, _("New Alarm"), parent)
         self.set_border_width (12)
         self.parent = parent
         self.set_transient_for(parent)
@@ -368,7 +366,7 @@ class NewAlarmDialog (Gtk.Dialog):
         table1.set_col_spacings(9)
         content_area = self.get_content_area ()
         content_area.pack_start(table1, True, True, 0)
-        self.add_buttons("Cancel", 0, "Save", 1)
+        self.add_buttons(_("Cancel"), 0, _("Save"), 1)
         self.connect("response", self.on_response)
         table1.set_border_width (5)
 
@@ -376,7 +374,7 @@ class NewAlarmDialog (Gtk.Dialog):
         h = t.tm_hour
         m = t.tm_min
         p = time.strftime("%p", t)
-        time_label = Gtk.Label ("Time")
+        time_label = Gtk.Label (_("Time"))
         time_label.set_alignment(1.0, 0.5)
         points = Gtk.Label (":")
         points.set_alignment(0.5, 0.5)
@@ -430,19 +428,19 @@ class NewAlarmDialog (Gtk.Dialog):
         else:
             table1.attach(entry, 1, 4, 1, 2)
 
-        buttond1 = Gtk.ToggleButton(label="Mon")
+        buttond1 = Gtk.ToggleButton(label=_("Mon"))
         buttond1.connect("clicked", self.on_d1_clicked)
-        buttond2 = Gtk.ToggleButton(label="Tue")
+        buttond2 = Gtk.ToggleButton(label=_("Tue"))
         buttond2.connect("clicked", self.on_d2_clicked)
-        buttond3 = Gtk.ToggleButton(label="Wed")
+        buttond3 = Gtk.ToggleButton(label=_("Wed"))
         buttond3.connect("clicked", self.on_d3_clicked)
-        buttond4 = Gtk.ToggleButton(label="Thu")
+        buttond4 = Gtk.ToggleButton(label=_("Thu"))
         buttond4.connect("clicked", self.on_d4_clicked)
-        buttond5 = Gtk.ToggleButton(label="Fri")
+        buttond5 = Gtk.ToggleButton(label=_("Fri"))
         buttond5.connect("clicked", self.on_d5_clicked)
-        buttond6 = Gtk.ToggleButton(label="Sat")
+        buttond6 = Gtk.ToggleButton(label=_("Sat"))
         buttond6.connect("clicked", self.on_d6_clicked)
-        buttond7 = Gtk.ToggleButton(label="Sun")
+        buttond7 = Gtk.ToggleButton(label=_("Sun"))
         buttond7.connect("clicked", self.on_d7_clicked)
 
         # create a box and put them all in it
@@ -600,7 +598,7 @@ class WorldEmpty(Gtk.Box):
         image = Gtk.Image.new_from_gicon(gicon, Gtk.IconSize.DIALOG)
         image.set_sensitive (False)
         text = Gtk.Label("")
-        text.set_markup("<span color='darkgrey'>Select <b>New</b> to add a world clock</span>")
+        text.set_markup("<span color='darkgrey'>" + _("Select <b>New</b> to add a world clock") + "</span>")
         self.pack_start(Gtk.Label(""), True, True, 0)
         self.pack_start(image, False, False, 6)
         self.pack_start(text, False, False, 6)
@@ -619,7 +617,7 @@ class AlarmsEmpty(Gtk.Box):
         image = Gtk.Image.new_from_gicon(gicon, Gtk.IconSize.DIALOG)
         image.set_sensitive (False)
         text = Gtk.Label("")
-        text.set_markup("<span color='darkgrey'>Select <b>New</b> to add a world clock</span>")
+        text.set_markup("<span color='darkgrey'>" + _("Select <b>New</b> to add a world clock") + "</span>")
         self.pack_start(Gtk.Label(""), True, True, 0)
         self.pack_start(image, False, False, 6)
         self.pack_start(text, False, False, 6)

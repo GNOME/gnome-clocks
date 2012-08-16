@@ -18,8 +18,6 @@
  Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 """
 
-from gettext import gettext as _
-
 from gi.repository import Gtk, GObject, Gio, Gdk, Gst, Notify, cairo
 from gi.repository.GdkPixbuf import Pixbuf
 

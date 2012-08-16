@@ -20,8 +20,6 @@
 
 import os
 
-from gettext import gettext as _
-
 from gi.repository import Gtk, Gdk, GObject, Gio
 
 from clocks import World, Alarm, Timer, Stopwatch
@@ -157,7 +155,7 @@ class ClocksToolbar(Gtk.Toolbar):
 
         self.newButton = Gtk.Button()
 
-        label = Gtk.Label("  New  ")
+        label = Gtk.Label(_("  New  "))
         self.newButton.get_style_context().add_class('raised')
         self.newButton.add(label)
 

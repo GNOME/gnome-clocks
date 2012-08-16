@@ -51,6 +51,7 @@ locale_domain = "gnome-clocks"
 locale.setlocale(locale.LC_ALL,'')
 gettext.bindtextdomain(locale_domain, Dirs.get_locale_dir ())
 gettext.textdomain(locale_domain)
+gettext.install(locale_domain, Dirs.get_locale_dir ())
 
 from gnomeclocks.app import ClocksApplication
 
