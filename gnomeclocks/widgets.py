@@ -378,13 +378,27 @@ class NewAlarmDialog (Gtk.Dialog):
         points = Gtk.Label (":")
         points.set_alignment(0.5, 0.5)
 
+        hour_spinbutton = Gtk.SpinButton()
+        hour_spinbutton.set_increments(1.0, 1.0)
+        hour_spinbutton.set_wrap(True)
+
+        minute_spinbutton = Gtk.SpinButton()
+        minute_spinbutton.set_increments(1.0, 1.0)
+        minute_spinbutton.set_wrap(True)
+
         if cf == "12h":
             if p == "PM":
                 h = h-12
-            self.hourselect = hourselect = AlarmDialogSpin(h, 1, 12)
+            hour_spinbutton.set_range(1.0, 12.0)
+            hour_spinbutton.set_value(h)
+            self.hourselect = hourselect = hour_spinbutton
         else:
-            self.hourselect = hourselect = AlarmDialogSpin(h, 0, 23)
-        self.minuteselect = minuteselect = AlarmDialogSpin(m, 0, 59)
+            hour_spinbutton.set_range(0.0, 23.0)
+            hour_spinbutton.set_value(h)
+            self.hourselect = hourselect = hour_spinbutton
+        minute_spinbutton.set_range(0.0, 59.0)
+        minute_spinbutton.set_value(m)
+        self.minuteselect = minuteselect = minute_spinbutton
 
 
 
@@ -529,65 +543,6 @@ class NewAlarmDialog (Gtk.Dialog):
             self.repeat_days.append('SU')
         else:
             self.repeat_days.remove('SU')
-
-class AlarmDialogSpin(Gtk.Box):
-    def __init__(self, value, min_num, max_num):
-        Gtk.Box.__init__(self)
-        self.get_style_context().add_class('linked')
-        self.max_num = max_num
-        self.min_num = min_num
-        #
-        group = Gtk.SizeGroup()
-        group.set_mode(Gtk.SizeGroupMode.VERTICAL)
-        self.entry = entry = Gtk.Entry()
-        entry.set_size_request(-1, -1)
-        self.entry.set_text(str(value))
-        self.entry.set_max_length(2)
-        self.entry.set_alignment(1)
-        height = self.entry.get_allocated_height()
-
-        group.add_widget(entry)
-        #
-        m_gicon = Gio.ThemedIcon.new_with_default_fallbacks("list-remove-symbolic")
-        m_img = Gtk.Image.new_from_gicon(m_gicon, Gtk.IconSize.MENU)
-        minus = Gtk.Button()
-      #  minus.set_size_request(-1, 10)
-        minus.set_image(m_img)
-        minus.connect("clicked", self._on_click_minus)
-        group.add_widget(minus)
-        #
-        p_gicon = Gio.ThemedIcon.new_with_default_fallbacks("list-add-symbolic")
-        p_img = Gtk.Image.new_from_gicon(p_gicon, Gtk.IconSize.MENU)
-        plus = Gtk.Button()
-        #plus.set_size_request(-1, 10)
-        plus.set_image(p_img)
-        plus.connect("clicked", self._on_click_plus)
-        group.add_widget(plus)
-        #
-        self.pack_start(entry, False, False, 0)
-        self.pack_start(minus, False, False, 0)
-        self.pack_start(plus, False, False, 0)
-        self.show_all()
-
-    def get_value_as_int(self):
-        text = self.entry.get_text()
-        return int(text)
-
-    def _on_click_minus(self, btn):
-        value = self.get_value_as_int()
-        if value == self.min_num:
-            new_value = self.max_num
-        else:
-            new_value = value - 1
-        self.entry.set_text(str(new_value))
-
-    def _on_click_plus(self, btn):
-        value = self.get_value_as_int()
-        if value == self.max_num:
-            new_value = self.min_num
-        else:
-            new_value = value + 1
-        self.entry.set_text(str(new_value))
 
 class WorldEmpty(Gtk.Box):
     def __init__(self):
