@@ -107,9 +107,6 @@ class TimerScreen (Gtk.Box):
         self.rightLabel = Gtk.Label ()
         self.rightButton.add (self.rightLabel)
 
-        #self.leftButton.get_style_context ().add_class ("clocks-stop")
-        #self.rightButton.get_style_context ().add_class ("clocks-lap")
-
         hbox.pack_start (self.leftButton, True, True, 0)
         hbox.pack_start (Gtk.Box(), True, True, 24)
         hbox.pack_start (self.rightButton, True, True, 0)
@@ -130,18 +127,14 @@ class TimerScreen (Gtk.Box):
         self.timer.reset()
 
     def _on_left_button_clicked(self, widget):
-        if self.timer.state == 1: #Pause
-            self.timer.state = 2
+        if self.timer.state == 1:
             self.timer.pause()
             self.leftLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Continue")))
-            #self.leftButton.get_style_context ().remove_class ("clocks-stop")
             self.leftButton.get_style_context ().add_class ("clocks-go")
-        elif self.timer.state == 2: #Continue
-            self.timer.state = 1
+        elif self.timer.state == 2:
             self.timer.cont()
             self.leftLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Pause")))
             self.leftButton.get_style_context ().remove_class ("clocks-go")
-            #self.leftButton.get_style_context ().add_class ("clocks-lap")
 
 class TimerWelcomeScreen (Gtk.Box):
     def __init__ (self, timer):
@@ -199,4 +192,3 @@ class TimerWelcomeScreen (Gtk.Box):
     def _on_start_clicked(self, data):
         if self.timer.state == 0:
             self.timer.start()
-            self.timer.start_timer_screen()

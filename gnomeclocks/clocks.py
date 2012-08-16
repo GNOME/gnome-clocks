@@ -408,7 +408,6 @@ class Timer (Clock):
         self.timerbox.show_all()
 
     def end_timer_screen(self):
-        #self.timer_screen.rightButton.get_style_context ().add_class ("clocks-lap")
         self.timer_screen.leftLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Pause")))
         self.timerbox.remove(self.timer_screen)
         self.show_timer_welcome_screen()
@@ -427,6 +426,7 @@ class Timer (Clock):
             self.time = (hours * 60 * 60) + (minutes * 60) + seconds
             self.state = Timer.State.RUNNING
             self.g_id = GObject.timeout_add(1000, self.count)
+            self.start_timer_screen()
 
     def reset(self):
         self.state = Timer.State.STOPPED
@@ -441,6 +441,7 @@ class Timer (Clock):
         self.g_id = 0
 
     def cont(self):
+        self.state = Timer.State.RUNNING
         self.g_id = GObject.timeout_add(1000, self.count)
 
     def count(self):
