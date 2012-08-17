@@ -95,6 +95,7 @@ class Window(Gtk.ApplicationWindow):
         about = Gtk.AboutDialog(title=_("About GNOME Clocks"))
         about.set_title(_("About Clocks"))
         about.set_program_name(_("GNOME Clocks"))
+        about.set_logo_icon_name("clocks")
         about.set_version(__version__)
         about.set_copyright("(c) Collabora Ltd\n(c) Emily Gonyer\n(c) Eslam Mostafa")
         about.set_comments(_("Clocks is a clock application for the GNOME Desktop"))
