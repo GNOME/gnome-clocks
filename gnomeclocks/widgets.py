@@ -386,12 +386,12 @@ class NewAlarmDialog(Gtk.Dialog):
         else:
             table1 = Gtk.Table(4, 5, False)
         table1.set_row_spacings(9)
-        table1.set_col_spacings(9)
+        table1.set_col_spacings(5)
+        table1.set_col_spacing(0, 9)
         content_area = self.get_content_area()
         content_area.pack_start(table1, True, True, 0)
         self.add_buttons(_("Cancel"), 0, _("Save"), 1)
         self.connect("response", self.on_response)
-        table1.set_border_width(5)
 
         t = time.localtime()
         h = t.tm_hour
