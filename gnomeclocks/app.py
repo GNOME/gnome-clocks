@@ -19,18 +19,22 @@
 import os
 
 from gi.repository import Gtk, Gdk, GObject, Gio
-
 from clocks import World, Alarm, Timer, Stopwatch
 from utils import Dirs
-
 from gnomeclocks import __version__, AUTHORS
+
+COPYRIGHTS = "(c) Collabora Ltd\n(c) Emily Gonyer\n(c) Eslam Mostafa"
+
 
 class Window(Gtk.ApplicationWindow):
     def __init__(self, app):
-        Gtk.ApplicationWindow.__init__(self, title=_("Clocks"), application=app, hide_titlebar_when_maximized=True)
+        Gtk.ApplicationWindow.__init__(self, title=_("Clocks"),
+                                       application=app,
+                                       hide_titlebar_when_maximized=True)
 
         css_provider = Gtk.CssProvider()
-        css_provider.load_from_path(os.path.join(Dirs.get_data_dir(), "gtk-style.css"))
+        css_provider.load_from_path(os.path.join(Dirs.get_data_dir(),
+                                                 "gtk-style.css"))
         context = Gtk.StyleContext()
         context.add_provider_for_screen(Gdk.Screen.get_default(),
                                          css_provider,
@@ -97,8 +101,9 @@ class Window(Gtk.ApplicationWindow):
         about.set_program_name(_("GNOME Clocks"))
         about.set_logo_icon_name("clocks")
         about.set_version(__version__)
-        about.set_copyright("(c) Collabora Ltd\n(c) Emily Gonyer\n(c) Eslam Mostafa")
-        about.set_comments(_("Clocks is a clock application for the GNOME Desktop"))
+        about.set_copyright(COPYRIGHTS)
+        about.set_comments(
+            _("Clocks is a clock application for the GNOME Desktop"))
         about.set_authors(AUTHORS)
         about.set_translator_credits(_("translator-credits"))
         about.connect("response", lambda w, r: about.destroy())
@@ -142,7 +147,7 @@ class ClocksToolbar(Gtk.Toolbar):
         self.get_style_context().add_class("clocks-toolbar")
 
         self.set_icon_size(Gtk.IconSize.MENU)
-        self.get_style_context ().add_class(Gtk.STYLE_CLASS_MENUBAR)
+        self.get_style_context().add_class(Gtk.STYLE_CLASS_MENUBAR)
 
         toolitem = Gtk.ToolItem()
         toolitem.set_expand(True)
@@ -165,12 +170,15 @@ class ClocksToolbar(Gtk.Toolbar):
         toolbox.pack_start(box, True, True, 0)
 
         self.backButton = Gtk.Button()
-        icon = Gio.ThemedIcon.new_with_default_fallbacks("go-previous-symbolic")
+        icon = Gio.ThemedIcon.new_with_default_fallbacks(
+            "go-previous-symbolic")
         image = Gtk.Image()
         image.set_from_gicon(icon, Gtk.IconSize.MENU)
         self.backButton.add(image)
         self.backButton.set_size_request(33, 33)
-        self.backButton.connect("clicked", lambda w: self.emit("view-clock", self._buttonMap[self.last_widget]))
+        self.backButton.connect("clicked",
+            lambda w: self.emit("view-clock",
+                                self._buttonMap[self.last_widget]))
 
         self.newButton.connect("clicked", self._on_new_clicked)
 
@@ -189,7 +197,8 @@ class ClocksToolbar(Gtk.Toolbar):
 
         self.applyButton = Gtk.Button()
         #self.applyButton.get_style_context().add_class('raised');
-        icon = Gio.ThemedIcon.new_with_default_fallbacks("object-select-symbolic")
+        icon = Gio.ThemedIcon.new_with_default_fallbacks(
+            "object-select-symbolic")
         image = Gtk.Image()
         image.set_from_gicon(icon, Gtk.IconSize.MENU)
         self.applyButton.add(image)

@@ -16,7 +16,11 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
-import datetime, vobject, time, os
+import datetime
+import vobject
+import time
+import os
+
 
 class ICSHandler():
     def __init__(self):
@@ -47,7 +51,6 @@ class ICSHandler():
         ics.write(vcal.serialize())
         ics.close()
 
-
     def delete_alarm(self, alarm_uid):
         with open('alarms.ics', 'r+') as ics:
             data = vobject.readOne(ics.read())
@@ -56,7 +59,8 @@ class ICSHandler():
                 #delete event
                 break
 
-    def edit_alarm(self, alarm_uid, new_name=None, new_hour=None, new_mins=None, new_p=None, new_repeat=None):
+    def edit_alarm(self, alarm_uid, new_name=None, new_hour=None,
+                   new_mins=None, new_p=None, new_repeat=None):
         with open(self.ics_file, 'r+') as ics:
             vcal = vobject.readOne(ics.read())
         for event in vcal.vevent_list:
@@ -64,6 +68,7 @@ class ICSHandler():
                 if new_name:
                     del event.summary
                     event.add('summary').value = new_name
+
 
 class AlarmItem:
     def __init__(self, name=None, repeat=None, h=None, m=None, p=None):
@@ -105,7 +110,6 @@ class AlarmItem:
             h = self.h
         return "%2i:%02i %s" % (h, self.m, self.p)
 
-
     def get_time_24h_as_string(self):
         if self.p == 'AM' or self.p == 'PM':
             h = self.h + 12
@@ -142,10 +146,15 @@ class AlarmItem:
         elif self.p == "AM":
             if h == 12:
                 h = 0
-        vevent.add('dtstart').value = datetime.datetime.combine(datetime.date.today(), datetime.time(h, m))
-        vevent.add('dtend').value = datetime.datetime.combine(datetime.date.today(), datetime.time(h, 59))
+        vevent.add('dtstart').value =\
+            datetime.datetime.combine(datetime.date.today(),
+                                      datetime.time(h, m))
+        vevent.add('dtend').value =\
+            datetime.datetime.combine(datetime.date.today(),
+                                      datetime.time(h, 59))
         if len(self.repeat) == 0:
             vevent.add('rrule').value = 'FREQ=DAILY;'
         else:
-            vevent.add('rrule').value = 'FREQ=WEEKLY;BYDAY=%s' % ','.join(self.repeat)
+            vevent.add('rrule').value = 'FREQ=WEEKLY;BYDAY=%s' %\
+            ','.join(self.repeat)
         return vevent

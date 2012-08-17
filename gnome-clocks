@@ -47,17 +47,17 @@ import gettext
 from gnomeclocks.utils import Dirs
 
 locale_domain = "gnome-clocks"
-locale.setlocale(locale.LC_ALL,'')
-gettext.bindtextdomain(locale_domain, Dirs.get_locale_dir ())
+locale.setlocale(locale.LC_ALL, '')
+gettext.bindtextdomain(locale_domain, Dirs.get_locale_dir())
 gettext.textdomain(locale_domain)
-gettext.install(locale_domain, Dirs.get_locale_dir ())
+gettext.install(locale_domain, Dirs.get_locale_dir())
 
 from gnomeclocks.app import ClocksApplication
 
 if __name__ == "__main__":
-    app = ClocksApplication ()
-    # FIXME: Get rid of the following line which has the only purpose of working
-    # around Ctrl+C not exiting Gtk applications from bug 622084.
+    app = ClocksApplication()
+    # FIXME: Get rid of the following line which has the only purpose of
+    # working around Ctrl+C not exiting Gtk applications from bug 622084.
     # https://bugzilla.gnome.org/show_bug.cgi?id=622084
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     exit_status = app.run(sys.argv)
