@@ -20,6 +20,7 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import os
+import signal
 import sys
 
 # Detect if we are running from the source dir
@@ -55,5 +56,9 @@ from gnomeclocks.app import ClocksApplication
 
 if __name__ == "__main__":
     app = ClocksApplication ()
+    # FIXME: Get rid of the following line which has the only purpose of working
+    # around Ctrl+C not exiting Gtk applications from bug 622084.
+    # https://bugzilla.gnome.org/show_bug.cgi?id=622084
+    signal.signal(signal.SIGINT, signal.SIG_DFL)
     exit_status = app.run(sys.argv)
     sys.exit(exit_status)
