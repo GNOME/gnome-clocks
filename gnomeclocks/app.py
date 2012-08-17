@@ -23,7 +23,7 @@ from gi.repository import Gtk, Gdk, GObject, Gio
 from clocks import World, Alarm, Timer, Stopwatch
 from utils import Dirs
 
-from gnomeclocks import __version__
+from gnomeclocks import __version__, AUTHORS
 
 class Window(Gtk.ApplicationWindow):
     def __init__(self, app):
@@ -99,7 +99,7 @@ class Window(Gtk.ApplicationWindow):
         about.set_version(__version__)
         about.set_copyright("(c) Collabora Ltd\n(c) Emily Gonyer\n(c) Eslam Mostafa")
         about.set_comments(_("Clocks is a clock application for the GNOME Desktop"))
-        about.set_authors(["Seif Lotfy, Emily Gonyer, Eslam Mostafa"])
+        about.set_authors(AUTHORS)
         about.set_translator_credits(_("translator-credits"))
         about.connect("response", lambda w, r: about.destroy())
         about.set_wrap_license("true")

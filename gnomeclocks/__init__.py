@@ -1,3 +1,5 @@
+# -.- coding: utf-8 -.-
+
 # Copyright (c) 2011-2012 Collabora, Ltd.
 #
 # Gnome Clocks is free software; you can redistribute it and/or modify
@@ -17,3 +19,18 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 __version__ = "0.1.0"
+
+# Credit every contributor, in alphabetical order
+AUTHORS = [
+    "Alex Anthony",
+    "Paolo Borelli",
+    "Allan Day",
+    "Piotr Drąg",
+    "Emily Gonyer",
+    "Maël Lavault",
+    "Seif Lotfy",
+    "William Jon McCann",
+    "Eslam Mostafa",
+    "Bastien Nocera",
+    "Jakub Steiner"
+]
