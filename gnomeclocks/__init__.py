@@ -34,3 +34,6 @@ AUTHORS = [
     "Bastien Nocera",
     "Jakub Steiner"
 ]
+
+COPYRIGHTS = """2011 © Collabora Ltd.
+                2012 © Collabora Ltd., Seif Lotfy Emily Gonyer, Eslam Mostafa"""

@@ -21,9 +21,7 @@ import os
 from gi.repository import Gtk, Gdk, GObject, Gio
 from clocks import World, Alarm, Timer, Stopwatch
 from utils import Dirs
-from gnomeclocks import __version__, AUTHORS
-
-COPYRIGHTS = "(c) Collabora Ltd\n(c) Emily Gonyer\n(c) Eslam Mostafa"
+from gnomeclocks import __version__, AUTHORS, COPYRIGHTS
 
 
 class Window(Gtk.ApplicationWindow):
