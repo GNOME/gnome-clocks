@@ -38,6 +38,7 @@ class NewWorldClockDialog(Gtk.Dialog):
         self.set_transient_for(parent)
         self.set_modal(True)
         self.set_size_request(400, -1)
+        self.set_border_width(3)
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         area = self.get_content_area()
         area.pack_start(box, True, True, 0)
@@ -54,20 +55,13 @@ class NewWorldClockDialog(Gtk.Dialog):
             'edit-clear-symbolic')
         self.searchEntry.set_icon_from_gicon(
             Gtk.EntryIconPosition.SECONDARY, self.find_gicon)
-        #self.searchEntry.set_can_focus(False)
-
-        header = Gtk.Label(_("Add New Clock"))
-        header.set_markup("<span size='medium'><b>%s</b></span>"
-          % (_("Add a New World Clock")))
 
         self.add_buttons(_("Cancel"), 0, _("Add"), 1)
         widget = self.get_widget_for_response(1)
         widget.set_sensitive(False)
 
-        box.pack_start(header, True, True, 0)
-        box.pack_start(Gtk.Label(), True, True, 1)
-        box.pack_start(self.label, False, False, 0)
-        box.pack_start(self.searchEntry, False, False, 9)
+        box.pack_start(self.label, False, False, 6)
+        box.pack_start(self.searchEntry, False, False, 3)
         box.set_border_width(5)
 
         self.searchEntry.connect("activate", self._set_city)
