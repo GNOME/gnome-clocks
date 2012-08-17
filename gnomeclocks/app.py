@@ -50,6 +50,7 @@ class Window(Gtk.ApplicationWindow):
         self.toolbar = ClocksToolbar()
 
         vbox.pack_start(self.toolbar, False, False, 0)
+        vbox.pack_start(self.toolbar.selection_toolbar, False, False, 0)
 
         self.world = World()
         self.alarm = Alarm()
@@ -69,6 +70,7 @@ class Window(Gtk.ApplicationWindow):
         self.toolbar.connect("view-clock", self._on_view_clock)
         self.toolbar.newButton.connect("clicked", self._on_new_clicked)
         self.show_all()
+        self.toolbar.selection_toolbar.hide()
 
         self.connect('key-press-event', self._on_key_press)
 
@@ -137,6 +139,52 @@ class Window(Gtk.ApplicationWindow):
             elif keyname in ('q', 'w'):
                 self.app.quit()
 
+class SelectionToolbar(Gtk.Toolbar):
+    def __init__(self):
+        Gtk.Toolbar.__init__(self)
+        self.get_style_context().add_class("clocks-toolbar")
+        self.set_icon_size(Gtk.IconSize.MENU)
+        self.get_style_context().add_class(Gtk.STYLE_CLASS_MENUBAR)
+        self.get_style_context().add_class("selection-mode")
+
+        # same size as the button to keep the label centered
+        sep = Gtk.SeparatorToolItem()
+        sep.set_draw(False)
+        sep.set_size_request(64, 34)
+        self.insert(sep, -1)
+
+        sep = Gtk.SeparatorToolItem()
+        sep.set_draw(False)
+        sep.set_expand(True)
+        self.insert(sep, -1)
+
+        toolitem = Gtk.ToolItem()
+        label = Gtk.Label("(%s)" % _("Click on items to select them"))
+        label.set_halign(Gtk.Align.CENTER)
+        toolitem.add(label)
+        self.insert(toolitem, -1)
+
+        sep = Gtk.SeparatorToolItem()
+        sep.set_draw(False)
+        sep.set_expand(True)
+        self.insert(sep, -1)
+
+        toolitem = Gtk.ToolItem()
+        toolbox = Gtk.Box()
+        toolitem.add(toolbox)
+        self.insert(toolitem, -1)
+
+        self.doneButton = Gtk.Button()
+
+        self.doneButton.get_style_context().add_class('raised')
+        self.doneButton.get_style_context().add_class('suggested-action')
+        self.doneButton.set_label(_("Done"))
+        self.doneButton.set_size_request(64, 34)
+
+        self.leftBox = box = Gtk.Box()
+        box.pack_start(self.doneButton, False, False, 0)
+        toolbox.pack_start(box, True, True, 0)
+
 
 class ClocksToolbar(Gtk.Toolbar):
     __gsignals__ = {'view-clock': (GObject.SignalFlags.RUN_LAST,
@@ -144,8 +192,8 @@ class ClocksToolbar(Gtk.Toolbar):
 
     def __init__(self):
         Gtk.Toolbar.__init__(self)
-        self.get_style_context().add_class("clocks-toolbar")
 
+        self.get_style_context().add_class("clocks-toolbar")
         self.set_icon_size(Gtk.IconSize.MENU)
         self.get_style_context().add_class(Gtk.STYLE_CLASS_MENUBAR)
 
@@ -161,7 +209,7 @@ class ClocksToolbar(Gtk.Toolbar):
         self.newButton = Gtk.Button()
 
         label = Gtk.Label(_("New"))
-        self.newButton.get_style_context().add_class('raised')
+        self.newButton.get_style_context().add_class('suggested-action')
         self.newButton.add(label)
         self.newButton.set_size_request(64, -1)
 
@@ -203,13 +251,17 @@ class ClocksToolbar(Gtk.Toolbar):
         image.set_from_gicon(icon, Gtk.IconSize.MENU)
         self.applyButton.add(image)
         self.applyButton.set_size_request(32, 32)
-        self.applyButton.connect('clicked', self._on_selection_mode)
+        self.applyButton.connect('clicked', self._on_selection_mode, True)
         self.rightBox = box = Gtk.Box()
         box.pack_end(self.applyButton, False, False, 0)
         toolbox.pack_start(box, True, True, 0)
 
         self._buttonMap = {}
         self._busy = False
+
+        self.selection_toolbar = SelectionToolbar()
+        self.selection_toolbar.doneButton.connect("clicked",
+            self._on_selection_mode, False)
 
     def _on_new_clicked(self, widget):
         for view in self.views:
@@ -282,14 +334,9 @@ class ClocksToolbar(Gtk.Toolbar):
             self._busy = False
             self.emit("view-clock", self._buttonMap[widget])
 
-    def _on_selection_mode(self, button):
-        self.set_selection_mode(True)
-
-    def set_selection_mode(self, val):
-        if val == True:
-            pass
-        else:
-            self.set_single_toolbar()
+    def _on_selection_mode(self, button, selection_mode):
+        self.selection_toolbar.set_visible(selection_mode)
+        self.set_visible(not selection_mode)
 
     def _delete_clock(self, button):
         pass
@@ -301,7 +348,7 @@ class ClocksApplication(Gtk.Application):
 
     def do_activate(self):
         self.win = win = Window(self)
-        win.show_all()
+        win.show()
 
     def quit_cb(self, action, parameter):
         self.quit()
