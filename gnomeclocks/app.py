@@ -141,6 +141,9 @@ class ClocksToolbar(Gtk.Toolbar):
         Gtk.Toolbar.__init__(self)
         self.get_style_context().add_class("clocks-toolbar")
 
+        self.set_icon_size(Gtk.IconSize.MENU)
+        self.get_style_context ().add_class(Gtk.STYLE_CLASS_MENUBAR)
+
         toolitem = Gtk.ToolItem()
         toolitem.set_expand(True)
 
