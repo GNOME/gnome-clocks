@@ -103,14 +103,14 @@ class Window(Gtk.ApplicationWindow):
         about.set_version(__version__)
         about.set_copyright(COPYRIGHTS)
         about.set_comments(
-            _("Clocks is a clock application for the GNOME Desktop"))
+            _("Utilities to help you with the time."))
         about.set_authors(AUTHORS)
         about.set_translator_credits(_("translator-credits"))
         about.connect("response", lambda w, r: about.destroy())
         about.set_wrap_license("true")
         about.set_license_type(Gtk.License.GPL_2_0)
         about.set_license("GNOME Clocks is free software;"
-            "you can redistribute it and/or modify it under the terms"
+            " you can redistribute it and/or modify it under the terms"
             " of the GNU General Public License as published by the"
             " Free Software Foundation; either version 2 of the"
             " License, or (at your option) any later version.\n"
