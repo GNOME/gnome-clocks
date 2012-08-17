@@ -60,8 +60,6 @@ class NewWorldClockDialog(Gtk.Dialog):
         header.set_markup("<span size='medium'><b>%s</b></span>"
           % (_("Add a New World Clock")))
 
-        btnBox = Gtk.Box()
-
         self.add_buttons(_("Cancel"), 0, _("Add"), 1)
         widget = self.get_widget_for_response(1)
         widget.set_sensitive(False)
@@ -345,7 +343,6 @@ class DigitalClockDrawing(Gtk.DrawingArea):
 class AlarmWidget():
     def __init__(self, time_given):
         self.drawing = DigitalClockDrawing()
-        clockformat = self.get_system_clock_format()
         t = time_given
         isDay = self.get_is_day(t)
         if isDay == True:
@@ -496,9 +493,6 @@ class NewAlarmDialog(Gtk.Dialog):
             table1.attach(box, 1, 5, 2, 3)
         else:
             table1.attach(box, 1, 4, 2, 3)
-
-        soundbox = Gtk.ComboBox()
-        #table1.attach(soundbox, 1, 3, 3, 4)
 
     def show_leading_zeros(self, spin_button):
         spin_button.set_text('{: 02d}'.format(spin_button.get_value_as_int()))

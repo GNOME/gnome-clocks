@@ -32,6 +32,8 @@ class Window(Gtk.ApplicationWindow):
                                        application=app,
                                        hide_titlebar_when_maximized=True)
 
+        self.app = app
+
         css_provider = Gtk.CssProvider()
         css_provider.load_from_path(os.path.join(Dirs.get_data_dir(),
                                                  "gtk-style.css"))
@@ -135,7 +137,7 @@ class Window(Gtk.ApplicationWindow):
             if keyname == 'n':
                 self.toolbar._on_new_clicked(None)
             elif keyname in ('q', 'w'):
-                app.quit()
+                self.app.quit()
 
 
 class ClocksToolbar(Gtk.Toolbar):

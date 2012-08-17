@@ -16,7 +16,6 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
-import os
 import errno
 import pickle
 from xdg import BaseDirectory

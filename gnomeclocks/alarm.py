@@ -18,7 +18,6 @@
 
 import datetime
 import vobject
-import time
 import os
 
 
@@ -52,12 +51,8 @@ class ICSHandler():
         ics.close()
 
     def delete_alarm(self, alarm_uid):
-        with open('alarms.ics', 'r+') as ics:
-            data = vobject.readOne(ics.read())
-        for alarm in vcal.vevent_list:
-            if alarm.uid.value == alarm_uid:
-                #delete event
-                break
+        # TODO: Add alarm deletion support
+        pass
 
     def edit_alarm(self, alarm_uid, new_name=None, new_hour=None,
                    new_mins=None, new_p=None, new_repeat=None):

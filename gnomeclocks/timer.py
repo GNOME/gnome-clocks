@@ -16,11 +16,11 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
-from gi.repository import Gtk, Gio, Gdk
+from gi.repository import Gtk, Gio
 
-TIMER = "<span font_desc=\"64.0\">% 02i</span>"
-TIMER_LABEL_MARKUP = "<span font_desc=\"64.0\">% 02i:% 02i:% 02i</span>"
-TIMER = "<span font_desc=\"64.0\">% 02i</span>"
+TIMER = "<span font_desc=\"64.0\">%02i</span>"
+TIMER_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
+TIMER = "<span font_desc=\"64.0\">%02i</span>"
 TIMER_BUTTON_MARKUP = "<span font_desc=\"18.0\">% s</span>"
 
 
@@ -86,9 +86,7 @@ class TimerScreen(Gtk.Box):
         self.set_orientation(Gtk.Orientation.VERTICAL)
         self.timer = timer
 
-        top_spacer = Gtk.Box()
         center = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        bottom_spacer = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
         self.timerLabel = Gtk.Label()
         self.timerLabel.set_alignment(0.5, 0.5)
@@ -149,7 +147,6 @@ class TimerWelcomeScreen(Gtk.Box):
         self.timer = timer
         self.set_orientation(Gtk.Orientation.VERTICAL)
 
-        top_spacer = Gtk. Box()
         center = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         bottom_spacer = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 

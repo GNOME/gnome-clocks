@@ -16,21 +16,17 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
-from gi.repository import Gtk, GObject, Gio, Gdk, Gst, Notify, cairo
+from gi.repository import Gtk, GObject, Gio, Gst, Notify
 from gi.repository.GdkPixbuf import Pixbuf
 
 from widgets import NewWorldClockDialog, NewAlarmDialog
 from widgets import DigitalClock, AlarmWidget, WorldEmpty, AlarmsEmpty
 from storage import worldclockstorage
 
-from datetime import datetime, timedelta
-from pytz import timezone
-from timer import TimerWelcomeScreen, TimerScreen, Spinner
+from timer import TimerWelcomeScreen, TimerScreen
 from alarm import AlarmItem, ICSHandler
 
-import pytz
 import time
-import os
 
 STOPWATCH_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i</span>"
 STOPWATCH_BUTTON_MARKUP = "<span font_desc=\"18.0\">%s</span>"
@@ -282,9 +278,7 @@ class Stopwatch(Clock):
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         self.add(vbox)
 
-        top_spacer = Gtk.Box()
         center = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        bottom_spacer = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
         self.stopwatchLabel = Gtk.Label()
         self.stopwatchLabel.set_alignment(0.5, 0.5)
@@ -315,7 +309,6 @@ class Stopwatch(Clock):
         self.rightLabel.set_padding(6, 0)
 
         center.pack_start(self.stopwatchLabel, False, False, 0)
-        space = Gtk.EventBox()
         center.pack_start(Gtk.Box(), True, True, 41)
         center.pack_start(hbox, False, False, 0)
 
@@ -379,7 +372,6 @@ class Stopwatch(Clock):
     def count(self):
         timediff = time.time() - self.start_time + self.time_diff
         elapsed_minutes, elapsed_seconds = divmod(timediff, 60)
-        elapsed_milli_seconds = int((elapsed_seconds * 100) % 100)
         self.stopwatchLabel.set_markup(STOPWATCH_LABEL_MARKUP %
             (elapsed_minutes, elapsed_seconds))
         return True
