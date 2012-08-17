@@ -17,7 +17,7 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 from gi.repository import Gtk, Gdk, GdkPixbuf, GObject, Gio, PangoCairo
-from gi.repository import Pango, GWeather
+from gi.repository import GWeather
 
 from storage import Location
 from alarm import AlarmItem
