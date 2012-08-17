@@ -158,6 +158,7 @@ class ClocksToolbar(Gtk.Toolbar):
         label = Gtk.Label(_("New"))
         self.newButton.get_style_context().add_class('raised')
         self.newButton.add(label)
+        self.newButton.set_size_request(64, -1)
 
         self.leftBox = box = Gtk.Box()
         box.pack_start(self.newButton, False, False, 0)
