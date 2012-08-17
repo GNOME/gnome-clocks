@@ -27,6 +27,9 @@ import os
 import cairo
 import time
 
+# FIXME: Use real sunrise/sunset time in the future
+def get_is_day(hour):
+    return (hour > 7 and hour < 19)
 
 class NewWorldClockDialog(Gtk.Dialog):
 
@@ -138,20 +141,6 @@ class DigitalClock():
         systemClockFormat = settings.get_string('clock-format')
         return systemClockFormat
 
-    def get_image(self):
-        local_time = self.get_local_time()
-        if local_time.tm_hour > 7 and local_time.tm_hour < 19:
-            return os.path.join(Dirs.get_image_dir(), "cities", "day.png")
-        else:
-            return os.path.join(Dirs.get_image_dir(), "cities", "night.png")
-
-    def get_is_day(self):
-        local_time = self.get_local_time()
-        if local_time.tm_hour > 7 and local_time.tm_hour < 19:
-            return True
-        else:
-            return False
-
     def update(self):
         t = self.get_local_time_text()
         systemClockFormat = self.get_system_clock_format()
@@ -160,12 +149,17 @@ class DigitalClock():
         else:
             t = time.strftime("%H:%M", self.get_local_time())
         if not t == self._last_time:
-            img = self.get_image()
+            local_time = self.get_local_time()
+            isDay = get_is_day(local_time.tm_hour)
+            if isDay:
+                img = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
+            else:
+                img = os.path.join(Dirs.get_image_dir(), "cities", "night.png")
             day = self.get_day()
             if day == "Today":
-                self.drawing.render(t, img, self.get_is_day())
+                self.drawing.render(t, img, isDay)
             else:
-                self.drawing.render(t, img, self.get_is_day(), day)
+                self.drawing.render(t, img, isDay, day)
             if self.view_iter and self.list_store:
                 self.list_store.set_value(
                     self.view_iter, 0, self.drawing.pixbuf)
@@ -401,8 +395,8 @@ class AlarmWidget():
     def __init__(self, time_given, repeat):
         self.drawing = DigitalClockDrawing()
         t = time_given
-        isDay = self.get_is_day(t)
-        if isDay == True:
+        isDay = get_is_day(int(t[:2]))
+        if isDay:
             img = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
         else:
             img = os.path.join(Dirs.get_image_dir(), "cities", "night.png")
@@ -412,12 +406,6 @@ class AlarmWidget():
         settings = Gio.Settings.new('org.gnome.desktop.interface')
         systemClockFormat = settings.get_string('clock-format')
         return systemClockFormat
-
-    def get_is_day(self, t):
-        if t[6: 8] == 'AM':
-            return True
-        else:
-            return False
 
     def set_iter(self, list_store, view_iter):
         self.view_iter = view_iter
