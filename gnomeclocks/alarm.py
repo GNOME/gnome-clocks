@@ -76,12 +76,17 @@ class AlarmItem:
         self.p = p
 
     def new_from_vevent(self, vevent):
+        self.vevent = vevent
         self.name = vevent.summary.value
         self.time = vevent.dtstart.value
         self.h = int(self.time.strftime("%H"))
         self.m = int(self.time.strftime("%M"))
         self.p = self.time.strftime("%p")
         self.uid = vevent.uid.value
+        if vevent.rrule.value == 'FREQ=DAILY;':
+            self.repeat = ['FR', 'MO', 'SA', 'SU', 'TH', 'TU', 'WE']
+        else:
+            self.repeat = vevent.rrule.value[19:].split(',')
 
     def set_alarm_time(self, h, m, p):
         self.h = h
@@ -125,6 +130,35 @@ class AlarmItem:
 
     def get_alarm_repeat(self):
         return self.repeat
+
+    def get_alarm_repeat_string(self):
+        # lists only compare the same if corresponing elements are the same
+        # we form self.repeat by random appending
+        # sorted(list of days)
+        sorted_repeat = sorted(self.repeat)
+        if sorted_repeat == ['FR', 'MO', 'SA', 'SU', 'TH', 'TU', 'WE']:
+            return "Every day"
+        elif sorted_repeat == ['FR', 'MO', 'TH', 'TU', 'WE']:
+            return "Weekdays"
+        elif len(sorted_repeat) == 0:
+            return None
+        else:
+            repeat_string = ""
+            if 'MO' in self.repeat:
+                repeat_string += 'Mon, '
+            if 'TU' in self.repeat:
+                repeat_string += 'Tue, '
+            if 'WE' in self.repeat:
+                repeat_string += 'Wed, '
+            if 'TH' in self.repeat:
+                repeat_string += 'Thu, '
+            if 'FR' in self.repeat:
+                repeat_string += 'Fri, '
+            if 'SA' in self.repeat:
+                repeat_string += 'Sat, '
+            if 'SU' in self.repeat:
+                repeat_string += 'Sun, '
+            return repeat_string[:-2]
 
     def get_uid(self):
         return self.vevent.uid.value

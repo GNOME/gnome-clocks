@@ -16,7 +16,7 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
-from gi.repository import Gtk, Gdk, GdkPixbuf, GObject, Gio, PangoCairo
+from gi.repository import Gtk, Gdk, GdkPixbuf, GObject, Gio, Pango, PangoCairo
 from gi.repository import GWeather
 
 from storage import Location
@@ -161,7 +161,11 @@ class DigitalClock():
             t = time.strftime("%H:%M", self.get_local_time())
         if not t == self._last_time:
             img = self.get_image()
-            self.drawing.render(t, img, self.get_is_day())
+            day = self.get_day()
+            if day == "Today":
+                self.drawing.render(t, img, self.get_is_day())
+            else:
+                self.drawing.render(t, img, self.get_is_day(), day)
             if self.view_iter and self.list_store:
                 self.list_store.set_value(
                     self.view_iter, 0, self.drawing.pixbuf)
@@ -175,6 +179,27 @@ class DigitalClock():
 
     def get_standalone_widget(self):
         return self.standalone
+
+    def get_day(self):
+        clock_time_day = self.get_local_time().tm_yday
+        local_time_day = time.localtime().tm_yday
+
+        if clock_time_day == local_time_day:
+            return "Today"
+        # if its 31st Dec here and 1st Jan there, clock_time_day = 1,
+        # local_time_day = 365/366
+        # if its 1st Jan here and 31st Dec there, clock_time_day = 365/366,
+        # local_time_day = 1
+        elif clock_time_day > local_time_day:
+            if local_time_day == 1:
+                return "Yesterday"
+            else:
+                return "Tomorrow"
+        elif clock_time_day < local_time_day:
+            if clock_time_day == 1:
+                return "Tomorrow"
+            else:
+                return "Yesterday"
 
 
 class DigitalClockStandalone(Gtk.VBox):
@@ -284,7 +309,7 @@ class DigitalClockDrawing(Gtk.DrawingArea):
         self.surface = None
         self.show_all()
 
-    def render(self, text, img, isDay):
+    def render(self, text, img, isDay, sub_text=None):
         self.surface = cairo.ImageSurface.create_from_png(img)
         ctx = cairo.Context(self.surface)
         ctx.scale(1.0, 1.0)
@@ -299,24 +324,46 @@ class DigitalClockDrawing(Gtk.DrawingArea):
         x = (self.width - width) / 2
         y = (self.height - height) / 2
 
+        # has to be before the drawing of the rectangle so the rectangle
+        # takes the right size if we have subtexts
+        self.pango_layout = self.create_pango_layout(text)
+        self.pango_layout.set_markup(
+            "<span size='xx-large'><b>%s</b></span>" % text, -1)
+        if sub_text:
+            self.pango_layout_subtext = self.create_pango_layout(sub_text)
+            self.pango_layout_subtext.set_markup(
+                "<span size='medium'>%s</span>" % sub_text, -1)
+            self.pango_layout_subtext.set_width(width * Pango.SCALE)
+            subtext_is_wrapped = self.pango_layout_subtext.is_wrapped()
+            if subtext_is_wrapped:
+                self.pango_layout_subtext.set_alignment(Pango.Alignment.CENTER)
+
         if not isDay:
             ctx.set_source_rgba(0.0, 0.0, 0.0, 0.7)
         else:
             ctx.set_source_rgba(1.0, 1.0, 1.0, 0.7)
 
+        ctx.move_to(x, y)
         ctx.arc(x + width - radius, y + radius, radius, -90 * degrees,
-            0 * degrees)
-        ctx.arc(x + width - radius, y + height - radius, radius, 0 * degrees,
-            90 * degrees)
-        ctx.arc(x + radius, y + height - radius, radius, 90 * degrees,
-            180 * degrees)
+                0 * degrees)
+        if sub_text and subtext_is_wrapped:
+            ctx.arc(x + width - radius, y + height - radius + 25, radius,
+                    0 * degrees, 90 * degrees)
+            ctx.arc(x + radius, y + height - radius + 25, radius,
+                    90 * degrees, 180 * degrees)
+        elif sub_text and not subtext_is_wrapped:
+            ctx.arc(x + width - radius, y + height - radius + 10, radius,
+                    0 * degrees, 90 * degrees)
+            ctx.arc(x + radius, y + height - radius + 10, radius,
+                    90 * degrees, 180 * degrees)
+        else:
+            ctx.arc(x + width - radius, y + height - radius, radius,
+                    0 * degrees, 90 * degrees)
+            ctx.arc(x + radius, y + height - radius, radius,
+                    90 * degrees, 180 * degrees)
         ctx.arc(x + radius, y + radius, radius, 180 * degrees, 270 * degrees)
         ctx.close_path()
         ctx.fill()
-
-        self.pango_layout = self.create_pango_layout(text)
-        self.pango_layout.set_markup(
-            "<span size='xx-large'><b>%s</b></span>" % text, -1)
 
         if not isDay:
             ctx.set_source_rgb(1.0, 1.0, 1.0)
@@ -325,17 +372,33 @@ class DigitalClockDrawing(Gtk.DrawingArea):
 
         text_width, text_height = self.pango_layout.get_pixel_size()
         ctx.move_to(x + (width - text_width) / 2,
-            y + (height - text_height) / 2)
+                    y + (height - text_height) / 2)
         PangoCairo.show_layout(ctx, self.pango_layout)
 
+        if sub_text:
+            sub_text_width, sub_text_height =\
+                self.pango_layout_subtext.get_pixel_size()
+            # centered on x axis, 5 pixels below main text on y axis
+            # for some reason setting the alignment adds an extra frame
+            # around it, slight change to allow for this
+            if subtext_is_wrapped:
+                ctx.move_to(x + (width - sub_text_width) / 2 - 10,
+                            y + (height - text_height) / 2 +
+                            sub_text_height - 10)
+            else:
+                ctx.move_to(x + (width - sub_text_width) / 2,
+                            y + (height - text_height) / 2 +
+                            sub_text_height + 10)
+            PangoCairo.show_layout(ctx, self.pango_layout_subtext)
+
         pixbuf = Gdk.pixbuf_get_from_surface(self.surface, 0, 0, self.width,
-            self.height)
+                                             self.height)
         self.pixbuf = pixbuf
         return self.pixbuf
 
 
 class AlarmWidget():
-    def __init__(self, time_given):
+    def __init__(self, time_given, repeat):
         self.drawing = DigitalClockDrawing()
         t = time_given
         isDay = self.get_is_day(t)
@@ -343,7 +406,7 @@ class AlarmWidget():
             img = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
         else:
             img = os.path.join(Dirs.get_image_dir(), "cities", "night.png")
-        self.drawing.render(t, img, isDay)
+        self.drawing.render(t, img, isDay, repeat)
 
     def get_system_clock_format(self):
         settings = Gio.Settings.new('org.gnome.desktop.interface')

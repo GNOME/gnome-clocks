@@ -221,11 +221,15 @@ class Alarm(Clock):
                 alarm.new_from_vevent(vevent)
                 scf = self.get_system_clock_format()
                 if scf == "12h":
-                    d = AlarmWidget(alarm.get_time_12h_as_string())
+                    d = AlarmWidget(alarm.get_time_12h_as_string(),
+                                    alarm.get_alarm_repeat_string())
                 else:
-                    d = AlarmWidget(alarm.get_time_24h_as_string())
+                    d = AlarmWidget(alarm.get_time_24h_as_string(),
+                                    alarm.get_alarm_repeat_string())
                 view_iter = self.liststore.append([d.drawing.pixbuf,
-                    "<b>" + alarm.get_alarm_name() + "</b>", d])
+                                                    "<b>"
+                                                    + alarm.get_alarm_name()
+                                                    + "</b>", d])
                 d.set_iter(self.liststore, view_iter)
                 self.load_alarms_view()
         else:
@@ -248,9 +252,11 @@ class Alarm(Clock):
         handler.add_vevent(alarm.get_vevent())
         scf = self.get_system_clock_format()
         if scf == "12h":
-            d = AlarmWidget(alarm.get_time_12h_as_string())
+            d = AlarmWidget(alarm.get_time_12h_as_string(),
+                            alarm.get_alarm_repeat_string())
         else:
-            d = AlarmWidget(alarm.get_time_24h_as_string())
+            d = AlarmWidget(alarm.get_time_24h_as_string(),
+                            alarm.get_alarm_repeat_string())
         view_iter = self.liststore.append([d.drawing.pixbuf,
             "<b>" + alarm.get_alarm_name() + "</b>", d])
         d.set_iter(self.liststore, view_iter)
