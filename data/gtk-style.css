@@ -1,5 +1,7 @@
-@define-color clocks_go_color #7fc141;
-@define-color clocks_stop_color #d63e3e;
+@define-color clocks_go_color_a #7fc141;
+@define-color clocks_go_color_b #8fc95d;
+@define-color clocks_stop_color_a #f44848;
+@define-color clocks_stop_color_b #ff6565;
 
 .clocks-toolbar.toolbar {
     border-style: solid;
@@ -12,10 +14,10 @@
 }
 
 .clocks-go {
-    background-image: -gtk-gradient (linear,
-                                     left top, left bottom,
-                                     from (@clocks_go_color),
-                                     to (darker (@clocks_go_color)));
+    background-image: linear-gradient(to bottom,
+                                      @clocks_go_color_a,
+                                      darker(@clocks_go_color_a) 70%
+                                      );
     color: #ffffff;
     border-image: url("button-border-go.svg") 3 3 4 3 / 3 3 4 3 stretch;
     border-radius: 3px;
@@ -24,26 +26,26 @@
     border-color: transparent;
 }
 
-
 .clocks-go:hover {
-    background-image: -gtk-gradient (linear,
-                                     left top, left bottom,
-                                     from (#89c452),
-                                     to (darker (#89c452)));
+    background-image: linear-gradient(to bottom,
+                                      @clocks_go_color_b,
+                                      darker(@clocks_go_color_b) 70%
+                                      );
 }
 
 .clocks-go:active {
-    background-image: -gtk-gradient (linear,
-                                     left top, left bottom,
-                                     from (darker (@clocks_go_color)),
-                                     to (@clocks_go_color));
+    background-image: linear-gradient(to bottom,
+                                      darker(@clocks_go_color_a),
+                                      @clocks_go_color_a
+                                      );
+    border-image: url("button-border-go-active.svg") 3 3 4 3 / 3 3 4 3 stretch;
 }
 
 .clocks-stop {
-    background-image: -gtk-gradient (linear,
-                                     left top, left bottom,
-                                     from (@clocks_stop_color),
-                                     to (darker (@clocks_stop_color)));
+    background-image: linear-gradient(to bottom,
+                                      @clocks_stop_color_a,
+                                      darker(@clocks_stop_color_a) 70%
+                                      );
     color: #ffffff;
     border-image: url("button-border-stop.svg") 3 3 4 3 / 3 3 4 3 stretch;
     border-radius: 3px;
@@ -53,15 +55,16 @@
 }
 
 .clocks-stop:hover {
-    background-image: -gtk-gradient (linear,
-                                     left top, left bottom,
-                                     from (#de6464),
-                                     to (darker (@clocks_stop_color)));
+    background-image: linear-gradient(to bottom,
+                                      @clocks_stop_color_b,
+                                      darker(@clocks_stop_color_b) 70%
+                                      );
 }
 
 .clocks-stop:active {
-    background-image: -gtk-gradient (linear,
-                                     left top, left bottom,
-                                     from (darker (@clocks_stop_color)),
-                                     to (@clocks_stop_color));
+    background-image: linear-gradient(to bottom,
+                                      darker(@clocks_stop_color_a),
+                                      @clocks_stop_color_a
+                                      );
+    border-image: url("button-border-stop-active.svg") 3 3 4 3 / 3 3 4 3 stretch;
 }
