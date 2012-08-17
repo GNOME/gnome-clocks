@@ -208,7 +208,7 @@ class DigitalClockStandalone (Gtk.VBox):
         self.pack_start (Gtk.Label (), True, True, 0)
 
         sunrise_label = Gtk.Label ()
-        sunrise_label.set_markup ("<span size ='large' color='dimgray'> Sunrise </span>")
+        sunrise_label.set_markup("<span size ='large' color='dimgray'>%s</span>" % (_("Sunrise")))
         self.sunrise_time_label = Gtk.Label ()
         sunrise_label.set_alignment (1.0, 0.5)
         self.sunrise_time_label.set_alignment (0.0, 0.5)
@@ -217,7 +217,7 @@ class DigitalClockStandalone (Gtk.VBox):
         sunrise_hbox.pack_start (self.sunrise_time_label, False, False, 0)
 
         sunset_label = Gtk.Label ()
-        sunset_label.set_markup ("<span size ='large' color='dimgray'> Sunset </span>")
+        sunrise_label.set_markup("<span size ='large' color='dimgray'>%s</span>" % (_("Sunset")))
         sunset_label.set_alignment (1.0, 0.5)
         self.sunset_time_label = Gtk.Label ()
         self.sunset_time_label.set_alignment (0.0, 0.5)

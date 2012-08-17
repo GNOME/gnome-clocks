@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-15 16:40+0200\n"
+"POT-Creation-Date: 2012-08-17 03:15+0200\n"
 "PO-Revision-Date: 2012-08-15 00:59+0200\n"
 "Last-Translator: Maël Lavault <mael.lavault@mailz.org>\n"
 "Language-Team: French\n"
@@ -18,138 +18,160 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: clocks.py:87
-msgid "World"
-msgstr "Monde"
-
-#: clocks.py:185
-msgid "Alarm"
-msgstr "Alarme"
-
-#: clocks.py:255
-msgid "Stopwatch"
-msgstr "Chronomètre"
-
-#: clocks.py:286 clocks.py:331 timer.py:200
-msgid "Start"
-msgstr "Démarrer"
-
-#: clocks.py:288 clocks.py:314
-msgid "Lap"
-msgstr "Tour"
-
-#: clocks.py:313
-msgid "Stop"
-msgstr "Arrêter"
-
-#: clocks.py:320 timer.py:159
-msgid "Continue"
-msgstr "Continuer"
-
-#: clocks.py:321 timer.py:141
-msgid "Reset"
-msgstr "Recommencer"
-
-#: clocks.py:369
-msgid "Timer"
-msgstr "Minuteur"
-
-#: clocks.py:402 timer.py:139 timer.py:165
-msgid "Pause"
-msgstr "Pause"
-
-#: gnome_clocks.py:33
+#: gnomeclocks/app.py:30
 msgid "Clocks"
 msgstr "Horloges"
 
-#: gnome_clocks.py:159
-msgid "  New  "
-msgstr "  Nouveau  "
+#: gnomeclocks/app.py:95
+msgid "About GNOME Clocks"
+msgstr "À propos de GNOME Horloges"
 
-#: gnome_clocks.py:307
+#: gnomeclocks/app.py:96 gnomeclocks/app.py:303
 msgid "About Clocks"
-msgstr "A propos"
+msgstr "À propos de Horloges"
 
-#: gnome_clocks.py:308
+#: gnomeclocks/app.py:97
+msgid "GNOME Clocks"
+msgstr "GNOME Horloges"
+
+#: gnomeclocks/app.py:100
+msgid "Clocks is a clock application for the GNOME Desktop"
+msgstr "Horloges est une application de gestion des horloges pour le bureau GNOME"
+
+#: gnomeclocks/app.py:102
+msgid "translator-credits"
+msgstr ""
+
+#: gnomeclocks/app.py:154
+msgid "New"
+msgstr "Nouveau"
+
+#: gnomeclocks/app.py:304
 msgid "Quit"
 msgstr "Quitter"
 
-#: widgets.py:34 widgets.py:56
+#: gnomeclocks/clocks.py:81
+msgid "World"
+msgstr "Monde"
+
+#: gnomeclocks/clocks.py:177
+msgid "Alarm"
+msgstr "Alarme"
+
+#: gnomeclocks/clocks.py:265
+msgid "Stopwatch"
+msgstr "Chronomètre"
+
+#: gnomeclocks/clocks.py:296 gnomeclocks/clocks.py:341
+#: gnomeclocks/timer.py:174
+msgid "Start"
+msgstr "Démarrer"
+
+#: gnomeclocks/clocks.py:298 gnomeclocks/clocks.py:331
+#: gnomeclocks/timer.py:116
+msgid "Reset"
+msgstr "Recommencer"
+
+#: gnomeclocks/clocks.py:323
+msgid "Stop"
+msgstr "Arrêter"
+
+#: gnomeclocks/clocks.py:330 gnomeclocks/timer.py:133
+msgid "Continue"
+msgstr "Continuer"
+
+#: gnomeclocks/clocks.py:378
+msgid "Timer"
+msgstr "Minuteur"
+
+#: gnomeclocks/timer.py:114 gnomeclocks/timer.py:127 gnomeclocks/timer.py:137
+msgid "Pause"
+msgstr "Pause"
+
+#: gnomeclocks/widgets.py:35 gnomeclocks/widgets.py:54
 msgid "Add New Clock"
 msgstr "Ajouter une nouvelle horloge"
 
-#: widgets.py:45 widgets.py:54
-msgid "Search for a city or a time zone..."
-msgstr "Rechercher une ville ou un fuseau horraire..."
+#: gnomeclocks/widgets.py:44
+msgid "Search for a city:"
+msgstr "Rechercher une ville ou un fuseau horraire:"
 
-#: widgets.py:57
+#: gnomeclocks/widgets.py:55
 msgid "Add a New World Clock"
 msgstr "Ajouter une nouvelle horloge mondiale"
 
-#: widgets.py:61 widgets.py:368
+#: gnomeclocks/widgets.py:59 gnomeclocks/widgets.py:365
 msgid "Cancel"
 msgstr "Annuler"
 
-#: widgets.py:61 widgets.py:368
-msgid "Save"
-msgstr "Sauvegarder"
+#: gnomeclocks/widgets.py:59
+msgid "Add"
+msgstr "Ajouter"
 
-#: widgets.py:212
-msgid " Sunrise "
-msgstr " Lever de soleil "
+#: gnomeclocks/widgets.py:211
+msgid "Sunrise"
+msgstr "Lever de soleil"
 
-#: widgets.py:221
-msgid " Sunset "
-msgstr " Coucher de soleil "
+#: gnomeclocks/widgets.py:220
+msgid "Sunset"
+msgstr "Coucher de soleil"
 
-#: widgets.py:352 widgets.py:423
+#: gnomeclocks/widgets.py:349 gnomeclocks/widgets.py:433
 msgid "New Alarm"
 msgstr "Nouvelle alarme"
 
-#: widgets.py:376
+#: gnomeclocks/widgets.py:365
+msgid "Save"
+msgstr "Sauvegarder"
+
+#: gnomeclocks/widgets.py:373
 msgid "Time"
 msgstr "Heure"
 
-#: widgets.py:411
+#: gnomeclocks/widgets.py:421
 msgid "Name"
 msgstr "Nom"
 
-#: widgets.py:413
+#: gnomeclocks/widgets.py:423
 msgid "Repeat Every"
 msgstr "Répéter chaque"
 
-#: widgets.py:415
+#: gnomeclocks/widgets.py:425
 msgid "Sound"
 msgstr "Son"
 
-#: widgets.py:430
+#: gnomeclocks/widgets.py:440
 msgid "Mon"
 msgstr "Lun"
 
-#: widgets.py:432
+#: gnomeclocks/widgets.py:442
 msgid "Tue"
 msgstr "Mar"
 
-#: widgets.py:434
+#: gnomeclocks/widgets.py:444
 msgid "Wed"
 msgstr "Mer"
 
-#: widgets.py:436
+#: gnomeclocks/widgets.py:446
 msgid "Thu"
 msgstr "Jeu"
 
-#: widgets.py:438
+#: gnomeclocks/widgets.py:448
 msgid "Fri"
 msgstr "Ven"
 
-#: widgets.py:440
+#: gnomeclocks/widgets.py:450
 msgid "Sat"
 msgstr "Sam"
 
-#: widgets.py:442
+#: gnomeclocks/widgets.py:452
 msgid "Sun"
 msgstr "Dim"
 
-#: widgets.py:600
+#: gnomeclocks/widgets.py:555
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Selectionner <b>Nouveau</b> pour ajouter une horloge mondiale"
+
+#: gnomeclocks/widgets.py:574
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Selectionner <b>Nouveau</b> pour ajouter une alarme"
