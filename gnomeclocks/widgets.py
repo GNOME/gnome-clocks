@@ -34,7 +34,7 @@ class NewWorldClockDialog(Gtk.Dialog):
                     None, (GObject.TYPE_PYOBJECT, ))}
 
     def __init__(self, parent):
-        Gtk.Dialog.__init__(self, _("Add New Clock"), parent)
+        Gtk.Dialog.__init__(self, _("Add a New World Clock"), parent)
         self.set_transient_for(parent)
         self.set_modal(True)
         self.set_size_request(400, -1)
