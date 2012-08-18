@@ -60,10 +60,11 @@ class NewWorldClockDialog(Gtk.Dialog):
             'edit-clear-symbolic')
         self.searchEntry.set_icon_from_gicon(
             Gtk.EntryIconPosition.SECONDARY, self.find_gicon)
+        self.searchEntry.set_activates_default(True)
 
         self.add_buttons(_("Cancel"), 0, _("Add"), 1)
-        widget = self.get_widget_for_response(1)
-        widget.set_sensitive(False)
+        self.set_default_response(1)
+        self.set_response_sensitive(1, False)
 
         box.pack_start(self.label, False, False, 6)
         box.pack_start(self.searchEntry, False, False, 3)
@@ -85,7 +86,6 @@ class NewWorldClockDialog(Gtk.Dialog):
 
     def _set_city(self, widget):
         location = self.searchEntry.get_location()
-        widget = self.get_widget_for_response(1)
         if self.searchEntry.get_text() == '':
             self.searchEntry.set_icon_from_gicon(
                 Gtk.EntryIconPosition.SECONDARY, self.find_gicon)
@@ -93,9 +93,9 @@ class NewWorldClockDialog(Gtk.Dialog):
             self.searchEntry.set_icon_from_gicon(
                 Gtk.EntryIconPosition.SECONDARY, self.clear_gicon)
         if location:
-            widget.set_sensitive(True)
+            self.set_response_sensitive(1, True)
         else:
-            widget.set_sensitive(False)
+            self.set_response_sensitive(1, False)
 
     def get_selection(self):
         return self.location
@@ -106,9 +106,7 @@ class NewWorldClockDialog(Gtk.Dialog):
             self.searchEntry.set_text('')
             self.searchEntry.set_icon_from_gicon(
               Gtk.EntryIconPosition.SECONDARY, self.find_gicon)
-            widget = self.get_widget_for_response(1)
-            widget.set_sensitive(False)
-
+            self.set_response_sensitive(1, False)
 
 class DigitalClock():
     def __init__(self, location):
