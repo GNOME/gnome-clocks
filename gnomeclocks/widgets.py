@@ -27,9 +27,11 @@ import os
 import cairo
 import time
 
+
 # FIXME: Use real sunrise/sunset time in the future
 def get_is_day(hour):
     return (hour > 7 and hour < 19)
+
 
 class NewWorldClockDialog(Gtk.Dialog):
 
@@ -613,44 +615,18 @@ class NewAlarmDialog(Gtk.Dialog):
             self.repeat_days.remove('SU')
 
 
-class WorldEmpty(Gtk.Box):
-    def __init__(self):
+class EmptyPlaceholder(Gtk.Box):
+    def __init__(self, icon, message):
         Gtk.Box.__init__(self)
         self.set_orientation(Gtk.Orientation.VERTICAL)
-        gicon = Gio.ThemedIcon.new_with_default_fallbacks(
-            "document-open-recent-symbolic")
+        gicon = Gio.ThemedIcon.new_with_default_fallbacks(icon)
         image = Gtk.Image.new_from_gicon(gicon, Gtk.IconSize.DIALOG)
         image.set_sensitive(False)
-        text = Gtk.Label("")
-        text.set_markup("<span color='darkgrey'>" + _(
-            "Select <b>New</b> to add a world clock") + "</span>")
-        self.pack_start(Gtk.Label(""), True, True, 0)
+        text = Gtk.Label()
+        text.get_style_context().add_class("dim-label")
+        text.set_markup(message)
+        self.pack_start(Gtk.Label(), True, True, 0)
         self.pack_start(image, False, False, 6)
         self.pack_start(text, False, False, 6)
-        self.pack_start(Gtk.Label(""), True, True, 0)
-        self.button = Gtk.ToggleButton()
+        self.pack_start(Gtk.Label(), True, True, 0)
         self.show_all()
-
-    def unselect_all(self):
-        pass
-
-
-class AlarmsEmpty(Gtk.Box):
-    def __init__(self):
-        Gtk.Box.__init__(self)
-        self.set_orientation(Gtk.Orientation.VERTICAL)
-        gicon = Gio.ThemedIcon.new_with_default_fallbacks("alarm-symbolic")
-        image = Gtk.Image.new_from_gicon(gicon, Gtk.IconSize.DIALOG)
-        image.set_sensitive(False)
-        text = Gtk.Label("")
-        text.set_markup("<span color='darkgrey'>" +
-            _("Select <b>New</b> to add an alarm") + "</span>")
-        self.pack_start(Gtk.Label(""), True, True, 0)
-        self.pack_start(image, False, False, 6)
-        self.pack_start(text, False, False, 6)
-        self.pack_start(Gtk.Label(""), True, True, 0)
-        self.button = Gtk.ToggleButton()
-        self.show_all()
-
-    def unselect_all(self):
-        pass

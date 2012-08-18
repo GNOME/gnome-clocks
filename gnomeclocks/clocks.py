@@ -20,7 +20,7 @@ from gi.repository import Gtk, GObject, Gio, Gst, Notify
 from gi.repository.GdkPixbuf import Pixbuf
 
 from widgets import NewWorldClockDialog, NewAlarmDialog
-from widgets import DigitalClock, AlarmWidget, WorldEmpty, AlarmsEmpty
+from widgets import DigitalClock, AlarmWidget, EmptyPlaceholder
 from storage import worldclockstorage
 
 from timer import TimerWelcomeScreen, TimerScreen
@@ -87,7 +87,9 @@ class World(Clock):
                                                    GObject.TYPE_PYOBJECT)
         self.iconview = iconview = Gtk.IconView.new()
 
-        self.empty_view = WorldEmpty()
+        self.empty_view = EmptyPlaceholder(
+                "document-open-recent-symbolic",
+                 _("Select <b>New</b> to add a world clock"))
 
         iconview.set_model(liststore)
         iconview.set_spacing(3)
@@ -188,7 +190,10 @@ class Alarm(Clock):
                                                   GObject.TYPE_PYOBJECT)
         self.iconview = iconview = Gtk.IconView.new()
 
-        self.empty_view = AlarmsEmpty()
+        self.empty_view = EmptyPlaceholder(
+                "alarm-symbolic",
+                _("Select <b>New</b> to add an alarm"))
+
         iconview.set_model(liststore)
 
         iconview.set_spacing(3)
