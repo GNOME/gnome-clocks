@@ -131,27 +131,26 @@ class World(Clock):
             self.load_empty_clocks_view()
         else:
             for clock in self.clocks:
-                d = DigitalClock(clock)
-                view_iter = self.liststore.append(
-                    [d.drawing.pixbuf,
-                    "<b>" + d.location.get_city_name() + "</b>", d])
-                d.set_iter(self.liststore, view_iter)
+                self.add_clock_widget(clock)
             self.load_clocks_view()
 
     def add_clock(self, location):
         location_id = location.id + "---" + location.location.get_code()
         if not location_id in worldclockstorage.locations_dump:
-            d = DigitalClock(location)
             self.clocks.append(location)
-            view_iter = self.liststore.append([
-                d.drawing.pixbuf,
-                "<b>" + d.location.get_city_name() + "</b>",
-                d])
-            d.set_iter(self.liststore, view_iter)
+            self.add_clock_widget(location)
             self.show_all()
         worldclockstorage.save_clocks(self.clocks)
         if len(self.clocks) > 0:
             self.load_clocks_view()
+
+    def add_clock_widget(self, location):
+        d = DigitalClock(location)
+        name = d.location.get_city_name()
+        view_iter = self.liststore.append([d.drawing.pixbuf,
+                                           "<b>" + name + "</b>",
+                                           d])
+        d.set_iter(self.liststore, view_iter)
 
     def delete_clock(self, d):
         self.clocks.remove(d.location)
@@ -226,18 +225,7 @@ class Alarm(Clock):
             for vevent in vevents:
                 alarm = AlarmItem()
                 alarm.new_from_vevent(vevent)
-                scf = self.get_system_clock_format()
-                if scf == "12h":
-                    d = AlarmWidget(alarm.get_time_12h_as_string(),
-                                    alarm.get_alarm_repeat_string())
-                else:
-                    d = AlarmWidget(alarm.get_time_24h_as_string(),
-                                    alarm.get_alarm_repeat_string())
-                view_iter = self.liststore.append([d.drawing.pixbuf,
-                                                    "<b>"
-                                                    + alarm.get_alarm_name()
-                                                    + "</b>", d])
-                d.set_iter(self.liststore, view_iter)
+                self.add_alarm_widget(alarm)
                 self.load_alarms_view()
         else:
             self.load_empty_alarms_view()
@@ -257,20 +245,24 @@ class Alarm(Clock):
     def add_alarm(self, alarm):
         handler = ICSHandler()
         handler.add_vevent(alarm.get_vevent())
-        scf = self.get_system_clock_format()
-        if scf == "12h":
-            d = AlarmWidget(alarm.get_time_12h_as_string(),
-                            alarm.get_alarm_repeat_string())
-        else:
-            d = AlarmWidget(alarm.get_time_24h_as_string(),
-                            alarm.get_alarm_repeat_string())
-        view_iter = self.liststore.append([d.drawing.pixbuf,
-            "<b>" + alarm.get_alarm_name() + "</b>", d])
-        d.set_iter(self.liststore, view_iter)
+        self.add_alarm_widget(alarm)
         self.show_all()
         vevents = handler.load_vevents()
         if vevents:
             self.load_alarms_view()
+
+    def add_alarm_widget(self, alarm):
+        name = alarm.get_alarm_name()
+        if self.get_system_clock_format() == "12h":
+            timestr = alarm.get_time_12h_as_string()
+        else:
+            timestr = alarm.get_time_24h_as_string()
+        repeat = alarm.get_alarm_repeat_string()
+        widget = AlarmWidget(timestr, repeat)
+        view_iter = self.liststore.append([widget.drawing.pixbuf,
+                                           "<b>" + name + "</b>",
+                                           widget])
+        widget.set_iter(self.liststore, view_iter)
 
     def open_new_dialog(self):
         parent = self.get_parent().get_parent().get_parent()
