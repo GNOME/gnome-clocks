@@ -16,12 +16,13 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
-from gi.repository import Gtk, GObject, Gio, Gst, Notify
+from gi.repository import Gtk, GObject, Gio
 from gi.repository.GdkPixbuf import Pixbuf
 
 from widgets import NewWorldClockDialog, NewAlarmDialog
 from widgets import DigitalClock, AlarmWidget, EmptyPlaceholder
 from storage import worldclockstorage
+from utils import Alert
 
 from timer import TimerWelcomeScreen, TimerScreen
 from alarm import AlarmItem, ICSHandler
@@ -481,19 +482,3 @@ class Timer(Clock):
             return False
         else:
             return True
-
-
-class Alert:
-    def __init__(self):
-        Gst.init('gst')
-
-    def do_alert(self, msg):
-        if Notify.init("GNOME Clocks"):
-            Alert = Notify.Notification.new("Clocks", msg, 'test')
-            Alert.show()
-            playbin = Gst.ElementFactory.make('playbin', None)
-            playbin.set_property('uri',
-              'file:///usr/share/sounds/gnome/default/alerts/glass.ogg')
-            playbin.set_state(Gst.State.PLAYING)
-        else:
-            print "Error: Could not trigger Alert"

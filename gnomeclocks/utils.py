@@ -17,7 +17,7 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import os
-
+from gi.repository import Gst, Notify
 
 class Dirs:
     @staticmethod
@@ -43,3 +43,19 @@ class Dirs:
         except:
             path = "locale"
         return path
+
+
+class Alert:
+    def __init__(self):
+        Gst.init('gst')
+
+    def do_alert(self, msg):
+        if Notify.init("GNOME Clocks"):
+            Alert = Notify.Notification.new("Clocks", msg, 'test')
+            Alert.show()
+            playbin = Gst.ElementFactory.make('playbin', None)
+            playbin.set_property('uri',
+              'file:///usr/share/sounds/gnome/default/alerts/glass.ogg')
+            playbin.set_state(Gst.State.PLAYING)
+        else:
+            print "Error: Could not trigger Alert"
