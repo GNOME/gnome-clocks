@@ -412,13 +412,18 @@ class AlarmWidget():
         self.list_store = list_store
 
 
-class NewAlarmDialog(Gtk.Dialog):
+class AlarmDialog(Gtk.Dialog):
 
     __gsignals__ = {'add-alarm': (GObject.SignalFlags.RUN_LAST,
+                    None, (GObject.TYPE_PYOBJECT, )),
+                    'edit-alarm': (GObject.SignalFlags.RUN_LAST,
                     None, (GObject.TYPE_PYOBJECT, ))}
 
-    def __init__(self, parent):
-        Gtk.Dialog.__init__(self, _("New Alarm"), parent)
+    def __init__(self, alarm_view, parent, vevent=None):
+        if vevent:
+            Gtk.Dialog.__init__(self, _("Edit Alarm"), parent)
+        else:
+            Gtk.Dialog.__init__(self, _("New Alarm"), parent)
         self.set_border_width(12)
         self.parent = parent
         self.set_transient_for(parent)
@@ -438,10 +443,16 @@ class NewAlarmDialog(Gtk.Dialog):
         self.add_buttons(_("Cancel"), 0, _("Save"), 1)
         self.connect("response", self.on_response)
 
-        t = time.localtime()
-        h = t.tm_hour
-        m = t.tm_min
-        p = time.strftime("%p", t)
+        if vevent:
+            t = vevent.dtstart.value
+            h = int(t.strftime("%I"))
+            m = int(t.strftime("%m"))
+            p = t.strftime("%p")
+        else:
+            t = time.localtime()
+            h = t.tm_hour
+            m = t.tm_min
+            p = time.strftime("%p", t)
         time_label = Gtk.Label(_("Time"))
         time_label.set_alignment(1.0, 0.5)
         points = Gtk.Label(": ")
@@ -456,16 +467,6 @@ class NewAlarmDialog(Gtk.Dialog):
         minute_spinbutton.set_wrap(True)
         minute_spinbutton.connect('output', self.show_leading_zeros)
 
-        if cf == "12h":
-            if p == "PM":
-                h = h - 12
-            hour_spinbutton.set_range(1.0, 12.0)
-            hour_spinbutton.set_value(h)
-            self.hourselect = hourselect = hour_spinbutton
-        else:
-            hour_spinbutton.set_range(0.0, 23.0)
-            hour_spinbutton.set_value(h)
-            self.hourselect = hourselect = hour_spinbutton
         minute_spinbutton.set_range(0.0, 59.0)
         minute_spinbutton.set_value(m)
         self.minuteselect = minuteselect = minute_spinbutton
@@ -474,17 +475,23 @@ class NewAlarmDialog(Gtk.Dialog):
             self.ampm = ampm = Gtk.ComboBoxText()
             ampm.append_text("AM")
             ampm.append_text("PM")
-            if p == 'AM':
-                ampm.set_active(0)
-            else:
+            if p == "PM":
+                h = h - 12
                 ampm.set_active(1)
-
+            else:
+                ampm.set_active(0)
+            hour_spinbutton.set_range(1.0, 12.0)
+            hour_spinbutton.set_value(h)
+            self.hourselect = hourselect = hour_spinbutton
             table1.attach(time_label, 0, 1, 0, 1)
             table1.attach(hourselect, 1, 2, 0, 1)
             table1.attach(points, 2, 3, 0, 1)
             table1.attach(minuteselect, 3, 4, 0, 1)
             table1.attach(ampm, 4, 5, 0, 1)
         else:
+            hour_spinbutton.set_range(0.0, 23.0)
+            hour_spinbutton.set_value(h)
+            self.hourselect = hourselect = hour_spinbutton
             table1.attach(time_label, 0, 1, 0, 1)
             table1.attach(hourselect, 1, 2, 0, 1)
             table1.attach(points, 2, 3, 0, 1)
@@ -499,41 +506,36 @@ class NewAlarmDialog(Gtk.Dialog):
 
         table1.attach(name, 0, 1, 1, 2)
         table1.attach(repeat, 0, 1, 2, 3)
-        #table1.attach(sound, 0, 1, 3, 4)
 
         self.entry = entry = Gtk.Entry()
-        entry.set_text(_("New Alarm"))
+        if vevent:
+            entry.set_text(vevent.summary.value)
+        else:
+            entry.set_text(_("New Alarm"))
         entry.set_editable(True)
         if cf == "12h":
             table1.attach(entry, 1, 5, 1, 2)
         else:
             table1.attach(entry, 1, 4, 1, 2)
 
-        buttond1 = Gtk.ToggleButton(label=_("Mon"))
-        buttond1.connect("clicked", self.on_d1_clicked)
-        buttond2 = Gtk.ToggleButton(label=_("Tue"))
-        buttond2.connect("clicked", self.on_d2_clicked)
-        buttond3 = Gtk.ToggleButton(label=_("Wed"))
-        buttond3.connect("clicked", self.on_d3_clicked)
-        buttond4 = Gtk.ToggleButton(label=_("Thu"))
-        buttond4.connect("clicked", self.on_d4_clicked)
-        buttond5 = Gtk.ToggleButton(label=_("Fri"))
-        buttond5.connect("clicked", self.on_d5_clicked)
-        buttond6 = Gtk.ToggleButton(label=_("Sat"))
-        buttond6.connect("clicked", self.on_d6_clicked)
-        buttond7 = Gtk.ToggleButton(label=_("Sun"))
-        buttond7.connect("clicked", self.on_d7_clicked)
-
-        # create a box and put them all in it
+        # create a box and put repeat days in it
         box = Gtk.Box(True, 0)
         box.get_style_context().add_class("linked")
-        box.pack_start(buttond1, True, True, 0)
-        box.pack_start(buttond2, True, True, 0)
-        box.pack_start(buttond3, True, True, 0)
-        box.pack_start(buttond4, True, True, 0)
-        box.pack_start(buttond5, True, True, 0)
-        box.pack_start(buttond6, True, True, 0)
-        box.pack_start(buttond7, True, True, 0)
+
+        days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
+        if vevent:
+            self.repeat = self.get_repeat_days_from_vevent(vevent)
+
+        for day in days:
+            btn = Gtk.ToggleButton(label=_(day))
+            if vevent:
+                for r in self.repeat:
+                    if btn.get_label()[:2] == r:
+                        btn.set_active(True)
+            btn.connect("clicked", self.on_day_clicked)
+            box.pack_start(btn, True, True, 0)
+
         if cf == "12h":
             table1.attach(box, 1, 5, 2, 3)
         else:
@@ -547,6 +549,15 @@ class NewAlarmDialog(Gtk.Dialog):
         settings = Gio.Settings.new('org.gnome.desktop.interface')
         systemClockFormat = settings.get_string('clock-format')
         return systemClockFormat
+
+    def get_repeat_days_from_vevent(self, vevent):
+        rrule = vevent.rrule.value
+        repeat = []
+        if rrule[5] == 'W':
+            days = rrule[18:]
+            repeat = days.split(",")
+        return repeat
+
 
     def on_response(self, widget, id):
         if id == 0:
@@ -570,47 +581,13 @@ class NewAlarmDialog(Gtk.Dialog):
         else:
             pass
 
-    def on_d1_clicked(self, btn):
+    def on_day_clicked(self, btn):
+        label = btn.get_label()
+        day = label[:2]
         if btn.get_active() == True:
-            self.repeat_days.append('MO')
-        if btn.get_active() == False:
-            self.repeat_days.remove('MO')
-
-    def on_d2_clicked(self, btn):
-        if btn.get_active() == True:
-            self.repeat_days.append('TU')
+            self.repeat_days.append(day)
         else:
-            self.repeat_days.remove('TU')
-
-    def on_d3_clicked(self, btn):
-        if btn.get_active() == True:
-            self.repeat_days.append('WE')
-        else:
-            self.repeat_days.remove('WE')
-
-    def on_d4_clicked(self, btn):
-        if btn.get_active() == True:
-            self.repeat_days.append('TH')
-        else:
-            self.repeat_days.remove('TH')
-
-    def on_d5_clicked(self, btn):
-        if btn.get_active() == True:
-            self.repeat_days.append('FR')
-        else:
-            self.repeat_days.remove('FR')
-
-    def on_d6_clicked(self, btn):
-        if btn.get_active() == True:
-            self.repeat_days.append('SA')
-        else:
-            self.repeat_days.remove('SA')
-
-    def on_d7_clicked(self, btn):
-        if btn.get_active() == True:
-            self.repeat_days.append('SU')
-        else:
-            self.repeat_days.remove('SU')
+            self.repeat_days.remove(day)
 
 
 class EmptyPlaceholder(Gtk.Box):

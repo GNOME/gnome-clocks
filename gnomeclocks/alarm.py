@@ -180,7 +180,7 @@ class AlarmItem:
                                       datetime.time(h, m))
         vevent.add('dtend').value =\
             datetime.datetime.combine(datetime.date.today(),
-                                      datetime.time(h, 59))
+                                      datetime.time(h, m))
         if len(self.repeat) == 0:
             vevent.add('rrule').value = 'FREQ=DAILY;'
         else:

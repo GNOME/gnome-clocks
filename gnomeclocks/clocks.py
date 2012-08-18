@@ -19,7 +19,7 @@
 from gi.repository import Gtk, GObject, Gio
 from gi.repository.GdkPixbuf import Pixbuf
 
-from widgets import NewWorldClockDialog, NewAlarmDialog
+from widgets import NewWorldClockDialog, AlarmDialog
 from widgets import DigitalClock, AlarmWidget, EmptyPlaceholder
 from storage import worldclockstorage
 from utils import Alert
@@ -188,6 +188,7 @@ class Alarm(Clock):
     def __init__(self):
         Clock.__init__(self, _("Alarm"), True, True)
         self.liststore = liststore = Gtk.ListStore(Pixbuf, str,
+                                                  GObject.TYPE_PYOBJECT,
                                                   GObject.TYPE_PYOBJECT)
         self.iconview = iconview = Gtk.IconView.new()
 
@@ -209,9 +210,18 @@ class Alarm(Clock):
         self.scrolledwindow = Gtk.ScrolledWindow()
         self.scrolledwindow.add(iconview)
 
+        iconview.connect('selection-changed', self._on_selection_changed)
+
         self.alarms = []
         self.load_alarms()
         self.show_all()
+
+    def _on_selection_changed(self, iconview):
+        items = iconview.get_selected_items()
+        if items:
+            path = iconview.get_selected_items()[0]
+            vevent = self.liststore[path][-1]
+            self.open_edit_dialog(vevent)
 
     def get_system_clock_format(self):
         settings = Gio.Settings.new('org.gnome.desktop.interface')
@@ -261,13 +271,23 @@ class Alarm(Clock):
         widget = AlarmWidget(timestr, repeat)
         view_iter = self.liststore.append([widget.drawing.pixbuf,
                                            "<b>" + name + "</b>",
-                                           widget])
+                                           widget,
+                                           alarm.get_vevent()])
         widget.set_iter(self.liststore, view_iter)
+
+    def edit_alarm(self, vevent):
+        pass
 
     def open_new_dialog(self):
         parent = self.get_parent().get_parent().get_parent()
-        window = NewAlarmDialog(parent)
+        window = AlarmDialog(self, parent)
         window.connect("add-alarm", lambda w, l: self.add_alarm(l))
+        window.show_all()
+
+    def open_edit_dialog(self, vevent):
+        parent = self.get_parent().get_parent().get_parent()
+        window = AlarmDialog(self, parent, vevent)
+        window.connect("edit-alarm", lambda w, l: self.edit_alarm(l))
         window.show_all()
 
 
