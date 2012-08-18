@@ -64,7 +64,8 @@ class Clock(Gtk.EventBox):
         self.button = ToggleButton(label)
         self.hasNew = hasNew
         self.hasSelectionMode = hasSelectionMode
-        self.get_style_context().add_class('grey-bg')
+        self.get_style_context().add_class('view')
+        self.get_style_context().add_class('content-view')
 
     def open_new_dialog(self):
         pass
@@ -95,7 +96,7 @@ class World(Clock):
         iconview.set_model(liststore)
         iconview.set_spacing(3)
         iconview.set_pixbuf_column(0)
-        iconview.get_style_context().add_class('grey-bg')
+        iconview.get_style_context().add_class('content-view')
 
         renderer_text = Gtk.CellRendererText()
         renderer_text.set_alignment(0.5, 0.5)
@@ -199,7 +200,7 @@ class Alarm(Clock):
 
         iconview.set_spacing(3)
         iconview.set_pixbuf_column(0)
-        iconview.get_style_context().add_class('grey-bg')
+        iconview.get_style_context().add_class('content-view')
 
         renderer_text = Gtk.CellRendererText()
         renderer_text.set_alignment(0.5, 0.5)
