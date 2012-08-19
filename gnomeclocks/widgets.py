@@ -418,7 +418,7 @@ class AlarmDialog(Gtk.Dialog):
         self.parent = parent
         self.set_transient_for(parent)
         self.set_modal(True)
-        self.repeat_days = []
+        self.day_buttons = []
 
         self.cf = SystemSettings.get_clock_format()
         if self.cf == "12h":
@@ -438,11 +438,16 @@ class AlarmDialog(Gtk.Dialog):
             h = int(t.strftime("%I"))
             m = int(t.strftime("%m"))
             p = t.strftime("%p")
+            name = vevent.summary.value
+            repeat = self.get_repeat_days_from_vevent(vevent)
         else:
             t = time.localtime()
             h = t.tm_hour
             m = t.tm_min
             p = time.strftime("%p", t)
+            name = _("New Alarm")
+            repeat = []
+
         time_label = Gtk.Label(_("Time"))
         time_label.set_alignment(1.0, 0.5)
         points = Gtk.Label(": ")
@@ -487,44 +492,33 @@ class AlarmDialog(Gtk.Dialog):
             table1.attach(points, 2, 3, 0, 1)
             table1.attach(minuteselect, 3, 4, 0, 1)
 
-        name = Gtk.Label(_("Name"))
-        name.set_alignment(1.0, 0.5)
-        repeat = Gtk.Label(_("Repeat Every"))
-        repeat.set_alignment(1.0, 0.5)
-        sound = Gtk.Label(_("Sound"))
-        sound.set_alignment(1.0, 0.5)
+        label = Gtk.Label(_("Name"))
+        label.set_alignment(1.0, 0.5)
+        table1.attach(label, 0, 1, 1, 2)
 
-        table1.attach(name, 0, 1, 1, 2)
-        table1.attach(repeat, 0, 1, 2, 3)
+        label = Gtk.Label(_("Repeat Every"))
+        label.set_alignment(1.0, 0.5)
+        table1.attach(label, 0, 1, 2, 3)
 
-        self.entry = entry = Gtk.Entry()
-        if vevent:
-            entry.set_text(vevent.summary.value)
-        else:
-            entry.set_text(_("New Alarm"))
-        entry.set_editable(True)
+        self.entry = Gtk.Entry()
+        self.entry.set_text(name)
+        self.entry.set_editable(True)
+
         if self.cf == "12h":
-            table1.attach(entry, 1, 5, 1, 2)
+            table1.attach(self.entry, 1, 5, 1, 2)
         else:
-            table1.attach(entry, 1, 4, 1, 2)
+            table1.attach(self.entry, 1, 4, 1, 2)
 
         # create a box and put repeat days in it
         box = Gtk.Box(True, 0)
         box.get_style_context().add_class("linked")
 
-        days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-
-        if vevent:
-            self.repeat = self.get_repeat_days_from_vevent(vevent)
-
-        for day in days:
+        for day in ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]:
             btn = Gtk.ToggleButton(label=_(day))
-            if vevent:
-                for r in self.repeat:
-                    if btn.get_label()[:2] == r:
-                        btn.set_active(True)
-            btn.connect("clicked", self.on_day_clicked)
+            if btn.get_label()[:2]  in repeat:
+                btn.set_active(True)
             box.pack_start(btn, True, True, 0)
+            self.day_buttons.append(btn)
 
         if self.cf == "12h":
             table1.attach(box, 1, 5, 2, 3)
@@ -544,11 +538,8 @@ class AlarmDialog(Gtk.Dialog):
         return repeat
 
     def on_response(self, widget, id):
-        if id == 0:
-            self.destroy()
         if id == 1:
             name = self.entry.get_text()
-            repeat = self.repeat_days
             h = self.hourselect.get_value_as_int()
             m = self.minuteselect.get_value_as_int()
             if self.cf == "12h":
@@ -559,19 +550,15 @@ class AlarmDialog(Gtk.Dialog):
                     p = "PM"
             else:
                 p = None
+            repeat = []
+            for btn in self.day_buttons:
+                if btn.get_active():
+                    repeat.append(btn.get_label()[:2])
             new_alarm = AlarmItem(name, repeat, h, m, p)
             self.emit('add-alarm', new_alarm)
             self.destroy()
         else:
-            pass
-
-    def on_day_clicked(self, btn):
-        label = btn.get_label()
-        day = label[:2]
-        if btn.get_active() == True:
-            self.repeat_days.append(day)
-        else:
-            self.repeat_days.remove(day)
+            self.destroy()
 
 
 class EmptyPlaceholder(Gtk.Box):
