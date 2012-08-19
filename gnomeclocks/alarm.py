@@ -16,10 +16,11 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
-import datetime
-import vobject
 import os
+from datetime import datetime
+import vobject
 
+from utils import SystemSettings
 
 class ICSHandler():
     def __init__(self):
@@ -71,53 +72,29 @@ class AlarmItem:
         self.repeat = repeat
         self.vevent = None
         self.uid = None
-        self.h = h
-        self.m = m
-        self.p = p
+        if h and m:
+            if p:
+                self.time = datetime.strptime("%02i:%02i %s" % (h, m, p), "%I:%M %p")
+            else:
+                self.time = datetime.strptime("%02i:%02i" % (h, m), "%H:%M")
+        else:
+            self.time = None
 
     def new_from_vevent(self, vevent):
         self.vevent = vevent
         self.name = vevent.summary.value
         self.time = vevent.dtstart.value
-        self.h = int(self.time.strftime("%H"))
-        self.m = int(self.time.strftime("%M"))
-        self.p = self.time.strftime("%p")
         self.uid = vevent.uid.value
         if vevent.rrule.value == 'FREQ=DAILY;':
             self.repeat = ['FR', 'MO', 'SA', 'SU', 'TH', 'TU', 'WE']
         else:
             self.repeat = vevent.rrule.value[19:].split(',')
 
-    def set_alarm_time(self, h, m, p):
-        self.h = h
-        self.m = m
-        self.p = p
-
-    def get_alarm_time(self):
-        time = {}
-        time['h'] = self.h
-        time['m'] = self.m
-        time['p'] = self.p
-        return self.time
-
-    def get_time_12h_as_string(self):
-        if self.p == 'AM' or self.p == 'PM':
-            if self.h == 12 or self.h == 0:
-                h = 12
-            else:
-                h = self.h - 12
+    def get_time_as_string(self):
+        if SystemSettings.get_clock_format() == "12h":
+            return self.time.strftime("%I:%M %p")
         else:
-            h = self.h
-        return "%2i:%02i %s" % (h, self.m, self.p)
-
-    def get_time_24h_as_string(self):
-        if self.p == 'AM' or self.p == 'PM':
-            h = self.h + 12
-            if h == 24:
-                h = 12
-        else:
-            h = self.h
-        return "%2i:%02i" % (h, self.m)
+            return self.time.strftime("%H:%M")
 
     def set_alarm_name(self, name):
         self.name = name
@@ -166,21 +143,8 @@ class AlarmItem:
     def get_vevent(self):
         self.vevent = vevent = vobject.newFromBehavior('vevent')
         vevent.add('summary').value = self.name
-        h = self.h
-        m = self.m
-        if self.p == "PM":
-            h = self.h + 12
-            if h == 24:
-                h = 12
-        elif self.p == "AM":
-            if h == 12:
-                h = 0
-        vevent.add('dtstart').value =\
-            datetime.datetime.combine(datetime.date.today(),
-                                      datetime.time(h, m))
-        vevent.add('dtend').value =\
-            datetime.datetime.combine(datetime.date.today(),
-                                      datetime.time(h, m))
+        vevent.add('dtstart').value = self.time
+        vevent.add('dtend').value = self.time
         if len(self.repeat) == 0:
             vevent.add('rrule').value = 'FREQ=DAILY;'
         else:

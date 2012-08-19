@@ -222,8 +222,8 @@ class Alarm(Clock):
         items = iconview.get_selected_items()
         if items:
             path = iconview.get_selected_items()[0]
-            vevent = self.liststore[path][-1]
-            self.open_edit_dialog(vevent)
+            alarm = self.liststore[path][-1]
+            self.open_edit_dialog(alarm)
 
     def load_alarms(self):
         handler = ICSHandler()
@@ -262,10 +262,7 @@ class Alarm(Clock):
 
     def add_alarm_widget(self, alarm):
         name = alarm.get_alarm_name()
-        if SystemSettings.get_clock_format() == "12h":
-            timestr = alarm.get_time_12h_as_string()
-        else:
-            timestr = alarm.get_time_24h_as_string()
+        timestr = alarm.get_time_as_string()
         repeat = alarm.get_alarm_repeat_string()
         widget = AlarmWidget(timestr, repeat)
         view_iter = self.liststore.append([widget.drawing.pixbuf,
