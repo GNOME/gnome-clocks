@@ -401,23 +401,21 @@ class AlarmDialog(Gtk.Dialog):
             Gtk.Dialog.__init__(self, _("Edit Alarm"), parent)
         else:
             Gtk.Dialog.__init__(self, _("New Alarm"), parent)
-        self.set_border_width(12)
+        self.set_border_width(6)
         self.parent = parent
         self.set_transient_for(parent)
         self.set_modal(True)
         self.day_buttons = []
 
-        self.cf = SystemSettings.get_clock_format()
-        if self.cf == "12h":
-            table1 = Gtk.Table(4, 6, False)
-        else:
-            table1 = Gtk.Table(4, 5, False)
-        table1.set_row_spacings(9)
-        table1.set_col_spacings(5)
-        table1.set_col_spacing(0, 9)
         content_area = self.get_content_area()
-        content_area.pack_start(table1, True, True, 0)
         self.add_buttons(_("Cancel"), 0, _("Save"), 1)
+
+        self.cf = SystemSettings.get_clock_format()
+        grid = Gtk.Grid()
+        grid.set_row_spacing(9)
+        grid.set_column_spacing(6)
+        grid.set_border_width(6)
+        content_area.pack_start(grid, True, True, 0)
 
         if vevent:
             t = vevent.dtstart.value
@@ -434,82 +432,68 @@ class AlarmDialog(Gtk.Dialog):
             name = _("New Alarm")
             repeat = []
 
-        time_label = Gtk.Label(_("Time"))
-        time_label.set_alignment(1.0, 0.5)
-        points = Gtk.Label(": ")
-        points.set_alignment(0.5, 0.5)
+        label = Gtk.Label(_("Time"))
+        label.set_alignment(1.0, 0.5)
+        grid.attach(label, 0, 0, 1, 1)
 
-        hour_spinbutton = Gtk.SpinButton()
-        hour_spinbutton.set_increments(1.0, 1.0)
-        hour_spinbutton.set_wrap(True)
+        self.hourselect = Gtk.SpinButton()
+        self.hourselect.set_increments(1.0, 1.0)
+        self.hourselect.set_wrap(True)
+        grid.attach(self.hourselect, 1, 0, 1, 1)
 
-        minute_spinbutton = Gtk.SpinButton()
-        minute_spinbutton.set_increments(1.0, 1.0)
-        minute_spinbutton.set_wrap(True)
-        minute_spinbutton.connect('output', self.show_leading_zeros)
+        label = Gtk.Label(": ")
+        label.set_alignment(0.5, 0.5)
+        grid.attach(label, 2, 0, 1, 1)
 
-        minute_spinbutton.set_range(0.0, 59.0)
-        minute_spinbutton.set_value(m)
-        self.minuteselect = minuteselect = minute_spinbutton
+        self.minuteselect = Gtk.SpinButton()
+        self.minuteselect.set_increments(1.0, 1.0)
+        self.minuteselect.set_wrap(True)
+        self.minuteselect.connect('output', self.show_leading_zeros)
+        self.minuteselect.set_range(0.0, 59.0)
+        self.minuteselect.set_value(m)
+        grid.attach(self.minuteselect, 3, 0, 1, 1)
 
         if self.cf == "12h":
-            self.ampm = ampm = Gtk.ComboBoxText()
-            ampm.append_text("AM")
-            ampm.append_text("PM")
+            self.ampm = Gtk.ComboBoxText()
+            self.ampm.append_text("AM")
+            self.ampm.append_text("PM")
             if p == "PM":
                 h = h - 12
-                ampm.set_active(1)
+                self.ampm.set_active(1)
             else:
-                ampm.set_active(0)
-            hour_spinbutton.set_range(1.0, 12.0)
-            hour_spinbutton.set_value(h)
-            self.hourselect = hourselect = hour_spinbutton
-            table1.attach(time_label, 0, 1, 0, 1)
-            table1.attach(hourselect, 1, 2, 0, 1)
-            table1.attach(points, 2, 3, 0, 1)
-            table1.attach(minuteselect, 3, 4, 0, 1)
-            table1.attach(ampm, 4, 5, 0, 1)
+                self.ampm.set_active(0)
+            grid.attach(self.ampm, 4, 0, 1, 1)
+            self.hourselect.set_range(1.0, 12.0)
+            self.hourselect.set_value(h)
+            gridcols = 5
         else:
-            hour_spinbutton.set_range(0.0, 23.0)
-            hour_spinbutton.set_value(h)
-            self.hourselect = hourselect = hour_spinbutton
-            table1.attach(time_label, 0, 1, 0, 1)
-            table1.attach(hourselect, 1, 2, 0, 1)
-            table1.attach(points, 2, 3, 0, 1)
-            table1.attach(minuteselect, 3, 4, 0, 1)
+            self.hourselect.set_range(0.0, 23.0)
+            self.hourselect.set_value(h)
+            gridcols = 4
 
         label = Gtk.Label(_("Name"))
         label.set_alignment(1.0, 0.5)
-        table1.attach(label, 0, 1, 1, 2)
-
-        label = Gtk.Label(_("Repeat Every"))
-        label.set_alignment(1.0, 0.5)
-        table1.attach(label, 0, 1, 2, 3)
+        grid.attach(label, 0, 1, 1, 1)
 
         self.entry = Gtk.Entry()
         self.entry.set_text(name)
         self.entry.set_editable(True)
+        grid.attach(self.entry, 1, 1, gridcols - 1, 1)
 
-        if self.cf == "12h":
-            table1.attach(self.entry, 1, 5, 1, 2)
-        else:
-            table1.attach(self.entry, 1, 4, 1, 2)
+        label = Gtk.Label(_("Repeat Every"))
+        label.set_alignment(1.0, 0.5)
+        grid.attach(label, 0, 2, 1, 1)
 
         # create a box and put repeat days in it
         box = Gtk.Box(True, 0)
         box.get_style_context().add_class("linked")
-
         for day in ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]:
             btn = Gtk.ToggleButton(label=_(day))
             if btn.get_label()[:2]  in repeat:
                 btn.set_active(True)
             box.pack_start(btn, True, True, 0)
             self.day_buttons.append(btn)
-
-        if self.cf == "12h":
-            table1.attach(box, 1, 5, 2, 3)
-        else:
-            table1.attach(box, 1, 4, 2, 3)
+        grid.attach(box, 1, 2, gridcols - 1, 1)
 
     def show_leading_zeros(self, spin_button):
         spin_button.set_text('{: 02d}'.format(spin_button.get_value_as_int()))
