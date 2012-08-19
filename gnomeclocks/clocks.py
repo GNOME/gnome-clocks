@@ -22,7 +22,7 @@ from gi.repository.GdkPixbuf import Pixbuf
 from widgets import NewWorldClockDialog, AlarmDialog
 from widgets import DigitalClock, AlarmWidget, EmptyPlaceholder
 from storage import worldclockstorage
-from utils import Alert
+from utils import SystemSettings, Alert
 
 from timer import TimerWelcomeScreen, TimerScreen
 from alarm import AlarmItem, ICSHandler
@@ -225,11 +225,6 @@ class Alarm(Clock):
             vevent = self.liststore[path][-1]
             self.open_edit_dialog(vevent)
 
-    def get_system_clock_format(self):
-        settings = Gio.Settings.new('org.gnome.desktop.interface')
-        systemClockFormat = settings.get_string('clock-format')
-        return systemClockFormat
-
     def load_alarms(self):
         handler = ICSHandler()
         vevents = handler.load_vevents()
@@ -267,7 +262,7 @@ class Alarm(Clock):
 
     def add_alarm_widget(self, alarm):
         name = alarm.get_alarm_name()
-        if self.get_system_clock_format() == "12h":
+        if SystemSettings.get_clock_format() == "12h":
             timestr = alarm.get_time_12h_as_string()
         else:
             timestr = alarm.get_time_24h_as_string()

@@ -17,7 +17,7 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import os
-from gi.repository import Gst, Notify
+from gi.repository import Gio, Gst, Notify
 
 class Dirs:
     @staticmethod
@@ -43,6 +43,14 @@ class Dirs:
         except:
             path = "locale"
         return path
+
+
+class SystemSettings:
+    @staticmethod
+    def get_clock_format():
+        settings = Gio.Settings.new('org.gnome.desktop.interface')
+        systemClockFormat = settings.get_string('clock-format')
+        return systemClockFormat
 
 
 class Alert:

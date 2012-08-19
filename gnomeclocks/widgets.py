@@ -21,7 +21,7 @@ from gi.repository import GWeather
 
 from storage import Location
 from alarm import AlarmItem
-from utils import Dirs
+from utils import Dirs, SystemSettings
 
 import os
 import cairo
@@ -136,14 +136,9 @@ class DigitalClock():
             text = text[1:]
         return text
 
-    def get_system_clock_format(self):
-        settings = Gio.Settings.new('org.gnome.desktop.interface')
-        systemClockFormat = settings.get_string('clock-format')
-        return systemClockFormat
-
     def update(self):
         t = self.get_local_time_text()
-        systemClockFormat = self.get_system_clock_format()
+        systemClockFormat = SystemSettings.get_clock_format()
         if systemClockFormat == '12h':
             t = time.strftime("%I:%M%p", self.get_local_time())
         else:
@@ -402,11 +397,6 @@ class AlarmWidget():
             img = os.path.join(Dirs.get_image_dir(), "cities", "night.png")
         self.drawing.render(t, img, isDay, repeat)
 
-    def get_system_clock_format(self):
-        settings = Gio.Settings.new('org.gnome.desktop.interface')
-        systemClockFormat = settings.get_string('clock-format')
-        return systemClockFormat
-
     def set_iter(self, list_store, view_iter):
         self.view_iter = view_iter
         self.list_store = list_store
@@ -430,8 +420,8 @@ class AlarmDialog(Gtk.Dialog):
         self.set_modal(True)
         self.repeat_days = []
 
-        self.cf = cf = self.get_system_clock_format()
-        if cf == "12h":
+        self.cf = SystemSettings.get_clock_format()
+        if self.cf == "12h":
             table1 = Gtk.Table(4, 6, False)
         else:
             table1 = Gtk.Table(4, 5, False)
@@ -471,7 +461,7 @@ class AlarmDialog(Gtk.Dialog):
         minute_spinbutton.set_value(m)
         self.minuteselect = minuteselect = minute_spinbutton
 
-        if cf == "12h":
+        if self.cf == "12h":
             self.ampm = ampm = Gtk.ComboBoxText()
             ampm.append_text("AM")
             ampm.append_text("PM")
@@ -513,7 +503,7 @@ class AlarmDialog(Gtk.Dialog):
         else:
             entry.set_text(_("New Alarm"))
         entry.set_editable(True)
-        if cf == "12h":
+        if self.cf == "12h":
             table1.attach(entry, 1, 5, 1, 2)
         else:
             table1.attach(entry, 1, 4, 1, 2)
@@ -536,7 +526,7 @@ class AlarmDialog(Gtk.Dialog):
             btn.connect("clicked", self.on_day_clicked)
             box.pack_start(btn, True, True, 0)
 
-        if cf == "12h":
+        if self.cf == "12h":
             table1.attach(box, 1, 5, 2, 3)
         else:
             table1.attach(box, 1, 4, 2, 3)
@@ -545,11 +535,6 @@ class AlarmDialog(Gtk.Dialog):
         spin_button.set_text('{: 02d}'.format(spin_button.get_value_as_int()))
         return True
 
-    def get_system_clock_format(self):
-        settings = Gio.Settings.new('org.gnome.desktop.interface')
-        systemClockFormat = settings.get_string('clock-format')
-        return systemClockFormat
-
     def get_repeat_days_from_vevent(self, vevent):
         rrule = vevent.rrule.value
         repeat = []
@@ -557,7 +542,6 @@ class AlarmDialog(Gtk.Dialog):
             days = rrule[18:]
             repeat = days.split(",")
         return repeat
-
 
     def on_response(self, widget, id):
         if id == 0:
