@@ -541,3 +541,131 @@ class EmptyPlaceholder(Gtk.Box):
         self.pack_start(text, False, False, 6)
         self.pack_start(Gtk.Label(), True, True, 0)
         self.show_all()
+
+
+# Python version of the gd-toggle-pixbuf-renderer of gnome-documents
+# we should use those widgets directly at some point, but for now
+# it is easier to just reimplement this renderer than include and build
+# a C library
+class TogglePixbufRenderer(Gtk.CellRendererPixbuf):
+
+    __gproperties__ = {
+         "active" : (GObject.TYPE_BOOLEAN,
+                    "Active",
+                    "Whether the cell renderer is active",
+                    False,
+                    GObject.PARAM_READWRITE),
+         "toggle-visible" : (GObject.TYPE_BOOLEAN,
+                             "Toggle visible",
+                             "Whether to draw the toggle indicator",
+                             False,
+                             GObject.PARAM_READWRITE)
+    }
+
+    def __init__(self):
+        Gtk.CellRendererPixbuf.__init__(self)
+        self._active = False
+        self._toggle_visible = False
+
+    def do_render(self, cr, widget, background_area, cell_area, flags):
+        Gtk.CellRendererPixbuf.do_render(self, cr, widget, background_area, cell_area, flags)
+
+        if not self._toggle_visible:
+            return
+
+        xpad, ypad = self.get_padding()
+        direction = widget.get_direction()
+
+        # FIXME: currently broken with g-i
+        # icon_size = widget.style_get_property("check-icon-size")
+        icon_size = 40
+
+        if direction == Gtk.TextDirection.RTL:
+            x_offset = xpad;
+        else:
+            x_offset = cell_area.width - icon_size - xpad
+
+        check_x = cell_area.x + x_offset
+        check_y = cell_area.y + cell_area.height - icon_size - ypad
+
+        context = widget.get_style_context()
+        context.save()
+        context.add_class(Gtk.STYLE_CLASS_CHECK)
+
+        if self._active:
+            context.set_state(Gtk.StateFlags.ACTIVE)
+
+        Gtk.render_check(context, cr, check_x, check_y, icon_size, icon_size)
+
+        context.restore()
+
+    def do_get_size(self, widget, cell_area):
+
+        # FIXME: currently broken with g-i
+        # icon_size = widget.style_get_property("check-icon-size")
+        icon_size = 40
+
+        x_offset, y_offset, width, height = Gtk.CellRendererPixbuf.do_get_size(self, widget, cell_area)
+
+        width += icon_size / 4
+
+        return (x_offset, y_offset, width, height)
+
+    def do_get_property(self, prop):
+        if prop.name == "active":
+            return self._active
+        elif prop.name == "toggle-visible":
+            return self._toggle_visible
+        else:
+            raise AttributeError, 'unknown property %s' % prop.name
+
+    def do_set_property(self, prop, value):
+        if prop.name == "active":
+            self._active = value
+        elif prop.name == "toggle-visible":
+            self._toggle_visible = value
+        else:
+            raise AttributeError, 'unknown property %s' % prop.name
+
+
+class SelectableIconView(Gtk.IconView):
+    def __init__(self, model, selection_col, pixbuf_col, text_col = None):
+        Gtk.IconView.__init__(self, model)
+
+        self.selection_mode = False
+
+        self.selection_col = selection_col
+
+        self.renderer_pixbuf = TogglePixbufRenderer();
+        self.renderer_pixbuf.set_alignment(0.5, 0.5)
+        self.pack_start(self.renderer_pixbuf, False)
+        self.add_attribute(self.renderer_pixbuf, "active", selection_col)
+        self.add_attribute(self.renderer_pixbuf, "pixbuf", pixbuf_col)
+
+        if text_col:
+            renderer_text = Gtk.CellRendererText()
+            renderer_text.set_alignment(0.5, 0.5)
+            self.pack_start(renderer_text, True)
+            self.add_attribute(renderer_text, "markup", text_col)
+
+    def set_selection_mode(self, active):
+        self.selection_mode = active
+        self.renderer_pixbuf.set_property("toggle_visible", active)
+
+    # FIXME: override both button press and release to check
+    # that a specfic item is clicked? see libgd...
+    def do_button_press_event (self, event):
+        path = self.get_path_at_pos(event.x, event.y);
+
+        if path:
+            if self.selection_mode:
+                i = self.get_model().get_iter(path)
+                if i:
+                    selected = self.get_model().get_value(i, self.selection_col)
+                    self.get_model().set_value(i, self.selection_col, not selected)
+                    self.emit("selection-changed")
+            else:
+                self.emit("item-activated", path)
+
+        return False
+

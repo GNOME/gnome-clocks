@@ -20,7 +20,8 @@ from gi.repository import Gtk, GObject, Gio
 from gi.repository.GdkPixbuf import Pixbuf
 
 from widgets import NewWorldClockDialog, AlarmDialog
-from widgets import DigitalClock, AlarmWidget, EmptyPlaceholder
+from widgets import DigitalClock, AlarmWidget, SelectableIconView, EmptyPlaceholder
+from widgets import TogglePixbufRenderer
 from storage import worldclockstorage
 from utils import SystemSettings, Alert
 
@@ -80,47 +81,39 @@ class Clock(Gtk.EventBox):
 class World(Clock):
     def __init__(self):
         Clock.__init__(self, _("World"), True, True)
-        self.addButton = None
 
-        self.liststore = liststore = Gtk.ListStore(Pixbuf, str,
-                                                   GObject.TYPE_PYOBJECT)
-        self.iconview = iconview = Gtk.IconView.new()
+        self.liststore = Gtk.ListStore(bool,
+                                       Pixbuf,
+                                       str,
+                                       GObject.TYPE_PYOBJECT)
+        self.iconview = SelectableIconView(self.liststore, 0, 1, 2)
 
         self.empty_view = EmptyPlaceholder(
                 "document-open-recent-symbolic",
                  _("Select <b>New</b> to add a world clock"))
 
-        iconview.set_model(liststore)
-        iconview.set_spacing(3)
-        iconview.set_pixbuf_column(0)
-        iconview.get_style_context().add_class('content-view')
+        self.iconview.set_spacing(3)
+        self.iconview.get_style_context().add_class('content-view')
 
-        renderer_text = Gtk.CellRendererText()
-        renderer_text.set_alignment(0.5, 0.5)
-        iconview.pack_start(renderer_text, True)
-        iconview.add_attribute(renderer_text, "markup", 1)
+        self.scrolledwindow = Gtk.ScrolledWindow()
+        self.scrolledwindow.add(self.iconview)
 
-        self.scrolledwindow = scrolledwindow = Gtk.ScrolledWindow()
-        scrolledwindow.add(iconview)
-
-        iconview.connect("selection-changed", self._on_selection_changed)
+        self.iconview.connect("item-activated", self._on_item_activated)
+        self.iconview.connect("selection-changed", self._on_selection_changed)
 
         self.clocks = []
         self.load_clocks()
         self.show_all()
 
-    def unselect_all(self):
-        self.iconview.unselect_all()
+    def set_selection_mode(self, active):
+        self.iconview.set_selection_mode(active)
+
+    def _on_item_activated(self, iconview, path):
+        d = self.liststore[path][3]
+        self.emit("show-clock", d)
 
     def _on_selection_changed(self, iconview):
-        items = iconview.get_selected_items()
-        if items:
-            path = iconview.get_selected_items()[0]
-            d = self.liststore[path][2]
-            self.emit("show-clock", d)
-
-    def set_addButton(self, btn):
-        self.addButton = btn
+        pass
 
     def load_clocks(self):
         self.clocks = worldclockstorage.load_clocks()
@@ -144,7 +137,8 @@ class World(Clock):
     def add_clock_widget(self, location):
         d = DigitalClock(location)
         name = d.location.get_city_name()
-        view_iter = self.liststore.append([d.drawing.pixbuf,
+        view_iter = self.liststore.append([False,
+                                           d.drawing.pixbuf,
                                            "<b>" + name + "</b>",
                                            d])
         d.set_iter(self.liststore, view_iter)
@@ -186,41 +180,40 @@ class World(Clock):
 class Alarm(Clock):
     def __init__(self):
         Clock.__init__(self, _("Alarm"), True, True)
-        self.liststore = liststore = Gtk.ListStore(Pixbuf, str,
-                                                  GObject.TYPE_PYOBJECT,
-                                                  GObject.TYPE_PYOBJECT)
-        self.iconview = iconview = Gtk.IconView.new()
+
+        self.liststore = Gtk.ListStore(bool,
+                                       Pixbuf,
+                                       str,
+                                       GObject.TYPE_PYOBJECT,
+                                       GObject.TYPE_PYOBJECT)
+        self.iconview = SelectableIconView(self.liststore, 0, 1, 2)
 
         self.empty_view = EmptyPlaceholder(
                 "alarm-symbolic",
                 _("Select <b>New</b> to add an alarm"))
 
-        iconview.set_model(liststore)
+        self.iconview.set_spacing(3)
+        self.iconview.get_style_context().add_class('content-view')
 
-        iconview.set_spacing(3)
-        iconview.set_pixbuf_column(0)
-        iconview.get_style_context().add_class('content-view')
+        self.scrolledwindow = scrolledwindow = Gtk.ScrolledWindow()
+        scrolledwindow.add(self.iconview)
 
-        renderer_text = Gtk.CellRendererText()
-        renderer_text.set_alignment(0.5, 0.5)
-        iconview.pack_start(renderer_text, True)
-        iconview.add_attribute(renderer_text, "markup", 1)
-
-        self.scrolledwindow = Gtk.ScrolledWindow()
-        self.scrolledwindow.add(iconview)
-
-        iconview.connect('selection-changed', self._on_selection_changed)
+        self.iconview.connect("item-activated", self._on_item_activated)
+        self.iconview.connect("selection-changed", self._on_selection_changed)
 
         self.alarms = []
         self.load_alarms()
         self.show_all()
 
+    def set_selection_mode(self, active):
+        self.iconview.set_selection_mode(active)
+
+    def _on_item_activated(self, iconview, path):
+        alarm = self.liststore[path][-1]
+        self.open_edit_dialog(alarm)
+
     def _on_selection_changed(self, iconview):
-        items = iconview.get_selected_items()
-        if items:
-            path = iconview.get_selected_items()[0]
-            alarm = self.liststore[path][-1]
-            self.open_edit_dialog(alarm)
+        pass
 
     def load_alarms(self):
         handler = ICSHandler()
@@ -262,7 +255,8 @@ class Alarm(Clock):
         timestr = alarm.get_time_as_string()
         repeat = alarm.get_alarm_repeat_string()
         widget = AlarmWidget(timestr, repeat)
-        view_iter = self.liststore.append([widget.drawing.pixbuf,
+        view_iter = self.liststore.append([False,
+                                           widget.drawing.pixbuf,
                                            "<b>" + name + "</b>",
                                            widget,
                                            alarm.get_vevent()])

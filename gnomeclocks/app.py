@@ -338,6 +338,12 @@ class ClocksToolbar(Gtk.Toolbar):
         self.selection_toolbar.set_visible(selection_mode)
         self.set_visible(not selection_mode)
 
+        active_view = None
+        for view in self.views:
+            if view.button.get_active():
+                active_view = view
+        active_view.set_selection_mode(selection_mode)
+
     def _delete_clock(self, button):
         pass
 
