@@ -34,10 +34,6 @@ def get_is_day(hour):
 
 
 class NewWorldClockDialog(Gtk.Dialog):
-
-    __gsignals__ = {'add-clock': (GObject.SignalFlags.RUN_LAST,
-                    None, (GObject.TYPE_PYOBJECT, ))}
-
     def __init__(self, parent):
         Gtk.Dialog.__init__(self, _("Add a New World Clock"), parent)
         self.set_transient_for(parent)
@@ -73,16 +69,12 @@ class NewWorldClockDialog(Gtk.Dialog):
         self.searchEntry.connect("activate", self._set_city)
         self.searchEntry.connect("changed", self._set_city)
         self.searchEntry.connect("icon-release", self._icon_released)
-        self.connect("response", self._on_response_clicked)
         self.location = None
         self.show_all()
 
-    def _on_response_clicked(self, widget, response_id):
-        if response_id == 1:
-            location = self.searchEntry.get_location()
-            location = Location(location)
-            self.emit("add-clock", location)
-        self.destroy()
+    def get_location(self):
+        location = self.searchEntry.get_location()
+        return Location(location)
 
     def _set_city(self, widget):
         location = self.searchEntry.get_location()
@@ -107,6 +99,7 @@ class NewWorldClockDialog(Gtk.Dialog):
             self.searchEntry.set_icon_from_gicon(
               Gtk.EntryIconPosition.SECONDARY, self.find_gicon)
             self.set_response_sensitive(1, False)
+
 
 class DigitalClock():
     def __init__(self, location):
@@ -403,7 +396,6 @@ class AlarmWidget():
 
 
 class AlarmDialog(Gtk.Dialog):
-
     def __init__(self, alarm_view, parent, vevent=None):
         if vevent:
             Gtk.Dialog.__init__(self, _("Edit Alarm"), parent)

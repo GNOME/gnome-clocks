@@ -70,9 +70,6 @@ class Clock(Gtk.EventBox):
     def open_new_dialog(self):
         pass
 
-    def close_new_dialog(self):
-        pass
-
     def add_new_clock(self):
         pass
 
@@ -176,14 +173,14 @@ class World(Clock):
     def open_new_dialog(self):
         parent = self.get_parent().get_parent().get_parent()
         window = NewWorldClockDialog(parent)
-        #window.get_children()[0].pack_start(widget, False, False, 0)
-        window.connect("add-clock", lambda w, l: self.add_clock(l))
+        window.connect("response", self.on_dialog_response)
         window.show_all()
 
-    def close_new_dialog(self):
-        self.notebook.set_current_page(0)
-        self.addButton.set_sensitive(False)
-        self.emit('show-requested')
+    def on_dialog_response(self, dialog, response):
+        if response == 1:
+            l = dialog.get_location()
+            self.add_clock(l)
+        dialog.destroy()
 
 
 class Alarm(Clock):
