@@ -17,6 +17,8 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import os
+
+from xdg import BaseDirectory
 from gi.repository import Gio, Gst, Notify
 
 class Dirs:
@@ -44,6 +46,9 @@ class Dirs:
             path = "locale"
         return path
 
+    @staticmethod
+    def get_user_data_dir():
+        return BaseDirectory.save_data_path("gnome-clocks")
 
 class SystemSettings:
     @staticmethod

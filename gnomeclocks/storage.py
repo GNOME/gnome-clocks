@@ -16,13 +16,11 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
+import os
 import errno
 import pickle
-from xdg import BaseDirectory
 from gi.repository import GWeather
-
-
-DATA_PATH = BaseDirectory.save_data_path("clocks") + "/clocks"
+from utils import Dirs
 
 
 class Location():
@@ -41,6 +39,7 @@ class Location():
 
 class WorldClockStorage():
     def __init__(self):
+        self.filename = os.path.join(Dirs.get_user_data_dir(), "clocks")
         world = GWeather.Location.new_world(True)
         self.searchEntry = GWeather.LocationEntry.new(world)
         self.searchEntry.show_all()
@@ -51,14 +50,14 @@ class WorldClockStorage():
         self.locations_dump = locations = "|".join(
           [location.id +\
               "---" + location.location.get_code() for location in locations])
-        f = open(DATA_PATH, "wb")
+        f = open(self.filename, "wb")
         pickle.dump(locations, f)
         f.close()
 
     def load_clocks(self):
         clocks = []
         try:
-            f = open(DATA_PATH, "rb")
+            f = open(self.filename, "rb")
             self.locations_dump = locations = pickle.load(f)
             f.close()
             locations = locations.split("|")

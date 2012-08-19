@@ -20,11 +20,11 @@ import os
 from datetime import datetime
 import vobject
 
-from utils import SystemSettings
+from utils import Dirs, SystemSettings
 
 class ICSHandler():
     def __init__(self):
-        self.ics_file = 'alarms.ics'
+        self.ics_file = os.path.join(Dirs.get_user_data_dir(), "alarms.ics")
 
     def add_vevent(self, vobj):
         with open(self.ics_file, 'r+') as ics:
@@ -47,7 +47,7 @@ class ICSHandler():
 
     def generate_ics_file(self):
         vcal = vobject.iCalendar()
-        ics = open('alarms.ics', 'w')
+        ics = open(self.ics_file, 'w')
         ics.write(vcal.serialize())
         ics.close()
 
