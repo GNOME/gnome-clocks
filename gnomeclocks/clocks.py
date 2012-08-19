@@ -159,6 +159,20 @@ class World(Clock):
         if len(self.clocks) == 0:
             self.load_empty_clocks_view()
 
+    def load_clocks_view(self):
+        if self.empty_view in self.get_children():
+            self.remove(self.empty_view)
+        if self.scrolledwindow not in self.get_children():
+            self.add(self.scrolledwindow)
+            self.show_all()
+
+    def load_empty_clocks_view(self):
+        if self.scrolledwindow in self.get_children():
+            self.remove(self.scrolledwindow)
+        if self.empty_view not in self.get_children():
+            self.add(self.empty_view)
+            self.show_all()
+
     def open_new_dialog(self):
         parent = self.get_parent().get_parent().get_parent()
         window = NewWorldClockDialog(parent)
@@ -170,18 +184,6 @@ class World(Clock):
         self.notebook.set_current_page(0)
         self.addButton.set_sensitive(False)
         self.emit('show-requested')
-
-    def load_clocks_view(self):
-        if self.empty_view in self.get_children():
-            self.remove(self.empty_view)
-        self.add(self.scrolledwindow)
-        self.show_all()
-
-    def load_empty_clocks_view(self):
-        if self.scrolledwindow in self.get_children():
-            self.remove(self.scrolledwindow)
-        self.add(self.empty_view)
-        self.show_all()
 
 
 class Alarm(Clock):
@@ -243,14 +245,16 @@ class Alarm(Clock):
     def load_alarms_view(self):
         if self.empty_view in self.get_children():
             self.remove(self.empty_view)
-        self.add(self.scrolledwindow)
-        self.show_all()
+        if self.scrolledwindow not in self.get_children():
+            self.add(self.scrolledwindow)
+            self.show_all()
 
     def load_empty_alarms_view(self):
         if self.scrolledwindow in self.get_children():
             self.remove(self.scrolledwindow)
-        self.add(self.empty_view)
-        self.show_all()
+        if self.empty_view not in self.get_children():
+            self.add(self.empty_view)
+            self.show_all()
 
     def add_alarm(self, alarm):
         handler = ICSHandler()
