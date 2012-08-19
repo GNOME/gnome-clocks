@@ -404,11 +404,6 @@ class AlarmWidget():
 
 class AlarmDialog(Gtk.Dialog):
 
-    __gsignals__ = {'add-alarm': (GObject.SignalFlags.RUN_LAST,
-                    None, (GObject.TYPE_PYOBJECT, )),
-                    'edit-alarm': (GObject.SignalFlags.RUN_LAST,
-                    None, (GObject.TYPE_PYOBJECT, ))}
-
     def __init__(self, alarm_view, parent, vevent=None):
         if vevent:
             Gtk.Dialog.__init__(self, _("Edit Alarm"), parent)
@@ -431,7 +426,6 @@ class AlarmDialog(Gtk.Dialog):
         content_area = self.get_content_area()
         content_area.pack_start(table1, True, True, 0)
         self.add_buttons(_("Cancel"), 0, _("Save"), 1)
-        self.connect("response", self.on_response)
 
         if vevent:
             t = vevent.dtstart.value
@@ -537,28 +531,23 @@ class AlarmDialog(Gtk.Dialog):
             repeat = days.split(",")
         return repeat
 
-    def on_response(self, widget, id):
-        if id == 1:
-            name = self.entry.get_text()
-            h = self.hourselect.get_value_as_int()
-            m = self.minuteselect.get_value_as_int()
-            if self.cf == "12h":
-                r = self.ampm.get_active()
-                if r == 0:
-                    p = "AM"
-                else:
-                    p = "PM"
+    def get_alarm_item(self):
+        name = self.entry.get_text()
+        h = self.hourselect.get_value_as_int()
+        m = self.minuteselect.get_value_as_int()
+        if self.cf == "12h":
+            r = self.ampm.get_active()
+            if r == 0:
+                p = "AM"
             else:
-                p = None
-            repeat = []
-            for btn in self.day_buttons:
-                if btn.get_active():
-                    repeat.append(btn.get_label()[:2])
-            new_alarm = AlarmItem(name, repeat, h, m, p)
-            self.emit('add-alarm', new_alarm)
-            self.destroy()
+                p = "PM"
         else:
-            self.destroy()
+            p = None
+        repeat = []
+        for btn in self.day_buttons:
+            if btn.get_active():
+                repeat.append(btn.get_label()[:2])
+        return AlarmItem(name, repeat, h, m, p)
 
 
 class EmptyPlaceholder(Gtk.Box):

@@ -271,21 +271,29 @@ class Alarm(Clock):
                                            alarm.get_vevent()])
         widget.set_iter(self.liststore, view_iter)
 
-    def edit_alarm(self, vevent):
-        pass
+    def edit_alarm(self, alarm):
+        print "To Do!"
 
     def open_new_dialog(self):
         parent = self.get_parent().get_parent().get_parent()
         window = AlarmDialog(self, parent)
-        window.connect("add-alarm", lambda w, l: self.add_alarm(l))
+        window.connect("response", self.on_dialog_response, True)
         window.show_all()
 
     def open_edit_dialog(self, vevent):
         parent = self.get_parent().get_parent().get_parent()
         window = AlarmDialog(self, parent, vevent)
-        window.connect("edit-alarm", lambda w, l: self.edit_alarm(l))
+        window.connect("response", self.on_dialog_response, False)
         window.show_all()
 
+    def on_dialog_response(self, dialog, response, isNew):
+        if response == 1:
+            alarm = dialog.get_alarm_item()
+            if (isNew):
+                self.add_alarm(alarm)
+            else:
+                self.edit_alarm(alarm)
+        dialog.destroy()
 
 class Stopwatch(Clock):
 
