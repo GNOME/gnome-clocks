@@ -639,6 +639,15 @@ class SelectableIconView(Gtk.IconView):
             self.pack_start(renderer_text, True)
             self.add_attribute(renderer_text, "markup", text_col)
 
+    def get_selection(self):
+        selection = []
+        store = self.get_model()
+        for i in store:
+            selected = store.get_value(i.iter, self.selection_col)
+            if selected:
+                selection.append(i.path)
+        return selection
+
     def set_selection_mode(self, active):
         self.selection_mode = active
         self.renderer_pixbuf.set_property("toggle_visible", active)

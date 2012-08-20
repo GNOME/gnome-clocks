@@ -159,9 +159,10 @@ class SelectionToolbar(Gtk.Toolbar):
         self.insert(sep, -1)
 
         toolitem = Gtk.ToolItem()
-        label = Gtk.Label("(%s)" % _("Click on items to select them"))
-        label.set_halign(Gtk.Align.CENTER)
-        toolitem.add(label)
+        self.label = Gtk.Label()
+        self.label.set_halign(Gtk.Align.CENTER)
+        self.set_selection_label(0)
+        toolitem.add(self.label)
         self.insert(toolitem, -1)
 
         sep = Gtk.SeparatorToolItem()
@@ -184,6 +185,27 @@ class SelectionToolbar(Gtk.Toolbar):
         self.leftBox = box = Gtk.Box()
         box.pack_start(self.doneButton, False, False, 0)
         toolbox.pack_start(box, True, True, 0)
+
+        self.current_view = None
+
+    def set_selection_label(self, n):
+        if n == 0:
+            self.label.set_markup("(%s)" % _("Click on items to select them"))
+        elif n == 1:
+            self.label.set_markup("<b>1 item selected</b>")
+        else:
+            self.label.set_markup("<b>%d items selected</b>" % (n))
+
+    def set_current_view(self, view):
+        if self.current_view:
+            self.current_view.disconnect_by_func(self._on_selection_changed)
+
+        self.current_view = view
+        self.current_view.connect("selection-changed", self._on_selection_changed)
+
+    def _on_selection_changed(self, view):
+        selection = view.get_selection()
+        self.set_selection_label(len(selection))
 
 
 class ClockButton(Gtk.RadioButton):
@@ -344,15 +366,8 @@ class ClocksToolbar(Gtk.Toolbar):
     def _on_selection_mode(self, button, selection_mode):
         self.selection_toolbar.set_visible(selection_mode)
         self.set_visible(not selection_mode)
-
-        active_view = None
-        for view in self.views:
-            if view.button.get_active():
-                active_view = view
-        active_view.set_selection_mode(selection_mode)
-
-    def _delete_clock(self, button):
-        pass
+        self.selection_toolbar.set_current_view(self.current_view)
+        self.current_view.set_selection_mode(selection_mode)
 
 
 class ClocksApplication(Gtk.Application):

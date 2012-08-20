@@ -41,7 +41,9 @@ class Clock(Gtk.EventBox):
     __gsignals__ = {'show-requested': (GObject.SignalFlags.RUN_LAST,
                     None, ()),
                     'show-clock': (GObject.SignalFlags.RUN_LAST,
-                    None, (GObject.TYPE_PYOBJECT, ))}
+                    None, (GObject.TYPE_PYOBJECT, )),
+                    'selection-changed': (GObject.SignalFlags.RUN_LAST,
+                    None, ())}
 
     def __init__(self, label, hasNew=False, hasSelectionMode=False):
         Gtk.EventBox.__init__(self)
@@ -52,6 +54,9 @@ class Clock(Gtk.EventBox):
         self.get_style_context().add_class('content-view')
 
     def open_new_dialog(self):
+        pass
+
+    def get_selection(self):
         pass
 
     def unselect_all(self):
@@ -93,7 +98,10 @@ class World(Clock):
         self.emit("show-clock", d)
 
     def _on_selection_changed(self, iconview):
-        pass
+        self.emit("selection-changed")
+
+    def get_selection(self):
+        return self.iconview.get_selection()
 
     def load_clocks(self):
         self.clocks = worldclockstorage.load_clocks()
@@ -191,7 +199,10 @@ class Alarm(Clock):
         self.open_edit_dialog(alarm)
 
     def _on_selection_changed(self, iconview):
-        pass
+        self.emit("selection-changed")
+
+    def get_selection(self):
+        return self.iconview.get_selection()
 
     def load_alarms(self):
         handler = ICSHandler()
