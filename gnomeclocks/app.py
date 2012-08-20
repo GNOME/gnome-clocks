@@ -19,7 +19,7 @@
 import os
 
 from gi.repository import Gtk, Gdk, GObject, Gio
-from clocks import World, Alarm, Timer, Stopwatch
+from clocks import Clock, World, Alarm, Timer, Stopwatch
 from utils import Dirs
 from gnomeclocks import __version__, AUTHORS, COPYRIGHTS
 
@@ -86,10 +86,10 @@ class Window(Gtk.ApplicationWindow):
         self.single_evbox.show_all()
         self.toolbar.city_label.set_markup("<b>" + d.id + "</b>")
 
-    def _on_view_clock(self, button, index):
-        self.notebook.set_current_page(index)
+    def _on_view_clock(self, button, view):
+        view.unselect_all()
+        self.notebook.set_current_page(self.views.index(view))
         self.toolbar._set_overview_toolbar()
-        self.notebook.get_nth_page(index).unselect_all()
 
     def _on_new_clicked(self, button):
         self.show()
@@ -186,9 +186,35 @@ class SelectionToolbar(Gtk.Toolbar):
         toolbox.pack_start(box, True, True, 0)
 
 
+class ClockButton(Gtk.RadioButton):
+    _group = None
+
+    def __init__(self, text):
+        Gtk.RadioButton.__init__(self, group=ClockButton._group, draw_indicator=False)
+        self.text = text
+        self.label = Gtk.Label()
+        self.label.set_markup(text)
+        self.add(self.label)
+        self.set_alignment(0.5, 0.5)
+        self.set_size_request(100, 34)
+        self.get_style_context().add_class('linked')
+        if not ClockButton._group:
+            ClockButton._group = self
+
+    def do_toggled(self):
+        try:
+            if self.get_active():
+                self.label.set_markup("<b>%s</b>" % self.text)
+            else:
+                self.label.set_markup("%s" % self.text)
+        except AttributeError:
+            # at construction the is no label yet
+            pass
+
+
 class ClocksToolbar(Gtk.Toolbar):
     __gsignals__ = {'view-clock': (GObject.SignalFlags.RUN_LAST,
-                    None, (GObject.TYPE_INT,))}
+                    None, (Clock,))}
 
     def __init__(self):
         Gtk.Toolbar.__init__(self)
@@ -225,8 +251,7 @@ class ClocksToolbar(Gtk.Toolbar):
         self.backButton.add(image)
         self.backButton.set_size_request(33, 33)
         self.backButton.connect("clicked",
-            lambda w: self.emit("view-clock",
-                                self._buttonMap[self.last_widget]))
+            lambda w: self.emit("view-clock", self.current_view))
 
         self.newButton.connect("clicked", self._on_new_clicked)
 
@@ -256,32 +281,22 @@ class ClocksToolbar(Gtk.Toolbar):
         box.pack_end(self.applyButton, False, False, 0)
         toolbox.pack_start(box, True, True, 0)
 
-        self._buttonMap = {}
-        self._busy = False
-
         self.selection_toolbar = SelectionToolbar()
         self.selection_toolbar.doneButton.connect("clicked",
             self._on_selection_mode, False)
 
     def _on_new_clicked(self, widget):
-        for view in self.views:
-            if view.button.get_active():
-                view.open_new_dialog()
-                break
-        self._set_overview_toolbar()
-        self.backButton.hide()
-        self.city_label.hide()
+        self.current_view.open_new_dialog()
 
     def set_clocks(self, views):
         self.views = views
-        for i, view in enumerate(views):
-            self.buttonBox.pack_start(view.button, False, False, 0)
-            view.button.get_style_context().add_class('linked')
-            #view.button.get_style_context().add_class('raised')
-            view.button.connect('toggled', self._on_toggled)
-            self._buttonMap[view.button] = i
-            if i == 0:
-                view.button.set_active(True)
+        for view in views:
+            button = ClockButton(view.label)
+            self.buttonBox.pack_start(button, False, False, 0)
+            button.connect('toggled', self._on_toggled, view)
+            if view == views[0]:
+                self.current_view = view
+                button.set_active(True)
 
     def _set_overview_toolbar(self):
         self.buttonBox.show()
@@ -299,40 +314,32 @@ class ClocksToolbar(Gtk.Toolbar):
         self.backButton.show_all()
         self.city_label.show()
 
-    def _on_toggled(self, widget):
-        if not self._busy:
-            self._busy = True
-            for view in self.views:
-                if not view.button == widget:
-                    view.button.set_active(False)
-                else:
-                    view.button.set_active(True)
-                    if view.hasNew:
-                        self.newButton.get_children()[0].show_all()
-                        self.newButton.show_all()
-                        self.newButton.set_relief(Gtk.ReliefStyle.NORMAL)
-                        self.newButton.set_sensitive(True)
-                    else:
-                        width = self.newButton.get_allocation().width
-                        self.newButton.set_relief(Gtk.ReliefStyle.NONE)
-                        self.newButton.set_sensitive(False)
-                        self.newButton.set_size_request(width, -1)
-                        self.newButton.get_children()[0].hide()
-                    if view.hasSelectionMode:
-                        self.applyButton.get_children()[0].show_all()
-                        self.applyButton.show_all()
-                        self.applyButton.set_relief(Gtk.ReliefStyle.NORMAL)
-                        self.applyButton.set_sensitive(True)
-                    else:
-                        width = self.applyButton.get_allocation().width
-                        self.applyButton.set_relief(Gtk.ReliefStyle.NONE)
-                        self.applyButton.set_sensitive(False)
-                        self.applyButton.set_size_request(width, -1)
-                        self.applyButton.get_children()[0].hide()
+    def _on_toggled(self, widget, view):
+        self.current_view = view
+        if view.hasNew:
+            self.newButton.get_children()[0].show_all()
+            self.newButton.show_all()
+            self.newButton.set_relief(Gtk.ReliefStyle.NORMAL)
+            self.newButton.set_sensitive(True)
+        else:
+            width = self.newButton.get_allocation().width
+            self.newButton.set_relief(Gtk.ReliefStyle.NONE)
+            self.newButton.set_sensitive(False)
+            self.newButton.set_size_request(width, -1)
+            self.newButton.get_children()[0].hide()
+        if view.hasSelectionMode:
+            self.applyButton.get_children()[0].show_all()
+            self.applyButton.show_all()
+            self.applyButton.set_relief(Gtk.ReliefStyle.NORMAL)
+            self.applyButton.set_sensitive(True)
+        else:
+            width = self.applyButton.get_allocation().width
+            self.applyButton.set_relief(Gtk.ReliefStyle.NONE)
+            self.applyButton.set_sensitive(False)
+            self.applyButton.set_size_request(width, -1)
+            self.applyButton.get_children()[0].hide()
 
-            self.last_widget = widget
-            self._busy = False
-            self.emit("view-clock", self._buttonMap[widget])
+        self.emit("view-clock", view)
 
     def _on_selection_mode(self, button, selection_mode):
         self.selection_toolbar.set_visible(selection_mode)

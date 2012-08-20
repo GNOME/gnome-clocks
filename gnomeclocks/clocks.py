@@ -37,23 +37,6 @@ TIMER_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
 TIMER = "<span font_desc=\"64.0\">%02i</span>"
 
 
-class ToggleButton(Gtk.ToggleButton):
-    def __init__(self, text):
-        Gtk.ToggleButton.__init__(self)
-        self.text = text
-        self.label = Gtk.Label()
-        self.label.set_markup("%s" % text)
-        self.add(self.label)
-        self.connect("toggled", self._on_toggled)
-        self.set_size_request(100, 34)
-
-    def _on_toggled(self, label):
-        if self.get_active():
-            self.label.set_markup("<b>%s</b>" % self.text)
-        else:
-            self.label.set_markup("%s" % self.text)
-
-
 class Clock(Gtk.EventBox):
     __gsignals__ = {'show-requested': (GObject.SignalFlags.RUN_LAST,
                     None, ()),
@@ -62,7 +45,7 @@ class Clock(Gtk.EventBox):
 
     def __init__(self, label, hasNew=False, hasSelectionMode=False):
         Gtk.EventBox.__init__(self)
-        self.button = ToggleButton(label)
+        self.label = label
         self.hasNew = hasNew
         self.hasSelectionMode = hasSelectionMode
         self.get_style_context().add_class('view')
