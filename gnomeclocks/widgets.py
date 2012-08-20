@@ -649,8 +649,12 @@ class SelectableIconView(Gtk.IconView):
         return selection
 
     def set_selection_mode(self, active):
-        self.selection_mode = active
-        self.renderer_pixbuf.set_property("toggle_visible", active)
+        if self.selection_mode != active:
+            self.selection_mode = active
+            self.renderer_pixbuf.set_property("toggle_visible", active)
+
+            # force redraw
+            self.queue_draw()
 
     # FIXME: override both button press and release to check
     # that a specfic item is clicked? see libgd...
