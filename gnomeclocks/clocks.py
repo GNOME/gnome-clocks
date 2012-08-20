@@ -71,9 +71,6 @@ class Clock(Gtk.EventBox):
     def open_new_dialog(self):
         pass
 
-    def add_new_clock(self):
-        pass
-
     def unselect_all(self):
         pass
 
