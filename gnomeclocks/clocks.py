@@ -138,14 +138,12 @@ class World(Clock):
         d = DigitalClock(location)
         name = d.location.get_city_name()
         view_iter = self.liststore.append([False,
-                                           d.drawing.pixbuf,
+                                           d.get_pixbuf(),
                                            "<b>" + name + "</b>",
                                            d])
-        d.set_iter(self.liststore, view_iter)
 
     def delete_clock(self, d):
         self.clocks.remove(d.location)
-        self.liststore.remove(d.view_iter)
         self.iconview.unselect_all()
         if len(self.clocks) == 0:
             self.load_empty_clocks_view()
@@ -256,11 +254,10 @@ class Alarm(Clock):
         repeat = alarm.get_alarm_repeat_string()
         widget = AlarmWidget(timestr, repeat)
         view_iter = self.liststore.append([False,
-                                           widget.drawing.pixbuf,
+                                           widget.get_pixbuf(),
                                            "<b>" + name + "</b>",
                                            widget,
                                            alarm.get_vevent()])
-        widget.set_iter(self.liststore, view_iter)
 
     def edit_alarm(self, alarm):
         print "To Do!"

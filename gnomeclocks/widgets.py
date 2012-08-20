@@ -109,10 +109,6 @@ class DigitalClock():
         self.offset = self.timezone.get_offset() * 60
         self.isDay = None
         self._last_time = None
-
-        self.view_iter = None
-        self.list_store = None
-
         self.drawing = DigitalClockDrawing()
         self.standalone = DigitalClockStandalone(self.location)
         self.update()
@@ -148,16 +144,12 @@ class DigitalClock():
                 self.drawing.render(t, img, isDay)
             else:
                 self.drawing.render(t, img, isDay, day)
-            if self.view_iter and self.list_store:
-                self.list_store.set_value(
-                    self.view_iter, 0, self.drawing.pixbuf)
             self.standalone.update(img, t, systemClockFormat)
         self._last_time = t
         return True
 
-    def set_iter(self, list_store, view_iter):
-        self.view_iter = view_iter
-        self.list_store = list_store
+    def get_pixbuf(self):
+        return self.drawing.pixbuf
 
     def get_standalone_widget(self):
         return self.standalone
@@ -390,9 +382,8 @@ class AlarmWidget():
             img = os.path.join(Dirs.get_image_dir(), "cities", "night.png")
         self.drawing.render(t, img, isDay, repeat)
 
-    def set_iter(self, list_store, view_iter):
-        self.view_iter = view_iter
-        self.list_store = list_store
+    def get_pixbuf(self):
+        return self.drawing.pixbuf
 
 
 class AlarmDialog(Gtk.Dialog):
