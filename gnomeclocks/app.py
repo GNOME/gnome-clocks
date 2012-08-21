@@ -30,7 +30,10 @@ class Window(Gtk.ApplicationWindow):
                                        application=app,
                                        hide_titlebar_when_maximized=True)
 
-        self.app = app
+        action = Gio.SimpleAction.new("new", None)
+        action.connect("activate", self._on_new_activated)
+        self.add_action(action)
+        app.add_accelerator("<Primary>n", "win.new", None)
 
         css_provider = Gtk.CssProvider()
         css_provider.load_from_path(os.path.join(Dirs.get_data_dir(),
@@ -68,11 +71,8 @@ class Window(Gtk.ApplicationWindow):
 
         self.world.connect("show-clock", self._on_show_clock)
         self.toolbar.connect("view-clock", self._on_view_clock)
-        self.toolbar.newButton.connect("clicked", self._on_new_clicked)
         self.show_all()
         self.toolbar.selection_toolbar.hide()
-
-        self.connect('key-press-event', self._on_key_press)
 
     def _set_up_menu(self):
         pass
@@ -91,11 +91,8 @@ class Window(Gtk.ApplicationWindow):
         self.notebook.set_current_page(self.views.index(view))
         self.toolbar._set_overview_toolbar()
 
-    def _on_new_clicked(self, button):
-        self.show()
-
-    def _on_cancel_clicked(self, button):
-        self.show()
+    def _on_new_activated(self, action, param):
+        self.toolbar.current_view.open_new_dialog()
 
     def show_about(self):
         about = Gtk.AboutDialog(title=_("About GNOME Clocks"))
@@ -130,12 +127,6 @@ class Window(Gtk.ApplicationWindow):
         about.set_modal(True)
         about.set_transient_for(self)
         about.show()
-
-    def _on_key_press(self, widget, event):
-        keyname = Gdk.keyval_name(event.keyval)
-        if event.state and Gdk.ModifierType.CONTROL_MASK:
-            if keyname == 'n':
-                self.toolbar._on_new_clicked(None)
 
 
 class SelectionToolbar(Gtk.Toolbar):
@@ -256,6 +247,7 @@ class ClocksToolbar(Gtk.Toolbar):
         self.newButton = Gtk.Button()
 
         label = Gtk.Label(_("New"))
+        self.newButton.set_action_name("win.new")
         self.newButton.get_style_context().add_class('suggested-action')
         self.newButton.add(label)
         self.newButton.set_size_request(64, -1)
@@ -273,8 +265,6 @@ class ClocksToolbar(Gtk.Toolbar):
         self.backButton.set_size_request(33, 33)
         self.backButton.connect("clicked",
             lambda w: self.emit("view-clock", self.current_view))
-
-        self.newButton.connect("clicked", self._on_new_clicked)
 
         toolbox.pack_start(Gtk.Label(""), True, True, 0)
 
@@ -305,9 +295,6 @@ class ClocksToolbar(Gtk.Toolbar):
         self.selection_toolbar = SelectionToolbar()
         self.selection_toolbar.doneButton.connect("clicked",
             self._on_selection_mode, False)
-
-    def _on_new_clicked(self, widget):
-        self.current_view.open_new_dialog()
 
     def set_clocks(self, views):
         self.views = views
