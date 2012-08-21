@@ -193,7 +193,7 @@ class SelectionToolbar(Gtk.Toolbar):
         if n == 0:
             self.label.set_markup("(%s)" % _("Click on items to select them"))
         else:
-            msg = ngettext("1 item selected", "%d items selected>" % (n), n)
+            msg = ngettext("1 item selected", "%d items selected" % (n), n)
             self.label.set_markup("<b>%s</b>" % msg)
 
     def set_current_view(self, view):
