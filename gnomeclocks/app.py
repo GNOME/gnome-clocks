@@ -17,7 +17,7 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import os
-
+from gettext import ngettext
 from gi.repository import Gtk, Gdk, GObject, Gio
 from clocks import Clock, World, Alarm, Timer, Stopwatch
 from utils import Dirs
@@ -139,6 +139,7 @@ class Window(Gtk.ApplicationWindow):
             elif keyname in ('q', 'w'):
                 self.app.quit()
 
+
 class SelectionToolbar(Gtk.Toolbar):
     def __init__(self):
         Gtk.Toolbar.__init__(self)
@@ -191,17 +192,17 @@ class SelectionToolbar(Gtk.Toolbar):
     def set_selection_label(self, n):
         if n == 0:
             self.label.set_markup("(%s)" % _("Click on items to select them"))
-        elif n == 1:
-            self.label.set_markup("<b>1 item selected</b>")
         else:
-            self.label.set_markup("<b>%d items selected</b>" % (n))
+            msg = ngettext("1 item selected", "%d items selected>" % (n), n)
+            self.label.set_markup("<b>%s</b>" % msg)
 
     def set_current_view(self, view):
         if self.current_view:
             self.current_view.disconnect_by_func(self._on_selection_changed)
 
         self.current_view = view
-        self.current_view.connect("selection-changed", self._on_selection_changed)
+        self.current_view.connect("selection-changed",
+                                  self._on_selection_changed)
 
     def _on_selection_changed(self, view):
         selection = view.get_selection()
