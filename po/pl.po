@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-19 14:49+0200\n"
-"PO-Revision-Date: 2012-08-19 14:55+0200\n"
+"POT-Creation-Date: 2012-08-22 00:51+0200\n"
+"PO-Revision-Date: 2012-08-22 00:52+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -37,7 +37,7 @@ msgstr "Zegar światowy, budzik, stoper i minutnik"
 msgid "About GNOME Clocks"
 msgstr "O zegarze GNOME"
 
-#: ../gnomeclocks/app.py:100 ../gnomeclocks/app.py:317
+#: ../gnomeclocks/app.py:100 ../gnomeclocks/app.py:380
 msgid "About Clocks"
 msgstr "O zegarze"
 
@@ -49,53 +49,69 @@ msgstr "Narzędzia pomagające zarządzać czasem."
 msgid "translator-credits"
 msgstr "Aviary.pl <gnomepl@aviary.pl>, 2012"
 
-#: ../gnomeclocks/app.py:163
+#: ../gnomeclocks/app.py:173
+msgid "Done"
+msgstr "Gotowe"
+
+#: ../gnomeclocks/app.py:184
+msgid "Click on items to select them"
+msgstr "Kliknięcie na elementach zaznacza je"
+
+#: ../gnomeclocks/app.py:186
+#, python-format
+msgid "1 item selected"
+msgid_plural "%d items selected"
+msgstr[0] "Zaznaczono 1 element"
+msgstr[1] "Zaznaczono %d elementy"
+msgstr[2] "Zaznaczono %d elementów"
+
+#: ../gnomeclocks/app.py:250
 msgid "New"
 msgstr "Nowy"
 
-#: ../gnomeclocks/app.py:318
+#: ../gnomeclocks/app.py:383
 msgid "Quit"
 msgstr "Zakończ"
 
-#: ../gnomeclocks/clocks.py:85
+#: ../gnomeclocks/clocks.py:68
 msgid "World"
 msgstr "Świat"
 
-#: ../gnomeclocks/clocks.py:94
+#: ../gnomeclocks/clocks.py:72
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Kliknięcie przycisku <b>Nowy</b> doda zegar światowy"
 
-#: ../gnomeclocks/clocks.py:191
+#: ../gnomeclocks/clocks.py:165
 msgid "Alarm"
 msgstr "Budzik"
 
-#: ../gnomeclocks/clocks.py:199
+#: ../gnomeclocks/clocks.py:169
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Kliknięcie przycisku <b>Nowy</b> doda budzik"
 
-#: ../gnomeclocks/clocks.py:301
+#: ../gnomeclocks/clocks.py:282
 msgid "Stopwatch"
 msgstr "Stoper"
 
-#: ../gnomeclocks/clocks.py:330 ../gnomeclocks/clocks.py:375
+#: ../gnomeclocks/clocks.py:311 ../gnomeclocks/clocks.py:356
 #: ../gnomeclocks/timer.py:173
 msgid "Start"
 msgstr "Rozpocznij"
 
-#: ../gnomeclocks/clocks.py:332 ../gnomeclocks/clocks.py:365
+#: ../gnomeclocks/clocks.py:313 ../gnomeclocks/clocks.py:346
 #: ../gnomeclocks/timer.py:115
 msgid "Reset"
 msgstr "Resetuj"
 
-#: ../gnomeclocks/clocks.py:356
+#: ../gnomeclocks/clocks.py:337
 msgid "Stop"
 msgstr "Zatrzymaj"
 
-#: ../gnomeclocks/clocks.py:363 ../gnomeclocks/timer.py:132
+#: ../gnomeclocks/clocks.py:344 ../gnomeclocks/timer.py:132
 msgid "Continue"
 msgstr "Kontynuuj"
 
-#: ../gnomeclocks/clocks.py:412
+#: ../gnomeclocks/clocks.py:393
 msgid "Timer"
 msgstr "Minutnik"
 
@@ -104,54 +120,50 @@ msgstr "Minutnik"
 msgid "Pause"
 msgstr "Wstrzymaj"
 
-#: ../gnomeclocks/widgets.py:42
+#: ../gnomeclocks/widgets.py:38
 msgid "Add a New World Clock"
 msgstr "Dodanie nowego zegara światowego"
 
-#: ../gnomeclocks/widgets.py:52
+#: ../gnomeclocks/widgets.py:48
 msgid "Search for a city: "
 msgstr "Wyszukiwanie miasta: "
 
-#: ../gnomeclocks/widgets.py:65 ../gnomeclocks/widgets.py:433
+#: ../gnomeclocks/widgets.py:61 ../gnomeclocks/widgets.py:402
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: ../gnomeclocks/widgets.py:65
+#: ../gnomeclocks/widgets.py:61
 msgid "Add"
 msgstr "Dodaj"
 
-#: ../gnomeclocks/widgets.py:232
+#: ../gnomeclocks/widgets.py:217
 msgid "Sunrise"
 msgstr "Wschód słońca"
 
-#: ../gnomeclocks/widgets.py:242
+#: ../gnomeclocks/widgets.py:227
 msgid "Sunset"
 msgstr "Zachód słońca"
 
-#: ../gnomeclocks/widgets.py:414
+#: ../gnomeclocks/widgets.py:392
 msgid "Edit Alarm"
 msgstr "Modyfikuj budzik"
 
-#: ../gnomeclocks/widgets.py:416 ../gnomeclocks/widgets.py:504
+#: ../gnomeclocks/widgets.py:394 ../gnomeclocks/widgets.py:423
 msgid "New Alarm"
 msgstr "Nowy budzik"
 
-#: ../gnomeclocks/widgets.py:433
+#: ../gnomeclocks/widgets.py:402
 msgid "Save"
 msgstr "Zapisz"
 
-#: ../gnomeclocks/widgets.py:446
+#: ../gnomeclocks/widgets.py:426
 msgid "Time"
 msgstr "Czas"
 
-#: ../gnomeclocks/widgets.py:490
+#: ../gnomeclocks/widgets.py:465
 msgid "Name"
 msgstr "Nazwa"
 
-#: ../gnomeclocks/widgets.py:492
+#: ../gnomeclocks/widgets.py:474
 msgid "Repeat Every"
 msgstr "Powtarzanie co"
-
-#: ../gnomeclocks/widgets.py:494
-msgid "Sound"
-msgstr "Dźwięk"
