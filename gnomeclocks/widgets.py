@@ -627,6 +627,9 @@ class SelectableIconView(Gtk.IconView):
 
         self.selection_col = selection_col
 
+        self.set_spacing(3)
+        self.get_style_context().add_class('content-view')
+
         self.renderer_pixbuf = TogglePixbufRenderer()
         self.renderer_pixbuf.set_alignment(0.5, 0.5)
         self.pack_start(self.renderer_pixbuf, False)

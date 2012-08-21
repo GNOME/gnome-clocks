@@ -77,9 +77,6 @@ class World(Clock):
                 "document-open-recent-symbolic",
                  _("Select <b>New</b> to add a world clock"))
 
-        self.iconview.set_spacing(3)
-        self.iconview.get_style_context().add_class('content-view')
-
         self.scrolledwindow = Gtk.ScrolledWindow()
         self.scrolledwindow.add(self.iconview)
 
@@ -178,11 +175,8 @@ class Alarm(Clock):
                 "alarm-symbolic",
                 _("Select <b>New</b> to add an alarm"))
 
-        self.iconview.set_spacing(3)
-        self.iconview.get_style_context().add_class('content-view')
-
-        self.scrolledwindow = scrolledwindow = Gtk.ScrolledWindow()
-        scrolledwindow.add(self.iconview)
+        self.scrolledwindow = Gtk.ScrolledWindow()
+        self.scrolledwindow.add(self.iconview)
 
         self.iconview.connect("item-activated", self._on_item_activated)
         self.iconview.connect("selection-changed", self._on_selection_changed)
