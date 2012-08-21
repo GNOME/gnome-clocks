@@ -541,16 +541,16 @@ class EmptyPlaceholder(Gtk.Box):
 class TogglePixbufRenderer(Gtk.CellRendererPixbuf):
 
     __gproperties__ = {
-         "active" : (GObject.TYPE_BOOLEAN,
-                    "Active",
-                    "Whether the cell renderer is active",
-                    False,
-                    GObject.PARAM_READWRITE),
-         "toggle-visible" : (GObject.TYPE_BOOLEAN,
-                             "Toggle visible",
-                             "Whether to draw the toggle indicator",
-                             False,
-                             GObject.PARAM_READWRITE)
+         "active": (GObject.TYPE_BOOLEAN,
+                   "Active",
+                   "Whether the cell renderer is active",
+                   False,
+                   GObject.PARAM_READWRITE),
+         "toggle-visible": (GObject.TYPE_BOOLEAN,
+                            "Toggle visible",
+                            "Whether to draw the toggle indicator",
+                            False,
+                            GObject.PARAM_READWRITE)
     }
 
     def __init__(self):
@@ -572,7 +572,7 @@ class TogglePixbufRenderer(Gtk.CellRendererPixbuf):
         icon_size = 40
 
         if direction == Gtk.TextDirection.RTL:
-            x_offset = xpad;
+            x_offset = xpad
         else:
             x_offset = cell_area.width - icon_size - xpad
 
@@ -620,24 +620,23 @@ class TogglePixbufRenderer(Gtk.CellRendererPixbuf):
 
 
 class SelectableIconView(Gtk.IconView):
-    def __init__(self, model, selection_col, pixbuf_col, text_col = None):
+    def __init__(self, model, selection_col, pixbuf_col, text_col):
         Gtk.IconView.__init__(self, model)
 
         self.selection_mode = False
 
         self.selection_col = selection_col
 
-        self.renderer_pixbuf = TogglePixbufRenderer();
+        self.renderer_pixbuf = TogglePixbufRenderer()
         self.renderer_pixbuf.set_alignment(0.5, 0.5)
         self.pack_start(self.renderer_pixbuf, False)
         self.add_attribute(self.renderer_pixbuf, "active", selection_col)
         self.add_attribute(self.renderer_pixbuf, "pixbuf", pixbuf_col)
 
-        if text_col:
-            renderer_text = Gtk.CellRendererText()
-            renderer_text.set_alignment(0.5, 0.5)
-            self.pack_start(renderer_text, True)
-            self.add_attribute(renderer_text, "markup", text_col)
+        renderer_text = Gtk.CellRendererText()
+        renderer_text.set_alignment(0.5, 0.5)
+        self.pack_start(renderer_text, True)
+        self.add_attribute(renderer_text, "markup", text_col)
 
     def get_selection(self):
         selection = []
@@ -658,8 +657,8 @@ class SelectableIconView(Gtk.IconView):
 
     # FIXME: override both button press and release to check
     # that a specfic item is clicked? see libgd...
-    def do_button_press_event (self, event):
-        path = self.get_path_at_pos(event.x, event.y);
+    def do_button_press_event(self, event):
+        path = self.get_path_at_pos(event.x, event.y)
 
         if path:
             if self.selection_mode:
@@ -672,4 +671,3 @@ class SelectableIconView(Gtk.IconView):
                 self.emit("item-activated", path)
 
         return False
-

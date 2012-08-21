@@ -21,6 +21,7 @@ import os
 from xdg import BaseDirectory
 from gi.repository import Gio, Gst, Notify
 
+
 class Dirs:
     @staticmethod
     def get_data_dir():
@@ -49,6 +50,7 @@ class Dirs:
     @staticmethod
     def get_user_data_dir():
         return BaseDirectory.save_data_path("gnome-clocks")
+
 
 class SystemSettings:
     @staticmethod

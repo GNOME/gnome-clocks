@@ -274,6 +274,7 @@ class Alarm(Clock):
                 self.edit_alarm(alarm)
         dialog.destroy()
 
+
 class Stopwatch(Clock):
 
     class State:
