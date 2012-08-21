@@ -35,6 +35,10 @@ class Window(Gtk.ApplicationWindow):
         self.add_action(action)
         app.add_accelerator("<Primary>n", "win.new", None)
 
+        action = Gio.SimpleAction.new("about", None)
+        action.connect("activate", self._on_about_activated)
+        self.add_action(action)
+
         css_provider = Gtk.CssProvider()
         css_provider.load_from_path(os.path.join(Dirs.get_data_dir(),
                                                  "gtk-style.css"))
@@ -74,9 +78,6 @@ class Window(Gtk.ApplicationWindow):
         self.show_all()
         self.toolbar.selection_toolbar.hide()
 
-    def _set_up_menu(self):
-        pass
-
     def _on_show_clock(self, widget, d):
         self.toolbar._set_single_toolbar()
         self.notebook.set_current_page(-1)
@@ -94,7 +95,7 @@ class Window(Gtk.ApplicationWindow):
     def _on_new_activated(self, action, param):
         self.toolbar.current_view.open_new_dialog()
 
-    def show_about(self):
+    def _on_about_activated(self, action, param):
         about = Gtk.AboutDialog(title=_("About GNOME Clocks"))
         about.set_title(_("About Clocks"))
         about.set_program_name(_("GNOME Clocks"))
@@ -367,23 +368,16 @@ class ClocksApplication(Gtk.Application):
     def quit_cb(self, action, parameter):
         self.quit()
 
-    def about_cb(self, action, parameter):
-        self.win.show_about()
-
     def do_startup(self):
         Gtk.Application.do_startup(self)
 
-        about_action = Gio.SimpleAction.new("about", None)
-        about_action.connect("activate", self.about_cb)
-        self.add_action(about_action)
-
-        quit_action = Gio.SimpleAction.new("quit", None)
-        quit_action.connect("activate", self.quit_cb)
-        self.add_action(quit_action)
+        action = Gio.SimpleAction.new("quit", None)
+        action.connect("activate", self.quit_cb)
+        self.add_action(action)
 
         menu = Gio.Menu()
 
-        menu.append(_("About Clocks"), "app.about")
+        menu.append(_("About Clocks"), "win.about")
 
         quit = Gio.MenuItem()
         quit.set_attribute_value("label", GLib.Variant("s", _("Quit")))
