@@ -18,7 +18,7 @@
 
 import os
 from gettext import ngettext
-from gi.repository import Gtk, Gdk, GObject, Gio
+from gi.repository import Gtk, Gdk, GObject, GLib, Gio
 from clocks import Clock, World, Alarm, Timer, Stopwatch
 from utils import Dirs
 from gnomeclocks import __version__, AUTHORS, COPYRIGHTS
@@ -136,8 +136,6 @@ class Window(Gtk.ApplicationWindow):
         if event.state and Gdk.ModifierType.CONTROL_MASK:
             if keyname == 'n':
                 self.toolbar._on_new_clicked(None)
-            elif keyname in ('q', 'w'):
-                self.app.quit()
 
 
 class SelectionToolbar(Gtk.Toolbar):
@@ -388,12 +386,6 @@ class ClocksApplication(Gtk.Application):
     def do_startup(self):
         Gtk.Application.do_startup(self)
 
-        menu = Gio.Menu()
-
-        menu.append(_("About Clocks"), "app.about")
-        menu.append(_("Quit"), "app.quit")
-        self.set_app_menu(menu)
-
         about_action = Gio.SimpleAction.new("about", None)
         about_action.connect("activate", self.about_cb)
         self.add_action(about_action)
@@ -401,3 +393,15 @@ class ClocksApplication(Gtk.Application):
         quit_action = Gio.SimpleAction.new("quit", None)
         quit_action.connect("activate", self.quit_cb)
         self.add_action(quit_action)
+
+        menu = Gio.Menu()
+
+        menu.append(_("About Clocks"), "app.about")
+
+        quit = Gio.MenuItem()
+        quit.set_attribute_value("label", GLib.Variant("s", _("Quit")))
+        quit.set_attribute_value("action", GLib.Variant("s", "app.quit"))
+        quit.set_attribute_value("accel", GLib.Variant("s", "<Primary>q"))
+        menu.append_item(quit)
+
+        self.set_app_menu(menu)
