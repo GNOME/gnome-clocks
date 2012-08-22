@@ -18,8 +18,9 @@
 
 import os
 
+import pycanberra
 from xdg import BaseDirectory
-from gi.repository import Gio, Gst, Notify
+from gi.repository import Gio, Notify
 
 
 class Dirs:
@@ -62,15 +63,13 @@ class SystemSettings:
 
 class Alert:
     def __init__(self):
-        Gst.init('gst')
+        self.canberra = pycanberra.Canberra()
 
-    def do_alert(self, msg):
+    def do_alert(self, msg, eventid):
         if Notify.init("GNOME Clocks"):
             Alert = Notify.Notification.new("Clocks", msg, 'test')
             Alert.show()
-            playbin = Gst.ElementFactory.make('playbin', None)
-            playbin.set_property('uri',
-              'file:///usr/share/sounds/gnome/default/alerts/glass.ogg')
-            playbin.set_state(Gst.State.PLAYING)
         else:
             print "Error: Could not trigger Alert"
+
+        self.canberra.play(1, pycanberra.CA_PROP_EVENT_ID, eventid, None)

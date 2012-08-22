@@ -465,7 +465,7 @@ class Timer(Clock):
         self.timer_screen.timerLabel.set_markup(TIMER_LABEL_MARKUP %
                                                 (hours, minutes, seconds))
         if hours == 00 and minutes == 00 and seconds == 00:
-            self.alert.do_alert("Ta Da !")
+            self.alert.do_alert("Ta Da !", "complete")
             self.state = Timer.State.STOPPED
             self.timerbox.remove(self.timer_screen)
             self.show_timer_welcome_screen()
