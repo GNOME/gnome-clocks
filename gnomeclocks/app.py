@@ -109,7 +109,7 @@ class Window(Gtk.ApplicationWindow):
             _("Utilities to help you with the time."))
         about.set_authors(AUTHORS)
         about.set_translator_credits(_("translator-credits"))
-        about.set_website(_("http://live.gnome.org/GnomeClocks"))
+        about.set_website("http://live.gnome.org/GnomeClocks")
         about.set_website_label(_("GNOME Clocks"))
         about.set_wrap_license("true")
         about.set_license_type(Gtk.License.GPL_2_0)
