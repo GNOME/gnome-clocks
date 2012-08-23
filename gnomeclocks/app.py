@@ -109,7 +109,8 @@ class Window(Gtk.ApplicationWindow):
             _("Utilities to help you with the time."))
         about.set_authors(AUTHORS)
         about.set_translator_credits(_("translator-credits"))
-        about.connect("response", lambda w, r: about.destroy())
+        about.set_website(_("http://live.gnome.org/GnomeClocks"))
+        about.set_website_label(_("GNOME Clocks"))
         about.set_wrap_license("true")
         about.set_license_type(Gtk.License.GPL_2_0)
         about.set_license("GNOME Clocks is free software;"
@@ -128,6 +129,7 @@ class Window(Gtk.ApplicationWindow):
             " Public License along with GNOME Clocks; if not, write"
             " to the Free Software Foundation, Inc., 51 Franklin"
             " Street, Fifth Floor, Boston, MA  02110-1301  USA\n")
+        about.connect("response", lambda w, r: about.destroy())
         about.set_modal(True)
         about.set_transient_for(self)
         about.show()

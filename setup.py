@@ -15,7 +15,7 @@ DistUtilsExtra.auto.setup(
     name='gnome-clocks',
     description='Clock application for the GNOME Desktop',
     version=__version__,
-    url='https://live.gnome.org/Clocks',
+    url='https://live.gnome.org/GnomeClocks',
     license='GPL',
     author='Seif Lotfy, Emily Gonyer, Eslam Mostafa',
 )
