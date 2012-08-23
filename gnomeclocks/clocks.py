@@ -394,7 +394,6 @@ class Timer(Clock):
         self.state = Timer.State.STOPPED
         self.g_id = 0
 
-        self.alert = Alert()
         self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         box = Gtk.Box()
         self.add(box)
@@ -411,6 +410,13 @@ class Timer(Clock):
         self.timer_welcome_screen = TimerWelcomeScreen(self)
         self.timer_screen = TimerScreen(self)
         self.show_timer_welcome_screen()
+
+        self.alert = Alert("complete", "Ta Da !",
+                           self._on_notification_activated)
+
+    def _on_notification_activated(self, notif, action, data):
+        win = self.get_toplevel()
+        win.show_clock(self)
 
     def show_timer_welcome_screen(self):
         self.timerbox.pack_start(self.timer_welcome_screen, True, True, 0)
@@ -465,7 +471,7 @@ class Timer(Clock):
         self.timer_screen.timerLabel.set_markup(TIMER_LABEL_MARKUP %
                                                 (hours, minutes, seconds))
         if hours == 00 and minutes == 00 and seconds == 00:
-            self.alert.do_alert("Ta Da !", "complete")
+            self.alert.show()
             self.state = Timer.State.STOPPED
             self.timerbox.remove(self.timer_screen)
             self.show_timer_welcome_screen()

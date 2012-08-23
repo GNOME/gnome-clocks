@@ -62,14 +62,19 @@ class SystemSettings:
 
 
 class Alert:
-    def __init__(self):
+    def __init__(self, soundid, msg, callback):
         self.canberra = pycanberra.Canberra()
+        self.soundid = soundid
 
-    def do_alert(self, msg, eventid):
+        self.notification = None
         if Notify.init("GNOME Clocks"):
-            Alert = Notify.Notification.new("Clocks", msg, 'test')
-            Alert.show()
+            self.notification = Notify.Notification.new("Clocks", msg, 'clocks')
+            # the special "default" action should not display a button
+            self.notification.add_action("default", "Show", callback, None, None)
         else:
             print "Error: Could not trigger Alert"
 
-        self.canberra.play(1, pycanberra.CA_PROP_EVENT_ID, eventid, None)
+    def show(self):
+        self.canberra.play(1, pycanberra.CA_PROP_EVENT_ID, self.soundid, None)
+        if self.notification:
+            self.notification.show()

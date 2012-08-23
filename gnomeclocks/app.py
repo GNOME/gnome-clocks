@@ -78,6 +78,9 @@ class Window(Gtk.ApplicationWindow):
         self.show_all()
         self.toolbar.selection_toolbar.hide()
 
+    def show_clock(self, view):
+        self.toolbar.activate_view(view)
+
     def _on_show_clock(self, widget, d):
         self.toolbar._set_single_toolbar()
         self.notebook.set_current_page(-1)
@@ -299,13 +302,19 @@ class ClocksToolbar(Gtk.Toolbar):
 
     def set_clocks(self, views):
         self.views = views
+        self.viewsButtons = {}
         for view in views:
             button = ClockButton(view.label)
             self.buttonBox.pack_start(button, False, False, 0)
             button.connect('toggled', self._on_toggled, view)
+            self.viewsButtons[view] = button
             if view == views[0]:
                 self.current_view = view
                 button.set_active(True)
+
+    def activate_view(self, view):
+        if view is not self.current_view:
+            self.viewsButtons[view].set_active(True)
 
     def _set_overview_toolbar(self):
         self.buttonBox.show()
