@@ -173,6 +173,7 @@ class Alarm(Clock):
                                        Pixbuf,
                                        str,
                                        GObject.TYPE_PYOBJECT,
+                                       GObject.TYPE_PYOBJECT,
                                        GObject.TYPE_PYOBJECT)
 
         self.iconview = SelectableIconView(self.liststore, 0, 1, 2)
@@ -185,9 +186,23 @@ class Alarm(Clock):
         self.iconview.connect("item-activated", self._on_item_activated)
         self.iconview.connect("selection-changed", self._on_selection_changed)
 
-        self.alarms = []
         self.load_alarms()
         self.show_all()
+
+        self.timeout_id = GObject.timeout_add(1000, self._check_alarms)
+
+    def _check_alarms(self):
+        for i in self.liststore:
+            alarm = self.liststore.get_value(i.iter, 5)
+            if alarm.check_expired():
+                print alarm
+                alert = self.liststore.get_value(i.iter, 4)
+                alert.show()
+        return True
+
+    def _on_notification_activated(self, notif, action, data):
+        win = self.get_toplevel()
+        win.show_clock(self)
 
     def _on_item_inserted(self, model, path, treeiter):
         self.update_empty_view()
@@ -197,7 +212,7 @@ class Alarm(Clock):
 
     def _on_item_activated(self, iconview, path):
         alarm = self.liststore[path][-1]
-        self.open_edit_dialog(alarm)
+        self.open_edit_dialog(alarm.get_vevent())
 
     def _on_selection_changed(self, iconview):
         self.emit("selection-changed")
@@ -240,11 +255,14 @@ class Alarm(Clock):
         timestr = alarm.get_time_as_string()
         repeat = alarm.get_alarm_repeat_string()
         widget = AlarmWidget(timestr, repeat)
+        alert = Alert("alarm-clock-elapsed", name,
+                      self._on_notification_activated)
         view_iter = self.liststore.append([False,
                                            widget.get_pixbuf(),
                                            "<b>" + name + "</b>",
                                            widget,
-                                           alarm.get_vevent()])
+                                           alert,
+                                           alarm])
 
     def edit_alarm(self, alarm):
         print "To Do!"

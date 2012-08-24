@@ -74,11 +74,14 @@ class AlarmItem:
         self.uid = None
         if h and m:
             if p:
-                self.time = datetime.strptime("%02i:%02i %s" % (h, m, p), "%I:%M %p")
+                t = datetime.strptime("%02i:%02i %s" % (h, m, p), "%I:%M %p")
             else:
-                self.time = datetime.strptime("%02i:%02i" % (h, m), "%H:%M")
+                t = datetime.strptime("%02i:%02i" % (h, m), "%H:%M")
+            self.time = datetime.combine(datetime.today(), t.time())
+            self.expired = datetime.now() > self.time
         else:
             self.time = None
+            self.expired = True
 
     def new_from_vevent(self, vevent):
         self.vevent = vevent
@@ -89,6 +92,7 @@ class AlarmItem:
             self.repeat = ['FR', 'MO', 'SA', 'SU', 'TH', 'TU', 'WE']
         else:
             self.repeat = vevent.rrule.value[19:].split(',')
+        self.expired = datetime.now() > self.time
 
     def get_time_as_string(self):
         if SystemSettings.get_clock_format() == "12h":
@@ -151,3 +155,11 @@ class AlarmItem:
             vevent.add('rrule').value = 'FREQ=WEEKLY;BYDAY=%s' %\
             ','.join(self.repeat)
         return vevent
+
+    # FIXME: this is not a really good way, we assume each alarm
+    # can ring only once while the program is running
+    def check_expired(self):
+        if self.expired:
+            return False
+        self.expired = datetime.now() > self.time
+        return self.expired
