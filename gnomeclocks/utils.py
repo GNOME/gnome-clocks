@@ -67,7 +67,7 @@ class Alert:
         self.soundid = soundid
 
         self.notification = None
-        if Notify.init("GNOME Clocks"):
+        if Notify.is_initted() or Notify.init("GNOME Clocks"):
             self.notification = Notify.Notification.new("Clocks", msg, 'clocks')
             # the special "default" action should not display a button
             self.notification.add_action("default", "Show", callback, None, None)
