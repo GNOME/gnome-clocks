@@ -106,6 +106,9 @@ class DigitalClock():
         self.sunset = self._last_sunset
         self.get_sunrise_sunset()
 
+        self.view_iter = None
+        self.list_store = None
+
         self.id = location.id
         self.timezone = self.location.get_timezone()
         self.offset = self.timezone.get_offset() * 60
@@ -134,7 +137,7 @@ class DigitalClock():
         if systemClockFormat == '12h':
             t = time.strftime("%I:%M%p", self.get_local_time(time.time()))
         else:
-            t = time.strftime("%H:%M:%S", self.get_local_time(time.time()))
+            t = time.strftime("%H:%M", self.get_local_time(time.time()))
         if not t == self._last_time \
                 or not self.sunrise == self._last_sunrise \
                 or not self.sunset == self._last_sunset:
@@ -150,6 +153,9 @@ class DigitalClock():
                 self.drawing.render(t, img, isDay)
             else:
                 self.drawing.render(t, img, isDay, day)
+            if self.view_iter and self.list_store:
+                self.list_store.set_value(
+                    self.view_iter, 1, self.drawing.pixbuf)
             self.standalone.update(img, t, systemClockFormat,
                                    self.sunrise, self.sunset)
 
@@ -218,6 +224,10 @@ class DigitalClock():
                 return True
             else:
                 return False
+
+    def set_iter(self, list_store, view_iter):
+        self.view_iter = view_iter
+        self.list_store = list_store
 
 
 class DigitalClockStandalone(Gtk.VBox):
