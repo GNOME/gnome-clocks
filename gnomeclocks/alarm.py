@@ -37,9 +37,12 @@ class ICSHandler():
     def remove_vevents(self, uids):
         with open(self.ics_file, 'r+') as ics:
             vcal = vobject.readOne(ics)
+            v_set = []
             for v in vcal.components():
                 if v.uid.value in uids:
-                    vcal.remove(v)
+                    v_set.append(v)
+            for v in v_set:
+                vcal.remove(v)
             ics.seek(0)
             vcal.serialize(ics)
 
