@@ -63,7 +63,12 @@ class SystemSettings:
 
 class Alert:
     def __init__(self, soundid, msg, callback):
-        self.canberra = pycanberra.Canberra()
+        try:
+            self.canberra = pycanberra.Canberra()
+        except Exception, e:
+            print "Sound will not be available: ", e
+            self.canberra = None
+
         self.soundid = soundid
 
         self.notification = None
@@ -75,6 +80,7 @@ class Alert:
             print "Error: Could not trigger Alert"
 
     def show(self):
-        self.canberra.play(1, pycanberra.CA_PROP_EVENT_ID, self.soundid, None)
+        if self.canberra:
+            self.canberra.play(1, pycanberra.CA_PROP_EVENT_ID, self.soundid, None)
         if self.notification:
             self.notification.show()
