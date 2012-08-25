@@ -84,3 +84,10 @@ class Alert:
             self.canberra.play(1, pycanberra.CA_PROP_EVENT_ID, self.soundid, None)
         if self.notification:
             self.notification.show()
+
+
+def get_is_day(hours):
+    if hours > 7 and hours < 19:
+        return True
+    else:
+        return False

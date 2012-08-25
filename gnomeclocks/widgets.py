@@ -21,16 +21,11 @@ from gi.repository import GWeather, Clutter, GtkClutter
 
 from storage import Location
 from alarm import AlarmItem
-from utils import Dirs, SystemSettings
+from utils import Dirs, SystemSettings, get_is_day
 
 import os
 import cairo
 import time
-
-
-# FIXME: Use real sunrise/sunset time in the future
-def get_is_day(hour):
-    return (hour > 7 and hour < 19)
 
 
 class NewWorldClockDialog(Gtk.Dialog):
@@ -105,23 +100,30 @@ class DigitalClock():
     def __init__(self, location):
         self._location = location
         self.location = location.location
+        self._last_sunrise = time.strptime("197007:00", "%Y%H:%M")
+        self.sunrise = self._last_sunrise
+        self._last_sunset = time.strptime("197019:00", "%Y%H:%M")
+        self.sunset = self._last_sunset
+        self.get_sunrise_sunset()
+
         self.id = location.id
         self.timezone = self.location.get_timezone()
         self.offset = self.timezone.get_offset() * 60
         self.isDay = None
         self._last_time = None
         self.drawing = DigitalClockDrawing()
-        self.standalone = DigitalClockStandalone(self.location)
+        self.standalone =\
+            DigitalClockStandalone(self.location, self.sunrise, self.sunset)
         self.update()
         GObject.timeout_add(1000, self.update)
 
-    def get_local_time(self):
-        t = time.time() + time.timezone + self.offset
-        t = time.localtime(t)
-        return t
+    def get_local_time(self, secs):
+         t = secs + time.timezone + self.offset
+         t = time.localtime(t)
+         return t
 
     def get_local_time_text(self):
-        text = time.strftime("%I:%M%p", self.get_local_time())
+        text = time.strftime("%I:%M%p", self.get_local_time(time.time()))
         if text.startswith("0"):
             text = text[1:]
         return text
@@ -130,12 +132,15 @@ class DigitalClock():
         t = self.get_local_time_text()
         systemClockFormat = SystemSettings.get_clock_format()
         if systemClockFormat == '12h':
-            t = time.strftime("%I:%M%p", self.get_local_time())
+            t = time.strftime("%I:%M%p", self.get_local_time(time.time()))
         else:
-            t = time.strftime("%H:%M", self.get_local_time())
-        if not t == self._last_time:
-            local_time = self.get_local_time()
-            isDay = get_is_day(local_time.tm_hour)
+            t = time.strftime("%H:%M:%S", self.get_local_time(time.time()))
+        if not t == self._last_time \
+                or not self.sunrise == self._last_sunrise \
+                or not self.sunset == self._last_sunset:
+            local_time = self.get_local_time(time.time())
+            #isDay = get_is_day(local_time.tm_hour)
+            isDay = self.get_is_light(local_time, self.sunrise, self.sunset)
             if isDay:
                 img = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
             else:
@@ -145,9 +150,29 @@ class DigitalClock():
                 self.drawing.render(t, img, isDay)
             else:
                 self.drawing.render(t, img, isDay, day)
-            self.standalone.update(img, t, systemClockFormat)
+            self.standalone.update(img, t, systemClockFormat,
+                                   self.sunrise, self.sunset)
+
         self._last_time = t
         return True
+
+    def get_sunrise_sunset(self):
+        world = GWeather.Location.new_world(True)
+        self.weather = GWeather.Info(location=self.location, world=world)
+        self.weather.connect('updated', self.weather_updated_callback)
+        self.weather.update()
+        
+    def weather_updated_callback(self, weather):
+        # returned as the time here
+        sunrise = weather.get_sunrise()
+        sunset = weather.get_sunset()
+        self._last_sunrise = self.sunrise
+        self._last_sunset = self.sunset
+        self.sunrise = self.get_local_time(
+                        time.mktime(time.strptime("1970"+sunrise, "%Y%H:%M")))
+        self.sunset = self.get_local_time(
+                        time.mktime(time.strptime("1970"+sunset, "%Y%H:%M")))
+        self.update()
 
     def get_pixbuf(self):
         return self.drawing.pixbuf
@@ -156,7 +181,7 @@ class DigitalClock():
         return self.standalone
 
     def get_day(self):
-        clock_time_day = self.get_local_time().tm_yday
+        clock_time_day = self.get_local_time(time.time()).tm_yday
         local_time_day = time.localtime().tm_yday
 
         if clock_time_day == local_time_day:
@@ -176,20 +201,40 @@ class DigitalClock():
             else:
                 return "Yesterday"
 
+    def get_is_light(self, current, sunrise, sunset):
+        if current.tm_hour < sunrise.tm_hour \
+                or current.tm_hour > sunset.tm_hour:
+            return False
+        elif current.tm_hour > sunrise.tm_hour \
+                and current.tm_hour < sunset.tm_hour:
+            return True
+        elif current.tm_hour == sunrise.tm_hour:
+            if current.tm_min >= sunrise.tm_min:
+                return True
+            else:
+                return False
+        elif current.tm_hour == sunset.tm_hour:
+            if current.tm_min <= sunrise.tm_min:
+                return True
+            else:
+                return False
+
 
 class DigitalClockStandalone(Gtk.VBox):
-    def __init__(self, location):
+    def __init__(self, location, sunrise, sunset):
         Gtk.VBox.__init__(self, False)
         self.img = Gtk.Image()
         self.time_label = Gtk.Label()
         self.city_label = Gtk.Label()
         self.city_label.set_markup("<b>" + location.get_city_name() + "</b>")
         self.text = ""
+        self.sunrise = sunrise
+        self.sunset = sunset
 
         self.systemClockFormat = None
 
         self.connect("size-allocate", lambda x, y: self.update(None,
-            self.text, self.systemClockFormat))
+            self.text, self.systemClockFormat, self.sunrise, self.sunset))
 
         #imagebox = Gtk.VBox()
         #imagebox.pack_start(self.img, False, False, 0)
@@ -243,7 +288,7 @@ class DigitalClockStandalone(Gtk.VBox):
         hbox.pack_start(Gtk.Label(), True, True, 0)
         self.pack_end(hbox, False, False, 30)
 
-    def update(self, img, text, systemClockFormat):
+    def update(self, img, text, systemClockFormat, sunrise, sunset):
         size = 72000  # FIXME: (self.get_allocation().height / 300) * 72000
         if img:
             pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(img, 500, 380)
@@ -252,19 +297,23 @@ class DigitalClockStandalone(Gtk.VBox):
         self.text = text
         self.time_label.set_markup(
             "<span size='%i' color='dimgray'><b>%s</b></span>" % (size, text))
-        if systemClockFormat != self.systemClockFormat:
+        if systemClockFormat != self.systemClockFormat or \
+                sunrise != self.sunrise or sunset != self.sunset:
+            self.sunrise = sunrise
+            self.sunset = sunset
             sunrise_markup = ""
             sunset_markup = ""
             if systemClockFormat == "12h":
                 sunrise_markup = sunrise_markup + "<span size ='large'>" +\
-                    "7: 00 AM" + "</span>"
+                    time.strftime("%I:%M%p", sunrise) + "</span>"
+
                 sunset_markup = sunset_markup + "<span size ='large'>" +\
-                    "7: 00 PM" + "</span>"
+                    time.strftime("%H:%M", sunset) + "</span>"
             else:
                 sunrise_markup = sunrise_markup + "<span size ='large'>" +\
-                    "07: 00" + "</span>"
+                    time.strftime("%H:%M", sunrise) + "</span>"
                 sunset_markup = sunset_markup + "<span size ='large'>" +\
-                    "19: 00" + "</span>"
+                    time.strftime("%H:%M", sunset) + "</span>"
             self.sunrise_time_label.set_markup(sunrise_markup)
             self.sunset_time_label.set_markup(sunset_markup)
         self.systemClockFormat = systemClockFormat
