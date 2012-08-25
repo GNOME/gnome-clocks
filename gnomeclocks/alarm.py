@@ -63,19 +63,14 @@ class ICSHandler():
         ics.write(vcal.serialize())
         ics.close()
 
-    def delete_alarm(self, alarm_uid):
-        # TODO: Add alarm deletion support
-        pass
-
-    def edit_alarm(self, alarm_uid, new_name=None, new_hour=None,
-                   new_mins=None, new_p=None, new_repeat=None):
+    def edit_alarm(self, alarm):
         with open(self.ics_file, 'r+') as ics:
             vcal = vobject.readOne(ics.read())
         for event in vcal.vevent_list:
-            if event.uid.value == alarm_uid:
-                if new_name:
-                    del event.summary
-                    event.add('summary').value = new_name
+            if event.uid.value == alarm.uid:
+                #FIXME: Update instead of remove and add
+                self.remove_vevents((alarm.uid,))
+                self.add_vevent(alarm.get_vevent())
 
 
 class AlarmItem:
@@ -84,6 +79,9 @@ class AlarmItem:
         self.repeat = repeat
         self.vevent = None
         self.uid = None
+        self.h = h
+        self.m = m
+        self.p = p
         if not h == None and not m == None:
             if p:
                 t = datetime.strptime("%02i:%02i %s" % (h, m, p), "%H:%M %p")

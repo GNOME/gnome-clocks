@@ -296,7 +296,11 @@ class Alarm(Clock):
                                            alarm])
 
     def edit_alarm(self, alarm):
-        print "To Do!"
+        handler = ICSHandler()
+        handler.edit_alarm(alarm)
+        self.iconview.unselect_all()
+        self.liststore.clear()
+        self.load_alarms()
 
     def delete_alarms(self, alarms):
         handler = ICSHandler()

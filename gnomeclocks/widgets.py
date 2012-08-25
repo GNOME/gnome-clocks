@@ -448,6 +448,7 @@ class AlarmWidget():
 
 class AlarmDialog(Gtk.Dialog):
     def __init__(self, alarm_view, parent, vevent=None):
+        self.vevent = vevent
         if vevent:
             Gtk.Dialog.__init__(self, _("Edit Alarm"), parent)
         else:
@@ -574,7 +575,10 @@ class AlarmDialog(Gtk.Dialog):
         for btn in self.day_buttons:
             if btn.get_active():
                 repeat.append(btn.get_label()[:2])
-        return AlarmItem(name, repeat, h, m, p)
+        alarm_item = AlarmItem(name, repeat, h, m, p)
+        if self.vevent:
+            alarm_item.uid = self.vevent.uid.value
+        return alarm_item
 
 
 class EmptyPlaceholder(Gtk.Box):
