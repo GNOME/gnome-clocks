@@ -104,7 +104,7 @@ class Window(Gtk.ApplicationWindow):
         self.toolbar.current_view.open_new_dialog()
 
     def _on_about_activated(self, action, param):
-        about = Gtk.AboutDialog(title=_("About GNOME Clocks"))
+        about = Gtk.AboutDialog()
         about.set_title(_("About Clocks"))
         about.set_program_name(_("GNOME Clocks"))
         about.set_logo_icon_name("clocks")
