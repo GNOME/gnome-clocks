@@ -59,7 +59,7 @@ class NewWorldClockDialog(Gtk.Dialog):
             Gtk.EntryIconPosition.SECONDARY, self.find_gicon)
         self.searchEntry.set_activates_default(True)
 
-        self.add_buttons(_("Cancel"), 0, _("Add"), 1)
+        self.add_buttons(Gtk.STOCK_CANCEL, 0, Gtk.STOCK_ADD, 1)
         self.set_default_response(1)
         self.set_response_sensitive(1, False)
 
@@ -401,7 +401,7 @@ class AlarmDialog(Gtk.Dialog):
         self.day_buttons = []
 
         content_area = self.get_content_area()
-        self.add_buttons(_("Cancel"), 0, _("Save"), 1)
+        self.add_buttons(Gtk.STOCK_CANCEL, 0, Gtk.STOCK_SAVE, 1)
 
         self.cf = SystemSettings.get_clock_format()
         grid = Gtk.Grid()
