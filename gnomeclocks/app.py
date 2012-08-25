@@ -25,7 +25,6 @@ from widgets import Embed
 from utils import Dirs
 from gnomeclocks import __version__, AUTHORS, COPYRIGHTS
 
-GtkClutter.init(sys.argv)
 
 class Window(Gtk.ApplicationWindow):
     def __init__(self, app):
@@ -405,6 +404,8 @@ class ClocksApplication(Gtk.Application):
 
     def do_startup(self):
         Gtk.Application.do_startup(self)
+
+        GtkClutter.init(sys.argv)
 
         action = Gio.SimpleAction.new("quit", None)
         action.connect("activate", self.quit_cb)
