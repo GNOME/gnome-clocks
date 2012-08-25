@@ -131,9 +131,13 @@ class World(Clock):
                                            "<b>" + name + "</b>",
                                            d])
 
-    def delete_clock(self, d):
-        self.clocks.remove(d.location)
+    def delete_clocks(self, clocks):
+        for d in clocks:
+            self.clocks.remove(d._location)
+        worldclockstorage.save_clocks(self.clocks)
         self.iconview.unselect_all()
+        self.liststore.clear()
+        self.load_clocks()
 
     def update_empty_view(self):
         if len(self.liststore) == 0:
@@ -148,8 +152,7 @@ class World(Clock):
                 self.show_all()
 
     def open_new_dialog(self):
-        parent = self.get_parent().get_parent().get_parent()
-        window = NewWorldClockDialog(parent)
+        window = NewWorldClockDialog(self.get_toplevel())
         window.connect("response", self.on_dialog_response)
         window.show_all()
 
@@ -268,8 +271,7 @@ class Alarm(Clock):
         print "To Do!"
 
     def open_new_dialog(self):
-        parent = self.get_parent().get_parent().get_parent()
-        window = AlarmDialog(self, parent)
+        window = AlarmDialog(self, self.get_toplevel())
         window.connect("response", self.on_dialog_response, True)
         window.show_all()
 

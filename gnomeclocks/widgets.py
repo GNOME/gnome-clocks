@@ -17,7 +17,7 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 from gi.repository import Gtk, Gdk, GdkPixbuf, GObject, Gio, Pango, PangoCairo
-from gi.repository import GWeather
+from gi.repository import GWeather, Clutter, GtkClutter
 
 from storage import Location
 from alarm import AlarmItem
@@ -27,6 +27,7 @@ import os
 import cairo
 import time
 
+SELECTION_TOOLBAR_DEFAULT_WIDTH = 300;
 
 # FIXME: Use real sunrise/sunset time in the future
 def get_is_day(hour):
@@ -103,6 +104,7 @@ class NewWorldClockDialog(Gtk.Dialog):
 
 class DigitalClock():
     def __init__(self, location):
+        self._location = location
         self.location = location.location
         self.id = location.id
         self.timezone = self.location.get_timezone()
@@ -672,5 +674,131 @@ class SelectableIconView(Gtk.IconView):
                     self.emit("selection-changed")
             else:
                 self.emit("item-activated", path)
-
         return False
+
+def alphaGtkWidget(widget):
+    widget.override_background_color(0, Gdk.RGBA(0,0,0,0))
+
+class SelectionToolbar():
+
+    def __init__(self, parent_actor):
+        self._parent_actor = parent_actor
+        
+        self.widget = Gtk.Toolbar()
+        self.widget.set_show_arrow(False)
+        self.widget.set_icon_size(Gtk.IconSize.LARGE_TOOLBAR)
+        self.widget.get_style_context().add_class('osd');
+        self.widget.set_size_request(SELECTION_TOOLBAR_DEFAULT_WIDTH, -1);
+
+        self.actor = GtkClutter.Actor.new_with_contents(self.widget)
+        self.actor.set_opacity(0)
+        alphaGtkWidget(self.actor.get_widget())
+
+        constraint = Clutter.AlignConstraint()
+        constraint.set_source(self._parent_actor)
+        constraint.set_align_axis(Clutter.AlignAxis.X_AXIS)
+        constraint.set_factor(0.50)
+        self.actor.add_constraint(constraint)
+
+        constraint = Clutter.AlignConstraint()
+        constraint.set_source(self._parent_actor)
+        constraint.set_align_axis(Clutter.AlignAxis.Y_AXIS)
+        constraint.set_factor(0.95)
+        self.actor.add_constraint(constraint)
+
+        self._leftBox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+        self._leftGroup = Gtk.ToolItem()
+        self._leftGroup.set_expand(True)
+        self._leftGroup.add(self._leftBox)
+        self.widget.insert(self._leftGroup, -1);
+        self._toolbarDelete = Gtk.Button("Delete") #FIXME: Make translatable
+        self._leftBox.pack_start(self._toolbarDelete, True, True, 0);
+        self._toolbarDelete.connect('clicked', self._on_toolbar_delete)
+        self.widget.show_all()
+
+    def _on_toolbar_delete(self, widget):
+        pass
+
+    def change_select_mode(self, mode):
+        if mode:
+            self._fade_in() #TODO implement fading in
+        else:
+            self._fade_out()
+
+    def _fade_in(self):
+        if self.actor.get_opacity() != 0:
+            return
+        else:
+            self.actor.set_opacity(0)
+            self.actor.show()
+            # FIXME: add tween
+            #Tweener.addTween(self.actor,
+            #    { opacity: 255,
+            #      time: 0.30,
+            #      transition: 'easeOutQuad' });
+            self.actor.set_opacity(255)
+            self.actor.show()
+
+    def _fade_out(self):
+        # FIXME: add tween
+        #Tweener.addTween(self.actor,
+        #{ opacity: 0,
+        #  time: 0.30,
+        #  transition: 'easeOutQuad',
+        #  onComplete: function() {
+        #      self.actor.hide();
+        #  },
+        #  onCompleteScope: this });
+        self.actor.set_opacity(0)
+        self.actor.hide()
+
+
+class Embed (GtkClutter.Embed):
+    def __init__(self, notebook):
+        GtkClutter.Embed.__init__(self)
+        self.set_use_layout_size(True)
+
+        self.stage = self.get_stage()
+
+        self._overlayLayout = Clutter.BinLayout()
+        self.actor = Clutter.Box()
+        self.actor.set_layout_manager(self._overlayLayout)
+        constraint = Clutter.BindConstraint()
+        constraint.set_source(self.stage)
+        constraint.set_coordinate(Clutter.BindCoordinate.SIZE)
+        self.actor.add_constraint(constraint)
+        self.stage.add_actor(self.actor)
+
+        self._contentsLayout = Clutter.BoxLayout()
+        self._contentsLayout.set_vertical(True)
+        self._contentsActor = Clutter.Box()
+        self._contentsActor.set_layout_manager(self._contentsLayout)
+        self._overlayLayout.add(self._contentsActor,
+            Clutter.BinAlignment.FILL, Clutter.BinAlignment.FILL)
+
+        # pack the main GtkNotebook and a spinnerbox in a BinLayout, so that
+        # we can easily bring them front/back
+        self._viewLayout = Clutter.BinLayout()
+        self._viewActor = Clutter.Box()
+        self._viewActor.set_layout_manager(self._viewLayout)
+        self._contentsLayout.set_expand(self._viewActor, True)
+        self._contentsLayout.set_fill(self._viewActor, True, True)
+        self._contentsActor.add_actor(self._viewActor)
+
+        self._notebook = notebook
+        self._notebookActor = GtkClutter.Actor.new_with_contents(self._notebook)
+        self._viewLayout.add(self._notebookActor,
+                             Clutter.BinAlignment.FILL,
+                             Clutter.BinAlignment.FILL)
+
+        self._selectionToolbar = SelectionToolbar(self._contentsActor)
+        self._overlayLayout.add(self._selectionToolbar.actor,
+                                Clutter.BinAlignment.FIXED,
+                                Clutter.BinAlignment.FIXED)
+        self.show_all()
+
+    def set_show_selectionbar(show):
+        if show:
+            self._selectionToolbar._fade_in()
+        else:
+            self._selectionToolbar._fade_out()

@@ -17,12 +17,15 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import os
+import sys
 from gettext import ngettext
-from gi.repository import Gtk, Gdk, GObject, GLib, Gio
+from gi.repository import Gtk, Gdk, GObject, GLib, Gio, GtkClutter
 from clocks import Clock, World, Alarm, Timer, Stopwatch
+from widgets import Embed
 from utils import Dirs
 from gnomeclocks import __version__, AUTHORS, COPYRIGHTS
 
+GtkClutter.init(sys.argv)
 
 class Window(Gtk.ApplicationWindow):
     def __init__(self, app):
@@ -49,12 +52,13 @@ class Window(Gtk.ApplicationWindow):
 
         self.set_size_request(640, 480)
         self.vbox = vbox = Gtk.VBox()
-        self.add(vbox)
+        embed = Embed(vbox)
+        self.add(embed)
         self.notebook = Gtk.Notebook()
         self.notebook.set_show_tabs(False)
         self.notebook.set_show_border(False)
 
-        self.toolbar = ClocksToolbar()
+        self.toolbar = ClocksToolbar(embed._selectionToolbar)
 
         vbox.pack_start(self.toolbar, False, False, 0)
         vbox.pack_start(self.toolbar.selection_toolbar, False, False, 0)
@@ -75,6 +79,7 @@ class Window(Gtk.ApplicationWindow):
 
         self.world.connect("show-clock", self._on_show_clock)
         self.toolbar.connect("view-clock", self._on_view_clock)
+        vbox.show_all()
         self.show_all()
         self.toolbar.selection_toolbar.hide()
 
@@ -136,8 +141,9 @@ class Window(Gtk.ApplicationWindow):
 
 
 class SelectionToolbar(Gtk.Toolbar):
-    def __init__(self):
+    def __init__(self, _selectionToolbar):
         Gtk.Toolbar.__init__(self)
+        self._selectionToolbar = _selectionToolbar
         self.get_style_context().add_class("clocks-toolbar")
         self.set_icon_size(Gtk.IconSize.MENU)
         self.get_style_context().add_class(Gtk.STYLE_CLASS_MENUBAR)
@@ -177,6 +183,8 @@ class SelectionToolbar(Gtk.Toolbar):
         self.doneButton.get_style_context().add_class('suggested-action')
         self.doneButton.set_label(_("Done"))
         self.doneButton.set_size_request(64, 34)
+        self.doneButton.connect("clicked", self._on_done_clicked)
+        self._selectionToolbar._toolbarDelete.connect("clicked", self._on_delete_clicked)
 
         self.leftBox = box = Gtk.Box()
         box.pack_start(self.doneButton, False, False, 0)
@@ -202,11 +210,29 @@ class SelectionToolbar(Gtk.Toolbar):
     def _on_selection_changed(self, view):
         selection = view.get_selection()
         self.set_selection_label(len(selection))
+        if len(selection) > 0:
+            self._selectionToolbar._fade_in()
+        else:
+            self._selectionToolbar._fade_out()
 
+    def _on_done_clicked(self, widget):
+        #TODO: do something
+        self._selectionToolbar._fade_out()
+
+    def _on_delete_clicked(self, widget):
+        selection = self.current_view.get_selection()
+        if type(self.current_view) == World:
+            model = self.current_view.liststore
+            items = []
+            for treepath in selection:
+                items.append(model[treepath][3])
+            self.current_view.delete_clocks(items)
+        selection = self.current_view.get_selection()
+        self.set_selection_label(len(selection))
+        self._selectionToolbar._fade_out()
 
 class ClockButton(Gtk.RadioButton):
     _group = None
-
     def __init__(self, text):
         Gtk.RadioButton.__init__(self, group=ClockButton._group, draw_indicator=False)
         self.text = text
@@ -234,7 +260,7 @@ class ClocksToolbar(Gtk.Toolbar):
     __gsignals__ = {'view-clock': (GObject.SignalFlags.RUN_LAST,
                     None, (Clock,))}
 
-    def __init__(self):
+    def __init__(self, selectionToolbar):
         Gtk.Toolbar.__init__(self)
 
         self.get_style_context().add_class("clocks-toolbar")
@@ -298,7 +324,7 @@ class ClocksToolbar(Gtk.Toolbar):
         box.pack_end(self.applyButton, False, False, 0)
         toolbox.pack_start(box, True, True, 0)
 
-        self.selection_toolbar = SelectionToolbar()
+        self.selection_toolbar = SelectionToolbar(selectionToolbar)
         self.selection_toolbar.doneButton.connect("clicked",
             self._on_selection_mode, False)
 
