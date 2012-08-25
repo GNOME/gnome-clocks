@@ -81,9 +81,9 @@ class AlarmItem:
         self.repeat = repeat
         self.vevent = None
         self.uid = None
-        if h and m:
+        if not h == None and not m == None:
             if p:
-                t = datetime.strptime("%02i:%02i %s" % (h, m, p), "%I:%M %p")
+                t = datetime.strptime("%02i:%02i %s" % (h, m, p), "%H:%M %p")
             else:
                 t = datetime.strptime("%02i:%02i" % (h, m), "%H:%M")
             self.time = datetime.combine(datetime.today(), t.time())
