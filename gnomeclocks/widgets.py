@@ -46,7 +46,7 @@ class NewWorldClockDialog(Gtk.Dialog):
         area.pack_start(box, True, True, 0)
 
         self.label = Gtk.Label()
-        self.label.set_markup(_("Search for a city: "))
+        self.label.set_markup(_("Search for a city:"))
         self.label.set_alignment(0.0, 0.5)
 
         world = GWeather.Location.new_world(True)
