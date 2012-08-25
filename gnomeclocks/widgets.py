@@ -726,31 +726,18 @@ class SelectionToolbar():
             self._fade_out()
 
     def _fade_in(self):
-        if self.actor.get_opacity() != 0:
-            return
-        else:
-            self.actor.set_opacity(0)
-            self.actor.show()
-            # FIXME: add tween
-            #Tweener.addTween(self.actor,
-            #    { opacity: 255,
-            #      time: 0.30,
-            #      transition: 'easeOutQuad' });
-            self.actor.set_opacity(255)
-            self.actor.show()
+        self.actor.save_easing_state()
+        self.actor.set_easing_duration(300)
+        self.actor.set_easing_mode(Clutter.AnimationMode.EASE_OUT_QUAD)
+        self.actor.set_opacity(255)
+        self.actor.restore_easing_state()
 
     def _fade_out(self):
-        # FIXME: add tween
-        #Tweener.addTween(self.actor,
-        #{ opacity: 0,
-        #  time: 0.30,
-        #  transition: 'easeOutQuad',
-        #  onComplete: function() {
-        #      self.actor.hide();
-        #  },
-        #  onCompleteScope: this });
+        self.actor.save_easing_state()
+        self.actor.set_easing_duration(300)
+        self.actor.set_easing_mode(Clutter.AnimationMode.EASE_OUT_QUAD)
         self.actor.set_opacity(0)
-        self.actor.hide()
+        self.actor.restore_easing_state()
 
 
 class Embed (GtkClutter.Embed):
