@@ -29,11 +29,19 @@ class ICSHandler():
 
     def add_vevent(self, vobj):
         with open(self.ics_file, 'r+') as ics:
-            content = ics.read()
-            ics.seek(0)
-            vcal = vobject.readOne(content)
+            vcal = vobject.readOne(ics)
             vcal.add(vobj)
-            ics.write(vcal.serialize())
+            ics.seek(0)
+            vcal.serialize(ics)
+
+    def remove_vevents(self, uids):
+        with open(self.ics_file, 'r+') as ics:
+            vcal = vobject.readOne(ics)
+            for v in vcal.components():
+                if v.uid.value in uids:
+                    vcal.remove(v)
+            ics.seek(0)
+            vcal.serialize(ics)
 
     def load_vevents(self):
         alarms = []
@@ -142,10 +150,10 @@ class AlarmItem:
                 repeat_string += 'Sun, '
             return repeat_string[:-2]
 
-    def get_uid(self):
-        return self.vevent.uid.value
-
     def get_vevent(self):
+        if self.vevent:
+            return self.vevent
+
         self.vevent = vevent = vobject.newFromBehavior('vevent')
         vevent.add('summary').value = self.name
         vevent.add('dtstart').value = self.time

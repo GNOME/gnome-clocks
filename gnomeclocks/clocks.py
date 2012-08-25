@@ -249,7 +249,8 @@ class Alarm(Clock):
         selection = self.get_selection()
         items = []
         for treepath in selection:
-            items.append(self.liststore[treepath][3])
+            v = self.liststore[treepath][-1].get_vevent()
+            items.append(v.uid.value)
         self.delete_alarms(items)
 
     def load_alarms(self):
@@ -297,7 +298,11 @@ class Alarm(Clock):
         print "To Do!"
 
     def delete_alarms(self, alarms):
-        print "To Do!"
+        handler = ICSHandler()
+        handler.remove_vevents(alarms)
+        self.iconview.unselect_all()
+        self.liststore.clear()
+        self.load_alarms()
 
     def open_new_dialog(self):
         window = AlarmDialog(self, self.get_toplevel())
