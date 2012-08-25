@@ -58,18 +58,18 @@ class Window(Gtk.ApplicationWindow):
         self.notebook.set_show_tabs(False)
         self.notebook.set_show_border(False)
 
-        self.toolbar = ClocksToolbar(embed._selectionToolbar)
-
-        vbox.pack_start(self.toolbar, False, False, 0)
-        vbox.pack_start(self.toolbar.selection_toolbar, False, False, 0)
-
         self.world = World()
         self.alarm = Alarm()
         self.stopwatch = Stopwatch()
         self.timer = Timer()
 
         self.views = (self.world, self.alarm, self.stopwatch, self.timer)
-        self.toolbar.set_clocks(self.views)
+
+        self.toolbar = ClocksToolbar(self.views, embed._selectionToolbar)
+
+        vbox.pack_start(self.toolbar, False, False, 0)
+        vbox.pack_start(self.toolbar.selection_toolbar, False, False, 0)
+
         self.single_evbox = Gtk.EventBox()
 
         vbox.pack_end(self.notebook, True, True, 0)
@@ -260,7 +260,7 @@ class ClocksToolbar(Gtk.Toolbar):
     __gsignals__ = {'view-clock': (GObject.SignalFlags.RUN_LAST,
                     None, (Clock,))}
 
-    def __init__(self, selectionToolbar):
+    def __init__(self, views, selectionToolbar):
         Gtk.Toolbar.__init__(self)
 
         self.get_style_context().add_class("clocks-toolbar")
@@ -274,7 +274,7 @@ class ClocksToolbar(Gtk.Toolbar):
         toolitem.add(toolbox)
         self.insert(toolitem, -1)
 
-        self.views = []
+        self.views = views
 
         self.newButton = Gtk.Button()
 
@@ -305,31 +305,6 @@ class ClocksToolbar(Gtk.Toolbar):
         self.buttonBox.get_style_context().add_class("linked")
         toolbox.pack_start(self.buttonBox, False, False, 0)
 
-        self.city_label = Gtk.Label()
-        toolbox.pack_start(self.city_label, False, False, 0)
-        toolbox.pack_start(Gtk.Box(), False, False, 15)
-
-        toolbox.pack_start(Gtk.Label(""), True, True, 0)
-
-        self.applyButton = Gtk.Button()
-        #self.applyButton.get_style_context().add_class('raised');
-        icon = Gio.ThemedIcon.new_with_default_fallbacks(
-            "object-select-symbolic")
-        image = Gtk.Image()
-        image.set_from_gicon(icon, Gtk.IconSize.MENU)
-        self.applyButton.add(image)
-        self.applyButton.set_size_request(32, 32)
-        self.applyButton.connect('clicked', self._on_selection_mode, True)
-        self.rightBox = box = Gtk.Box()
-        box.pack_end(self.applyButton, False, False, 0)
-        toolbox.pack_start(box, True, True, 0)
-
-        self.selection_toolbar = SelectionToolbar(selectionToolbar)
-        self.selection_toolbar.doneButton.connect("clicked",
-            self._on_selection_mode, False)
-
-    def set_clocks(self, views):
-        self.views = views
         self.viewsButtons = {}
         for view in views:
             button = ClockButton(view.label)
@@ -340,6 +315,29 @@ class ClocksToolbar(Gtk.Toolbar):
                 self.current_view = view
                 button.set_active(True)
 
+        self.city_label = Gtk.Label()
+        toolbox.pack_start(self.city_label, False, False, 0)
+        toolbox.pack_start(Gtk.Box(), False, False, 15)
+
+        toolbox.pack_start(Gtk.Label(""), True, True, 0)
+
+        self.selectButton = Gtk.Button()
+        icon = Gio.ThemedIcon.new_with_default_fallbacks(
+            "object-select-symbolic")
+        image = Gtk.Image()
+        image.set_from_gicon(icon, Gtk.IconSize.MENU)
+        self.selectButton.add(image)
+        self.selectButton.set_size_request(32, 32)
+        self.selectButton.set_sensitive(self.current_view.can_select())
+        self.selectButton.connect('clicked', self._on_selection_mode, True)
+        self.rightBox = box = Gtk.Box()
+        box.pack_end(self.selectButton, False, False, 0)
+        toolbox.pack_start(box, True, True, 0)
+
+        self.selection_toolbar = SelectionToolbar(selectionToolbar)
+        self.selection_toolbar.doneButton.connect("clicked",
+            self._on_selection_mode, False)
+
     def activate_view(self, view):
         if view is not self.current_view:
             self.viewsButtons[view].set_active(True)
@@ -347,14 +345,14 @@ class ClocksToolbar(Gtk.Toolbar):
     def _set_overview_toolbar(self):
         self.buttonBox.show()
         self.newButton.show()
-        self.applyButton.show()
+        self.selectButton.show()
         self.backButton.hide()
         self.city_label.hide()
 
     def _set_single_toolbar(self):
         self.buttonBox.hide()
         self.newButton.hide()
-        self.applyButton.hide()
+        self.selectButton.hide()
         if not self.backButton.get_parent():
             self.leftBox.pack_start(self.backButton, False, False, 0)
         self.backButton.show_all()
@@ -374,16 +372,16 @@ class ClocksToolbar(Gtk.Toolbar):
             self.newButton.set_size_request(width, -1)
             self.newButton.get_children()[0].hide()
         if view.hasSelectionMode:
-            self.applyButton.get_children()[0].show_all()
-            self.applyButton.show_all()
-            self.applyButton.set_relief(Gtk.ReliefStyle.NORMAL)
-            self.applyButton.set_sensitive(True)
+            self.selectButton.get_children()[0].show_all()
+            self.selectButton.show_all()
+            self.selectButton.set_relief(Gtk.ReliefStyle.NORMAL)
+            self.selectButton.set_sensitive(view.can_select())
         else:
-            width = self.applyButton.get_allocation().width
-            self.applyButton.set_relief(Gtk.ReliefStyle.NONE)
-            self.applyButton.set_sensitive(False)
-            self.applyButton.set_size_request(width, -1)
-            self.applyButton.get_children()[0].hide()
+            width = self.selectButton.get_allocation().width
+            self.selectButton.set_relief(Gtk.ReliefStyle.NONE)
+            self.selectButton.set_sensitive(False)
+            self.selectButton.set_size_request(width, -1)
+            self.selectButton.get_children()[0].hide()
 
         self.emit("view-clock", view)
 

@@ -56,12 +56,14 @@ class Clock(Gtk.EventBox):
     def open_new_dialog(self):
         pass
 
+    def can_select(self):
+        pass
+
     def get_selection(self):
         pass
 
     def unselect_all(self):
-        pass
-
+         pass
 
 class World(Clock):
     def __init__(self):
@@ -106,6 +108,9 @@ class World(Clock):
 
     def set_selection_mode(self, active):
         self.iconview.set_selection_mode(active)
+
+    def can_select(self):
+        return len(self.liststore) != 0
 
     def get_selection(self):
         return self.iconview.get_selection()
@@ -222,6 +227,9 @@ class Alarm(Clock):
 
     def set_selection_mode(self, active):
         self.iconview.set_selection_mode(active)
+
+    def can_select(self):
+        return len(self.liststore) != 0
 
     def get_selection(self):
         return self.iconview.get_selection()
