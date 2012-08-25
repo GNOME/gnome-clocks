@@ -63,7 +63,11 @@ class Clock(Gtk.EventBox):
         pass
 
     def unselect_all(self):
-         pass
+        pass
+
+    def delete_selected(self):
+        pass
+
 
 class World(Clock):
     def __init__(self):
@@ -114,6 +118,13 @@ class World(Clock):
 
     def get_selection(self):
         return self.iconview.get_selection()
+
+    def delete_selected(self):
+        selection = self.get_selection()
+        items = []
+        for treepath in selection:
+            items.append(self.liststore[treepath][3])
+        self.delete_clocks(items)
 
     def load_clocks(self):
         self.clocks = worldclockstorage.load_clocks()
@@ -234,6 +245,13 @@ class Alarm(Clock):
     def get_selection(self):
         return self.iconview.get_selection()
 
+    def delete_selected(self):
+        selection = self.get_selection()
+        items = []
+        for treepath in selection:
+            items.append(self.liststore[treepath][3])
+        self.delete_alarms(items)
+
     def load_alarms(self):
         handler = ICSHandler()
         vevents = handler.load_vevents()
@@ -278,14 +296,16 @@ class Alarm(Clock):
     def edit_alarm(self, alarm):
         print "To Do!"
 
+    def delete_alarms(self, alarms):
+        print "To Do!"
+
     def open_new_dialog(self):
         window = AlarmDialog(self, self.get_toplevel())
         window.connect("response", self.on_dialog_response, True)
         window.show_all()
 
     def open_edit_dialog(self, vevent):
-        parent = self.get_parent().get_parent().get_parent()
-        window = AlarmDialog(self, parent, vevent)
+        window = AlarmDialog(self, self.get_toplevel(), vevent)
         window.connect("response", self.on_dialog_response, False)
         window.show_all()
 

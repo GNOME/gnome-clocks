@@ -27,7 +27,6 @@ import os
 import cairo
 import time
 
-SELECTION_TOOLBAR_DEFAULT_WIDTH = 300;
 
 # FIXME: Use real sunrise/sunset time in the future
 def get_is_day(hour):
@@ -676,32 +675,29 @@ class SelectableIconView(Gtk.IconView):
                 self.emit("item-activated", path)
         return False
 
-def alphaGtkWidget(widget):
-    widget.override_background_color(0, Gdk.RGBA(0,0,0,0))
 
 class SelectionToolbar():
+    DEFAULT_WIDTH = 300
 
     def __init__(self, parent_actor):
-        self._parent_actor = parent_actor
-        
         self.widget = Gtk.Toolbar()
         self.widget.set_show_arrow(False)
         self.widget.set_icon_size(Gtk.IconSize.LARGE_TOOLBAR)
-        self.widget.get_style_context().add_class('osd');
-        self.widget.set_size_request(SELECTION_TOOLBAR_DEFAULT_WIDTH, -1);
+        self.widget.get_style_context().add_class('osd')
+        self.widget.set_size_request(SelectionToolbar.DEFAULT_WIDTH, -1)
 
         self.actor = GtkClutter.Actor.new_with_contents(self.widget)
         self.actor.set_opacity(0)
-        alphaGtkWidget(self.actor.get_widget())
+        self.actor.get_widget().override_background_color(0, Gdk.RGBA(0, 0, 0, 0))
 
         constraint = Clutter.AlignConstraint()
-        constraint.set_source(self._parent_actor)
+        constraint.set_source(parent_actor)
         constraint.set_align_axis(Clutter.AlignAxis.X_AXIS)
         constraint.set_factor(0.50)
         self.actor.add_constraint(constraint)
 
         constraint = Clutter.AlignConstraint()
-        constraint.set_source(self._parent_actor)
+        constraint.set_source(parent_actor)
         constraint.set_align_axis(Clutter.AlignAxis.Y_AXIS)
         constraint.set_factor(0.95)
         self.actor.add_constraint(constraint)
@@ -710,29 +706,19 @@ class SelectionToolbar():
         self._leftGroup = Gtk.ToolItem()
         self._leftGroup.set_expand(True)
         self._leftGroup.add(self._leftBox)
-        self.widget.insert(self._leftGroup, -1);
-        self._toolbarDelete = Gtk.Button("Delete") #FIXME: Make translatable
-        self._leftBox.pack_start(self._toolbarDelete, True, True, 0);
-        self._toolbarDelete.connect('clicked', self._on_toolbar_delete)
+        self.widget.insert(self._leftGroup, -1)
+        self._toolbarDelete = Gtk.Button(_("Delete"))
+        self._leftBox.pack_start(self._toolbarDelete, True, True, 0)
         self.widget.show_all()
 
-    def _on_toolbar_delete(self, widget):
-        pass
-
-    def change_select_mode(self, mode):
-        if mode:
-            self._fade_in() #TODO implement fading in
-        else:
-            self._fade_out()
-
-    def _fade_in(self):
+    def fade_in(self):
         self.actor.save_easing_state()
         self.actor.set_easing_duration(300)
         self.actor.set_easing_mode(Clutter.AnimationMode.EASE_OUT_QUAD)
         self.actor.set_opacity(255)
         self.actor.restore_easing_state()
 
-    def _fade_out(self):
+    def fade_out(self):
         self.actor.save_easing_state()
         self.actor.set_easing_duration(300)
         self.actor.set_easing_mode(Clutter.AnimationMode.EASE_OUT_QUAD)
@@ -740,7 +726,7 @@ class SelectionToolbar():
         self.actor.restore_easing_state()
 
 
-class Embed (GtkClutter.Embed):
+class Embed(GtkClutter.Embed):
     def __init__(self, notebook):
         GtkClutter.Embed.__init__(self)
         self.set_use_layout_size(True)
@@ -763,8 +749,6 @@ class Embed (GtkClutter.Embed):
         self._overlayLayout.add(self._contentsActor,
             Clutter.BinAlignment.FILL, Clutter.BinAlignment.FILL)
 
-        # pack the main GtkNotebook and a spinnerbox in a BinLayout, so that
-        # we can easily bring them front/back
         self._viewLayout = Clutter.BinLayout()
         self._viewActor = Clutter.Box()
         self._viewActor.set_layout_manager(self._viewLayout)
@@ -784,8 +768,8 @@ class Embed (GtkClutter.Embed):
                                 Clutter.BinAlignment.FIXED)
         self.show_all()
 
-    def set_show_selectionbar(show):
+    def set_show_selectionbar(self, show):
         if show:
-            self._selectionToolbar._fade_in()
+            self._selectionToolbar.fade_in()
         else:
-            self._selectionToolbar._fade_out()
+            self._selectionToolbar.fade_out()

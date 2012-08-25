@@ -50,8 +50,8 @@ class Window(Gtk.ApplicationWindow):
                                          Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
         self.set_size_request(640, 480)
-        self.vbox = vbox = Gtk.VBox()
-        embed = Embed(vbox)
+        self.vbox = Gtk.VBox()
+        embed = Embed(self.vbox)
         self.add(embed)
         self.notebook = Gtk.Notebook()
         self.notebook.set_show_tabs(False)
@@ -64,21 +64,21 @@ class Window(Gtk.ApplicationWindow):
 
         self.views = (self.world, self.alarm, self.stopwatch, self.timer)
 
-        self.toolbar = ClocksToolbar(self.views, embed._selectionToolbar)
+        self.toolbar = ClocksToolbar(self.views, embed)
 
-        vbox.pack_start(self.toolbar, False, False, 0)
-        vbox.pack_start(self.toolbar.selection_toolbar, False, False, 0)
+        self.vbox.pack_start(self.toolbar, False, False, 0)
+        self.vbox.pack_start(self.toolbar.selection_toolbar, False, False, 0)
 
         self.single_evbox = Gtk.EventBox()
 
-        vbox.pack_end(self.notebook, True, True, 0)
+        self.vbox.pack_end(self.notebook, True, True, 0)
         for view in self.views:
             self.notebook.append_page(view, Gtk.Label(str(view)))
         self.notebook.append_page(self.single_evbox, Gtk.Label("Widget"))
 
         self.world.connect("show-clock", self._on_show_clock)
         self.toolbar.connect("view-clock", self._on_view_clock)
-        vbox.show_all()
+        self.vbox.show_all()
         self.show_all()
         self.toolbar.selection_toolbar.hide()
 
@@ -140,13 +140,14 @@ class Window(Gtk.ApplicationWindow):
 
 
 class SelectionToolbar(Gtk.Toolbar):
-    def __init__(self, _selectionToolbar):
+    def __init__(self, embed):
         Gtk.Toolbar.__init__(self)
-        self._selectionToolbar = _selectionToolbar
         self.get_style_context().add_class("clocks-toolbar")
         self.set_icon_size(Gtk.IconSize.MENU)
         self.get_style_context().add_class(Gtk.STYLE_CLASS_MENUBAR)
         self.get_style_context().add_class("selection-mode")
+
+        self.embed = embed
 
         # same size as the button to keep the label centered
         sep = Gtk.SeparatorToolItem()
@@ -183,7 +184,8 @@ class SelectionToolbar(Gtk.Toolbar):
         self.doneButton.set_label(_("Done"))
         self.doneButton.set_size_request(64, 34)
         self.doneButton.connect("clicked", self._on_done_clicked)
-        self._selectionToolbar._toolbarDelete.connect("clicked", self._on_delete_clicked)
+
+        self.embed._selectionToolbar._toolbarDelete.connect("clicked", self._on_delete_clicked)
 
         self.leftBox = box = Gtk.Box()
         box.pack_start(self.doneButton, False, False, 0)
@@ -208,30 +210,22 @@ class SelectionToolbar(Gtk.Toolbar):
 
     def _on_selection_changed(self, view):
         selection = view.get_selection()
-        self.set_selection_label(len(selection))
-        if len(selection) > 0:
-            self._selectionToolbar._fade_in()
-        else:
-            self._selectionToolbar._fade_out()
+        n_selected = len(selection)
+        self.set_selection_label(n_selected)
+        self.embed.set_show_selectionbar(n_selected > 0)
 
     def _on_done_clicked(self, widget):
-        #TODO: do something
-        self._selectionToolbar._fade_out()
+        self.embed.set_show_selectionbar(False)
 
     def _on_delete_clicked(self, widget):
-        selection = self.current_view.get_selection()
-        if type(self.current_view) == World:
-            model = self.current_view.liststore
-            items = []
-            for treepath in selection:
-                items.append(model[treepath][3])
-            self.current_view.delete_clocks(items)
-        selection = self.current_view.get_selection()
-        self.set_selection_label(len(selection))
-        self._selectionToolbar._fade_out()
+        self.current_view.delete_selected()
+        self.set_selection_label(0)
+        self.embed.set_show_selectionbar(False)
+
 
 class ClockButton(Gtk.RadioButton):
     _group = None
+
     def __init__(self, text):
         Gtk.RadioButton.__init__(self, group=ClockButton._group, draw_indicator=False)
         self.text = text
@@ -259,7 +253,7 @@ class ClocksToolbar(Gtk.Toolbar):
     __gsignals__ = {'view-clock': (GObject.SignalFlags.RUN_LAST,
                     None, (Clock,))}
 
-    def __init__(self, views, selectionToolbar):
+    def __init__(self, views, embed):
         Gtk.Toolbar.__init__(self)
 
         self.get_style_context().add_class("clocks-toolbar")
@@ -333,7 +327,7 @@ class ClocksToolbar(Gtk.Toolbar):
         box.pack_end(self.selectButton, False, False, 0)
         toolbox.pack_start(box, True, True, 0)
 
-        self.selection_toolbar = SelectionToolbar(selectionToolbar)
+        self.selection_toolbar = SelectionToolbar(embed)
         self.selection_toolbar.doneButton.connect("clicked",
             self._on_selection_mode, False)
 
@@ -396,8 +390,8 @@ class ClocksApplication(Gtk.Application):
         Gtk.Application.__init__(self)
 
     def do_activate(self):
-        self.win = win = Window(self)
-        win.show()
+        self.win = Window(self)
+        self.win.present()
 
     def quit_cb(self, action, parameter):
         self.quit()

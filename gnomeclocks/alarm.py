@@ -22,6 +22,7 @@ import vobject
 
 from utils import Dirs, SystemSettings
 
+
 class ICSHandler():
     def __init__(self):
         self.ics_file = os.path.join(Dirs.get_user_data_dir(), "alarms.ics")
