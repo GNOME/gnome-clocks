@@ -144,11 +144,13 @@ class World(Clock):
                                            d.get_pixbuf(),
                                            "<b>" + name + "</b>",
                                            d])
-        d.set_iter(self.liststore, view_iter)
+        path = self.liststore.get_path(view_iter)
+        d.set_path(self.liststore, path)
         self.notify("can-select")
 
     def delete_clocks(self, clocks):
         for d in clocks:
+            d.stop_update()
             self.clocks.remove(d._location)
         worldclockstorage.save_clocks(self.clocks)
         self.iconview.unselect_all()

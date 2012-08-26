@@ -102,7 +102,7 @@ class DigitalClock():
         self.sunset = self._last_sunset
         self.get_sunrise_sunset()
 
-        self.view_iter = None
+        self.path = None
         self.list_store = None
 
         self.id = location.id
@@ -114,7 +114,11 @@ class DigitalClock():
         self.standalone =\
             DigitalClockStandalone(self.location, self.sunrise, self.sunset)
         self.update()
-        GObject.timeout_add(1000, self.update)
+        self.timeout = GObject.timeout_add(1000, self.update)
+
+    def stop_update(self):
+        GObject.source_remove(self.timeout)
+        self.timeout = 0
 
     def get_local_time(self, secs):
          t = secs + time.timezone + self.offset
@@ -149,9 +153,8 @@ class DigitalClock():
                 self.drawing.render(t, img, isDay)
             else:
                 self.drawing.render(t, img, isDay, day)
-            if self.view_iter and self.list_store:
-                self.list_store.set_value(
-                    self.view_iter, 1, self.drawing.pixbuf)
+            if self.path and self.list_store:
+                self.list_store[self.path][1] = self.drawing.pixbuf
             self.standalone.update(img, t, systemClockFormat,
                                    self.sunrise, self.sunset)
 
@@ -221,8 +224,8 @@ class DigitalClock():
             else:
                 return False
 
-    def set_iter(self, list_store, view_iter):
-        self.view_iter = view_iter
+    def set_path(self, list_store, path):
+        self.path = path
         self.list_store = list_store
 
 
