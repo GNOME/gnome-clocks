@@ -80,7 +80,7 @@ class AlarmItem:
         self.vevent = None
         if not h == None and not m == None:
             if p:
-                t = datetime.strptime("%02i:%02i %s" % (h, m, p), "%H:%M %p")
+                t = datetime.strptime("%02i:%02i %s" % (h, m, p), "%I:%M %p")
             else:
                 t = datetime.strptime("%02i:%02i" % (h, m), "%H:%M")
             self.time = datetime.combine(datetime.today(), t.time())
