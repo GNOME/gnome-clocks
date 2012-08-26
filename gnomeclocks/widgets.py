@@ -597,29 +597,16 @@ class EmptyPlaceholder(Gtk.Box):
 # it is easier to just reimplement this renderer than include and build
 # a C library
 class TogglePixbufRenderer(Gtk.CellRendererPixbuf):
-
-    __gproperties__ = {
-         "active": (GObject.TYPE_BOOLEAN,
-                   "Active",
-                   "Whether the cell renderer is active",
-                   False,
-                   GObject.PARAM_READWRITE),
-         "toggle-visible": (GObject.TYPE_BOOLEAN,
-                            "Toggle visible",
-                            "Whether to draw the toggle indicator",
-                            False,
-                            GObject.PARAM_READWRITE)
-    }
+    active = GObject.Property(type=bool, default=False)
+    toggle_visible = GObject.Property(type=bool, default=False)
 
     def __init__(self):
         Gtk.CellRendererPixbuf.__init__(self)
-        self._active = False
-        self._toggle_visible = False
 
     def do_render(self, cr, widget, background_area, cell_area, flags):
         Gtk.CellRendererPixbuf.do_render(self, cr, widget, background_area, cell_area, flags)
 
-        if not self._toggle_visible:
+        if not self.toggle_visible:
             return
 
         xpad, ypad = self.get_padding()
@@ -641,7 +628,7 @@ class TogglePixbufRenderer(Gtk.CellRendererPixbuf):
         context.save()
         context.add_class(Gtk.STYLE_CLASS_CHECK)
 
-        if self._active:
+        if self.active:
             context.set_state(Gtk.StateFlags.ACTIVE)
 
         Gtk.render_check(context, cr, check_x, check_y, icon_size, icon_size)
@@ -659,22 +646,6 @@ class TogglePixbufRenderer(Gtk.CellRendererPixbuf):
         width += icon_size / 4
 
         return (x_offset, y_offset, width, height)
-
-    def do_get_property(self, prop):
-        if prop.name == "active":
-            return self._active
-        elif prop.name == "toggle-visible":
-            return self._toggle_visible
-        else:
-            raise AttributeError, 'unknown property %s' % prop.name
-
-    def do_set_property(self, prop, value):
-        if prop.name == "active":
-            self._active = value
-        elif prop.name == "toggle-visible":
-            self._toggle_visible = value
-        else:
-            raise AttributeError, 'unknown property %s' % prop.name
 
 
 class SelectableIconView(Gtk.IconView):
