@@ -169,14 +169,12 @@ class DigitalClock():
         
     def weather_updated_callback(self, weather):
         # returned as the time here
-        sunrise = weather.get_sunrise()
-        sunset = weather.get_sunset()
+        ok, sunrise = weather.get_value_sunrise()
+        ok, sunset = weather.get_value_sunset()
         self._last_sunrise = self.sunrise
         self._last_sunset = self.sunset
-        self.sunrise = self.get_local_time(
-                        time.mktime(time.strptime("1970"+sunrise, "%Y%H:%M")))
-        self.sunset = self.get_local_time(
-                        time.mktime(time.strptime("1970"+sunset, "%Y%H:%M")))
+        self.sunrise = self.get_local_time(sunrise)
+        self.sunset = self.get_local_time(sunset)
         self.update()
 
     def get_pixbuf(self):
