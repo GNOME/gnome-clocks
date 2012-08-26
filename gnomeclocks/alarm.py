@@ -46,6 +46,15 @@ class ICSHandler():
             ics.seek(0)
             vcal.serialize(ics)
 
+    # FIXME: Update instead of remove and add
+    def update_vevent(self, old_vevent, new_vevent):
+        with open(self.ics_file, 'r+') as ics:
+            vcal = vobject.readOne(ics.read())
+        for event in vcal.vevent_list:
+            if event.uid.value == old_vevent.uid.value:
+                self.remove_vevents((old_vevent.uid.value,))
+                self.add_vevent(new_vevent)
+
     def load_vevents(self):
         alarms = []
         if os.path.exists(self.ics_file):
@@ -63,22 +72,12 @@ class ICSHandler():
         ics.write(vcal.serialize())
         ics.close()
 
-    def edit_alarm(self, alarm):
-        with open(self.ics_file, 'r+') as ics:
-            vcal = vobject.readOne(ics.read())
-        for event in vcal.vevent_list:
-            if event.uid.value == alarm.uid:
-                #FIXME: Update instead of remove and add
-                self.remove_vevents((alarm.uid,))
-                self.add_vevent(alarm.get_vevent())
-
 
 class AlarmItem:
     def __init__(self, name=None, repeat=None, h=None, m=None, p=None):
         self.name = name
         self.repeat = repeat
         self.vevent = None
-        self.uid = None
         if not h == None and not m == None:
             if p:
                 t = datetime.strptime("%02i:%02i %s" % (h, m, p), "%H:%M %p")
@@ -94,7 +93,6 @@ class AlarmItem:
         self.vevent = vevent
         self.name = vevent.summary.value
         self.time = vevent.dtstart.value
-        self.uid = vevent.uid.value
         if vevent.rrule.value == 'FREQ=DAILY;':
             self.repeat = ['FR', 'MO', 'SA', 'SU', 'TH', 'TU', 'WE']
         else:

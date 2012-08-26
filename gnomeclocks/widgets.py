@@ -576,8 +576,6 @@ class AlarmDialog(Gtk.Dialog):
             if btn.get_active():
                 repeat.append(btn.get_label()[:2])
         alarm_item = AlarmItem(name, repeat, h, m, p)
-        if self.vevent:
-            alarm_item.uid = self.vevent.uid.value
         return alarm_item
 
 

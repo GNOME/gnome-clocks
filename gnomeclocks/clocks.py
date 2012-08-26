@@ -295,9 +295,9 @@ class Alarm(Clock):
                                            alert,
                                            alarm])
 
-    def edit_alarm(self, alarm):
+    def edit_alarm(self, old_vevent, alarm):
         handler = ICSHandler()
-        handler.edit_alarm(alarm)
+        handler.update_vevent(old_vevent, alarm.get_vevent())
         self.iconview.unselect_all()
         self.liststore.clear()
         self.load_alarms()
@@ -311,21 +311,21 @@ class Alarm(Clock):
 
     def open_new_dialog(self):
         window = AlarmDialog(self, self.get_toplevel())
-        window.connect("response", self.on_dialog_response, True)
+        window.connect("response", self.on_dialog_response, None)
         window.show_all()
 
     def open_edit_dialog(self, vevent):
         window = AlarmDialog(self, self.get_toplevel(), vevent)
-        window.connect("response", self.on_dialog_response, False)
+        window.connect("response", self.on_dialog_response, vevent)
         window.show_all()
 
-    def on_dialog_response(self, dialog, response, isNew):
+    def on_dialog_response(self, dialog, response, old_vevent):
         if response == 1:
             alarm = dialog.get_alarm_item()
-            if (isNew):
-                self.add_alarm(alarm)
+            if old_vevent:
+                self.edit_alarm(old_vevent, alarm)
             else:
-                self.edit_alarm(alarm)
+                self.add_alarm(alarm)
         dialog.destroy()
 
 
