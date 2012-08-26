@@ -302,8 +302,10 @@ class ClocksToolbar(Gtk.Toolbar):
         for view in views:
             button = ClockButton(view.label)
             self.buttonBox.pack_start(button, False, False, 0)
-            button.connect('toggled', self._on_toggled, view)
+            button.connect("toggled", self._on_toggled, view)
             self.viewsButtons[view] = button
+            if view.hasSelectionMode:
+                view.connect("notify::can-select", self._on_can_select_changed)
             if view == views[0]:
                 self.current_view = view
                 button.set_active(True)
@@ -321,7 +323,7 @@ class ClocksToolbar(Gtk.Toolbar):
         image.set_from_gicon(icon, Gtk.IconSize.MENU)
         self.selectButton.add(image)
         self.selectButton.set_size_request(32, 32)
-        self.selectButton.set_sensitive(self.current_view.can_select())
+        self.selectButton.set_sensitive(self.current_view.can_select)
         self.selectButton.connect('clicked', self._on_selection_mode, True)
         self.rightBox = box = Gtk.Box()
         box.pack_end(self.selectButton, False, False, 0)
@@ -368,7 +370,7 @@ class ClocksToolbar(Gtk.Toolbar):
             self.selectButton.get_children()[0].show_all()
             self.selectButton.show_all()
             self.selectButton.set_relief(Gtk.ReliefStyle.NORMAL)
-            self.selectButton.set_sensitive(view.can_select())
+            self.selectButton.set_sensitive(view.can_select)
         else:
             width = self.selectButton.get_allocation().width
             self.selectButton.set_relief(Gtk.ReliefStyle.NONE)
@@ -377,6 +379,10 @@ class ClocksToolbar(Gtk.Toolbar):
             self.selectButton.get_children()[0].hide()
 
         self.emit("view-clock", view)
+
+    def _on_can_select_changed(self, view, pspec):
+        if view == self.current_view:
+            self.selectButton.set_sensitive(view.can_select)
 
     def _on_selection_mode(self, button, selection_mode):
         self.selection_toolbar.set_visible(selection_mode)

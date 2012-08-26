@@ -56,9 +56,6 @@ class Clock(Gtk.EventBox):
     def open_new_dialog(self):
         pass
 
-    def can_select(self):
-        pass
-
     def get_selection(self):
         pass
 
@@ -113,6 +110,7 @@ class World(Clock):
     def set_selection_mode(self, active):
         self.iconview.set_selection_mode(active)
 
+    @GObject.Property(type=bool, default=False)
     def can_select(self):
         return len(self.liststore) != 0
 
@@ -147,6 +145,7 @@ class World(Clock):
                                            "<b>" + name + "</b>",
                                            d])
         d.set_iter(self.liststore, view_iter)
+        self.notify("can-select")
 
     def delete_clocks(self, clocks):
         for d in clocks:
@@ -155,6 +154,7 @@ class World(Clock):
         self.iconview.unselect_all()
         self.liststore.clear()
         self.load_clocks()
+        self.notify("can-select")
 
     def update_empty_view(self):
         if len(self.liststore) == 0:
@@ -240,6 +240,7 @@ class Alarm(Clock):
     def set_selection_mode(self, active):
         self.iconview.set_selection_mode(active)
 
+    @GObject.Property(type=bool, default=False)
     def can_select(self):
         return len(self.liststore) != 0
 
@@ -294,6 +295,7 @@ class Alarm(Clock):
                                            widget,
                                            alert,
                                            alarm])
+        self.notify("can-select")
 
     def edit_alarm(self, old_vevent, alarm):
         handler = ICSHandler()
@@ -308,6 +310,7 @@ class Alarm(Clock):
         self.iconview.unselect_all()
         self.liststore.clear()
         self.load_alarms()
+        self.notify("can-select")
 
     def open_new_dialog(self):
         window = AlarmDialog(self, self.get_toplevel())
