@@ -20,7 +20,6 @@ from gi.repository import Gtk, Gio
 
 TIMER = "<span font_desc=\"64.0\">%02i</span>"
 TIMER_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
-TIMER = "<span font_desc=\"64.0\">%02i</span>"
 TIMER_BUTTON_MARKUP = "<span font_desc=\"18.0\">% s</span>"
 
 
@@ -121,6 +120,9 @@ class TimerScreen(Gtk.Box):
         self.pack_start(Gtk.Box(), False, False, 7)
         self.pack_start(center, False, False, 6)
         self.pack_start(hbox, False, False, 5)
+
+    def set_time(self, h, m, s):
+        self.timerLabel.set_markup(TIMER_LABEL_MARKUP % (h, m, s))
 
     def _on_right_button_clicked(self, data):
         self.leftLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Pause")))

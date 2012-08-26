@@ -33,9 +33,6 @@ import time
 STOPWATCH_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i</span>"
 STOPWATCH_BUTTON_MARKUP = "<span font_desc=\"18.0\">%s</span>"
 
-TIMER_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
-TIMER = "<span font_desc=\"64.0\">%02i</span>"
-
 
 class Clock(Gtk.EventBox):
     __gsignals__ = {'show-requested': (GObject.SignalFlags.RUN_LAST,
@@ -503,8 +500,7 @@ class Timer(Clock):
             hours = self.timer_welcome_screen.hours.get_value()
             minutes = self.timer_welcome_screen.minutes.get_value()
             seconds = self.timer_welcome_screen.seconds.get_value()
-            self.timer_screen.timerLabel.set_markup(TIMER_LABEL_MARKUP %
-                                                    (hours, minutes, seconds))
+            self.timer_screen.set_time(hours, minutes, seconds)
             self.time = (hours * 60 * 60) + (minutes * 60) + seconds
             self.state = Timer.State.RUNNING
             self.g_id = GObject.timeout_add(1000, self.count)
@@ -531,8 +527,7 @@ class Timer(Clock):
         minutes, seconds = divmod(self.time, 60)
         hours, minutes = divmod(minutes, 60)
 
-        self.timer_screen.timerLabel.set_markup(TIMER_LABEL_MARKUP %
-                                                (hours, minutes, seconds))
+        self.timer_screen.set_time(hours, minutes, seconds)
         if hours == 00 and minutes == 00 and seconds == 00:
             self.alert.show()
             self.state = Timer.State.STOPPED
