@@ -64,7 +64,6 @@ class NewWorldClockDialog(Gtk.Dialog):
         self.searchEntry.connect("activate", self._set_city)
         self.searchEntry.connect("changed", self._set_city)
         self.searchEntry.connect("icon-release", self._icon_released)
-        self.location = None
         self.show_all()
 
     def get_location(self):
@@ -83,9 +82,6 @@ class NewWorldClockDialog(Gtk.Dialog):
             self.set_response_sensitive(1, True)
         else:
             self.set_response_sensitive(1, False)
-
-    def get_selection(self):
-        return self.location
 
     def _icon_released(self, icon_pos, event, data):
         if self.searchEntry.get_icon_gicon(
