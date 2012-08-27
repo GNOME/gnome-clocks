@@ -51,8 +51,8 @@ class Window(Gtk.ApplicationWindow):
 
         self.set_size_request(640, 480)
         self.vbox = Gtk.VBox()
-        embed = Embed(self.vbox)
-        self.add(embed)
+        self.embed = Embed(self.vbox)
+        self.add(self.embed)
         self.notebook = Gtk.Notebook()
         self.notebook.set_show_tabs(False)
         self.notebook.set_show_border(False)
@@ -64,7 +64,7 @@ class Window(Gtk.ApplicationWindow):
 
         self.views = (self.world, self.alarm, self.stopwatch, self.timer)
 
-        self.toolbar = ClocksToolbar(self.views, embed)
+        self.toolbar = ClocksToolbar(self.views, self.embed)
 
         self.vbox.pack_start(self.toolbar, False, False, 0)
         self.vbox.pack_start(self.toolbar.selection_toolbar, False, False, 0)
@@ -86,18 +86,27 @@ class Window(Gtk.ApplicationWindow):
         self.toolbar.activate_view(view)
 
     def _on_show_clock(self, widget, d):
-        self.toolbar._set_single_toolbar()
-        self.notebook.set_current_page(-1)
-        for child in self.single_evbox.get_children():
-            self.single_evbox.remove(child)
-        self.single_evbox.add(d.get_standalone_widget())
-        self.single_evbox.show_all()
-        self.toolbar.city_label.set_markup("<b>" + d.id + "</b>")
+        def show_standalone_clock():
+            self.toolbar._set_single_toolbar()
+            self.toolbar.city_label.set_markup("<b>%s</b>" % (d.id))
+            self.single_evbox.add(d.get_standalone_widget())
+            self.single_evbox.show_all()
+            self.notebook.set_current_page(-1)
+
+        self.embed.spotlight(show_standalone_clock)
 
     def _on_view_clock(self, button, view):
-        view.unselect_all()
-        self.notebook.set_current_page(self.views.index(view))
-        self.toolbar._set_overview_toolbar()
+        def show_clock_view():
+            for child in self.single_evbox.get_children():
+                self.single_evbox.remove(child)
+            view.unselect_all()
+            self.notebook.set_current_page(self.views.index(view))
+            self.toolbar._set_overview_toolbar()
+
+        if self.single_evbox.get_children():
+            self.embed.spotlight(show_clock_view)
+        else:
+            show_clock_view()
 
     def _on_new_activated(self, action, param):
         self.toolbar.current_view.open_new_dialog()

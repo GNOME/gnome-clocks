@@ -828,6 +828,35 @@ class Embed(GtkClutter.Embed):
                                 Clutter.BinAlignment.FIXED)
         self.show_all()
 
+        # also pack a white background to use for spotlights
+        # between window modes
+        white = Clutter.Color.get_static(Clutter.StaticColor.WHITE)
+        self._background = Clutter.Actor(background_color=white)
+        self._viewLayout.add(self._background,
+                             Clutter.BinAlignment.FILL,
+                             Clutter.BinAlignment.FILL)
+        self._background.lower_bottom()
+
+    def _spotlight_finished(self, actor, name, is_finished):
+        self._viewActor.set_child_below_sibling(self._background, None)
+        self._background.disconnect_by_func(self._spotlight_finished)
+
+    def spotlight(self, action):
+        self._background.save_easing_state()
+        self._background.set_easing_duration(0)
+        self._viewActor.set_child_above_sibling(self._background, None)
+        self._background.set_opacity(255)
+        self._background.restore_easing_state()
+
+        action()
+
+        self._background.save_easing_state()
+        self._background.set_easing_duration(200)
+        self._background.set_easing_mode(Clutter.AnimationMode.LINEAR)
+        self._background.set_opacity(0)
+        self._background.restore_easing_state()
+        self._background.connect('transition-stopped::opacity', self._spotlight_finished)
+
     def set_show_selectionbar(self, show):
         if show:
             self._selectionToolbar.fade_in()
