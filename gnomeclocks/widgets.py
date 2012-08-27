@@ -16,7 +16,8 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
-from gi.repository import Gtk, Gdk, GdkPixbuf, GObject, Gio, Pango, PangoCairo
+from gi.repository import GLib, Gio, GObject
+from gi.repository import Gtk, Gdk, GdkPixbuf, Pango, PangoCairo
 from gi.repository import GWeather, Clutter, GtkClutter
 
 from storage import Location
@@ -233,7 +234,8 @@ class DigitalClockStandalone(Gtk.VBox):
         self.img = Gtk.Image()
         self.time_label = Gtk.Label()
         self.city_label = Gtk.Label()
-        self.city_label.set_markup("<b>" + location.get_city_name() + "</b>")
+        label = GLib.markup_escape_text(location.get_city_name())
+        self.city_label.set_markup("<b>%s</b>" % label)
         self.text = ""
         self.sunrise = sunrise
         self.sunset = sunset
