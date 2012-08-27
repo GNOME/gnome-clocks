@@ -27,50 +27,29 @@ from utils import Dirs, SystemSettings
 from widgets import DigitalClockDrawing, SelectableIconView, ContentView
 
 
-class Location():
-    def __init__(self, location):
-        self._id = location.get_city_name()
-        self._location = location
-
-    @property
-    def id(self):
-        return self._id
-
-    @property
-    def location(self):
-        return self._location
-
-
 class WorldClockStorage():
     def __init__(self):
         self.filename = os.path.join(Dirs.get_user_data_dir(), "clocks")
-        world = GWeather.Location.new_world(True)
-        self.searchEntry = GWeather.LocationEntry.new(world)
-        self.searchEntry.show_all()
-        self.locations_dump = ""
-        pass
+        self.world = GWeather.Location.new_world(True)
 
     def save_clocks(self, locations):
-        self.locations_dump = locations = "|".join(
-          [location.id +\
-              "---" + location.location.get_code() for location in locations])
+        location_codes = [l.get_code() for l in locations]
         f = open(self.filename, "wb")
-        pickle.dump(locations, f)
+        pickle.dump(location_codes, f)
         f.close()
 
     def load_clocks(self):
         clocks = []
         try:
             f = open(self.filename, "rb")
-            self.locations_dump = locations = pickle.load(f)
+            location_codes = pickle.load(f)
             f.close()
-            locations = locations.split("|")
-            for location in locations:
-                loc = location.split("---")
-                if self.searchEntry.set_city(loc[0], loc[1]):
-                    loc = self.searchEntry.get_location()
-                    loc = Location(self.searchEntry.get_location())
-                    clocks.append(loc)
+            for l in location_codes:
+                print l
+                location = GWeather.Location.find_by_station_code(self.world, l)
+                print location
+                if location:
+                    clocks.append(location)
         except IOError as e:
             if e.errno == errno.ENOENT:
                 # File does not exist yet, that's ok
@@ -127,8 +106,7 @@ class NewWorldClockDialog(Gtk.Dialog):
         self.show_all()
 
     def get_location(self):
-        location = self.searchEntry.get_location()
-        return Location(location)
+        return self.searchEntry.get_location()
 
     def _set_city(self, widget):
         location = self.searchEntry.get_location()
@@ -153,8 +131,7 @@ class NewWorldClockDialog(Gtk.Dialog):
 
 class DigitalClock():
     def __init__(self, location):
-        self._location = location
-        self.location = location.location
+        self.location = location
         self._last_sunrise = time.strptime("197007:00", "%Y%H:%M")
         self.sunrise = self._last_sunrise
         self._last_sunset = time.strptime("197019:00", "%Y%H:%M")
@@ -164,9 +141,8 @@ class DigitalClock():
         self.path = None
         self.list_store = None
 
-        self.id = location.id
-        self.timezone = self.location.get_timezone()
-        self.offset = self.timezone.get_offset() * 60
+        timezone = self.location.get_timezone()
+        self.offset = timezone.get_offset() * 60
         self.isDay = None
         self._last_time = None
         self.drawing = DigitalClockDrawing()
@@ -340,11 +316,13 @@ class World(Clock):
             self.add_clock_widget(clock)
 
     def add_clock(self, location):
-        location_id = location.id + "---" + location.location.get_code()
-        if not location_id in self.storage.locations_dump:
-            self.clocks.append(location)
-            self.add_clock_widget(location)
-            self.show_all()
+        for clock in self.clocks:
+            if clock.get_code() == location.get_code():
+                # duplicate
+                return
+        self.clocks.append(location)
+        self.add_clock_widget(location)
+        self.show_all()
         self.storage.save_clocks(self.clocks)
 
     def add_clock_widget(self, location):
@@ -362,7 +340,7 @@ class World(Clock):
     def delete_clocks(self, clocks):
         for d in clocks:
             d.stop_update()
-            self.clocks.remove(d._location)
+            self.clocks.remove(d.location)
         self.storage.save_clocks(self.clocks)
         self.iconview.unselect_all()
         self.liststore.clear()
