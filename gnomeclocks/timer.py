@@ -110,7 +110,6 @@ class TimerWelcomeScreen(Gtk.Box):
         spinner.pack_start(another_colon, False, False, 0)
         spinner.pack_start(self.seconds, False, False, 0)
 
-        #Start Button
         self.startButton = Gtk.Button()
         self.startButton.set_sensitive(False)
         self.startButton.set_size_request(200, -1)
@@ -128,11 +127,21 @@ class TimerWelcomeScreen(Gtk.Box):
         self.pack_start(center, False, False, 6)
         self.pack_start(bottom_spacer, False, False, 6)
 
+    def get_values(self):
+        h = self.hours.get_value()
+        m = self.minutes.get_value()
+        s = self.seconds.get_value()
+        return (h, m, s)
+
+    def set_values(self, h, m, s):
+        self.hours.set_value(h)
+        self.minutes.set_value(m)
+        self.seconds.set_value(s)
+        self.update_start_button_status()
+
     def update_start_button_status(self):
-        hours = self.hours.get_value()
-        minutes = self.minutes.get_value()
-        seconds = self.seconds.get_value()
-        if hours == 0 and minutes == 0 and seconds == 0:
+        h, m, s = self.get_values()
+        if h == 0 and m == 0 and s == 0:
             self.startButton.set_sensitive(False)
             self.startButton.get_style_context().remove_class("clocks-go")
         else:
@@ -141,7 +150,6 @@ class TimerWelcomeScreen(Gtk.Box):
 
     def _on_start_clicked(self, data):
         self.timer.start()
-
 
 class Timer(Clock):
     LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
@@ -155,7 +163,7 @@ class Timer(Clock):
     def __init__(self):
         Clock.__init__(self, _("Timer"))
         self.state = Timer.State.STOPPED
-        self.g_id = 0
+        self.timeout_id = 0
 
         self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         box = Gtk.Box()
@@ -190,55 +198,53 @@ class Timer(Clock):
         self.timerbox.pack_start(self.timer_screen, True, True, 0)
         self.timerbox.show_all()
 
-    def end_timer_screen(self):
+    def end_timer_screen(self, reset):
         self.timerbox.remove(self.timer_screen)
         self.show_timer_welcome_screen()
-        self.timer_welcome_screen.hours.set_value(0)
-        self.timer_welcome_screen.minutes.set_value(0)
-        self.timer_welcome_screen.seconds.set_value(0)
-        self.timer_welcome_screen.update_start_button_status()
+        if reset:
+            self.timer_welcome_screen.set_values(0, 0, 0)
+
+    def _add_timeout(self):
+        self.timeout_id = GObject.timeout_add(1000, self.count)
+
+    def _remove_timeout(self):
+        if self.timeout_id != 0:
+            GObject.source_remove(self.timeout_id)
+        self.timeout_id = 0
 
     def start(self):
-        if self.state == Timer.State.STOPPED and self.g_id == 0:
-            hours = self.timer_welcome_screen.hours.get_value()
-            minutes = self.timer_welcome_screen.minutes.get_value()
-            seconds = self.timer_welcome_screen.seconds.get_value()
-            self.timer_screen.set_time(hours, minutes, seconds)
-            self.time = (hours * 60 * 60) + (minutes * 60) + seconds
+        if self.state == Timer.State.STOPPED and self.timeout_id == 0:
+            h, m, s = self.timer_welcome_screen.get_values()
+            self.timer_screen.set_time(h, m, s)
+            self.time = (h * 60 * 60) + (m * 60) + s
             self.state = Timer.State.RUNNING
-            self.g_id = GObject.timeout_add(1000, self.count)
+            self._add_timeout()
             self.start_timer_screen()
 
     def reset(self):
         self.state = Timer.State.STOPPED
-        self.end_timer_screen()
-        if self.g_id != 0:
-            GObject.source_remove(self.g_id)
-        self.g_id = 0
+        self._remove_timeout()
+        self.end_timer_screen(True)
 
     def pause(self):
         self.state = Timer.State.PAUSED
-        GObject.source_remove(self.g_id)
-        self.g_id = 0
+        self._remove_timeout()
 
     def cont(self):
         self.state = Timer.State.RUNNING
-        self.g_id = GObject.timeout_add(1000, self.count)
+        self._add_timeout()
 
     def count(self):
         self.time -= 1
-        minutes, seconds = divmod(self.time, 60)
-        hours, minutes = divmod(minutes, 60)
-
-        self.timer_screen.set_time(hours, minutes, seconds)
-        if hours == 00 and minutes == 00 and seconds == 00:
+        if self.time == 0:
             self.alert.show()
             self.state = Timer.State.STOPPED
-            self.timerbox.remove(self.timer_screen)
-            self.show_timer_welcome_screen()
-            if self.g_id != 0:
-                GObject.source_remove(self.g_id)
-            self.g_id = 0
+            self._remove_timeout()
+            self.timer_screen.set_time(0, 0, 0)
+            self.end_timer_screen(False)
             return False
         else:
+            m, s = divmod(self.time, 60)
+            h, m = divmod(m, 60)
+            self.timer_screen.set_time(h, m, s)
             return True
