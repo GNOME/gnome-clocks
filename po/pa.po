@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-18 22:01+0000\n"
-"PO-Revision-Date: 2012-08-19 09:03+0530\n"
+"POT-Creation-Date: 2012-08-26 10:26+0000\n"
+"PO-Revision-Date: 2012-08-27 19:56+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>\n"
 "Language: pa\n"
@@ -19,11 +19,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.4\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:29
+#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:31
 msgid "Clocks"
 msgstr "ਘੜੀ"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:101
+#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:108
+#: ../gnomeclocks/app.py:117
 msgid "GNOME Clocks"
 msgstr "ਗਨੋਮ ਘੜੀ"
 
@@ -31,71 +32,82 @@ msgstr "ਗਨੋਮ ਘੜੀ"
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "ਸੰਸਾਰ ਸਮਾਂ, ਅਲਾਰਮ, ਸਟਾਪਵਾਚ ਅਤੇ ਟਾਈਮਰ ਦੇ ਨਾਲ ਘੜੀਆਂ"
 
-#: ../gnomeclocks/app.py:99
-msgid "About GNOME Clocks"
-msgstr "ਗਨੋਮ ਘੜੀ ਬਾਰੇ"
-
-#: ../gnomeclocks/app.py:100 ../gnomeclocks/app.py:317
+#: ../gnomeclocks/app.py:107 ../gnomeclocks/app.py:410
 msgid "About Clocks"
 msgstr "ਘੜੀਆਂ ਬਾਰੇ"
 
-#: ../gnomeclocks/app.py:106
+#: ../gnomeclocks/app.py:113
 msgid "Utilities to help you with the time."
 msgstr "ਸਮਾਂ ਵਾਸਤੇ ਤੁਹਾਡੀ ਮੱਦਦ ਵਾਸਤੇ ਸਹੂਲਤ ਹੈ।"
 
-#: ../gnomeclocks/app.py:108
+#: ../gnomeclocks/app.py:115
 msgid "translator-credits"
 msgstr ""
 "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ\n"
 "ਪੰਜਾਬੀ ਓਪਨਸੋਰਸ ਟੀਮ (POST)"
 
-#: ../gnomeclocks/app.py:163
+#: ../gnomeclocks/app.py:184
+msgid "Done"
+msgstr "ਮੁਕੰਮਲ"
+
+#: ../gnomeclocks/app.py:198
+msgid "Click on items to select them"
+msgstr "ਆਈਟਮਾਂ ਨੂੰ ਚੁਣਨ ਲਈ ਉਹਨਾਂ ਉੱਤੇ ਕਲਿੱਕ ਕਰੋ"
+
+#: ../gnomeclocks/app.py:200
+#, python-format
+msgid "%d item selected"
+msgid_plural "%d items selected"
+msgstr[0] "%d ਆਈਟਮ ਚੁਣੀ"
+msgstr[1] "%d ਆਈਟਮਾਂ ਚੁਣੀਆਂ"
+
+#: ../gnomeclocks/app.py:274
 msgid "New"
 msgstr "ਨਵਾਂ"
 
-#: ../gnomeclocks/app.py:318
+#: ../gnomeclocks/app.py:413
 msgid "Quit"
 msgstr "ਬਾਹਰ"
 
-#: ../gnomeclocks/clocks.py:85
+#: ../gnomeclocks/clocks.py:74
 msgid "World"
 msgstr "ਸੰਸਾਰ"
 
-#: ../gnomeclocks/clocks.py:94
+#: ../gnomeclocks/clocks.py:78
 msgid "Select <b>New</b> to add a world clock"
 msgstr "ਸੰਸਾਰ ਘੜੀ ਵਿੱਚ ਜੋੜਨ ਲਈ <b>ਨਵਾਂ</b> ਚੁਣੋ"
 
-#: ../gnomeclocks/clocks.py:189
+#: ../gnomeclocks/clocks.py:185
 msgid "Alarm"
 msgstr "ਅਲਾਰਮ"
 
-#: ../gnomeclocks/clocks.py:197
+#: ../gnomeclocks/clocks.py:189
 msgid "Select <b>New</b> to add an alarm"
 msgstr "ਅਲਾਰਮ ਜੋੜਨ ਲਈ <b>ਨਵਾਂ</b> ਚੁਣੋ"
 
-#: ../gnomeclocks/clocks.py:302
+#: ../gnomeclocks/clocks.py:340
 msgid "Stopwatch"
 msgstr "ਸਟਾਪਵਾਚ"
 
-#: ../gnomeclocks/clocks.py:331 ../gnomeclocks/clocks.py:376
+#: ../gnomeclocks/clocks.py:369 ../gnomeclocks/clocks.py:414
 #: ../gnomeclocks/timer.py:173
 msgid "Start"
 msgstr "ਸ਼ੁਰੂ"
 
-#: ../gnomeclocks/clocks.py:333 ../gnomeclocks/clocks.py:366
+#: ../gnomeclocks/clocks.py:371 ../gnomeclocks/clocks.py:404
 #: ../gnomeclocks/timer.py:115
 msgid "Reset"
 msgstr "ਮੁੜ-ਸੈੱਟ"
 
-#: ../gnomeclocks/clocks.py:357
+#: ../gnomeclocks/clocks.py:395
 msgid "Stop"
 msgstr "ਰੋਕੋ"
 
-#: ../gnomeclocks/clocks.py:364 ../gnomeclocks/timer.py:132
+#: ../gnomeclocks/clocks.py:402 ../gnomeclocks/timer.py:132
 msgid "Continue"
 msgstr "ਜਾਰੀ ਰੱਖੋ"
 
-#: ../gnomeclocks/clocks.py:413
+#: ../gnomeclocks/clocks.py:451
 msgid "Timer"
 msgstr "ਟਾਈਮਰ"
 
@@ -104,55 +116,57 @@ msgstr "ਟਾਈਮਰ"
 msgid "Pause"
 msgstr "ਵਿਰਾਮ"
 
-#: ../gnomeclocks/widgets.py:42
+#: ../gnomeclocks/widgets.py:33
 msgid "Add a New World Clock"
 msgstr "ਨਵੀਂ ਸੰਸਾਰ ਘੜੀ ਜੋੜੋ"
 
-#: ../gnomeclocks/widgets.py:52
+#: ../gnomeclocks/widgets.py:43
 msgid "Search for a city:"
 msgstr "ਸ਼ਹਿਰ ਲਈ ਖੋਜ:"
 
-#: ../gnomeclocks/widgets.py:65 ../gnomeclocks/widgets.py:443
-msgid "Cancel"
-msgstr "ਰੱਦ ਕਰੋ"
-
-#: ../gnomeclocks/widgets.py:65
-msgid "Add"
-msgstr "ਸ਼ਾਮਲ"
-
-#: ../gnomeclocks/widgets.py:237
+#: ../gnomeclocks/widgets.py:273
 msgid "Sunrise"
 msgstr "ਸੂਰਜ ਚੜ੍ਹੇਗੇ"
 
-#: ../gnomeclocks/widgets.py:247
+#: ../gnomeclocks/widgets.py:283
 msgid "Sunset"
 msgstr "ਸੂਰਜ ਡੁੱਬੇਗਾ"
 
-#: ../gnomeclocks/widgets.py:424
+#: ../gnomeclocks/widgets.py:453
 msgid "Edit Alarm"
 msgstr "ਅਲਾਰਮ ਸੋਧ"
 
-#: ../gnomeclocks/widgets.py:426 ../gnomeclocks/widgets.py:514
+#: ../gnomeclocks/widgets.py:455 ../gnomeclocks/widgets.py:484
 msgid "New Alarm"
 msgstr "ਨਵਾਂ ਅਲਾਰਮ"
 
-#: ../gnomeclocks/widgets.py:443
-msgid "Save"
-msgstr "ਸੰਭਾਲੋ"
-
-#: ../gnomeclocks/widgets.py:456
+#: ../gnomeclocks/widgets.py:487
 msgid "Time"
 msgstr "ਸਮਾਂ"
 
-#: ../gnomeclocks/widgets.py:500
+#: ../gnomeclocks/widgets.py:526
 msgid "Name"
 msgstr "ਨਾਂ"
 
-#: ../gnomeclocks/widgets.py:502
+#: ../gnomeclocks/widgets.py:535
 msgid "Repeat Every"
 msgstr "ਦੁਹਰਾਉ ਹਰੇਕ"
 
-#: ../gnomeclocks/widgets.py:504
-msgid "Sound"
-msgstr "ਆਵਾਜ਼"
+#: ../gnomeclocks/widgets.py:771
+msgid "Delete"
+msgstr "ਹਟਾਓ"
 
+#~ msgid "About GNOME Clocks"
+#~ msgstr "ਗਨੋਮ ਘੜੀ ਬਾਰੇ"
+
+#~ msgid "Cancel"
+#~ msgstr "ਰੱਦ ਕਰੋ"
+
+#~ msgid "Add"
+#~ msgstr "ਸ਼ਾਮਲ"
+
+#~ msgid "Save"
+#~ msgstr "ਸੰਭਾਲੋ"
+
+#~ msgid "Sound"
+#~ msgstr "ਆਵਾਜ਼"
