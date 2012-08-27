@@ -76,43 +76,42 @@ class NewWorldClockDialog(Gtk.Dialog):
         area = self.get_content_area()
         area.pack_start(box, True, True, 0)
 
-        self.label = Gtk.Label()
-        self.label.set_markup(_("Search for a city:"))
-        self.label.set_alignment(0.0, 0.5)
+        label = Gtk.Label(_("Search for a city:"))
+        label.set_alignment(0.0, 0.5)
 
         world = GWeather.Location.new_world(True)
-        self.searchEntry = GWeather.LocationEntry.new(world)
+        self.entry = GWeather.LocationEntry.new(world)
         self.find_gicon = Gio.ThemedIcon.new_with_default_fallbacks(
             'edit-find-symbolic')
         self.clear_gicon = Gio.ThemedIcon.new_with_default_fallbacks(
             'edit-clear-symbolic')
-        self.searchEntry.set_icon_from_gicon(
+        self.entry.set_icon_from_gicon(
             Gtk.EntryIconPosition.SECONDARY, self.find_gicon)
-        self.searchEntry.set_activates_default(True)
+        self.entry.set_activates_default(True)
 
         self.add_buttons(Gtk.STOCK_CANCEL, 0, Gtk.STOCK_ADD, 1)
         self.set_default_response(1)
         self.set_response_sensitive(1, False)
 
-        box.pack_start(self.label, False, False, 6)
-        box.pack_start(self.searchEntry, False, False, 3)
+        box.pack_start(label, False, False, 6)
+        box.pack_start(self.entry, False, False, 3)
         box.set_border_width(5)
 
-        self.searchEntry.connect("activate", self._set_city)
-        self.searchEntry.connect("changed", self._set_city)
-        self.searchEntry.connect("icon-release", self._icon_released)
+        self.entry.connect("activate", self._set_city)
+        self.entry.connect("changed", self._set_city)
+        self.entry.connect("icon-release", self._icon_released)
         self.show_all()
 
     def get_location(self):
-        return self.searchEntry.get_location()
+        return self.entry.get_location()
 
     def _set_city(self, widget):
-        location = self.searchEntry.get_location()
-        if self.searchEntry.get_text() == '':
-            self.searchEntry.set_icon_from_gicon(
+        location = self.entry.get_location()
+        if self.entry.get_text() == '':
+            self.entry.set_icon_from_gicon(
                 Gtk.EntryIconPosition.SECONDARY, self.find_gicon)
         else:
-            self.searchEntry.set_icon_from_gicon(
+            self.entry.set_icon_from_gicon(
                 Gtk.EntryIconPosition.SECONDARY, self.clear_gicon)
         if location:
             self.set_response_sensitive(1, True)
@@ -120,12 +119,13 @@ class NewWorldClockDialog(Gtk.Dialog):
             self.set_response_sensitive(1, False)
 
     def _icon_released(self, icon_pos, event, data):
-        if self.searchEntry.get_icon_gicon(
+        if self.entry.get_icon_gicon(
             Gtk.EntryIconPosition.SECONDARY) == self.clear_gicon:
-            self.searchEntry.set_text('')
-            self.searchEntry.set_icon_from_gicon(
+            self.entry.set_text('')
+            self.entry.set_icon_from_gicon(
               Gtk.EntryIconPosition.SECONDARY, self.find_gicon)
             self.set_response_sensitive(1, False)
+
 
 class DigitalClock():
     def __init__(self, location):
@@ -141,7 +141,6 @@ class DigitalClock():
 
         timezone = self.location.get_timezone()
         self.offset = timezone.get_offset() * 60
-        self.isDay = None
         self._last_time = None
         self.drawing = DigitalClockDrawing()
         self.standalone =\
@@ -154,9 +153,9 @@ class DigitalClock():
         self.timeout = 0
 
     def get_local_time(self, secs):
-         t = secs + time.timezone + self.offset
-         t = time.localtime(t)
-         return t
+        t = secs + time.timezone + self.offset
+        t = time.localtime(t)
+        return t
 
     def get_local_time_text(self):
         text = time.strftime("%I:%M%p", self.get_local_time(time.time()))
@@ -175,7 +174,6 @@ class DigitalClock():
                 or not self.sunrise == self._last_sunrise \
                 or not self.sunset == self._last_sunset:
             local_time = self.get_local_time(time.time())
-            #isDay = get_is_day(local_time.tm_hour)
             isDay = self.get_is_light(local_time, self.sunrise, self.sunset)
             if isDay:
                 img = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
@@ -199,7 +197,7 @@ class DigitalClock():
         self.weather = GWeather.Info(location=self.location, world=world)
         self.weather.connect('updated', self.weather_updated_callback)
         self.weather.update()
-        
+
     def weather_updated_callback(self, weather):
         # returned as the time here
         ok, sunrise = weather.get_value_sunrise()
