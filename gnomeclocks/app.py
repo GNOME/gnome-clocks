@@ -20,7 +20,11 @@ import os
 import sys
 from gettext import ngettext
 from gi.repository import Gtk, Gdk, GObject, GLib, Gio, GtkClutter
-from clocks import Clock, World, Alarm, Timer, Stopwatch
+from clocks import Clock
+from world import World
+from alarm import Alarm
+from stopwatch import Stopwatch
+from timer import Timer
 from widgets import Embed
 from utils import Dirs
 from gnomeclocks import __version__, AUTHORS, COPYRIGHTS
@@ -50,7 +54,7 @@ class Window(Gtk.ApplicationWindow):
                                          Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
         self.set_size_request(640, 480)
-        self.vbox = Gtk.VBox()
+        self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         self.embed = Embed(self.vbox)
         self.add(self.embed)
         self.notebook = Gtk.Notebook()

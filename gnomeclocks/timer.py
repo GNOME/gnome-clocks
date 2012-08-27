@@ -16,67 +16,10 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
-from gi.repository import Gtk, Gio
-
-TIMER = "<span font_desc=\"64.0\">%02i</span>"
-TIMER_LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
-TIMER_BUTTON_MARKUP = "<span font_desc=\"18.0\">% s</span>"
-
-
-class Spinner(Gtk.Box):
-    def __init__(self, max_value, timer_welcome_screen):
-        super(Spinner, self).__init__()
-        self.max_value = max_value
-        self.timer_welcome_screen = timer_welcome_screen
-        self.set_orientation(Gtk.Orientation.VERTICAL)
-        iconUp = Gio.ThemedIcon.new_with_default_fallbacks("go-up-symbolic")
-        iconDown = Gio.ThemedIcon.new_with_default_fallbacks(
-          "go-down-symbolic")
-        imageUp = Gtk.Image.new_from_gicon(iconUp, Gtk.IconSize.DND)
-        imageDown = Gtk.Image.new_from_gicon(iconDown, Gtk.IconSize.DND)
-        #Up Button
-        self.up = Gtk.Button()
-        self.up.set_image(imageUp)
-        self.up.set_relief(Gtk.ReliefStyle.NONE)
-        #Value
-        self.value = Gtk.Label('')
-        self.value.set_markup(TIMER % (0))
-        self.value.set_alignment(0.5, 0.5)
-        #Down Button
-        self.down = Gtk.Button()
-        self.down.set_image(imageDown)
-        self.down.set_relief(Gtk.ReliefStyle.NONE)
-        #
-        self.pack_start(self.up, False, False, 0)
-        self.pack_start(self.value, True, True, 0)
-        self.pack_start(self.down, False, False, 0)
-        #Signals
-        self.up.connect('clicked', self._increase)
-        self.down.connect('clicked', self._decrease)
-
-    def get_value(self):
-        return int(self.value.get_text())
-
-    def set_value(self, newValue):
-        self.value.set_markup(TIMER % (newValue))
-
-    def _increase(self, widget):
-        value = self.get_value()
-        if value == self.max_value:
-            value = 0
-        else:
-            value += 1
-        self.set_value(value)
-        self.timer_welcome_screen.update_start_button_status()
-
-    def _decrease(self, widget):
-        value = self.get_value()
-        if value == 0:
-            value = self.max_value
-        else:
-            value -= 1
-        self.set_value(value)
-        self.timer_welcome_screen.update_start_button_status()
+from gi.repository import Gtk, GObject, Gio
+from clocks import Clock
+from utils import Alert
+from widgets import Spinner
 
 
 class TimerScreen(Gtk.Box):
@@ -89,7 +32,7 @@ class TimerScreen(Gtk.Box):
 
         self.timerLabel = Gtk.Label()
         self.timerLabel.set_alignment(0.5, 0.5)
-        self.timerLabel.set_markup(TIMER_LABEL_MARKUP % (0, 0, 0))
+        self.timerLabel.set_markup(Timer.LABEL_MARKUP % (0, 0, 0))
 
         center.pack_start(Gtk.Label(""), False, True, 30)
         center.pack_start(self.timerLabel, False, True, 6)
@@ -109,9 +52,9 @@ class TimerScreen(Gtk.Box):
         hbox.pack_start(Gtk.Box(), True, True, 24)
         hbox.pack_start(self.rightButton, True, True, 0)
 
-        self.leftLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Pause")))
+        self.leftLabel.set_markup(Timer.BUTTON_MARKUP % (_("Pause")))
         self.leftLabel.set_padding(6, 0)
-        self.rightLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Reset")))
+        self.rightLabel.set_markup(Timer.BUTTON_MARKUP % (_("Reset")))
         self.rightLabel.set_padding(6, 0)
 
         self.leftButton.connect('clicked', self._on_left_button_clicked)
@@ -122,20 +65,20 @@ class TimerScreen(Gtk.Box):
         self.pack_start(hbox, False, False, 5)
 
     def set_time(self, h, m, s):
-        self.timerLabel.set_markup(TIMER_LABEL_MARKUP % (h, m, s))
+        self.timerLabel.set_markup(Timer.LABEL_MARKUP % (h, m, s))
 
     def _on_right_button_clicked(self, data):
-        self.leftLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Pause")))
+        self.leftLabel.set_markup(Timer.BUTTON_MARKUP % (_("Pause")))
         self.timer.reset()
 
     def _on_left_button_clicked(self, widget):
-        if self.timer.state == 1:
+        if self.timer.state == Timer.State.RUNNING:
             self.timer.pause()
-            self.leftLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Continue")))
+            self.leftLabel.set_markup(Timer.BUTTON_MARKUP % (_("Continue")))
             self.leftButton.get_style_context().add_class("clocks-go")
-        elif self.timer.state == 2:
+        elif self.timer.state == Timer.State.PAUSED:
             self.timer.cont()
-            self.leftLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Pause")))
+            self.leftLabel.set_markup(Timer.BUTTON_MARKUP % (_("Pause")))
             self.leftButton.get_style_context().remove_class("clocks-go")
 
         # FIXME: work around the fact that gtk does recalculate the label style
@@ -172,7 +115,7 @@ class TimerWelcomeScreen(Gtk.Box):
         self.startButton.set_sensitive(False)
         self.startButton.set_size_request(200, -1)
         self.startLabel = Gtk.Label()
-        self.startLabel.set_markup(TIMER_BUTTON_MARKUP % (_("Start")))
+        self.startLabel.set_markup(Timer.BUTTON_MARKUP % (_("Start")))
         self.startLabel.set_padding(6, 0)
         self.startButton.add(self.startLabel)
         self.startButton.connect('clicked', self._on_start_clicked)
@@ -197,5 +140,105 @@ class TimerWelcomeScreen(Gtk.Box):
             self.startButton.get_style_context().add_class("clocks-go")
 
     def _on_start_clicked(self, data):
-        if self.timer.state == 0:
-            self.timer.start()
+        self.timer.start()
+
+
+class Timer(Clock):
+    LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
+    BUTTON_MARKUP = "<span font_desc=\"18.0\">% s</span>"
+
+    class State:
+        STOPPED = 0
+        RUNNING = 1
+        PAUSED = 2
+
+    def __init__(self):
+        Clock.__init__(self, _("Timer"))
+        self.state = Timer.State.STOPPED
+        self.g_id = 0
+
+        self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        box = Gtk.Box()
+        self.add(box)
+        box.pack_start(Gtk.Box(), True, True, 0)
+        box.pack_start(self.vbox, False, False, 0)
+        box.pack_end(Gtk.Box(), True, True, 0)
+
+        self.timerbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        self.vbox.pack_start(Gtk.Box(), True, True, 0)
+        self.vbox.pack_start(self.timerbox, False, False, 0)
+        self.vbox.pack_start(Gtk.Box(), True, True, 0)
+        self.vbox.pack_start(Gtk.Box(), True, True, 46)
+
+        self.timer_welcome_screen = TimerWelcomeScreen(self)
+        self.timer_screen = TimerScreen(self)
+        self.show_timer_welcome_screen()
+
+        self.alert = Alert("complete", "Ta Da !",
+                           self._on_notification_activated)
+
+    def _on_notification_activated(self, notif, action, data):
+        win = self.get_toplevel()
+        win.show_clock(self)
+
+    def show_timer_welcome_screen(self):
+        self.timerbox.pack_start(self.timer_welcome_screen, True, True, 0)
+        self.timer_welcome_screen.update_start_button_status()
+
+    def start_timer_screen(self):
+        self.timerbox.remove(self.timer_welcome_screen)
+        self.timerbox.pack_start(self.timer_screen, True, True, 0)
+        self.timerbox.show_all()
+
+    def end_timer_screen(self):
+        self.timerbox.remove(self.timer_screen)
+        self.show_timer_welcome_screen()
+        self.timer_welcome_screen.hours.set_value(0)
+        self.timer_welcome_screen.minutes.set_value(0)
+        self.timer_welcome_screen.seconds.set_value(0)
+        self.timer_welcome_screen.update_start_button_status()
+
+    def start(self):
+        if self.state == Timer.State.STOPPED and self.g_id == 0:
+            hours = self.timer_welcome_screen.hours.get_value()
+            minutes = self.timer_welcome_screen.minutes.get_value()
+            seconds = self.timer_welcome_screen.seconds.get_value()
+            self.timer_screen.set_time(hours, minutes, seconds)
+            self.time = (hours * 60 * 60) + (minutes * 60) + seconds
+            self.state = Timer.State.RUNNING
+            self.g_id = GObject.timeout_add(1000, self.count)
+            self.start_timer_screen()
+
+    def reset(self):
+        self.state = Timer.State.STOPPED
+        self.end_timer_screen()
+        if self.g_id != 0:
+            GObject.source_remove(self.g_id)
+        self.g_id = 0
+
+    def pause(self):
+        self.state = Timer.State.PAUSED
+        GObject.source_remove(self.g_id)
+        self.g_id = 0
+
+    def cont(self):
+        self.state = Timer.State.RUNNING
+        self.g_id = GObject.timeout_add(1000, self.count)
+
+    def count(self):
+        self.time -= 1
+        minutes, seconds = divmod(self.time, 60)
+        hours, minutes = divmod(minutes, 60)
+
+        self.timer_screen.set_time(hours, minutes, seconds)
+        if hours == 00 and minutes == 00 and seconds == 00:
+            self.alert.show()
+            self.state = Timer.State.STOPPED
+            self.timerbox.remove(self.timer_screen)
+            self.show_timer_welcome_screen()
+            if self.g_id != 0:
+                GObject.source_remove(self.g_id)
+            self.g_id = 0
+            return False
+        else:
+            return True

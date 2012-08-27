@@ -17,10 +17,14 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import os
-from datetime import datetime
 import vobject
-
-from utils import Dirs, SystemSettings
+import time
+from datetime import datetime
+from gi.repository import GLib, GObject, Gio, Gtk, GdkPixbuf
+from gi.repository import GWeather
+from clocks import Clock
+from utils import Dirs, SystemSettings, Alert
+from widgets import DigitalClockDrawing, SelectableIconView, ContentView
 
 
 class ICSHandler():
@@ -168,3 +172,287 @@ class AlarmItem:
             return False
         self.expired = datetime.now() > self.time
         return self.expired
+
+
+class AlarmDialog(Gtk.Dialog):
+    def __init__(self, alarm_view, parent, vevent=None):
+        self.vevent = vevent
+        if vevent:
+            Gtk.Dialog.__init__(self, _("Edit Alarm"), parent)
+        else:
+            Gtk.Dialog.__init__(self, _("New Alarm"), parent)
+        self.set_border_width(6)
+        self.parent = parent
+        self.set_transient_for(parent)
+        self.set_modal(True)
+        self.day_buttons = []
+
+        content_area = self.get_content_area()
+        self.add_buttons(Gtk.STOCK_CANCEL, 0, Gtk.STOCK_SAVE, 1)
+
+        self.cf = SystemSettings.get_clock_format()
+        grid = Gtk.Grid()
+        grid.set_row_spacing(9)
+        grid.set_column_spacing(6)
+        grid.set_border_width(6)
+        content_area.pack_start(grid, True, True, 0)
+
+        if vevent:
+            t = vevent.dtstart.value
+            h = int(t.strftime("%I"))
+            m = int(t.strftime("%m"))
+            p = t.strftime("%p")
+            name = vevent.summary.value
+            repeat = self.get_repeat_days_from_vevent(vevent)
+        else:
+            t = time.localtime()
+            h = t.tm_hour
+            m = t.tm_min
+            p = time.strftime("%p", t)
+            name = _("New Alarm")
+            repeat = []
+
+        label = Gtk.Label(_("Time"))
+        label.set_alignment(1.0, 0.5)
+        grid.attach(label, 0, 0, 1, 1)
+
+        self.hourselect = Gtk.SpinButton()
+        self.hourselect.set_increments(1.0, 1.0)
+        self.hourselect.set_wrap(True)
+        grid.attach(self.hourselect, 1, 0, 1, 1)
+
+        label = Gtk.Label(": ")
+        label.set_alignment(0.5, 0.5)
+        grid.attach(label, 2, 0, 1, 1)
+
+        self.minuteselect = Gtk.SpinButton()
+        self.minuteselect.set_increments(1.0, 1.0)
+        self.minuteselect.set_wrap(True)
+        self.minuteselect.connect('output', self.show_leading_zeros)
+        self.minuteselect.set_range(0.0, 59.0)
+        self.minuteselect.set_value(m)
+        grid.attach(self.minuteselect, 3, 0, 1, 1)
+
+        if self.cf == "12h":
+            self.ampm = Gtk.ComboBoxText()
+            self.ampm.append_text("AM")
+            self.ampm.append_text("PM")
+            if p == "PM":
+                h = h - 12
+                self.ampm.set_active(1)
+            else:
+                self.ampm.set_active(0)
+            grid.attach(self.ampm, 4, 0, 1, 1)
+            self.hourselect.set_range(1.0, 12.0)
+            self.hourselect.set_value(h)
+            gridcols = 5
+        else:
+            self.hourselect.set_range(0.0, 23.0)
+            self.hourselect.set_value(h)
+            gridcols = 4
+
+        label = Gtk.Label(_("Name"))
+        label.set_alignment(1.0, 0.5)
+        grid.attach(label, 0, 1, 1, 1)
+
+        self.entry = Gtk.Entry()
+        self.entry.set_text(name)
+        self.entry.set_editable(True)
+        grid.attach(self.entry, 1, 1, gridcols - 1, 1)
+
+        label = Gtk.Label(_("Repeat Every"))
+        label.set_alignment(1.0, 0.5)
+        grid.attach(label, 0, 2, 1, 1)
+
+        # create a box and put repeat days in it
+        box = Gtk.Box(True, 0)
+        box.get_style_context().add_class("linked")
+        for day in ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]:
+            btn = Gtk.ToggleButton(label=_(day))
+            if btn.get_label()[:2]  in repeat:
+                btn.set_active(True)
+            box.pack_start(btn, True, True, 0)
+            self.day_buttons.append(btn)
+        grid.attach(box, 1, 2, gridcols - 1, 1)
+
+    def show_leading_zeros(self, spin_button):
+        spin_button.set_text('{: 02d}'.format(spin_button.get_value_as_int()))
+        return True
+
+    def get_repeat_days_from_vevent(self, vevent):
+        rrule = vevent.rrule.value
+        repeat = []
+        if rrule[5] == 'W':
+            days = rrule[18:]
+            repeat = days.split(",")
+        return repeat
+
+    def get_alarm_item(self):
+        name = self.entry.get_text()
+        h = self.hourselect.get_value_as_int()
+        m = self.minuteselect.get_value_as_int()
+        if self.cf == "12h":
+            r = self.ampm.get_active()
+            if r == 0:
+                p = "AM"
+            else:
+                p = "PM"
+        else:
+            p = None
+        repeat = []
+        for btn in self.day_buttons:
+            if btn.get_active():
+                repeat.append(btn.get_label()[:2])
+        alarm_item = AlarmItem(name, repeat, h, m, p)
+        return alarm_item
+
+
+class AlarmWidget():
+    def __init__(self, time_given, repeat):
+        self.drawing = DigitalClockDrawing()
+        t = time_given
+        isDay = self.get_is_day(int(t[:2]))
+        if isDay:
+            img = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
+        else:
+            img = os.path.join(Dirs.get_image_dir(), "cities", "night.png")
+        self.drawing.render(t, img, isDay, repeat)
+
+    def get_is_day(self, hours):
+        if hours > 7 and hours < 19:
+            return True
+        else:
+            return False
+
+    def get_pixbuf(self):
+        return self.drawing.pixbuf
+
+
+class Alarm(Clock):
+    def __init__(self):
+        Clock.__init__(self, _("Alarm"), True, True)
+
+        self.liststore = Gtk.ListStore(bool,
+                                       GdkPixbuf.Pixbuf,
+                                       str,
+                                       GObject.TYPE_PYOBJECT,
+                                       GObject.TYPE_PYOBJECT,
+                                       GObject.TYPE_PYOBJECT)
+
+        self.iconview = SelectableIconView(self.liststore, 0, 1, 2)
+
+        contentview = ContentView(self.iconview,
+                "alarm-symbolic",
+                _("Select <b>New</b> to add an alarm"))
+        self.add(contentview)
+
+        self.iconview.connect("item-activated", self._on_item_activated)
+        self.iconview.connect("selection-changed", self._on_selection_changed)
+
+        self.load_alarms()
+        self.show_all()
+
+        self.timeout_id = GObject.timeout_add(1000, self._check_alarms)
+
+    def _check_alarms(self):
+        for i in self.liststore:
+            alarm = self.liststore.get_value(i.iter, 5)
+            if alarm.check_expired():
+                print alarm
+                alert = self.liststore.get_value(i.iter, 4)
+                alert.show()
+        return True
+
+    def _on_notification_activated(self, notif, action, data):
+        win = self.get_toplevel()
+        win.show_clock(self)
+
+    def _on_item_activated(self, iconview, path):
+        alarm = self.liststore[path][-1]
+        self.open_edit_dialog(alarm.get_vevent())
+
+    def _on_selection_changed(self, iconview):
+        self.emit("selection-changed")
+
+    def set_selection_mode(self, active):
+        self.iconview.set_selection_mode(active)
+
+    @GObject.Property(type=bool, default=False)
+    def can_select(self):
+        return len(self.liststore) != 0
+
+    def get_selection(self):
+        return self.iconview.get_selection()
+
+    def delete_selected(self):
+        selection = self.get_selection()
+        items = []
+        for treepath in selection:
+            v = self.liststore[treepath][-1].get_vevent()
+            items.append(v.uid.value)
+        self.delete_alarms(items)
+
+    def load_alarms(self):
+        handler = ICSHandler()
+        vevents = handler.load_vevents()
+        for vevent in vevents:
+            alarm = AlarmItem()
+            alarm.new_from_vevent(vevent)
+            self.add_alarm_widget(alarm)
+
+    def add_alarm(self, alarm):
+        handler = ICSHandler()
+        handler.add_vevent(alarm.get_vevent())
+        self.add_alarm_widget(alarm)
+        self.show_all()
+        vevents = handler.load_vevents()
+
+    def add_alarm_widget(self, alarm):
+        name = alarm.get_alarm_name()
+        timestr = alarm.get_time_as_string()
+        repeat = alarm.get_alarm_repeat_string()
+        widget = AlarmWidget(timestr, repeat)
+        alert = Alert("alarm-clock-elapsed", name,
+                      self._on_notification_activated)
+        label = GLib.markup_escape_text(name)
+        view_iter = self.liststore.append([False,
+                                           widget.get_pixbuf(),
+                                           "<b>%s</b>" % label,
+                                           widget,
+                                           alert,
+                                           alarm])
+        self.notify("can-select")
+
+    def edit_alarm(self, old_vevent, alarm):
+        handler = ICSHandler()
+        handler.update_vevent(old_vevent, alarm.get_vevent())
+        self.iconview.unselect_all()
+        self.liststore.clear()
+        self.load_alarms()
+
+    def delete_alarms(self, alarms):
+        handler = ICSHandler()
+        handler.remove_vevents(alarms)
+        self.iconview.unselect_all()
+        self.liststore.clear()
+        self.load_alarms()
+        self.notify("can-select")
+
+    def open_new_dialog(self):
+        window = AlarmDialog(self, self.get_toplevel())
+        window.connect("response", self.on_dialog_response, None)
+        window.show_all()
+
+    def open_edit_dialog(self, vevent):
+        window = AlarmDialog(self, self.get_toplevel(), vevent)
+        window.connect("response", self.on_dialog_response, vevent)
+        window.show_all()
+
+    def on_dialog_response(self, dialog, response, old_vevent):
+        if response == 1:
+            alarm = dialog.get_alarm_item()
+            if old_vevent:
+                self.edit_alarm(old_vevent, alarm)
+            else:
+                self.add_alarm(alarm)
+        dialog.destroy()
