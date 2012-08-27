@@ -16,7 +16,7 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
-from gi.repository import Gtk, GObject, Gio
+from gi.repository import Gtk, GLib, GObject, Gio
 from gi.repository.GdkPixbuf import Pixbuf
 
 from widgets import NewWorldClockDialog, AlarmDialog
@@ -126,9 +126,10 @@ class World(Clock):
     def add_clock_widget(self, location):
         d = DigitalClock(location)
         name = d.location.get_city_name()
+        label = GLib.markup_escape_text(name)
         view_iter = self.liststore.append([False,
                                            d.get_pixbuf(),
-                                           "<b>" + name + "</b>",
+                                           "<b>%s</b>" % label,
                                            d])
         path = self.liststore.get_path(view_iter)
         d.set_path(self.liststore, path)
@@ -242,9 +243,10 @@ class Alarm(Clock):
         widget = AlarmWidget(timestr, repeat)
         alert = Alert("alarm-clock-elapsed", name,
                       self._on_notification_activated)
+        label = GLib.markup_escape_text(name)
         view_iter = self.liststore.append([False,
                                            widget.get_pixbuf(),
-                                           "<b>" + name + "</b>",
+                                           "<b>%s</b>" % label,
                                            widget,
                                            alert,
                                            alarm])
