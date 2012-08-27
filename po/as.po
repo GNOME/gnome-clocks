@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
 "cgi?product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-17 12:02+0000\n"
-"PO-Revision-Date: 2012-08-17 17:35+0530\n"
+"POT-Creation-Date: 2012-08-26 10:26+0000\n"
+"PO-Revision-Date: 2012-08-27 13:36+0530\n"
 "Last-Translator: Nilamdyuti Goswami <ngoswami@redhat.com>\n"
 "Language-Team: as_IN <kde-i18n-doc@kde.org>\n"
 "Language: as\n"
@@ -23,7 +23,8 @@ msgstr ""
 msgid "Clocks"
 msgstr "ঘড়ী"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:101
+#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:108
+#: ../gnomeclocks/app.py:117
 msgid "GNOME Clocks"
 msgstr "GNOME ঘড়ী"
 
@@ -31,156 +32,167 @@ msgstr "GNOME ঘড়ী"
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "বিশ্বৰ সময়সমূহৰ বাবে ঘড়ী, লগতে এলাৰ্ম, স্টপৱাচ আৰু এটা টাইমাৰ"
 
-#: ../gnomeclocks/app.py:99
-msgid "About GNOME Clocks"
-msgstr "GNOME ঘড়ীৰ বিষয়ে"
-
-#: ../gnomeclocks/app.py:100 ../gnomeclocks/app.py:317
+#: ../gnomeclocks/app.py:107 ../gnomeclocks/app.py:410
 msgid "About Clocks"
 msgstr "ঘড়ীৰ বিষয়ে"
 
-#: ../gnomeclocks/app.py:106
-msgid "Clocks is a clock application for the GNOME Desktop"
-msgstr "ঘড়ী GNOME ডেস্কটপৰ বাবে এটা ঘড়ী অনুপ্ৰয়োগ"
+#: ../gnomeclocks/app.py:113
+msgid "Utilities to help you with the time."
+msgstr "সময়ৰ সৈতে আপোনাক সহযোগ কৰিবলে সঁজুলিসমূহ।"
 
-#: ../gnomeclocks/app.py:108
+#: ../gnomeclocks/app.py:115
 msgid "translator-credits"
 msgstr "নীলমদ্যুতি গোস্বামী (ngoswami@redhat.com)"
 
-#: ../gnomeclocks/app.py:163
+#: ../gnomeclocks/app.py:184
+msgid "Done"
+msgstr "কৰা হল"
+
+#: ../gnomeclocks/app.py:198
+msgid "Click on items to select them"
+msgstr "বস্তুবোৰ নিৰ্বাচন কৰিবলে সিহতত ক্লিক কৰক"
+
+#: ../gnomeclocks/app.py:200
+#, python-format
+msgid "%d item selected"
+msgid_plural "%d items selected"
+msgstr[0] "%d বস্তু নিৰ্বাচিত হৈছে"
+msgstr[1] "%d বস্তুবোৰ নিৰ্বাচিত হৈছে"
+
+#: ../gnomeclocks/app.py:274
 msgid "New"
 msgstr "নতুন"
 
-#: ../gnomeclocks/app.py:318
+#: ../gnomeclocks/app.py:413
 msgid "Quit"
 msgstr "প্ৰস্থান কৰক"
 
-#: ../gnomeclocks/clocks.py:87
+#: ../gnomeclocks/clocks.py:74
 msgid "World"
 msgstr "বিশ্ব"
 
-#: ../gnomeclocks/clocks.py:190
-msgid "Alarm"
-msgstr "এলাৰ্ম"
-
-#: ../gnomeclocks/clocks.py:281
-msgid "Stopwatch"
-msgstr "স্টপৱাচ"
-
-#: ../gnomeclocks/clocks.py:312 ../gnomeclocks/clocks.py:358
-#: ../gnomeclocks/timer.py:176
-msgid "Start"
-msgstr "আৰম্ভ কৰক"
-
-#: ../gnomeclocks/clocks.py:314 ../gnomeclocks/clocks.py:348
-#: ../gnomeclocks/timer.py:117
-msgid "Reset"
-msgstr "পুনৰসংহতি কৰক"
-
-#: ../gnomeclocks/clocks.py:339
-msgid "Stop"
-msgstr "বন্ধ কৰক"
-
-#: ../gnomeclocks/clocks.py:346 ../gnomeclocks/timer.py:134
-msgid "Continue"
-msgstr "চলাই নিয়ক"
-
-#: ../gnomeclocks/clocks.py:396
-msgid "Timer"
-msgstr "টাইমাৰ"
-
-#: ../gnomeclocks/timer.py:115 ../gnomeclocks/timer.py:128
-#: ../gnomeclocks/timer.py:138
-msgid "Pause"
-msgstr "বিৰাম দিয়ক"
-
-#. self.searchEntry.set_can_focus(False)
-#: ../gnomeclocks/widgets.py:37 ../gnomeclocks/widgets.py:59
-msgid "Add New Clock"
-msgstr "নতুন ঘড়ী যোগ কৰক"
-
-#: ../gnomeclocks/widgets.py:46
-#| msgid "Search for a city:"
-msgid "Search for a city:"
-msgstr "এটা চহৰৰ বাবে সন্ধান কৰক:"
-
-#: ../gnomeclocks/widgets.py:61
-msgid "Add a New World Clock"
-msgstr "এটা নতুন বিশ্বৰ ঘড়ী যোগ কৰক"
-
-#: ../gnomeclocks/widgets.py:65 ../gnomeclocks/widgets.py:395
-msgid "Cancel"
-msgstr "বাতিল কৰক"
-
-#: ../gnomeclocks/widgets.py:65
-msgid "Add"
-msgstr "যোগ কৰক"
-
-#: ../gnomeclocks/widgets.py:226
-msgid "Sunrise"
-msgstr "সুৰ্যোদয়"
-
-#: ../gnomeclocks/widgets.py:236
-msgid "Sunset"
-msgstr "সূৰ্যাস্ত"
-
-#: ../gnomeclocks/widgets.py:379 ../gnomeclocks/widgets.py:463
-msgid "New Alarm"
-msgstr "নতুন এলাৰ্ম"
-
-#: ../gnomeclocks/widgets.py:395
-msgid "Save"
-msgstr "সংৰক্ষণ কৰক"
-
-#: ../gnomeclocks/widgets.py:403
-msgid "Time"
-msgstr "সময়"
-
-#: ../gnomeclocks/widgets.py:451
-msgid "Name"
-msgstr "নাম"
-
-#: ../gnomeclocks/widgets.py:453
-msgid "Repeat Every"
-msgstr "পুনৰাবৃত্তি প্ৰতি"
-
-#: ../gnomeclocks/widgets.py:455
-msgid "Sound"
-msgstr "শব্দ"
-
-#: ../gnomeclocks/widgets.py:470
-msgid "Mon"
-msgstr "সোম"
-
-#: ../gnomeclocks/widgets.py:472
-msgid "Tue"
-msgstr "মঙল"
-
-#: ../gnomeclocks/widgets.py:474
-msgid "Wed"
-msgstr "বুধ"
-
-#: ../gnomeclocks/widgets.py:476
-msgid "Thu"
-msgstr "বৃহস্পতি"
-
-#: ../gnomeclocks/widgets.py:478
-msgid "Fri"
-msgstr "শুক্ৰ"
-
-#: ../gnomeclocks/widgets.py:480
-msgid "Sat"
-msgstr "শণি"
-
-#: ../gnomeclocks/widgets.py:482
-msgid "Sun"
-msgstr "দেও"
-
-#: ../gnomeclocks/widgets.py:587
+#: ../gnomeclocks/clocks.py:78
 msgid "Select <b>New</b> to add a world clock"
 msgstr "এটা বিশ্বৰ ঘড়ী যোগ কৰিবলে <b>নতুন</b> বাছক"
 
-#: ../gnomeclocks/widgets.py:608
+#: ../gnomeclocks/clocks.py:185
+msgid "Alarm"
+msgstr "এলাৰ্ম"
+
+#: ../gnomeclocks/clocks.py:189
 msgid "Select <b>New</b> to add an alarm"
 msgstr "এটা এলাৰ্ম যোগ কৰিবলে <b>নতুন</b> বাছক"
 
+#: ../gnomeclocks/clocks.py:340
+msgid "Stopwatch"
+msgstr "স্টপৱাচ"
+
+#: ../gnomeclocks/clocks.py:369 ../gnomeclocks/clocks.py:414
+#: ../gnomeclocks/timer.py:173
+msgid "Start"
+msgstr "আৰম্ভ কৰক"
+
+#: ../gnomeclocks/clocks.py:371 ../gnomeclocks/clocks.py:404
+#: ../gnomeclocks/timer.py:115
+msgid "Reset"
+msgstr "পুনৰসংহতি কৰক"
+
+#: ../gnomeclocks/clocks.py:395
+msgid "Stop"
+msgstr "বন্ধ কৰক"
+
+#: ../gnomeclocks/clocks.py:402 ../gnomeclocks/timer.py:132
+msgid "Continue"
+msgstr "চলাই নিয়ক"
+
+#: ../gnomeclocks/clocks.py:451
+msgid "Timer"
+msgstr "টাইমাৰ"
+
+#: ../gnomeclocks/timer.py:113 ../gnomeclocks/timer.py:126
+#: ../gnomeclocks/timer.py:136
+msgid "Pause"
+msgstr "বিৰাম দিয়ক"
+
+#: ../gnomeclocks/widgets.py:33
+msgid "Add a New World Clock"
+msgstr "এটা নতুন বিশ্বৰ ঘড়ী যোগ কৰক"
+
+#: ../gnomeclocks/widgets.py:43
+msgid "Search for a city:"
+msgstr "এটা চহৰৰ বাবে সন্ধান কৰক:"
+
+#: ../gnomeclocks/widgets.py:273
+msgid "Sunrise"
+msgstr "সুৰ্যোদয়"
+
+#: ../gnomeclocks/widgets.py:283
+msgid "Sunset"
+msgstr "সূৰ্যাস্ত"
+
+#: ../gnomeclocks/widgets.py:453
+#| msgid "Alarm"
+msgid "Edit Alarm"
+msgstr "এলাৰ্ম সম্পাদন কৰক"
+
+#: ../gnomeclocks/widgets.py:455 ../gnomeclocks/widgets.py:484
+msgid "New Alarm"
+msgstr "নতুন এলাৰ্ম"
+
+#: ../gnomeclocks/widgets.py:487
+msgid "Time"
+msgstr "সময়"
+
+#: ../gnomeclocks/widgets.py:526
+msgid "Name"
+msgstr "নাম"
+
+#: ../gnomeclocks/widgets.py:535
+msgid "Repeat Every"
+msgstr "পুনৰাবৃত্তি প্ৰতি"
+
+#: ../gnomeclocks/widgets.py:771
+msgid "Delete"
+msgstr "মচি পেলাওক"
+
+#~ msgid "About GNOME Clocks"
+#~ msgstr "GNOME ঘড়ীৰ বিষয়ে"
+
+#~ msgid "Clocks is a clock application for the GNOME Desktop"
+#~ msgstr "ঘড়ী GNOME ডেস্কটপৰ বাবে এটা ঘড়ী অনুপ্ৰয়োগ"
+
+#~ msgid "Add New Clock"
+#~ msgstr "নতুন ঘড়ী যোগ কৰক"
+
+#~ msgid "Cancel"
+#~ msgstr "বাতিল কৰক"
+
+#~ msgid "Add"
+#~ msgstr "যোগ কৰক"
+
+#~ msgid "Save"
+#~ msgstr "সংৰক্ষণ কৰক"
+
+#~ msgid "Sound"
+#~ msgstr "শব্দ"
+
+#~ msgid "Mon"
+#~ msgstr "সোম"
+
+#~ msgid "Tue"
+#~ msgstr "মঙল"
+
+#~ msgid "Wed"
+#~ msgstr "বুধ"
+
+#~ msgid "Thu"
+#~ msgstr "বৃহস্পতি"
+
+#~ msgid "Fri"
+#~ msgstr "শুক্ৰ"
+
+#~ msgid "Sat"
+#~ msgstr "শণি"
+
+#~ msgid "Sun"
+#~ msgstr "দেও"
