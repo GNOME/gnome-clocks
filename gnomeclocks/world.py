@@ -45,9 +45,7 @@ class WorldClockStorage():
             location_codes = pickle.load(f)
             f.close()
             for l in location_codes:
-                print l
                 location = GWeather.Location.find_by_station_code(self.world, l)
-                print location
                 if location:
                     clocks.append(location)
         except IOError as e:
