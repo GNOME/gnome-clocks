@@ -705,6 +705,37 @@ class SelectableIconView(Gtk.IconView):
         return False
 
 
+class ContentView(Gtk.Box):
+    def __init__(self, iconview, icon, emptymsg):
+        Gtk.Box.__init__(self)
+        self.iconview = iconview
+        self.scrolledwindow = Gtk.ScrolledWindow()
+        self.scrolledwindow.add(self.iconview)
+        self.emptypage = EmptyPlaceholder(icon, emptymsg)
+        self.pack_start(self.emptypage, True, True, 0)
+
+        model = self.iconview.get_model()
+        model.connect("row-inserted", self._on_item_inserted)
+        model.connect("row-deleted", self._on_item_deleted)
+
+    def _on_item_inserted(self, model, path, treeiter):
+        self._update_empty_view(model)
+
+    def _on_item_deleted(self, model, path):
+        self._update_empty_view(model)
+
+    def _update_empty_view(self, model):
+        if len(model) == 0:
+            if self.scrolledwindow in self.get_children():
+                self.remove(self.scrolledwindow)
+                self.pack_start(self.emptypage, True, True, 0)
+        else:
+            if self.emptypage in self.get_children():
+                self.remove(self.emptypage)
+                self.pack_start(self.scrolledwindow, True, True, 0)
+        self.show_all()
+
+
 class SelectionToolbar():
     DEFAULT_WIDTH = 300
 

@@ -20,7 +20,7 @@ from gi.repository import Gtk, GObject, Gio
 from gi.repository.GdkPixbuf import Pixbuf
 
 from widgets import NewWorldClockDialog, AlarmDialog
-from widgets import DigitalClock, AlarmWidget, SelectableIconView, EmptyPlaceholder
+from widgets import DigitalClock, AlarmWidget, SelectableIconView, ContentView
 from widgets import TogglePixbufRenderer
 from storage import worldclockstorage
 from utils import SystemSettings, Alert
@@ -67,11 +67,6 @@ class World(Clock):
     def __init__(self):
         Clock.__init__(self, _("World"), True, True)
 
-        self.empty_view = EmptyPlaceholder(
-                "document-open-recent-symbolic",
-                 _("Select <b>New</b> to add a world clock"))
-        self.add(self.empty_view)
-
         self.liststore = Gtk.ListStore(bool,
                                        Pixbuf,
                                        str,
@@ -79,23 +74,17 @@ class World(Clock):
 
         self.iconview = SelectableIconView(self.liststore, 0, 1, 2)
 
-        self.scrolledwindow = Gtk.ScrolledWindow()
-        self.scrolledwindow.add(self.iconview)
+        contentview = ContentView(self.iconview,
+                "document-open-recent-symbolic",
+                 _("Select <b>New</b> to add a world clock"))
+        self.add(contentview)
 
-        self.liststore.connect("row-inserted", self._on_item_inserted)
-        self.liststore.connect("row-deleted", self._on_item_deleted)
         self.iconview.connect("item-activated", self._on_item_activated)
         self.iconview.connect("selection-changed", self._on_selection_changed)
 
         self.clocks = []
         self.load_clocks()
         self.show_all()
-
-    def _on_item_inserted(self, model, path, treeiter):
-        self.update_empty_view()
-
-    def _on_item_deleted(self, model, path):
-        self.update_empty_view()
 
     def _on_item_activated(self, iconview, path):
         d = self.liststore[path][3]
@@ -155,18 +144,6 @@ class World(Clock):
         self.load_clocks()
         self.notify("can-select")
 
-    def update_empty_view(self):
-        if len(self.liststore) == 0:
-            if self.scrolledwindow in self.get_children():
-                self.remove(self.scrolledwindow)
-                self.add(self.empty_view)
-                self.show_all()
-        else:
-            if self.empty_view in self.get_children():
-                self.remove(self.empty_view)
-                self.add(self.scrolledwindow)
-                self.show_all()
-
     def open_new_dialog(self):
         window = NewWorldClockDialog(self.get_toplevel())
         window.connect("response", self.on_dialog_response)
@@ -183,11 +160,6 @@ class Alarm(Clock):
     def __init__(self):
         Clock.__init__(self, _("Alarm"), True, True)
 
-        self.empty_view = EmptyPlaceholder(
-                "alarm-symbolic",
-                _("Select <b>New</b> to add an alarm"))
-        self.add(self.empty_view)
-
         self.liststore = Gtk.ListStore(bool,
                                        Pixbuf,
                                        str,
@@ -197,11 +169,11 @@ class Alarm(Clock):
 
         self.iconview = SelectableIconView(self.liststore, 0, 1, 2)
 
-        self.scrolledwindow = Gtk.ScrolledWindow()
-        self.scrolledwindow.add(self.iconview)
+        contentview = ContentView(self.iconview,
+                "alarm-symbolic",
+                _("Select <b>New</b> to add an alarm"))
+        self.add(contentview)
 
-        self.liststore.connect("row-inserted", self._on_item_inserted)
-        self.liststore.connect("row-deleted", self._on_item_deleted)
         self.iconview.connect("item-activated", self._on_item_activated)
         self.iconview.connect("selection-changed", self._on_selection_changed)
 
@@ -222,12 +194,6 @@ class Alarm(Clock):
     def _on_notification_activated(self, notif, action, data):
         win = self.get_toplevel()
         win.show_clock(self)
-
-    def _on_item_inserted(self, model, path, treeiter):
-        self.update_empty_view()
-
-    def _on_item_deleted(self, model, path):
-        self.update_empty_view()
 
     def _on_item_activated(self, iconview, path):
         alarm = self.liststore[path][-1]
@@ -261,18 +227,6 @@ class Alarm(Clock):
             alarm = AlarmItem()
             alarm.new_from_vevent(vevent)
             self.add_alarm_widget(alarm)
-
-    def update_empty_view(self):
-        if len(self.liststore) == 0:
-            if self.scrolledwindow in self.get_children():
-                self.remove(self.scrolledwindow)
-                self.add(self.empty_view)
-                self.show_all()
-        else:
-            if self.empty_view in self.get_children():
-                self.remove(self.empty_view)
-                self.add(self.scrolledwindow)
-                self.show_all()
 
     def add_alarm(self, alarm):
         handler = ICSHandler()
