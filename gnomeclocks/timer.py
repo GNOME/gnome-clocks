@@ -16,6 +16,7 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
+import time
 from gi.repository import Gtk, GObject, Gio
 from clocks import Clock
 from utils import Alert
@@ -205,7 +206,7 @@ class Timer(Clock):
             self.timer_welcome_screen.set_values(0, 0, 0)
 
     def _add_timeout(self):
-        self.timeout_id = GObject.timeout_add(1000, self.count)
+        self.timeout_id = GObject.timeout_add(250, self.count)
 
     def _remove_timeout(self):
         if self.timeout_id != 0:
@@ -216,7 +217,7 @@ class Timer(Clock):
         if self.state == Timer.State.STOPPED and self.timeout_id == 0:
             h, m, s = self.timer_welcome_screen.get_values()
             self.timer_screen.set_time(h, m, s)
-            self.time = (h * 60 * 60) + (m * 60) + s
+            self.deadline = time.time() + (h * 60 * 60) + (m * 60) + s
             self.state = Timer.State.RUNNING
             self._add_timeout()
             self.start_timer_screen()
@@ -235,8 +236,8 @@ class Timer(Clock):
         self._add_timeout()
 
     def count(self):
-        self.time -= 1
-        if self.time == 0:
+        t = time.time()
+        if t >= self.deadline:
             self.alert.show()
             self.state = Timer.State.STOPPED
             self._remove_timeout()
@@ -244,7 +245,8 @@ class Timer(Clock):
             self.end_timer_screen(False)
             return False
         else:
-            m, s = divmod(self.time, 60)
+            r = self.deadline - t
+            m, s = divmod(r, 60)
             h, m = divmod(m, 60)
             self.timer_screen.set_time(h, m, s)
             return True
