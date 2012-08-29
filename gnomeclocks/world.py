@@ -143,8 +143,7 @@ class DigitalClock():
         self.offset = timezone.get_offset() * 60
         self._last_time = None
         self.drawing = DigitalClockDrawing()
-        self.standalone =\
-            StandaloneClock(self.location, self.sunrise, self.sunset)
+        self.standalone = None
         self.update()
         self.timeout = GObject.timeout_add(1000, self.update)
 
@@ -186,8 +185,9 @@ class DigitalClock():
                 self.drawing.render(t, img, isDay, day)
             if self.path and self.list_store:
                 self.list_store[self.path][1] = self.drawing.pixbuf
-            self.standalone.update(img, t, systemClockFormat,
-                                   self.sunrise, self.sunset)
+            if self.standalone:
+                self.standalone.update(img, t, systemClockFormat,
+                                       self.sunrise, self.sunset)
 
         self._last_time = t
         return True
@@ -212,6 +212,9 @@ class DigitalClock():
         return self.drawing.pixbuf
 
     def get_standalone_widget(self):
+        if not self.standalone:
+            self.standalone = StandaloneClock(self.location, self.sunrise, self.sunset)
+        self.update()
         return self.standalone
 
     def get_day(self):
@@ -358,36 +361,32 @@ class World(Clock):
 class StandaloneClock(Gtk.Box):
     def __init__(self, location, sunrise, sunset):
         Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL)
-        self.img = Gtk.Image()
+        #self.img = Gtk.Image()
+        #self.city_label = Gtk.Label()
+        #label = GLib.markup_escape_text(location.get_city_name())
+        #self.city_label.set_markup("<b>%s</b>" % label)
         self.time_label = Gtk.Label()
-        self.city_label = Gtk.Label()
-        label = GLib.markup_escape_text(location.get_city_name())
-        self.city_label.set_markup("<b>%s</b>" % label)
-        self.text = ""
         self.sunrise = sunrise
         self.sunset = sunset
 
         self.systemClockFormat = None
-
-        self.connect("size-allocate", lambda x, y: self.update(None,
-            self.text, self.systemClockFormat, self.sunrise, self.sunset))
 
         #imagebox = Gtk.VBox()
         #imagebox.pack_start(self.img, False, False, 0)
         #imagebox.pack_start(self.city_label, False, False, 0)
         #imagebox.set_size_request(230, 230)
 
-        self.timebox = timebox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        self.timebox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         self.time_label.set_alignment(0.0, 0.5)
-        timebox.pack_start(self.time_label, True, True, 0)
+        self.timebox.pack_start(self.time_label, True, True, 0)
 
-        self.hbox = hbox = Gtk.HBox()
+        self.hbox = hbox = Gtk.Box()
         self.hbox.set_homogeneous(False)
 
         self.hbox.pack_start(Gtk.Label(), True, True, 0)
         # self.hbox.pack_start(imagebox, False, False, 0)
         # self.hbox.pack_start(Gtk.Label(), False, False, 30)
-        self.hbox.pack_start(timebox, False, False, 0)
+        self.hbox.pack_start(self.timebox, False, False, 0)
         self.hbox.pack_start(Gtk.Label(), True, True, 0)
 
         self.pack_start(Gtk.Label(), True, True, 25)
@@ -428,11 +427,10 @@ class StandaloneClock(Gtk.Box):
 
     def update(self, img, text, systemClockFormat, sunrise, sunset):
         size = 72000  # FIXME: (self.get_allocation().height / 300) * 72000
-        if img:
-            pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(img, 500, 380)
-            pixbuf = pixbuf.new_subpixbuf(0, 0, 208, 208)
-            self.img.set_from_pixbuf(pixbuf)
-        self.text = text
+        #if img:
+        #    pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(img, 500, 380)
+        #    pixbuf = pixbuf.new_subpixbuf(0, 0, 208, 208)
+        #    self.img.set_from_pixbuf(pixbuf)
         self.time_label.set_markup(
             "<span size='%i' color='dimgray'><b>%s</b></span>" % (size, text))
         if systemClockFormat != self.systemClockFormat or \
