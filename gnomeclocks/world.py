@@ -215,7 +215,8 @@ class DigitalClock():
         if not self.standalone:
             self.standalone = StandaloneClock(self.location, self.sunrise, self.sunset)
         self.update()
-        return self.standalone
+        title = GLib.markup_escape_text(self.location.get_city_name())
+        return self.standalone, title
 
     def get_day(self):
         clock_time_day = self.get_local_time(time.time()).tm_yday
@@ -287,7 +288,7 @@ class World(Clock):
 
     def _on_item_activated(self, iconview, path):
         d = self.liststore[path][3]
-        self.emit("show-clock", d)
+        self.emit("show-standalone", d)
 
     def _on_selection_changed(self, iconview):
         self.emit("selection-changed")

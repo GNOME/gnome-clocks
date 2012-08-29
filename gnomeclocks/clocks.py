@@ -24,9 +24,9 @@ class Clock(Gtk.EventBox):
         'show-requested': (GObject.SignalFlags.RUN_LAST,
                            None,
                            ()),
-        'show-clock': (GObject.SignalFlags.RUN_LAST,
-                       None,
-                       (GObject.TYPE_PYOBJECT, )),
+        'show-standalone': (GObject.SignalFlags.RUN_LAST,
+                            None,
+                            (GObject.TYPE_PYOBJECT, )),
         'selection-changed': (GObject.SignalFlags.RUN_LAST,
                               None,
                               ())

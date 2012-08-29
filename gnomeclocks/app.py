@@ -77,10 +77,10 @@ class Window(Gtk.ApplicationWindow):
 
         self.vbox.pack_end(self.notebook, True, True, 0)
         for view in self.views:
+            view.connect("show-standalone", self._on_show_standalone)
             self.notebook.append_page(view, Gtk.Label(str(view)))
         self.notebook.append_page(self.single_evbox, Gtk.Label("Widget"))
 
-        self.world.connect("show-clock", self._on_show_clock)
         self.toolbar.connect("view-clock", self._on_view_clock)
         self.vbox.show_all()
         self.show_all()
@@ -89,14 +89,15 @@ class Window(Gtk.ApplicationWindow):
     def show_clock(self, view):
         self.toolbar.activate_view(view)
 
-    def _on_show_clock(self, widget, d):
-        def show_standalone_clock():
-            self.toolbar._set_single_toolbar(d.location)
-            self.single_evbox.add(d.get_standalone_widget())
+    def _on_show_standalone(self, widget, d):
+        def show_standalone_page():
+            widget, title = d.get_standalone_widget()
+            self.toolbar._set_single_toolbar(title)
+            self.single_evbox.add(widget)
             self.single_evbox.show_all()
             self.notebook.set_current_page(-1)
 
-        self.embed.spotlight(show_standalone_clock)
+        self.embed.spotlight(show_standalone_page)
 
     def _on_view_clock(self, button, view):
         def show_clock_view():
@@ -322,8 +323,8 @@ class ClocksToolbar(Gtk.Toolbar):
                 self.current_view = view
                 button.set_active(True)
 
-        self.city_label = Gtk.Label()
-        toolbox.pack_start(self.city_label, False, False, 0)
+        self.titleLabel = Gtk.Label()
+        toolbox.pack_start(self.titleLabel, False, False, 0)
         toolbox.pack_start(Gtk.Box(), False, False, 15)
 
         toolbox.pack_start(Gtk.Label(""), True, True, 0)
@@ -354,18 +355,17 @@ class ClocksToolbar(Gtk.Toolbar):
         self.newButton.show()
         self.selectButton.show()
         self.backButton.hide()
-        self.city_label.hide()
+        self.titleLabel.hide()
 
-    def _set_single_toolbar(self, location):
+    def _set_single_toolbar(self, title):
         self.buttonBox.hide()
         self.newButton.hide()
         self.selectButton.hide()
         if not self.backButton.get_parent():
             self.leftBox.pack_start(self.backButton, False, False, 0)
         self.backButton.show_all()
-        label = GLib.markup_escape_text(location.get_city_name())
-        self.city_label.set_markup("<b>%s</b>" % label)
-        self.city_label.show()
+        self.titleLabel.set_markup("<b>%s</b>" % title)
+        self.titleLabel.show()
 
     def _on_toggled(self, widget, view):
         self.current_view = view
