@@ -91,7 +91,7 @@ class Window(Gtk.ApplicationWindow):
 
     def _on_show_clock(self, widget, d):
         def show_standalone_clock():
-            self.toolbar._set_single_toolbar(d.id)
+            self.toolbar._set_single_toolbar(d.location)
             self.single_evbox.add(d.get_standalone_widget())
             self.single_evbox.show_all()
             self.notebook.set_current_page(-1)
@@ -356,14 +356,14 @@ class ClocksToolbar(Gtk.Toolbar):
         self.backButton.hide()
         self.city_label.hide()
 
-    def _set_single_toolbar(self, title):
+    def _set_single_toolbar(self, location):
         self.buttonBox.hide()
         self.newButton.hide()
         self.selectButton.hide()
         if not self.backButton.get_parent():
             self.leftBox.pack_start(self.backButton, False, False, 0)
         self.backButton.show_all()
-        label = GLib.markup_escape_text(title)
+        label = GLib.markup_escape_text(location.get_city_name())
         self.city_label.set_markup("<b>%s</b>" % label)
         self.city_label.show()
 
