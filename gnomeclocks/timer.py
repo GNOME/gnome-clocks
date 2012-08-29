@@ -82,10 +82,6 @@ class TimerScreen(Gtk.Box):
             self.leftLabel.set_markup(Timer.BUTTON_MARKUP % (_("Pause")))
             self.leftButton.get_style_context().remove_class("clocks-go")
 
-        # FIXME: work around the fact that gtk does recalculate the label style
-        # if the button class changes
-        self.leftLabel.get_style_context().invalidate()
-
 
 class TimerWelcomeScreen(Gtk.Box):
     def __init__(self, timer):
