@@ -144,7 +144,7 @@ class DigitalClock():
         self._last_time = None
         self.drawing = DigitalClockDrawing()
         self.standalone =\
-            DigitalClockStandalone(self.location, self.sunrise, self.sunset)
+            StandaloneClock(self.location, self.sunrise, self.sunset)
         self.update()
         self.timeout = GObject.timeout_add(1000, self.update)
 
@@ -355,7 +355,7 @@ class World(Clock):
         dialog.destroy()
 
 
-class DigitalClockStandalone(Gtk.Box):
+class StandaloneClock(Gtk.Box):
     def __init__(self, location, sunrise, sunset):
         Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL)
         self.img = Gtk.Image()
