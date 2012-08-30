@@ -19,7 +19,7 @@
 import os
 import vobject
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from gi.repository import GLib, GObject, Gio, Gtk, GdkPixbuf
 from gi.repository import GWeather
 from clocks import Clock
@@ -369,6 +369,7 @@ class Alarm(Clock):
     def _check_alarms(self):
         for i in self.liststore:
             alarm = self.liststore.get_value(i.iter, 4)
+            print alarm.time
             if alarm.check_expired():
                 widget = self.liststore.get_value(i.iter, 3)
                 alert = widget.get_alert()
@@ -526,7 +527,10 @@ class StandaloneAlarm(Gtk.Box):
         self.alert.stop()
 
     def _on_snooze_clicked(self, button):
-        pass
+        # Add 9 minutes, but without saving the change permanently
+        self.alarm.time += timedelta(minutes=9)
+        self.alarm.expired = False
+        self.alert.stop()
 
     def get_name(self):
         name = self.alarm.get_alarm_name()
