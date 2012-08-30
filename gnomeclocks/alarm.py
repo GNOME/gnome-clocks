@@ -273,7 +273,8 @@ class AlarmDialog(Gtk.Dialog):
         box.get_style_context().add_class("linked")
         for day in ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]:
             btn = Gtk.ToggleButton(label=_(day))
-            if btn.get_label()[:2]  in repeat:
+            btn.data = day[:2].upper()
+            if btn.data in repeat:
                 btn.set_active(True)
             box.pack_start(btn, True, True, 0)
             self.day_buttons.append(btn)
@@ -306,7 +307,7 @@ class AlarmDialog(Gtk.Dialog):
         repeat = []
         for btn in self.day_buttons:
             if btn.get_active():
-                repeat.append(btn.get_label()[:2])
+                repeat.append(btn.data)
         alarm_item = AlarmItem(name, repeat, h, m, p)
         return alarm_item
 
