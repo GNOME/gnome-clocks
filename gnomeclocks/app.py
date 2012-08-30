@@ -95,7 +95,8 @@ class Window(Gtk.ApplicationWindow):
             self.single_evbox.add(widget)
             self.notebook.set_current_page(-1)
 
-        self.embed.spotlight(show_standalone_page)
+        if self.notebook.get_current_page() != len(self.views):
+            self.embed.spotlight(show_standalone_page)
 
     def _on_view_clock(self, button, view):
         def show_clock_view():
