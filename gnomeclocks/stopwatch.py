@@ -32,52 +32,42 @@ class Stopwatch(Clock):
 
     def __init__(self):
         Clock.__init__(self, _("Stopwatch"))
-        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        self.add(vbox)
-
-        center = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-
-        self.stopwatchLabel = Gtk.Label()
-        self.stopwatchLabel.set_alignment(0.5, 0.5)
-        self.stopwatchLabel.set_markup(Stopwatch.LABEL_MARKUP % (0, 0))
-
-        hbox = Gtk.Box()
-        self.leftButton = Gtk.Button()
-        self.leftButton.set_size_request(200, -1)
-        self.leftLabel = Gtk.Label()
-        self.leftButton.add(self.leftLabel)
-        self.rightButton = Gtk.Button()
-        self.rightButton.set_size_request(200, -1)
-        self.rightLabel = Gtk.Label()
-        self.rightButton.add(self.rightLabel)
-        self.rightButton.set_sensitive(False)
-        self.leftButton.get_style_context().add_class("clocks-go")
-        #self.rightButton.get_style_context().add_class("clocks-lap")
-
-        hbox.pack_start(Gtk.Box(), True, False, 0)
-        hbox.pack_start(self.leftButton, False, False, 0)
-        hbox.pack_start(Gtk.Box(), False, False, 24)
-        hbox.pack_start(self.rightButton, False, False, 0)
-        hbox.pack_start(Gtk.Box(), True, False, 0)
-
-        self.leftLabel.set_markup(Stopwatch.BUTTON_MARKUP % (_("Start")))
-        self.leftLabel.set_padding(6, 0)
-        self.rightLabel.set_markup(Stopwatch.BUTTON_MARKUP % (_("Reset")))
-        self.rightLabel.set_padding(6, 0)
-
-        center.pack_start(self.stopwatchLabel, False, False, 0)
-        center.pack_start(Gtk.Box(), True, True, 41)
-        center.pack_start(hbox, False, False, 0)
 
         self.state = Stopwatch.State.RESET
-        self.g_id = 0
+        self.timeout_id = 0
         self.start_time = 0
         self.time_diff = 0
 
-        vbox.pack_start(Gtk.Box(), True, True, 48)
-        vbox.pack_start(center, False, False, 0)
-        vbox.pack_start(Gtk.Box(), True, True, 1)
-        vbox.pack_start(Gtk.Box(), True, True, 41)
+        grid = Gtk.Grid()
+        grid.set_halign(Gtk.Align.CENTER)
+        grid.set_valign(Gtk.Align.CENTER)
+        grid.set_row_spacing(48)
+        grid.set_column_spacing(24)
+        grid.set_column_homogeneous(True)
+        self.add(grid)
+
+        self.timeLabel = Gtk.Label()
+        self.timeLabel.set_markup(Stopwatch.LABEL_MARKUP % (0, 0))
+        # add margin to match the spinner size in the timer
+        self.timeLabel.set_margin_top(42)
+        self.timeLabel.set_margin_bottom(42)
+        grid.attach(self.timeLabel, 0, 0, 2, 1)
+
+        self.leftButton = Gtk.Button()
+        self.leftButton.set_size_request(200, -1)
+        self.leftLabel = Gtk.Label()
+        self.leftLabel.set_markup(Stopwatch.BUTTON_MARKUP % (_("Start")))
+        self.leftButton.add(self.leftLabel)
+        self.leftButton.get_style_context().add_class("clocks-go")
+        grid.attach(self.leftButton, 0, 1, 1, 1)
+
+        self.rightButton = Gtk.Button()
+        self.rightButton.set_size_request(200, -1)
+        self.rightLabel = Gtk.Label()
+        self.rightLabel.set_markup(Stopwatch.BUTTON_MARKUP % (_("Reset")))
+        self.rightButton.add(self.rightLabel)
+        self.rightButton.set_sensitive(False)
+        grid.attach(self.rightButton, 1, 1, 1, 1)
 
         self.leftButton.connect("clicked", self._on_left_button_clicked)
         self.rightButton.connect("clicked", self._on_right_button_clicked)
@@ -108,27 +98,27 @@ class Stopwatch(Clock):
             self.leftLabel.set_markup(Stopwatch.BUTTON_MARKUP % (_("Start")))
             self.leftButton.get_style_context().add_class("clocks-go")
             #self.rightButton.get_style_context().add_class("clocks-lap")
-            self.stopwatchLabel.set_markup(Stopwatch.LABEL_MARKUP % (0, 0))
+            self.timeLabel.set_markup(Stopwatch.LABEL_MARKUP % (0, 0))
             self.rightButton.set_sensitive(False)
 
     def start(self):
-        if self.g_id == 0:
+        if self.timeout_id == 0:
             self.start_time = time.time()
-            self.g_id = GObject.timeout_add(10, self.count)
+            self.timeout_id = GObject.timeout_add(10, self.count)
 
     def stop(self):
-        GObject.source_remove(self.g_id)
-        self.g_id = 0
+        GObject.source_remove(self.timeout_id)
+        self.timeout_id = 0
         self.time_diff = self.time_diff + (time.time() - self.start_time)
 
     def reset(self):
         self.time_diff = 0
-        GObject.source_remove(self.g_id)
-        self.g_id = 0
+        GObject.source_remove(self.timeout_id)
+        self.timeout_id = 0
 
     def count(self):
         timediff = time.time() - self.start_time + self.time_diff
         elapsed_minutes, elapsed_seconds = divmod(timediff, 60)
-        self.stopwatchLabel.set_markup(Stopwatch.LABEL_MARKUP %
+        self.timeLabel.set_markup(Stopwatch.LABEL_MARKUP %
             (elapsed_minutes, elapsed_seconds))
         return True
