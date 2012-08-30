@@ -78,16 +78,15 @@ class Stopwatch(Clock):
             self.start()
             self.leftLabel.set_markup(Stopwatch.BUTTON_MARKUP % (_("Stop")))
             self.leftButton.get_style_context().add_class("clocks-stop")
-            self.rightButton.set_sensitive(True)
+            self.rightButton.set_sensitive(False)
         elif self.state == Stopwatch.State.RUNNING:
             self.state = Stopwatch.State.STOPPED
             self.stop()
-            self.leftLabel.set_markup(Stopwatch.BUTTON_MARKUP %
-                (_("Continue")))
-            self.rightLabel.set_markup(Stopwatch.BUTTON_MARKUP %
-                (_("Reset")))
+            self.leftLabel.set_markup(Stopwatch.BUTTON_MARKUP % (_("Continue")))
+            self.rightLabel.set_markup(Stopwatch.BUTTON_MARKUP % (_("Reset")))
             self.leftButton.get_style_context().remove_class("clocks-stop")
             self.leftButton.get_style_context().add_class("clocks-go")
+            self.rightButton.set_sensitive(True)
 
     def _on_right_button_clicked(self, widget):
         if self.state == Stopwatch.State.RUNNING:
@@ -104,7 +103,7 @@ class Stopwatch(Clock):
     def start(self):
         if self.timeout_id == 0:
             self.start_time = time.time()
-            self.timeout_id = GObject.timeout_add(10, self.count)
+            self.timeout_id = GObject.timeout_add(100, self.count)
 
     def stop(self):
         GObject.source_remove(self.timeout_id)
@@ -112,9 +111,9 @@ class Stopwatch(Clock):
         self.time_diff = self.time_diff + (time.time() - self.start_time)
 
     def reset(self):
-        self.time_diff = 0
         GObject.source_remove(self.timeout_id)
         self.timeout_id = 0
+        self.time_diff = 0
 
     def count(self):
         timediff = time.time() - self.start_time + self.time_diff
