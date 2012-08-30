@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-29 00:20+0200\n"
-"PO-Revision-Date: 2012-08-29 00:20+0200\n"
+"POT-Creation-Date: 2012-08-30 14:22+0200\n"
+"PO-Revision-Date: 2012-08-30 14:23+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: Galician <gnome-l10n-gl@gnome.org>\n"
 "Language: gl\n"
@@ -36,11 +36,11 @@ msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr ""
 "Reloxos para todo o mundo, ademais de alarmas, cronómetro e un temporizador"
 
-#: ../gnomeclocks/alarm.py:181
+#: ../gnomeclocks/alarm.py:180
 msgid "Edit Alarm"
 msgstr "Editar alarma"
 
-#: ../gnomeclocks/alarm.py:183 ../gnomeclocks/alarm.py:212
+#: ../gnomeclocks/alarm.py:182 ../gnomeclocks/alarm.py:212
 msgid "New Alarm"
 msgstr "Nova alarma"
 
@@ -56,15 +56,23 @@ msgstr "Nome"
 msgid "Repeat Every"
 msgstr "Repetir cada"
 
-#: ../gnomeclocks/alarm.py:333
+#: ../gnomeclocks/alarm.py:346
 msgid "Alarm"
 msgstr "Alarma"
 
-#: ../gnomeclocks/alarm.py:346
+#: ../gnomeclocks/alarm.py:358
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Seleccione <b>Novo</b> para engadir unha alarma"
 
-#: ../gnomeclocks/app.py:119 ../gnomeclocks/app.py:430
+#: ../gnomeclocks/alarm.py:499 ../gnomeclocks/stopwatch.py:89
+msgid "Stop"
+msgstr "Deter"
+
+#: ../gnomeclocks/alarm.py:501
+msgid "Snooze"
+msgstr "Silenciar"
+
+#: ../gnomeclocks/app.py:119 ../gnomeclocks/app.py:416
 msgid "About Clocks"
 msgstr "Sobre Reloxos"
 
@@ -79,26 +87,30 @@ msgstr ""
 "Proxecto Trasno - Tradución de software libre ao galego <proxecto@trasno."
 "net>, 1999-2012"
 
-#: ../gnomeclocks/app.py:196
+#: ../gnomeclocks/app.py:204
+msgid "New"
+msgstr "Novo"
+
+#: ../gnomeclocks/app.py:271
+msgid "Edit"
+msgstr "Editar"
+
+#: ../gnomeclocks/app.py:276
 msgid "Done"
 msgstr "Feito"
 
-#: ../gnomeclocks/app.py:210
+#: ../gnomeclocks/app.py:361
 msgid "Click on items to select them"
 msgstr "Prema nos elementos para seleccionalos"
 
-#: ../gnomeclocks/app.py:212
+#: ../gnomeclocks/app.py:363
 #, python-format
 msgid "%d item selected"
 msgid_plural "%d items selected"
 msgstr[0] "%d elemento seleccionado"
 msgstr[1] "%d elementos seleccionados"
 
-#: ../gnomeclocks/app.py:286
-msgid "New"
-msgstr "Novo"
-
-#: ../gnomeclocks/app.py:433
+#: ../gnomeclocks/app.py:419
 msgid "Quit"
 msgstr "Saír"
 
@@ -107,7 +119,7 @@ msgid "Stopwatch"
 msgstr "Cronómetro"
 
 #: ../gnomeclocks/stopwatch.py:63 ../gnomeclocks/stopwatch.py:108
-#: ../gnomeclocks/timer.py:118
+#: ../gnomeclocks/timer.py:114
 msgid "Start"
 msgstr "Iniciar"
 
@@ -115,10 +127,6 @@ msgstr "Iniciar"
 #: ../gnomeclocks/timer.py:58
 msgid "Reset"
 msgstr "Restaurar"
-
-#: ../gnomeclocks/stopwatch.py:89
-msgid "Stop"
-msgstr "Deter"
 
 #: ../gnomeclocks/stopwatch.py:96 ../gnomeclocks/timer.py:78
 msgid "Continue"
@@ -129,7 +137,7 @@ msgstr "Continuar"
 msgid "Pause"
 msgstr "Pausar"
 
-#: ../gnomeclocks/timer.py:165
+#: ../gnomeclocks/timer.py:161
 msgid "Timer"
 msgstr "Temporizador"
 
@@ -145,19 +153,19 @@ msgstr "Engadir un novo reloxo mundial"
 msgid "Search for a city:"
 msgstr "Buscar unha cidade:"
 
-#: ../gnomeclocks/world.py:263
+#: ../gnomeclocks/world.py:266
 msgid "World"
 msgstr "Mundo"
 
-#: ../gnomeclocks/world.py:274
+#: ../gnomeclocks/world.py:277
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Seleccione <b>Novo</b> para engadir un novo reloxo mundial"
 
-#: ../gnomeclocks/world.py:399
+#: ../gnomeclocks/world.py:400
 msgid "Sunrise"
 msgstr "Amencer"
 
-#: ../gnomeclocks/world.py:409
+#: ../gnomeclocks/world.py:410
 msgid "Sunset"
 msgstr "Solpor"
 
