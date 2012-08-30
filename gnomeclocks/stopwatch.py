@@ -22,7 +22,7 @@ from clocks import Clock
 
 
 class Stopwatch(Clock):
-    LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i</span>"
+    LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i.%i</span>"
     BUTTON_MARKUP = "<span font_desc=\"18.0\">%s</span>"
 
     class State:
@@ -47,10 +47,10 @@ class Stopwatch(Clock):
         self.add(grid)
 
         self.timeLabel = Gtk.Label()
-        self.timeLabel.set_markup(Stopwatch.LABEL_MARKUP % (0, 0))
         # add margin to match the spinner size in the timer
         self.timeLabel.set_margin_top(42)
         self.timeLabel.set_margin_bottom(42)
+        self.set_time(0, 0, 0)
         grid.attach(self.timeLabel, 0, 0, 2, 1)
 
         self.leftButton = Gtk.Button()
@@ -97,8 +97,11 @@ class Stopwatch(Clock):
             self.leftLabel.set_markup(Stopwatch.BUTTON_MARKUP % (_("Start")))
             self.leftButton.get_style_context().add_class("clocks-go")
             #self.rightButton.get_style_context().add_class("clocks-lap")
-            self.timeLabel.set_markup(Stopwatch.LABEL_MARKUP % (0, 0))
             self.rightButton.set_sensitive(False)
+            self.set_time(0, 0, 0)
+
+    def set_time(self, m, s, d):
+        self.timeLabel.set_markup(Stopwatch.LABEL_MARKUP % (m, s, d))
 
     def start(self):
         if self.timeout_id == 0:
@@ -117,7 +120,8 @@ class Stopwatch(Clock):
 
     def count(self):
         timediff = time.time() - self.start_time + self.time_diff
-        elapsed_minutes, elapsed_seconds = divmod(timediff, 60)
-        self.timeLabel.set_markup(Stopwatch.LABEL_MARKUP %
-            (elapsed_minutes, elapsed_seconds))
+        m, s = divmod(timediff, 60)
+        s, d = divmod(s, 1)
+        d = int (d * 10)
+        self.set_time(m, s, d)
         return True
