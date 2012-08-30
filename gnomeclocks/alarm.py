@@ -308,9 +308,10 @@ class AlarmDialog(Gtk.Dialog):
 
 
 class AlarmWidget():
-    def __init__(self, view, alarm):
+    def __init__(self, view, alarm, alert):
         self.view = view
         self.alarm = alarm
+        self.alert = alert
         timestr = alarm.get_time_as_string()
         repeat = alarm.get_alarm_repeat_string()
         self.drawing = DigitalClockDrawing()
@@ -331,9 +332,12 @@ class AlarmWidget():
     def get_pixbuf(self):
         return self.drawing.pixbuf
 
+    def get_alert(self):
+        return self.alert
+
     def get_standalone_widget(self):
         if not self.standalone:
-            self.standalone = StandaloneAlarm(self.view, self.alarm)
+            self.standalone = StandaloneAlarm(self.view, self.alarm, self.alert)
         return self.standalone
 
 
@@ -344,7 +348,6 @@ class Alarm(Clock):
         self.liststore = Gtk.ListStore(bool,
                                        GdkPixbuf.Pixbuf,
                                        str,
-                                       GObject.TYPE_PYOBJECT,
                                        GObject.TYPE_PYOBJECT,
                                        GObject.TYPE_PYOBJECT)
 
@@ -365,11 +368,11 @@ class Alarm(Clock):
 
     def _check_alarms(self):
         for i in self.liststore:
-            alarm = self.liststore.get_value(i.iter, 5)
+            alarm = self.liststore.get_value(i.iter, 4)
             if alarm.check_expired():
-                alert = self.liststore.get_value(i.iter, 4)
-                alert.show()
                 widget = self.liststore.get_value(i.iter, 3)
+                alert = widget.get_alert()
+                alert.show()
                 standalone = widget.get_standalone_widget()
                 standalone.set_ringing(True)
                 self.emit("show-standalone", widget)
@@ -422,15 +425,14 @@ class Alarm(Clock):
 
     def add_alarm_widget(self, alarm):
         name = alarm.get_alarm_name()
-        widget = AlarmWidget(self, alarm)
         alert = Alert("alarm-clock-elapsed", name,
                       self._on_notification_activated)
+        widget = AlarmWidget(self, alarm, alert)
         label = GLib.markup_escape_text(name)
         view_iter = self.liststore.append([False,
                                            widget.get_pixbuf(),
                                            "<b>%s</b>" % label,
                                            widget,
-                                           alert,
                                            alarm])
         self.notify("can-select")
 
@@ -462,10 +464,11 @@ class Alarm(Clock):
 
 
 class StandaloneAlarm(Gtk.Box):
-    def __init__(self, view, alarm):
+    def __init__(self, view, alarm, alert):
         Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL)
         self.view = view
         self.alarm = alarm
+        self.alert = alert
         self.can_edit = True
 
         self.timebox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
@@ -520,7 +523,7 @@ class StandaloneAlarm(Gtk.Box):
         self.set_ringing(False)
 
     def _on_stop_clicked(self, button):
-        pass
+        self.alert.stop()
 
     def _on_snooze_clicked(self, button):
         pass
