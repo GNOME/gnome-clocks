@@ -369,7 +369,6 @@ class Alarm(Clock):
     def _check_alarms(self):
         for i in self.liststore:
             alarm = self.liststore.get_value(i.iter, 4)
-            print alarm.time
             if alarm.check_expired():
                 widget = self.liststore.get_value(i.iter, 3)
                 alert = widget.get_alert()
