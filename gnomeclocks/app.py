@@ -93,7 +93,6 @@ class Window(Gtk.ApplicationWindow):
             widget = d.get_standalone_widget()
             self.toolbar.show_standalone_toolbar(widget)
             self.single_evbox.add(widget)
-            self.single_evbox.show_all()
             self.notebook.set_current_page(-1)
 
         self.embed.spotlight(show_standalone_page)

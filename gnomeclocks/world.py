@@ -427,6 +427,8 @@ class StandaloneClock(Gtk.Box):
         hbox.pack_start(Gtk.Label(), True, True, 0)
         self.pack_end(hbox, False, False, 30)
 
+        self.show_all()
+
     def get_name(self):
         return GLib.markup_escape_text(self.location.get_city_name())
 

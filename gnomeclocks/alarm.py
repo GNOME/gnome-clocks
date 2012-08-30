@@ -369,6 +369,10 @@ class Alarm(Clock):
             if alarm.check_expired():
                 alert = self.liststore.get_value(i.iter, 4)
                 alert.show()
+                widget = self.liststore.get_value(i.iter, 3)
+                standalone = widget.get_standalone_widget()
+                standalone.set_ringing(True)
+                self.emit("show-standalone", widget)
         return True
 
     def _on_notification_activated(self, notif, action, data):
@@ -467,29 +471,66 @@ class StandaloneAlarm(Gtk.Box):
         self.timebox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
         self.alarm_label = Gtk.Label()
-        self.alarm_label.set_alignment(0.0, 0.5)
+        self.alarm_label.set_alignment(0.5, 0.5)
         self.timebox.pack_start(self.alarm_label, True, True, 0)
 
         self.repeat_label = Gtk.Label()
         self.repeat_label.set_alignment(0.5, 0.5)
         self.timebox.pack_start(self.repeat_label, True, True, 0)
 
-        self.hbox = Gtk.Box()
-        self.hbox.set_homogeneous(False)
+        self.buttons = Gtk.Box()
+        self.leftButton = Gtk.Button()
+        self.leftButton.get_style_context().add_class("clocks-stop")
+        self.leftButton.set_size_request(200, -1)
+        self.leftLabel = Gtk.Label()
+        self.leftButton.add(self.leftLabel)
+        self.rightButton = Gtk.Button()
+        self.rightButton.set_size_request(200, -1)
+        self.rightLabel = Gtk.Label()
+        self.rightButton.add(self.rightLabel)
 
-        self.hbox.pack_start(Gtk.Label(), True, True, 0)
-        self.hbox.pack_start(self.timebox, False, False, 0)
-        self.hbox.pack_start(Gtk.Label(), True, True, 0)
+        self.buttons.pack_start(self.leftButton, True, True, 0)
+        self.buttons.pack_start(Gtk.Box(), True, True, 24)
+        self.buttons.pack_start(self.rightButton, True, True, 0)
+
+        self.leftLabel.set_markup("<span font_desc=\"18.0\">%s</span>" % (_("Stop")))
+        self.leftLabel.set_padding(6, 0)
+        self.rightLabel.set_markup("<span font_desc=\"18.0\">%s</span>" % (_("Snooze")))
+        self.rightLabel.set_padding(6, 0)
+
+        self.leftButton.connect('clicked', self._on_stop_clicked)
+        self.rightButton.connect('clicked', self._on_snooze_clicked)
+
+        self.timebox.pack_start(self.buttons, True, True, 48)
+
+        hbox = Gtk.Box()
+        hbox.set_homogeneous(False)
+
+        hbox.pack_start(Gtk.Label(), True, True, 0)
+        hbox.pack_start(self.timebox, False, False, 0)
+        hbox.pack_start(Gtk.Label(), True, True, 0)
 
         self.pack_start(Gtk.Label(), True, True, 0)
-        self.pack_start(self.hbox, False, False, 0)
+        self.pack_start(hbox, False, False, 0)
         self.pack_start(Gtk.Label(), True, True, 0)
 
         self.update()
 
+        self.show_all()
+        self.set_ringing(False)
+
+    def _on_stop_clicked(self, button):
+        pass
+
+    def _on_snooze_clicked(self, button):
+        pass
+
     def get_name(self):
         name = self.alarm.get_alarm_name()
         return GLib.markup_escape_text(name)
+
+    def set_ringing(self, show):
+        self.buttons.set_visible(show)
 
     def update(self):
         timestr = self.alarm.get_time_as_string()
