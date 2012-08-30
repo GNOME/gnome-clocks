@@ -23,7 +23,7 @@ from datetime import datetime, timedelta
 from gi.repository import GLib, GObject, Gio, Gtk, GdkPixbuf
 from gi.repository import GWeather
 from clocks import Clock
-from utils import Dirs, SystemSettings, Alert
+from utils import Dirs, SystemSettings, LocalizedWeekdays, Alert
 from widgets import DigitalClockDrawing, SelectableIconView, ContentView
 
 
@@ -100,7 +100,7 @@ class AlarmItem:
         if vevent.rrule.value == 'FREQ=DAILY;':
             self.repeat = ['FR', 'MO', 'SA', 'SU', 'TH', 'TU', 'WE']
         else:
-            self.repeat = vevent.rrule.value[19:].split(',')
+            self.repeat = [d.upper() for d in vevent.rrule.value[18:].split(',')]
         self.expired = datetime.now() > self.time
 
     def get_time_as_string(self):
@@ -127,28 +127,28 @@ class AlarmItem:
         # sorted(list of days)
         sorted_repeat = sorted(self.repeat)
         if sorted_repeat == ['FR', 'MO', 'SA', 'SU', 'TH', 'TU', 'WE']:
-            return "Every day"
+            return _("Every day")
         elif sorted_repeat == ['FR', 'MO', 'TH', 'TU', 'WE']:
-            return "Weekdays"
+            return _("Weekdays")
         elif len(sorted_repeat) == 0:
-            return None
+            return ""
         else:
-            repeat_string = ""
+            days = []
             if 'MO' in self.repeat:
-                repeat_string += 'Mon, '
+                days.append(LocalizedWeekdays.MO)
             if 'TU' in self.repeat:
-                repeat_string += 'Tue, '
+                days.append(LocalizedWeekdays.TU)
             if 'WE' in self.repeat:
-                repeat_string += 'Wed, '
+                days.append(LocalizedWeekdays.WE)
             if 'TH' in self.repeat:
-                repeat_string += 'Thu, '
+                days.append(LocalizedWeekdays.TH)
             if 'FR' in self.repeat:
-                repeat_string += 'Fri, '
+                days.append(LocalizedWeekdays.FR)
             if 'SA' in self.repeat:
-                repeat_string += 'Sat, '
+                days.append(LocalizedWeekdays.SA)
             if 'SU' in self.repeat:
-                repeat_string += 'Sun, '
-            return repeat_string[:-2]
+                days.append(LocalizedWeekdays.SU)
+            return ", ".join(days)
 
     def get_vevent(self):
         if self.vevent:

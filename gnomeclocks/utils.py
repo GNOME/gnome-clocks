@@ -17,6 +17,7 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import os
+import time
 import pycanberra
 from xdg import BaseDirectory
 from gi.repository import Gio, Notify
@@ -58,6 +59,16 @@ class SystemSettings:
         settings = Gio.Settings.new('org.gnome.desktop.interface')
         systemClockFormat = settings.get_string('clock-format')
         return systemClockFormat
+
+
+class LocalizedWeekdays:
+    MO = time.strftime("%a", (0, 0, 0, 0, 0, 0, 0, 0, 0))
+    TU = time.strftime("%a", (0, 0, 0, 0, 0, 0, 1, 0, 0))
+    WE = time.strftime("%a", (0, 0, 0, 0, 0, 0, 2, 0, 0))
+    TH = time.strftime("%a", (0, 0, 0, 0, 0, 0, 3, 0, 0))
+    FR = time.strftime("%a", (0, 0, 0, 0, 0, 0, 4, 0, 0))
+    SA = time.strftime("%a", (0, 0, 0, 0, 0, 0, 5, 0, 0))
+    SU = time.strftime("%a", (0, 0, 0, 0, 0, 0, 6, 0, 0))
 
 
 class Alert:
