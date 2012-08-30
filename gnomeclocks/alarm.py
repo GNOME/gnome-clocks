@@ -175,9 +175,8 @@ class AlarmItem:
 
 
 class AlarmDialog(Gtk.Dialog):
-    def __init__(self, alarm_view, parent, vevent=None):
-        self.vevent = vevent
-        if vevent:
+    def __init__(self, alarm_view, parent, alarm=None):
+        if alarm:
             Gtk.Dialog.__init__(self, _("Edit Alarm"), parent)
         else:
             Gtk.Dialog.__init__(self, _("New Alarm"), parent)
@@ -197,10 +196,11 @@ class AlarmDialog(Gtk.Dialog):
         grid.set_border_width(6)
         content_area.pack_start(grid, True, True, 0)
 
-        if vevent:
+        if alarm:
+            vevent = alarm.get_vevent()
             t = vevent.dtstart.value
             h = int(t.strftime("%I"))
-            m = int(t.strftime("%m"))
+            m = int(t.strftime("%M"))
             p = t.strftime("%p")
             name = vevent.summary.value
             repeat = self.get_repeat_days_from_vevent(vevent)
@@ -308,15 +308,19 @@ class AlarmDialog(Gtk.Dialog):
 
 
 class AlarmWidget():
-    def __init__(self, time_given, repeat):
+    def __init__(self, view, alarm):
+        self.view = view
+        self.alarm = alarm
+        timestr = alarm.get_time_as_string()
+        repeat = alarm.get_alarm_repeat_string()
         self.drawing = DigitalClockDrawing()
-        t = time_given
-        isDay = self.get_is_day(int(t[:2]))
+        isDay = self.get_is_day(int(timestr[:2]))
         if isDay:
             img = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
         else:
             img = os.path.join(Dirs.get_image_dir(), "cities", "night.png")
-        self.drawing.render(t, img, isDay, repeat)
+        self.drawing.render(timestr, img, isDay, repeat)
+        self.standalone = None
 
     def get_is_day(self, hours):
         if hours > 7 and hours < 19:
@@ -326,6 +330,11 @@ class AlarmWidget():
 
     def get_pixbuf(self):
         return self.drawing.pixbuf
+
+    def get_standalone_widget(self):
+        if not self.standalone:
+            self.standalone = StandaloneAlarm(self.view, self.alarm)
+        return self.standalone
 
 
 class Alarm(Clock):
@@ -358,7 +367,6 @@ class Alarm(Clock):
         for i in self.liststore:
             alarm = self.liststore.get_value(i.iter, 5)
             if alarm.check_expired():
-                print alarm
                 alert = self.liststore.get_value(i.iter, 4)
                 alert.show()
         return True
@@ -368,8 +376,8 @@ class Alarm(Clock):
         win.show_clock(self)
 
     def _on_item_activated(self, iconview, path):
-        alarm = self.liststore[path][-1]
-        self.open_edit_dialog(alarm.get_vevent())
+        alarm = self.liststore[path][3]
+        self.emit("show-standalone", alarm)
 
     def _on_selection_changed(self, iconview):
         self.emit("selection-changed")
@@ -396,6 +404,7 @@ class Alarm(Clock):
         handler = ICSHandler()
         vevents = handler.load_vevents()
         for vevent in vevents:
+            t = vevent.dtstart.value
             alarm = AlarmItem()
             alarm.new_from_vevent(vevent)
             self.add_alarm_widget(alarm)
@@ -409,9 +418,7 @@ class Alarm(Clock):
 
     def add_alarm_widget(self, alarm):
         name = alarm.get_alarm_name()
-        timestr = alarm.get_time_as_string()
-        repeat = alarm.get_alarm_repeat_string()
-        widget = AlarmWidget(timestr, repeat)
+        widget = AlarmWidget(self, alarm)
         alert = Alert("alarm-clock-elapsed", name,
                       self._on_notification_activated)
         label = GLib.markup_escape_text(name)
@@ -440,19 +447,67 @@ class Alarm(Clock):
 
     def open_new_dialog(self):
         window = AlarmDialog(self, self.get_toplevel())
-        window.connect("response", self.on_dialog_response, None)
+        window.connect("response", self.on_dialog_response)
         window.show_all()
 
-    def open_edit_dialog(self, vevent):
-        window = AlarmDialog(self, self.get_toplevel(), vevent)
-        window.connect("response", self.on_dialog_response, vevent)
-        window.show_all()
-
-    def on_dialog_response(self, dialog, response, old_vevent):
+    def on_dialog_response(self, dialog, response):
         if response == 1:
             alarm = dialog.get_alarm_item()
-            if old_vevent:
-                self.edit_alarm(old_vevent, alarm)
-            else:
-                self.add_alarm(alarm)
+            self.add_alarm(alarm)
+        dialog.destroy()
+
+
+class StandaloneAlarm(Gtk.Box):
+    def __init__(self, view, alarm):
+        Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL)
+        self.view = view
+        self.alarm = alarm
+        self.can_edit = True
+
+        self.timebox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+
+        self.alarm_label = Gtk.Label()
+        self.alarm_label.set_alignment(0.0, 0.5)
+        self.timebox.pack_start(self.alarm_label, True, True, 0)
+
+        self.repeat_label = Gtk.Label()
+        self.repeat_label.set_alignment(0.5, 0.5)
+        self.timebox.pack_start(self.repeat_label, True, True, 0)
+
+        self.hbox = Gtk.Box()
+        self.hbox.set_homogeneous(False)
+
+        self.hbox.pack_start(Gtk.Label(), True, True, 0)
+        self.hbox.pack_start(self.timebox, False, False, 0)
+        self.hbox.pack_start(Gtk.Label(), True, True, 0)
+
+        self.pack_start(Gtk.Label(), True, True, 0)
+        self.pack_start(self.hbox, False, False, 0)
+        self.pack_start(Gtk.Label(), True, True, 0)
+
+        self.update()
+
+    def get_name(self):
+        name = self.alarm.get_alarm_name()
+        return GLib.markup_escape_text(name)
+
+    def update(self):
+        timestr = self.alarm.get_time_as_string()
+        repeat = self.alarm.get_alarm_repeat_string()
+        self.alarm_label.set_markup(
+            "<span size='72000' color='dimgray'><b>%s</b></span>" % timestr)
+        self.repeat_label.set_markup(
+            "<span size='large' color='dimgray'><b>%s</b></span>" % repeat)
+
+    def open_edit_dialog(self):
+        window = AlarmDialog(self, self.get_toplevel(), self.alarm)
+        window.connect("response", self.on_dialog_response)
+        window.show_all()
+
+    def on_dialog_response(self, dialog, response):
+        if response == 1:
+            old_vevent = self.alarm.get_vevent()
+            self.alarm = dialog.get_alarm_item()
+            self.view.edit_alarm(old_vevent, self.alarm)
+            self.update()
         dialog.destroy()

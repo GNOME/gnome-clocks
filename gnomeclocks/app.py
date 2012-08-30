@@ -84,15 +84,15 @@ class Window(Gtk.ApplicationWindow):
         self.toolbar.connect("view-clock", self._on_view_clock)
         self.vbox.show_all()
         self.show_all()
-        self.toolbar.selection_toolbar.hide()
+        self.toolbar.show_overview_toolbar()
 
     def show_clock(self, view):
         self.toolbar.activate_view(view)
 
     def _on_show_standalone(self, widget, d):
         def show_standalone_page():
-            widget, title = d.get_standalone_widget()
-            self.toolbar._set_single_toolbar(title)
+            widget = d.get_standalone_widget()
+            self.toolbar.show_standalone_toolbar(widget)
             self.single_evbox.add(widget)
             self.single_evbox.show_all()
             self.notebook.set_current_page(-1)
@@ -105,7 +105,7 @@ class Window(Gtk.ApplicationWindow):
                 self.single_evbox.remove(child)
             view.unselect_all()
             self.notebook.set_current_page(self.views.index(view))
-            self.toolbar._set_overview_toolbar()
+            self.toolbar.show_overview_toolbar()
 
         if self.single_evbox.get_children():
             self.embed.spotlight(show_clock_view)
@@ -273,26 +273,24 @@ class ClocksToolbar(Gtk.Toolbar):
         self.set_icon_size(Gtk.IconSize.MENU)
         self.get_style_context().add_class(Gtk.STYLE_CLASS_MENUBAR)
 
-        toolitem = Gtk.ToolItem()
-        toolitem.set_expand(True)
-
-        toolbox = Gtk.Box()
-        toolitem.add(toolbox)
-        self.insert(toolitem, -1)
-
         self.views = views
 
-        self.newButton = Gtk.Button()
+        sizeGroup = Gtk.SizeGroup(Gtk.SizeGroupMode.HORIZONTAL)
 
+        leftItem = Gtk.ToolItem()
+        self.insert(leftItem, -1)
+        sizeGroup.add_widget(leftItem)
+
+        leftBox = Gtk.Box()
+        leftItem.add(leftBox)
+
+        self.newButton = Gtk.Button()
         label = Gtk.Label(_("New"))
         self.newButton.set_action_name("win.new")
         self.newButton.get_style_context().add_class('suggested-action')
         self.newButton.add(label)
         self.newButton.set_size_request(64, -1)
-
-        self.leftBox = box = Gtk.Box()
-        box.pack_start(self.newButton, False, False, 0)
-        toolbox.pack_start(box, True, True, 0)
+        leftBox.pack_start(self.newButton, False, False, 0)
 
         self.backButton = Gtk.Button()
         icon = Gio.ThemedIcon.new_with_default_fallbacks(
@@ -303,13 +301,20 @@ class ClocksToolbar(Gtk.Toolbar):
         self.backButton.set_size_request(33, 33)
         self.backButton.connect("clicked",
             lambda w: self.emit("view-clock", self.current_view))
+        leftBox.pack_start(self.backButton, False, False, 0)
 
-        toolbox.pack_start(Gtk.Label(""), True, True, 0)
+        centerItem = Gtk.ToolItem()
+        centerItem.set_expand(True)
+        self.insert(centerItem, -1)
+
+        centerBox = Gtk.Box()
+        centerItem.add(centerBox)
 
         self.buttonBox = Gtk.Box()
         self.buttonBox.set_homogeneous(True)
+        self.buttonBox.set_halign(Gtk.Align.CENTER)
         self.buttonBox.get_style_context().add_class("linked")
-        toolbox.pack_start(self.buttonBox, False, False, 0)
+        centerBox.pack_start(self.buttonBox, True, False, 0)
 
         self.viewsButtons = {}
         for view in views:
@@ -324,10 +329,16 @@ class ClocksToolbar(Gtk.Toolbar):
                 button.set_active(True)
 
         self.titleLabel = Gtk.Label()
-        toolbox.pack_start(self.titleLabel, False, False, 0)
-        toolbox.pack_start(Gtk.Box(), False, False, 15)
+        self.titleLabel.set_halign(Gtk.Align.CENTER)
+        self.titleLabel.set_valign(Gtk.Align.CENTER)
+        centerBox.pack_start(self.titleLabel, True, False, 0)
 
-        toolbox.pack_start(Gtk.Label(""), True, True, 0)
+        rightItem = Gtk.ToolItem()
+        sizeGroup.add_widget(rightItem)
+
+        rightBox = Gtk.Box()
+        rightItem.add(rightBox)
+        self.insert(rightItem, -1)
 
         self.selectButton = Gtk.Button()
         icon = Gio.ThemedIcon.new_with_default_fallbacks(
@@ -338,9 +349,12 @@ class ClocksToolbar(Gtk.Toolbar):
         self.selectButton.set_size_request(32, 32)
         self.selectButton.set_sensitive(self.current_view.can_select)
         self.selectButton.connect('clicked', self._on_selection_mode, True)
-        self.rightBox = box = Gtk.Box()
-        box.pack_end(self.selectButton, False, False, 0)
-        toolbox.pack_start(box, True, True, 0)
+        rightBox.pack_end(self.selectButton, False, False, 0)
+
+        self.editButton = Gtk.Button(_("Edit"))
+        self.editButton.set_size_request(64, 34)
+        self.editButton.connect('clicked', self._on_edit)
+        rightBox.pack_end(self.editButton, False, False, 0)
 
         self.selection_toolbar = SelectionToolbar(embed)
         self.selection_toolbar.doneButton.connect("clicked",
@@ -350,22 +364,25 @@ class ClocksToolbar(Gtk.Toolbar):
         if view is not self.current_view:
             self.viewsButtons[view].set_active(True)
 
-    def _set_overview_toolbar(self):
+    def show_overview_toolbar(self):
+        self.standalone = None
+        self.selection_toolbar.hide()
         self.buttonBox.show()
         self.newButton.show()
         self.selectButton.show()
         self.backButton.hide()
         self.titleLabel.hide()
+        self.editButton.hide()
 
-    def _set_single_toolbar(self, title):
+    def show_standalone_toolbar(self, widget):
+        self.standalone = widget
         self.buttonBox.hide()
         self.newButton.hide()
         self.selectButton.hide()
-        if not self.backButton.get_parent():
-            self.leftBox.pack_start(self.backButton, False, False, 0)
         self.backButton.show_all()
-        self.titleLabel.set_markup("<b>%s</b>" % title)
+        self.titleLabel.set_markup("<b>%s</b>" % self.standalone.get_name())
         self.titleLabel.show()
+        self.editButton.set_visible(self.standalone.can_edit)
 
     def _on_toggled(self, widget, view):
         self.current_view = view
@@ -403,6 +420,9 @@ class ClocksToolbar(Gtk.Toolbar):
         self.set_visible(not selection_mode)
         self.selection_toolbar.set_current_view(self.current_view)
         self.current_view.set_selection_mode(selection_mode)
+
+    def _on_edit(self, button):
+        self.standalone.open_edit_dialog()
 
 
 class ClocksApplication(Gtk.Application):

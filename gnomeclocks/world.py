@@ -215,8 +215,7 @@ class DigitalClock():
         if not self.standalone:
             self.standalone = StandaloneClock(self.location, self.sunrise, self.sunset)
         self.update()
-        title = GLib.markup_escape_text(self.location.get_city_name())
-        return self.standalone, title
+        return self.standalone
 
     def get_day(self):
         clock_time_day = self.get_local_time(time.time()).tm_yday
@@ -321,13 +320,13 @@ class World(Clock):
                 # duplicate
                 return
         self.clocks.append(location)
+        self.storage.save_clocks(self.clocks)
         self.add_clock_widget(location)
         self.show_all()
-        self.storage.save_clocks(self.clocks)
 
     def add_clock_widget(self, location):
         d = DigitalClock(location)
-        name = d.location.get_city_name()
+        name = location.get_city_name()
         label = GLib.markup_escape_text(name)
         view_iter = self.liststore.append([False,
                                            d.get_pixbuf(),
@@ -362,6 +361,8 @@ class World(Clock):
 class StandaloneClock(Gtk.Box):
     def __init__(self, location, sunrise, sunset):
         Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL)
+        self.location = location
+        self.can_edit = False
         #self.img = Gtk.Image()
         #self.city_label = Gtk.Label()
         #label = GLib.markup_escape_text(location.get_city_name())
@@ -425,6 +426,9 @@ class StandaloneClock(Gtk.Box):
         hbox.pack_start(sunbox, False, False, 0)
         hbox.pack_start(Gtk.Label(), True, True, 0)
         self.pack_end(hbox, False, False, 30)
+
+    def get_name(self):
+        return GLib.markup_escape_text(self.location.get_city_name())
 
     def update(self, img, text, systemClockFormat, sunrise, sunset):
         size = 72000  # FIXME: (self.get_allocation().height / 300) * 72000
