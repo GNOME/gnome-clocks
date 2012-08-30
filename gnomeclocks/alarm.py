@@ -199,9 +199,13 @@ class AlarmDialog(Gtk.Dialog):
         if alarm:
             vevent = alarm.get_vevent()
             t = vevent.dtstart.value
-            h = int(t.strftime("%I"))
+            if self.cf == "12h":
+                h = int(t.strftime("%I"))
+                p = t.strftime("%p")
+            else:
+                h = int(t.strftime("%H"))
+                p = None
             m = int(t.strftime("%M"))
-            p = t.strftime("%p")
             name = vevent.summary.value
             repeat = self.get_repeat_days_from_vevent(vevent)
         else:
