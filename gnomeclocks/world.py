@@ -147,19 +147,14 @@ class DigitalClock():
         t = time.localtime(t)
         return t
 
-    def get_local_time_text(self):
-        text = time.strftime("%I:%M%p", self.get_local_time(time.time()))
-        if text.startswith("0"):
-            text = text[1:]
-        return text
-
     def update(self):
-        t = self.get_local_time_text()
         systemClockFormat = SystemSettings.get_clock_format()
         if systemClockFormat == '12h':
-            t = time.strftime("%I:%M%p", self.get_local_time(time.time()))
+            t = time.strftime("%I:%M %p", self.get_local_time(time.time()))
         else:
             t = time.strftime("%H:%M", self.get_local_time(time.time()))
+        if t.startswith("0"):
+            t = t[1:]
         if not t == self._last_time \
                 or not self.sunrise == self._last_sunrise \
                 or not self.sunset == self._last_sunset:
@@ -435,19 +430,18 @@ class StandaloneClock(Gtk.Box):
                 sunrise != self.sunrise or sunset != self.sunset:
             self.sunrise = sunrise
             self.sunset = sunset
-            sunrise_markup = ""
-            sunset_markup = ""
             if systemClockFormat == "12h":
-                sunrise_markup = sunrise_markup + "<span size ='large'>" +\
-                    time.strftime("%I:%M%p", sunrise) + "</span>"
-
-                sunset_markup = sunset_markup + "<span size ='large'>" +\
-                    time.strftime("%H:%M", sunset) + "</span>"
+                sunrise_str = time.strftime("%I:%M %p", sunrise)
+                sunset_str = time.strftime("%I:%M %p", sunset)
             else:
-                sunrise_markup = sunrise_markup + "<span size ='large'>" +\
-                    time.strftime("%H:%M", sunrise) + "</span>"
-                sunset_markup = sunset_markup + "<span size ='large'>" +\
-                    time.strftime("%H:%M", sunset) + "</span>"
-            self.sunrise_time_label.set_markup(sunrise_markup)
-            self.sunset_time_label.set_markup(sunset_markup)
+                sunrise_str = time.strftime("%H:%M", sunrise)
+                sunset_str = time.strftime("%H:%M", sunset)
+            if sunrise_str.startswith("0"):
+                sunrise_str = sunrise_str[1:]
+            if sunset_str.startswith("0"):
+                sunset_str = sunset_str[1:]
+            self.sunrise_time_label.set_markup(
+                "<span size ='large'>%s</span>" % sunrise_str)
+            self.sunset_time_label.set_markup(
+                "<span size ='large'>%s</span>" % sunset_str)
         self.systemClockFormat = systemClockFormat
