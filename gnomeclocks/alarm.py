@@ -378,6 +378,10 @@ class Alarm(Clock):
         i = self.alarms.index(old_alarm)
         self.alarms[i] = new_alarm
         self.storage.save(self.alarms)
+        self.iconview.unselect_all()
+        self.liststore.clear()
+        self.load_alarms()
+        self.notify("can-select")
 
     def delete_alarms(self, alarms):
         for a in alarms:
@@ -469,7 +473,7 @@ class StandaloneAlarm(Gtk.Box):
         self.alert.stop()
 
     def get_name(self):
-        name = self.alarm.get_alarm_name()
+        name = self.alarm.name
         return GLib.markup_escape_text(name)
 
     def set_ringing(self, show):
