@@ -186,10 +186,10 @@ class DigitalClock():
     def get_sunrise_sunset(self):
         world = GWeather.Location.new_world(True)
         self.weather = GWeather.Info(location=self.location, world=world)
-        self.weather.connect('updated', self.weather_updated_callback)
+        self.weather.connect('updated', self._on_weather_updated)
         self.weather.update()
 
-    def weather_updated_callback(self, weather):
+    def _on_weather_updated(self, weather):
         # returned as the time here
         ok, sunrise = weather.get_value_sunrise()
         ok, sunset = weather.get_value_sunset()
@@ -339,10 +339,10 @@ class World(Clock):
 
     def open_new_dialog(self):
         window = NewWorldClockDialog(self.get_toplevel())
-        window.connect("response", self.on_dialog_response)
+        window.connect("response", self._on_dialog_response)
         window.show_all()
 
-    def on_dialog_response(self, dialog, response):
+    def _on_dialog_response(self, dialog, response):
         if response == 1:
             l = dialog.get_location()
             self.add_clock(l)
