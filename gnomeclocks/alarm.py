@@ -38,7 +38,7 @@ class AlarmsStorage():
                 "name": a.name,
                 "hour": a.time.strftime("%H"),
                 "minute": a.time.strftime("%M"),
-                "repeat": a.repeat
+                "days": a.days
             }
             alarm_list.append(d)
         f = open(self.filename, "wb")
@@ -52,7 +52,12 @@ class AlarmsStorage():
             alarm_list = json.load(f)
             f.close()
             for a in alarm_list:
-                alarm = AlarmItem(a['name'], int(a['hour']), int(a['minute']), a['repeat'])
+                try:
+                    n, h, m, d = (a['name'], int(a['hour']), int(a['minute']), a['days'])
+                except:
+                    # skip alarms which do not have the required fields
+                    continue
+                alarm = AlarmItem(n, h, m, d)
                 alarms.append(alarm)
         except IOError as e:
             if e.errno == errno.ENOENT:
@@ -63,14 +68,14 @@ class AlarmsStorage():
 
 
 class AlarmItem:
-    def __init__(self, name=None, hour=None, minute=None, repeat=None):
-        self.update(name=name, hour=hour, minute=minute, repeat=repeat)
+    def __init__(self, name=None, hour=None, minute=None, days=None):
+        self.update(name=name, hour=hour, minute=minute, days=days)
 
-    def update(self, name=None, hour=None, minute=None, repeat=None):
+    def update(self, name=None, hour=None, minute=None, days=None):
         self.name = name
         self.hour = hour
         self.minute = minute
-        self.repeat = repeat # list of numbers, 0 == Monday
+        self.days = days # list of numbers, 0 == Monday
         if not hour == None and not minute == None:
             t = datetime.strptime("%02i:%02i" % (hour, minute), "%H:%M")
             self.time = datetime.combine(datetime.today(), t.time())
@@ -86,43 +91,43 @@ class AlarmItem:
             return self.time.strftime("%H:%M")
 
     def get_alarm_repeat_string(self):
-        n = len(self.repeat)
+        n = len(self.days)
         if n == 0:
             return ""
         elif n == 1:
-            if 0 in self.repeat:
+            if 0 in self.days:
                 return _("Mondays")
-            elif 1 in self.repeat:
+            elif 1 in self.days:
                 return _("Tuesdays")
-            elif 2 in self.repeat:
+            elif 2 in self.days:
                 return _("Wednesdays")
-            elif 3 in self.repeat:
+            elif 3 in self.days:
                 return _("Thursdays")
-            elif 4 in self.repeat:
+            elif 4 in self.days:
                 return _("Fridays")
-            elif 5 in self.repeat:
+            elif 5 in self.days:
                 return _("Saturdays")
-            elif 6 in self.repeat:
+            elif 6 in self.days:
                 return _("Sundays")
         elif n == 7:
             return _("Every day")
-        elif self.repeat == [0, 1, 2, 3, 4]:
+        elif self.days == [0, 1, 2, 3, 4]:
             return _("Weekdays")
         else:
             days = []
-            if 0 in self.repeat:
+            if 0 in self.days:
                 days.append(LocalizedWeekdays.MON)
-            if 1 in self.repeat:
+            if 1 in self.days:
                 days.append(LocalizedWeekdays.TUE)
-            if 2 in self.repeat:
+            if 2 in self.days:
                 days.append(LocalizedWeekdays.WED)
-            if 3 in self.repeat:
+            if 3 in self.days:
                 days.append(LocalizedWeekdays.THU)
-            if 4 in self.repeat:
+            if 4 in self.days:
                 days.append(LocalizedWeekdays.FRI)
-            if 5 in self.repeat:
+            if 5 in self.days:
                 days.append(LocalizedWeekdays.SAT)
-            if 6 in self.repeat:
+            if 6 in self.days:
                 days.append(LocalizedWeekdays.SUN)
             return ", ".join(days)
 
@@ -166,14 +171,14 @@ class AlarmDialog(Gtk.Dialog):
                 p = None
             m = alarm.minute
             name = alarm.name
-            repeat = alarm.repeat
+            days = alarm.days
         else:
             t = time.localtime()
             h = t.tm_hour
             m = t.tm_min
             p = time.strftime("%p", t)
             name = _("New Alarm")
-            repeat = []
+            days = []
 
         label = Gtk.Label(_("Time"))
         label.set_alignment(1.0, 0.5)
@@ -233,7 +238,7 @@ class AlarmDialog(Gtk.Dialog):
         for day_num, day_name in enumerate(LocalizedWeekdays.get_list()):
             btn = Gtk.ToggleButton(label=day_name)
             btn.data = day_num
-            if btn.data in repeat:
+            if btn.data in days:
                 btn.set_active(True)
             box.pack_start(btn, True, True, 0)
             self.day_buttons.append(btn)
@@ -253,11 +258,11 @@ class AlarmDialog(Gtk.Dialog):
                 h = 0
             elif r == 1 and h != 12:
                 h += 12
-        repeat = []
+        days = []
         for btn in self.day_buttons:
             if btn.get_active():
-                repeat.append(btn.data)
-        alarm = AlarmItem(name, h, m, repeat)
+                days.append(btn.data)
+        alarm = AlarmItem(name, h, m, days)
         return alarm
 
 
