@@ -203,7 +203,6 @@ class ClocksToolbar(Gtk.Toolbar):
         self.newButton = Gtk.Button()
         label = Gtk.Label(_("New"))
         self.newButton.set_action_name("win.new")
-        self.newButton.get_style_context().add_class('suggested-action')
         self.newButton.add(label)
         self.newButton.set_size_request(64, -1)
         leftBox.pack_start(self.newButton, False, False, 0)
@@ -274,7 +273,6 @@ class ClocksToolbar(Gtk.Toolbar):
         rightBox.pack_end(self.editButton, False, False, 0)
 
         self.doneButton = Gtk.Button(_("Done"))
-        self.doneButton.get_style_context().add_class('raised')
         self.doneButton.get_style_context().add_class('suggested-action')
         self.doneButton.set_size_request(64, 34)
         self.doneButton.connect("clicked", self._on_done_clicked)
