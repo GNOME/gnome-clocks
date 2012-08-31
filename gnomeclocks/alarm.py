@@ -382,6 +382,7 @@ class Alarm(Clock):
         self.liststore.clear()
         self.load_alarms()
         self.notify("can-select")
+        return self.alarms[i]
 
     def delete_alarms(self, alarms):
         for a in alarms:
@@ -495,7 +496,6 @@ class StandaloneAlarm(Gtk.Box):
     def _on_dialog_response(self, dialog, response):
         if response == 1:
             new_alarm = dialog.get_alarm_item()
-            self.view.update_alarm(self.alarm, new_alarm)
-            self.alarm = new_alarm
+            self.alarm =self.view.update_alarm(self.alarm, new_alarm)
             self.update()
         dialog.destroy()
