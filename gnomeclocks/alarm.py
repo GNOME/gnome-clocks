@@ -83,13 +83,23 @@ class AlarmItem:
         if not self.days:
             self.days = AlarmItem.EVERY_DAY
 
+        self.time = None
         if not hour == None and not minute == None:
-            t = datetime.strptime("%02i:%02i" % (hour, minute), "%H:%M")
-            self.time = datetime.combine(datetime.today(), t.time())
-            self.expired = datetime.now() > self.time
-        else:
-            self.time = None
-            self.expired = True
+            self.update_expiration_time()
+
+    def update_expiration_time(self):
+        now = datetime.now()
+        dt = now.replace(hour=self.hour, minute=self.minute)
+        # check if it can ring later today
+        if dt.weekday() not in self.days or dt <= now:
+            # otherwise if it can ring this week
+            next_days = [ d for d in self.days if d > dt.weekday() ]
+            if next_days:
+                dt += timedelta(days=(next_days[0] - dt.weekday()))
+            # otherwise next week
+            else:
+                dt += timedelta(weeks=1, days=(self.days[0] - dt.weekday()))
+        self.time = dt
 
     def get_time_as_string(self):
         if SystemSettings.get_clock_format() == "12h":
@@ -138,13 +148,11 @@ class AlarmItem:
                 days.append(LocalizedWeekdays.SUN)
             return ", ".join(days)
 
-    # FIXME: this is not a really good way, we assume each alarm
-    # can ring only once while the program is running
     def check_expired(self):
-        if self.expired:
-            return False
-        self.expired = datetime.now() > self.time
-        return self.expired
+        if datetime.now() > self.time:
+            self.update_expiration_time()
+            return True
+        return False
 
 
 class AlarmDialog(Gtk.Dialog):
@@ -493,7 +501,6 @@ class StandaloneAlarm(Gtk.Box):
     def _on_snooze_clicked(self, button):
         # Add 9 minutes, but without saving the change permanently
         self.alarm.time += timedelta(minutes=9)
-        self.alarm.expired = False
         self.alert.stop()
 
     def get_name(self):
