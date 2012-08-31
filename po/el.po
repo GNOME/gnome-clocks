@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-26 19:32+0000\n"
-"PO-Revision-Date: 2012-08-26 16:25+0200\n"
+"POT-Creation-Date: 2012-08-30 19:44+0000\n"
+"PO-Revision-Date: 2012-08-31 11:27+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
 "Language: el\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:31
+#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:35
 msgid "Clocks"
 msgstr "Ρολόγια"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:108
-#: ../gnomeclocks/app.py:117
+#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:120
+#: ../gnomeclocks/app.py:129
 msgid "GNOME Clocks"
 msgstr "Ρολόγια του GNOME"
 
@@ -33,130 +33,146 @@ msgstr ""
 "Ρολόγια για παγκόσμιες ώρες, για ειδοποιήσεις, με χρονόμετρο και αντίστροφη "
 "μέτρηση"
 
-#: ../gnomeclocks/app.py:107 ../gnomeclocks/app.py:416
+#: ../gnomeclocks/alarm.py:130
+msgid "Every day"
+msgstr "Καθημερινά"
+
+#: ../gnomeclocks/alarm.py:132
+msgid "Weekdays"
+msgstr "Εργάσιμες"
+
+#: ../gnomeclocks/alarm.py:180
+msgid "Edit Alarm"
+msgstr "Επεξεργασία ειδοποίησης"
+
+#: ../gnomeclocks/alarm.py:182 ../gnomeclocks/alarm.py:216
+msgid "New Alarm"
+msgstr "Νέα ειδοποίηση"
+
+#: ../gnomeclocks/alarm.py:219
+msgid "Time"
+msgstr "Ώρα"
+
+#: ../gnomeclocks/alarm.py:258
+msgid "Name"
+msgstr "Όνομα"
+
+#: ../gnomeclocks/alarm.py:267
+msgid "Repeat Every"
+msgstr "Επανάληψη κάθε"
+
+#: ../gnomeclocks/alarm.py:350
+msgid "Alarm"
+msgstr "Ειδοποίηση"
+
+#: ../gnomeclocks/alarm.py:362
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Επιλέξτε <b>Νέο</b> για να προσθέσετε μια ειδοποίηση"
+
+#: ../gnomeclocks/alarm.py:503 ../gnomeclocks/stopwatch.py:79
+msgid "Stop"
+msgstr "Διακοπή"
+
+#: ../gnomeclocks/alarm.py:505
+msgid "Snooze"
+msgstr "Χρονική μετάθεση ειδοποίησης"
+
+#: ../gnomeclocks/app.py:119 ../gnomeclocks/app.py:416
 msgid "About Clocks"
 msgstr "Περί του Ρολόγια"
 
-#: ../gnomeclocks/app.py:113
+#: ../gnomeclocks/app.py:125
 msgid "Utilities to help you with the time."
 msgstr "Προγράμματα για να βοηθηθείτε με το χρόνο."
 
-#: ../gnomeclocks/app.py:115
+#: ../gnomeclocks/app.py:127
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
 "  Θάνος Τρυφωνίδης <tomtryf@gmail.com>, 2012\n"
 "Για περισσότερα δείτε http://www.gnome.gr/."
 
-#: ../gnomeclocks/app.py:184
-msgid "Done"
-msgstr "Έγινε"
+#: ../gnomeclocks/app.py:204
+msgid "New"
+msgstr "Νέο"
 
-#: ../gnomeclocks/app.py:198
+#: ../gnomeclocks/app.py:271
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+#: ../gnomeclocks/app.py:276
+msgid "Done"
+msgstr "Ολοκλήρωση"
+
+#: ../gnomeclocks/app.py:361
 msgid "Click on items to select them"
 msgstr "Κάντε κλικ στα αντικείμενα για να τα επιλέξετε"
 
-#: ../gnomeclocks/app.py:200
+#: ../gnomeclocks/app.py:363
 #, python-format
 msgid "%d item selected"
 msgid_plural "%d items selected"
 msgstr[0] "Επιλέχθηκε %d αντικείμενο"
 msgstr[1] "Επιλέχθηκαν %d αντικείμενα"
 
-#: ../gnomeclocks/app.py:274
-msgid "New"
-msgstr "Νέο"
-
 #: ../gnomeclocks/app.py:419
 msgid "Quit"
 msgstr "Έξοδος"
 
-#: ../gnomeclocks/clocks.py:68
-msgid "World"
-msgstr "Κόσμος"
-
-#: ../gnomeclocks/clocks.py:72
-msgid "Select <b>New</b> to add a world clock"
-msgstr "Επιλέξτε <b>Νέο</b> για να προσθέσετε ένα παγκόσμιο ρολόι"
-
-#: ../gnomeclocks/clocks.py:184
-msgid "Alarm"
-msgstr "Ειδοποίηση"
-
-#: ../gnomeclocks/clocks.py:188
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Επιλέξτε <b>Νέο</b> για να προσθέσετε μια ειδοποίηση"
-
-#: ../gnomeclocks/clocks.py:342
+#: ../gnomeclocks/stopwatch.py:34
 msgid "Stopwatch"
 msgstr "Χρονόμετρο"
 
-#: ../gnomeclocks/clocks.py:371 ../gnomeclocks/clocks.py:416
-#: ../gnomeclocks/timer.py:175
+#: ../gnomeclocks/stopwatch.py:59 ../gnomeclocks/stopwatch.py:98
+#: ../gnomeclocks/timer.py:107
 msgid "Start"
 msgstr "Έναρξη"
 
-#: ../gnomeclocks/clocks.py:373 ../gnomeclocks/clocks.py:406
-#: ../gnomeclocks/timer.py:114
+#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:88
+#: ../gnomeclocks/timer.py:54
 msgid "Reset"
 msgstr "Επαναφορά"
 
-#: ../gnomeclocks/clocks.py:397
-msgid "Stop"
-msgstr "Διακοπή"
-
-#: ../gnomeclocks/clocks.py:404 ../gnomeclocks/timer.py:134
+#: ../gnomeclocks/stopwatch.py:86 ../gnomeclocks/timer.py:71
 msgid "Continue"
 msgstr "Συνέχεια"
 
-#: ../gnomeclocks/clocks.py:453
-msgid "Timer"
-msgstr "Αντίστροφη μέτρηση"
-
-#: ../gnomeclocks/timer.py:112 ../gnomeclocks/timer.py:128
-#: ../gnomeclocks/timer.py:138
+#: ../gnomeclocks/timer.py:47 ../gnomeclocks/timer.py:65
+#: ../gnomeclocks/timer.py:75
 msgid "Pause"
 msgstr "Παύση"
 
-#: ../gnomeclocks/widgets.py:33
+#: ../gnomeclocks/timer.py:148
+msgid "Timer"
+msgstr "Αντίστροφη μέτρηση"
+
+#: ../gnomeclocks/widgets.py:375
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: ../gnomeclocks/world.py:70
 msgid "Add a New World Clock"
 msgstr "Προσθήκη παγκόσμιου ρολογιού"
 
-#: ../gnomeclocks/widgets.py:43
+#: ../gnomeclocks/world.py:79
 msgid "Search for a city:"
 msgstr "Αναζήτηση πόλης:"
 
-#: ../gnomeclocks/widgets.py:270
+#: ../gnomeclocks/world.py:266
+msgid "World"
+msgstr "Κόσμος"
+
+#: ../gnomeclocks/world.py:277
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Επιλέξτε <b>Νέο</b> για να προσθέσετε ένα παγκόσμιο ρολόι"
+
+#: ../gnomeclocks/world.py:400
 msgid "Sunrise"
 msgstr "Ανατολή"
 
-#: ../gnomeclocks/widgets.py:280
+#: ../gnomeclocks/world.py:410
 msgid "Sunset"
 msgstr "Δύση"
-
-#: ../gnomeclocks/widgets.py:450
-msgid "Edit Alarm"
-msgstr "Επεξεργασία ειδοποίησης"
-
-#: ../gnomeclocks/widgets.py:452 ../gnomeclocks/widgets.py:481
-msgid "New Alarm"
-msgstr "Νέα ειδοποίηση"
-
-#: ../gnomeclocks/widgets.py:484
-msgid "Time"
-msgstr "Ώρα"
-
-#: ../gnomeclocks/widgets.py:523
-msgid "Name"
-msgstr "Όνομα"
-
-#: ../gnomeclocks/widgets.py:532
-msgid "Repeat Every"
-msgstr "Επανάληψη κάθε"
-
-#: ../gnomeclocks/widgets.py:739
-msgid "Delete"
-msgstr "Διαγραφή"
 
 #~ msgid "Add New Clock"
 #~ msgstr "Προσθήκη νέου ρολογιού"
