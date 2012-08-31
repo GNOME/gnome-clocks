@@ -68,14 +68,21 @@ class AlarmsStorage():
 
 
 class AlarmItem:
-    def __init__(self, name=None, hour=None, minute=None, days=None):
+    EVERY_DAY = [0, 1, 2, 3, 4, 5, 6]
+
+    def __init__(self, name=None, hour=None, minute=None, days=EVERY_DAY):
         self.update(name=name, hour=hour, minute=minute, days=days)
 
-    def update(self, name=None, hour=None, minute=None, days=None):
+    def update(self, name=None, hour=None, minute=None, days=EVERY_DAY):
         self.name = name
         self.hour = hour
         self.minute = minute
         self.days = days # list of numbers, 0 == Monday
+
+        # an alarm without any day makes no sense...
+        if not self.days:
+            self.days = AlarmItem.EVERY_DAY
+
         if not hour == None and not minute == None:
             t = datetime.strptime("%02i:%02i" % (hour, minute), "%H:%M")
             self.time = datetime.combine(datetime.today(), t.time())
