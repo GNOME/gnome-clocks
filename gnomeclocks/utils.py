@@ -62,13 +62,13 @@ class SystemSettings:
 
 
 class LocalizedWeekdays:
-    MO = time.strftime("%a", (0, 0, 0, 0, 0, 0, 0, 0, 0))
-    TU = time.strftime("%a", (0, 0, 0, 0, 0, 0, 1, 0, 0))
-    WE = time.strftime("%a", (0, 0, 0, 0, 0, 0, 2, 0, 0))
-    TH = time.strftime("%a", (0, 0, 0, 0, 0, 0, 3, 0, 0))
-    FR = time.strftime("%a", (0, 0, 0, 0, 0, 0, 4, 0, 0))
-    SA = time.strftime("%a", (0, 0, 0, 0, 0, 0, 5, 0, 0))
-    SU = time.strftime("%a", (0, 0, 0, 0, 0, 0, 6, 0, 0))
+    MON = time.strftime("%a", (0, 0, 0, 0, 0, 0, 0, 0, 0))
+    TUE = time.strftime("%a", (0, 0, 0, 0, 0, 0, 1, 0, 0))
+    WED = time.strftime("%a", (0, 0, 0, 0, 0, 0, 2, 0, 0))
+    THU = time.strftime("%a", (0, 0, 0, 0, 0, 0, 3, 0, 0))
+    FRI = time.strftime("%a", (0, 0, 0, 0, 0, 0, 4, 0, 0))
+    SAT = time.strftime("%a", (0, 0, 0, 0, 0, 0, 5, 0, 0))
+    SUN = time.strftime("%a", (0, 0, 0, 0, 0, 0, 6, 0, 0))
 
 
 class Alert:

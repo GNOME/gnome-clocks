@@ -96,22 +96,37 @@ class AlarmItem:
             return _("Weekdays")
         elif len(sorted_repeat) == 0:
             return ""
+        elif len(sorted_repeat) == 1:
+            if 'MO' in self.repeat:
+                return _("Mondays")
+            elif 'TU' in self.repeat:
+                return _("Tuesdays")
+            elif 'WE' in self.repeat:
+                return _("Wednesdays")
+            elif 'TH' in self.repeat:
+                return _("Thursdays")
+            elif 'FR' in self.repeat:
+                return _("Fridays")
+            elif 'SA' in self.repeat:
+                return _("Saturdays")
+            elif 'SU' in self.repeat:
+                return _("Sundays")
         else:
             days = []
             if 'MO' in self.repeat:
-                days.append(LocalizedWeekdays.MO)
+                days.append(LocalizedWeekdays.MON)
             if 'TU' in self.repeat:
-                days.append(LocalizedWeekdays.TU)
+                days.append(LocalizedWeekdays.TUE)
             if 'WE' in self.repeat:
-                days.append(LocalizedWeekdays.WE)
+                days.append(LocalizedWeekdays.WED)
             if 'TH' in self.repeat:
-                days.append(LocalizedWeekdays.TH)
+                days.append(LocalizedWeekdays.THU)
             if 'FR' in self.repeat:
-                days.append(LocalizedWeekdays.FR)
+                days.append(LocalizedWeekdays.FRI)
             if 'SA' in self.repeat:
-                days.append(LocalizedWeekdays.SA)
+                days.append(LocalizedWeekdays.SAT)
             if 'SU' in self.repeat:
-                days.append(LocalizedWeekdays.SU)
+                days.append(LocalizedWeekdays.SUN)
             return ", ".join(days)
 
     # FIXME: this is not a really good way, we assume each alarm
