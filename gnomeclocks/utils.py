@@ -70,6 +70,18 @@ class LocalizedWeekdays:
     SAT = time.strftime("%a", (0, 0, 0, 0, 0, 0, 5, 0, 0))
     SUN = time.strftime("%a", (0, 0, 0, 0, 0, 0, 6, 0, 0))
 
+    @staticmethod
+    def get_list():
+        return [
+            LocalizedWeekdays.MON,
+            LocalizedWeekdays.TUE,
+            LocalizedWeekdays.WED,
+            LocalizedWeekdays.THU,
+            LocalizedWeekdays.FRI,
+            LocalizedWeekdays.SAT,
+            LocalizedWeekdays.SUN
+        ]
+
 
 class Alert:
     def __init__(self, soundid, msg, callback):

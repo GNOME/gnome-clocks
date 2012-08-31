@@ -70,7 +70,7 @@ class AlarmItem:
         self.name = name
         self.hour = hour
         self.minute = minute
-        self.repeat = repeat
+        self.repeat = repeat # list of numbers, 0 == Monday
         if not hour == None and not minute == None:
             t = datetime.strptime("%02i:%02i" % (hour, minute), "%H:%M")
             self.time = datetime.combine(datetime.today(), t.time())
@@ -86,46 +86,43 @@ class AlarmItem:
             return self.time.strftime("%H:%M")
 
     def get_alarm_repeat_string(self):
-        # lists only compare the same if corresponing elements are the same
-        # we form self.repeat by random appending
-        # sorted(list of days)
-        sorted_repeat = sorted(self.repeat)
-        if sorted_repeat == ['FR', 'MO', 'SA', 'SU', 'TH', 'TU', 'WE']:
-            return _("Every day")
-        elif sorted_repeat == ['FR', 'MO', 'TH', 'TU', 'WE']:
-            return _("Weekdays")
-        elif len(sorted_repeat) == 0:
+        n = len(self.repeat)
+        if n == 0:
             return ""
-        elif len(sorted_repeat) == 1:
-            if 'MO' in self.repeat:
+        elif n == 1:
+            if 0 in self.repeat:
                 return _("Mondays")
-            elif 'TU' in self.repeat:
+            elif 1 in self.repeat:
                 return _("Tuesdays")
-            elif 'WE' in self.repeat:
+            elif 2 in self.repeat:
                 return _("Wednesdays")
-            elif 'TH' in self.repeat:
+            elif 3 in self.repeat:
                 return _("Thursdays")
-            elif 'FR' in self.repeat:
+            elif 4 in self.repeat:
                 return _("Fridays")
-            elif 'SA' in self.repeat:
+            elif 5 in self.repeat:
                 return _("Saturdays")
-            elif 'SU' in self.repeat:
+            elif 6 in self.repeat:
                 return _("Sundays")
+        elif n == 7:
+            return _("Every day")
+        elif self.repeat == [0, 1, 2, 3, 4]:
+            return _("Weekdays")
         else:
             days = []
-            if 'MO' in self.repeat:
+            if 0 in self.repeat:
                 days.append(LocalizedWeekdays.MON)
-            if 'TU' in self.repeat:
+            if 1 in self.repeat:
                 days.append(LocalizedWeekdays.TUE)
-            if 'WE' in self.repeat:
+            if 2 in self.repeat:
                 days.append(LocalizedWeekdays.WED)
-            if 'TH' in self.repeat:
+            if 3 in self.repeat:
                 days.append(LocalizedWeekdays.THU)
-            if 'FR' in self.repeat:
+            if 4 in self.repeat:
                 days.append(LocalizedWeekdays.FRI)
-            if 'SA' in self.repeat:
+            if 5 in self.repeat:
                 days.append(LocalizedWeekdays.SAT)
-            if 'SU' in self.repeat:
+            if 6 in self.repeat:
                 days.append(LocalizedWeekdays.SUN)
             return ", ".join(days)
 
@@ -233,9 +230,9 @@ class AlarmDialog(Gtk.Dialog):
         # create a box and put repeat days in it
         box = Gtk.Box(True, 0)
         box.get_style_context().add_class("linked")
-        for day in ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]:
-            btn = Gtk.ToggleButton(label=_(day))
-            btn.data = day[:2].upper()
+        for day_num, day_name in enumerate(LocalizedWeekdays.get_list()):
+            btn = Gtk.ToggleButton(label=day_name)
+            btn.data = day_num
             if btn.data in repeat:
                 btn.set_active(True)
             box.pack_start(btn, True, True, 0)
