@@ -17,7 +17,7 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import time
-from gi.repository import Gtk, GObject, Gio
+from gi.repository import GObject, Gtk
 from clocks import Clock
 from utils import Alert
 from widgets import Spinner

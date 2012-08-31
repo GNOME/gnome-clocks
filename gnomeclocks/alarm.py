@@ -21,8 +21,7 @@ import errno
 import time
 import json
 from datetime import datetime, timedelta
-from gi.repository import GLib, GObject, Gio, Gtk, GdkPixbuf
-from gi.repository import GWeather
+from gi.repository import GLib, GObject, Gtk, GdkPixbuf
 from clocks import Clock
 from utils import Dirs, SystemSettings, LocalizedWeekdays, Alert
 from widgets import DigitalClockDrawing, SelectableIconView, ContentView

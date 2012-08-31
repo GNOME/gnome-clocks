@@ -17,9 +17,7 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import cairo
-from gi.repository import GLib, Gio, GObject
-from gi.repository import Gtk, Gdk, GdkPixbuf
-from gi.repository import Pango, PangoCairo
+from gi.repository import GObject, Gio, Gtk, Gdk, Pango, PangoCairo
 from gi.repository import Clutter, GtkClutter
 
 
