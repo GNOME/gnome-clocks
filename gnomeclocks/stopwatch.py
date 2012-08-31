@@ -122,6 +122,6 @@ class Stopwatch(Clock):
         timediff = time.time() - self.start_time + self.time_diff
         m, s = divmod(timediff, 60)
         s, d = divmod(s, 1)
-        d = int (d * 10)
+        d = int(d * 10)
         self.set_time(m, s, d)
         return True

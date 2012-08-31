@@ -135,6 +135,7 @@ class TimerWelcomeScreen(Gtk.Grid):
     def _on_start_clicked(self, data):
         self.timer.start()
 
+
 class Timer(Clock):
     LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
     BUTTON_MARKUP = "<span font_desc=\"18.0\">% s</span>"
