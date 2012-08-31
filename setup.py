@@ -18,5 +18,6 @@ DistUtilsExtra.auto.setup(
     url='https://live.gnome.org/GnomeClocks',
     license='GPL',
     author='Seif Lotfy, Emily Gonyer, Eslam Mostafa',
+    author_email='seif.lotfy@collabora.co.uk'
 )
 
