@@ -78,20 +78,17 @@ class ICSHandler():
 
 
 class AlarmItem:
-    def __init__(self, name=None, repeat=None, h=None, m=None, p=None):
+    def __init__(self, name=None, repeat=None, hour=None, minute=None):
         self.name = name
         self.repeat = repeat
-        self.vevent = None
-        if not h == None and not m == None:
-            if p:
-                t = datetime.strptime("%02i:%02i %s" % (h, m, p), "%I:%M %p")
-            else:
-                t = datetime.strptime("%02i:%02i" % (h, m), "%H:%M")
+        if not hour == None and not minute == None:
+            t = datetime.strptime("%02i:%02i" % (hour, minute), "%H:%M")
             self.time = datetime.combine(datetime.today(), t.time())
             self.expired = datetime.now() > self.time
         else:
             self.time = None
             self.expired = True
+        self.vevent = None
 
     def new_from_vevent(self, vevent):
         self.vevent = vevent
@@ -298,17 +295,15 @@ class AlarmDialog(Gtk.Dialog):
         m = self.minuteselect.get_value_as_int()
         if self.cf == "12h":
             r = self.ampm.get_active()
-            if r == 0:
-                p = "AM"
-            else:
-                p = "PM"
-        else:
-            p = None
+            if r == 0 and h == 12:
+                h = 0
+            elif r == 1 and h != 12:
+                h += 12
         repeat = []
         for btn in self.day_buttons:
             if btn.get_active():
                 repeat.append(btn.data)
-        alarm_item = AlarmItem(name, repeat, h, m, p)
+        alarm_item = AlarmItem(name, repeat, h, m)
         return alarm_item
 
 
