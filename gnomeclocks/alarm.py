@@ -17,8 +17,9 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import os
-import vobject
+import errno
 import time
+import json
 from datetime import datetime, timedelta
 from gi.repository import GLib, GObject, Gio, Gtk, GdkPixbuf
 from gi.repository import GWeather
@@ -27,59 +28,49 @@ from utils import Dirs, SystemSettings, LocalizedWeekdays, Alert
 from widgets import DigitalClockDrawing, SelectableIconView, ContentView
 
 
-class ICSHandler():
+class AlarmsStorage():
     def __init__(self):
-        self.ics_file = os.path.join(Dirs.get_user_data_dir(), "alarms.ics")
+        self.filename = os.path.join(Dirs.get_user_data_dir(), "alarms.json")
 
-    def add_vevent(self, vobj):
-        with open(self.ics_file, 'r+') as ics:
-            vcal = vobject.readOne(ics)
-            vcal.add(vobj)
-            ics.seek(0)
-            vcal.serialize(ics)
+    def save(self, alarms):
+        alarm_list = []
+        for a in alarms:
+            d = {
+                "name": a.name,
+                "hour": a.time.strftime("%H"),
+                "minute": a.time.strftime("%M"),
+                "repeat": a.repeat
+            }
+            alarm_list.append(d)
+        f = open(self.filename, "wb")
+        json.dump(alarm_list, f)
+        f.close()
 
-    def remove_vevents(self, uids):
-        with open(self.ics_file, 'r+') as ics:
-            vcal = vobject.readOne(ics)
-            v_set = []
-            for v in vcal.components():
-                if v.uid.value in uids:
-                    v_set.append(v)
-            for v in v_set:
-                vcal.remove(v)
-            ics.seek(0)
-            vcal.serialize(ics)
-
-    # FIXME: Update instead of remove and add
-    def update_vevent(self, old_vevent, new_vevent):
-        with open(self.ics_file, 'r+') as ics:
-            vcal = vobject.readOne(ics.read())
-        for event in vcal.vevent_list:
-            if event.uid.value == old_vevent.uid.value:
-                self.remove_vevents((old_vevent.uid.value,))
-                self.add_vevent(new_vevent)
-
-    def load_vevents(self):
+    def load(self):
         alarms = []
-        if os.path.exists(self.ics_file):
-            with open(self.ics_file, 'r') as ics:
-                vcal = vobject.readOne(ics.read())
-                for item in vcal.components():
-                    alarms.append(item)
-        else:
-            self.generate_ics_file()
-        return alarms
+        try:
+            f = open(self.filename, "rb")
+            alarm_list = json.load(f)
+            f.close()
+            for a in alarm_list:
+                alarm = AlarmItem(a['name'], int(a['hour']), int(a['minute']), a['repeat'])
+                alarms.append(alarm)
+        except IOError as e:
+            if e.errno == errno.ENOENT:
+                # File does not exist yet, that's ok
+                pass
 
-    def generate_ics_file(self):
-        vcal = vobject.iCalendar()
-        ics = open(self.ics_file, 'w')
-        ics.write(vcal.serialize())
-        ics.close()
+        return alarms
 
 
 class AlarmItem:
-    def __init__(self, name=None, repeat=None, hour=None, minute=None):
+    def __init__(self, name=None, hour=None, minute=None, repeat=None):
+        self.update(name=name, hour=hour, minute=minute, repeat=repeat)
+
+    def update(self, name=None, hour=None, minute=None, repeat=None):
         self.name = name
+        self.hour = hour
+        self.minute = minute
         self.repeat = repeat
         if not hour == None and not minute == None:
             t = datetime.strptime("%02i:%02i" % (hour, minute), "%H:%M")
@@ -88,35 +79,12 @@ class AlarmItem:
         else:
             self.time = None
             self.expired = True
-        self.vevent = None
-
-    def new_from_vevent(self, vevent):
-        self.vevent = vevent
-        self.name = vevent.summary.value
-        self.time = vevent.dtstart.value
-        if vevent.rrule.value == 'FREQ=DAILY;':
-            self.repeat = ['FR', 'MO', 'SA', 'SU', 'TH', 'TU', 'WE']
-        else:
-            self.repeat = [d.upper() for d in vevent.rrule.value[18:].split(',')]
-        self.expired = datetime.now() > self.time
 
     def get_time_as_string(self):
         if SystemSettings.get_clock_format() == "12h":
             return self.time.strftime("%I:%M %p")
         else:
             return self.time.strftime("%H:%M")
-
-    def set_alarm_name(self, name):
-        self.name = name
-
-    def get_alarm_name(self):
-        return self.name
-
-    def set_alarm_repeat(self, repeat):
-        self.repeat = repeat
-
-    def get_alarm_repeat(self):
-        return self.repeat
 
     def get_alarm_repeat_string(self):
         # lists only compare the same if corresponing elements are the same
@@ -147,21 +115,6 @@ class AlarmItem:
                 days.append(LocalizedWeekdays.SU)
             return ", ".join(days)
 
-    def get_vevent(self):
-        if self.vevent:
-            return self.vevent
-
-        self.vevent = vevent = vobject.newFromBehavior('vevent')
-        vevent.add('summary').value = self.name
-        vevent.add('dtstart').value = self.time
-        vevent.add('dtend').value = self.time
-        if len(self.repeat) == 0:
-            vevent.add('rrule').value = 'FREQ=DAILY;'
-        else:
-            vevent.add('rrule').value = 'FREQ=WEEKLY;BYDAY=%s' %\
-            ','.join(self.repeat)
-        return vevent
-
     # FIXME: this is not a really good way, we assume each alarm
     # can ring only once while the program is running
     def check_expired(self):
@@ -172,7 +125,7 @@ class AlarmItem:
 
 
 class AlarmDialog(Gtk.Dialog):
-    def __init__(self, alarm_view, parent, alarm=None):
+    def __init__(self, parent, alarm=None):
         if alarm:
             Gtk.Dialog.__init__(self, _("Edit Alarm"), parent)
         else:
@@ -194,17 +147,15 @@ class AlarmDialog(Gtk.Dialog):
         content_area.pack_start(grid, True, True, 0)
 
         if alarm:
-            vevent = alarm.get_vevent()
-            t = vevent.dtstart.value
             if self.cf == "12h":
-                h = int(t.strftime("%I"))
-                p = t.strftime("%p")
+                h = int(alarm.time.strftime("%I"))
+                p = alarm.time.strftime("%p")
             else:
-                h = int(t.strftime("%H"))
+                h = alarm.hour
                 p = None
-            m = int(t.strftime("%M"))
-            name = vevent.summary.value
-            repeat = self.get_repeat_days_from_vevent(vevent)
+            m = alarm.minute
+            name = alarm.name
+            repeat = alarm.repeat
         else:
             t = time.localtime()
             h = t.tm_hour
@@ -229,7 +180,7 @@ class AlarmDialog(Gtk.Dialog):
         self.minuteselect = Gtk.SpinButton()
         self.minuteselect.set_increments(1.0, 1.0)
         self.minuteselect.set_wrap(True)
-        self.minuteselect.connect('output', self.show_leading_zeros)
+        self.minuteselect.connect('output', self._show_leading_zeros)
         self.minuteselect.set_range(0.0, 59.0)
         self.minuteselect.set_value(m)
         grid.attach(self.minuteselect, 3, 0, 1, 1)
@@ -277,17 +228,9 @@ class AlarmDialog(Gtk.Dialog):
             self.day_buttons.append(btn)
         grid.attach(box, 1, 2, gridcols - 1, 1)
 
-    def show_leading_zeros(self, spin_button):
+    def _show_leading_zeros(self, spin_button):
         spin_button.set_text('{: 02d}'.format(spin_button.get_value_as_int()))
         return True
-
-    def get_repeat_days_from_vevent(self, vevent):
-        rrule = vevent.rrule.value
-        repeat = []
-        if rrule[5] == 'W':
-            days = rrule[18:]
-            repeat = days.split(",")
-        return repeat
 
     def get_alarm_item(self):
         name = self.entry.get_text()
@@ -303,8 +246,8 @@ class AlarmDialog(Gtk.Dialog):
         for btn in self.day_buttons:
             if btn.get_active():
                 repeat.append(btn.data)
-        alarm_item = AlarmItem(name, repeat, h, m)
-        return alarm_item
+        alarm = AlarmItem(name, h, m, repeat)
+        return alarm
 
 
 class AlarmWidget():
@@ -361,6 +304,8 @@ class Alarm(Clock):
         self.iconview.connect("item-activated", self._on_item_activated)
         self.iconview.connect("selection-changed", self._on_selection_changed)
 
+        self.storage = AlarmsStorage()
+
         self.load_alarms()
         self.show_all()
 
@@ -401,34 +346,27 @@ class Alarm(Clock):
 
     def delete_selected(self):
         selection = self.get_selection()
-        items = []
-        for treepath in selection:
-            v = self.liststore[treepath][-1].get_vevent()
-            items.append(v.uid.value)
-        self.delete_alarms(items)
+        alarms = []
+        for path in selection:
+            alarms.append(self.liststore[path][-1])
+        self.delete_alarms(alarms)
 
     def load_alarms(self):
-        handler = ICSHandler()
-        vevents = handler.load_vevents()
-        for vevent in vevents:
-            t = vevent.dtstart.value
-            alarm = AlarmItem()
-            alarm.new_from_vevent(vevent)
+        self.alarms = self.storage.load()
+        for alarm in self.alarms:
             self.add_alarm_widget(alarm)
 
     def add_alarm(self, alarm):
-        handler = ICSHandler()
-        handler.add_vevent(alarm.get_vevent())
+        self.alarms.append(alarm)
+        self.storage.save(self.alarms)
         self.add_alarm_widget(alarm)
         self.show_all()
-        vevents = handler.load_vevents()
 
     def add_alarm_widget(self, alarm):
-        name = alarm.get_alarm_name()
-        alert = Alert("alarm-clock-elapsed", name,
+        alert = Alert("alarm-clock-elapsed", alarm.name,
                       self._on_notification_activated)
         widget = AlarmWidget(self, alarm, alert)
-        label = GLib.markup_escape_text(name)
+        label = GLib.markup_escape_text(alarm.name)
         view_iter = self.liststore.append([False,
                                            widget.get_pixbuf(),
                                            "<b>%s</b>" % label,
@@ -436,27 +374,26 @@ class Alarm(Clock):
                                            alarm])
         self.notify("can-select")
 
-    def edit_alarm(self, old_vevent, alarm):
-        handler = ICSHandler()
-        handler.update_vevent(old_vevent, alarm.get_vevent())
-        self.iconview.unselect_all()
-        self.liststore.clear()
-        self.load_alarms()
+    def update_alarm(self, old_alarm, new_alarm):
+        i = self.alarms.index(old_alarm)
+        self.alarms[i] = new_alarm
+        self.storage.save(self.alarms)
 
     def delete_alarms(self, alarms):
-        handler = ICSHandler()
-        handler.remove_vevents(alarms)
+        for a in alarms:
+            self.alarms.remove(a)
+        self.storage.save(self.alarms)
         self.iconview.unselect_all()
         self.liststore.clear()
         self.load_alarms()
         self.notify("can-select")
 
     def open_new_dialog(self):
-        window = AlarmDialog(self, self.get_toplevel())
-        window.connect("response", self.on_dialog_response)
+        window = AlarmDialog(self.get_toplevel())
+        window.connect("response", self._on_dialog_response)
         window.show_all()
 
-    def on_dialog_response(self, dialog, response):
+    def _on_dialog_response(self, dialog, response):
         if response == 1:
             alarm = dialog.get_alarm_item()
             self.add_alarm(alarm)
@@ -547,14 +484,13 @@ class StandaloneAlarm(Gtk.Box):
             "<span size='large' color='dimgray'><b>%s</b></span>" % repeat)
 
     def open_edit_dialog(self):
-        window = AlarmDialog(self, self.get_toplevel(), self.alarm)
-        window.connect("response", self.on_dialog_response)
+        window = AlarmDialog(self.get_toplevel(), self.alarm)
+        window.connect("response", self._on_dialog_response)
         window.show_all()
 
-    def on_dialog_response(self, dialog, response):
+    def _on_dialog_response(self, dialog, response):
         if response == 1:
-            old_vevent = self.alarm.get_vevent()
-            self.alarm = dialog.get_alarm_item()
-            self.view.edit_alarm(old_vevent, self.alarm)
+            new_alarm = dialog.get_alarm_item()
+            self.view.update_alarm(self.alarm, new_alarm)
             self.update()
         dialog.destroy()
