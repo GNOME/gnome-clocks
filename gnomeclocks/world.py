@@ -18,8 +18,8 @@
 
 import os
 import errno
-import pickle
 import time
+import json
 from gi.repository import GLib, GObject, Gio, Gtk, GdkPixbuf
 from gi.repository import GWeather
 from clocks import Clock
@@ -29,20 +29,20 @@ from widgets import DigitalClockDrawing, SelectableIconView, ContentView
 
 class WorldClockStorage():
     def __init__(self):
-        self.filename = os.path.join(Dirs.get_user_data_dir(), "clocks")
+        self.filename = os.path.join(Dirs.get_user_data_dir(), "clocks.json")
         self.world = GWeather.Location.new_world(True)
 
-    def save_clocks(self, locations):
+    def save(self, locations):
         location_codes = [l.get_code() for l in locations]
         f = open(self.filename, "wb")
-        pickle.dump(location_codes, f)
+        json.dump(location_codes, f)
         f.close()
 
-    def load_clocks(self):
+    def load(self):
         clocks = []
         try:
             f = open(self.filename, "rb")
-            location_codes = pickle.load(f)
+            location_codes = json.load(f)
             f.close()
             for l in location_codes:
                 location = GWeather.Location.find_by_station_code(self.world, l)
@@ -52,17 +52,8 @@ class WorldClockStorage():
             if e.errno == errno.ENOENT:
                 # File does not exist yet, that's ok
                 pass
-            else:
-                print "--", e
-        except Exception, e:
-            print "--", e
 
         return clocks
-
-    def delete_all_clocks(self):
-        f = open(DATA_PATH, "w")
-        f.write("")
-        f.close()
 
 
 class NewWorldClockDialog(Gtk.Dialog):
@@ -310,7 +301,7 @@ class World(Clock):
         self.delete_clocks(items)
 
     def load_clocks(self):
-        self.clocks = self.storage.load_clocks()
+        self.clocks = self.storage.load()
         for clock in self.clocks:
             self.add_clock_widget(clock)
 
@@ -320,7 +311,7 @@ class World(Clock):
                 # duplicate
                 return
         self.clocks.append(location)
-        self.storage.save_clocks(self.clocks)
+        self.storage.save(self.clocks)
         self.add_clock_widget(location)
         self.show_all()
 
@@ -340,7 +331,7 @@ class World(Clock):
         for d in clocks:
             d.stop_update()
             self.clocks.remove(d.location)
-        self.storage.save_clocks(self.clocks)
+        self.storage.save(self.clocks)
         self.iconview.unselect_all()
         self.liststore.clear()
         self.load_clocks()
