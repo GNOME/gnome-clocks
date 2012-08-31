@@ -496,5 +496,6 @@ class StandaloneAlarm(Gtk.Box):
         if response == 1:
             new_alarm = dialog.get_alarm_item()
             self.view.update_alarm(self.alarm, new_alarm)
+            self.alarm = new_alarm
             self.update()
         dialog.destroy()
