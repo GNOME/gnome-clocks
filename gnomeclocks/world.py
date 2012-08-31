@@ -177,8 +177,7 @@ class DigitalClock():
             if self.path and self.list_store:
                 self.list_store[self.path][1] = self.drawing.pixbuf
             if self.standalone:
-                self.standalone.update(img, t, systemClockFormat,
-                                       self.sunrise, self.sunset)
+                self.standalone.update(img, t, self.sunrise, self.sunset)
 
         self._last_time = t
         return True
@@ -423,7 +422,7 @@ class StandaloneClock(Gtk.Box):
     def get_name(self):
         return GLib.markup_escape_text(self.location.get_city_name())
 
-    def update(self, img, text, systemClockFormat, sunrise, sunset):
+    def update(self, img, text, sunrise, sunset):
         size = 72000  # FIXME: (self.get_allocation().height / 300) * 72000
         #if img:
         #    pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(img, 500, 380)
@@ -431,6 +430,7 @@ class StandaloneClock(Gtk.Box):
         #    self.img.set_from_pixbuf(pixbuf)
         self.time_label.set_markup(
             "<span size='%i' color='dimgray'><b>%s</b></span>" % (size, text))
+        systemClockFormat = SystemSettings.get_clock_format()
         if systemClockFormat != self.systemClockFormat or \
                 sunrise != self.sunrise or sunset != self.sunset:
             self.sunrise = sunrise
