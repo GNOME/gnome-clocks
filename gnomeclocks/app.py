@@ -358,7 +358,7 @@ class ClocksToolbar(Gtk.Toolbar):
         if n == 0:
             self.titleLabel.set_markup("(%s)" % _("Click on items to select them"))
         else:
-            msg = ngettext("%d item selected", "%d items selected", n) % (n)
+            msg = ngettext("{0} item selected", "{0} items selected", n).format(n)
             self.titleLabel.set_markup("<b>%s</b>" % (msg))
 
     def _on_selection_changed(self, view):
