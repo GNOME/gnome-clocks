@@ -414,9 +414,9 @@ class ClocksApplication(Gtk.Application):
         menu.append(_("About Clocks"), "win.about")
 
         quit = Gio.MenuItem()
-        quit.set_attribute_value("label", GLib.Variant("s", _("Quit")))
-        quit.set_attribute_value("action", GLib.Variant("s", "app.quit"))
-        quit.set_attribute_value("accel", GLib.Variant("s", "<Primary>q"))
+        quit.set_attribute([("label", "s", _("Quit")),
+                            ("action", "s", "app.quit"),
+                            ("accel", "s", "<Primary>q")])
         menu.append_item(quit)
 
         self.set_app_menu(menu)
