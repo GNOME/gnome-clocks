@@ -260,7 +260,7 @@ class AlarmDialog(Gtk.Dialog):
         grid.attach(box, 1, 2, gridcols - 1, 1)
 
     def _show_leading_zeros(self, spin_button):
-        spin_button.set_text('{: 02d}'.format(spin_button.get_value_as_int()))
+        spin_button.set_text('{:02d}'.format(spin_button.get_value_as_int()))
         return True
 
     def get_alarm_item(self):
