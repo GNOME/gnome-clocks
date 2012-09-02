@@ -200,6 +200,7 @@ class AlarmDialog(Gtk.Dialog):
         grid.attach(label, 0, 0, 1, 1)
 
         self.hourselect = Gtk.SpinButton()
+        self.hourselect.set_numeric(True)
         self.hourselect.set_increments(1.0, 1.0)
         self.hourselect.set_wrap(True)
         grid.attach(self.hourselect, 1, 0, 1, 1)
@@ -209,6 +210,7 @@ class AlarmDialog(Gtk.Dialog):
         grid.attach(label, 2, 0, 1, 1)
 
         self.minuteselect = Gtk.SpinButton()
+        self.minuteselect.set_numeric(True)
         self.minuteselect.set_increments(1.0, 1.0)
         self.minuteselect.set_wrap(True)
         self.minuteselect.connect('output', self._show_leading_zeros)
