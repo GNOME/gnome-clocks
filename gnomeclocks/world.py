@@ -32,8 +32,8 @@ class WorldClockStorage():
         self.filename = os.path.join(Dirs.get_user_data_dir(), "clocks.json")
         self.world = GWeather.Location.new_world(True)
 
-    def save(self, locations):
-        location_codes = [l.get_code() for l in locations]
+    def save(self, clocks):
+        location_codes = [c.location.get_code() for c in clocks]
         f = open(self.filename, "wb")
         json.dump(location_codes, f)
         f.close()
@@ -47,7 +47,8 @@ class WorldClockStorage():
             for l in location_codes:
                 location = GWeather.Location.find_by_station_code(self.world, l)
                 if location:
-                    clocks.append(location)
+                    clock = DigitalClock(location)
+                    clocks.append(clock)
         except IOError as e:
             if e.errno == errno.ENOENT:
                 # File does not exist yet, that's ok
@@ -300,31 +301,31 @@ class World(Clock):
             self.add_clock_widget(clock)
 
     def add_clock(self, location):
-        for clock in self.clocks:
-            if clock.get_code() == location.get_code():
+        for c in self.clocks:
+            if c.location.get_code() == location.get_code():
                 # duplicate
                 return
-        self.clocks.append(location)
+        clock = DigitalClock(location)
+        self.clocks.append(clock)
         self.storage.save(self.clocks)
-        self.add_clock_widget(location)
+        self.add_clock_widget(clock)
         self.show_all()
 
-    def add_clock_widget(self, location):
-        d = DigitalClock(location)
-        name = location.get_city_name()
+    def add_clock_widget(self, clock):
+        name = clock.location.get_city_name()
         label = GLib.markup_escape_text(name)
         view_iter = self.liststore.append([False,
-                                           d.get_pixbuf(),
+                                           clock.get_pixbuf(),
                                            "<b>%s</b>" % label,
-                                           d])
+                                           clock])
         path = self.liststore.get_path(view_iter)
-        d.set_path(self.liststore, path)
+        clock.set_path(self.liststore, path)
         self.notify("can-select")
 
     def delete_clocks(self, clocks):
-        for d in clocks:
-            d.stop_update()
-            self.clocks.remove(d.location)
+        for c in clocks:
+            c.stop_update()
+            self.clocks.remove(c)
         self.storage.save(self.clocks)
         self.iconview.unselect_all()
         self.liststore.clear()
