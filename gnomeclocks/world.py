@@ -137,11 +137,6 @@ class DigitalClock():
         self.drawing = DigitalClockDrawing()
         self.standalone = None
         self.update()
-        self.timeout = GObject.timeout_add(1000, self.update)
-
-    def stop_update(self):
-        GObject.source_remove(self.timeout)
-        self.timeout = 0
 
     def get_local_time(self, secs):
         t = secs + time.timezone + self.offset
@@ -176,7 +171,6 @@ class DigitalClock():
                 self.standalone.update(img, t, self.sunrise, self.sunset)
 
         self._last_time = t
-        return True
 
     def get_sunrise_sunset(self):
         world = GWeather.Location.new_world(True)
@@ -271,6 +265,13 @@ class World(Clock):
         self.load_clocks()
         self.show_all()
 
+        self.timeout_id = GObject.timeout_add(1000, self._update_clocks)
+
+    def _update_clocks(self):
+        for c in self.clocks:
+            c.update()
+        return True
+
     def _on_item_activated(self, iconview, path):
         d = self.liststore[path][3]
         self.emit("show-standalone", d)
@@ -324,7 +325,6 @@ class World(Clock):
 
     def delete_clocks(self, clocks):
         for c in clocks:
-            c.stop_update()
             self.clocks.remove(c)
         self.storage.save(self.clocks)
         self.iconview.unselect_all()
