@@ -502,7 +502,7 @@ _libHandle = None
 def GetApi():
    global _libHandle
    if not _libHandle:
-      _libHandle = CDLL("libcanberra.so")
+      _libHandle = CDLL("libcanberra.so.0")
    return _libHandle
 
 
