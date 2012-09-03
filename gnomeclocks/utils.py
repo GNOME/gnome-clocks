@@ -18,9 +18,13 @@
 
 import os
 import time
+import datetime
 import pycanberra
 from xdg import BaseDirectory
 from gi.repository import Gio, Notify
+
+
+def N_(message): return message
 
 
 class Dirs:
@@ -62,25 +66,52 @@ class SystemSettings:
 
 
 class LocalizedWeekdays:
-    MON = time.strftime("%a", (0, 0, 0, 0, 0, 0, 0, 0, 0))
-    TUE = time.strftime("%a", (0, 0, 0, 0, 0, 0, 1, 0, 0))
-    WED = time.strftime("%a", (0, 0, 0, 0, 0, 0, 2, 0, 0))
-    THU = time.strftime("%a", (0, 0, 0, 0, 0, 0, 3, 0, 0))
-    FRI = time.strftime("%a", (0, 0, 0, 0, 0, 0, 4, 0, 0))
-    SAT = time.strftime("%a", (0, 0, 0, 0, 0, 0, 5, 0, 0))
-    SUN = time.strftime("%a", (0, 0, 0, 0, 0, 0, 6, 0, 0))
+    # translate them ourselves since we want plurals
+    _plural = [
+        N_("Mondays"),
+        N_("Tuesdays"),
+        N_("Wednesdays"),
+        N_("Thursdays"),
+        N_("Fridays"),
+        N_("Saturdays"),
+        N_("Sundays")
+    ]
+
+    # fetch abbreviations from libc
+    _abbr = [
+        time.strftime("%a", (0, 0, 0, 0, 0, 0, 0, 0, 0)),
+        time.strftime("%a", (0, 0, 0, 0, 0, 0, 1, 0, 0)),
+        time.strftime("%a", (0, 0, 0, 0, 0, 0, 2, 0, 0)),
+        time.strftime("%a", (0, 0, 0, 0, 0, 0, 3, 0, 0)),
+        time.strftime("%a", (0, 0, 0, 0, 0, 0, 4, 0, 0)),
+        time.strftime("%a", (0, 0, 0, 0, 0, 0, 5, 0, 0)),
+        time.strftime("%a", (0, 0, 0, 0, 0, 0, 6, 0, 0))
+    ]
 
     @staticmethod
-    def get_list():
-        return [
-            LocalizedWeekdays.MON,
-            LocalizedWeekdays.TUE,
-            LocalizedWeekdays.WED,
-            LocalizedWeekdays.THU,
-            LocalizedWeekdays.FRI,
-            LocalizedWeekdays.SAT,
-            LocalizedWeekdays.SUN
-        ]
+    def get_plural(day):
+        return _(LocalizedWeekdays._plural[day])
+
+    @staticmethod
+    def get_abbr(day):
+        return LocalizedWeekdays._abbr[day]
+
+    # based on code from hamster-applet
+    # pretty ugly, but it seems this is the only way
+    # note that we use the convention used by struct_time.tm_wday
+    # which is 0 = Monday, note the one used by strftime("%w")
+    @staticmethod
+    def first_weekday():
+        try:
+            process = os.popen("locale first_weekday week-1stday")
+            week_offset, week_start = process.read().split('\n')[:2]
+            process.close()
+            week_start = datetime.date(*time.strptime(week_start, "%Y%m%d")[:3])
+            week_offset = datetime.timedelta(int(week_offset) - 1)
+            beginning = week_start + week_offset
+            return (int(beginning.strftime("%w")) + 6) % 7
+        except:
+            return 0
 
 
 class Alert:

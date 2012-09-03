@@ -112,40 +112,17 @@ class AlarmItem:
         if n == 0:
             return ""
         elif n == 1:
-            if 0 in self.days:
-                return _("Mondays")
-            elif 1 in self.days:
-                return _("Tuesdays")
-            elif 2 in self.days:
-                return _("Wednesdays")
-            elif 3 in self.days:
-                return _("Thursdays")
-            elif 4 in self.days:
-                return _("Fridays")
-            elif 5 in self.days:
-                return _("Saturdays")
-            elif 6 in self.days:
-                return _("Sundays")
+            return LocalizedWeekdays.get_plural(self.days[0])
         elif n == 7:
             return _("Every day")
         elif self.days == [0, 1, 2, 3, 4]:
             return _("Weekdays")
         else:
             days = []
-            if 0 in self.days:
-                days.append(LocalizedWeekdays.MON)
-            if 1 in self.days:
-                days.append(LocalizedWeekdays.TUE)
-            if 2 in self.days:
-                days.append(LocalizedWeekdays.WED)
-            if 3 in self.days:
-                days.append(LocalizedWeekdays.THU)
-            if 4 in self.days:
-                days.append(LocalizedWeekdays.FRI)
-            if 5 in self.days:
-                days.append(LocalizedWeekdays.SAT)
-            if 6 in self.days:
-                days.append(LocalizedWeekdays.SUN)
+            for i in range(7):
+                day_num = (LocalizedWeekdays.first_weekday() + i) % 7
+                if day_num in self.days:
+                    days.append(LocalizedWeekdays.get_abbr(day_num))
             return ", ".join(days)
 
     def check_expired(self):
@@ -252,7 +229,9 @@ class AlarmDialog(Gtk.Dialog):
         # create a box and put repeat days in it
         box = Gtk.Box(True, 0)
         box.get_style_context().add_class("linked")
-        for day_num, day_name in enumerate(LocalizedWeekdays.get_list()):
+        for i in range(7):
+            day_num = (LocalizedWeekdays.first_weekday() + i) % 7
+            day_name = LocalizedWeekdays.get_abbr(day_num)
             btn = Gtk.ToggleButton(label=day_name)
             btn.data = day_num
             if btn.data in days:
