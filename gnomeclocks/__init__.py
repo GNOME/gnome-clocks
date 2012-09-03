@@ -18,7 +18,7 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 # Credit every contributor, in alphabetical order
 AUTHORS = [
