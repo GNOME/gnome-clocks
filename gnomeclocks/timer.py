@@ -85,9 +85,9 @@ class TimerWelcomeScreen(Gtk.Grid):
         self.set_valign(Gtk.Align.CENTER)
         self.set_row_spacing(48)
 
-        self.hours = Spinner(24)
-        self.minutes = Spinner(59)
-        self.seconds = Spinner(59)
+        self.hours = Spinner(0, 24)
+        self.minutes = Spinner(0, 59)
+        self.seconds = Spinner(0, 59)
 
         self.hours.connect("value-changed", self._on_spinner_changed)
         self.minutes.connect("value-changed", self._on_spinner_changed)

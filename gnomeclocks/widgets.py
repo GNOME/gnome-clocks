@@ -121,66 +121,22 @@ class DigitalClockDrawing(Gtk.DrawingArea):
         return self.pixbuf
 
 
-class Spinner(Gtk.Box):
-    MARKUP = "<span font_desc=\"64.0\">%02i</span>"
-
-    __gsignals__ = {
-        'value-changed': (GObject.SignalFlags.RUN_LAST,
-                          None,
-                          ())
-    }
-
-    def __init__(self, max_value):
+class Spinner(Gtk.SpinButton):
+    def __init__(self, min_value, max_value):
         super(Spinner, self).__init__()
-        self.max_value = max_value
         self.set_orientation(Gtk.Orientation.VERTICAL)
-        iconUp = Gio.ThemedIcon.new_with_default_fallbacks("go-up-symbolic")
-        iconDown = Gio.ThemedIcon.new_with_default_fallbacks(
-            "go-down-symbolic")
-        imageUp = Gtk.Image.new_from_gicon(iconUp, Gtk.IconSize.DND)
-        imageDown = Gtk.Image.new_from_gicon(iconDown, Gtk.IconSize.DND)
+        self.set_numeric(True)
+        self.set_increments(1.0, 1.0)
+        self.set_wrap(True)
+        self.set_range(min_value, max_value)
+        attrs = Pango.parse_markup('<span font_desc=\"64.0\">00</span>', -1, "_")[1]
+        self.set_attributes(attrs)
 
-        self.up = Gtk.Button()
-        self.up.set_image(imageUp)
-        self.up.set_relief(Gtk.ReliefStyle.NONE)
+        self.connect('output', self._show_leading_zeros)
 
-        self.value = Gtk.Label('')
-        self.value.set_markup(Spinner.MARKUP % (0))
-        self.value.set_alignment(0.5, 0.5)
-
-        self.down = Gtk.Button()
-        self.down.set_image(imageDown)
-        self.down.set_relief(Gtk.ReliefStyle.NONE)
-
-        self.pack_start(self.up, False, False, 0)
-        self.pack_start(self.value, True, True, 0)
-        self.pack_start(self.down, False, False, 0)
-
-        self.up.connect('clicked', self._increase)
-        self.down.connect('clicked', self._decrease)
-
-    def get_value(self):
-        return int(self.value.get_text())
-
-    def set_value(self, newValue):
-        self.value.set_markup(Spinner.MARKUP % (newValue))
-        self.emit("value-changed")
-
-    def _increase(self, widget):
-        value = self.get_value()
-        if value == self.max_value:
-            value = 0
-        else:
-            value += 1
-        self.set_value(value)
-
-    def _decrease(self, widget):
-        value = self.get_value()
-        if value == 0:
-            value = self.max_value
-        else:
-            value -= 1
-        self.set_value(value)
+    def _show_leading_zeros(self, spin_button):
+        spin_button.set_text('{:02d}'.format(spin_button.get_value_as_int()))
+        return True
 
 
 class EmptyPlaceholder(Gtk.Box):
