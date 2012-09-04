@@ -85,9 +85,13 @@ class TimerWelcomeScreen(Gtk.Grid):
         self.set_valign(Gtk.Align.CENTER)
         self.set_row_spacing(48)
 
-        self.hours = Spinner(24, self)
-        self.minutes = Spinner(59, self)
-        self.seconds = Spinner(59, self)
+        self.hours = Spinner(24)
+        self.minutes = Spinner(59)
+        self.seconds = Spinner(59)
+
+        self.hours.connect("value-changed", self._on_spinner_changed)
+        self.minutes.connect("value-changed", self._on_spinner_changed)
+        self.seconds.connect("value-changed", self._on_spinner_changed)
 
         spinner = Gtk.Box()
         spinner.pack_start(self.hours, False, False, 0)
@@ -131,6 +135,9 @@ class TimerWelcomeScreen(Gtk.Grid):
         else:
             self.startButton.set_sensitive(True)
             self.startButton.get_style_context().add_class("clocks-go")
+
+    def _on_spinner_changed(self, spinner):
+        self.update_start_button_status()
 
     def _on_start_clicked(self, data):
         self.timer.start()

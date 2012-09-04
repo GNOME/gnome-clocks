@@ -124,10 +124,15 @@ class DigitalClockDrawing(Gtk.DrawingArea):
 class Spinner(Gtk.Box):
     MARKUP = "<span font_desc=\"64.0\">%02i</span>"
 
-    def __init__(self, max_value, timer_welcome_screen):
+    __gsignals__ = {
+        'value-changed': (GObject.SignalFlags.RUN_LAST,
+                          None,
+                          ())
+    }
+
+    def __init__(self, max_value):
         super(Spinner, self).__init__()
         self.max_value = max_value
-        self.timer_welcome_screen = timer_welcome_screen
         self.set_orientation(Gtk.Orientation.VERTICAL)
         iconUp = Gio.ThemedIcon.new_with_default_fallbacks("go-up-symbolic")
         iconDown = Gio.ThemedIcon.new_with_default_fallbacks(
@@ -159,6 +164,7 @@ class Spinner(Gtk.Box):
 
     def set_value(self, newValue):
         self.value.set_markup(Spinner.MARKUP % (newValue))
+        self.emit("value-changed")
 
     def _increase(self, widget):
         value = self.get_value()
@@ -167,7 +173,6 @@ class Spinner(Gtk.Box):
         else:
             value += 1
         self.set_value(value)
-        self.timer_welcome_screen.update_start_button_status()
 
     def _decrease(self, widget):
         value = self.get_value()
@@ -176,7 +181,6 @@ class Spinner(Gtk.Box):
         else:
             value -= 1
         self.set_value(value)
-        self.timer_welcome_screen.update_start_button_status()
 
 
 class EmptyPlaceholder(Gtk.Box):
