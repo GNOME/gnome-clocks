@@ -1,3 +1,8 @@
+##########################################################################
+# pycanberra.py: simple wrapper around most of the libcanberra public api
+# Author: Dave Barry <dave@psax.org>
+# License: LGPL 2.1
+##########################################################################
 from ctypes import *
 import exceptions
 import time
@@ -599,16 +604,7 @@ class Canberra(object):
          time.sleep(0.01)
 
 if __name__ == "__main__":
-   import time
    canberra = Canberra()
-   # canberra.change_props(CA_PROP_APPLICATION_NAME, "pycanberra test",
-   #                       CA_PROP_APPLICATION_ID, "org.freedesktop.pycanberra.Test",
-   #                       None)
    canberra.easy_play_sync("system-ready")
-   # canberra.play(1,
-   #               CA_PROP_EVENT_ID, "system-ready",
-   #               None)
-   # while canberra.playing(1):
-   #    time.sleep(0.01)
    canberra.destroy()
 
