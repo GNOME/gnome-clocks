@@ -178,9 +178,6 @@ class ClockButton(Gtk.RadioButton):
 
 
 class ClocksToolbar(Gtk.Toolbar):
-    __gsignals__ = {'view-clock': (GObject.SignalFlags.RUN_LAST,
-                    None, (Clock,))}
-
     def __init__(self, views, embed):
         Gtk.Toolbar.__init__(self)
 
@@ -241,7 +238,7 @@ class ClocksToolbar(Gtk.Toolbar):
             if view.hasSelectionMode:
                 view.connect("notify::can-select", self._on_can_select_changed)
             if view == views[0]:
-                self.set_current_view(view)
+                self.current_view = view
                 button.set_active(True)
 
         self.titleLabel = Gtk.Label()
@@ -278,7 +275,13 @@ class ClocksToolbar(Gtk.Toolbar):
         self.doneButton.connect("clicked", self._on_done_clicked)
         rightBox.pack_end(self.doneButton, False, False, 0)
 
+        self.selectionHandler = 0
+
         self.embed._selectionToolbar._toolbarDelete.connect("clicked", self._on_delete_clicked)
+
+    @GObject.Signal(arg_types=(Clock,))
+    def view_clock(self, view):
+        self.current_view = view
 
     def activate_view(self, view):
         if view is not self.current_view:
@@ -294,6 +297,9 @@ class ClocksToolbar(Gtk.Toolbar):
         self.titleLabel.hide()
         self.editButton.hide()
         self.doneButton.hide()
+        if self.selectionHandler:
+            self.current_view.disconnect_by_func(self._on_selection_changed)
+            self.selectionHandler = 0
 
     def show_standalone_toolbar(self, widget):
         self.get_style_context().remove_class("selection-mode")
@@ -318,17 +324,11 @@ class ClocksToolbar(Gtk.Toolbar):
         self.titleLabel.show()
         self.editButton.hide()
         self.doneButton.show()
-
-    def set_current_view(self, view):
-        if self.current_view:
-            self.current_view.disconnect_by_func(self._on_selection_changed)
-
-        self.current_view = view
-        self.current_view.connect("selection-changed",
-                                  self._on_selection_changed)
+        self.selectionHandler = \
+             self.current_view.connect("selection-changed",
+                                        self._on_selection_changed)
 
     def _on_toggled(self, widget, view):
-        self.set_current_view(view)
         if view.hasNew:
             self.newButton.get_children()[0].show_all()
             self.newButton.show_all()
