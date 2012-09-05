@@ -76,9 +76,11 @@ class Window(Gtk.ApplicationWindow):
 
         self.vbox.pack_end(self.notebook, True, True, 0)
         for view in self.views:
-            view.connect("show-standalone", self._on_show_standalone)
             self.notebook.append_page(view, None)
         self.notebook.append_page(self.single_evbox, None)
+
+        self.world.connect("show-standalone", self._on_show_standalone)
+        self.alarm.connect("show-standalone", self._on_show_standalone)
 
         self.toolbar.connect("view-clock", self._on_view_clock)
         self.vbox.show_all()

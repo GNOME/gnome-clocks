@@ -21,9 +21,6 @@ from gi.repository import GObject, Gtk
 
 class Clock(Gtk.EventBox):
     __gsignals__ = {
-        'show-requested': (GObject.SignalFlags.RUN_LAST,
-                           None,
-                           ()),
         'show-standalone': (GObject.SignalFlags.RUN_LAST,
                             None,
                             (GObject.TYPE_PYOBJECT, )),
