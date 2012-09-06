@@ -95,11 +95,11 @@ class TimerWelcomeScreen(Gtk.Grid):
 
         spinner = Gtk.Box()
         spinner.pack_start(self.hours, False, False, 0)
-        colon = Gtk.Label('')
+        colon = Gtk.Label()
         colon.set_markup('<span font_desc=\"64.0\">:</span>')
         spinner.pack_start(colon, False, False, 0)
         spinner.pack_start(self.minutes, False, False, 0)
-        colon = Gtk.Label('')
+        colon = Gtk.Label()
         colon.set_markup('<span font_desc=\"64.0\">:</span>')
         spinner.pack_start(colon, False, False, 0)
         spinner.pack_start(self.seconds, False, False, 0)
