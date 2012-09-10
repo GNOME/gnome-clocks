@@ -57,7 +57,7 @@ class AlarmsStorage():
                 except:
                     # skip alarms which do not have the required fields
                     continue
-                alarm = AlarmItem(n, h, m, d)
+                alarm = AlarmItem(n.encode("utf-8"), h, m, d)
                 alarms.append(alarm)
         except IOError as e:
             if e.errno == errno.ENOENT:
