@@ -195,7 +195,8 @@ class Timer(Clock):
         if self.state == Timer.State.STOPPED and self.timeout_id == 0:
             h, m, s = self.welcome_screen.get_values()
             self.timer_screen.set_time(h, m, s)
-            self.deadline = time.time() + (h * 60 * 60) + (m * 60) + s
+            self.duration = (h * 60 * 60) + (m * 60) + s
+            self.deadline = time.time() + self.duration
             self.state = Timer.State.RUNNING
             self._add_timeout()
             self.show_timer_screen()
@@ -206,10 +207,12 @@ class Timer(Clock):
         self.show_welcome_screen(True)
 
     def pause(self):
+        self.duration = self.deadline - time.time()
         self.state = Timer.State.PAUSED
         self._remove_timeout()
 
     def cont(self):
+        self.deadline = time.time() + self.duration
         self.state = Timer.State.RUNNING
         self._add_timeout()
 
