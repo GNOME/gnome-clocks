@@ -163,7 +163,7 @@ class ClockButton(Gtk.RadioButton):
         self.label.set_markup(text)
         self.add(self.label)
         self.set_alignment(0.5, 0.5)
-        self.set_size_request(100, 34)
+        self.set_size_request(100, -1)
         self.get_style_context().add_class('linked')
         if not ClockButton._group:
             ClockButton._group = self
@@ -234,7 +234,7 @@ class ClocksToolbar(Gtk.Toolbar):
         self.current_view = None
         for view in views:
             button = ClockButton(view.label)
-            self.buttonBox.pack_start(button, False, False, 0)
+            self.buttonBox.pack_start(button, True, True, 0)
             button.connect("toggled", self._on_toggled, view)
             self.viewsButtons[view] = button
             if view.hasSelectionMode:
