@@ -172,6 +172,8 @@ class AlarmDialog(Gtk.Dialog):
             name = _("New Alarm")
             days = []
 
+        # Translators: "Time" in this context is the time an alarm
+        # is set to go off (days, hours, minutes etc.)
         label = Gtk.Label(_("Time"))
         label.set_alignment(1.0, 0.5)
         grid.attach(label, 0, 0, 1, 1)

@@ -199,10 +199,9 @@ class ClocksToolbar(Gtk.Toolbar):
         leftBox = Gtk.Box()
         leftItem.add(leftBox)
 
-        self.newButton = Gtk.Button()
-        label = Gtk.Label(_("New"))
+        # Translators: "New" refers to a world clock or an alarm
+        self.newButton = Gtk.Button(_("New"))
         self.newButton.set_action_name("win.new")
-        self.newButton.add(label)
         self.newButton.set_size_request(64, -1)
         leftBox.pack_start(self.newButton, False, False, 0)
 
