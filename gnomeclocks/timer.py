@@ -24,7 +24,7 @@ from widgets import Spinner
 
 
 class TimerScreen(Gtk.Grid):
-    def __init__(self, timer):
+    def __init__(self, timer, size_group):
         super(TimerScreen, self).__init__()
         self.timer = timer
 
@@ -36,9 +36,7 @@ class TimerScreen(Gtk.Grid):
 
         self.timeLabel = Gtk.Label()
         self.timeLabel.set_markup(Timer.LABEL_MARKUP % (0, 0, 0))
-        # add margin to match the spinner size
-        self.timeLabel.set_margin_top(42)
-        self.timeLabel.set_margin_bottom(42)
+        size_group.add_widget(self.timeLabel)
         self.attach(self.timeLabel, 0, 0, 2, 1)
 
         self.leftButton = Gtk.Button()
@@ -77,7 +75,7 @@ class TimerScreen(Gtk.Grid):
 
 
 class TimerWelcomeScreen(Gtk.Grid):
-    def __init__(self, timer):
+    def __init__(self, timer, size_group):
         super(TimerWelcomeScreen, self).__init__()
         self.timer = timer
 
@@ -103,6 +101,7 @@ class TimerWelcomeScreen(Gtk.Grid):
         colon.set_markup('<span font_desc=\"64.0\">:</span>')
         spinner.pack_start(colon, False, False, 0)
         spinner.pack_start(self.seconds, False, False, 0)
+        size_group.add_widget(spinner)
         self.attach(spinner, 0, 0, 1, 1)
 
         self.startButton = Gtk.Button()
@@ -162,10 +161,13 @@ class Timer(Clock):
         self.notebook.set_show_border(False)
         self.add(self.notebook)
 
-        self.welcome_screen = TimerWelcomeScreen(self)
+        # force the time label and the spinner to the same size
+        size_group = Gtk.SizeGroup(Gtk.SizeGroupMode.VERTICAL);
+
+        self.welcome_screen = TimerWelcomeScreen(self, size_group)
         self.notebook.append_page(self.welcome_screen, None)
 
-        self.timer_screen = TimerScreen(self)
+        self.timer_screen = TimerScreen(self, size_group)
         self.notebook.append_page(self.timer_screen, None)
 
         self.alert = Alert("complete", "Ta Da !",
