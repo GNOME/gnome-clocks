@@ -163,7 +163,7 @@ class ClockButton(Gtk.RadioButton):
         self.label.set_markup(text)
         self.add(self.label)
         self.set_alignment(0.5, 0.5)
-        self.set_size_request(100, -1)
+        self.set_size_request(100, 34)
         self.get_style_context().add_class('linked')
         if not ClockButton._group:
             ClockButton._group = self
@@ -177,6 +177,16 @@ class ClockButton(Gtk.RadioButton):
         except AttributeError:
             # at construction the is no label yet
             pass
+
+
+class SymbolicButton(Gtk.Button):
+    def __init__(self, iconname):
+        Gtk.Button.__init__(self)
+        icon = Gio.ThemedIcon.new_with_default_fallbacks(iconname)
+        image = Gtk.Image()
+        image.set_from_gicon(icon, Gtk.IconSize.MENU)
+        self.add(image)
+        self.set_size_request(34, 34)
 
 
 class ClocksToolbar(Gtk.Toolbar):
@@ -202,16 +212,10 @@ class ClocksToolbar(Gtk.Toolbar):
         # Translators: "New" refers to a world clock or an alarm
         self.newButton = Gtk.Button(_("New"))
         self.newButton.set_action_name("win.new")
-        self.newButton.set_size_request(64, -1)
+        self.newButton.set_size_request(64, 34)
         leftBox.pack_start(self.newButton, False, False, 0)
 
-        self.backButton = Gtk.Button()
-        icon = Gio.ThemedIcon.new_with_default_fallbacks(
-            "go-previous-symbolic")
-        image = Gtk.Image()
-        image.set_from_gicon(icon, Gtk.IconSize.MENU)
-        self.backButton.add(image)
-        self.backButton.set_size_request(33, 33)
+        self.backButton = SymbolicButton("go-previous-symbolic")
         self.backButton.connect("clicked",
             lambda w: self.emit("view-clock", self.current_view))
         leftBox.pack_start(self.backButton, False, False, 0)
@@ -254,13 +258,7 @@ class ClocksToolbar(Gtk.Toolbar):
         rightItem.add(rightBox)
         self.insert(rightItem, -1)
 
-        self.selectButton = Gtk.Button()
-        icon = Gio.ThemedIcon.new_with_default_fallbacks(
-            "object-select-symbolic")
-        image = Gtk.Image()
-        image.set_from_gicon(icon, Gtk.IconSize.MENU)
-        self.selectButton.add(image)
-        self.selectButton.set_size_request(32, 32)
+        self.selectButton = SymbolicButton("object-select-symbolic")
         self.selectButton.set_sensitive(self.current_view.can_select)
         self.selectButton.connect('clicked', self._on_select_clicked)
         rightBox.pack_end(self.selectButton, False, False, 0)
@@ -292,8 +290,8 @@ class ClocksToolbar(Gtk.Toolbar):
         self.get_style_context().remove_class("selection-mode")
         self.standalone = None
         self.buttonBox.show()
-        self.newButton.show()
-        self.selectButton.show()
+        self.newButton.set_visible(self.current_view.hasNew)
+        self.selectButton.set_visible(self.current_view.hasSelectionMode)
         self.backButton.hide()
         self.titleLabel.hide()
         self.editButton.hide()
@@ -330,29 +328,6 @@ class ClocksToolbar(Gtk.Toolbar):
                                         self._on_selection_changed)
 
     def _on_toggled(self, widget, view):
-        if view.hasNew:
-            self.newButton.get_children()[0].show_all()
-            self.newButton.show_all()
-            self.newButton.set_relief(Gtk.ReliefStyle.NORMAL)
-            self.newButton.set_sensitive(True)
-        else:
-            width = self.newButton.get_allocation().width
-            self.newButton.set_relief(Gtk.ReliefStyle.NONE)
-            self.newButton.set_sensitive(False)
-            self.newButton.set_size_request(width, -1)
-            self.newButton.get_children()[0].hide()
-        if view.hasSelectionMode:
-            self.selectButton.get_children()[0].show_all()
-            self.selectButton.show_all()
-            self.selectButton.set_relief(Gtk.ReliefStyle.NORMAL)
-            self.selectButton.set_sensitive(view.can_select)
-        else:
-            width = self.selectButton.get_allocation().width
-            self.selectButton.set_relief(Gtk.ReliefStyle.NONE)
-            self.selectButton.set_sensitive(False)
-            self.selectButton.set_size_request(width, -1)
-            self.selectButton.get_children()[0].hide()
-
         self.emit("view-clock", view)
 
     def set_selection_label(self, n):
