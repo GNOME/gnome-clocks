@@ -131,31 +131,42 @@ class DigitalClock():
         self.path = None
         self.list_store = None
 
-        timezone = self.location.get_timezone()
-        self.offset = timezone.get_offset() * 60
+        weather_timezone = self.location.get_timezone()
+        timezone = GLib.TimeZone.new(weather_timezone.get_tzid())
+        i = timezone.find_interval(GLib.TimeType.UNIVERSAL, time.time())
+        location_offset = timezone.get_offset(i)
+
+        timezone = GLib.TimeZone.new_local()
+        i = timezone.find_interval(GLib.TimeType.UNIVERSAL, time.time())
+        here_offset = timezone.get_offset(i)
+
+        self.offset = location_offset - here_offset
+
         self._last_time = None
         self.drawing = DigitalClockDrawing()
         self.standalone = None
         self.update()
 
-    def get_local_time(self, secs):
-        t = secs + time.timezone + self.offset
+    def get_location_time(self, secs=None):
+        if not secs:
+            secs = time.time()
+        t = secs + self.offset
         t = time.localtime(t)
         return t
 
     def update(self):
         systemClockFormat = SystemSettings.get_clock_format()
+        location_time = self.get_location_time()
         if systemClockFormat == '12h':
-            t = time.strftime("%I:%M %p", self.get_local_time(time.time()))
+            t = time.strftime("%I:%M %p", location_time)
         else:
-            t = time.strftime("%H:%M", self.get_local_time(time.time()))
+            t = time.strftime("%H:%M", location_time)
         if t.startswith("0"):
             t = t[1:]
         if not t == self._last_time \
                 or not self.sunrise == self._last_sunrise \
                 or not self.sunset == self._last_sunset:
-            local_time = self.get_local_time(time.time())
-            isDay = self.get_is_light(local_time, self.sunrise, self.sunset)
+            isDay = self.get_is_light(location_time)
             if isDay:
                 img = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
             else:
@@ -184,8 +195,8 @@ class DigitalClock():
         ok, sunset = weather.get_value_sunset()
         self._last_sunrise = self.sunrise
         self._last_sunset = self.sunset
-        self.sunrise = self.get_local_time(sunrise)
-        self.sunset = self.get_local_time(sunset)
+        self.sunrise = self.get_location_time(sunrise)
+        self.sunset = self.get_location_time(sunset)
         self.update()
 
     def get_pixbuf(self):
@@ -198,7 +209,7 @@ class DigitalClock():
         return self.standalone
 
     def get_day(self):
-        clock_time_day = self.get_local_time(time.time()).tm_yday
+        clock_time_day = self.get_location_time().tm_yday
         local_time_day = time.localtime().tm_yday
 
         if clock_time_day == local_time_day:
@@ -218,20 +229,20 @@ class DigitalClock():
             else:
                 return "Yesterday"
 
-    def get_is_light(self, current, sunrise, sunset):
-        if current.tm_hour < sunrise.tm_hour \
-                or current.tm_hour > sunset.tm_hour:
+    def get_is_light(self, current):
+        if current.tm_hour < self.sunrise.tm_hour \
+                or current.tm_hour > self.sunset.tm_hour:
             return False
-        elif current.tm_hour > sunrise.tm_hour \
-                and current.tm_hour < sunset.tm_hour:
+        elif current.tm_hour > self.sunrise.tm_hour \
+                and current.tm_hour < self.sunset.tm_hour:
             return True
-        elif current.tm_hour == sunrise.tm_hour:
-            if current.tm_min >= sunrise.tm_min:
+        elif current.tm_hour == self.sunrise.tm_hour:
+            if current.tm_min >= self.sunrise.tm_min:
                 return True
             else:
                 return False
-        elif current.tm_hour == sunset.tm_hour:
-            if current.tm_min <= sunrise.tm_min:
+        elif current.tm_hour == self.sunset.tm_hour:
+            if current.tm_min <= self.sunrise.tm_min:
                 return True
             else:
                 return False
