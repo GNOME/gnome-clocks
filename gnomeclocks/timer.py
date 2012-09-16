@@ -34,49 +34,49 @@ class TimerScreen(Gtk.Grid):
         self.set_column_spacing(24)
         self.set_column_homogeneous(True)
 
-        self.timeLabel = Gtk.Label()
-        self.timeLabel.set_markup(Timer.LABEL_MARKUP % (0, 0, 0))
-        size_group.add_widget(self.timeLabel)
-        self.attach(self.timeLabel, 0, 0, 2, 1)
+        self.time_label = Gtk.Label()
+        self.time_label.set_markup(Timer.LABEL_MARKUP % (0, 0, 0))
+        size_group.add_widget(self.time_label)
+        self.attach(self.time_label, 0, 0, 2, 1)
 
-        self.leftButton = Gtk.Button()
-        self.leftButton.set_size_request(200, -1)
-        self.leftLabel = Gtk.Label()
-        self.leftLabel.set_markup(Timer.BUTTON_MARKUP % (_("Pause")))
-        self.leftButton.add(self.leftLabel)
-        self.attach(self.leftButton, 0, 1, 1, 1)
+        self.left_button = Gtk.Button()
+        self.left_button.set_size_request(200, -1)
+        self.left_label = Gtk.Label()
+        self.left_label.set_markup(Timer.BUTTON_MARKUP % (_("Pause")))
+        self.left_button.add(self.left_label)
+        self.attach(self.left_button, 0, 1, 1, 1)
 
-        self.rightButton = Gtk.Button()
-        self.rightButton.set_size_request(200, -1)
-        self.rightLabel = Gtk.Label()
-        self.rightLabel.set_markup(Timer.BUTTON_MARKUP % (_("Reset")))
-        self.rightButton.add(self.rightLabel)
-        self.attach(self.rightButton, 1, 1, 1, 1)
+        self.right_button = Gtk.Button()
+        self.right_button.set_size_request(200, -1)
+        self.right_label = Gtk.Label()
+        self.right_label.set_markup(Timer.BUTTON_MARKUP % (_("Reset")))
+        self.right_button.add(self.right_label)
+        self.attach(self.right_button, 1, 1, 1, 1)
 
-        self.leftButton.connect("clicked", self._on_left_button_clicked)
-        self.rightButton.connect("clicked", self._on_right_button_clicked)
+        self.left_button.connect("clicked", self._on_left_button_clicked)
+        self.right_button.connect("clicked", self._on_right_button_clicked)
 
     def set_time(self, h, m, s):
-        self.timeLabel.set_markup(Timer.LABEL_MARKUP % (h, m, s))
+        self.time_label.set_markup(Timer.LABEL_MARKUP % (h, m, s))
 
     def _on_right_button_clicked(self, data):
-        self.leftLabel.set_markup(Timer.BUTTON_MARKUP % (_("Pause")))
+        self.left_label.set_markup(Timer.BUTTON_MARKUP % (_("Pause")))
         self.timer.reset()
 
     def _on_left_button_clicked(self, widget):
         if self.timer.state == Timer.State.RUNNING:
             self.timer.pause()
-            self.leftLabel.set_markup(Timer.BUTTON_MARKUP % (_("Continue")))
-            self.leftButton.get_style_context().add_class("clocks-go")
+            self.left_label.set_markup(Timer.BUTTON_MARKUP % (_("Continue")))
+            self.left_button.get_style_context().add_class("clocks-go")
         elif self.timer.state == Timer.State.PAUSED:
             self.timer.cont()
-            self.leftLabel.set_markup(Timer.BUTTON_MARKUP % (_("Pause")))
-            self.leftButton.get_style_context().remove_class("clocks-go")
+            self.left_label.set_markup(Timer.BUTTON_MARKUP % (_("Pause")))
+            self.left_button.get_style_context().remove_class("clocks-go")
 
 
-class TimerWelcomeScreen(Gtk.Grid):
+class TimerSetupScreen(Gtk.Grid):
     def __init__(self, timer, size_group):
-        super(TimerWelcomeScreen, self).__init__()
+        super(TimerSetupScreen, self).__init__()
         self.timer = timer
 
         self.set_halign(Gtk.Align.CENTER)
@@ -104,15 +104,15 @@ class TimerWelcomeScreen(Gtk.Grid):
         size_group.add_widget(spinner)
         self.attach(spinner, 0, 0, 1, 1)
 
-        self.startButton = Gtk.Button()
-        self.startButton.set_size_request(200, -1)
-        self.startLabel = Gtk.Label()
-        self.startLabel.set_markup(Timer.BUTTON_MARKUP % (_("Start")))
-        self.startButton.set_sensitive(False)
-        self.startButton.add(self.startLabel)
-        self.attach(self.startButton, 0, 1, 1, 1)
+        self.start_button = Gtk.Button()
+        self.start_button.set_size_request(200, -1)
+        label = Gtk.Label()
+        label.set_markup(Timer.BUTTON_MARKUP % (_("Start")))
+        self.start_button.set_sensitive(False)
+        self.start_button.add(label)
+        self.attach(self.start_button, 0, 1, 1, 1)
 
-        self.startButton.connect('clicked', self._on_start_clicked)
+        self.start_button.connect('clicked', self._on_start_clicked)
 
     def get_values(self):
         h = self.hours.get_value()
@@ -129,11 +129,11 @@ class TimerWelcomeScreen(Gtk.Grid):
     def update_start_button_status(self):
         h, m, s = self.get_values()
         if h == 0 and m == 0 and s == 0:
-            self.startButton.set_sensitive(False)
-            self.startButton.get_style_context().remove_class("clocks-go")
+            self.start_button.set_sensitive(False)
+            self.start_button.get_style_context().remove_class("clocks-go")
         else:
-            self.startButton.set_sensitive(True)
-            self.startButton.get_style_context().add_class("clocks-go")
+            self.start_button.set_sensitive(True)
+            self.start_button.get_style_context().add_class("clocks-go")
 
     def _on_spinner_changed(self, spinner):
         self.update_start_button_status()
@@ -164,8 +164,8 @@ class Timer(Clock):
         # force the time label and the spinner to the same size
         size_group = Gtk.SizeGroup(Gtk.SizeGroupMode.VERTICAL);
 
-        self.welcome_screen = TimerWelcomeScreen(self, size_group)
-        self.notebook.append_page(self.welcome_screen, None)
+        self.setup_screen = TimerSetupScreen(self, size_group)
+        self.notebook.append_page(self.setup_screen, None)
 
         self.timer_screen = TimerScreen(self, size_group)
         self.notebook.append_page(self.timer_screen, None)
@@ -177,10 +177,10 @@ class Timer(Clock):
         win = self.get_toplevel()
         win.show_clock(self)
 
-    def show_welcome_screen(self, reset):
+    def show_setup_screen(self, reset):
         self.notebook.set_current_page(0)
         if reset:
-            self.welcome_screen.set_values(0, 0, 0)
+            self.setup_screen.set_values(0, 0, 0)
 
     def show_timer_screen(self):
         self.notebook.set_current_page(1)
@@ -195,7 +195,7 @@ class Timer(Clock):
 
     def start(self):
         if self.state == Timer.State.STOPPED and self.timeout_id == 0:
-            h, m, s = self.welcome_screen.get_values()
+            h, m, s = self.setup_screen.get_values()
             self.timer_screen.set_time(h, m, s)
             self.duration = (h * 60 * 60) + (m * 60) + s
             self.deadline = time.time() + self.duration
@@ -206,7 +206,7 @@ class Timer(Clock):
     def reset(self):
         self.state = Timer.State.STOPPED
         self._remove_timeout()
-        self.show_welcome_screen(True)
+        self.show_setup_screen(True)
 
     def pause(self):
         self.duration = self.deadline - time.time()
@@ -225,7 +225,7 @@ class Timer(Clock):
             self.state = Timer.State.STOPPED
             self._remove_timeout()
             self.timer_screen.set_time(0, 0, 0)
-            self.show_welcome_screen(False)
+            self.show_setup_screen(False)
             return False
         else:
             r = self.deadline - t

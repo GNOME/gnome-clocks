@@ -272,19 +272,16 @@ class AlarmWidget():
         timestr = alarm.get_time_as_string()
         repeat = alarm.get_alarm_repeat_string()
         self.drawing = DigitalClockDrawing()
-        isDay = self.get_is_day(int(timestr[:2]))
-        if isDay:
+        is_light = self.get_is_light(int(timestr[:2]))
+        if is_light:
             img = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
         else:
             img = os.path.join(Dirs.get_image_dir(), "cities", "night.png")
-        self.drawing.render(timestr, img, isDay, repeat)
+        self.drawing.render(timestr, img, is_light, repeat)
         self.standalone = None
 
-    def get_is_day(self, hours):
-        if hours > 7 and hours < 19:
-            return True
-        else:
-            return False
+    def get_is_light(self, hours):
+        return hours > 7 and hours < 19
 
     def get_pixbuf(self):
         return self.drawing.pixbuf
@@ -427,46 +424,46 @@ class StandaloneAlarm(Gtk.Box):
         self.alert = alert
         self.can_edit = True
 
-        self.timebox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        time_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
         self.alarm_label = Gtk.Label()
         self.alarm_label.set_alignment(0.5, 0.5)
-        self.timebox.pack_start(self.alarm_label, True, True, 0)
+        time_box.pack_start(self.alarm_label, True, True, 0)
 
         self.repeat_label = Gtk.Label()
         self.repeat_label.set_alignment(0.5, 0.5)
-        self.timebox.pack_start(self.repeat_label, True, True, 0)
+        time_box.pack_start(self.repeat_label, True, True, 0)
 
         self.buttons = Gtk.Box()
-        self.leftButton = Gtk.Button()
-        self.leftButton.get_style_context().add_class("clocks-stop")
-        self.leftButton.set_size_request(200, -1)
-        self.leftLabel = Gtk.Label()
-        self.leftButton.add(self.leftLabel)
-        self.rightButton = Gtk.Button()
-        self.rightButton.set_size_request(200, -1)
-        self.rightLabel = Gtk.Label()
-        self.rightButton.add(self.rightLabel)
+        self.left_button = Gtk.Button()
+        self.left_button.get_style_context().add_class("clocks-stop")
+        self.left_button.set_size_request(200, -1)
+        self.left_label = Gtk.Label()
+        self.left_button.add(self.left_label)
+        self.right_button = Gtk.Button()
+        self.right_button.set_size_request(200, -1)
+        self.right_label = Gtk.Label()
+        self.right_button.add(self.right_label)
 
-        self.buttons.pack_start(self.leftButton, True, True, 0)
+        self.buttons.pack_start(self.left_button, True, True, 0)
         self.buttons.pack_start(Gtk.Box(), True, True, 24)
-        self.buttons.pack_start(self.rightButton, True, True, 0)
+        self.buttons.pack_start(self.right_button, True, True, 0)
 
-        self.leftLabel.set_markup("<span font_desc=\"18.0\">%s</span>" % (_("Stop")))
-        self.leftLabel.set_padding(6, 0)
-        self.rightLabel.set_markup("<span font_desc=\"18.0\">%s</span>" % (_("Snooze")))
-        self.rightLabel.set_padding(6, 0)
+        self.left_label.set_markup("<span font_desc=\"18.0\">%s</span>" % (_("Stop")))
+        self.left_label.set_padding(6, 0)
+        self.right_label.set_markup("<span font_desc=\"18.0\">%s</span>" % (_("Snooze")))
+        self.right_label.set_padding(6, 0)
 
-        self.leftButton.connect('clicked', self._on_stop_clicked)
-        self.rightButton.connect('clicked', self._on_snooze_clicked)
+        self.left_button.connect('clicked', self._on_stop_clicked)
+        self.right_button.connect('clicked', self._on_snooze_clicked)
 
-        self.timebox.pack_start(self.buttons, True, True, 48)
+        time_box.pack_start(self.buttons, True, True, 48)
 
         hbox = Gtk.Box()
         hbox.set_homogeneous(False)
 
         hbox.pack_start(Gtk.Label(), True, True, 0)
-        hbox.pack_start(self.timebox, False, False, 0)
+        hbox.pack_start(time_box, False, False, 0)
         hbox.pack_start(Gtk.Label(), True, True, 0)
 
         self.pack_start(Gtk.Label(), True, True, 0)

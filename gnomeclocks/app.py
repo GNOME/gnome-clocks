@@ -200,81 +200,81 @@ class ClocksToolbar(Gtk.Toolbar):
         self.views = views
         self.embed = embed
 
-        sizeGroup = Gtk.SizeGroup(Gtk.SizeGroupMode.HORIZONTAL)
+        size_group = Gtk.SizeGroup(Gtk.SizeGroupMode.HORIZONTAL)
 
-        leftItem = Gtk.ToolItem()
-        self.insert(leftItem, -1)
-        sizeGroup.add_widget(leftItem)
+        left_item = Gtk.ToolItem()
+        self.insert(left_item, -1)
+        size_group.add_widget(left_item)
 
-        leftBox = Gtk.Box()
-        leftItem.add(leftBox)
+        left_box = Gtk.Box()
+        left_item.add(left_box)
 
         # Translators: "New" refers to a world clock or an alarm
-        self.newButton = Gtk.Button(_("New"))
-        self.newButton.set_action_name("win.new")
-        self.newButton.set_size_request(64, 34)
-        leftBox.pack_start(self.newButton, False, False, 0)
+        self.new_button = Gtk.Button(_("New"))
+        self.new_button.set_action_name("win.new")
+        self.new_button.set_size_request(64, 34)
+        left_box.pack_start(self.new_button, False, False, 0)
 
-        self.backButton = SymbolicButton("go-previous-symbolic")
-        self.backButton.connect("clicked",
+        self.back_button = SymbolicButton("go-previous-symbolic")
+        self.back_button.connect("clicked",
             lambda w: self.emit("view-clock", self.current_view))
-        leftBox.pack_start(self.backButton, False, False, 0)
+        left_box.pack_start(self.back_button, False, False, 0)
 
-        centerItem = Gtk.ToolItem()
-        centerItem.set_expand(True)
-        self.insert(centerItem, -1)
+        center_item = Gtk.ToolItem()
+        center_item.set_expand(True)
+        self.insert(center_item, -1)
 
-        centerBox = Gtk.Box()
-        centerItem.add(centerBox)
+        center_box = Gtk.Box()
+        center_item.add(center_box)
 
-        self.buttonBox = Gtk.Box()
-        self.buttonBox.set_homogeneous(True)
-        self.buttonBox.set_halign(Gtk.Align.CENTER)
-        self.buttonBox.get_style_context().add_class("linked")
-        centerBox.pack_start(self.buttonBox, True, False, 0)
+        self.button_box = Gtk.Box()
+        self.button_box.set_homogeneous(True)
+        self.button_box.set_halign(Gtk.Align.CENTER)
+        self.button_box.get_style_context().add_class("linked")
+        center_box.pack_start(self.button_box, True, False, 0)
 
-        self.viewsButtons = {}
+        self.view_buttons = {}
         self.current_view = None
         for view in views:
             button = ClockButton(view.label)
-            self.buttonBox.pack_start(button, True, True, 0)
+            self.button_box.pack_start(button, True, True, 0)
             button.connect("toggled", self._on_toggled, view)
-            self.viewsButtons[view] = button
-            if view.hasSelectionMode:
+            self.view_buttons[view] = button
+            if view.has_selection_mode:
                 view.connect("notify::can-select", self._on_can_select_changed)
             if view == views[0]:
                 self.current_view = view
                 button.set_active(True)
 
-        self.titleLabel = Gtk.Label()
-        self.titleLabel.set_halign(Gtk.Align.CENTER)
-        self.titleLabel.set_valign(Gtk.Align.CENTER)
-        centerBox.pack_start(self.titleLabel, True, False, 0)
+        self.title_label = Gtk.Label()
+        self.title_label.set_halign(Gtk.Align.CENTER)
+        self.title_label.set_valign(Gtk.Align.CENTER)
+        center_box.pack_start(self.title_label, True, False, 0)
 
-        rightItem = Gtk.ToolItem()
-        sizeGroup.add_widget(rightItem)
+        right_item = Gtk.ToolItem()
+        size_group.add_widget(right_item)
 
-        rightBox = Gtk.Box()
-        rightItem.add(rightBox)
-        self.insert(rightItem, -1)
+        right_box = Gtk.Box()
+        right_item.add(right_box)
+        self.insert(right_item, -1)
 
-        self.selectButton = SymbolicButton("object-select-symbolic")
-        self.selectButton.set_sensitive(self.current_view.can_select)
-        self.selectButton.connect('clicked', self._on_select_clicked)
-        rightBox.pack_end(self.selectButton, False, False, 0)
+        self.select_button = SymbolicButton("object-select-symbolic")
+        self.select_button.set_sensitive(self.current_view.can_select)
+        self.select_button.connect('clicked', self._on_select_clicked)
+        right_box.pack_end(self.select_button, False, False, 0)
 
-        self.editButton = Gtk.Button(_("Edit"))
-        self.editButton.set_size_request(64, 34)
-        self.editButton.connect('clicked', self._on_edit_clicked)
-        rightBox.pack_end(self.editButton, False, False, 0)
+        self.edit_button = Gtk.Button(_("Edit"))
+        self.edit_button.set_size_request(64, 34)
+        self.edit_button.connect('clicked', self._on_edit_clicked)
+        right_box.pack_end(self.edit_button, False, False, 0)
 
-        self.doneButton = Gtk.Button(_("Done"))
-        self.doneButton.get_style_context().add_class('suggested-action')
-        self.doneButton.set_size_request(64, 34)
-        self.doneButton.connect("clicked", self._on_done_clicked)
-        rightBox.pack_end(self.doneButton, False, False, 0)
+        self.done_button = Gtk.Button(_("Done"))
+        self.done_button.get_style_context().add_class('suggested-action')
+        self.done_button.set_size_request(64, 34)
+        self.done_button.connect("clicked", self._on_done_clicked)
+        right_box.pack_end(self.done_button, False, False, 0)
 
-        self.selectionHandler = 0
+        self.selection_handler = 0
 
         self.embed._selectionToolbar._toolbarDelete.connect("clicked", self._on_delete_clicked)
 
@@ -284,46 +284,46 @@ class ClocksToolbar(Gtk.Toolbar):
 
     def activate_view(self, view):
         if view is not self.current_view:
-            self.viewsButtons[view].set_active(True)
+            self.view_buttons[view].set_active(True)
 
     def show_overview_toolbar(self):
         self.get_style_context().remove_class("selection-mode")
         self.standalone = None
-        self.buttonBox.show()
-        self.newButton.set_visible(self.current_view.hasNew)
-        self.selectButton.set_visible(self.current_view.hasSelectionMode)
-        self.backButton.hide()
-        self.titleLabel.hide()
-        self.editButton.hide()
-        self.doneButton.hide()
-        if self.selectionHandler:
+        self.button_box.show()
+        self.new_button.set_visible(self.current_view.has_new)
+        self.select_button.set_visible(self.current_view.has_selection_mode)
+        self.back_button.hide()
+        self.title_label.hide()
+        self.edit_button.hide()
+        self.done_button.hide()
+        if self.selection_handler:
             self.current_view.disconnect_by_func(self._on_selection_changed)
-            self.selectionHandler = 0
+            self.selection_handler = 0
 
     def show_standalone_toolbar(self, widget):
         self.get_style_context().remove_class("selection-mode")
         self.standalone = widget
-        self.buttonBox.hide()
-        self.newButton.hide()
-        self.selectButton.hide()
-        self.backButton.show_all()
-        self.titleLabel.set_markup("<b>%s</b>" % self.standalone.get_name())
-        self.titleLabel.show()
-        self.editButton.set_visible(self.standalone.can_edit)
-        self.doneButton.hide()
+        self.button_box.hide()
+        self.new_button.hide()
+        self.select_button.hide()
+        self.back_button.show_all()
+        self.title_label.set_markup("<b>%s</b>" % self.standalone.get_name())
+        self.title_label.show()
+        self.edit_button.set_visible(self.standalone.can_edit)
+        self.done_button.hide()
 
     def show_selection_toolbar(self):
         self.get_style_context().add_class("selection-mode")
         self.standalone = None
-        self.buttonBox.hide()
-        self.newButton.hide()
-        self.selectButton.hide()
-        self.backButton.hide()
+        self.button_box.hide()
+        self.new_button.hide()
+        self.select_button.hide()
+        self.back_button.hide()
         self.set_selection_label(0)
-        self.titleLabel.show()
-        self.editButton.hide()
-        self.doneButton.show()
-        self.selectionHandler = \
+        self.title_label.show()
+        self.edit_button.hide()
+        self.done_button.show()
+        self.selection_handler = \
              self.current_view.connect("selection-changed",
                                         self._on_selection_changed)
 
@@ -332,10 +332,10 @@ class ClocksToolbar(Gtk.Toolbar):
 
     def set_selection_label(self, n):
         if n == 0:
-            self.titleLabel.set_markup("(%s)" % _("Click on items to select them"))
+            self.title_label.set_markup("(%s)" % _("Click on items to select them"))
         else:
             msg = ngettext("{0} item selected", "{0} items selected", n).format(n)
-            self.titleLabel.set_markup("<b>%s</b>" % (msg))
+            self.title_label.set_markup("<b>%s</b>" % (msg))
 
     def _on_selection_changed(self, view):
         selection = view.get_selection()
@@ -345,7 +345,7 @@ class ClocksToolbar(Gtk.Toolbar):
 
     def _on_can_select_changed(self, view, pspec):
         if view == self.current_view:
-            self.selectButton.set_sensitive(view.can_select)
+            self.select_button.set_sensitive(view.can_select)
 
     def _on_select_clicked(self, button):
         self.show_selection_toolbar()

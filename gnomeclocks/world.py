@@ -169,16 +169,16 @@ class DigitalClock():
         if not t == self._last_time \
                 or not self.sunrise == self._last_sunrise \
                 or not self.sunset == self._last_sunset:
-            isDay = self.get_is_light(location_time)
-            if isDay:
+            is_light = self.get_is_light(location_time)
+            if is_light:
                 img = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
             else:
                 img = os.path.join(Dirs.get_image_dir(), "cities", "night.png")
             day = self.get_day()
             if day == "Today":
-                self.drawing.render(t, img, isDay)
+                self.drawing.render(t, img, is_light)
             else:
-                self.drawing.render(t, img, isDay, day)
+                self.drawing.render(t, img, is_light, day)
             if self.path and self.list_store:
                 self.list_store[self.path][1] = self.drawing.pixbuf
             if self.standalone:
