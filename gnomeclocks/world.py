@@ -27,10 +27,14 @@ from utils import Dirs, SystemSettings
 from widgets import DigitalClockDrawing, SelectableIconView, ContentView
 
 
+# keep the GWeather world around as a singletom, otherwise
+# if is garbage collected get_city_name etc fail.
+gweather_world = GWeather.Location.new_world(True)
+
+
 class WorldClockStorage():
     def __init__(self):
         self.filename = os.path.join(Dirs.get_user_data_dir(), "clocks.json")
-        self.world = GWeather.Location.new_world(True)
 
     def save(self, clocks):
         location_codes = [c.location.get_code() for c in clocks]
@@ -45,7 +49,7 @@ class WorldClockStorage():
             location_codes = json.load(f)
             f.close()
             for l in location_codes:
-                location = GWeather.Location.find_by_station_code(self.world, l)
+                location = GWeather.Location.find_by_station_code(gweather_world, l)
                 if location:
                     clock = DigitalClock(location)
                     clocks.append(clock)
@@ -71,8 +75,7 @@ class NewWorldClockDialog(Gtk.Dialog):
         label = Gtk.Label(_("Search for a city:"))
         label.set_alignment(0.0, 0.5)
 
-        world = GWeather.Location.new_world(True)
-        self.entry = GWeather.LocationEntry.new(world)
+        self.entry = GWeather.LocationEntry.new(gweather_world)
         self.find_gicon = Gio.ThemedIcon.new_with_default_fallbacks(
             'edit-find-symbolic')
         self.clear_gicon = Gio.ThemedIcon.new_with_default_fallbacks(
@@ -184,8 +187,7 @@ class DigitalClock():
         self._last_time = t
 
     def get_sunrise_sunset(self):
-        world = GWeather.Location.new_world(True)
-        self.weather = GWeather.Info(location=self.location, world=world)
+        self.weather = GWeather.Info(location=self.location, world=gweather_world)
         self.weather.connect('updated', self._on_weather_updated)
         self.weather.update()
 
