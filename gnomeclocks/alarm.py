@@ -416,13 +416,18 @@ class Alarm(Clock):
         dialog.destroy()
 
 
-class StandaloneAlarm(Gtk.Box):
+class StandaloneAlarm(Gtk.EventBox):
     def __init__(self, view, alarm, alert):
-        Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL)
+        Gtk.EventBox.__init__(self)
+        self.get_style_context().add_class('view')
+        self.get_style_context().add_class('content-view')
         self.view = view
         self.alarm = alarm
         self.alert = alert
         self.can_edit = True
+
+        self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        self.add(self.vbox)
 
         time_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
 
@@ -466,9 +471,9 @@ class StandaloneAlarm(Gtk.Box):
         hbox.pack_start(time_box, False, False, 0)
         hbox.pack_start(Gtk.Label(), True, True, 0)
 
-        self.pack_start(Gtk.Label(), True, True, 0)
-        self.pack_start(hbox, False, False, 0)
-        self.pack_start(Gtk.Label(), True, True, 0)
+        self.vbox.pack_start(Gtk.Label(), True, True, 0)
+        self.vbox.pack_start(hbox, False, False, 0)
+        self.vbox.pack_start(Gtk.Label(), True, True, 0)
 
         self.update()
 

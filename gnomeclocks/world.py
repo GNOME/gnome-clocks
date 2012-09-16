@@ -158,9 +158,9 @@ class DigitalClock():
         return t
 
     def update(self):
-        systemClockFormat = SystemSettings.get_clock_format()
+        clock_format = SystemSettings.get_clock_format()
         location_time = self.get_location_time()
-        if systemClockFormat == '12h':
+        if clock_format == '12h':
             t = time.strftime("%I:%M %p", location_time)
         else:
             t = time.strftime("%H:%M", location_time)
@@ -357,42 +357,36 @@ class World(Clock):
         dialog.destroy()
 
 
-class StandaloneClock(Gtk.Box):
+class StandaloneClock(Gtk.EventBox):
     def __init__(self, location, sunrise, sunset):
-        Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL)
+        Gtk.EventBox.__init__(self)
+        self.get_style_context().add_class('view')
+        self.get_style_context().add_class('content-view')
         self.location = location
         self.can_edit = False
-        #self.img = Gtk.Image()
-        #self.city_label = Gtk.Label()
-        #label = GLib.markup_escape_text(location.get_city_name())
-        #self.city_label.set_markup("<b>%s</b>" % label)
         self.time_label = Gtk.Label()
         self.sunrise = sunrise
         self.sunset = sunset
 
-        self.systemClockFormat = None
+        self.clock_format = None
 
-        #imagebox = Gtk.VBox()
-        #imagebox.pack_start(self.img, False, False, 0)
-        #imagebox.pack_start(self.city_label, False, False, 0)
-        #imagebox.set_size_request(230, 230)
+        self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        self.add(self.vbox)
 
-        self.timebox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        time_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         self.time_label.set_alignment(0.0, 0.5)
-        self.timebox.pack_start(self.time_label, True, True, 0)
+        time_box.pack_start(self.time_label, True, True, 0)
 
         self.hbox = hbox = Gtk.Box()
         self.hbox.set_homogeneous(False)
 
         self.hbox.pack_start(Gtk.Label(), True, True, 0)
-        # self.hbox.pack_start(imagebox, False, False, 0)
-        # self.hbox.pack_start(Gtk.Label(), False, False, 30)
-        self.hbox.pack_start(self.timebox, False, False, 0)
+        self.hbox.pack_start(time_box, False, False, 0)
         self.hbox.pack_start(Gtk.Label(), True, True, 0)
 
-        self.pack_start(Gtk.Label(), True, True, 25)
-        self.pack_start(hbox, False, False, 0)
-        self.pack_start(Gtk.Label(), True, True, 0)
+        self.vbox.pack_start(Gtk.Label(), True, True, 25)
+        self.vbox.pack_start(hbox, False, False, 0)
+        self.vbox.pack_start(Gtk.Label(), True, True, 0)
 
         sunrise_label = Gtk.Label()
         sunrise_label.set_markup(
@@ -424,7 +418,7 @@ class StandaloneClock(Gtk.Box):
         hbox.pack_start(Gtk.Label(), True, True, 0)
         hbox.pack_start(sunbox, False, False, 0)
         hbox.pack_start(Gtk.Label(), True, True, 0)
-        self.pack_end(hbox, False, False, 30)
+        self.vbox.pack_end(hbox, False, False, 30)
 
         self.show_all()
 
@@ -433,18 +427,14 @@ class StandaloneClock(Gtk.Box):
 
     def update(self, img, text, sunrise, sunset):
         size = 72000  # FIXME: (self.get_allocation().height / 300) * 72000
-        #if img:
-        #    pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(img, 500, 380)
-        #    pixbuf = pixbuf.new_subpixbuf(0, 0, 208, 208)
-        #    self.img.set_from_pixbuf(pixbuf)
         self.time_label.set_markup(
             "<span size='%i' color='dimgray'><b>%s</b></span>" % (size, text))
-        systemClockFormat = SystemSettings.get_clock_format()
-        if systemClockFormat != self.systemClockFormat or \
+        clock_format = SystemSettings.get_clock_format()
+        if clock_format != self.clock_format or \
                 sunrise != self.sunrise or sunset != self.sunset:
             self.sunrise = sunrise
             self.sunset = sunset
-            if systemClockFormat == "12h":
+            if clock_format == "12h":
                 sunrise_str = time.strftime("%I:%M %p", sunrise)
                 sunset_str = time.strftime("%I:%M %p", sunset)
             else:
@@ -458,4 +448,4 @@ class StandaloneClock(Gtk.Box):
                 "<span size ='large'>%s</span>" % sunrise_str)
             self.sunset_time_label.set_markup(
                 "<span size ='large'>%s</span>" % sunset_str)
-        self.systemClockFormat = systemClockFormat
+        self.clock_format = clock_format
