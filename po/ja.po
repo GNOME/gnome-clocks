@@ -1,0 +1,198 @@
+# gnome-clocks ja.po.
+# Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-clocks package.
+# Takeshi AIHANA <takeshi.aihana@gmail.com>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-clocks master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-clocks&amp;keywords=I18N+L10N&amp;component=general\n"
+"POT-Creation-Date: 2012-09-22 10:56+0900\n"
+"PO-Revision-Date: 2012-09-22 11:31+0900\n"
+"Last-Translator: Takeshi AIHANA <takeshi.aihana@gmail.com>\n"
+"Language-Team: Japanese<takeshi.aihana@gmail.com>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:35
+msgid "Clocks"
+msgstr "時計"
+
+#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:122
+#: ../gnomeclocks/app.py:131
+msgid "GNOME Clocks"
+msgstr "GNOME クロック"
+
+#: ../data/gnome-clocks.desktop.in.h:3
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "通常の時計の他に、世界時計やアラームやストップウォッチを提供します"
+
+#: ../gnomeclocks/alarm.py:117
+msgid "Every day"
+msgstr "毎日"
+
+#: ../gnomeclocks/alarm.py:119
+msgid "Weekdays"
+msgstr "平日"
+
+#: ../gnomeclocks/alarm.py:138
+msgid "Edit Alarm"
+msgstr "アラームの編集"
+
+#: ../gnomeclocks/alarm.py:140 ../gnomeclocks/alarm.py:172
+msgid "New Alarm"
+msgstr "新しいアラーム"
+
+#. Translators: "Time" in this context is the time an alarm
+#. is set to go off (days, hours, minutes etc.)
+#: ../gnomeclocks/alarm.py:177
+msgid "Time"
+msgstr "時刻"
+
+#: ../gnomeclocks/alarm.py:218
+msgid "Name"
+msgstr "名前"
+
+#: ../gnomeclocks/alarm.py:227
+msgid "Repeat Every"
+msgstr "繰り返し"
+
+#: ../gnomeclocks/alarm.py:300
+msgid "Alarm"
+msgstr "アラーム"
+
+#: ../gnomeclocks/alarm.py:312
+msgid "Select <b>New</b> to add an alarm"
+msgstr "<b>新規</b>をクリックしてアラームを追加して下さい"
+
+#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:79
+msgid "Stop"
+msgstr "停止"
+
+#: ../gnomeclocks/alarm.py:459
+msgid "Snooze"
+msgstr "スヌーズ"
+
+#: ../gnomeclocks/app.py:121 ../gnomeclocks/app.py:390
+msgid "About Clocks"
+msgstr "このアプリケーションについて"
+
+#: ../gnomeclocks/app.py:127
+msgid "Utilities to help you with the time."
+msgstr "時間に関するいろいろなツールを提供します"
+
+#: ../gnomeclocks/app.py:129
+msgid "translator-credits"
+msgstr "相花 毅 <takeshi.aihana@gmail.com>"
+
+#. Translators: "New" refers to a world clock or an alarm
+#: ../gnomeclocks/app.py:213
+msgid "New"
+msgstr "新規"
+
+#: ../gnomeclocks/app.py:266
+msgid "Edit"
+msgstr "編集"
+
+#: ../gnomeclocks/app.py:271
+msgid "Done"
+msgstr "完了"
+
+#: ../gnomeclocks/app.py:335
+msgid "Click on items to select them"
+msgstr "アイテムをクリックすると選択状態になります"
+
+#: ../gnomeclocks/app.py:337
+msgid "{0} item selected"
+msgid_plural "{0} items selected"
+msgstr[0] "{0}個のアイテムを選択しました"
+
+#: ../gnomeclocks/app.py:393
+msgid "Quit"
+msgstr "終了"
+
+#: ../gnomeclocks/stopwatch.py:34
+msgid "Stopwatch"
+msgstr "ストップウォッチ"
+
+#: ../gnomeclocks/stopwatch.py:59 ../gnomeclocks/stopwatch.py:97
+#: ../gnomeclocks/timer.py:110
+msgid "Start"
+msgstr "スタート"
+
+#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:86
+#: ../gnomeclocks/timer.py:52
+msgid "Reset"
+msgstr "リセット"
+
+#: ../gnomeclocks/stopwatch.py:85 ../gnomeclocks/timer.py:69
+msgid "Continue"
+msgstr "続行"
+
+#: ../gnomeclocks/timer.py:45 ../gnomeclocks/timer.py:63
+#: ../gnomeclocks/timer.py:73
+msgid "Pause"
+msgstr "ポーズ"
+
+#: ../gnomeclocks/timer.py:155
+msgid "Timer"
+msgstr "タイマー"
+
+#: ../gnomeclocks/utils.py:71
+msgid "Mondays"
+msgstr "月曜日"
+
+#: ../gnomeclocks/utils.py:72
+msgid "Tuesdays"
+msgstr "火曜日"
+
+#: ../gnomeclocks/utils.py:73
+msgid "Wednesdays"
+msgstr "水曜日"
+
+#: ../gnomeclocks/utils.py:74
+msgid "Thursdays"
+msgstr "木曜日"
+
+#: ../gnomeclocks/utils.py:75
+msgid "Fridays"
+msgstr "金曜日"
+
+#: ../gnomeclocks/utils.py:76
+msgid "Saturdays"
+msgstr "土曜日"
+
+#: ../gnomeclocks/utils.py:77
+msgid "Sundays"
+msgstr "日曜日"
+
+#: ../gnomeclocks/widgets.py:333
+msgid "Delete"
+msgstr "削除する"
+
+#: ../gnomeclocks/world.py:66
+msgid "Add a New World Clock"
+msgstr "新しい世界時計の追加"
+
+#: ../gnomeclocks/world.py:75
+msgid "Search for a city:"
+msgstr "都市の検索:"
+
+#: ../gnomeclocks/world.py:259
+msgid "World"
+msgstr "世界時計"
+
+#: ../gnomeclocks/world.py:270
+msgid "Select <b>New</b> to add a world clock"
+msgstr "<b>新規</b>を選択して世界時計を追加して下さい"
+
+#: ../gnomeclocks/world.py:393
+msgid "Sunrise"
+msgstr "日の出"
+
+#: ../gnomeclocks/world.py:403
+msgid "Sunset"
+msgstr "日の入り"
