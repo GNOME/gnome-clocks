@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-02 07:24+0200\n"
-"PO-Revision-Date: 2012-09-02 06:44+0200\n"
+"POT-Creation-Date: 2012-09-22 21:05+0200\n"
+"PO-Revision-Date: 2012-09-22 21:10+0200\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "Language: ar\n"
@@ -22,8 +22,8 @@ msgstr ""
 msgid "Clocks"
 msgstr "الساعات"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:120
-#: ../gnomeclocks/app.py:129
+#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:122
+#: ../gnomeclocks/app.py:131
 msgid "GNOME Clocks"
 msgstr "ساعات جنوم"
 
@@ -31,109 +31,84 @@ msgstr "ساعات جنوم"
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "ساعات لتوقيتات العالم، مع منبه ومُؤقّت وساعة إيقاف."
 
-#: ../gnomeclocks/alarm.py:116
-msgid "Mondays"
-msgstr "أيام الإثنين"
-
-#: ../gnomeclocks/alarm.py:118
-msgid "Tuesdays"
-msgstr "أيام الثلاثاء"
-
-#: ../gnomeclocks/alarm.py:120
-msgid "Wednesdays"
-msgstr "أيام الأربعاء"
-
-#: ../gnomeclocks/alarm.py:122
-msgid "Thursdays"
-msgstr "أيام الخميس"
-
-#: ../gnomeclocks/alarm.py:124
-msgid "Fridays"
-msgstr "أيام الجُمَع"
-
-#: ../gnomeclocks/alarm.py:126
-msgid "Saturdays"
-msgstr "أيام السبت"
-
-#: ../gnomeclocks/alarm.py:128
-msgid "Sundays"
-msgstr "أيام الأحد"
-
-#: ../gnomeclocks/alarm.py:130
+#: ../gnomeclocks/alarm.py:117
 msgid "Every day"
 msgstr "كل يوم"
 
-#: ../gnomeclocks/alarm.py:132
+#: ../gnomeclocks/alarm.py:119
 msgid "Weekdays"
 msgstr "أيام الأسبوع"
 
-#: ../gnomeclocks/alarm.py:161
+#: ../gnomeclocks/alarm.py:138
 msgid "Edit Alarm"
 msgstr "حرّر المنبّه"
 
-#: ../gnomeclocks/alarm.py:163 ../gnomeclocks/alarm.py:195
+#: ../gnomeclocks/alarm.py:140 ../gnomeclocks/alarm.py:172
 msgid "New Alarm"
 msgstr "منبّه جديد"
 
-#: ../gnomeclocks/alarm.py:198
+#. Translators: "Time" in this context is the time an alarm
+#. is set to go off (days, hours, minutes etc.)
+#: ../gnomeclocks/alarm.py:177
 msgid "Time"
 msgstr "الوقت"
 
-#: ../gnomeclocks/alarm.py:237
+#: ../gnomeclocks/alarm.py:218
 msgid "Name"
 msgstr "الاسم"
 
-#: ../gnomeclocks/alarm.py:246
+#: ../gnomeclocks/alarm.py:227
 msgid "Repeat Every"
 msgstr "كرر كل يوم"
 
-#: ../gnomeclocks/alarm.py:320
+#: ../gnomeclocks/alarm.py:300
 msgid "Alarm"
 msgstr "منبّه"
 
-#: ../gnomeclocks/alarm.py:332
+#: ../gnomeclocks/alarm.py:312
 msgid "Select <b>New</b> to add an alarm"
 msgstr "اختر <b>جديد</b> لإضافة منبّه"
 
-#: ../gnomeclocks/alarm.py:472 ../gnomeclocks/stopwatch.py:79
+#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:95
 msgid "Stop"
 msgstr "أوقف"
 
-#: ../gnomeclocks/alarm.py:474
+#: ../gnomeclocks/alarm.py:459
 msgid "Snooze"
 msgstr "غفوة"
 
-#: ../gnomeclocks/app.py:119 ../gnomeclocks/app.py:414
+#: ../gnomeclocks/app.py:121 ../gnomeclocks/app.py:390
 msgid "About Clocks"
 msgstr "عنْ الساعات"
 
-#: ../gnomeclocks/app.py:125
+#: ../gnomeclocks/app.py:127
 msgid "Utilities to help you with the time."
 msgstr "أدوات لمساعدتك في التعامل مع الوقت."
 
-#: ../gnomeclocks/app.py:127
+#: ../gnomeclocks/app.py:129
 msgid "translator-credits"
 msgstr ""
 "فريق عربآيز للترجمة:\n"
 "خالد حسني <khaledhosny@eglug.org>"
 
-#: ../gnomeclocks/app.py:204
+#. Translators: "New" refers to a world clock or an alarm
+#: ../gnomeclocks/app.py:213
 msgid "New"
 msgstr "جديد"
 
-#: ../gnomeclocks/app.py:270
+#: ../gnomeclocks/app.py:266
 msgid "Edit"
 msgstr "حرّر"
 
-#: ../gnomeclocks/app.py:275
+#: ../gnomeclocks/app.py:271
 msgid "Done"
 msgstr "تمّ"
 
-#: ../gnomeclocks/app.py:359
+#: ../gnomeclocks/app.py:335
 msgid "Click on items to select them"
 msgstr "انقر على العناصر لاختيارها"
 
-#: ../gnomeclocks/app.py:361
+#: ../gnomeclocks/app.py:337
 msgid "{0} item selected"
 msgid_plural "{0} items selected"
 msgstr[0] "لا عناصر مختارة"
@@ -143,7 +118,7 @@ msgstr[3] "{0} عناصر مختارة"
 msgstr[4] "{0} عنصرًا مختارا"
 msgstr[5] "{0} عنصر مختار"
 
-#: ../gnomeclocks/app.py:417
+#: ../gnomeclocks/app.py:393
 msgid "Quit"
 msgstr "أنهِ"
 
@@ -151,53 +126,89 @@ msgstr "أنهِ"
 msgid "Stopwatch"
 msgstr "ساعة إيقاف"
 
-#: ../gnomeclocks/stopwatch.py:59 ../gnomeclocks/stopwatch.py:97
-#: ../gnomeclocks/timer.py:107
+#: ../gnomeclocks/stopwatch.py:57 ../gnomeclocks/stopwatch.py:117
+#: ../gnomeclocks/timer.py:110
 msgid "Start"
 msgstr "ابدأ"
 
-#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:86
-#: ../gnomeclocks/timer.py:54
+#: ../gnomeclocks/stopwatch.py:65 ../gnomeclocks/stopwatch.py:106
+#: ../gnomeclocks/timer.py:52
 msgid "Reset"
 msgstr "صفّر"
 
-#: ../gnomeclocks/stopwatch.py:85 ../gnomeclocks/timer.py:71
+#: ../gnomeclocks/stopwatch.py:75
+msgid "Laps"
+msgstr "دورات"
+
+#: ../gnomeclocks/stopwatch.py:98
+msgid "Lap"
+msgstr "دورة"
+
+#: ../gnomeclocks/stopwatch.py:102 ../gnomeclocks/timer.py:69
 msgid "Continue"
 msgstr "أكمل"
 
-#: ../gnomeclocks/timer.py:47 ../gnomeclocks/timer.py:65
-#: ../gnomeclocks/timer.py:75
+#: ../gnomeclocks/timer.py:45 ../gnomeclocks/timer.py:63
+#: ../gnomeclocks/timer.py:73
 msgid "Pause"
 msgstr "ألبِث"
 
-#: ../gnomeclocks/timer.py:149
+#: ../gnomeclocks/timer.py:155
 msgid "Timer"
 msgstr "مُؤقِّت"
 
-#: ../gnomeclocks/widgets.py:373
+#: ../gnomeclocks/utils.py:71
+msgid "Mondays"
+msgstr "أيام الإثنين"
+
+#: ../gnomeclocks/utils.py:72
+msgid "Tuesdays"
+msgstr "أيام الثلاثاء"
+
+#: ../gnomeclocks/utils.py:73
+msgid "Wednesdays"
+msgstr "أيام الأربعاء"
+
+#: ../gnomeclocks/utils.py:74
+msgid "Thursdays"
+msgstr "أيام الخميس"
+
+#: ../gnomeclocks/utils.py:75
+msgid "Fridays"
+msgstr "أيام الجُمَع"
+
+#: ../gnomeclocks/utils.py:76
+msgid "Saturdays"
+msgstr "أيام السبت"
+
+#: ../gnomeclocks/utils.py:77
+msgid "Sundays"
+msgstr "أيام الأحد"
+
+#: ../gnomeclocks/widgets.py:333
 msgid "Delete"
 msgstr "احذف"
 
-#: ../gnomeclocks/world.py:61
+#: ../gnomeclocks/world.py:66
 msgid "Add a New World Clock"
 msgstr "أضف ساعة عالمية جديدة"
 
-#: ../gnomeclocks/world.py:70
+#: ../gnomeclocks/world.py:75
 msgid "Search for a city:"
 msgstr "ابحث عن مدينة:"
 
-#: ../gnomeclocks/world.py:251
+#: ../gnomeclocks/world.py:259
 msgid "World"
 msgstr "العالم"
 
-#: ../gnomeclocks/world.py:262
+#: ../gnomeclocks/world.py:270
 msgid "Select <b>New</b> to add a world clock"
 msgstr "اختر <b>جديد</b> لإضافة ساعة عالمية"
 
-#: ../gnomeclocks/world.py:385
+#: ../gnomeclocks/world.py:393
 msgid "Sunrise"
 msgstr "الشروق"
 
-#: ../gnomeclocks/world.py:395
+#: ../gnomeclocks/world.py:403
 msgid "Sunset"
 msgstr "الغروب"
