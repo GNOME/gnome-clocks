@@ -39,17 +39,15 @@ class Stopwatch(Clock):
         self.time_diff = 0
 
         grid = Gtk.Grid()
+        grid.set_margin_top(12)
+        grid.set_margin_bottom(12)
         grid.set_halign(Gtk.Align.CENTER)
-        grid.set_valign(Gtk.Align.CENTER)
-        grid.set_row_spacing(48)
+        grid.set_row_spacing(24)
         grid.set_column_spacing(24)
         grid.set_column_homogeneous(True)
         self.add(grid)
 
         self.time_label = Gtk.Label()
-        # add margin to match the spinner size in the timer
-        self.time_label.set_margin_top(42)
-        self.time_label.set_margin_bottom(42)
         self.set_time_label(0, 0)
         grid.attach(self.time_label, 0, 0, 2, 1)
 
@@ -72,25 +70,47 @@ class Stopwatch(Clock):
         self.left_button.connect("clicked", self._on_left_button_clicked)
         self.right_button.connect("clicked", self._on_right_button_clicked)
 
+        self.lap = 0
+        self.laps_store = Gtk.ListStore(str, str)
+        laps_column = Gtk.TreeViewColumn(_("Laps"))
+        cell = Gtk.CellRendererText()
+        laps_column.pack_start(cell, expand=False)
+        laps_column.set_attributes(cell, markup=0)
+        cell = Gtk.CellRendererText()
+        laps_column.pack_start(cell, expand=True)
+        laps_column.set_attributes(cell, markup=1)
+        laps_view = Gtk.TreeView(self.laps_store)
+        laps_view.set_headers_visible(False)
+        laps_view.append_column(laps_column)
+        scroll = Gtk.ScrolledWindow()
+        scroll.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
+        scroll.set_vexpand(True);
+        scroll.add(laps_view)
+        grid.attach(scroll, 0, 2, 2, 1)
+
     def _on_left_button_clicked(self, widget):
         if self.state in (Stopwatch.State.RESET, Stopwatch.State.STOPPED):
             self.state = Stopwatch.State.RUNNING
             self.start()
             self.left_label.set_markup(Stopwatch.BUTTON_MARKUP % (_("Stop")))
             self.left_button.get_style_context().add_class("clocks-stop")
-            self.right_button.set_sensitive(False)
+            self.right_button.set_sensitive(True)
+            self.right_label.set_markup(Stopwatch.BUTTON_MARKUP % (_("Lap")))
         elif self.state == Stopwatch.State.RUNNING:
             self.state = Stopwatch.State.STOPPED
             self.stop()
             self.left_label.set_markup(Stopwatch.BUTTON_MARKUP % (_("Continue")))
-            self.right_label.set_markup(Stopwatch.BUTTON_MARKUP % (_("Reset")))
             self.left_button.get_style_context().remove_class("clocks-stop")
             self.left_button.get_style_context().add_class("clocks-go")
             self.right_button.set_sensitive(True)
+            self.right_label.set_markup(Stopwatch.BUTTON_MARKUP % (_("Reset")))
 
     def _on_right_button_clicked(self, widget):
         if self.state == Stopwatch.State.RUNNING:
-            pass
+            self.lap += 1
+            n = "<span color='dimgray'> %d </span>" % (self.lap)
+            t = "<span size ='larger'>%02i:%04.2f</span>" % self.get_time()
+            self.laps_store.prepend([n, t])
         if self.state == Stopwatch.State.STOPPED:
             self.state = Stopwatch.State.RESET
             self.time_diff = 0
@@ -98,6 +118,7 @@ class Stopwatch(Clock):
             self.left_button.get_style_context().add_class("clocks-go")
             self.right_button.set_sensitive(False)
             self.set_time_label(0, 0)
+            self.laps_store.clear()
 
     def get_time(self):
         timediff = time.time() - self.start_time + self.time_diff
