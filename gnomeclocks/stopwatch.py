@@ -34,9 +34,15 @@ class Stopwatch(Clock):
         Clock.__init__(self, _("Stopwatch"))
 
         self.state = Stopwatch.State.RESET
+
         self.timeout_id = 0
+
         self.start_time = 0
         self.time_diff = 0
+
+        self.lap = 0
+        self.lap_start_time = 0
+        self.lap_time_diff = 0
 
         grid = Gtk.Grid()
         grid.set_margin_top(12)
@@ -70,22 +76,23 @@ class Stopwatch(Clock):
         self.left_button.connect("clicked", self._on_left_button_clicked)
         self.right_button.connect("clicked", self._on_right_button_clicked)
 
-        self.lap = 0
-        self.laps_store = Gtk.ListStore(str, str)
-        laps_column = Gtk.TreeViewColumn(_("Laps"))
+        self.laps_store = Gtk.ListStore(str, str, str)
         cell = Gtk.CellRendererText()
-        laps_column.pack_start(cell, expand=False)
-        laps_column.set_attributes(cell, markup=0)
+        n_column = Gtk.TreeViewColumn("", cell, markup=0)
         cell = Gtk.CellRendererText()
-        laps_column.pack_start(cell, expand=True)
-        laps_column.set_attributes(cell, markup=1)
-        laps_view = Gtk.TreeView(self.laps_store)
-        laps_view.set_headers_visible(False)
-        laps_view.append_column(laps_column)
+        split_column = Gtk.TreeViewColumn(_("Split"), cell, markup=1)
+        split_column.set_expand(True)
+        cell = Gtk.CellRendererText()
+        tot_column = Gtk.TreeViewColumn(_("Total"), cell, markup=2)
+        tot_column.set_expand(True)
+        self.laps_view = Gtk.TreeView(self.laps_store)
+        self.laps_view.append_column(n_column)
+        self.laps_view.append_column(split_column)
+        self.laps_view.append_column(tot_column)
         scroll = Gtk.ScrolledWindow()
         scroll.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
         scroll.set_vexpand(True);
-        scroll.add(laps_view)
+        scroll.add(self.laps_view)
         grid.attach(scroll, 0, 2, 2, 1)
 
     def _on_left_button_clicked(self, widget):
@@ -108,9 +115,13 @@ class Stopwatch(Clock):
     def _on_right_button_clicked(self, widget):
         if self.state == Stopwatch.State.RUNNING:
             self.lap += 1
+            tot_m, tot_s, split_m, split_s = self.get_time(True)
             n = "<span color='dimgray'> %d </span>" % (self.lap)
-            t = "<span size ='larger'>%02i:%04.2f</span>" % self.get_time()
-            self.laps_store.prepend([n, t])
+            s = "<span size ='larger'>%02i:%04.2f</span>" % (split_m, split_s)
+            t = "<span size ='larger'>%02i:%04.2f</span>" % (tot_m, tot_s)
+            i = self.laps_store.append([n, s, t])
+            p = self.laps_store.get_path(i)
+            self.laps_view.scroll_to_cell(p, None, False, 0, 0)
         if self.state == Stopwatch.State.STOPPED:
             self.state = Stopwatch.State.RESET
             self.time_diff = 0
@@ -120,28 +131,40 @@ class Stopwatch(Clock):
             self.set_time_label(0, 0)
             self.laps_store.clear()
 
-    def get_time(self):
-        timediff = time.time() - self.start_time + self.time_diff
-        m, s = divmod(timediff, 60)
-        return (m, s)
+    def get_time(self, lap=False):
+        curr = time.time()
+        diff = curr - self.start_time + self.time_diff
+        m, s = divmod(diff, 60)
+        if lap:
+            diff = curr - self.lap_start_time + self.lap_time_diff
+            lap_m, lap_s = divmod(diff, 60)
+            self.lap_start_time = curr
+            return (m, s, lap_m, lap_s)
+        else:
+            return (m, s)
 
     def set_time_label(self, m, s):
         self.time_label.set_markup(Stopwatch.LABEL_MARKUP % (m, s))
 
     def start(self):
         if self.timeout_id == 0:
-            self.start_time = time.time()
+            curr = time.time()
+            self.start_time = curr
+            self.lap_start_time = curr
             self.timeout_id = GObject.timeout_add(100, self.count)
 
     def stop(self):
         GObject.source_remove(self.timeout_id)
         self.timeout_id = 0
-        self.time_diff = self.time_diff + (time.time() - self.start_time)
+        curr = time.time()
+        self.time_diff = self.time_diff + (curr - self.start_time)
+        self.lap_time_diff = self.lap_time_diff + (curr - self.lap_start_time)
 
     def reset(self):
         GObject.source_remove(self.timeout_id)
         self.timeout_id = 0
         self.time_diff = 0
+        self.lap_time_diff = 0
 
     def count(self):
         (m, s) = self.get_time()
