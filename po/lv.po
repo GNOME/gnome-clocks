@@ -6,10 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-07 15:40+0000\n"
-"PO-Revision-Date: 2012-09-09 00:47+0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-24 11:54+0300\n"
+"PO-Revision-Date: 2012-09-24 11:54+0300\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -49,35 +48,37 @@ msgstr "Rediģēt signālu"
 msgid "New Alarm"
 msgstr "Jauns signāls"
 
-#: ../gnomeclocks/alarm.py:175
+#. Translators: "Time" in this context is the time an alarm
+#. is set to go off (days, hours, minutes etc.)
+#: ../gnomeclocks/alarm.py:177
 msgid "Time"
 msgstr "Laiks"
 
-#: ../gnomeclocks/alarm.py:216
+#: ../gnomeclocks/alarm.py:218
 msgid "Name"
 msgstr "Nosaukums"
 
-#: ../gnomeclocks/alarm.py:225
+#: ../gnomeclocks/alarm.py:227
 msgid "Repeat Every"
 msgstr "Atkārtot katras"
 
-#: ../gnomeclocks/alarm.py:301
+#: ../gnomeclocks/alarm.py:300
 msgid "Alarm"
 msgstr "Signāls"
 
-#: ../gnomeclocks/alarm.py:313
+#: ../gnomeclocks/alarm.py:312
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Izvēlieties <b>Jauns</b>, lai pievienotu signālu"
 
-#: ../gnomeclocks/alarm.py:453 ../gnomeclocks/stopwatch.py:79
+#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:95
 msgid "Stop"
 msgstr "Apturēt"
 
-#: ../gnomeclocks/alarm.py:455
+#: ../gnomeclocks/alarm.py:459
 msgid "Snooze"
 msgstr "Iesnaudināt"
 
-#: ../gnomeclocks/app.py:121 ../gnomeclocks/app.py:416
+#: ../gnomeclocks/app.py:121 ../gnomeclocks/app.py:390
 msgid "About Clocks"
 msgstr "Par “Pulksteņi”"
 
@@ -89,30 +90,31 @@ msgstr "Utilītas, kas palīdz pārvaldīt laiku."
 msgid "translator-credits"
 msgstr "Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>"
 
-#: ../gnomeclocks/app.py:203
+#. Translators: "New" refers to a world clock or an alarm
+#: ../gnomeclocks/app.py:213
 msgid "New"
 msgstr "Jauns"
 
-#: ../gnomeclocks/app.py:269
+#: ../gnomeclocks/app.py:266
 msgid "Edit"
 msgstr "Rediģēt"
 
-#: ../gnomeclocks/app.py:274
+#: ../gnomeclocks/app.py:271
 msgid "Done"
 msgstr "Pabeigts"
 
-#: ../gnomeclocks/app.py:361
+#: ../gnomeclocks/app.py:335
 msgid "Click on items to select them"
 msgstr "Spiediet uz vienumiem, lai tos izvēlētos"
 
-#: ../gnomeclocks/app.py:363
+#: ../gnomeclocks/app.py:337
 msgid "{0} item selected"
 msgid_plural "{0} items selected"
 msgstr[0] "Izvēlēts {0} vienums"
 msgstr[1] "Izvēlēti {0} vienumi"
 msgstr[2] "Izvēlēti {0} vienumu"
 
-#: ../gnomeclocks/app.py:419
+#: ../gnomeclocks/app.py:393
 msgid "Quit"
 msgstr "Iziet"
 
@@ -120,26 +122,34 @@ msgstr "Iziet"
 msgid "Stopwatch"
 msgstr "Hronometrs"
 
-#: ../gnomeclocks/stopwatch.py:59 ../gnomeclocks/stopwatch.py:97
-#: ../gnomeclocks/timer.py:111
+#: ../gnomeclocks/stopwatch.py:57 ../gnomeclocks/stopwatch.py:117
+#: ../gnomeclocks/timer.py:110
 msgid "Start"
 msgstr "Sākt"
 
-#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:86
-#: ../gnomeclocks/timer.py:54
+#: ../gnomeclocks/stopwatch.py:65 ../gnomeclocks/stopwatch.py:106
+#: ../gnomeclocks/timer.py:52
 msgid "Reset"
 msgstr "Atstatīt"
 
-#: ../gnomeclocks/stopwatch.py:85 ../gnomeclocks/timer.py:71
+#: ../gnomeclocks/stopwatch.py:75
+msgid "Laps"
+msgstr "Apļi"
+
+#: ../gnomeclocks/stopwatch.py:98
+msgid "Lap"
+msgstr "Aplis"
+
+#: ../gnomeclocks/stopwatch.py:102 ../gnomeclocks/timer.py:69
 msgid "Continue"
 msgstr "Turpināt"
 
-#: ../gnomeclocks/timer.py:47 ../gnomeclocks/timer.py:65
-#: ../gnomeclocks/timer.py:75
+#: ../gnomeclocks/timer.py:45 ../gnomeclocks/timer.py:63
+#: ../gnomeclocks/timer.py:73
 msgid "Pause"
 msgstr "Pauzēt"
 
-#: ../gnomeclocks/timer.py:156
+#: ../gnomeclocks/timer.py:155
 msgid "Timer"
 msgstr "Taimeris"
 
@@ -175,27 +185,27 @@ msgstr "Svētdienas"
 msgid "Delete"
 msgstr "Dzēst"
 
-#: ../gnomeclocks/world.py:62
+#: ../gnomeclocks/world.py:66
 msgid "Add a New World Clock"
 msgstr "Pievienot jaunu pasaules pulksteni"
 
-#: ../gnomeclocks/world.py:71
+#: ../gnomeclocks/world.py:75
 msgid "Search for a city:"
 msgstr "Meklēt pilsētu:"
 
-#: ../gnomeclocks/world.py:246
+#: ../gnomeclocks/world.py:259
 msgid "World"
 msgstr "Pasaule"
 
-#: ../gnomeclocks/world.py:257
+#: ../gnomeclocks/world.py:270
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Izvēlieties <b>Jauns</b>, lai pievienotu pasaules pulksteni"
 
-#: ../gnomeclocks/world.py:386
+#: ../gnomeclocks/world.py:393
 msgid "Sunrise"
 msgstr "Saullēkts"
 
-#: ../gnomeclocks/world.py:396
+#: ../gnomeclocks/world.py:403
 msgid "Sunset"
 msgstr "Saulriets"
 
