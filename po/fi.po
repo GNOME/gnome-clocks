@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-04 08:47+0000\n"
-"PO-Revision-Date: 2012-09-04 14:24+0300\n"
+"POT-Creation-Date: 2012-09-22 15:17+0000\n"
+"PO-Revision-Date: 2012-09-23 14:29+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,8 +22,8 @@ msgstr ""
 msgid "Clocks"
 msgstr "Kellot"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:120
-#: ../gnomeclocks/app.py:129
+#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:122
+#: ../gnomeclocks/app.py:131
 msgid "GNOME Clocks"
 msgstr "Gnome-kellot"
 
@@ -47,69 +47,72 @@ msgstr "Muokkaa hälytystä"
 msgid "New Alarm"
 msgstr "Uusi hälytys"
 
-#: ../gnomeclocks/alarm.py:175
+#. Translators: "Time" in this context is the time an alarm
+#. is set to go off (days, hours, minutes etc.)
+#: ../gnomeclocks/alarm.py:177
 msgid "Time"
 msgstr "Aika"
 
-#: ../gnomeclocks/alarm.py:216
+#: ../gnomeclocks/alarm.py:218
 msgid "Name"
 msgstr "Nimi"
 
-#: ../gnomeclocks/alarm.py:225
+#: ../gnomeclocks/alarm.py:227
 msgid "Repeat Every"
 msgstr "Toisto"
 
-#: ../gnomeclocks/alarm.py:301
+#: ../gnomeclocks/alarm.py:300
 msgid "Alarm"
 msgstr "Hälytys"
 
-#: ../gnomeclocks/alarm.py:313
+#: ../gnomeclocks/alarm.py:312
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Lisää hälytys valitsemalla <b>Uusi</b>"
 
-#: ../gnomeclocks/alarm.py:453 ../gnomeclocks/stopwatch.py:79
+#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:95
 msgid "Stop"
 msgstr "Pysäytä"
 
-#: ../gnomeclocks/alarm.py:455
+#: ../gnomeclocks/alarm.py:459
 msgid "Snooze"
 msgstr "Torkku"
 
-#: ../gnomeclocks/app.py:119 ../gnomeclocks/app.py:414
+#: ../gnomeclocks/app.py:121 ../gnomeclocks/app.py:390
 msgid "About Clocks"
 msgstr "Tietoja kelloista"
 
-#: ../gnomeclocks/app.py:125
+#: ../gnomeclocks/app.py:127
 msgid "Utilities to help you with the time."
 msgstr "Ajan kanssa helpottavat työkalut."
 
-#: ../gnomeclocks/app.py:127
+#: ../gnomeclocks/app.py:129
 msgid "translator-credits"
 msgstr "Jiri Grönroos"
 
-#: ../gnomeclocks/app.py:204
+#. Translators: "New" refers to a world clock or an alarm
+#: ../gnomeclocks/app.py:213
 msgid "New"
 msgstr "Uusi"
 
-#: ../gnomeclocks/app.py:270
+#: ../gnomeclocks/app.py:266
 msgid "Edit"
 msgstr "Muokkaa"
 
-#: ../gnomeclocks/app.py:275
+#: ../gnomeclocks/app.py:271
 msgid "Done"
 msgstr "Valmis"
 
-#: ../gnomeclocks/app.py:359
+#: ../gnomeclocks/app.py:335
 msgid "Click on items to select them"
 msgstr "Napsauta kohteita valitaksesi ne"
 
-#: ../gnomeclocks/app.py:361
+#: ../gnomeclocks/app.py:337
 msgid "{0} item selected"
 msgid_plural "{0} items selected"
 msgstr[0] "{0} kohde valittu"
 msgstr[1] "{0} kohdetta valittu"
 
-#: ../gnomeclocks/app.py:417
+#: ../gnomeclocks/app.py:393
 msgid "Quit"
 msgstr "Lopeta"
 
@@ -117,26 +120,34 @@ msgstr "Lopeta"
 msgid "Stopwatch"
 msgstr "Sekuntikello"
 
-#: ../gnomeclocks/stopwatch.py:59 ../gnomeclocks/stopwatch.py:97
-#: ../gnomeclocks/timer.py:111
+#: ../gnomeclocks/stopwatch.py:57 ../gnomeclocks/stopwatch.py:117
+#: ../gnomeclocks/timer.py:110
 msgid "Start"
 msgstr "Käynnistä"
 
-#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:86
-#: ../gnomeclocks/timer.py:54
+#: ../gnomeclocks/stopwatch.py:65 ../gnomeclocks/stopwatch.py:106
+#: ../gnomeclocks/timer.py:52
 msgid "Reset"
 msgstr "Nollaa"
 
-#: ../gnomeclocks/stopwatch.py:85 ../gnomeclocks/timer.py:71
+#: ../gnomeclocks/stopwatch.py:75
+msgid "Laps"
+msgstr "Kierrokset"
+
+#: ../gnomeclocks/stopwatch.py:98
+msgid "Lap"
+msgstr "Kierros"
+
+#: ../gnomeclocks/stopwatch.py:102 ../gnomeclocks/timer.py:69
 msgid "Continue"
 msgstr "Jatka"
 
-#: ../gnomeclocks/timer.py:47 ../gnomeclocks/timer.py:65
-#: ../gnomeclocks/timer.py:75
+#: ../gnomeclocks/timer.py:45 ../gnomeclocks/timer.py:63
+#: ../gnomeclocks/timer.py:73
 msgid "Pause"
 msgstr "Keskeytä"
 
-#: ../gnomeclocks/timer.py:156
+#: ../gnomeclocks/timer.py:155
 msgid "Timer"
 msgstr "Ajastin"
 
@@ -168,31 +179,31 @@ msgstr "Lauantaisin"
 msgid "Sundays"
 msgstr "Sunnuntaisin"
 
-#: ../gnomeclocks/widgets.py:377
+#: ../gnomeclocks/widgets.py:333
 msgid "Delete"
 msgstr "Poista"
 
-#: ../gnomeclocks/world.py:62
+#: ../gnomeclocks/world.py:66
 msgid "Add a New World Clock"
 msgstr "Lisää uusi maailmankello"
 
-#: ../gnomeclocks/world.py:71
+#: ../gnomeclocks/world.py:75
 msgid "Search for a city:"
 msgstr "Etsi kaupunkia:"
 
-#: ../gnomeclocks/world.py:246
+#: ../gnomeclocks/world.py:259
 msgid "World"
 msgstr "Maailma"
 
-#: ../gnomeclocks/world.py:257
+#: ../gnomeclocks/world.py:270
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Lisää maailmankello valitsemalla <b>Uusi</b>"
 
-#: ../gnomeclocks/world.py:386
+#: ../gnomeclocks/world.py:393
 msgid "Sunrise"
 msgstr "Auringonnousu"
 
-#: ../gnomeclocks/world.py:396
+#: ../gnomeclocks/world.py:403
 msgid "Sunset"
 msgstr "Auringonlasku"
 
