@@ -90,3 +90,8 @@
     background-color:shade(@theme_bg_color, 0.975);
 }
 
+.clocks-laps column-header.button:backdrop,
+.clocks-laps column-header .button:backdrop {
+    background-color: @theme_bg_color;
+}
+
