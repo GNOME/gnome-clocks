@@ -45,6 +45,9 @@ class Stopwatch(Clock):
         self.lap_start_time = 0
         self.lap_time_diff = 0
 
+        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        self.add(vbox)
+
         grid = Gtk.Grid()
         grid.set_margin_top(12)
         grid.set_margin_bottom(24)
@@ -52,7 +55,7 @@ class Stopwatch(Clock):
         grid.set_row_spacing(24)
         grid.set_column_spacing(24)
         grid.set_column_homogeneous(True)
-        self.add(grid)
+        vbox.pack_start(grid, False, False, 0)
 
         self.time_label = Gtk.Label()
         self.set_time_label(0, 0, 0)
@@ -79,7 +82,8 @@ class Stopwatch(Clock):
 
         self.laps_store = Gtk.ListStore(str, str, str)
         cell = Gtk.CellRendererText()
-        n_column = Gtk.TreeViewColumn("", cell, markup=0)
+        n_column = Gtk.TreeViewColumn(_("Lap"), cell, markup=0)
+        n_column.set_expand(True)
         cell = Gtk.CellRendererText()
         split_column = Gtk.TreeViewColumn(_("Split"), cell, markup=1)
         split_column.set_expand(True)
@@ -87,14 +91,14 @@ class Stopwatch(Clock):
         tot_column = Gtk.TreeViewColumn(_("Total"), cell, markup=2)
         tot_column.set_expand(True)
         self.laps_view = Gtk.TreeView(self.laps_store)
+        self.left_button.get_style_context().add_class("clocks-laps")
         self.laps_view.append_column(n_column)
         self.laps_view.append_column(split_column)
         self.laps_view.append_column(tot_column)
         scroll = Gtk.ScrolledWindow()
-        scroll.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
         scroll.set_vexpand(True);
         scroll.add(self.laps_view)
-        grid.attach(scroll, 0, 2, 2, 1)
+        vbox.pack_start(scroll, True, True, 0)
 
     def _on_left_button_clicked(self, widget):
         if self.state in (Stopwatch.State.RESET, Stopwatch.State.STOPPED):
