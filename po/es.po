@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-22 15:17+0000\n"
-"PO-Revision-Date: 2012-09-22 17:54+0200\n"
+"POT-Creation-Date: 2012-09-24 22:43+0000\n"
+"PO-Revision-Date: 2012-09-25 10:22+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Gtranslator 2.91.5\n"
 
 #: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:35
@@ -72,7 +72,7 @@ msgstr "Alarma"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Seleccione <b>Nuevo</ b> para añadir una alarma"
 
-#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:95
+#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:102
 msgid "Stop"
 msgstr "Detener"
 
@@ -125,25 +125,29 @@ msgstr "Salir"
 msgid "Stopwatch"
 msgstr "Cronómetro"
 
-#: ../gnomeclocks/stopwatch.py:57 ../gnomeclocks/stopwatch.py:117
+#: ../gnomeclocks/stopwatch.py:63 ../gnomeclocks/stopwatch.py:128
 #: ../gnomeclocks/timer.py:110
 msgid "Start"
 msgstr "Iniciar"
 
-#: ../gnomeclocks/stopwatch.py:65 ../gnomeclocks/stopwatch.py:106
+#: ../gnomeclocks/stopwatch.py:71 ../gnomeclocks/stopwatch.py:113
 #: ../gnomeclocks/timer.py:52
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: ../gnomeclocks/stopwatch.py:75
-msgid "Laps"
-msgstr "Vueltas"
+#: ../gnomeclocks/stopwatch.py:83
+msgid "Split"
+msgstr "Dividir"
 
-#: ../gnomeclocks/stopwatch.py:98
+#: ../gnomeclocks/stopwatch.py:86
+msgid "Total"
+msgstr "Total"
+
+#: ../gnomeclocks/stopwatch.py:105
 msgid "Lap"
 msgstr "Vuelta"
 
-#: ../gnomeclocks/stopwatch.py:102 ../gnomeclocks/timer.py:69
+#: ../gnomeclocks/stopwatch.py:109 ../gnomeclocks/timer.py:69
 msgid "Continue"
 msgstr "Continuar"
 
@@ -211,6 +215,9 @@ msgstr "Amanecer"
 #: ../gnomeclocks/world.py:403
 msgid "Sunset"
 msgstr "Atardecer"
+
+#~ msgid "Laps"
+#~ msgstr "Vueltas"
 
 #~ msgid "About GNOME Clocks"
 #~ msgstr "Acerca de Relojes de GNOME"
