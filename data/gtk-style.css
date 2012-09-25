@@ -68,3 +68,25 @@
                                       );
     border-image: url("button-border-stop-active.svg") 3 3 4 3 / 3 3 4 3 stretch;
 }
+
+.view.clocks-laps {
+    background-color: @theme_bg_color;
+}
+
+.clocks-laps column-header.button,
+.clocks-laps column-header .button,
+.clocks-laps column-header.button:insensitive,
+.clocks-laps column-header .button:insensitive,
+.clocks-laps column-header.button:hover,
+.clocks-laps column-header .button:hover,
+.clocks-laps column-header.button:last-child,
+.clocks-laps column-header .button:last-child {
+    border-image: none;
+    border-style: solid;
+    border-color: @borders;
+    border-width: 1px 0 0 0;
+    border-radius: 0;
+    box-shadow: none;
+    background-color:shade(@theme_bg_color, 0.975);
+}
+
