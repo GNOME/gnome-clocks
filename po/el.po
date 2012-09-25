@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-22 15:17+0000\n"
-"PO-Revision-Date: 2012-09-22 19:38+0200\n"
+"POT-Creation-Date: 2012-09-24 22:43+0000\n"
+"PO-Revision-Date: 2012-09-25 11:19+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
 "Language: el\n"
@@ -71,7 +71,7 @@ msgstr "Ειδοποίηση"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Επιλέξτε <b>Νέο</b> για να προσθέσετε μια ειδοποίηση"
 
-#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:95
+#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:102
 msgid "Stop"
 msgstr "Διακοπή"
 
@@ -125,25 +125,29 @@ msgstr "Έξοδος"
 msgid "Stopwatch"
 msgstr "Χρονόμετρο"
 
-#: ../gnomeclocks/stopwatch.py:57 ../gnomeclocks/stopwatch.py:117
+#: ../gnomeclocks/stopwatch.py:63 ../gnomeclocks/stopwatch.py:128
 #: ../gnomeclocks/timer.py:110
 msgid "Start"
 msgstr "Έναρξη"
 
-#: ../gnomeclocks/stopwatch.py:65 ../gnomeclocks/stopwatch.py:106
+#: ../gnomeclocks/stopwatch.py:71 ../gnomeclocks/stopwatch.py:113
 #: ../gnomeclocks/timer.py:52
 msgid "Reset"
 msgstr "Επαναφορά"
 
-#: ../gnomeclocks/stopwatch.py:75
-msgid "Laps"
-msgstr "Γύροι"
+#: ../gnomeclocks/stopwatch.py:83
+msgid "Split"
+msgstr "Διαχωρισμός"
 
-#: ../gnomeclocks/stopwatch.py:98
+#: ../gnomeclocks/stopwatch.py:86
+msgid "Total"
+msgstr "Σύνολο"
+
+#: ../gnomeclocks/stopwatch.py:105
 msgid "Lap"
 msgstr "Γύρος"
 
-#: ../gnomeclocks/stopwatch.py:102 ../gnomeclocks/timer.py:69
+#: ../gnomeclocks/stopwatch.py:109 ../gnomeclocks/timer.py:69
 msgid "Continue"
 msgstr "Συνέχεια"
 
@@ -211,6 +215,9 @@ msgstr "Ανατολή"
 #: ../gnomeclocks/world.py:403
 msgid "Sunset"
 msgstr "Δύση"
+
+#~ msgid "Laps"
+#~ msgstr "Γύροι"
 
 #~ msgid "Add New Clock"
 #~ msgstr "Προσθήκη νέου ρολογιού"
