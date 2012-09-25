@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-22 15:17+0000\n"
-"PO-Revision-Date: 2012-09-22 17:36+0200\n"
+"POT-Creation-Date: 2012-09-24 22:43+0000\n"
+"PO-Revision-Date: 2012-09-25 17:30+0200\n"
 "Last-Translator: Alexandre Franke <alexandre.franke@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -73,7 +73,7 @@ msgstr "Alarme"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Selectionner <b>Nouveau</b> pour ajouter une alarme"
 
-#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:95
+#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:102
 msgid "Stop"
 msgstr "Arrêter"
 
@@ -126,25 +126,29 @@ msgstr "Quitter"
 msgid "Stopwatch"
 msgstr "Chronomètre"
 
-#: ../gnomeclocks/stopwatch.py:57 ../gnomeclocks/stopwatch.py:117
+#: ../gnomeclocks/stopwatch.py:63 ../gnomeclocks/stopwatch.py:128
 #: ../gnomeclocks/timer.py:110
 msgid "Start"
 msgstr "Démarrer"
 
-#: ../gnomeclocks/stopwatch.py:65 ../gnomeclocks/stopwatch.py:106
+#: ../gnomeclocks/stopwatch.py:71 ../gnomeclocks/stopwatch.py:113
 #: ../gnomeclocks/timer.py:52
 msgid "Reset"
 msgstr "Recommencer"
 
-#: ../gnomeclocks/stopwatch.py:75
-msgid "Laps"
-msgstr "Tours"
+#: ../gnomeclocks/stopwatch.py:83
+msgid "Split"
+msgstr "Temps au tour"
 
-#: ../gnomeclocks/stopwatch.py:98
+#: ../gnomeclocks/stopwatch.py:86
+msgid "Total"
+msgstr "Total"
+
+#: ../gnomeclocks/stopwatch.py:105
 msgid "Lap"
 msgstr "Tour"
 
-#: ../gnomeclocks/stopwatch.py:102 ../gnomeclocks/timer.py:69
+#: ../gnomeclocks/stopwatch.py:109 ../gnomeclocks/timer.py:69
 msgid "Continue"
 msgstr "Continuer"
 
@@ -212,6 +216,9 @@ msgstr "Lever de soleil"
 #: ../gnomeclocks/world.py:403
 msgid "Sunset"
 msgstr "Coucher de soleil"
+
+#~ msgid "Laps"
+#~ msgstr "Tours"
 
 #~ msgid "About GNOME Clocks"
 #~ msgstr "À propos de GNOME Horloges"
