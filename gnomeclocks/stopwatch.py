@@ -23,6 +23,7 @@ from clocks import Clock
 
 class Stopwatch(Clock):
     LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%04.1f</span>"
+    LABEL_MARKUP_LONG = "<span font_desc=\"64.0\">%i:%02i:%04.1f</span>"
     BUTTON_MARKUP = "<span font_desc=\"18.0\">%s</span>"
 
     class State:
@@ -54,7 +55,7 @@ class Stopwatch(Clock):
         self.add(grid)
 
         self.time_label = Gtk.Label()
-        self.set_time_label(0, 0)
+        self.set_time_label(0, 0, 0)
         grid.attach(self.time_label, 0, 0, 2, 1)
 
         self.left_button = Gtk.Button()
@@ -115,10 +116,16 @@ class Stopwatch(Clock):
     def _on_right_button_clicked(self, widget):
         if self.state == Stopwatch.State.RUNNING:
             self.lap += 1
-            tot_m, tot_s, split_m, split_s = self.get_time(True)
+            tot_h, tot_m, tot_s, split_h, split_m, split_s = self.get_time(True)
             n = "<span color='dimgray'> %d </span>" % (self.lap)
-            s = "<span size ='larger'>%02i:%04.2f</span>" % (split_m, split_s)
-            t = "<span size ='larger'>%02i:%04.2f</span>" % (tot_m, tot_s)
+            if split_h > 0:
+                s = "<span size ='larger'>%i:%02i:%04.2f</span>" % (split_h, split_m, split_s)
+            else:
+                s = "<span size ='larger'>%02i:%04.2f</span>" % (split_m, split_s)
+            if tot_h:
+                t = "<span size ='larger'>%i:%02i:%04.2f</span>" % (tot_h, tot_m, tot_s)
+            else:
+                t = "<span size ='larger'>%02i:%04.2f</span>" % (tot_m, tot_s)
             i = self.laps_store.append([n, s, t])
             p = self.laps_store.get_path(i)
             self.laps_view.scroll_to_cell(p, None, False, 0, 0)
@@ -128,23 +135,28 @@ class Stopwatch(Clock):
             self.left_label.set_markup(Stopwatch.BUTTON_MARKUP % (_("Start")))
             self.left_button.get_style_context().add_class("clocks-go")
             self.right_button.set_sensitive(False)
-            self.set_time_label(0, 0)
+            self.set_time_label(0, 0, 0)
             self.laps_store.clear()
 
     def get_time(self, lap=False):
         curr = time.time()
         diff = curr - self.start_time + self.time_diff
-        m, s = divmod(diff, 60)
+        h, m = divmod(diff, 3600)
+        m, s = divmod(m, 60)
         if lap:
             diff = curr - self.lap_start_time + self.lap_time_diff
-            lap_m, lap_s = divmod(diff, 60)
+            lap_h, lap_m = divmod(diff, 3600)
+            lap_m, lap_s = divmod(lap_m, 60)
             self.lap_start_time = curr
-            return (m, s, lap_m, lap_s)
+            return (h, m, s, lap_h, lap_m, lap_s)
         else:
-            return (m, s)
+            return (h, m, s)
 
-    def set_time_label(self, m, s):
-        self.time_label.set_markup(Stopwatch.LABEL_MARKUP % (m, s))
+    def set_time_label(self, h, m, s):
+        if h > 0:
+            self.time_label.set_markup(Stopwatch.LABEL_MARKUP_LONG % (h, m, s))
+        else:
+            self.time_label.set_markup(Stopwatch.LABEL_MARKUP % (m, s))
 
     def start(self):
         if self.timeout_id == 0:
@@ -167,6 +179,6 @@ class Stopwatch(Clock):
         self.lap_time_diff = 0
 
     def count(self):
-        (m, s) = self.get_time()
-        self.set_time_label(m, s)
+        (h, m, s) = self.get_time()
+        self.set_time_label(h, m, s)
         return True
