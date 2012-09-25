@@ -5,6 +5,7 @@
 
 .clocks-toolbar.toolbar {
     border-style: solid;
+    border-color: @borders;
     border-width: 0 0 1px 0;
     border-radius: 0;
 }
@@ -73,6 +74,13 @@
     background-color: @theme_bg_color;
 }
 
+.frame.clocks-laps-scroll {
+    border-style: solid;
+    border-color: @borders;
+    border-width: 1px 0 0 0;
+    border-radius: 0;
+}
+
 .clocks-laps column-header.button,
 .clocks-laps column-header .button,
 .clocks-laps column-header.button:insensitive,
@@ -83,8 +91,7 @@
 .clocks-laps column-header .button:last-child {
     border-image: none;
     border-style: solid;
-    border-color: @borders;
-    border-width: 1px 0 0 0;
+    border-width: 0;
     border-radius: 0;
     box-shadow: none;
     background-color:shade(@theme_bg_color, 0.975);
@@ -94,4 +101,3 @@
 .clocks-laps column-header .button:backdrop {
     background-color: @theme_bg_color;
 }
-

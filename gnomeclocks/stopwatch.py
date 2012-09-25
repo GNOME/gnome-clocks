@@ -96,6 +96,8 @@ class Stopwatch(Clock):
         self.laps_view.append_column(split_column)
         self.laps_view.append_column(tot_column)
         scroll = Gtk.ScrolledWindow()
+        scroll.get_style_context().add_class("clocks-laps-scroll")
+        scroll.set_shadow_type(Gtk.ShadowType.IN)
         scroll.set_vexpand(True);
         scroll.add(self.laps_view)
         vbox.pack_start(scroll, True, True, 0)
