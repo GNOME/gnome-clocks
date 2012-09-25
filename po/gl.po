@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-23 01:05+0200\n"
-"PO-Revision-Date: 2012-09-23 01:05+0200\n"
+"POT-Creation-Date: 2012-09-25 10:49+0200\n"
+"PO-Revision-Date: 2012-09-25 10:49+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -74,7 +74,7 @@ msgstr "Alarma"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Seleccione <b>Novo</b> para engadir unha alarma"
 
-#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:95
+#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:103
 msgid "Stop"
 msgstr "Deter"
 
@@ -94,9 +94,7 @@ msgstr "Utilidades que lle axudan co tempo."
 msgid "translator-credits"
 msgstr ""
 "Leandro Regueiro <leandro.regueiro@gmail.com>, 2012\n"
-"Fran Diéguez <frandieguez@gnome.org>, 2012\n"
-"Proxecto Trasno - Tradución de software libre ao galego <proxecto@trasno."
-"net>, 1999-2012"
+"Fran Diéguez <frandieguez@gnome.org>, 2012"
 
 #. Translators: "New" refers to a world clock or an alarm
 #: ../gnomeclocks/app.py:213
@@ -125,29 +123,33 @@ msgstr[1] "{0} elementos seleccionados"
 msgid "Quit"
 msgstr "Saír"
 
-#: ../gnomeclocks/stopwatch.py:34
+#: ../gnomeclocks/stopwatch.py:35
 msgid "Stopwatch"
 msgstr "Cronómetro"
 
-#: ../gnomeclocks/stopwatch.py:57 ../gnomeclocks/stopwatch.py:117
+#: ../gnomeclocks/stopwatch.py:64 ../gnomeclocks/stopwatch.py:135
 #: ../gnomeclocks/timer.py:110
 msgid "Start"
 msgstr "Iniciar"
 
-#: ../gnomeclocks/stopwatch.py:65 ../gnomeclocks/stopwatch.py:106
+#: ../gnomeclocks/stopwatch.py:72 ../gnomeclocks/stopwatch.py:114
 #: ../gnomeclocks/timer.py:52
 msgid "Reset"
 msgstr "Restaurar"
 
-#: ../gnomeclocks/stopwatch.py:75
-msgid "Laps"
-msgstr "Voltas"
+#: ../gnomeclocks/stopwatch.py:84
+msgid "Split"
+msgstr "Dividir"
 
-#: ../gnomeclocks/stopwatch.py:98
+#: ../gnomeclocks/stopwatch.py:87
+msgid "Total"
+msgstr "Total"
+
+#: ../gnomeclocks/stopwatch.py:106
 msgid "Lap"
 msgstr "Volta"
 
-#: ../gnomeclocks/stopwatch.py:102 ../gnomeclocks/timer.py:69
+#: ../gnomeclocks/stopwatch.py:110 ../gnomeclocks/timer.py:69
 msgid "Continue"
 msgstr "Continuar"
 
@@ -215,6 +217,9 @@ msgstr "Amencer"
 #: ../gnomeclocks/world.py:403
 msgid "Sunset"
 msgstr "Solpor"
+
+#~ msgid "Laps"
+#~ msgstr "Voltas"
 
 #~ msgid "About GNOME Clocks"
 #~ msgstr "Sobre Reloxos de GNOME"
