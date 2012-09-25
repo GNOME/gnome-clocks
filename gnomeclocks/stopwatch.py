@@ -91,7 +91,7 @@ class Stopwatch(Clock):
         tot_column = Gtk.TreeViewColumn(_("Total"), cell, markup=2)
         tot_column.set_expand(True)
         self.laps_view = Gtk.TreeView(self.laps_store)
-        self.left_button.get_style_context().add_class("clocks-laps")
+        self.laps_view.get_style_context().add_class("clocks-laps")
         self.laps_view.append_column(n_column)
         self.laps_view.append_column(split_column)
         self.laps_view.append_column(tot_column)
