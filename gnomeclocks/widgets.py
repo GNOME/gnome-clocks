@@ -354,6 +354,13 @@ class Embed(GtkClutter.Embed):
         GtkClutter.Embed.__init__(self)
         self.set_use_layout_size(True)
 
+        # Set can-focus to false and override key-press and
+        # key-release so that we skip all Clutter key event
+        # handling and we let the contained gtk widget do
+        # their thing
+        # See https://bugzilla.gnome.org/show_bug.cgi?id=684988
+        self.set_can_focus(False)
+
         self.stage = self.get_stage()
 
         self._overlayLayout = Clutter.BinLayout()
@@ -399,6 +406,12 @@ class Embed(GtkClutter.Embed):
                              Clutter.BinAlignment.FILL,
                              Clutter.BinAlignment.FILL)
         self._background.lower_bottom()
+
+    def do_key_press_event(self, event):
+        return False
+
+    def do_key_release_event(self, event):
+        return False
 
     def _spotlight_finished(self, actor, name, is_finished):
         self._viewActor.set_child_below_sibling(self._background, None)
