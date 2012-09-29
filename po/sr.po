@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks"
 "&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-03 20:16+0000\n"
-"PO-Revision-Date: 2012-09-04 23:10+0200\n"
+"POT-Creation-Date: 2012-09-24 22:43+0000\n"
+"PO-Revision-Date: 2012-09-29 10:17+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -20,8 +20,8 @@ msgstr ""
 msgid "Clocks"
 msgstr "Сатови"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:120
-#: ../gnomeclocks/app.py:129
+#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:122
+#: ../gnomeclocks/app.py:131
 msgid "GNOME Clocks"
 msgstr "Гномови сатови"
 
@@ -38,7 +38,6 @@ msgid "Weekdays"
 msgstr "Радним данима"
 
 #: ../gnomeclocks/alarm.py:138
-#| msgid "Alarm"
 msgid "Edit Alarm"
 msgstr "Уредите аларм"
 
@@ -46,63 +45,66 @@ msgstr "Уредите аларм"
 msgid "New Alarm"
 msgstr "Нови аларм"
 
-#: ../gnomeclocks/alarm.py:175
+#. Translators: "Time" in this context is the time an alarm
+#. is set to go off (days, hours, minutes etc.)
+#: ../gnomeclocks/alarm.py:177
 msgid "Time"
 msgstr "Време"
 
-#: ../gnomeclocks/alarm.py:216
+#: ../gnomeclocks/alarm.py:218
 msgid "Name"
 msgstr "Назив"
 
-#: ../gnomeclocks/alarm.py:225
+#: ../gnomeclocks/alarm.py:227
 msgid "Repeat Every"
 msgstr "Понављај"
 
-#: ../gnomeclocks/alarm.py:301
+#: ../gnomeclocks/alarm.py:300
 msgid "Alarm"
 msgstr "Аларм"
 
-#: ../gnomeclocks/alarm.py:313
+#: ../gnomeclocks/alarm.py:312
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Изаберите <b>Ново</b> да додате аларм"
 
-#: ../gnomeclocks/alarm.py:453 ../gnomeclocks/stopwatch.py:79
+#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:102
 msgid "Stop"
 msgstr "Заустави"
 
-#: ../gnomeclocks/alarm.py:455
+#: ../gnomeclocks/alarm.py:459
 msgid "Snooze"
 msgstr "Дремај"
 
-#: ../gnomeclocks/app.py:119 ../gnomeclocks/app.py:414
+#: ../gnomeclocks/app.py:121 ../gnomeclocks/app.py:390
 msgid "About Clocks"
 msgstr "О сатовима"
 
-#: ../gnomeclocks/app.py:125
+#: ../gnomeclocks/app.py:127
 msgid "Utilities to help you with the time."
 msgstr "Алати који ће вам помоћи са временом."
 
-#: ../gnomeclocks/app.py:127
+#: ../gnomeclocks/app.py:129
 msgid "translator-credits"
 msgstr "  Мирослав Николић <mirosavnikoic@rocketmailcom>"
 
-#: ../gnomeclocks/app.py:204
+#. Translators: "New" refers to a world clock or an alarm
+#: ../gnomeclocks/app.py:213
 msgid "New"
 msgstr "Ново"
 
-#: ../gnomeclocks/app.py:270
+#: ../gnomeclocks/app.py:266
 msgid "Edit"
 msgstr "Уреди"
 
-#: ../gnomeclocks/app.py:275
+#: ../gnomeclocks/app.py:271
 msgid "Done"
 msgstr "Урађено"
 
-#: ../gnomeclocks/app.py:359
+#: ../gnomeclocks/app.py:335
 msgid "Click on items to select them"
 msgstr "Кликните на ставке да их изаберете"
 
-#: ../gnomeclocks/app.py:361
+#: ../gnomeclocks/app.py:337
 msgid "{0} item selected"
 msgid_plural "{0} items selected"
 msgstr[0] "Изабрана је {0} ставка"
@@ -110,7 +112,7 @@ msgstr[1] "Изабране су {0} ставке"
 msgstr[2] "Изабрано је {0} ставки"
 msgstr[3] "Изабрана је једна ставка"
 
-#: ../gnomeclocks/app.py:417
+#: ../gnomeclocks/app.py:393
 msgid "Quit"
 msgstr "Изађи"
 
@@ -118,26 +120,38 @@ msgstr "Изађи"
 msgid "Stopwatch"
 msgstr "Штоперица"
 
-#: ../gnomeclocks/stopwatch.py:59 ../gnomeclocks/stopwatch.py:97
-#: ../gnomeclocks/timer.py:107
+#: ../gnomeclocks/stopwatch.py:63 ../gnomeclocks/stopwatch.py:128
+#: ../gnomeclocks/timer.py:110
 msgid "Start"
 msgstr "Покрени"
 
-#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:86
-#: ../gnomeclocks/timer.py:54
+#: ../gnomeclocks/stopwatch.py:71 ../gnomeclocks/stopwatch.py:113
+#: ../gnomeclocks/timer.py:52
 msgid "Reset"
 msgstr "Поврати"
 
-#: ../gnomeclocks/stopwatch.py:85 ../gnomeclocks/timer.py:71
+#: ../gnomeclocks/stopwatch.py:83
+msgid "Split"
+msgstr "Подели"
+
+#: ../gnomeclocks/stopwatch.py:86
+msgid "Total"
+msgstr "Укупно"
+
+#: ../gnomeclocks/stopwatch.py:105
+msgid "Lap"
+msgstr "Круг"
+
+#: ../gnomeclocks/stopwatch.py:109 ../gnomeclocks/timer.py:69
 msgid "Continue"
 msgstr "Настави"
 
-#: ../gnomeclocks/timer.py:47 ../gnomeclocks/timer.py:65
-#: ../gnomeclocks/timer.py:75
+#: ../gnomeclocks/timer.py:45 ../gnomeclocks/timer.py:63
+#: ../gnomeclocks/timer.py:73
 msgid "Pause"
 msgstr "Паузирај"
 
-#: ../gnomeclocks/timer.py:149
+#: ../gnomeclocks/timer.py:155
 msgid "Timer"
 msgstr "Одбројавач"
 
@@ -169,30 +183,30 @@ msgstr "суботом"
 msgid "Sundays"
 msgstr "недељом"
 
-#: ../gnomeclocks/widgets.py:373
+#: ../gnomeclocks/widgets.py:333
 msgid "Delete"
 msgstr "Обриши"
 
-#: ../gnomeclocks/world.py:62
+#: ../gnomeclocks/world.py:66
 msgid "Add a New World Clock"
 msgstr "Додај нови светски сат"
 
-#: ../gnomeclocks/world.py:71
+#: ../gnomeclocks/world.py:75
 msgid "Search for a city:"
 msgstr "Потражи град:"
 
-#: ../gnomeclocks/world.py:246
+#: ../gnomeclocks/world.py:259
 msgid "World"
 msgstr "Свет"
 
-#: ../gnomeclocks/world.py:257
+#: ../gnomeclocks/world.py:270
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Изаберите <b>Ново</b> да додате светски сат"
 
-#: ../gnomeclocks/world.py:386
+#: ../gnomeclocks/world.py:393
 msgid "Sunrise"
 msgstr "Сунце излази у"
 
-#: ../gnomeclocks/world.py:396
+#: ../gnomeclocks/world.py:403
 msgid "Sunset"
 msgstr "Сунце залази у"
