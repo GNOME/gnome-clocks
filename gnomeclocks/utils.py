@@ -134,7 +134,10 @@ class Alert:
 
     def show(self):
         if self.canberra:
-            self.canberra.play(1, pycanberra.CA_PROP_EVENT_ID, self.soundid, None)
+            self.canberra.play(1,
+                               pycanberra.CA_PROP_EVENT_ID, self.soundid,
+                               pycanberra.CA_PROP_MEDIA_ROLE, "alarm",
+                               None)
         if self.notification:
             self.notification.show()
 
