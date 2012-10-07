@@ -281,6 +281,8 @@ class ClocksToolbar(Gtk.Toolbar):
     @GObject.Signal(arg_types=(Clock,))
     def view_clock(self, view):
         self.current_view = view
+        if view.has_selection_mode:
+            self.select_button.set_sensitive(view.can_select)
 
     def activate_view(self, view):
         if view is not self.current_view:
