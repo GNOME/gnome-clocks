@@ -138,6 +138,7 @@ class Stopwatch(Clock):
         if self.state == Stopwatch.State.STOPPED:
             self.state = Stopwatch.State.RESET
             self.time_diff = 0
+            self.lap = 0
             self.left_label.set_markup(Stopwatch.BUTTON_MARKUP % (_("Start")))
             self.left_button.get_style_context().add_class("clocks-go")
             self.right_button.set_sensitive(False)
