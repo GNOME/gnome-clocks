@@ -256,7 +256,8 @@ class DigitalClock():
 
 class World(Clock):
     def __init__(self):
-        Clock.__init__(self, _("World"), True, True)
+        # Translators: "New" refers to a world clock
+        Clock.__init__(self, _("World"), _("New"), True)
 
         self.liststore = Gtk.ListStore(bool,
                                        GdkPixbuf.Pixbuf,

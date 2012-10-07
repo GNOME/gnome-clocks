@@ -297,7 +297,8 @@ class AlarmWidget():
 
 class Alarm(Clock):
     def __init__(self):
-        Clock.__init__(self, _("Alarm"), True, True)
+        # Translators: "New" refers to an alarm
+        Clock.__init__(self, _("Alarm"), _("New"), True)
 
         self.liststore = Gtk.ListStore(bool,
                                        GdkPixbuf.Pixbuf,

@@ -209,8 +209,7 @@ class ClocksToolbar(Gtk.Toolbar):
         left_box = Gtk.Box()
         left_item.add(left_box)
 
-        # Translators: "New" refers to a world clock or an alarm
-        self.new_button = Gtk.Button(_("New"))
+        self.new_button = Gtk.Button()
         self.new_button.set_action_name("win.new")
         self.new_button.set_size_request(64, 34)
         left_box.pack_start(self.new_button, False, False, 0)
@@ -292,7 +291,11 @@ class ClocksToolbar(Gtk.Toolbar):
         self.get_style_context().remove_class("selection-mode")
         self.standalone = None
         self.button_box.show()
-        self.new_button.set_visible(self.current_view.has_new)
+        if self.current_view.new_label:
+            self.new_button.set_label(self.current_view.new_label)
+            self.new_button.show()
+        else:
+            self.new_button.hide()
         self.select_button.set_visible(self.current_view.has_selection_mode)
         self.back_button.hide()
         self.title_label.hide()

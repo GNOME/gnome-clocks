@@ -29,10 +29,10 @@ class Clock(Gtk.EventBox):
                               ())
     }
 
-    def __init__(self, label, has_new=False, has_selection_mode=False):
+    def __init__(self, label, new_label=None, has_selection_mode=False):
         Gtk.EventBox.__init__(self)
         self.label = label
-        self.has_new = has_new
+        self.new_label = new_label
         self.has_selection_mode = has_selection_mode
         self.get_style_context().add_class('view')
         self.get_style_context().add_class('content-view')
