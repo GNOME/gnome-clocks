@@ -47,7 +47,10 @@ import gettext
 from gnomeclocks.utils import Dirs
 
 locale_domain = "gnome-clocks"
-locale.setlocale(locale.LC_ALL, '')
+try:
+    locale.setlocale(locale.LC_ALL, '')
+except:
+    pass
 gettext.bindtextdomain(locale_domain, Dirs.get_locale_dir())
 gettext.textdomain(locale_domain)
 gettext.install(locale_domain, Dirs.get_locale_dir())
