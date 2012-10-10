@@ -1,0 +1,223 @@
+# Slovak translation for gnome-clocks.
+# Copyright (C) 2012 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-clocks package.
+# Dušan Kazik <prescott66@gmail.com>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-clocks\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-10-09 08:56+0000\n"
+"PO-Revision-Date: 2012-10-10 13:29+0100\n"
+"Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
+"Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
+
+#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:35
+msgid "Clocks"
+msgstr "Hodiny"
+
+#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:122
+#: ../gnomeclocks/app.py:131
+msgid "GNOME Clocks"
+msgstr "GNOME hodiny"
+
+#: ../data/gnome-clocks.desktop.in.h:3
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "Hodiny svetového času, budík, stopky a časovač"
+
+#: ../gnomeclocks/alarm.py:117
+msgid "Every day"
+msgstr "Každý deň"
+
+#: ../gnomeclocks/alarm.py:119
+msgid "Weekdays"
+msgstr "Pracovné dni"
+
+#: ../gnomeclocks/alarm.py:138
+msgid "Edit Alarm"
+msgstr "Upraviť budík"
+
+#: ../gnomeclocks/alarm.py:140 ../gnomeclocks/alarm.py:172
+msgid "New Alarm"
+msgstr "Nový budík"
+
+#. Translators: "Time" in this context is the time an alarm
+#. is set to go off (days, hours, minutes etc.)
+#: ../gnomeclocks/alarm.py:177
+msgid "Time"
+msgstr "Čas"
+
+#: ../gnomeclocks/alarm.py:218
+msgid "Name"
+msgstr "Názov"
+
+# Pondelok, Utorok, ...
+#: ../gnomeclocks/alarm.py:227
+msgid "Repeat Every"
+msgstr "Opakovať každý"
+
+#. Translators: "New" refers to an alarm
+#: ../gnomeclocks/alarm.py:301
+msgid "Alarm"
+msgstr "Budík"
+
+# https://bugzilla.gnome.org/show_bug.cgi?id=685659
+# https://bugzilla.gnome.org/show_bug.cgi?id=684472
+#: ../gnomeclocks/alarm.py:301 ../gnomeclocks/world.py:260
+msgid "New"
+msgstr "Pridať"
+
+# https://bugzilla.gnome.org/show_bug.cgi?id=685659
+# https://bugzilla.gnome.org/show_bug.cgi?id=684472
+#: ../gnomeclocks/alarm.py:313
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Zvoľte <b>Pridať</b> na pridanie budíka"
+
+#: ../gnomeclocks/alarm.py:458 ../gnomeclocks/stopwatch.py:109
+msgid "Stop"
+msgstr "Zastaviť"
+
+#: ../gnomeclocks/alarm.py:460
+msgid "Snooze"
+msgstr "Odložiť"
+
+#: ../gnomeclocks/app.py:121 ../gnomeclocks/app.py:395
+msgid "About Clocks"
+msgstr "O aplikácii Hodiny"
+
+#: ../gnomeclocks/app.py:127
+msgid "Utilities to help you with the time."
+msgstr "Nástroje na pomoc s časom."
+
+#: ../gnomeclocks/app.py:129
+msgid "translator-credits"
+msgstr "Dušan Kazik <prescott66@gmail.com>"
+
+#: ../gnomeclocks/app.py:265
+msgid "Edit"
+msgstr "Upraviť"
+
+#: ../gnomeclocks/app.py:270
+msgid "Done"
+msgstr "Dokončiť"
+
+#: ../gnomeclocks/app.py:340
+msgid "Click on items to select them"
+msgstr "Pre výber položiek kliknite na ne"
+
+#: ../gnomeclocks/app.py:342
+msgid "{0} item selected"
+msgid_plural "{0} items selected"
+msgstr[0] "{0} položiek vybraných"
+msgstr[1] "{0} položka vybraná"
+msgstr[2] "{0} položky vybrané"
+
+#: ../gnomeclocks/app.py:398
+msgid "Quit"
+msgstr "Ukončiť"
+
+#: ../gnomeclocks/stopwatch.py:35
+msgid "Stopwatch"
+msgstr "Stopky"
+
+#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:142
+#: ../gnomeclocks/timer.py:110
+msgid "Start"
+msgstr "Spustiť"
+
+#: ../gnomeclocks/stopwatch.py:75 ../gnomeclocks/stopwatch.py:120
+#: ../gnomeclocks/timer.py:52
+msgid "Reset"
+msgstr "Vynulovať"
+
+#: ../gnomeclocks/stopwatch.py:85 ../gnomeclocks/stopwatch.py:112
+msgid "Lap"
+msgstr "Okruh"
+
+#: ../gnomeclocks/stopwatch.py:88
+msgid "Split"
+msgstr "Rozdiel"
+
+#: ../gnomeclocks/stopwatch.py:91
+msgid "Total"
+msgstr "Celkovo"
+
+#: ../gnomeclocks/stopwatch.py:116 ../gnomeclocks/timer.py:69
+msgid "Continue"
+msgstr "Pokračovať"
+
+#: ../gnomeclocks/timer.py:45 ../gnomeclocks/timer.py:63
+#: ../gnomeclocks/timer.py:73
+msgid "Pause"
+msgstr "Pozastaviť"
+
+#: ../gnomeclocks/timer.py:155
+msgid "Timer"
+msgstr "Časovač"
+
+#: ../gnomeclocks/utils.py:71
+msgid "Mondays"
+msgstr "Každý pondelok"
+
+#: ../gnomeclocks/utils.py:72
+msgid "Tuesdays"
+msgstr "Každý utorok"
+
+#: ../gnomeclocks/utils.py:73
+msgid "Wednesdays"
+msgstr "Každú stredu"
+
+#: ../gnomeclocks/utils.py:74
+msgid "Thursdays"
+msgstr "Každý štvrtok"
+
+#: ../gnomeclocks/utils.py:75
+msgid "Fridays"
+msgstr "Každý piatok"
+
+#: ../gnomeclocks/utils.py:76
+msgid "Saturdays"
+msgstr "Každú sobotu"
+
+#: ../gnomeclocks/utils.py:77
+msgid "Sundays"
+msgstr "Každú nedeľu"
+
+#: ../gnomeclocks/widgets.py:333
+msgid "Delete"
+msgstr "Odstrániť"
+
+#: ../gnomeclocks/world.py:66
+msgid "Add a New World Clock"
+msgstr "Pridať nové svetové hodiny"
+
+#: ../gnomeclocks/world.py:75
+msgid "Search for a city:"
+msgstr "Vyhľadajte mesto:"
+
+#. Translators: "New" refers to a world clock
+#: ../gnomeclocks/world.py:260
+msgid "World"
+msgstr "Svet"
+
+# https://bugzilla.gnome.org/show_bug.cgi?id=685659
+# https://bugzilla.gnome.org/show_bug.cgi?id=684472
+#: ../gnomeclocks/world.py:271
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Zvoľte <b>Pridať</b> na pridanie svetových hodín"
+
+#: ../gnomeclocks/world.py:394
+msgid "Sunrise"
+msgstr "Východ slnka"
+
+#: ../gnomeclocks/world.py:404
+msgid "Sunset"
+msgstr "Západ slnka"
