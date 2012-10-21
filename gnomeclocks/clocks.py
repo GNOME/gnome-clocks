@@ -20,14 +20,6 @@ from gi.repository import GObject, Gtk
 
 
 class Clock(Gtk.EventBox):
-    __gsignals__ = {
-        'show-standalone': (GObject.SignalFlags.RUN_LAST,
-                            None,
-                            (GObject.TYPE_PYOBJECT, )),
-        'selection-changed': (GObject.SignalFlags.RUN_LAST,
-                              None,
-                              ())
-    }
 
     def __init__(self, label, new_label=None, has_selection_mode=False):
         Gtk.EventBox.__init__(self)
@@ -43,6 +35,14 @@ class Clock(Gtk.EventBox):
         self.has_selection_mode = has_selection_mode
         self.get_style_context().add_class('view')
         self.get_style_context().add_class('content-view')
+
+    @GObject.Signal(arg_types=(object,))
+    def show_standalone(self, arg):
+        pass
+
+    @GObject.Signal
+    def selection_changed(self):
+        pass
 
     def open_new_dialog(self):
         pass
