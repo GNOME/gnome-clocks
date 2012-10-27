@@ -17,7 +17,7 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import time
-from gi.repository import GObject, Gtk
+from gi.repository import GLib, Gtk
 from clocks import Clock
 from utils import Alert
 from widgets import Spinner
@@ -186,11 +186,11 @@ class Timer(Clock):
         self.notebook.set_current_page(1)
 
     def _add_timeout(self):
-        self.timeout_id = GObject.timeout_add(250, self.count)
+        self.timeout_id = GLib.timeout_add(250, self.count)
 
     def _remove_timeout(self):
         if self.timeout_id != 0:
-            GObject.source_remove(self.timeout_id)
+            GLib.source_remove(self.timeout_id)
         self.timeout_id = 0
 
     def start(self):

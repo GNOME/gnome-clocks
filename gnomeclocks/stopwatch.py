@@ -17,7 +17,7 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import time
-from gi.repository import Gtk, GObject
+from gi.repository import GLib, Gtk
 from clocks import Clock
 
 
@@ -170,17 +170,17 @@ class Stopwatch(Clock):
             curr = time.time()
             self.start_time = curr
             self.lap_start_time = curr
-            self.timeout_id = GObject.timeout_add(100, self.count)
+            self.timeout_id = GLib.timeout_add(100, self.count)
 
     def stop(self):
-        GObject.source_remove(self.timeout_id)
+        GLib.source_remove(self.timeout_id)
         self.timeout_id = 0
         curr = time.time()
         self.time_diff = self.time_diff + (curr - self.start_time)
         self.lap_time_diff = self.lap_time_diff + (curr - self.lap_start_time)
 
     def reset(self):
-        GObject.source_remove(self.timeout_id)
+        GLib.source_remove(self.timeout_id)
         self.timeout_id = 0
         self.time_diff = 0
         self.lap_time_diff = 0

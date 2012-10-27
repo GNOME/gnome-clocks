@@ -321,7 +321,7 @@ class Alarm(Clock):
         self.load_alarms()
         self.show_all()
 
-        self.timeout_id = GObject.timeout_add(1000, self._check_alarms)
+        self.timeout_id = GLib.timeout_add(1000, self._check_alarms)
 
     def _check_alarms(self):
         for i in self.liststore:

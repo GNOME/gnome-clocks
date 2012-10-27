@@ -279,7 +279,7 @@ class World(Clock):
         self.load_clocks()
         self.show_all()
 
-        self.timeout_id = GObject.timeout_add(1000, self._update_clocks)
+        self.timeout_id = GLib.timeout_add(1000, self._update_clocks)
 
     def _update_clocks(self):
         for c in self.clocks:
