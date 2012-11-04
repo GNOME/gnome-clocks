@@ -207,7 +207,7 @@ class TogglePixbufRenderer(Gtk.CellRendererPixbuf):
 
         x_offset, y_offset, width, height = Gtk.CellRendererPixbuf.do_get_size(self, widget, cell_area)
 
-        width += icon_size / 4
+        width += icon_size // 4
 
         return (x_offset, y_offset, width, height)
 
