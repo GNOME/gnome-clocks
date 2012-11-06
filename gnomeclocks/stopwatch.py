@@ -137,8 +137,7 @@ class Stopwatch(Clock):
             self.laps_view.scroll_to_cell(p, None, False, 0, 0)
         if self.state == Stopwatch.State.STOPPED:
             self.state = Stopwatch.State.RESET
-            self.time_diff = 0
-            self.lap = 0
+            self.reset()
             self.left_label.set_markup(Stopwatch.BUTTON_MARKUP % (_("Start")))
             self.left_button.get_style_context().add_class("clocks-go")
             self.right_button.set_sensitive(False)
@@ -180,8 +179,7 @@ class Stopwatch(Clock):
         self.lap_time_diff = self.lap_time_diff + (curr - self.lap_start_time)
 
     def reset(self):
-        GLib.source_remove(self.timeout_id)
-        self.timeout_id = 0
+        self.lap = 0
         self.time_diff = 0
         self.lap_time_diff = 0
 
