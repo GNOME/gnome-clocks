@@ -186,7 +186,8 @@ class Timer(Clock):
         self.notebook.set_current_page(1)
 
     def _add_timeout(self):
-        self.timeout_id = GLib.timeout_add(250, self.count)
+        if self.timeout_id == 0:
+            self.timeout_id = GLib.timeout_add(250, self.count)
 
     def _remove_timeout(self):
         if self.timeout_id != 0:
@@ -233,3 +234,12 @@ class Timer(Clock):
             h, m = divmod(m, 60)
             self.timer_screen.set_time(h, m, s)
             return True
+
+    def _ui_freeze(self, widget):
+        if self.state == Timer.State.RUNNING:
+            self._remove_timeout()
+
+    def _ui_thaw(self, widget):
+        if self.state == Timer.State.RUNNING:
+            self.count()
+            self._add_timeout()

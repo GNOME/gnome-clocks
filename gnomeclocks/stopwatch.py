@@ -164,17 +164,25 @@ class Stopwatch(Clock):
         else:
             self.time_label.set_markup(Stopwatch.LABEL_MARKUP % (m, s))
 
+    def _add_timeout(self):
+        if self.timeout_id == 0:
+            self.timeout_id = GLib.timeout_add(100, self.count)
+
+    def _remove_timeout(self):
+        if self.timeout_id != 0:
+            GLib.source_remove(self.timeout_id)
+        self.timeout_id = 0
+
     def start(self):
         if self.timeout_id == 0:
             curr = time.time()
             self.start_time = curr
             self.lap_start_time = curr
-            self.timeout_id = GLib.timeout_add(100, self.count)
+            self._add_timeout()
 
     def stop(self):
-        GLib.source_remove(self.timeout_id)
-        self.timeout_id = 0
         curr = time.time()
+        self._remove_timeout()
         self.time_diff = self.time_diff + (curr - self.start_time)
         self.lap_time_diff = self.lap_time_diff + (curr - self.lap_start_time)
 
@@ -187,3 +195,12 @@ class Stopwatch(Clock):
         (h, m, s) = self.get_time()
         self.set_time_label(h, m, s)
         return True
+
+    def _ui_freeze(self, widget):
+        if self.state == Stopwatch.State.RUNNING:
+            self._remove_timeout()
+
+    def _ui_thaw(self, widget):
+        if self.state == Stopwatch.State.RUNNING:
+            self.count()
+            self._add_timeout()

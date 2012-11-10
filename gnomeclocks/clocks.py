@@ -31,6 +31,13 @@ class Clock(Gtk.EventBox):
 
     def __init__(self, label, new_label=None, has_selection_mode=False):
         Gtk.EventBox.__init__(self)
+
+        # We catch map/unmap here to allow pausing of expensive UI
+        # updates, like for the stopwatch, when corresponding UI is not
+        # visible.
+        self.connect('map', self._ui_thaw)
+        self.connect('unmap', self._ui_freeze)
+
         self.label = label
         self.new_label = new_label
         self.has_selection_mode = has_selection_mode
@@ -47,4 +54,23 @@ class Clock(Gtk.EventBox):
         pass
 
     def delete_selected(self):
+        pass
+
+    def _ui_freeze(self, widget):
+        """
+        Called when the clock widget is unmapped.
+
+        Derived classes can implement this method to remove timeouts
+        in order to save CPU time while the clock widget is not
+        visible.
+        """
+        pass
+
+    def _ui_thaw(self, widget):
+        """
+        Called when the clock widget is mapped.
+
+        Derived clock classes can implement this method to re-add
+        timeouts when the clock widget becomes visible again.
+        """
         pass
