@@ -148,6 +148,7 @@ class DigitalClock():
         self._last_time = None
         self.drawing = DigitalClockDrawing()
         self.standalone = None
+        self._standalone_is_new = False
         self.update()
 
     def get_location_time(self, secs=None):
@@ -168,7 +169,8 @@ class DigitalClock():
             t = t[1:]
         if not t == self._last_time \
                 or not self.sunrise == self._last_sunrise \
-                or not self.sunset == self._last_sunset:
+                or not self.sunset == self._last_sunset \
+                or self._standalone_is_new:
             is_light = self.get_is_light(location_time)
             if is_light:
                 img = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
@@ -183,8 +185,11 @@ class DigitalClock():
                 self.list_store[self.path][1] = self.drawing.pixbuf
             if self.standalone:
                 self.standalone.update(img, t, self.sunrise, self.sunset)
+                self._standalone_is_new = False
 
-        self._last_time = t
+            self._last_time = t
+            self._last_sunrise = self.sunrise
+            self._last_sunset = self.sunset
 
     def get_sunrise_sunset(self):
         self.weather = GWeather.Info(location=self.location, world=gweather_world)
@@ -195,8 +200,6 @@ class DigitalClock():
         # returned as the time here
         ok, sunrise = weather.get_value_sunrise()
         ok, sunset = weather.get_value_sunset()
-        self._last_sunrise = self.sunrise
-        self._last_sunset = self.sunset
         self.sunrise = self.get_location_time(sunrise)
         self.sunset = self.get_location_time(sunset)
         self.update()
@@ -207,6 +210,7 @@ class DigitalClock():
     def get_standalone_widget(self):
         if not self.standalone:
             self.standalone = StandaloneClock(self.location, self.sunrise, self.sunset)
+            self._standalone_is_new = True
         self.update()
         return self.standalone
 
