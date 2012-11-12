@@ -32,7 +32,8 @@ AUTHORS = [
     "William Jon McCann",
     "Eslam Mostafa",
     "Bastien Nocera",
-    "Jakub Steiner"
+    "Jakub Steiner",
+    "Volker Sobek"
 ]
 
 COPYRIGHTS =\
