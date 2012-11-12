@@ -89,7 +89,7 @@ class AlarmItem:
 
     def update_expiration_time(self):
         now = datetime.now()
-        dt = now.replace(hour=self.hour, minute=self.minute)
+        dt = now.replace(hour=self.hour, minute=self.minute, second=0, microsecond=0)
         # check if it can ring later today
         if dt.weekday() not in self.days or dt <= now:
             # otherwise if it can ring this week
