@@ -84,10 +84,14 @@ class AlarmItem:
             self.days = AlarmItem.EVERY_DAY
 
         self.time = None
-        if not hour == None and not minute == None:
-            self.update_expiration_time()
+        self.snooze_time = None
+        self.is_snoozing = False
 
-    def update_expiration_time(self):
+        if not hour == None and not minute == None:
+            self._update_expiration_time()
+            self._update_snooze_expiration_time(self.time)
+
+    def _update_expiration_time(self):
         now = datetime.now()
         dt = now.replace(hour=self.hour, minute=self.minute, second=0, microsecond=0)
         # check if it can ring later today
@@ -100,6 +104,16 @@ class AlarmItem:
             else:
                 dt += timedelta(weeks=1, days=(self.days[0] - dt.weekday()))
         self.time = dt
+
+    def _update_snooze_expiration_time(self, start_time):
+        self.snooze_time = start_time + timedelta(minutes=9)
+
+    def snooze(self):
+        self.is_snoozing = True
+
+    def stop(self):
+        self.is_snoozing = False
+        self._update_snooze_expiration_time(self.time)
 
     def get_time_as_string(self):
         if SystemSettings.get_clock_format() == "12h":
@@ -126,10 +140,16 @@ class AlarmItem:
             return ", ".join(days)
 
     def check_expired(self):
-        if datetime.now() > self.time:
-            self.update_expiration_time()
+        t = datetime.now()
+        if self.is_snoozing and t > self.snooze_time:
+            self._update_snooze_expiration_time(self.snooze_time)
+            self.is_snoozing = False
             return True
-        return False
+        elif t > self.time:
+            self._update_expiration_time()
+            return True
+        else:
+            return False
 
 
 class AlarmDialog(Gtk.Dialog):
@@ -482,11 +502,11 @@ class StandaloneAlarm(Gtk.EventBox):
         self.set_ringing(False)
 
     def _on_stop_clicked(self, button):
+        self.alarm.stop()
         self.alert.stop()
 
     def _on_snooze_clicked(self, button):
-        # Add 9 minutes, but without saving the change permanently
-        self.alarm.time += timedelta(minutes=9)
+        self.alarm.snooze()
         self.alert.stop()
 
     def get_name(self):
