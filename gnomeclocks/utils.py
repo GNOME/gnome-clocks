@@ -118,7 +118,7 @@ class Alert:
     def __init__(self, soundid, msg, callback):
         try:
             self.canberra = pycanberra.Canberra()
-        except Exception, e:
+        except Exception as e:
             print "Sound will not be available: ", e
             self.canberra = None
 
