@@ -89,7 +89,7 @@ class AlarmItem:
 
         if not hour == None and not minute == None:
             self._update_expiration_time()
-            self._update_snooze_expiration_time(self.time)
+            self._reset_snooze(self.time)
 
     def _update_expiration_time(self):
         now = datetime.now()
@@ -105,15 +105,15 @@ class AlarmItem:
                 dt += timedelta(weeks=1, days=(self.days[0] - dt.weekday()))
         self.time = dt
 
-    def _update_snooze_expiration_time(self, start_time):
+    def _reset_snooze(self, start_time):
         self.snooze_time = start_time + timedelta(minutes=9)
+        self.is_snoozing = False
 
     def snooze(self):
         self.is_snoozing = True
 
     def stop(self):
-        self.is_snoozing = False
-        self._update_snooze_expiration_time(self.time)
+        self._reset_snooze(self.time)
 
     def get_time_as_string(self):
         if SystemSettings.get_clock_format() == "12h":
@@ -141,12 +141,12 @@ class AlarmItem:
 
     def check_expired(self):
         t = datetime.now()
-        if self.is_snoozing and t > self.snooze_time:
-            self._update_snooze_expiration_time(self.snooze_time)
-            self.is_snoozing = False
-            return True
-        elif t > self.time:
+        if t > self.time:
+            self._reset_snooze(self.time)
             self._update_expiration_time()
+            return True
+        elif self.is_snoozing and t > self.snooze_time:
+            self._reset_snooze(self.snooze_time)
             return True
         else:
             return False
