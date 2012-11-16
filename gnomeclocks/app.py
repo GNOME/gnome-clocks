@@ -154,27 +154,37 @@ class Window(Gtk.ApplicationWindow):
 
 
 class ClockButton(Gtk.RadioButton):
-    _group = None
+    _radio_group = None
+    _size_group = None
 
     def __init__(self, text):
-        Gtk.RadioButton.__init__(self, group=ClockButton._group, draw_indicator=False)
-        self.text = text
+        Gtk.RadioButton.__init__(self, group=ClockButton._radio_group, draw_indicator=False)
+        if not ClockButton._radio_group:
+            ClockButton._radio_group = self
+        if not ClockButton._size_group:
+            ClockButton._size_group = Gtk.SizeGroup(mode=Gtk.SizeGroupMode.HORIZONTAL)
+        # We use two labels to make sure they
+        # keep the same size even when using bold
         self.label = Gtk.Label()
         self.label.set_markup(text)
+        self.bold_label = Gtk.Label()
+        self.bold_label.set_markup("<b>%s</b>" % text)
+        ClockButton._size_group.add_widget(self.label)
+        ClockButton._size_group.add_widget(self.bold_label)
         self.add(self.label)
         self.set_alignment(0.5, 0.5)
         self.set_size_request(100, 34)
         self.get_style_context().add_class('linked')
-        if not ClockButton._group:
-            ClockButton._group = self
 
     def do_toggled(self):
         try:
+            self.remove(self.get_child())
             if self.get_active():
-                self.label.set_markup("<b>%s</b>" % self.text)
+                self.add(self.bold_label)
             else:
-                self.label.set_markup("%s" % self.text)
-        except AttributeError:
+                self.add(self.label)
+            self.show_all()
+        except TypeError:
             # at construction the is no label yet
             pass
 
