@@ -173,6 +173,8 @@ class Timer(Clock):
         self.alert = Alert("complete", "Ta Da !",
                            self._on_notification_activated)
 
+        self._ui_is_frozen = False
+
     def _on_notification_activated(self, notif, action, data):
         win = self.get_toplevel()
         win.show_clock(self)
@@ -228,18 +230,16 @@ class Timer(Clock):
             self.timer_screen.set_time(0, 0, 0)
             self.show_setup_screen(False)
             return False
-        else:
+        elif self._ui_is_frozen == False:
             r = self.deadline - t
             m, s = divmod(r, 60)
             h, m = divmod(m, 60)
             self.timer_screen.set_time(h, m, s)
-            return True
+        return True
 
     def _ui_freeze(self, widget):
-        if self.state == Timer.State.RUNNING:
-            self._remove_timeout()
+        self._ui_is_frozen = True
 
     def _ui_thaw(self, widget):
-        if self.state == Timer.State.RUNNING:
-            self.count()
-            self._add_timeout()
+        self._ui_is_frozen = False
+        self.count
