@@ -171,7 +171,10 @@ class ClockButton(Gtk.RadioButton):
         self.bold_label.set_markup("<b>%s</b>" % text)
         ClockButton._size_group.add_widget(self.label)
         ClockButton._size_group.add_widget(self.bold_label)
-        self.add(self.label)
+        if self.get_active():
+            self.add(self.bold_label)
+        else:
+            self.add(self.label)
         self.set_alignment(0.5, 0.5)
         self.set_size_request(100, 34)
         self.get_style_context().add_class('linked')
