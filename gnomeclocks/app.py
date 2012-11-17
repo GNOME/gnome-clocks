@@ -178,7 +178,11 @@ class ClockButton(Gtk.RadioButton):
 
     def do_toggled(self):
         try:
-            self.remove(self.get_child())
+            label = self.get_child()
+            self.remove(label)
+            # We need to unset the flag manually until GTK fixes
+            # https://bugzilla.gnome.org/show_bug.cgi?id=688519
+            label.unset_state_flags (Gtk.StateFlags.ACTIVE)
             if self.get_active():
                 self.add(self.bold_label)
             else:
