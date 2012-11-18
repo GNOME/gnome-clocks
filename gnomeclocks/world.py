@@ -354,7 +354,7 @@ class World(Clock):
     def _on_item_activated(self, iconview, path):
         thumb = self.liststore[path][3]
         self.standalone.set_clock(thumb.get_clock())
-        self.emit("show-standalone")
+        self.emit("item-activated")
 
     def _on_selection_changed(self, iconview):
         self.emit("selection-changed")

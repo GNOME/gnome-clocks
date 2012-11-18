@@ -449,13 +449,13 @@ class Alarm(Clock):
             alarm = thumb.get_alarm()
             if alarm.check_expired():
                 self.standalone.set_alarm(alarm, True)
-                self.emit("show-standalone")
+                self.emit("item-activated")
         return True
 
     def _on_item_activated(self, iconview, path):
         thumb = self.liststore[path][3]
         self.standalone.set_alarm(thumb.get_alarm())
-        self.emit("show-standalone")
+        self.emit("item-activated")
 
     def _on_selection_changed(self, iconview):
         self.emit("selection-changed")

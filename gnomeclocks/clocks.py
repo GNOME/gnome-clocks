@@ -37,7 +37,7 @@ class Clock(Gtk.EventBox):
         self.get_style_context().add_class('content-view')
 
     @GObject.Signal
-    def show_standalone(self):
+    def item_activated(self):
         pass
 
     @GObject.Signal

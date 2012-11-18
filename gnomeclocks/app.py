@@ -79,8 +79,8 @@ class Window(Gtk.ApplicationWindow):
             self.notebook.append_page(view, None)
         self.notebook.append_page(self.single_evbox, None)
 
-        self.world.connect("show-standalone", self._on_show_standalone)
-        self.alarm.connect("show-standalone", self._on_show_standalone)
+        self.world.connect("item-activated", self._on_item_activated)
+        self.alarm.connect("item-activated", self._on_item_activated)
 
         self.toolbar.connect("view-clock", self._on_view_clock)
         self.vbox.show_all()
@@ -90,7 +90,7 @@ class Window(Gtk.ApplicationWindow):
     def show_clock(self, view):
         self.toolbar.activate_view(view)
 
-    def _on_show_standalone(self, view):
+    def _on_item_activated(self, view):
         def show_standalone_page():
             self.toolbar.show_standalone_toolbar(view.standalone)
             self.single_evbox.add(view.standalone)
