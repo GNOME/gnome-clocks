@@ -21,7 +21,7 @@ import errno
 import time
 import json
 from datetime import datetime, timedelta
-from gi.repository import GLib, GObject, Gtk, GdkPixbuf
+from gi.repository import GLib, Gio, GObject, Gtk, GdkPixbuf
 from clocks import Clock
 from utils import Dirs, SystemSettings, LocalizedWeekdays, Alert
 from widgets import DigitalClockDrawing, SelectableIconView, ContentView
@@ -72,6 +72,8 @@ class AlarmItem:
 
     def __init__(self, name=None, hour=None, minute=None, days=EVERY_DAY):
         self.update(name=name, hour=hour, minute=minute, days=days)
+        self.alert = Alert("alarm-clock-elapsed", name,
+                           self._on_notification_activated)
 
     def update(self, name=None, hour=None, minute=None, days=EVERY_DAY):
         self.name = name
@@ -109,11 +111,17 @@ class AlarmItem:
         self.snooze_time = start_time + timedelta(minutes=9)
         self.is_snoozing = False
 
+    def _on_notification_activated(self, notif, action, data):
+        app = Gio.Application.get_default()
+        app.win.show_clock(app.win.alarm)
+
     def snooze(self):
         self.is_snoozing = True
+        self.alert.stop()
 
     def stop(self):
         self._reset_snooze(self.time)
+        self.alert.stop()
 
     def get_time_as_string(self):
         if SystemSettings.get_clock_format() == "12h":
@@ -142,6 +150,7 @@ class AlarmItem:
     def check_expired(self):
         t = datetime.now()
         if t > self.time:
+            self.alert.show()
             self._reset_snooze(self.time)
             self._update_expiration_time()
             return True
@@ -288,10 +297,9 @@ class AlarmDialog(Gtk.Dialog):
 
 
 class AlarmThumbnail():
-    def __init__(self, view, alarm, alert):
+    def __init__(self, view, alarm):
         self.view = view
         self.alarm = alarm
-        self.alert = alert
         timestr = alarm.get_time_as_string()
         repeat = alarm.get_alarm_repeat_string()
         self.drawing = DigitalClockDrawing()
@@ -309,23 +317,19 @@ class AlarmThumbnail():
     def get_pixbuf(self):
         return self.drawing.pixbuf
 
-    def get_alert(self):
-        return self.alert
-
     def get_standalone_widget(self):
         if not self.standalone:
-            self.standalone = StandaloneAlarm(self.view, self.alarm, self.alert)
+            self.standalone = StandaloneAlarm(self.view, self.alarm)
         return self.standalone
 
 
 class StandaloneAlarm(Gtk.EventBox):
-    def __init__(self, view, alarm, alert):
+    def __init__(self, view, alarm):
         Gtk.EventBox.__init__(self)
         self.get_style_context().add_class('view')
         self.get_style_context().add_class('content-view')
         self.view = view
         self.alarm = alarm
-        self.alert = alert
         self.can_edit = True
 
         self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
@@ -384,11 +388,9 @@ class StandaloneAlarm(Gtk.EventBox):
 
     def _on_stop_clicked(self, button):
         self.alarm.stop()
-        self.alert.stop()
 
     def _on_snooze_clicked(self, button):
         self.alarm.snooze()
-        self.alert.stop()
 
     def get_name(self):
         name = self.alarm.name
@@ -449,16 +451,10 @@ class Alarm(Clock):
         for i in self.liststore:
             thumb = self.liststore.get_value(i.iter, 3)
             if thumb.get_alarm().check_expired():
-                alert = thumb.get_alert()
-                alert.show()
                 standalone = thumb.get_standalone_widget()
                 standalone.set_ringing(True)
                 self.emit("show-standalone", thumb)
         return True
-
-    def _on_notification_activated(self, notif, action, data):
-        win = self.get_toplevel()
-        win.show_clock(self)
 
     def _on_item_activated(self, iconview, path):
         thumb = self.liststore[path][3]
@@ -494,9 +490,7 @@ class Alarm(Clock):
         self.show_all()
 
     def add_alarm_thumbnail(self, alarm):
-        alert = Alert("alarm-clock-elapsed", alarm.name,
-                      self._on_notification_activated)
-        thumb = AlarmThumbnail(self, alarm, alert)
+        thumb = AlarmThumbnail(self, alarm)
         label = GLib.markup_escape_text(alarm.name)
         view_iter = self.liststore.append([False,
                                            thumb.get_pixbuf(),
