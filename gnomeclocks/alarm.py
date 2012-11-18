@@ -97,7 +97,7 @@ class AlarmItem:
         # check if it can ring later today
         if dt.weekday() not in self.days or dt <= now:
             # otherwise if it can ring this week
-            next_days = [ d for d in self.days if d > dt.weekday() ]
+            next_days = [d for d in self.days if d > dt.weekday()]
             if next_days:
                 dt += timedelta(days=(next_days[0] - dt.weekday()))
             # otherwise next week
@@ -150,6 +150,9 @@ class AlarmItem:
             return True
         else:
             return False
+
+    def get_is_light(self):
+        return self.hour > 7 and self.hour < 19
 
 
 class AlarmDialog(Gtk.Dialog):
@@ -284,7 +287,7 @@ class AlarmDialog(Gtk.Dialog):
         return alarm
 
 
-class AlarmWidget():
+class AlarmThumbnail():
     def __init__(self, view, alarm, alert):
         self.view = view
         self.alarm = alarm
@@ -292,7 +295,7 @@ class AlarmWidget():
         timestr = alarm.get_time_as_string()
         repeat = alarm.get_alarm_repeat_string()
         self.drawing = DigitalClockDrawing()
-        is_light = self.get_is_light(int(timestr[:2]))
+        is_light = self.alarm.get_is_light()
         if is_light:
             img = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
         else:
@@ -300,8 +303,8 @@ class AlarmWidget():
         self.drawing.render(timestr, img, is_light, repeat)
         self.standalone = None
 
-    def get_is_light(self, hours):
-        return hours > 7 and hours < 19
+    def get_alarm(self):
+        return self.alarm
 
     def get_pixbuf(self):
         return self.drawing.pixbuf
@@ -423,14 +426,13 @@ class Alarm(Clock):
         self.liststore = Gtk.ListStore(bool,
                                        GdkPixbuf.Pixbuf,
                                        str,
-                                       GObject.TYPE_PYOBJECT,
                                        GObject.TYPE_PYOBJECT)
 
         self.iconview = SelectableIconView(self.liststore, 0, 1, 2)
 
         contentview = ContentView(self.iconview,
-                "alarm-symbolic",
-                _("Select <b>New</b> to add an alarm"))
+                                  "alarm-symbolic",
+                                  _("Select <b>New</b> to add an alarm"))
         self.add(contentview)
 
         self.iconview.connect("item-activated", self._on_item_activated)
@@ -445,14 +447,13 @@ class Alarm(Clock):
 
     def _check_alarms(self):
         for i in self.liststore:
-            alarm = self.liststore.get_value(i.iter, 4)
-            if alarm.check_expired():
-                widget = self.liststore.get_value(i.iter, 3)
-                alert = widget.get_alert()
+            thumb = self.liststore.get_value(i.iter, 3)
+            if thumb.get_alarm().check_expired():
+                alert = thumb.get_alert()
                 alert.show()
-                standalone = widget.get_standalone_widget()
+                standalone = thumb.get_standalone_widget()
                 standalone.set_ringing(True)
-                self.emit("show-standalone", widget)
+                self.emit("show-standalone", thumb)
         return True
 
     def _on_notification_activated(self, notif, action, data):
@@ -460,8 +461,8 @@ class Alarm(Clock):
         win.show_clock(self)
 
     def _on_item_activated(self, iconview, path):
-        alarm = self.liststore[path][3]
-        self.emit("show-standalone", alarm)
+        thumb = self.liststore[path][3]
+        self.emit("show-standalone", thumb)
 
     def _on_selection_changed(self, iconview):
         self.emit("selection-changed")
@@ -478,32 +479,29 @@ class Alarm(Clock):
 
     def delete_selected(self):
         selection = self.get_selection()
-        alarms = []
-        for path in selection:
-            alarms.append(self.liststore[path][-1])
+        alarms = [self.liststore[path][3].get_alarm() for path in selection]
         self.delete_alarms(alarms)
 
     def load_alarms(self):
         self.alarms = self.storage.load()
         for alarm in self.alarms:
-            self.add_alarm_widget(alarm)
+            self.add_alarm_thumbnail(alarm)
 
     def add_alarm(self, alarm):
         self.alarms.append(alarm)
         self.storage.save(self.alarms)
-        self.add_alarm_widget(alarm)
+        self.add_alarm_thumbnail(alarm)
         self.show_all()
 
-    def add_alarm_widget(self, alarm):
+    def add_alarm_thumbnail(self, alarm):
         alert = Alert("alarm-clock-elapsed", alarm.name,
                       self._on_notification_activated)
-        widget = AlarmWidget(self, alarm, alert)
+        thumb = AlarmThumbnail(self, alarm, alert)
         label = GLib.markup_escape_text(alarm.name)
         view_iter = self.liststore.append([False,
-                                           widget.get_pixbuf(),
+                                           thumb.get_pixbuf(),
                                            "<b>%s</b>" % label,
-                                           widget,
-                                           alarm])
+                                           thumb])
         self.notify("can-select")
 
     def update_alarm(self, old_alarm, new_alarm):
@@ -517,8 +515,7 @@ class Alarm(Clock):
         return self.alarms[i]
 
     def delete_alarms(self, alarms):
-        for a in alarms:
-            self.alarms.remove(a)
+        self.alarms = [a for a in self.alarms if a not in alarms]
         self.storage.save(self.alarms)
         self.iconview.unselect_all()
         self.liststore.clear()

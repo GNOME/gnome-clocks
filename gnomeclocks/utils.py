@@ -65,6 +65,18 @@ class SystemSettings:
         return systemClockFormat
 
 
+class TimeString:
+    @staticmethod
+    def format_time(t):
+        if SystemSettings.get_clock_format() == "12h":
+            res = time.strftime("%I:%M %p", t)
+        else:
+            res = time.strftime("%H:%M", t)
+        if res.startswith("0"):
+            res = res[1:]
+        return res
+
+
 class LocalizedWeekdays:
     # translate them ourselves since we want plurals
     _plural = [
