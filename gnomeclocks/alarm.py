@@ -21,7 +21,7 @@ import errno
 import time
 import json
 from datetime import datetime, timedelta
-from gi.repository import GLib, Gio, GObject, Gtk, GdkPixbuf
+from gi.repository import GLib, GObject, Gtk, GdkPixbuf
 from clocks import Clock
 from utils import Dirs, SystemSettings, LocalizedWeekdays, Alert
 from widgets import DigitalClockDrawing, SelectableIconView, ContentView
@@ -72,8 +72,7 @@ class AlarmItem:
 
     def __init__(self, name=None, hour=None, minute=None, days=EVERY_DAY):
         self.update(name=name, hour=hour, minute=minute, days=days)
-        self.alert = Alert("alarm-clock-elapsed", name,
-                           self._on_notification_activated)
+        self.alert = Alert("alarm-clock-elapsed", name)
 
     def update(self, name=None, hour=None, minute=None, days=EVERY_DAY):
         self.name = name
@@ -110,10 +109,6 @@ class AlarmItem:
     def _reset_snooze(self, start_time):
         self.snooze_time = start_time + timedelta(minutes=9)
         self.is_snoozing = False
-
-    def _on_notification_activated(self, notif, action, data):
-        app = Gio.Application.get_default()
-        app.win.show_clock(app.win.alarm)
 
     def snooze(self):
         self.is_snoozing = True
@@ -417,7 +412,12 @@ class AlarmStandalone(Gtk.EventBox):
 class Alarm(Clock):
     def __init__(self):
         # Translators: "New" refers to an alarm
-        Clock.__init__(self, _("Alarm"), _("New"), True)
+        Clock.__init__(self, _("Alarm"), _("New"))
+
+        self.notebook = Gtk.Notebook()
+        self.notebook.set_show_tabs(False)
+        self.notebook.set_show_border(False)
+        self.add(self.notebook)
 
         self.liststore = Gtk.ListStore(bool,
                                        GdkPixbuf.Pixbuf,
@@ -429,7 +429,7 @@ class Alarm(Clock):
         contentview = ContentView(self.iconview,
                                   "alarm-symbolic",
                                   _("Select <b>New</b> to add an alarm"))
-        self.add(contentview)
+        self.notebook.append_page(contentview, None)
 
         self.iconview.connect("item-activated", self._on_item_activated)
         self.iconview.connect("selection-changed", self._on_selection_changed)
@@ -440,8 +440,24 @@ class Alarm(Clock):
         self.show_all()
 
         self.standalone = AlarmStandalone(self)
+        self.notebook.append_page(self.standalone, None)
 
         self.timeout_id = GLib.timeout_add(1000, self._check_alarms)
+
+    def set_mode(self, mode):
+        self.mode = mode
+        if mode is Clock.Mode.NORMAL:
+            self.iconview.unselect_all()
+            self.notebook.set_current_page(0)
+            self.iconview.set_selection_mode(False)
+        elif mode is Clock.Mode.STANDALONE:
+            self.notebook.set_current_page(1)
+        elif mode is Clock.Mode.SELECTION:
+            self.iconview.set_selection_mode(True)
+
+    @GObject.Signal
+    def alarm_ringing(self):
+        self.set_mode(Clock.Mode.STANDALONE)
 
     def _check_alarms(self):
         for i in self.liststore:
@@ -449,7 +465,7 @@ class Alarm(Clock):
             alarm = thumb.get_alarm()
             if alarm.check_expired():
                 self.standalone.set_alarm(alarm, True)
-                self.emit("item-activated")
+                self.emit("alarm-ringing")
         return True
 
     def _on_item_activated(self, iconview, path):
@@ -459,9 +475,6 @@ class Alarm(Clock):
 
     def _on_selection_changed(self, iconview):
         self.emit("selection-changed")
-
-    def set_selection_mode(self, active):
-        self.iconview.set_selection_mode(active)
 
     @GObject.Property(type=bool, default=False)
     def can_select(self):

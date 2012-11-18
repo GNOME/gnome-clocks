@@ -60,6 +60,7 @@ class Window(Gtk.ApplicationWindow):
         self.notebook = Gtk.Notebook()
         self.notebook.set_show_tabs(False)
         self.notebook.set_show_border(False)
+        self.notebook.show()
 
         self.world = World()
         self.alarm = Alarm()
@@ -72,45 +73,43 @@ class Window(Gtk.ApplicationWindow):
 
         self.vbox.pack_start(self.toolbar, False, False, 0)
 
-        self.single_evbox = Gtk.EventBox()
-
         self.vbox.pack_end(self.notebook, True, True, 0)
         for view in self.views:
             self.notebook.append_page(view, None)
-        self.notebook.append_page(self.single_evbox, None)
 
         self.world.connect("item-activated", self._on_item_activated)
+
         self.alarm.connect("item-activated", self._on_item_activated)
+        self.alarm.connect("alarm-ringing", self._on_alarm_ringing)
 
-        self.toolbar.connect("view-clock", self._on_view_clock)
-        self.vbox.show_all()
-        self.show_all()
-        self.toolbar.show_overview_toolbar()
+        self.timer.connect("alarm-ringing", self._on_alarm_ringing)
 
-    def show_clock(self, view):
-        self.toolbar.activate_view(view)
+        self.toolbar.connect("back-clicked", self._on_back_clicked)
+        self.toolbar.connect("clock-changed", self._on_clock_changed)
+
+        self.vbox.show()
 
     def _on_item_activated(self, view):
-        def show_standalone_page():
-            self.toolbar.show_standalone_toolbar(view.standalone)
-            self.single_evbox.add(view.standalone)
-            self.notebook.set_current_page(-1)
+        def show_clock_standalone():
+            view.set_mode(Clock.Mode.STANDALONE)
+            self.toolbar.update_toolbar(view)
 
-        if self.notebook.get_current_page() != len(self.views):
-            self.embed.spotlight(show_standalone_page)
+        self.embed.spotlight(show_clock_standalone)
 
-    def _on_view_clock(self, button, view):
-        def show_clock_view():
-            for child in self.single_evbox.get_children():
-                self.single_evbox.remove(child)
-            view.unselect_all()
-            self.notebook.set_current_page(self.views.index(view))
-            self.toolbar.show_overview_toolbar()
+    def _on_alarm_ringing(self, view):
+        self.notebook.set_current_page(self.views.index(view))
+        self.toolbar.update_toolbar(view)
 
-        if self.single_evbox.get_children():
-            self.embed.spotlight(show_clock_view)
-        else:
-            show_clock_view()
+    def _on_back_clicked(self, button, view):
+        def show_clock_overview():
+            view.set_mode(Clock.Mode.NORMAL)
+            self.toolbar.update_toolbar(view)
+
+        self.embed.spotlight(show_clock_overview)
+
+    def _on_clock_changed(self, button, view):
+        self.notebook.set_current_page(self.views.index(view))
+        self.toolbar.update_toolbar(view)
 
     def _on_new_activated(self, action, param):
         self.toolbar.current_view.open_new_dialog()
@@ -232,7 +231,7 @@ class ClocksToolbar(Gtk.Toolbar):
 
         self.back_button = SymbolicButton("go-previous-symbolic")
         self.back_button.connect("clicked",
-            lambda w: self.emit("view-clock", self.current_view))
+            lambda w: self.emit("back-clicked", self.current_view))
         left_box.pack_start(self.back_button, False, False, 0)
 
         center_item = Gtk.ToolItem()
@@ -255,7 +254,7 @@ class ClocksToolbar(Gtk.Toolbar):
             self.button_box.pack_start(button, True, True, 0)
             button.connect("toggled", self._on_toggled, view)
             self.view_buttons[view] = button
-            if view.has_selection_mode:
+            if hasattr(view, "can_select"):
                 view.connect("notify::can-select", self._on_can_select_changed)
             if view == views[0]:
                 self.current_view = view
@@ -291,28 +290,40 @@ class ClocksToolbar(Gtk.Toolbar):
 
         self.selection_handler = 0
 
+        self.show_all()
+        self.update_toolbar(self.current_view)
+
         self.embed._selectionToolbar._toolbarDelete.connect("clicked", self._on_delete_clicked)
 
     @GObject.Signal(arg_types=(Clock,))
-    def view_clock(self, view):
+    def back_clicked(self, view):
+        self.select_button.set_sensitive(view.can_select)
+
+    @GObject.Signal(arg_types=(Clock,))
+    def clock_changed(self, view):
         self.current_view = view
-        if view.has_selection_mode:
+        if hasattr(view, "can_select"):
             self.select_button.set_sensitive(view.can_select)
 
-    def activate_view(self, view):
+    def update_toolbar(self, view):
         if view is not self.current_view:
             self.view_buttons[view].set_active(True)
+        if view.mode is Clock.Mode.NORMAL:
+            self._show_normal_toolbar()
+        elif view.mode is Clock.Mode.STANDALONE:
+            self._show_standalone_toolbar()
+        elif view.mode is Clock.Mode.SELECTION:
+            self._show_selection_toolbar()
 
-    def show_overview_toolbar(self):
+    def _show_normal_toolbar(self):
         self.get_style_context().remove_class("selection-mode")
-        self.standalone = None
         self.button_box.show()
         if self.current_view.new_label:
             self.new_button.set_label(self.current_view.new_label)
             self.new_button.show()
         else:
             self.new_button.hide()
-        self.select_button.set_visible(self.current_view.has_selection_mode)
+        self.select_button.set_visible(hasattr(self.current_view, "can_select"))
         self.back_button.hide()
         self.title_label.hide()
         self.edit_button.hide()
@@ -321,26 +332,25 @@ class ClocksToolbar(Gtk.Toolbar):
             self.current_view.disconnect_by_func(self._on_selection_changed)
             self.selection_handler = 0
 
-    def show_standalone_toolbar(self, widget):
+    def _show_standalone_toolbar(self):
         self.get_style_context().remove_class("selection-mode")
-        self.standalone = widget
         self.button_box.hide()
         self.new_button.hide()
         self.select_button.hide()
         self.back_button.show_all()
-        self.title_label.set_markup("<b>%s</b>" % self.standalone.get_name())
+        standalone = self.current_view.standalone
+        self.title_label.set_markup("<b>%s</b>" % standalone.get_name())
         self.title_label.show()
-        self.edit_button.set_visible(self.standalone.can_edit)
+        self.edit_button.set_visible(standalone.can_edit)
         self.done_button.hide()
 
-    def show_selection_toolbar(self):
+    def _show_selection_toolbar(self):
         self.get_style_context().add_class("selection-mode")
-        self.standalone = None
         self.button_box.hide()
         self.new_button.hide()
         self.select_button.hide()
         self.back_button.hide()
-        self.set_selection_label(0)
+        self._set_selection_label(0)
         self.title_label.show()
         self.edit_button.hide()
         self.done_button.show()
@@ -349,9 +359,9 @@ class ClocksToolbar(Gtk.Toolbar):
                                         self._on_selection_changed)
 
     def _on_toggled(self, widget, view):
-        self.emit("view-clock", view)
+        self.emit("clock-changed", view)
 
-    def set_selection_label(self, n):
+    def _set_selection_label(self, n):
         if n == 0:
             self.title_label.set_markup("(%s)" % _("Click on items to select them"))
         else:
@@ -361,7 +371,7 @@ class ClocksToolbar(Gtk.Toolbar):
     def _on_selection_changed(self, view):
         selection = view.get_selection()
         n_selected = len(selection)
-        self.set_selection_label(n_selected)
+        self._set_selection_label(n_selected)
         self.embed.set_show_selectionbar(n_selected > 0)
 
     def _on_can_select_changed(self, view, pspec):
@@ -369,20 +379,21 @@ class ClocksToolbar(Gtk.Toolbar):
             self.select_button.set_sensitive(view.can_select)
 
     def _on_select_clicked(self, button):
-        self.show_selection_toolbar()
-        self.current_view.set_selection_mode(True)
+        self.current_view.set_mode(Clock.Mode.SELECTION)
+        self.update_toolbar(self.current_view)
 
     def _on_edit_clicked(self, button):
-        self.standalone.open_edit_dialog()
+        standalone = self.current_view.standalone
+        standalone.open_edit_dialog()
 
     def _on_done_clicked(self, widget):
-        self.show_overview_toolbar()
-        self.current_view.set_selection_mode(False)
+        self.current_view.set_mode(Clock.Mode.NORMAL)
+        self.update_toolbar(self.current_view)
         self.embed.set_show_selectionbar(False)
 
     def _on_delete_clicked(self, widget):
         self.current_view.delete_selected()
-        self.set_selection_label(0)
+        self._set_selection_label(0)
         self.embed.set_show_selectionbar(False)
 
 

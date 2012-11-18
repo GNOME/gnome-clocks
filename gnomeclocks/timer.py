@@ -17,7 +17,7 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import time
-from gi.repository import GLib, Gtk
+from gi.repository import GLib,  GObject, Gtk
 from clocks import Clock
 from utils import Alert
 from widgets import Spinner
@@ -170,14 +170,15 @@ class Timer(Clock):
         self.timer_screen = TimerScreen(self, size_group)
         self.notebook.append_page(self.timer_screen, None)
 
-        self.alert = Alert("complete", "Ta Da !",
-                           self._on_notification_activated)
+        self.show_all()
+
+        self.alert = Alert("complete", "Ta Da !")
 
         self._ui_is_frozen = False
 
-    def _on_notification_activated(self, notif, action, data):
-        win = self.get_toplevel()
-        win.show_clock(self)
+    @GObject.Signal
+    def alarm_ringing(self):
+        self.alert.show()
 
     def show_setup_screen(self, reset):
         self.notebook.set_current_page(0)
@@ -224,7 +225,7 @@ class Timer(Clock):
     def count(self):
         t = time.time()
         if t >= self.deadline:
-            self.alert.show()
+            self.emit("alarm-ringing")
             self.state = Timer.State.STOPPED
             self._remove_timeout()
             self.timer_screen.set_time(0, 0, 0)

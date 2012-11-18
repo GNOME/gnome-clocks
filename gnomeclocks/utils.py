@@ -127,7 +127,7 @@ class LocalizedWeekdays:
 
 
 class Alert:
-    def __init__(self, soundid, msg, callback):
+    def __init__(self, soundid, msg):
         try:
             self.canberra = pycanberra.Canberra()
         except Exception as e:
@@ -139,8 +139,6 @@ class Alert:
         self.notification = None
         if Notify.is_initted() or Notify.init("GNOME Clocks"):
             self.notification = Notify.Notification.new("Clocks", msg, 'clocks')
-            # the special "default" action should not display a button
-            self.notification.add_action("default", "Show", callback, None, None)
         else:
             print "Error: Could not trigger Alert"
 

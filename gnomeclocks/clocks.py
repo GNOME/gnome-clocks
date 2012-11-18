@@ -20,8 +20,12 @@ from gi.repository import GObject, Gtk
 
 
 class Clock(Gtk.EventBox):
+    class Mode:
+        NORMAL = 0
+        STANDALONE = 1
+        SELECTION = 2
 
-    def __init__(self, label, new_label=None, has_selection_mode=False):
+    def __init__(self, label, new_label=None):
         Gtk.EventBox.__init__(self)
 
         # We catch map/unmap here to allow pausing of expensive UI
@@ -32,7 +36,7 @@ class Clock(Gtk.EventBox):
 
         self.label = label
         self.new_label = new_label
-        self.has_selection_mode = has_selection_mode
+        self.mode = Clock.Mode.NORMAL
         self.get_style_context().add_class('view')
         self.get_style_context().add_class('content-view')
 
@@ -50,10 +54,10 @@ class Clock(Gtk.EventBox):
     def get_selection(self):
         pass
 
-    def unselect_all(self):
+    def delete_selected(self):
         pass
 
-    def delete_selected(self):
+    def set_mode(self, mode):
         pass
 
     def _ui_freeze(self, widget):

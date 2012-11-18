@@ -318,7 +318,12 @@ class ClockStandalone(Gtk.EventBox):
 class World(Clock):
     def __init__(self):
         # Translators: "New" refers to a world clock
-        Clock.__init__(self, _("World"), _("New"), True)
+        Clock.__init__(self, _("World"), _("New"))
+
+        self.notebook = Gtk.Notebook()
+        self.notebook.set_show_tabs(False)
+        self.notebook.set_show_border(False)
+        self.add(self.notebook)
 
         self.liststore = Gtk.ListStore(bool,
                                        GdkPixbuf.Pixbuf,
@@ -330,7 +335,7 @@ class World(Clock):
         contentview = ContentView(self.iconview,
                                   "document-open-recent-symbolic",
                                   _("Select <b>New</b> to add a world clock"))
-        self.add(contentview)
+        self.notebook.append_page(contentview, None)
 
         self.iconview.connect("item-activated", self._on_item_activated)
         self.iconview.connect("selection-changed", self._on_selection_changed)
@@ -341,8 +346,20 @@ class World(Clock):
         self.show_all()
 
         self.standalone = ClockStandalone()
+        self.notebook.append_page(self.standalone, None)
 
         self.timeout_id = GLib.timeout_add(1000, self._update_clocks)
+
+    def set_mode(self, mode):
+        self.mode = mode
+        if mode is Clock.Mode.NORMAL:
+            self.iconview.unselect_all()
+            self.notebook.set_current_page(0)
+            self.iconview.set_selection_mode(False)
+        elif mode is Clock.Mode.STANDALONE:
+            self.notebook.set_current_page(1)
+        elif mode is Clock.Mode.SELECTION:
+            self.iconview.set_selection_mode(True)
 
     def _update_clocks(self):
         for i in self.liststore:
@@ -358,9 +375,6 @@ class World(Clock):
 
     def _on_selection_changed(self, iconview):
         self.emit("selection-changed")
-
-    def set_selection_mode(self, active):
-        self.iconview.set_selection_mode(active)
 
     @GObject.Property(type=bool, default=False)
     def can_select(self):

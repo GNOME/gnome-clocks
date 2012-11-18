@@ -102,6 +102,8 @@ class Stopwatch(Clock):
         scroll.add(self.laps_view)
         vbox.pack_start(scroll, True, True, 0)
 
+        self.show_all()
+
     def _on_left_button_clicked(self, widget):
         if self.state in (Stopwatch.State.RESET, Stopwatch.State.STOPPED):
             self.state = Stopwatch.State.RUNNING
