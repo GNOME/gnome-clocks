@@ -90,11 +90,10 @@ class Window(Gtk.ApplicationWindow):
     def show_clock(self, view):
         self.toolbar.activate_view(view)
 
-    def _on_show_standalone(self, widget, d):
+    def _on_show_standalone(self, view):
         def show_standalone_page():
-            widget = d.get_standalone_widget()
-            self.toolbar.show_standalone_toolbar(widget)
-            self.single_evbox.add(widget)
+            self.toolbar.show_standalone_toolbar(view.standalone)
+            self.single_evbox.add(view.standalone)
             self.notebook.set_current_page(-1)
 
         if self.notebook.get_current_page() != len(self.views):

@@ -297,8 +297,7 @@ class AlarmDialog(Gtk.Dialog):
 
 
 class AlarmThumbnail():
-    def __init__(self, view, alarm):
-        self.view = view
+    def __init__(self, alarm):
         self.alarm = alarm
         timestr = alarm.get_time_as_string()
         repeat = alarm.get_alarm_repeat_string()
@@ -309,7 +308,6 @@ class AlarmThumbnail():
         else:
             img = os.path.join(Dirs.get_image_dir(), "cities", "night.png")
         self.drawing.render(timestr, img, is_light, repeat)
-        self.standalone = None
 
     def get_alarm(self):
         return self.alarm
@@ -317,19 +315,13 @@ class AlarmThumbnail():
     def get_pixbuf(self):
         return self.drawing.pixbuf
 
-    def get_standalone_widget(self):
-        if not self.standalone:
-            self.standalone = StandaloneAlarm(self.view, self.alarm)
-        return self.standalone
 
-
-class StandaloneAlarm(Gtk.EventBox):
-    def __init__(self, view, alarm):
+class AlarmStandalone(Gtk.EventBox):
+    def __init__(self, view):
         Gtk.EventBox.__init__(self)
         self.get_style_context().add_class('view')
         self.get_style_context().add_class('content-view')
         self.view = view
-        self.alarm = alarm
         self.can_edit = True
 
         self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
@@ -381,10 +373,14 @@ class StandaloneAlarm(Gtk.EventBox):
         self.vbox.pack_start(hbox, False, False, 0)
         self.vbox.pack_start(Gtk.Label(), True, True, 0)
 
-        self.update()
+        self.set_alarm(None)
 
-        self.show_all()
-        self.set_ringing(False)
+    def set_alarm(self, alarm, ringing=False):
+        self.alarm = alarm
+        if alarm:
+            self.update()
+            self.show_all()
+            self.buttons.set_visible(ringing)
 
     def _on_stop_clicked(self, button):
         self.alarm.stop()
@@ -396,16 +392,14 @@ class StandaloneAlarm(Gtk.EventBox):
         name = self.alarm.name
         return GLib.markup_escape_text(name)
 
-    def set_ringing(self, show):
-        self.buttons.set_visible(show)
-
     def update(self):
-        timestr = self.alarm.get_time_as_string()
-        repeat = self.alarm.get_alarm_repeat_string()
-        self.alarm_label.set_markup(
-            "<span size='72000' color='dimgray'><b>%s</b></span>" % timestr)
-        self.repeat_label.set_markup(
-            "<span size='large' color='dimgray'><b>%s</b></span>" % repeat)
+        if self.alarm:
+            timestr = self.alarm.get_time_as_string()
+            repeat = self.alarm.get_alarm_repeat_string()
+            self.alarm_label.set_markup(
+                "<span size='72000' color='dimgray'><b>%s</b></span>" % timestr)
+            self.repeat_label.set_markup(
+                "<span size='large' color='dimgray'><b>%s</b></span>" % repeat)
 
     def open_edit_dialog(self):
         window = AlarmDialog(self.get_toplevel(), self.alarm)
@@ -445,20 +439,23 @@ class Alarm(Clock):
         self.load_alarms()
         self.show_all()
 
+        self.standalone = AlarmStandalone(self)
+
         self.timeout_id = GLib.timeout_add(1000, self._check_alarms)
 
     def _check_alarms(self):
         for i in self.liststore:
             thumb = self.liststore.get_value(i.iter, 3)
-            if thumb.get_alarm().check_expired():
-                standalone = thumb.get_standalone_widget()
-                standalone.set_ringing(True)
-                self.emit("show-standalone", thumb)
+            alarm = thumb.get_alarm()
+            if alarm.check_expired():
+                self.standalone.set_alarm(alarm, True)
+                self.emit("show-standalone")
         return True
 
     def _on_item_activated(self, iconview, path):
         thumb = self.liststore[path][3]
-        self.emit("show-standalone", thumb)
+        self.standalone.set_alarm(thumb.get_alarm())
+        self.emit("show-standalone")
 
     def _on_selection_changed(self, iconview):
         self.emit("selection-changed")
@@ -490,7 +487,7 @@ class Alarm(Clock):
         self.show_all()
 
     def add_alarm_thumbnail(self, alarm):
-        thumb = AlarmThumbnail(self, alarm)
+        thumb = AlarmThumbnail(alarm)
         label = GLib.markup_escape_text(alarm.name)
         view_iter = self.liststore.append([False,
                                            thumb.get_pixbuf(),

@@ -212,7 +212,6 @@ class ClockThumbnail():
     def __init__(self, clock):
         self.clock = clock
         self.drawing = DigitalClockDrawing()
-        self.standalone = None
         self.update()
 
     def update(self):
@@ -227,8 +226,6 @@ class ClockThumbnail():
             self.drawing.render(timestr, img, is_light)
         else:
             self.drawing.render(timestr, img, is_light, day)
-        if self.standalone:
-            self.standalone.update()
 
     def get_clock(self):
         return self.clock
@@ -236,22 +233,14 @@ class ClockThumbnail():
     def get_pixbuf(self):
         return self.drawing.pixbuf
 
-    def get_standalone_widget(self):
-        if not self.standalone:
-            self.standalone = StandaloneClock(self.clock)
-        return self.standalone
 
-
-class StandaloneClock(Gtk.EventBox):
-    def __init__(self, clock):
+class ClockStandalone(Gtk.EventBox):
+    def __init__(self):
         Gtk.EventBox.__init__(self)
         self.get_style_context().add_class('view')
         self.get_style_context().add_class('content-view')
-        self.clock = clock
         self.can_edit = False
         self.time_label = Gtk.Label()
-
-        self.clock_format = None
 
         self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         self.add(self.vbox)
@@ -303,21 +292,27 @@ class StandaloneClock(Gtk.EventBox):
         hbox.pack_start(Gtk.Label(), True, True, 0)
         self.vbox.pack_end(hbox, False, False, 30)
 
-        self.update()
-        self.show_all()
+        self.set_clock(None)
+
+    def set_clock(self, clock):
+        self.clock = clock
+        if clock:
+            self.update()
+            self.show_all()
 
     def get_name(self):
         return GLib.markup_escape_text(self.clock.location.get_city_name())
 
     def update(self):
-        timestr = self.clock.get_time_as_string()
-        sunrisestr, sunsetstr = self.clock.get_sunrise_sunset_as_strings()
-        self.time_label.set_markup(
-            "<span size='72000' color='dimgray'><b>%s</b></span>" % timestr)
-        self.sunrise_time_label.set_markup(
-            "<span size ='large'>%s</span>" % sunrisestr)
-        self.sunset_time_label.set_markup(
-            "<span size ='large'>%s</span>" % sunsetstr)
+        if self.clock:
+            timestr = self.clock.get_time_as_string()
+            sunrisestr, sunsetstr = self.clock.get_sunrise_sunset_as_strings()
+            self.time_label.set_markup(
+                "<span size='72000' color='dimgray'><b>%s</b></span>" % timestr)
+            self.sunrise_time_label.set_markup(
+                "<span size ='large'>%s</span>" % sunrisestr)
+            self.sunset_time_label.set_markup(
+                "<span size ='large'>%s</span>" % sunsetstr)
 
 
 class World(Clock):
@@ -345,17 +340,21 @@ class World(Clock):
         self.load_clocks()
         self.show_all()
 
+        self.standalone = ClockStandalone()
+
         self.timeout_id = GLib.timeout_add(1000, self._update_clocks)
 
     def _update_clocks(self):
         for i in self.liststore:
             thumb = self.liststore.get_value(i.iter, 3)
             thumb.update()
+        self.standalone.update()
         return True
 
     def _on_item_activated(self, iconview, path):
         thumb = self.liststore[path][3]
-        self.emit("show-standalone", thumb)
+        self.standalone.set_clock(thumb.get_clock())
+        self.emit("show-standalone")
 
     def _on_selection_changed(self, iconview):
         self.emit("selection-changed")
