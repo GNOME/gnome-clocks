@@ -258,6 +258,100 @@ class DigitalClock():
         self.list_store = list_store
 
 
+class StandaloneClock(Gtk.EventBox):
+    def __init__(self, location, sunrise, sunset):
+        Gtk.EventBox.__init__(self)
+        self.get_style_context().add_class('view')
+        self.get_style_context().add_class('content-view')
+        self.location = location
+        self.can_edit = False
+        self.time_label = Gtk.Label()
+        self.sunrise = sunrise
+        self.sunset = sunset
+
+        self.clock_format = None
+
+        self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        self.add(self.vbox)
+
+        time_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        self.time_label.set_alignment(0.0, 0.5)
+        time_box.pack_start(self.time_label, True, True, 0)
+
+        self.hbox = hbox = Gtk.Box()
+        self.hbox.set_homogeneous(False)
+
+        self.hbox.pack_start(Gtk.Label(), True, True, 0)
+        self.hbox.pack_start(time_box, False, False, 0)
+        self.hbox.pack_start(Gtk.Label(), True, True, 0)
+
+        self.vbox.pack_start(Gtk.Label(), True, True, 25)
+        self.vbox.pack_start(hbox, False, False, 0)
+        self.vbox.pack_start(Gtk.Label(), True, True, 0)
+
+        sunrise_label = Gtk.Label()
+        sunrise_label.set_markup(
+            "<span size ='large' color='dimgray'>%s</span>" % (_("Sunrise")))
+        sunrise_label.set_alignment(1.0, 0.5)
+        self.sunrise_time_label = Gtk.Label()
+        self.sunrise_time_label.set_alignment(0.0, 0.5)
+        sunrise_hbox = Gtk.Box(True, 9)
+        sunrise_hbox.pack_start(sunrise_label, False, False, 0)
+        sunrise_hbox.pack_start(self.sunrise_time_label, False, False, 0)
+
+        sunset_label = Gtk.Label()
+        sunset_label.set_markup(
+            "<span size ='large' color='dimgray'>%s</span>" % (_("Sunset")))
+        sunset_label.set_alignment(1.0, 0.5)
+        self.sunset_time_label = Gtk.Label()
+        self.sunset_time_label.set_alignment(0.0, 0.5)
+        sunset_hbox = Gtk.Box(True, 9)
+        sunset_hbox.pack_start(sunset_label, False, False, 0)
+        sunset_hbox.pack_start(self.sunset_time_label, False, False, 0)
+
+        sunbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        sunbox.set_homogeneous(True)
+        sunbox.set_spacing(3)
+        sunbox.pack_start(sunrise_hbox, False, False, 3)
+        sunbox.pack_start(sunset_hbox, False, False, 3)
+
+        hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+        hbox.pack_start(Gtk.Label(), True, True, 0)
+        hbox.pack_start(sunbox, False, False, 0)
+        hbox.pack_start(Gtk.Label(), True, True, 0)
+        self.vbox.pack_end(hbox, False, False, 30)
+
+        self.show_all()
+
+    def get_name(self):
+        return GLib.markup_escape_text(self.location.get_city_name())
+
+    def update(self, img, text, sunrise, sunset):
+        size = 72000  # FIXME: (self.get_allocation().height / 300) * 72000
+        self.time_label.set_markup(
+            "<span size='%i' color='dimgray'><b>%s</b></span>" % (size, text))
+        clock_format = SystemSettings.get_clock_format()
+        if clock_format != self.clock_format or \
+                sunrise != self.sunrise or sunset != self.sunset:
+            self.sunrise = sunrise
+            self.sunset = sunset
+            if clock_format == "12h":
+                sunrise_str = time.strftime("%I:%M %p", sunrise)
+                sunset_str = time.strftime("%I:%M %p", sunset)
+            else:
+                sunrise_str = time.strftime("%H:%M", sunrise)
+                sunset_str = time.strftime("%H:%M", sunset)
+            if sunrise_str.startswith("0"):
+                sunrise_str = sunrise_str[1:]
+            if sunset_str.startswith("0"):
+                sunset_str = sunset_str[1:]
+            self.sunrise_time_label.set_markup(
+                "<span size ='large'>%s</span>" % sunrise_str)
+            self.sunset_time_label.set_markup(
+                "<span size ='large'>%s</span>" % sunset_str)
+        self.clock_format = clock_format
+
+
 class World(Clock):
     def __init__(self):
         # Translators: "New" refers to a world clock
@@ -360,97 +454,3 @@ class World(Clock):
             l = dialog.get_location()
             self.add_clock(l)
         dialog.destroy()
-
-
-class StandaloneClock(Gtk.EventBox):
-    def __init__(self, location, sunrise, sunset):
-        Gtk.EventBox.__init__(self)
-        self.get_style_context().add_class('view')
-        self.get_style_context().add_class('content-view')
-        self.location = location
-        self.can_edit = False
-        self.time_label = Gtk.Label()
-        self.sunrise = sunrise
-        self.sunset = sunset
-
-        self.clock_format = None
-
-        self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        self.add(self.vbox)
-
-        time_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        self.time_label.set_alignment(0.0, 0.5)
-        time_box.pack_start(self.time_label, True, True, 0)
-
-        self.hbox = hbox = Gtk.Box()
-        self.hbox.set_homogeneous(False)
-
-        self.hbox.pack_start(Gtk.Label(), True, True, 0)
-        self.hbox.pack_start(time_box, False, False, 0)
-        self.hbox.pack_start(Gtk.Label(), True, True, 0)
-
-        self.vbox.pack_start(Gtk.Label(), True, True, 25)
-        self.vbox.pack_start(hbox, False, False, 0)
-        self.vbox.pack_start(Gtk.Label(), True, True, 0)
-
-        sunrise_label = Gtk.Label()
-        sunrise_label.set_markup(
-            "<span size ='large' color='dimgray'>%s</span>" % (_("Sunrise")))
-        sunrise_label.set_alignment(1.0, 0.5)
-        self.sunrise_time_label = Gtk.Label()
-        self.sunrise_time_label.set_alignment(0.0, 0.5)
-        sunrise_hbox = Gtk.Box(True, 9)
-        sunrise_hbox.pack_start(sunrise_label, False, False, 0)
-        sunrise_hbox.pack_start(self.sunrise_time_label, False, False, 0)
-
-        sunset_label = Gtk.Label()
-        sunset_label.set_markup(
-            "<span size ='large' color='dimgray'>%s</span>" % (_("Sunset")))
-        sunset_label.set_alignment(1.0, 0.5)
-        self.sunset_time_label = Gtk.Label()
-        self.sunset_time_label.set_alignment(0.0, 0.5)
-        sunset_hbox = Gtk.Box(True, 9)
-        sunset_hbox.pack_start(sunset_label, False, False, 0)
-        sunset_hbox.pack_start(self.sunset_time_label, False, False, 0)
-
-        sunbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        sunbox.set_homogeneous(True)
-        sunbox.set_spacing(3)
-        sunbox.pack_start(sunrise_hbox, False, False, 3)
-        sunbox.pack_start(sunset_hbox, False, False, 3)
-
-        hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
-        hbox.pack_start(Gtk.Label(), True, True, 0)
-        hbox.pack_start(sunbox, False, False, 0)
-        hbox.pack_start(Gtk.Label(), True, True, 0)
-        self.vbox.pack_end(hbox, False, False, 30)
-
-        self.show_all()
-
-    def get_name(self):
-        return GLib.markup_escape_text(self.location.get_city_name())
-
-    def update(self, img, text, sunrise, sunset):
-        size = 72000  # FIXME: (self.get_allocation().height / 300) * 72000
-        self.time_label.set_markup(
-            "<span size='%i' color='dimgray'><b>%s</b></span>" % (size, text))
-        clock_format = SystemSettings.get_clock_format()
-        if clock_format != self.clock_format or \
-                sunrise != self.sunrise or sunset != self.sunset:
-            self.sunrise = sunrise
-            self.sunset = sunset
-            if clock_format == "12h":
-                sunrise_str = time.strftime("%I:%M %p", sunrise)
-                sunset_str = time.strftime("%I:%M %p", sunset)
-            else:
-                sunrise_str = time.strftime("%H:%M", sunrise)
-                sunset_str = time.strftime("%H:%M", sunset)
-            if sunrise_str.startswith("0"):
-                sunrise_str = sunrise_str[1:]
-            if sunset_str.startswith("0"):
-                sunset_str = sunset_str[1:]
-            self.sunrise_time_label.set_markup(
-                "<span size ='large'>%s</span>" % sunrise_str)
-            self.sunset_time_label.set_markup(
-                "<span size ='large'>%s</span>" % sunset_str)
-        self.clock_format = clock_format

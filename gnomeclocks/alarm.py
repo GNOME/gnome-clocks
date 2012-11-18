@@ -315,6 +315,106 @@ class AlarmWidget():
         return self.standalone
 
 
+class StandaloneAlarm(Gtk.EventBox):
+    def __init__(self, view, alarm, alert):
+        Gtk.EventBox.__init__(self)
+        self.get_style_context().add_class('view')
+        self.get_style_context().add_class('content-view')
+        self.view = view
+        self.alarm = alarm
+        self.alert = alert
+        self.can_edit = True
+
+        self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        self.add(self.vbox)
+
+        time_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+
+        self.alarm_label = Gtk.Label()
+        self.alarm_label.set_alignment(0.5, 0.5)
+        time_box.pack_start(self.alarm_label, True, True, 0)
+
+        self.repeat_label = Gtk.Label()
+        self.repeat_label.set_alignment(0.5, 0.5)
+        time_box.pack_start(self.repeat_label, True, True, 0)
+
+        self.buttons = Gtk.Box()
+        self.left_button = Gtk.Button()
+        self.left_button.get_style_context().add_class("clocks-stop")
+        self.left_button.set_size_request(200, -1)
+        self.left_label = Gtk.Label()
+        self.left_button.add(self.left_label)
+        self.right_button = Gtk.Button()
+        self.right_button.set_size_request(200, -1)
+        self.right_label = Gtk.Label()
+        self.right_button.add(self.right_label)
+
+        self.buttons.pack_start(self.left_button, True, True, 0)
+        self.buttons.pack_start(Gtk.Box(), True, True, 24)
+        self.buttons.pack_start(self.right_button, True, True, 0)
+
+        self.left_label.set_markup("<span font_desc=\"18.0\">%s</span>" % (_("Stop")))
+        self.left_label.set_padding(6, 0)
+        self.right_label.set_markup("<span font_desc=\"18.0\">%s</span>" % (_("Snooze")))
+        self.right_label.set_padding(6, 0)
+
+        self.left_button.connect('clicked', self._on_stop_clicked)
+        self.right_button.connect('clicked', self._on_snooze_clicked)
+
+        time_box.pack_start(self.buttons, True, True, 48)
+
+        hbox = Gtk.Box()
+        hbox.set_homogeneous(False)
+
+        hbox.pack_start(Gtk.Label(), True, True, 0)
+        hbox.pack_start(time_box, False, False, 0)
+        hbox.pack_start(Gtk.Label(), True, True, 0)
+
+        self.vbox.pack_start(Gtk.Label(), True, True, 0)
+        self.vbox.pack_start(hbox, False, False, 0)
+        self.vbox.pack_start(Gtk.Label(), True, True, 0)
+
+        self.update()
+
+        self.show_all()
+        self.set_ringing(False)
+
+    def _on_stop_clicked(self, button):
+        self.alarm.stop()
+        self.alert.stop()
+
+    def _on_snooze_clicked(self, button):
+        self.alarm.snooze()
+        self.alert.stop()
+
+    def get_name(self):
+        name = self.alarm.name
+        return GLib.markup_escape_text(name)
+
+    def set_ringing(self, show):
+        self.buttons.set_visible(show)
+
+    def update(self):
+        timestr = self.alarm.get_time_as_string()
+        repeat = self.alarm.get_alarm_repeat_string()
+        self.alarm_label.set_markup(
+            "<span size='72000' color='dimgray'><b>%s</b></span>" % timestr)
+        self.repeat_label.set_markup(
+            "<span size='large' color='dimgray'><b>%s</b></span>" % repeat)
+
+    def open_edit_dialog(self):
+        window = AlarmDialog(self.get_toplevel(), self.alarm)
+        window.connect("response", self._on_dialog_response)
+        window.show_all()
+
+    def _on_dialog_response(self, dialog, response):
+        if response == 1:
+            new_alarm = dialog.get_alarm_item()
+            self.alarm = self.view.update_alarm(self.alarm, new_alarm)
+            self.update()
+        dialog.destroy()
+
+
 class Alarm(Clock):
     def __init__(self):
         # Translators: "New" refers to an alarm
@@ -434,104 +534,4 @@ class Alarm(Clock):
         if response == 1:
             alarm = dialog.get_alarm_item()
             self.add_alarm(alarm)
-        dialog.destroy()
-
-
-class StandaloneAlarm(Gtk.EventBox):
-    def __init__(self, view, alarm, alert):
-        Gtk.EventBox.__init__(self)
-        self.get_style_context().add_class('view')
-        self.get_style_context().add_class('content-view')
-        self.view = view
-        self.alarm = alarm
-        self.alert = alert
-        self.can_edit = True
-
-        self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        self.add(self.vbox)
-
-        time_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-
-        self.alarm_label = Gtk.Label()
-        self.alarm_label.set_alignment(0.5, 0.5)
-        time_box.pack_start(self.alarm_label, True, True, 0)
-
-        self.repeat_label = Gtk.Label()
-        self.repeat_label.set_alignment(0.5, 0.5)
-        time_box.pack_start(self.repeat_label, True, True, 0)
-
-        self.buttons = Gtk.Box()
-        self.left_button = Gtk.Button()
-        self.left_button.get_style_context().add_class("clocks-stop")
-        self.left_button.set_size_request(200, -1)
-        self.left_label = Gtk.Label()
-        self.left_button.add(self.left_label)
-        self.right_button = Gtk.Button()
-        self.right_button.set_size_request(200, -1)
-        self.right_label = Gtk.Label()
-        self.right_button.add(self.right_label)
-
-        self.buttons.pack_start(self.left_button, True, True, 0)
-        self.buttons.pack_start(Gtk.Box(), True, True, 24)
-        self.buttons.pack_start(self.right_button, True, True, 0)
-
-        self.left_label.set_markup("<span font_desc=\"18.0\">%s</span>" % (_("Stop")))
-        self.left_label.set_padding(6, 0)
-        self.right_label.set_markup("<span font_desc=\"18.0\">%s</span>" % (_("Snooze")))
-        self.right_label.set_padding(6, 0)
-
-        self.left_button.connect('clicked', self._on_stop_clicked)
-        self.right_button.connect('clicked', self._on_snooze_clicked)
-
-        time_box.pack_start(self.buttons, True, True, 48)
-
-        hbox = Gtk.Box()
-        hbox.set_homogeneous(False)
-
-        hbox.pack_start(Gtk.Label(), True, True, 0)
-        hbox.pack_start(time_box, False, False, 0)
-        hbox.pack_start(Gtk.Label(), True, True, 0)
-
-        self.vbox.pack_start(Gtk.Label(), True, True, 0)
-        self.vbox.pack_start(hbox, False, False, 0)
-        self.vbox.pack_start(Gtk.Label(), True, True, 0)
-
-        self.update()
-
-        self.show_all()
-        self.set_ringing(False)
-
-    def _on_stop_clicked(self, button):
-        self.alarm.stop()
-        self.alert.stop()
-
-    def _on_snooze_clicked(self, button):
-        self.alarm.snooze()
-        self.alert.stop()
-
-    def get_name(self):
-        name = self.alarm.name
-        return GLib.markup_escape_text(name)
-
-    def set_ringing(self, show):
-        self.buttons.set_visible(show)
-
-    def update(self):
-        timestr = self.alarm.get_time_as_string()
-        repeat = self.alarm.get_alarm_repeat_string()
-        self.alarm_label.set_markup(
-            "<span size='72000' color='dimgray'><b>%s</b></span>" % timestr)
-        self.repeat_label.set_markup(
-            "<span size='large' color='dimgray'><b>%s</b></span>" % repeat)
-
-    def open_edit_dialog(self):
-        window = AlarmDialog(self.get_toplevel(), self.alarm)
-        window.connect("response", self._on_dialog_response)
-        window.show_all()
-
-    def _on_dialog_response(self, dialog, response):
-        if response == 1:
-            new_alarm = dialog.get_alarm_item()
-            self.alarm = self.view.update_alarm(self.alarm, new_alarm)
-            self.update()
         dialog.destroy()
