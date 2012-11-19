@@ -53,29 +53,30 @@ class Window(Gtk.ApplicationWindow):
                                          css_provider,
                                          Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
+
         self.set_size_request(640, 480)
-        self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        self.embed = Embed(self.vbox)
-        self.add(self.embed)
+
+        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        self.add(vbox)
+
         self.notebook = Gtk.Notebook()
         self.notebook.set_show_tabs(False)
         self.notebook.set_show_border(False)
         self.notebook.show()
 
+        self.embed = Embed(self.notebook)
+        vbox.pack_end(self.embed, True, True, 0)
+
         self.world = World()
         self.alarm = Alarm()
         self.stopwatch = Stopwatch()
         self.timer = Timer()
-
         self.views = (self.world, self.alarm, self.stopwatch, self.timer)
-
-        self.toolbar = ClocksToolbar(self.views, self.embed)
-
-        self.vbox.pack_start(self.toolbar, False, False, 0)
-
-        self.vbox.pack_end(self.notebook, True, True, 0)
         for view in self.views:
             self.notebook.append_page(view, None)
+
+        self.toolbar = ClocksToolbar(self.views, self.embed)
+        vbox.pack_start(self.toolbar, False, False, 0)
 
         self.world.connect("item-activated", self._on_item_activated)
 
@@ -87,7 +88,7 @@ class Window(Gtk.ApplicationWindow):
         self.toolbar.connect("back-clicked", self._on_back_clicked)
         self.toolbar.connect("clock-changed", self._on_clock_changed)
 
-        self.vbox.show()
+        vbox.show()
 
     def _on_item_activated(self, view):
         def show_clock_standalone():
