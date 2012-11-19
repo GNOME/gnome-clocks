@@ -150,6 +150,7 @@ class AlarmItem:
             self._update_expiration_time()
             return True
         elif self.is_snoozing and t > self.snooze_time:
+            self.alert.show()
             self._reset_snooze(self.snooze_time)
             return True
         else:
