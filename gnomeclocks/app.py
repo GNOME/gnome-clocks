@@ -112,7 +112,8 @@ class Window(Gtk.ApplicationWindow):
         self.toolbar.update_toolbar(view)
 
     def _on_new_activated(self, action, param):
-        self.toolbar.current_view.open_new_dialog()
+        view = self.views[self.notebook.get_current_page()]
+        view.open_new_dialog()
 
     def _on_about_activated(self, action, param):
         about = Gtk.AboutDialog()
