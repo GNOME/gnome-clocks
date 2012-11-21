@@ -387,6 +387,7 @@ class World(Clock):
         selection = self.get_selection()
         clocks = [self.liststore[path][3].get_clock() for path in selection]
         self.delete_clocks(clocks)
+        self.emit("selection-changed")
 
     def load_clocks(self):
         self.clocks = self.storage.load()

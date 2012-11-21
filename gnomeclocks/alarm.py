@@ -488,6 +488,7 @@ class Alarm(Clock):
         selection = self.get_selection()
         alarms = [self.liststore[path][3].get_alarm() for path in selection]
         self.delete_alarms(alarms)
+        self.emit("selection-changed")
 
     def load_alarms(self):
         self.alarms = self.storage.load()
