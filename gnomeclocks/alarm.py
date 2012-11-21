@@ -183,12 +183,7 @@ class AlarmDialog(Gtk.Dialog):
         content_area.pack_start(grid, True, True, 0)
 
         if alarm:
-            if self.cf == "12h":
-                h = int(alarm.time.strftime("%I"))
-                p = alarm.time.strftime("%p")
-            else:
-                h = alarm.hour
-                p = None
+            h = alarm.hour
             m = alarm.minute
             name = alarm.name
             days = alarm.days
@@ -196,7 +191,6 @@ class AlarmDialog(Gtk.Dialog):
             t = time.localtime()
             h = t.tm_hour
             m = t.tm_min
-            p = time.strftime("%p", t)
             name = _("New Alarm")
             days = []
 
@@ -229,11 +223,13 @@ class AlarmDialog(Gtk.Dialog):
             self.ampm = Gtk.ComboBoxText()
             self.ampm.append_text("AM")
             self.ampm.append_text("PM")
-            if p == "PM":
-                h = h - 12
-                self.ampm.set_active(1)
+            if h < 12:
+                self.ampm.set_active(0)  # AM
             else:
-                self.ampm.set_active(0)
+                self.ampm.set_active(1)  # PM
+                h -= 12
+            if h == 0:
+                h = 12
             grid.attach(self.ampm, 4, 0, 1, 1)
             self.hourselect.set_range(1.0, 12.0)
             self.hourselect.set_value(h)
