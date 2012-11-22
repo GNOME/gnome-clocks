@@ -36,8 +36,8 @@ class AlarmsStorage():
         for a in alarms:
             d = {
                 "name": a.name,
-                "hour": a.time.strftime("%H"),
-                "minute": a.time.strftime("%M"),
+                "hour": a.hour,
+                "minute": a.minute,
                 "days": a.days
             }
             alarm_list.append(d)
