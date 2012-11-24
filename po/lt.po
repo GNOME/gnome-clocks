@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-24 22:43+0000\n"
-"PO-Revision-Date: 2012-10-20 21:49+0300\n"
+"POT-Creation-Date: 2012-11-12 16:48+0000\n"
+"PO-Revision-Date: 2012-11-24 16:49+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lithuanian\n"
 "Language: lt\n"
@@ -33,6 +33,10 @@ msgstr "GNOME laikrodžiai"
 #: ../data/gnome-clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Pasaulio laikų laikrodžiai, taip pat žadintuvai, chronometras ir laikmatis"
+
+#: ../data/gnome-clocks.desktop.in.h:4
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr "laikas;laikmatis;žadintuvas;pasaulio laikrodis;chronometras;laiko juosta;"
 
 #: ../gnomeclocks/alarm.py:117
 msgid "Every day"
@@ -65,25 +69,31 @@ msgstr "Pavadinimas"
 msgid "Repeat Every"
 msgstr "Kartoti kas"
 
-#: ../gnomeclocks/alarm.py:300
+#. Translators: "New" refers to an alarm
+#: ../gnomeclocks/alarm.py:301
 msgid "Alarm"
 msgstr "Žadintuvas"
 
-#: ../gnomeclocks/alarm.py:312
+#: ../gnomeclocks/alarm.py:301
+#: ../gnomeclocks/world.py:260
+msgid "New"
+msgstr "Naujas"
+
+#: ../gnomeclocks/alarm.py:313
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Pasirinkite <b>Naujas</b> žadintuvui pridėti"
 
-#: ../gnomeclocks/alarm.py:457
-#: ../gnomeclocks/stopwatch.py:102
+#: ../gnomeclocks/alarm.py:458
+#: ../gnomeclocks/stopwatch.py:109
 msgid "Stop"
 msgstr "Sustabdyti"
 
-#: ../gnomeclocks/alarm.py:459
+#: ../gnomeclocks/alarm.py:460
 msgid "Snooze"
 msgstr "Atidėti"
 
 #: ../gnomeclocks/app.py:121
-#: ../gnomeclocks/app.py:390
+#: ../gnomeclocks/app.py:395
 msgid "About Clocks"
 msgstr "Apie laikrodžius"
 
@@ -97,63 +107,59 @@ msgstr ""
 "išvertė:\n"
 "Aurimas Černius <aurisc4@gmail.com>"
 
-#. Translators: "New" refers to a world clock or an alarm
-#: ../gnomeclocks/app.py:213
-msgid "New"
-msgstr "Naujas"
-
-#: ../gnomeclocks/app.py:266
+#: ../gnomeclocks/app.py:265
 msgid "Edit"
 msgstr "Taisyti"
 
-#: ../gnomeclocks/app.py:271
+#: ../gnomeclocks/app.py:270
 msgid "Done"
 msgstr "Atlikta"
 
-#: ../gnomeclocks/app.py:335
+#: ../gnomeclocks/app.py:340
 msgid "Click on items to select them"
 msgstr "Spustelėkite ant elementų jiems pažymėti"
 
-#: ../gnomeclocks/app.py:337
+#: ../gnomeclocks/app.py:342
 msgid "{0} item selected"
 msgid_plural "{0} items selected"
 msgstr[0] "Pažymėtas {0} elementas"
 msgstr[1] "Pažymėti {0} elementai"
 msgstr[2] "Pažymėta {0} elementų"
 
-#: ../gnomeclocks/app.py:393
+#: ../gnomeclocks/app.py:398
 msgid "Quit"
 msgstr "Išeiti"
 
-#: ../gnomeclocks/stopwatch.py:34
+#: ../gnomeclocks/stopwatch.py:35
 msgid "Stopwatch"
 msgstr "Chronometras"
 
-#: ../gnomeclocks/stopwatch.py:63
-#: ../gnomeclocks/stopwatch.py:128
+#: ../gnomeclocks/stopwatch.py:67
+#: ../gnomeclocks/stopwatch.py:141
 #: ../gnomeclocks/timer.py:110
 msgid "Start"
 msgstr "Paleisti"
 
-#: ../gnomeclocks/stopwatch.py:71
-#: ../gnomeclocks/stopwatch.py:113
+#: ../gnomeclocks/stopwatch.py:75
+#: ../gnomeclocks/stopwatch.py:120
 #: ../gnomeclocks/timer.py:52
 msgid "Reset"
 msgstr "Atstatyti"
 
-#: ../gnomeclocks/stopwatch.py:83
-msgid "Split"
-msgstr "Padalinti"
-
-#: ../gnomeclocks/stopwatch.py:86
-msgid "Total"
-msgstr "Iš viso"
-
-#: ../gnomeclocks/stopwatch.py:105
+#: ../gnomeclocks/stopwatch.py:85
+#: ../gnomeclocks/stopwatch.py:112
 msgid "Lap"
 msgstr "Ratas"
 
-#: ../gnomeclocks/stopwatch.py:109
+#: ../gnomeclocks/stopwatch.py:88
+msgid "Split"
+msgstr "Padalinti"
+
+#: ../gnomeclocks/stopwatch.py:91
+msgid "Total"
+msgstr "Iš viso"
+
+#: ../gnomeclocks/stopwatch.py:116
 #: ../gnomeclocks/timer.py:69
 msgid "Continue"
 msgstr "Tęsti"
@@ -208,19 +214,20 @@ msgstr "Pridėti naują pasaulio laikrodį"
 msgid "Search for a city:"
 msgstr "Ieškoti miesto:"
 
-#: ../gnomeclocks/world.py:259
+#. Translators: "New" refers to a world clock
+#: ../gnomeclocks/world.py:260
 msgid "World"
 msgstr "Pasaulis"
 
-#: ../gnomeclocks/world.py:270
+#: ../gnomeclocks/world.py:271
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Pasirinkite <b>Naujas</b> pasaulio laikrodžiui pridėti"
 
-#: ../gnomeclocks/world.py:393
+#: ../gnomeclocks/world.py:394
 msgid "Sunrise"
 msgstr "Saulėtekis"
 
-#: ../gnomeclocks/world.py:403
+#: ../gnomeclocks/world.py:404
 msgid "Sunset"
 msgstr "Saulėlydis"
 
