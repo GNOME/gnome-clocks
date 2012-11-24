@@ -332,9 +332,14 @@ class SelectionToolbar():
         self.widget.insert(self._leftGroup, -1)
         self._toolbarDelete = Gtk.Button(_("Delete"))
         self._leftBox.pack_start(self._toolbarDelete, True, True, 0)
+
         self.widget.show_all()
+        self.actor.hide()
+
+        self._transition = None
 
     def fade_in(self):
+        self.actor.show()
         self.actor.save_easing_state()
         self.actor.set_easing_duration(300)
         self.actor.set_easing_mode(Clutter.AnimationMode.EASE_OUT_QUAD)
@@ -347,6 +352,14 @@ class SelectionToolbar():
         self.actor.set_easing_mode(Clutter.AnimationMode.EASE_OUT_QUAD)
         self.actor.set_opacity(0)
         self.actor.restore_easing_state()
+        if not self._transition:
+            self._transition = self.actor.get_transition("opacity")
+            self._transition.connect("completed", self._on_transition_completed)
+
+    def _on_transition_completed(self, transition):
+        if self.actor.get_opacity() == 0:
+            self.actor.hide()
+        self._transition = None
 
 
 class Embed(GtkClutter.Embed):
