@@ -20,11 +20,11 @@ import os
 import errno
 import time
 import json
-from gi.repository import GLib, GObject, Gio, Gtk, GdkPixbuf
+from gi.repository import GLib, GObject, Gio, Gdk, GdkPixbuf, Gtk
 from gi.repository import GWeather
 from clocks import Clock
 from utils import Dirs, SystemSettings, TimeString
-from widgets import DigitalClockDrawing, SelectableIconView, ContentView
+from widgets import SelectableIconView, ContentView
 
 
 # keep the GWeather world around as a singletom, otherwise
@@ -32,7 +32,7 @@ from widgets import DigitalClockDrawing, SelectableIconView, ContentView
 gweather_world = GWeather.Location.new_world(True)
 
 
-class WorldClockStorage():
+class WorldClockStorage:
     def __init__(self):
         self.filename = os.path.join(Dirs.get_user_data_dir(), "clocks.json")
 
@@ -122,7 +122,7 @@ class NewWorldClockDialog(Gtk.Dialog):
             self.set_response_sensitive(1, False)
 
 
-class ClockItem():
+class ClockItem:
     def __init__(self, location):
         self.location = location
         self.sunrise = time.strptime("197007:00", "%Y%H:%M")
@@ -162,26 +162,24 @@ class ClockItem():
     def get_time_as_string(self):
         return TimeString.format_time(self.get_location_time())
 
-    def get_day(self):
+    def get_day_as_string(self):
         clock_time_day = self.get_location_time().tm_yday
         local_time_day = time.localtime().tm_yday
 
-        if clock_time_day == local_time_day:
-            return "Today"
         # if its 31st Dec here and 1st Jan there, clock_time_day = 1,
         # local_time_day = 365/366
         # if its 1st Jan here and 31st Dec there, clock_time_day = 365/366,
         # local_time_day = 1
-        elif clock_time_day > local_time_day:
+        if clock_time_day > local_time_day:
             if local_time_day == 1:
-                return "Yesterday"
+                return _("Yesterday")
             else:
-                return "Tomorrow"
+                return _("Tomorrow")
         elif clock_time_day < local_time_day:
             if clock_time_day == 1:
-                return "Tomorrow"
+                return _("Tomorrow")
             else:
-                return "Yesterday"
+                return _("Yesterday")
 
     def get_sunrise_sunset_as_strings(self):
         sunrise = TimeString.format_time(self.sunrise)
@@ -206,32 +204,6 @@ class ClockItem():
                 return True
             else:
                 return False
-
-
-class ClockThumbnail():
-    def __init__(self, clock):
-        self.clock = clock
-        self.drawing = DigitalClockDrawing()
-        self.update()
-
-    def update(self):
-        timestr = self.clock.get_time_as_string()
-        is_light = self.clock.get_is_light()
-        if is_light:
-            img = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
-        else:
-            img = os.path.join(Dirs.get_image_dir(), "cities", "night.png")
-        day = self.clock.get_day()
-        if day == "Today":
-            self.drawing.render(timestr, img, is_light)
-        else:
-            self.drawing.render(timestr, img, is_light, day)
-
-    def get_clock(self):
-        return self.clock
-
-    def get_pixbuf(self):
-        return self.drawing.pixbuf
 
 
 class ClockStandalone(Gtk.EventBox):
@@ -325,20 +297,20 @@ class World(Clock):
         self.notebook.set_show_border(False)
         self.add(self.notebook)
 
-        self.liststore = Gtk.ListStore(bool,
-                                       GdkPixbuf.Pixbuf,
-                                       str,
-                                       GObject.TYPE_PYOBJECT)
+        f = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
+        self.daypixbuf = GdkPixbuf.Pixbuf.new_from_file(f)
+        f = os.path.join(Dirs.get_image_dir(), "cities", "night.png")
+        self.nightpixbuf = GdkPixbuf.Pixbuf.new_from_file(f)
 
-        self.iconview = SelectableIconView(self.liststore, 0, 1, 2)
+        self.liststore = Gtk.ListStore(bool, str, object)
+        self.iconview = SelectableIconView(self.liststore, 0, 1, self._thumb_data_func)
+        self.iconview.connect("item-activated", self._on_item_activated)
+        self.iconview.connect("selection-changed", self._on_selection_changed)
 
         contentview = ContentView(self.iconview,
                                   "document-open-recent-symbolic",
                                   _("Select <b>New</b> to add a world clock"))
         self.notebook.append_page(contentview, None)
-
-        self.iconview.connect("item-activated", self._on_item_activated)
-        self.iconview.connect("selection-changed", self._on_selection_changed)
 
         self.storage = WorldClockStorage()
         self.clocks = []
@@ -349,6 +321,19 @@ class World(Clock):
         self.notebook.append_page(self.standalone, None)
 
         self.timeout_id = GLib.timeout_add(1000, self._update_clocks)
+
+    def _thumb_data_func(self, view, cell, store, i, data):
+        clock = store.get_value(i, 2)
+        cell.text = clock.get_time_as_string()
+        cell.subtext = clock.get_day_as_string()
+        if clock.get_is_light():
+            cell.props.pixbuf = self.daypixbuf
+            cell.foreground = Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
+            cell.background = Gdk.RGBA(1.0, 1.0, 1.0, 0.7)
+        else:
+            cell.props.pixbuf = self.nightpixbuf
+            cell.foreground = Gdk.RGBA(1.0, 1.0, 1.0, 1.0)
+            cell.background = Gdk.RGBA(1.0, 1.0, 1.0, 0.3)
 
     def set_mode(self, mode):
         self.mode = mode
@@ -362,15 +347,12 @@ class World(Clock):
             self.iconview.set_selection_mode(True)
 
     def _update_clocks(self):
-        for i in self.liststore:
-            thumb = self.liststore.get_value(i.iter, 3)
-            thumb.update()
         self.standalone.update()
         return True
 
     def _on_item_activated(self, iconview, path):
-        thumb = self.liststore[path][3]
-        self.standalone.set_clock(thumb.get_clock())
+        clock = self.liststore[path][2]
+        self.standalone.set_clock(clock)
         self.emit("item-activated")
 
     def _on_selection_changed(self, iconview):
@@ -385,14 +367,14 @@ class World(Clock):
 
     def delete_selected(self):
         selection = self.get_selection()
-        clocks = [self.liststore[path][3].get_clock() for path in selection]
+        clocks = [self.liststore[path][2] for path in selection]
         self.delete_clocks(clocks)
         self.emit("selection-changed")
 
     def load_clocks(self):
         self.clocks = self.storage.load()
         for clock in self.clocks:
-            self.add_clock_thumbnail(clock)
+            self._add_clock_item(clock)
 
     def add_clock(self, location):
         if location.get_code() in [c.location.get_code() for c in self.clocks]:
@@ -401,18 +383,15 @@ class World(Clock):
         clock = ClockItem(location)
         self.clocks.append(clock)
         self.storage.save(self.clocks)
-        self.add_clock_thumbnail(clock)
+        self._add_clock_item(clock)
         self.show_all()
 
-    def add_clock_thumbnail(self, clock):
+    def _add_clock_item(self, clock):
         name = clock.location.get_city_name()
-        thumb = ClockThumbnail(clock)
         label = GLib.markup_escape_text(name)
         view_iter = self.liststore.append([False,
-                                           thumb.get_pixbuf(),
                                            "<b>%s</b>" % label,
-                                           thumb])
-        path = self.liststore.get_path(view_iter)
+                                           clock])
         self.notify("can-select")
 
     def delete_clocks(self, clocks):

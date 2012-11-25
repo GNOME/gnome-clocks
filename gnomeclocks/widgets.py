@@ -21,106 +21,6 @@ from gi.repository import GObject, Gio, Gtk, Gdk, Pango, PangoCairo
 from gi.repository import Clutter, GtkClutter
 
 
-class DigitalClockDrawing(Gtk.DrawingArea):
-    width = 160
-    height = 160
-
-    def __init__(self):
-        Gtk.DrawingArea.__init__(self)
-        self.pango_context = None
-        self.ctx = None
-        self.pixbuf = None
-        self.surface = None
-        self.show_all()
-
-    def render(self, text, img, isDay, sub_text=None):
-        self.surface = cairo.ImageSurface.create_from_png(img)
-        ctx = cairo.Context(self.surface)
-        ctx.scale(1.0, 1.0)
-        ctx.set_source_surface(self.surface, 0, 0)
-        ctx.paint()
-
-        width = 136
-        height = 72
-        radius = 10
-        degrees = 0.017453293
-
-        x = (self.width - width) / 2
-        y = (self.height - height) / 2
-
-        # has to be before the drawing of the rectangle so the rectangle
-        # takes the right size if we have subtexts
-        self.pango_layout = self.create_pango_layout(text)
-        self.pango_layout.set_markup(
-            "<span size='xx-large'><b>%s</b></span>" % text, -1)
-        if sub_text:
-            self.pango_layout_subtext = self.create_pango_layout(sub_text)
-            self.pango_layout_subtext.set_markup(
-                "<span size='medium'>%s</span>" % sub_text, -1)
-            self.pango_layout_subtext.set_width(width * Pango.SCALE)
-            subtext_is_wrapped = self.pango_layout_subtext.is_wrapped()
-            if subtext_is_wrapped:
-                self.pango_layout_subtext.set_alignment(Pango.Alignment.CENTER)
-
-        if not isDay:
-            ctx.set_source_rgba(0.0, 0.0, 0.0, 0.7)
-        else:
-            ctx.set_source_rgba(1.0, 1.0, 1.0, 0.7)
-
-        ctx.move_to(x, y)
-        ctx.arc(x + width - radius, y + radius, radius, -90 * degrees,
-                0 * degrees)
-        if sub_text and subtext_is_wrapped:
-            ctx.arc(x + width - radius, y + height - radius + 25, radius,
-                    0 * degrees, 90 * degrees)
-            ctx.arc(x + radius, y + height - radius + 25, radius,
-                    90 * degrees, 180 * degrees)
-        elif sub_text and not subtext_is_wrapped:
-            ctx.arc(x + width - radius, y + height - radius + 10, radius,
-                    0 * degrees, 90 * degrees)
-            ctx.arc(x + radius, y + height - radius + 10, radius,
-                    90 * degrees, 180 * degrees)
-        else:
-            ctx.arc(x + width - radius, y + height - radius, radius,
-                    0 * degrees, 90 * degrees)
-            ctx.arc(x + radius, y + height - radius, radius,
-                    90 * degrees, 180 * degrees)
-        ctx.arc(x + radius, y + radius, radius, 180 * degrees, 270 * degrees)
-        ctx.close_path()
-        ctx.fill()
-
-        if not isDay:
-            ctx.set_source_rgb(1.0, 1.0, 1.0)
-        else:
-            ctx.set_source_rgb(0.0, 0.0, 0.0)
-
-        text_width, text_height = self.pango_layout.get_pixel_size()
-        ctx.move_to(x + (width - text_width) / 2,
-                    y + (height - text_height) / 2)
-        PangoCairo.show_layout(ctx, self.pango_layout)
-
-        if sub_text:
-            sub_text_width, sub_text_height =\
-                self.pango_layout_subtext.get_pixel_size()
-            # centered on x axis, 5 pixels below main text on y axis
-            # for some reason setting the alignment adds an extra frame
-            # around it, slight change to allow for this
-            if subtext_is_wrapped:
-                ctx.move_to(x + (width - sub_text_width) / 2 - 10,
-                            y + (height - text_height) / 2 +
-                            sub_text_height - 10)
-            else:
-                ctx.move_to(x + (width - sub_text_width) / 2,
-                            y + (height - text_height) / 2 +
-                            sub_text_height + 10)
-            PangoCairo.show_layout(ctx, self.pango_layout_subtext)
-
-        pixbuf = Gdk.pixbuf_get_from_surface(self.surface, 0, 0, self.width,
-                                             self.height)
-        self.pixbuf = pixbuf
-        return self.pixbuf
-
-
 class Spinner(Gtk.SpinButton):
     def __init__(self, min_value, max_value):
         super(Spinner, self).__init__()
@@ -164,8 +64,12 @@ class TogglePixbufRenderer(Gtk.CellRendererPixbuf):
     active = GObject.Property(type=bool, default=False)
     toggle_visible = GObject.Property(type=bool, default=False)
 
-    def __init__(self):
-        Gtk.CellRendererPixbuf.__init__(self)
+    def __init__(self, **kwds):
+        Gtk.CellRendererPixbuf.__init__(self, **kwds)
+
+        # FIXME: currently broken with g-i
+        # icon_size = widget.style_get_property("check-icon-size")
+        self.icon_size = 40
 
     def do_render(self, cr, widget, background_area, cell_area, flags):
         Gtk.CellRendererPixbuf.do_render(self, cr, widget, background_area, cell_area, flags)
@@ -176,17 +80,13 @@ class TogglePixbufRenderer(Gtk.CellRendererPixbuf):
         xpad, ypad = self.get_padding()
         direction = widget.get_direction()
 
-        # FIXME: currently broken with g-i
-        # icon_size = widget.style_get_property("check-icon-size")
-        icon_size = 40
-
         if direction == Gtk.TextDirection.RTL:
             x_offset = xpad
         else:
-            x_offset = cell_area.width - icon_size - xpad
+            x_offset = cell_area.width - self.icon_size - xpad
 
         check_x = cell_area.x + x_offset
-        check_y = cell_area.y + cell_area.height - icon_size - ypad
+        check_y = cell_area.y + cell_area.height - self.icon_size - ypad
 
         context = widget.get_style_context()
         context.save()
@@ -195,39 +95,112 @@ class TogglePixbufRenderer(Gtk.CellRendererPixbuf):
         if self.active:
             context.set_state(Gtk.StateFlags.ACTIVE)
 
-        Gtk.render_check(context, cr, check_x, check_y, icon_size, icon_size)
+        Gtk.render_check(context, cr, check_x, check_y, self.icon_size, self.icon_size)
 
         context.restore()
 
     def do_get_size(self, widget, cell_area):
-
-        # FIXME: currently broken with g-i
-        # icon_size = widget.style_get_property("check-icon-size")
-        icon_size = 40
-
         x_offset, y_offset, width, height = Gtk.CellRendererPixbuf.do_get_size(self, widget, cell_area)
-
-        width += icon_size // 4
-
+        width += self.icon_size // 4
+        height += self.icon_size // 4
         return (x_offset, y_offset, width, height)
 
 
+class DigitalClockRenderer(TogglePixbufRenderer):
+    foreground = GObject.Property(type=Gdk.RGBA)
+    background = GObject.Property(type=Gdk.RGBA)
+    text = GObject.Property(type=str)
+    subtext = GObject.Property(type=str)
+
+    def __init__(self):
+        TogglePixbufRenderer.__init__(self)#, width=160, height=160, xpad=10, ypad=10)
+
+    def do_render(self, cr, widget, background_area, cell_area, flags):
+        TogglePixbufRenderer.do_render(self, cr, widget, background_area, cell_area, flags)
+
+        cr.save();
+        Gdk.cairo_rectangle(cr, cell_area);
+        cr.clip();
+        cr.translate(cell_area.x, cell_area.y)
+
+        w = 136
+        h = 72
+        r = 10
+        degrees = 0.017453293
+
+        # has to be before the drawing of the rectangle so the rectangle
+        # takes the right size if we have subtexts
+        layout = widget.create_pango_layout("")
+        layout.set_markup(
+            "<span size='xx-large'><b>%s</b></span>" % self.text, -1)
+        if self.subtext:
+            layout_subtext = widget.create_pango_layout("")
+            layout_subtext.set_markup(
+                "<span size='medium'>%s</span>" % self.subtext, -1)
+            layout_subtext.set_width(w * Pango.SCALE)
+            subtext_is_wrapped = layout_subtext.is_wrapped()
+            if subtext_is_wrapped:
+                layout_subtext.set_alignment(Pango.Alignment.CENTER)
+
+        # draw inner rectangle background
+        Gdk.cairo_set_source_rgba(cr, self.background)
+
+        x = (cell_area.width - w) / 2
+        y = (cell_area.height - h) / 2
+
+        cr.move_to(x, y)
+        cr.arc(x + w - r, y + r, r, -90 * degrees, 0 * degrees)
+        if self.subtext and subtext_is_wrapped:
+            cr.arc(x + w - r, y + h - r + 25, r, 0 * degrees, 90 * degrees)
+            cr.arc(x + r, y + h - r + 25, r, 90 * degrees, 180 * degrees)
+        elif self.subtext:
+            cr.arc(x + w - r, y + h - r + 10, r, 0 * degrees, 90 * degrees)
+            cr.arc(x + r, y + h - r + 10, r, 90 * degrees, 180 * degrees)
+        else:
+            cr.arc(x + w - r, y + h - r, r, 0 * degrees, 90 * degrees)
+            cr.arc(x + r, y + h - r, r, 90 * degrees, 180 * degrees)
+        cr.arc(x + r, y + r, r, 180 * degrees, 270 * degrees)
+        cr.close_path()
+        cr.fill()
+
+        # draw text
+        Gdk.cairo_set_source_rgba(cr, self.foreground)
+
+        text_w, text_h = layout.get_pixel_size()
+        cr.move_to(x + (w - text_w) / 2, y + (h - text_h) / 2)
+        PangoCairo.show_layout(cr, layout)
+
+        if self.subtext:
+            subtext_w, subtext_h = layout_subtext.get_pixel_size()
+            # centered on x axis, 5 pixels below main text on y axis
+            # for some reason setting the alignment adds an extra frame
+            # around it, slight change to allow for this
+            if subtext_is_wrapped:
+                cr.move_to(x + (w - subtext_w) / 2 - 10,
+                           y + (h - text_h) / 2 + subtext_h - 10)
+            else:
+                cr.move_to(x + (w - subtext_w) / 2,
+                           y + (h - text_h) / 2 + subtext_h + 10)
+            PangoCairo.show_layout(cr, layout_subtext)
+
+        cr.restore()
+
+
 class SelectableIconView(Gtk.IconView):
-    def __init__(self, model, selection_col, pixbuf_col, text_col):
+    def __init__(self, model, selection_col, text_col, thumb_data_func):
         Gtk.IconView.__init__(self, model)
 
         self.selection_mode = False
-
         self.selection_col = selection_col
 
         self.set_spacing(3)
         self.get_style_context().add_class('content-view')
 
-        self.renderer_pixbuf = TogglePixbufRenderer()
-        self.renderer_pixbuf.set_alignment(0.5, 0.5)
-        self.pack_start(self.renderer_pixbuf, False)
-        self.add_attribute(self.renderer_pixbuf, "active", selection_col)
-        self.add_attribute(self.renderer_pixbuf, "pixbuf", pixbuf_col)
+        self.icon_renderer = DigitalClockRenderer()
+        self.icon_renderer.set_alignment(0.5, 0.5)
+        self.pack_start(self.icon_renderer, False)
+        self.add_attribute(self.icon_renderer, "active", selection_col)
+        self.set_cell_data_func(self.icon_renderer, thumb_data_func, None)
 
         renderer_text = Gtk.CellRendererText()
         renderer_text.set_alignment(0.5, 0.5)
@@ -246,7 +219,7 @@ class SelectableIconView(Gtk.IconView):
     def set_selection_mode(self, active):
         if self.selection_mode != active:
             self.selection_mode = active
-            self.renderer_pixbuf.set_property("toggle_visible", active)
+            self.icon_renderer.set_property("toggle-visible", active)
 
             # force redraw
             self.queue_draw()
@@ -299,7 +272,7 @@ class ContentView(Gtk.Box):
         self.show_all()
 
 
-class SelectionToolbar():
+class SelectionToolbar:
     DEFAULT_WIDTH = 300
 
     def __init__(self, parent_actor):

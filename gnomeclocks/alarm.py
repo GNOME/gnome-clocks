@@ -21,13 +21,13 @@ import errno
 import time
 import json
 from datetime import datetime, timedelta
-from gi.repository import GLib, GObject, Gtk, GdkPixbuf
+from gi.repository import GLib, GObject, Gdk, GdkPixbuf, Gtk
 from clocks import Clock
 from utils import Dirs, SystemSettings, LocalizedWeekdays, Alert
-from widgets import DigitalClockDrawing, SelectableIconView, ContentView
+from widgets import SelectableIconView, ContentView
 
 
-class AlarmsStorage():
+class AlarmsStorage:
     def __init__(self):
         self.filename = os.path.join(Dirs.get_user_data_dir(), "alarms.json")
 
@@ -286,26 +286,6 @@ class AlarmDialog(Gtk.Dialog):
         return alarm
 
 
-class AlarmThumbnail():
-    def __init__(self, alarm):
-        self.alarm = alarm
-        timestr = alarm.get_time_as_string()
-        repeat = alarm.get_alarm_repeat_string()
-        self.drawing = DigitalClockDrawing()
-        is_light = self.alarm.get_is_light()
-        if is_light:
-            img = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
-        else:
-            img = os.path.join(Dirs.get_image_dir(), "cities", "night.png")
-        self.drawing.render(timestr, img, is_light, repeat)
-
-    def get_alarm(self):
-        return self.alarm
-
-    def get_pixbuf(self):
-        return self.drawing.pixbuf
-
-
 class AlarmStandalone(Gtk.EventBox):
     def __init__(self, view):
         Gtk.EventBox.__init__(self)
@@ -414,20 +394,20 @@ class Alarm(Clock):
         self.notebook.set_show_border(False)
         self.add(self.notebook)
 
-        self.liststore = Gtk.ListStore(bool,
-                                       GdkPixbuf.Pixbuf,
-                                       str,
-                                       GObject.TYPE_PYOBJECT)
+        f = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
+        self.daypixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(f, 160, 160)
+        f = os.path.join(Dirs.get_image_dir(), "cities", "night.png")
+        self.nightpixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(f, 160, 160)
 
-        self.iconview = SelectableIconView(self.liststore, 0, 1, 2)
+        self.liststore = Gtk.ListStore(bool, str, object)
+        self.iconview = SelectableIconView(self.liststore, 0, 1, self._thumb_data_func)
+        self.iconview.connect("item-activated", self._on_item_activated)
+        self.iconview.connect("selection-changed", self._on_selection_changed)
 
         contentview = ContentView(self.iconview,
                                   "alarm-symbolic",
                                   _("Select <b>New</b> to add an alarm"))
         self.notebook.append_page(contentview, None)
-
-        self.iconview.connect("item-activated", self._on_item_activated)
-        self.iconview.connect("selection-changed", self._on_selection_changed)
 
         self.storage = AlarmsStorage()
 
@@ -438,6 +418,19 @@ class Alarm(Clock):
         self.notebook.append_page(self.standalone, None)
 
         self.timeout_id = GLib.timeout_add(1000, self._check_alarms)
+
+    def _thumb_data_func(self, view, cell, store, i, data):
+        alarm = store.get_value(i, 2)
+        cell.text = alarm.get_time_as_string()
+        cell.subtext = alarm.get_alarm_repeat_string()
+        if alarm.get_is_light():
+            cell.props.pixbuf = self.daypixbuf
+            cell.foreground = Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
+            cell.background = Gdk.RGBA(1.0, 1.0, 1.0, 0.7)
+        else:
+            cell.props.pixbuf = self.nightpixbuf
+            cell.foreground = Gdk.RGBA(1.0, 1.0, 1.0, 1.0)
+            cell.background = Gdk.RGBA(1.0, 1.0, 1.0, 0.3)
 
     def set_mode(self, mode):
         self.mode = mode
@@ -455,17 +448,15 @@ class Alarm(Clock):
         self.set_mode(Clock.Mode.STANDALONE)
 
     def _check_alarms(self):
-        for i in self.liststore:
-            thumb = self.liststore.get_value(i.iter, 3)
-            alarm = thumb.get_alarm()
-            if alarm.check_expired():
-                self.standalone.set_alarm(alarm, True)
+        for a in self.alarms:
+            if a.check_expired():
+                self.standalone.set_alarm(a, True)
                 self.emit("alarm-ringing")
         return True
 
     def _on_item_activated(self, iconview, path):
-        thumb = self.liststore[path][3]
-        self.standalone.set_alarm(thumb.get_alarm())
+        alarm = self.liststore[path][2]
+        self.standalone.set_alarm(alarm)
         self.emit("item-activated")
 
     def _on_selection_changed(self, iconview):
@@ -480,28 +471,26 @@ class Alarm(Clock):
 
     def delete_selected(self):
         selection = self.get_selection()
-        alarms = [self.liststore[path][3].get_alarm() for path in selection]
+        alarms = [self.liststore[path][2] for path in selection]
         self.delete_alarms(alarms)
         self.emit("selection-changed")
 
     def load_alarms(self):
         self.alarms = self.storage.load()
         for alarm in self.alarms:
-            self.add_alarm_thumbnail(alarm)
+            self._add_alarm_item(alarm)
 
     def add_alarm(self, alarm):
         self.alarms.append(alarm)
         self.storage.save(self.alarms)
-        self.add_alarm_thumbnail(alarm)
+        self._add_alarm_item(alarm)
         self.show_all()
 
-    def add_alarm_thumbnail(self, alarm):
-        thumb = AlarmThumbnail(alarm)
+    def _add_alarm_item(self, alarm):
         label = GLib.markup_escape_text(alarm.name)
         view_iter = self.liststore.append([False,
-                                           thumb.get_pixbuf(),
                                            "<b>%s</b>" % label,
-                                           thumb])
+                                           alarm])
         self.notify("can-select")
 
     def update_alarm(self, old_alarm, new_alarm):
