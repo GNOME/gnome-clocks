@@ -71,10 +71,6 @@ class AlarmItem:
     EVERY_DAY = [0, 1, 2, 3, 4, 5, 6]
 
     def __init__(self, name=None, hour=None, minute=None, days=EVERY_DAY):
-        self.update(name=name, hour=hour, minute=minute, days=days)
-        self.alert = Alert("alarm-clock-elapsed", name)
-
-    def update(self, name=None, hour=None, minute=None, days=EVERY_DAY):
         self.name = name
         self.hour = hour
         self.minute = minute
@@ -84,13 +80,15 @@ class AlarmItem:
         if not self.days:
             self.days = AlarmItem.EVERY_DAY
 
-        self.time = None
-        self.snooze_time = None
-        self.is_snoozing = False
-
-        if not hour == None and not minute == None:
+        if hour == None and minute == None:
+            self.time = None
+            self.snooze_time = None
+            self.is_snoozing = False
+        else:
             self._update_expiration_time()
             self._reset_snooze(self.time)
+
+        self.alert = Alert("alarm-clock-elapsed", name)
 
     def _update_expiration_time(self):
         now = datetime.now()
