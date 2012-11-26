@@ -347,6 +347,7 @@ class World(Clock):
             self.iconview.set_selection_mode(True)
 
     def _update_clocks(self):
+        self.iconview.queue_draw()
         self.standalone.update()
         return True
 
