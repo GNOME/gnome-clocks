@@ -70,23 +70,14 @@ class AlarmsStorage:
 class AlarmItem:
     EVERY_DAY = [0, 1, 2, 3, 4, 5, 6]
 
-    def __init__(self, name=None, hour=None, minute=None, days=EVERY_DAY):
+    def __init__(self, name, hour, minute, days):
         self.name = name
         self.hour = hour
         self.minute = minute
         self.days = days # list of numbers, 0 == Monday
 
-        # an alarm without any day makes no sense...
-        if not self.days:
-            self.days = AlarmItem.EVERY_DAY
-
-        if hour == None and minute == None:
-            self.time = None
-            self.snooze_time = None
-            self.is_snoozing = False
-        else:
-            self._update_expiration_time()
-            self._reset_snooze(self.time)
+        self._update_expiration_time()
+        self._reset_snooze(self.time)
 
         self.alert = Alert("alarm-clock-elapsed", name)
 
@@ -282,6 +273,11 @@ class AlarmDialog(Gtk.Dialog):
         for btn in self.day_buttons:
             if btn.get_active():
                 days.append(btn.data)
+
+        # if no days were selected, create a daily alarm
+        if not days:
+            days = AlarmItem.EVERY_DAY
+
         alarm = AlarmItem(name, h, m, days)
         return alarm
 
