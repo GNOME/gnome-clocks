@@ -19,6 +19,7 @@
 import cairo
 from gi.repository import GObject, Gio, Gtk, Gdk, Pango, PangoCairo
 from gi.repository import Clutter, GtkClutter
+from math import pi as PI
 
 
 class Spinner(Gtk.SpinButton):
@@ -113,7 +114,7 @@ class DigitalClockRenderer(TogglePixbufRenderer):
     subtext = GObject.Property(type=str)
 
     def __init__(self):
-        TogglePixbufRenderer.__init__(self)#, width=160, height=160, xpad=10, ypad=10)
+        TogglePixbufRenderer.__init__(self)
 
     def do_render(self, cr, widget, background_area, cell_area, flags):
         TogglePixbufRenderer.do_render(self, cr, widget, background_area, cell_area, flags)
@@ -123,64 +124,56 @@ class DigitalClockRenderer(TogglePixbufRenderer):
         cr.clip();
         cr.translate(cell_area.x, cell_area.y)
 
-        w = 136
-        h = 72
-        r = 10
-        degrees = 0.017453293
+        margin = 12
+        x = margin
+        w = cell_area.width - 2 * margin
 
-        # has to be before the drawing of the rectangle so the rectangle
-        # takes the right size if we have subtexts
         layout = widget.create_pango_layout("")
         layout.set_markup(
             "<span size='xx-large'><b>%s</b></span>" % self.text, -1)
+        layout.set_width(w * Pango.SCALE)
+        layout.set_alignment(Pango.Alignment.CENTER)
+        text_w, text_h = layout.get_pixel_size()
+
         if self.subtext:
             layout_subtext = widget.create_pango_layout("")
             layout_subtext.set_markup(
                 "<span size='medium'>%s</span>" % self.subtext, -1)
             layout_subtext.set_width(w * Pango.SCALE)
-            subtext_is_wrapped = layout_subtext.is_wrapped()
-            if subtext_is_wrapped:
-                layout_subtext.set_alignment(Pango.Alignment.CENTER)
+            layout_subtext.set_alignment(Pango.Alignment.CENTER)
+            subtext_w, subtext_h = layout_subtext.get_pixel_size()
+            subtext_pad = 6
+            # We just assume the first line is the longest
+            line = layout_subtext.get_line(0)
+            ink_rect, log_rect = line.get_pixel_extents()
+            subtext_w = log_rect.width
+        else:
+            subtext_w, subtext_h, subtext_pad = 0, 0, 0
 
         # draw inner rectangle background
         Gdk.cairo_set_source_rgba(cr, self.background)
 
-        x = (cell_area.width - w) / 2
+        pad = 12
+        h = 2 * pad + text_h + subtext_h + subtext_pad
         y = (cell_area.height - h) / 2
+        r = 10
 
         cr.move_to(x, y)
-        cr.arc(x + w - r, y + r, r, -90 * degrees, 0 * degrees)
-        if self.subtext and subtext_is_wrapped:
-            cr.arc(x + w - r, y + h - r + 25, r, 0 * degrees, 90 * degrees)
-            cr.arc(x + r, y + h - r + 25, r, 90 * degrees, 180 * degrees)
-        elif self.subtext:
-            cr.arc(x + w - r, y + h - r + 10, r, 0 * degrees, 90 * degrees)
-            cr.arc(x + r, y + h - r + 10, r, 90 * degrees, 180 * degrees)
-        else:
-            cr.arc(x + w - r, y + h - r, r, 0 * degrees, 90 * degrees)
-            cr.arc(x + r, y + h - r, r, 90 * degrees, 180 * degrees)
-        cr.arc(x + r, y + r, r, 180 * degrees, 270 * degrees)
+        cr.arc(x + w - r, y + r, r, - PI / 2, 0)
+        cr.arc(x + w - r, y + h - r, r, 0, PI / 2)
+        cr.arc(x + r, y + h - r, r, PI / 2, PI)
+        cr.arc(x + r, y + r, r, PI, - PI / 2)
         cr.close_path()
         cr.fill()
 
         # draw text
         Gdk.cairo_set_source_rgba(cr, self.foreground)
 
-        text_w, text_h = layout.get_pixel_size()
-        cr.move_to(x + (w - text_w) / 2, y + (h - text_h) / 2)
+        cr.move_to(x, y + pad)
         PangoCairo.show_layout(cr, layout)
 
         if self.subtext:
-            subtext_w, subtext_h = layout_subtext.get_pixel_size()
-            # centered on x axis, 5 pixels below main text on y axis
-            # for some reason setting the alignment adds an extra frame
-            # around it, slight change to allow for this
-            if subtext_is_wrapped:
-                cr.move_to(x + (w - subtext_w) / 2 - 10,
-                           y + (h - text_h) / 2 + subtext_h - 10)
-            else:
-                cr.move_to(x + (w - subtext_w) / 2,
-                           y + (h - text_h) / 2 + subtext_h + 10)
+            cr.move_to(x, y + pad + text_h + subtext_pad)
             PangoCairo.show_layout(cr, layout_subtext)
 
         cr.restore()
