@@ -119,9 +119,9 @@ class DigitalClockRenderer(TogglePixbufRenderer):
     def do_render(self, cr, widget, background_area, cell_area, flags):
         TogglePixbufRenderer.do_render(self, cr, widget, background_area, cell_area, flags)
 
-        cr.save();
-        Gdk.cairo_rectangle(cr, cell_area);
-        cr.clip();
+        cr.save()
+        Gdk.cairo_rectangle(cr, cell_area)
+        cr.clip()
         cr.translate(cell_area.x, cell_area.y)
 
         margin = 12
