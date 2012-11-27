@@ -81,15 +81,25 @@ class Stopwatch(Clock):
         self.right_button.connect("clicked", self._on_right_button_clicked)
 
         self.laps_store = Gtk.ListStore(str, str, str)
+
         cell = Gtk.CellRendererText()
+        cell.set_property("xalign", 1.0)
         n_column = Gtk.TreeViewColumn(_("Lap"), cell, markup=0)
-        n_column.set_expand(True)
+        n_column.set_expand(False)
+        n_column.set_property("alignment", 1.0)
+
         cell = Gtk.CellRendererText()
+        cell.set_property("xalign", 1.0)
         split_column = Gtk.TreeViewColumn(_("Split"), cell, markup=1)
         split_column.set_expand(True)
+        split_column.set_property("alignment", 1.0)
+
         cell = Gtk.CellRendererText()
+        cell.set_property("xalign", 1.0)
         tot_column = Gtk.TreeViewColumn(_("Total"), cell, markup=2)
         tot_column.set_expand(True)
+        tot_column.set_property("alignment", 1.0)
+
         self.laps_view = Gtk.TreeView(self.laps_store)
         self.laps_view.get_style_context().add_class("clocks-laps")
         self.laps_view.append_column(n_column)
@@ -127,13 +137,13 @@ class Stopwatch(Clock):
             tot_h, tot_m, tot_s, split_h, split_m, split_s = self.get_time(True)
             n = "<span color='dimgray'> %d </span>" % (self.lap)
             if split_h > 0:
-                s = "<span size ='larger'>%i:%02i:%04.2f</span>" % (split_h, split_m, split_s)
+                s = "<span size ='larger'>%i:%02i:%05.2f</span>" % (split_h, split_m, split_s)
             else:
-                s = "<span size ='larger'>%02i:%04.2f</span>" % (split_m, split_s)
+                s = "<span size ='larger'>%02i:%05.2f</span>" % (split_m, split_s)
             if tot_h:
-                t = "<span size ='larger'>%i:%02i:%04.2f</span>" % (tot_h, tot_m, tot_s)
+                t = "<span size ='larger'>%i:%02i:%05.2f</span>" % (tot_h, tot_m, tot_s)
             else:
-                t = "<span size ='larger'>%02i:%04.2f</span>" % (tot_m, tot_s)
+                t = "<span size ='larger'>%02i:%05.2f</span>" % (tot_m, tot_s)
             i = self.laps_store.append([n, s, t])
             p = self.laps_store.get_path(i)
             self.laps_view.scroll_to_cell(p, None, False, 0, 0)
