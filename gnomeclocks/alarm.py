@@ -273,6 +273,8 @@ class AlarmDialog(Gtk.Dialog):
         for btn in self.day_buttons:
             if btn.get_active():
                 days.append(btn.data)
+        # needed in case the first day of the week is not 0 (Monday)
+        days.sort()
 
         # if no days were selected, create a daily alarm
         if not days:
