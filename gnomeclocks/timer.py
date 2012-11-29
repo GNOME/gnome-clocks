@@ -156,6 +156,8 @@ class Timer(Clock):
         Clock.__init__(self, _("Timer"))
         self.state = Timer.State.STOPPED
         self.timeout_id = 0
+        self._last_set_time = None
+        self._ui_is_frozen = False
 
         self.notebook = Gtk.Notebook()
         self.notebook.set_show_tabs(False)
@@ -174,8 +176,6 @@ class Timer(Clock):
         self.show_all()
 
         self.alert = Alert("complete", "Ta Da !")
-
-        self._ui_is_frozen = False
 
     @GObject.Signal
     def alarm_ringing(self):
@@ -239,7 +239,9 @@ class Timer(Clock):
             display_time = math.ceil(self.deadline - t)
             m, s = divmod(display_time, 60)
             h, m = divmod(m, 60)
-            self.timer_screen.set_time(h, m, s)
+            if (h, m, s) != self._last_set_time:
+                self.timer_screen.set_time(h, m, s)
+                self._last_set_time = (h, m, s)
         return True
 
     def _ui_freeze(self, widget):
