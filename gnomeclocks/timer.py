@@ -231,7 +231,7 @@ class Timer(Clock):
             self.timer_screen.set_time(0, 0, 0)
             self.show_setup_screen(False)
             return False
-        elif self._ui_is_frozen == False:
+        elif not self._ui_is_frozen:
             r = self.deadline - t
             m, s = divmod(r, 60)
             h, m = divmod(m, 60)
@@ -243,4 +243,5 @@ class Timer(Clock):
 
     def _ui_thaw(self, widget):
         self._ui_is_frozen = False
-        self.count
+        if self.state == Timer.State.RUNNING:
+            self.count()
