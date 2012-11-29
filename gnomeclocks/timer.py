@@ -17,6 +17,7 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import time
+import math
 from gi.repository import GLib,  GObject, Gtk
 from clocks import Clock
 from utils import Alert
@@ -232,8 +233,11 @@ class Timer(Clock):
             self.show_setup_screen(False)
             return False
         elif not self._ui_is_frozen:
-            r = self.deadline - t
-            m, s = divmod(r, 60)
+            # math.ceil() is needed because we count backwards. It assures the
+            # display shows the past and not the future, e.g. show 1 s and not
+            # 0 s when we are at 0.3 s.
+            display_time = math.ceil(self.deadline - t)
+            m, s = divmod(display_time, 60)
             h, m = divmod(m, 60)
             self.timer_screen.set_time(h, m, s)
         return True
