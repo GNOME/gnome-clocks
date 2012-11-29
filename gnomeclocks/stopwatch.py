@@ -183,7 +183,7 @@ class Stopwatch(Clock):
     def _remove_timeout(self):
         if self.timeout_id != 0:
             GLib.source_remove(self.timeout_id)
-        self.timeout_id = 0
+            self.timeout_id = 0
 
     def start(self):
         if self.timeout_id == 0:
