@@ -77,8 +77,11 @@ class AlarmItem:
         self.days = days # list of numbers, 0 == Monday
 
         self._update_expiration_time()
-        self._reset_snooze(self.time)
+        self._reset_snooze(self.alarm_time)
 
+        self.alarm_time_string = self._get_alarm_time_string()
+        self.alarm_repeat_string = self._get_alarm_repeat_string()
+        self.is_light = self._get_is_light()
         self.alert = Alert("alarm-clock-elapsed", name)
 
     def _update_expiration_time(self):
@@ -93,27 +96,19 @@ class AlarmItem:
             # otherwise next week
             else:
                 dt += timedelta(weeks=1, days=(self.days[0] - dt.weekday()))
-        self.time = dt
+        self.alarm_time = dt
 
     def _reset_snooze(self, start_time):
         self.snooze_time = start_time + timedelta(minutes=9)
         self.is_snoozing = False
 
-    def snooze(self):
-        self.is_snoozing = True
-        self.alert.stop()
-
-    def stop(self):
-        self._reset_snooze(self.time)
-        self.alert.stop()
-
-    def get_time_as_string(self):
+    def _get_alarm_time_string(self):
         if SystemSettings.get_clock_format() == "12h":
-            return self.time.strftime("%I:%M %p")
+            return self.alarm_time.strftime("%I:%M %p")
         else:
-            return self.time.strftime("%H:%M")
+            return self.alarm_time.strftime("%H:%M")
 
-    def get_alarm_repeat_string(self):
+    def _get_alarm_repeat_string(self):
         n = len(self.days)
         if n == 0:
             return ""
@@ -131,11 +126,22 @@ class AlarmItem:
                     days.append(LocalizedWeekdays.get_abbr(day_num))
             return ", ".join(days)
 
+    def _get_is_light(self):
+        return self.hour > 7 and self.hour < 19
+
+    def snooze(self):
+        self.is_snoozing = True
+        self.alert.stop()
+
+    def stop(self):
+        self._reset_snooze(self.alarm_time)
+        self.alert.stop()
+
     def check_expired(self):
         t = datetime.now()
-        if t > self.time:
+        if t > self.alarm_time:
             self.alert.show()
-            self._reset_snooze(self.time)
+            self._reset_snooze(self.alarm_time)
             self._update_expiration_time()
             return True
         elif self.is_snoozing and t > self.snooze_time:
@@ -144,9 +150,6 @@ class AlarmItem:
             return True
         else:
             return False
-
-    def get_is_light(self):
-        return self.hour > 7 and self.hour < 19
 
 
 class AlarmDialog(Gtk.Dialog):
@@ -362,8 +365,8 @@ class AlarmStandalone(Gtk.EventBox):
 
     def update(self):
         if self.alarm:
-            timestr = self.alarm.get_time_as_string()
-            repeat = self.alarm.get_alarm_repeat_string()
+            timestr = self.alarm.alarm_time_string
+            repeat = self.alarm.alarm_repeat_string
             self.alarm_label.set_markup(
                 "<span size='72000' color='dimgray'><b>%s</b></span>" % timestr)
             self.repeat_label.set_markup(
@@ -419,9 +422,9 @@ class Alarm(Clock):
 
     def _thumb_data_func(self, view, cell, store, i, data):
         alarm = store.get_value(i, 2)
-        cell.text = alarm.get_time_as_string()
-        cell.subtext = alarm.get_alarm_repeat_string()
-        if alarm.get_is_light():
+        cell.text = alarm.alarm_time_string
+        cell.subtext = alarm.alarm_repeat_string
+        if alarm.is_light:
             cell.props.pixbuf = self.daypixbuf
             cell.css_class = "light"
         else:
