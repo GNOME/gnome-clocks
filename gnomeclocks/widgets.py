@@ -57,11 +57,10 @@ class EmptyPlaceholder(Gtk.Box):
         self.show_all()
 
 
-# Python version of the gd-toggle-pixbuf-renderer of gnome-documents
-# we should use those widgets directly at some point, but for now
-# it is easier to just reimplement this renderer than include and build
-# a C library
-class TogglePixbufRenderer(Gtk.CellRendererPixbuf):
+class DigitalClockRenderer(Gtk.CellRendererPixbuf):
+    css_class = GObject.Property(type=str)
+    text = GObject.Property(type=str)
+    subtext = GObject.Property(type=str)
     active = GObject.Property(type=bool, default=False)
     toggle_visible = GObject.Property(type=bool, default=False)
 
@@ -75,59 +74,23 @@ class TogglePixbufRenderer(Gtk.CellRendererPixbuf):
     def do_render(self, cr, widget, background_area, cell_area, flags):
         Gtk.CellRendererPixbuf.do_render(self, cr, widget, background_area, cell_area, flags)
 
-        if not self.toggle_visible:
-            return
-
-        xpad, ypad = self.get_padding()
-        direction = widget.get_direction()
-
-        if direction == Gtk.TextDirection.RTL:
-            x_offset = xpad
-        else:
-            x_offset = cell_area.width - self.icon_size - xpad
-
-        check_x = cell_area.x + x_offset
-        check_y = cell_area.y + cell_area.height - self.icon_size - ypad
-
         context = widget.get_style_context()
         context.save()
-        context.add_class(Gtk.STYLE_CLASS_CHECK)
-
-        if self.active:
-            context.set_state(Gtk.StateFlags.ACTIVE)
-
-        Gtk.render_check(context, cr, check_x, check_y, self.icon_size, self.icon_size)
-
-        context.restore()
-
-    def do_get_size(self, widget, cell_area):
-        x_offset, y_offset, width, height = Gtk.CellRendererPixbuf.do_get_size(self, widget, cell_area)
-        width += self.icon_size // 4
-        height += self.icon_size // 4
-        return (x_offset, y_offset, width, height)
-
-
-class DigitalClockRenderer(TogglePixbufRenderer):
-    foreground = GObject.Property(type=Gdk.RGBA)
-    background = GObject.Property(type=Gdk.RGBA)
-    text = GObject.Property(type=str)
-    subtext = GObject.Property(type=str)
-
-    def __init__(self):
-        TogglePixbufRenderer.__init__(self)
-
-    def do_render(self, cr, widget, background_area, cell_area, flags):
-        TogglePixbufRenderer.do_render(self, cr, widget, background_area, cell_area, flags)
+        context.add_class("clocks-digital-renderer")
+        context.add_class(self.css_class)
 
         cr.save()
         Gdk.cairo_rectangle(cr, cell_area)
         cr.clip()
         cr.translate(cell_area.x, cell_area.y)
 
-        margin = 12
-        x = margin
+        # for now the space around the digital clock is hardcoded,
+        # we need to know the width to create the pango layouts
+        margin = 16
+        padding = 12
         w = cell_area.width - 2 * margin
 
+        # create the layouts so that we can measure them
         layout = widget.create_pango_layout("")
         layout.set_markup(
             "<span size='xx-large'><b>%s</b></span>" % self.text, -1)
@@ -150,33 +113,50 @@ class DigitalClockRenderer(TogglePixbufRenderer):
         else:
             subtext_w, subtext_h, subtext_pad = 0, 0, 0
 
-        # draw inner rectangle background
-        Gdk.cairo_set_source_rgba(cr, self.background)
-
-        pad = 12
-        h = 2 * pad + text_h + subtext_h + subtext_pad
+        # measure the actual height and coordinates (xpad is ignored for now)
+        h = 2 * padding + text_h + subtext_h + subtext_pad
+        x = margin
         y = (cell_area.height - h) / 2
-        r = 10
 
-        cr.move_to(x, y)
-        cr.arc(x + w - r, y + r, r, - PI / 2, 0)
-        cr.arc(x + w - r, y + h - r, r, 0, PI / 2)
-        cr.arc(x + r, y + h - r, r, PI / 2, PI)
-        cr.arc(x + r, y + r, r, PI, - PI / 2)
-        cr.close_path()
-        cr.fill()
+        # draw inner rectangle background
+        Gtk.render_frame(context, cr, x, y, w, h)
+        Gtk.render_background(context, cr, x, y, w, h)
 
         # draw text
-        Gdk.cairo_set_source_rgba(cr, self.foreground)
-
-        cr.move_to(x, y + pad)
-        PangoCairo.show_layout(cr, layout)
-
+        Gtk.render_layout(context, cr, x, y + padding, layout)
         if self.subtext:
-            cr.move_to(x, y + pad + text_h + subtext_pad)
-            PangoCairo.show_layout(cr, layout_subtext)
+            Gtk.render_layout(context, cr, x, y + padding + text_h + subtext_pad,
+                              layout_subtext)
+
+        # draw the overlayed checkbox
+        if self.toggle_visible:
+            context.add_class(Gtk.STYLE_CLASS_CHECK)
+
+            xpad, ypad = self.get_padding()
+            direction = widget.get_direction()
+
+            if direction == Gtk.TextDirection.RTL:
+                x_offset = xpad
+            else:
+                x_offset = cell_area.width - self.icon_size - xpad
+
+            check_x = x_offset
+            check_y = cell_area.height - self.icon_size - ypad
+
+            if self.active:
+                context.set_state(Gtk.StateFlags.ACTIVE)
+
+            Gtk.render_check(context, cr, check_x, check_y, self.icon_size, self.icon_size)
 
         cr.restore()
+        context.restore()
+
+
+    def do_get_size(self, widget, cell_area):
+        x_offset, y_offset, width, height = Gtk.CellRendererPixbuf.do_get_size(self, widget, cell_area)
+        width += self.icon_size // 4
+        height += self.icon_size // 4
+        return (x_offset, y_offset, width, height)
 
 
 class SelectableIconView(Gtk.IconView):

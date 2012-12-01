@@ -328,12 +328,10 @@ class World(Clock):
         cell.subtext = clock.get_day_as_string()
         if clock.get_is_light():
             cell.props.pixbuf = self.daypixbuf
-            cell.foreground = Gdk.RGBA(0.0, 0.0, 0.0, 1.0)
-            cell.background = Gdk.RGBA(1.0, 1.0, 1.0, 0.7)
+            cell.css_class = "light"
         else:
             cell.props.pixbuf = self.nightpixbuf
-            cell.foreground = Gdk.RGBA(1.0, 1.0, 1.0, 1.0)
-            cell.background = Gdk.RGBA(1.0, 1.0, 1.0, 0.3)
+            cell.css_class = "dark"
 
     def set_mode(self, mode):
         self.mode = mode
