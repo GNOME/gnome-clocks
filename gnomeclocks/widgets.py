@@ -181,20 +181,21 @@ class SelectableIconView(Gtk.IconView):
         self.add_attribute(renderer_text, "markup", text_col)
 
     def get_selection(self):
-        selection = []
         store = self.get_model()
-        for i in store:
-            selected = store.get_value(i.iter, self.selection_col)
-            if selected:
-                selection.append(i.path)
-        return selection
+        return [row.path for row in store if row[self.selection_col]]
 
     def set_selection_mode(self, active):
         if self.selection_mode != active:
+            # clear selection
+            if not active:
+                self.unselect_all()
+                store = self.get_model()
+                for row in store:
+                    row[self.selection_col] = False
+
             self.selection_mode = active
             self.icon_renderer.set_property("toggle-visible", active)
 
-            # force redraw
             self.queue_draw()
 
     # FIXME: override both button press and release to check

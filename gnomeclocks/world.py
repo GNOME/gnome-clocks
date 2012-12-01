@@ -336,7 +336,6 @@ class World(Clock):
     def set_mode(self, mode):
         self.mode = mode
         if mode is Clock.Mode.NORMAL:
-            self.iconview.unselect_all()
             self.notebook.set_current_page(0)
             self.iconview.set_selection_mode(False)
         elif mode is Clock.Mode.STANDALONE:
@@ -396,7 +395,6 @@ class World(Clock):
     def delete_clocks(self, clocks):
         self.clocks = [c for c in self.clocks if c not in clocks]
         self.storage.save(self.clocks)
-        self.iconview.unselect_all()
         self.liststore.clear()
         self.load_clocks()
         self.notify("can-select")

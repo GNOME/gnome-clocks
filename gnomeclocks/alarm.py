@@ -431,7 +431,6 @@ class Alarm(Clock):
     def set_mode(self, mode):
         self.mode = mode
         if mode is Clock.Mode.NORMAL:
-            self.iconview.unselect_all()
             self.notebook.set_current_page(0)
             self.iconview.set_selection_mode(False)
         elif mode is Clock.Mode.STANDALONE:
@@ -493,7 +492,6 @@ class Alarm(Clock):
         i = self.alarms.index(old_alarm)
         self.alarms[i] = new_alarm
         self.storage.save(self.alarms)
-        self.iconview.unselect_all()
         self.liststore.clear()
         self.load_alarms()
         self.notify("can-select")
@@ -502,7 +500,6 @@ class Alarm(Clock):
     def delete_alarms(self, alarms):
         self.alarms = [a for a in self.alarms if a not in alarms]
         self.storage.save(self.alarms)
-        self.iconview.unselect_all()
         self.liststore.clear()
         self.load_alarms()
         self.notify("can-select")
