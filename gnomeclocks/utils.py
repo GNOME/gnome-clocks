@@ -69,9 +69,16 @@ class TimeString:
     @staticmethod
     def format_time(t):
         if SystemSettings.get_clock_format() == "12h":
-            res = time.strftime("%I:%M %p", t)
+            fmt = "%I:%M %p"
         else:
-            res = time.strftime("%H:%M", t)
+            fmt = "%H:%M"
+
+        # "datetime" has a strftime method, "time" des not
+        if hasattr(t, 'strftime'):
+            res = t.strftime(fmt)
+        else:
+            res = time.strftime(fmt, t)
+
         if res.startswith("0"):
             res = res[1:]
         return res

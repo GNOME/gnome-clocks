@@ -23,7 +23,7 @@ import json
 from datetime import datetime, timedelta
 from gi.repository import GLib, GObject, Gdk, GdkPixbuf, Gtk
 from clocks import Clock
-from utils import Dirs, SystemSettings, LocalizedWeekdays, Alert
+from utils import Dirs, SystemSettings, TimeString, LocalizedWeekdays, Alert
 from widgets import SelectableIconView, ContentView
 
 
@@ -79,7 +79,7 @@ class AlarmItem:
         self._update_expiration_time()
         self._reset_snooze(self.alarm_time)
 
-        self.alarm_time_string = self._get_alarm_time_string()
+        self.alarm_time_string = TimeString.format_time(self.alarm_time)
         self.alarm_repeat_string = self._get_alarm_repeat_string()
         self.is_light = self._get_is_light()
         self.alert = Alert("alarm-clock-elapsed", name)
@@ -101,12 +101,6 @@ class AlarmItem:
     def _reset_snooze(self, start_time):
         self.snooze_time = start_time + timedelta(minutes=9)
         self.is_snoozing = False
-
-    def _get_alarm_time_string(self):
-        if SystemSettings.get_clock_format() == "12h":
-            return self.alarm_time.strftime("%I:%M %p")
-        else:
-            return self.alarm_time.strftime("%H:%M")
 
     def _get_alarm_repeat_string(self):
         n = len(self.days)
