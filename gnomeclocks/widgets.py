@@ -85,9 +85,12 @@ class DigitalClockRenderer(Gtk.CellRendererPixbuf):
         cr.clip()
         cr.translate(cell_area.x, cell_area.y)
 
-        # for now the space around the digital clock is hardcoded,
-        # we need to know the width to create the pango layouts
-        margin = 16
+        # for now the space around the digital clock is hardcoded and
+        # relative to the image width (not the width of the cell which
+        # may be larger in case of long city names).
+        # We need to know the width to create the pango layouts
+        pixbuf_margin = (cell_area.width - self.props.pixbuf.get_width()) // 2
+        margin = 12 + pixbuf_margin
         padding = 12
         w = cell_area.width - 2 * margin
 
@@ -138,7 +141,6 @@ class DigitalClockRenderer(Gtk.CellRendererPixbuf):
 
             xpad, ypad = self.get_padding()
             direction = widget.get_direction()
-
             if direction == Gtk.TextDirection.RTL:
                 x_offset = xpad
             else:
