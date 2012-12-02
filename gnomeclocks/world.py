@@ -23,7 +23,7 @@ import json
 from gi.repository import GLib, GObject, Gio, Gdk, GdkPixbuf, Gtk
 from gi.repository import GWeather
 from clocks import Clock
-from utils import Dirs, SystemSettings, TimeString
+from utils import Dirs, TimeString
 from widgets import SelectableIconView, ContentView
 
 
