@@ -125,10 +125,7 @@ class NewWorldClockDialog(Gtk.Dialog):
 class ClockItem:
     def __init__(self, location):
         self.location = location
-        self.nation = self._get_nation()
-        self.sunrise = None
-        self.sunset = None
-        self._update_sunrise_sunset()
+        self.name = self._get_location_name()
 
         weather_timezone = self.location.get_timezone()
         timezone = GLib.TimeZone.new(weather_timezone.get_tzid())
@@ -141,47 +138,33 @@ class ClockItem:
 
         self.offset = location_offset - here_offset
 
-    def _get_nation(self):
+        self.sunrise = None
+        self.sunset = None
+        self.sunrise_string = None
+        self.sunset_string = None
+
+        self._update_sunrise_sunset()
+
+        self.update_time()
+
+    def _get_location_name(self):
         nation = self.location
         while nation and nation.get_level() != GWeather.LocationLevel.COUNTRY:
             nation = nation.get_parent()
-        if nation != self.location:
-            return nation
-
-    def get_location_name(self):
-        if self.nation:
-            return self.location.get_city_name() + ', ' + self.nation.get_name()
+        if nation:
+            return self.location.get_city_name() + ', ' + nation.get_name()
         else:
             return self.location.get_city_name()
 
-    def get_location_time(self, secs=None):
+    def _get_location_time(self, secs=None):
         if not secs:
             secs = time.time()
         t = secs + self.offset
         t = time.localtime(t)
         return t
 
-    def _update_sunrise_sunset(self):
-        self.weather = GWeather.Info(location=self.location, world=gweather_world)
-        self.weather.connect('updated', self._on_weather_updated)
-        self.weather.update()
-
-    def _on_weather_updated(self, weather):
-        # returned as the time here
-        ok1, sunrise = weather.get_value_sunrise()
-        ok2, sunset = weather.get_value_sunset()
-        if ok1 and ok2:
-            self.sunrise = self.get_location_time(sunrise)
-            self.sunset = self.get_location_time(sunset)
-        else:
-            self.sunrise = None
-            self.sunset = None
-
-    def get_time_as_string(self):
-        return TimeString.format_time(self.get_location_time())
-
-    def get_day_as_string(self):
-        clock_time_day = self.get_location_time().tm_yday
+    def _get_day_string(self):
+        clock_time_day = self.location_time.tm_yday
         local_time_day = time.localtime().tm_yday
 
         # if its 31st Dec here and 1st Jan there, clock_time_day = 1,
@@ -199,22 +182,37 @@ class ClockItem:
             else:
                 return _("Yesterday")
 
-    def get_sunrise_sunset_as_strings(self):
-        if self.sunrise:
-            sunrise = TimeString.format_time(self.sunrise)
-            sunset = TimeString.format_time(self.sunset)
-            return (sunrise, sunset)
-        else:
-            return (None, None)
+    def _update_sunrise_sunset(self):
+        self.weather = GWeather.Info(location=self.location, world=gweather_world)
+        self.weather.connect('updated', self._on_weather_updated)
+        self.weather.update()
 
-    def get_is_light(self):
-        current = self.get_location_time()
+    def _on_weather_updated(self, weather):
+        # returned as the time here
+        ok1, sunrise = weather.get_value_sunrise()
+        ok2, sunset = weather.get_value_sunset()
+        if ok1 and ok2:
+            self.sunrise = self._get_location_time(sunrise)
+            self.sunset = self._get_location_time(sunset)
+            self.sunrise_string = TimeString.format_time(self.sunrise)
+            self.sunset_string = TimeString.format_time(self.sunset)
+            self.is_light = self._get_is_light()
+
+    def _get_is_light(self):
+        current = self.location_time
         if self.sunrise:
             return self.sunrise <= current <= self.sunset
         else:
             # default fallback when we have no sunrise/sunset times,
             # as we only have images for either day or night
             return 7 <= current.tm_hour <= 19
+
+    def update_time(self):
+        self.location_time = self._get_location_time()
+        self.time_string = TimeString.format_time(self.location_time)
+        self.day_string = self._get_day_string()
+        self.is_light = self._get_is_light()
+
 
 class ClockStandalone(Gtk.EventBox):
     def __init__(self):
@@ -285,19 +283,18 @@ class ClockStandalone(Gtk.EventBox):
                 self.sunbox.hide()
 
     def get_name(self):
-        return GLib.markup_escape_text(self.clock.get_location_name())
+        return GLib.markup_escape_text(self.clock.name)
 
     def update(self):
         if self.clock:
-            timestr = self.clock.get_time_as_string()
+            timestr = self.clock.time_string
             self.time_label.set_markup(
                 "<span size='72000' color='dimgray'><b>%s</b></span>" % timestr)
-            sunrisestr, sunsetstr = self.clock.get_sunrise_sunset_as_strings()
-            if sunrisestr:
+            if self.clock.sunrise_string and self.clock.sunset_string:
                 self.sunrise_time_label.set_markup(
-                    "<span size ='large'>%s</span>" % sunrisestr)
+                    "<span size ='large'>%s</span>" % self.clock.sunrise_string)
                 self.sunset_time_label.set_markup(
-                    "<span size ='large'>%s</span>" % sunsetstr)
+                    "<span size ='large'>%s</span>" % self.clock.sunset_string)
                 self.sunbox.show()
             else:
                 self.sunbox.hide()
@@ -340,9 +337,9 @@ class World(Clock):
 
     def _thumb_data_func(self, view, cell, store, i, data):
         clock = store.get_value(i, 2)
-        cell.text = clock.get_time_as_string()
-        cell.subtext = clock.get_day_as_string()
-        if clock.get_is_light():
+        cell.text = clock.time_string
+        cell.subtext = clock.day_string
+        if clock.is_light:
             cell.props.pixbuf = self.daypixbuf
             cell.css_class = "light"
         else:
@@ -360,6 +357,8 @@ class World(Clock):
             self.iconview.set_selection_mode(True)
 
     def _update_clocks(self):
+        for c in self.clocks:
+            c.update_time()
         self.iconview.queue_draw()
         self.standalone.update()
         return True
@@ -401,7 +400,7 @@ class World(Clock):
         self.show_all()
 
     def _add_clock_item(self, clock):
-        label = GLib.markup_escape_text(clock.get_location_name())
+        label = GLib.markup_escape_text(clock.name)
         view_iter = self.liststore.append([False,
                                            "<b>%s</b>" % label,
                                            clock])
