@@ -75,6 +75,7 @@ class DigitalClockRenderer(Gtk.CellRendererPixbuf):
         Gtk.CellRendererPixbuf.do_render(self, cr, widget, background_area, cell_area, flags)
 
         context = widget.get_style_context()
+
         context.save()
         context.add_class("clocks-digital-renderer")
         context.add_class(self.css_class)
@@ -128,8 +129,11 @@ class DigitalClockRenderer(Gtk.CellRendererPixbuf):
             Gtk.render_layout(context, cr, x, y + padding + text_h + subtext_pad,
                               layout_subtext)
 
+        context.restore()
+
         # draw the overlayed checkbox
         if self.toggle_visible:
+            context.save()
             context.add_class(Gtk.STYLE_CLASS_CHECK)
 
             xpad, ypad = self.get_padding()
@@ -148,8 +152,9 @@ class DigitalClockRenderer(Gtk.CellRendererPixbuf):
 
             Gtk.render_check(context, cr, check_x, check_y, self.icon_size, self.icon_size)
 
+            context.restore()
+
         cr.restore()
-        context.restore()
 
 
     def do_get_size(self, widget, cell_area):
