@@ -127,7 +127,7 @@ class AlarmItem:
             return ", ".join(days)
 
     def _get_is_light(self):
-        return self.hour > 7 and self.hour < 19
+        return 7 <= self.hour <= 19
 
     def snooze(self):
         self.is_snoozing = True
