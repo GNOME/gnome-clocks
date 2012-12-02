@@ -193,35 +193,22 @@ class ClockItem:
 
     def _update_sunrise_sunset(self):
         self.weather = GWeather.Info(location=self.location, world=gweather_world)
-        self.weather.connect('updated', self._on_weather_updated)
-        self.weather.update()
-
-    def _on_weather_updated(self, weather):
-        # returned as the time here
-        ok1, sunrise = weather.get_value_sunrise()
-        ok2, sunset = weather.get_value_sunset()
+        # We don't need to update self.weather, we're using only astronomical data
+        # and that's offline
+        ok1, sunrise = self.weather.get_value_sunrise()
+        ok2, sunset = self.weather.get_value_sunset()
+        self.is_light = self.weather.is_daytime()
         if ok1 and ok2:
             self.sunrise = self._get_location_time(sunrise)
             self.sunset = self._get_location_time(sunset)
             self.sunrise_string = TimeString.format_time(self.sunrise)
             self.sunset_string = TimeString.format_time(self.sunset)
-            self.is_light = self._get_is_light()
-
-    def _get_is_light(self):
-        current = self.location_time
-        if self.sunrise:
-            return self.sunrise <= current <= self.sunset
-        else:
-            # default fallback when we have no sunrise/sunset times,
-            # as we only have images for either day or night
-            return 7 <= current.tm_hour <= 19
 
     def update_time(self):
         self.location_time = self._get_location_time()
         self.time_string = TimeString.format_time(self.location_time)
         self.day_string = self._get_day_string()
-        self.is_light = self._get_is_light()
-
+        self._update_sunrise_sunset()
 
 class ClockStandalone(Gtk.EventBox):
     def __init__(self):
