@@ -37,19 +37,20 @@ class WorldClockStorage:
         self.filename = os.path.join(Dirs.get_user_data_dir(), "clocks.json")
 
     def save(self, clocks):
-        location_codes = [c.location.get_code() for c in clocks]
+        locations = [str(c.location.serialize()) for c in clocks]
         f = open(self.filename, "wb")
-        json.dump(location_codes, f)
+        json.dump(locations, f)
         f.close()
 
     def load(self):
         clocks = []
         try:
             f = open(self.filename, "rb")
-            location_codes = json.load(f)
+            locations = json.load(f)
             f.close()
-            for l in location_codes:
-                location = GWeather.Location.find_by_station_code(gweather_world, l)
+            for l in locations:
+                variant = GLib.Variant.parse(None, l, None, None)
+                location = GWeather.Location.deserialize(gweather_world, variant)
                 if location:
                     clock = ClockItem(location)
                     clocks.append(clock)
@@ -390,7 +391,7 @@ class World(Clock):
             self._add_clock_item(clock)
 
     def add_clock(self, location):
-        if location.get_code() in [c.location.get_code() for c in self.clocks]:
+        if any(c.location.equal(location) for c in self.clocks):
             # duplicate
             return
         clock = ClockItem(location)
