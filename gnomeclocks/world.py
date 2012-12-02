@@ -125,8 +125,8 @@ class NewWorldClockDialog(Gtk.Dialog):
 class ClockItem:
     def __init__(self, location):
         self.location = location
-        self.sunrise = time.strptime("197007:00", "%Y%H:%M")
-        self.sunset = time.strptime("197019:00", "%Y%H:%M")
+        self.sunrise = None
+        self.sunset = None
         self._update_sunrise_sunset()
 
         weather_timezone = self.location.get_timezone()
@@ -154,10 +154,14 @@ class ClockItem:
 
     def _on_weather_updated(self, weather):
         # returned as the time here
-        ok, sunrise = weather.get_value_sunrise()
-        ok, sunset = weather.get_value_sunset()
-        self.sunrise = self.get_location_time(sunrise)
-        self.sunset = self.get_location_time(sunset)
+        ok1, sunrise = weather.get_value_sunrise()
+        ok2, sunset = weather.get_value_sunset()
+        if ok1 and ok2:
+            self.sunrise = self.get_location_time(sunrise)
+            self.sunset = self.get_location_time(sunset)
+        else:
+            self.sunrise = None
+            self.sunset = None
 
     def get_time_as_string(self):
         return TimeString.format_time(self.get_location_time())
@@ -182,29 +186,21 @@ class ClockItem:
                 return _("Yesterday")
 
     def get_sunrise_sunset_as_strings(self):
-        sunrise = TimeString.format_time(self.sunrise)
-        sunset = TimeString.format_time(self.sunset)
-        return (sunrise, sunset)
+        if self.sunrise:
+            sunrise = TimeString.format_time(self.sunrise)
+            sunset = TimeString.format_time(self.sunset)
+            return (sunrise, sunset)
+        else:
+            return (None, None)
 
     def get_is_light(self):
         current = self.get_location_time()
-        if current.tm_hour < self.sunrise.tm_hour \
-                or current.tm_hour > self.sunset.tm_hour:
-            return False
-        elif current.tm_hour > self.sunrise.tm_hour \
-                and current.tm_hour < self.sunset.tm_hour:
-            return True
-        elif current.tm_hour == self.sunrise.tm_hour:
-            if current.tm_min >= self.sunrise.tm_min:
-                return True
-            else:
-                return False
-        elif current.tm_hour == self.sunset.tm_hour:
-            if current.tm_min <= self.sunrise.tm_min:
-                return True
-            else:
-                return False
-
+        if self.sunrise:
+            return self.sunrise <= current <= self.sunset
+        else:
+            # default fallback when we have no sunrise/sunset times,
+            # as we only have images for either day or night
+            return 7 <= current.tm_hour <= 19
 
 class ClockStandalone(Gtk.EventBox):
     def __init__(self):
@@ -252,15 +248,15 @@ class ClockStandalone(Gtk.EventBox):
         sunset_hbox.pack_start(sunset_label, False, False, 0)
         sunset_hbox.pack_start(self.sunset_time_label, False, False, 0)
 
-        sunbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        sunbox.set_homogeneous(True)
-        sunbox.set_spacing(3)
-        sunbox.pack_start(sunrise_hbox, False, False, 3)
-        sunbox.pack_start(sunset_hbox, False, False, 3)
+        self.sunbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        self.sunbox.set_homogeneous(True)
+        self.sunbox.set_spacing(3)
+        self.sunbox.pack_start(sunrise_hbox, False, False, 3)
+        self.sunbox.pack_start(sunset_hbox, False, False, 3)
 
         hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         hbox.pack_start(Gtk.Label(), True, True, 0)
-        hbox.pack_start(sunbox, False, False, 0)
+        hbox.pack_start(self.sunbox, False, False, 0)
         hbox.pack_start(Gtk.Label(), True, True, 0)
         self.vbox.pack_end(hbox, False, False, 30)
 
@@ -271,6 +267,8 @@ class ClockStandalone(Gtk.EventBox):
         if clock:
             self.update()
             self.show_all()
+            if not clock.sunrise:
+                self.sunbox.hide()
 
     def get_name(self):
         return GLib.markup_escape_text(self.clock.location.get_city_name())
@@ -278,13 +276,17 @@ class ClockStandalone(Gtk.EventBox):
     def update(self):
         if self.clock:
             timestr = self.clock.get_time_as_string()
-            sunrisestr, sunsetstr = self.clock.get_sunrise_sunset_as_strings()
             self.time_label.set_markup(
                 "<span size='72000' color='dimgray'><b>%s</b></span>" % timestr)
-            self.sunrise_time_label.set_markup(
-                "<span size ='large'>%s</span>" % sunrisestr)
-            self.sunset_time_label.set_markup(
-                "<span size ='large'>%s</span>" % sunsetstr)
+            sunrisestr, sunsetstr = self.clock.get_sunrise_sunset_as_strings()
+            if sunrisestr:
+                self.sunrise_time_label.set_markup(
+                    "<span size ='large'>%s</span>" % sunrisestr)
+                self.sunset_time_label.set_markup(
+                    "<span size ='large'>%s</span>" % sunsetstr)
+                self.sunbox.show()
+            else:
+                self.sunbox.hide()
 
 
 class World(Clock):
