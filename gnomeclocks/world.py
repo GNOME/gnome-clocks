@@ -49,8 +49,16 @@ class WorldClockStorage:
             locations = json.load(f)
             f.close()
             for l in locations:
-                variant = GLib.Variant.parse(None, l, None, None)
-                location = GWeather.Location.deserialize(gweather_world, variant)
+                try:
+                    variant = GLib.Variant.parse(None, l, None, None)
+                    location = GWeather.Location.deserialize(gweather_world, variant)
+                except:
+                    location = None
+                if not location:
+                    # This is for backward compatibility importing the old clocks which
+                    # just saved the metar location code... for now we may end up here
+                    # both if deserialize fails of if variant parse throws an exception
+                    location = GWeather.Location.find_by_station_code(gweather_world, l)
                 if location:
                     clock = ClockItem(location)
                     clocks.append(clock)
