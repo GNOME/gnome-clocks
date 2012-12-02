@@ -125,6 +125,7 @@ class NewWorldClockDialog(Gtk.Dialog):
 class ClockItem:
     def __init__(self, location):
         self.location = location
+        self.nation = self._get_nation()
         self.sunrise = None
         self.sunset = None
         self._update_sunrise_sunset()
@@ -139,6 +140,19 @@ class ClockItem:
         here_offset = timezone.get_offset(i)
 
         self.offset = location_offset - here_offset
+
+    def _get_nation(self):
+        nation = self.location
+        while nation and nation.get_level() != GWeather.LocationLevel.COUNTRY:
+            nation = nation.get_parent()
+        if nation != self.location:
+            return nation
+
+    def get_location_name(self):
+        if self.nation:
+            return self.location.get_city_name() + ', ' + self.nation.get_name()
+        else:
+            return self.location.get_city_name()
 
     def get_location_time(self, secs=None):
         if not secs:
@@ -271,7 +285,7 @@ class ClockStandalone(Gtk.EventBox):
                 self.sunbox.hide()
 
     def get_name(self):
-        return GLib.markup_escape_text(self.clock.location.get_city_name())
+        return GLib.markup_escape_text(self.clock.get_location_name())
 
     def update(self):
         if self.clock:
@@ -387,8 +401,7 @@ class World(Clock):
         self.show_all()
 
     def _add_clock_item(self, clock):
-        name = clock.location.get_city_name()
-        label = GLib.markup_escape_text(name)
+        label = GLib.markup_escape_text(clock.get_location_name())
         view_iter = self.liststore.append([False,
                                            "<b>%s</b>" % label,
                                            clock])
