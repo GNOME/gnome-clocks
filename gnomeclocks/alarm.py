@@ -20,11 +20,14 @@ import os
 import errno
 import time
 import json
-from datetime import datetime, timedelta
+from datetime import timedelta
 from gi.repository import GLib, GObject, Gdk, GdkPixbuf, Gtk
 from clocks import Clock
-from utils import Dirs, SystemSettings, TimeString, LocalizedWeekdays, Alert
+from utils import Alert, Dirs, LocalizedWeekdays, SystemSettings, TimeString, WallClock
 from widgets import SelectableIconView, ContentView
+
+
+wallclock = WallClock.get_default()
 
 
 class AlarmsStorage:
@@ -85,7 +88,7 @@ class AlarmItem:
         self.alert = Alert("alarm-clock-elapsed", name)
 
     def _update_expiration_time(self):
-        now = datetime.now()
+        now = wallclock.datetime
         dt = now.replace(hour=self.hour, minute=self.minute, second=0, microsecond=0)
         # check if it can ring later today
         if dt.weekday() not in self.days or dt <= now:
@@ -132,13 +135,12 @@ class AlarmItem:
         self.alert.stop()
 
     def check_expired(self):
-        t = datetime.now()
-        if t > self.alarm_time:
+        if wallclock.datetime > self.alarm_time:
             self.alert.show()
             self._reset_snooze(self.alarm_time)
             self._update_expiration_time()
             return True
-        elif self.is_snoozing and t > self.snooze_time:
+        elif self.is_snoozing and wallclock.datetime > self.snooze_time:
             self.alert.show()
             self._reset_snooze(self.snooze_time)
             return True
@@ -174,7 +176,7 @@ class AlarmDialog(Gtk.Dialog):
             name = alarm.name
             days = alarm.days
         else:
-            t = time.localtime()
+            t = wallclock.localtime
             h = t.tm_hour
             m = t.tm_min
             name = _("New Alarm")
@@ -412,7 +414,7 @@ class Alarm(Clock):
         self.standalone = AlarmStandalone(self)
         self.notebook.append_page(self.standalone, None)
 
-        self.timeout_id = GLib.timeout_add(1000, self._check_alarms)
+        wallclock.connect("time-changed", self._check_alarms)
 
     def _thumb_data_func(self, view, cell, store, i, data):
         alarm = store.get_value(i, 2)
@@ -439,7 +441,7 @@ class Alarm(Clock):
     def alarm_ringing(self):
         self.set_mode(Clock.Mode.STANDALONE)
 
-    def _check_alarms(self):
+    def _check_alarms(self, *args):
         for a in self.alarms:
             if a.check_expired():
                 self.standalone.set_alarm(a, True)

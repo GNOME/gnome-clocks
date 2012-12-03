@@ -21,7 +21,7 @@ import time
 import datetime
 import pycanberra
 from xdg import BaseDirectory
-from gi.repository import Gio, Notify
+from gi.repository import GObject, Gio, GnomeDesktop, Notify
 
 
 def N_(message): return message
@@ -131,6 +131,40 @@ class LocalizedWeekdays:
             return (int(beginning.strftime("%w")) + 6) % 7
         except:
             return 0
+
+
+class WallClock(GObject.GObject):
+    _instance = None
+
+    def __init__(self):
+        if WallClock._instance:
+           raise TypeError("Initialized twice")
+        GObject.GObject.__init__(self)
+        self._wc = GnomeDesktop.WallClock()
+        self._wc.connect("notify::clock", self._on_notify_clock)
+        self._update()
+
+    def _on_notify_clock(self, *args):
+        self._update()
+        self.emit("time-changed")
+
+    def _update(self):
+        # provide various types/objects of the same time, to be used directly
+        # in AlarmItem and ClockItem, so they don't need to call these
+        # functions themselves all the time (they only care about minutes).
+        self.time = time.time()
+        self.localtime = time.localtime(self.time)
+        self.datetime = datetime.datetime.fromtimestamp(self.time)
+
+    @GObject.Signal
+    def time_changed(self):
+        pass
+
+    @staticmethod
+    def get_default():
+        if WallClock._instance is None:
+            WallClock._instance = WallClock()
+        return WallClock._instance
 
 
 class Alert:

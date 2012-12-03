@@ -23,13 +23,14 @@ import json
 from gi.repository import GLib, GObject, Gio, Gdk, GdkPixbuf, Gtk
 from gi.repository import GWeather
 from clocks import Clock
-from utils import Dirs, TimeString
+from utils import Dirs, TimeString, WallClock
 from widgets import SelectableIconView, ContentView
 
 
 # keep the GWeather world around as a singletom, otherwise
 # if is garbage collected get_city_name etc fail.
 gweather_world = GWeather.Location.new_world(True)
+wallclock = WallClock.get_default()
 
 
 class WorldClockStorage:
@@ -138,11 +139,11 @@ class ClockItem:
 
         weather_timezone = self.location.get_timezone()
         timezone = GLib.TimeZone.new(weather_timezone.get_tzid())
-        i = timezone.find_interval(GLib.TimeType.UNIVERSAL, time.time())
+        i = timezone.find_interval(GLib.TimeType.UNIVERSAL, wallclock.time)
         location_offset = timezone.get_offset(i)
 
         timezone = GLib.TimeZone.new_local()
-        i = timezone.find_interval(GLib.TimeType.UNIVERSAL, time.time())
+        i = timezone.find_interval(GLib.TimeType.UNIVERSAL, wallclock.time)
         here_offset = timezone.get_offset(i)
 
         self.offset = location_offset - here_offset
@@ -167,14 +168,14 @@ class ClockItem:
 
     def _get_location_time(self, secs=None):
         if not secs:
-            secs = time.time()
+            secs = wallclock.time
         t = secs + self.offset
         t = time.localtime(t)
         return t
 
     def _get_day_string(self):
         clock_time_day = self.location_time.tm_yday
-        local_time_day = time.localtime().tm_yday
+        local_time_day = wallclock.localtime.tm_yday
 
         # if its 31st Dec here and 1st Jan there, clock_time_day = 1,
         # local_time_day = 365/366
@@ -209,6 +210,7 @@ class ClockItem:
         self.time_string = TimeString.format_time(self.location_time)
         self.day_string = self._get_day_string()
         self._update_sunrise_sunset()
+
 
 class ClockStandalone(Gtk.EventBox):
     def __init__(self):
@@ -329,7 +331,7 @@ class World(Clock):
         self.standalone = ClockStandalone()
         self.notebook.append_page(self.standalone, None)
 
-        self.timeout_id = GLib.timeout_add(1000, self._update_clocks)
+        wallclock.connect("time-changed", self._update_clocks)
 
     def _thumb_data_func(self, view, cell, store, i, data):
         clock = store.get_value(i, 2)
@@ -352,7 +354,7 @@ class World(Clock):
         elif mode is Clock.Mode.SELECTION:
             self.iconview.set_selection_mode(True)
 
-    def _update_clocks(self):
+    def _update_clocks(self, *args):
         for c in self.clocks:
             c.update_time()
         self.iconview.queue_draw()
