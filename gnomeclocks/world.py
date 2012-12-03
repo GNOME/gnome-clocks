@@ -20,7 +20,7 @@ import os
 import errno
 import time
 import json
-from gi.repository import GLib, GObject, Gio, Gdk, GdkPixbuf, Gtk
+from gi.repository import GLib, GObject, Gio, GdkPixbuf, Gtk
 from gi.repository import GWeather
 from clocks import Clock
 from utils import Dirs, TimeString, WallClock
@@ -215,7 +215,6 @@ class ClockItem:
         self.is_light = self._get_is_light()
 
 
-
 class ClockStandalone(Gtk.EventBox):
     def __init__(self):
         Gtk.EventBox.__init__(self)
@@ -403,9 +402,7 @@ class World(Clock):
 
     def _add_clock_item(self, clock):
         label = GLib.markup_escape_text(clock.name)
-        view_iter = self.liststore.append([False,
-                                           "<b>%s</b>" % label,
-                                           clock])
+        self.liststore.append([False, "<b>%s</b>" % label, clock])
         self.notify("can-select")
 
     def delete_clocks(self, clocks):

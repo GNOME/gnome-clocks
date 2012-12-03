@@ -24,7 +24,8 @@ from xdg import BaseDirectory
 from gi.repository import GObject, Gio, GnomeDesktop, Notify
 
 
-def N_(message): return message
+def N_(message):
+    return message
 
 
 class Dirs:
@@ -118,7 +119,7 @@ class LocalizedWeekdays:
     # based on code from hamster-applet
     # pretty ugly, but it seems this is the only way
     # note that we use the convention used by struct_time.tm_wday
-    # which is 0 = Monday, note the one used by strftime("%w")
+    # which is 0 = Monday, not the one used by strftime("%w")
     @staticmethod
     def first_weekday():
         try:
@@ -138,7 +139,7 @@ class WallClock(GObject.GObject):
 
     def __init__(self):
         if WallClock._instance:
-           raise TypeError("Initialized twice")
+            raise TypeError("Initialized twice")
         GObject.GObject.__init__(self)
         self._wc = GnomeDesktop.WallClock()
         self._wc.connect("notify::clock", self._on_notify_clock)

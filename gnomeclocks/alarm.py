@@ -18,10 +18,9 @@
 
 import os
 import errno
-import time
 import json
 from datetime import timedelta
-from gi.repository import GLib, GObject, Gdk, GdkPixbuf, Gtk
+from gi.repository import GLib, GObject, GdkPixbuf, Gtk
 from clocks import Clock
 from utils import Alert, Dirs, LocalizedWeekdays, SystemSettings, TimeString, WallClock
 from widgets import SelectableIconView, ContentView
@@ -77,7 +76,7 @@ class AlarmItem:
         self.name = name
         self.hour = hour
         self.minute = minute
-        self.days = days # list of numbers, 0 == Monday
+        self.days = days  # list of numbers, 0 == Monday
 
         self._update_expiration_time()
         self._reset_snooze(self.alarm_time)
@@ -482,9 +481,7 @@ class Alarm(Clock):
 
     def _add_alarm_item(self, alarm):
         label = GLib.markup_escape_text(alarm.name)
-        view_iter = self.liststore.append([False,
-                                           "<b>%s</b>" % label,
-                                           alarm])
+        self.liststore.append([False, "<b>%s</b>" % label, alarm])
         self.notify("can-select")
 
     def update_alarm(self, old_alarm, new_alarm):

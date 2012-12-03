@@ -165,7 +165,7 @@ class Timer(Clock):
         self.add(self.notebook)
 
         # force the time label and the spinner to the same size
-        size_group = Gtk.SizeGroup(Gtk.SizeGroupMode.VERTICAL);
+        size_group = Gtk.SizeGroup(Gtk.SizeGroupMode.VERTICAL)
 
         self.setup_screen = TimerSetupScreen(self, size_group)
         self.notebook.append_page(self.setup_screen, None)
