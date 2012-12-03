@@ -18,7 +18,7 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
-__version__ = "0.1.4"
+__version__ = "0.1.5"
 
 # Credit every contributor, in alphabetical order
 AUTHORS = [
@@ -32,8 +32,8 @@ AUTHORS = [
     "William Jon McCann",
     "Eslam Mostafa",
     "Bastien Nocera",
-    "Jakub Steiner",
-    "Volker Sobek"
+    "Volker Sobek",
+    "Jakub Steiner"
 ]
 
 COPYRIGHTS = \
