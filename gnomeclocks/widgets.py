@@ -16,10 +16,8 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
-import cairo
-from gi.repository import GObject, Gio, Gtk, Gdk, Pango, PangoCairo
+from gi.repository import GObject, Gio, Gtk, Gdk, Pango
 from gi.repository import Clutter, GtkClutter
-from math import pi as PI
 
 
 class Spinner(Gtk.SpinButton):
@@ -157,7 +155,6 @@ class DigitalClockRenderer(Gtk.CellRendererPixbuf):
             context.restore()
 
         cr.restore()
-
 
     def do_get_size(self, widget, cell_area):
         x_offset, y_offset, width, height = Gtk.CellRendererPixbuf.do_get_size(self, widget, cell_area)
@@ -344,7 +341,8 @@ class Embed(GtkClutter.Embed):
         self._contentsActor = Clutter.Box()
         self._contentsActor.set_layout_manager(self._contentsLayout)
         self._overlayLayout.add(self._contentsActor,
-            Clutter.BinAlignment.FILL, Clutter.BinAlignment.FILL)
+                                Clutter.BinAlignment.FILL,
+                                Clutter.BinAlignment.FILL)
 
         self._viewLayout = Clutter.BinLayout()
         self._viewActor = Clutter.Box()

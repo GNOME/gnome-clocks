@@ -19,7 +19,7 @@
 import os
 import sys
 from gettext import ngettext
-from gi.repository import Gtk, Gdk, GObject, GLib, Gio, GtkClutter
+from gi.repository import Gtk, Gdk, GObject, Gio, GtkClutter
 from clocks import Clock
 from world import World
 from alarm import Alarm
@@ -50,9 +50,8 @@ class Window(Gtk.ApplicationWindow):
                                                  "gtk-style.css"))
         context = Gtk.StyleContext()
         context.add_provider_for_screen(Gdk.Screen.get_default(),
-                                         css_provider,
-                                         Gtk.STYLE_PROVIDER_PRIORITY_USER)
-
+                                        css_provider,
+                                        Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
         self.set_size_request(640, 480)
 
@@ -199,7 +198,7 @@ class ClockButton(Gtk.RadioButton):
             self.remove(label)
             # We need to unset the flag manually until GTK fixes
             # https://bugzilla.gnome.org/show_bug.cgi?id=688519
-            label.unset_state_flags (Gtk.StateFlags.ACTIVE)
+            label.unset_state_flags(Gtk.StateFlags.ACTIVE)
             if self.get_active():
                 self.add(self.bold_label)
             else:

@@ -36,7 +36,7 @@ AUTHORS = [
     "Volker Sobek"
 ]
 
-COPYRIGHTS =\
-"""2011 © Collabora Ltd.
-   2012 © Collabora Ltd., Seif Lotfy
-          Emily Gonyer, Eslam Mostafa, Paolo Borelli"""
+COPYRIGHTS = \
+    """2011 © Collabora Ltd.
+       2012 © Collabora Ltd., Seif Lotfy
+              Emily Gonyer, Eslam Mostafa, Paolo Borelli"""
