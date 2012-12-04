@@ -40,7 +40,8 @@ class AlarmsStorage:
                 "name": a.name,
                 "hour": a.hour,
                 "minute": a.minute,
-                "days": a.days
+                "days": a.days,
+                "active": a.active
             }
             alarm_list.append(d)
         f = open(self.filename, "wb")
@@ -56,36 +57,53 @@ class AlarmsStorage:
             for a in alarm_list:
                 try:
                     n, h, m, d = (a['name'], int(a['hour']), int(a['minute']), a['days'])
+                    # support the old format that didn't have the active key
+                    active = a['active'] if a.has_key('active') else True
                 except:
                     # skip alarms which do not have the required fields
                     continue
-                alarm = AlarmItem(n.encode("utf-8"), h, m, d)
+                alarm = AlarmItem(n.encode("utf-8"), h, m, d, active)
                 alarms.append(alarm)
         except IOError as e:
             if e.errno == errno.ENOENT:
                 # File does not exist yet, that's ok
                 pass
-
         return alarms
 
 
 class AlarmItem:
     EVERY_DAY = [0, 1, 2, 3, 4, 5, 6]
 
-    def __init__(self, name, hour, minute, days):
+    class State:
+        READY = 0
+        RINGING = 1
+        SNOOZING = 2
+
+    def __init__(self, name, hour, minute, days, active):
         self.name = name
         self.hour = hour
         self.minute = minute
         self.days = days  # list of numbers, 0 == Monday
+        self.active = active
 
-        self._update_expiration_time()
-        self._reset_snooze(self.alarm_time)
+        self._reset()
 
         self.alarm_time_string = TimeString.format_time(self.alarm_time)
         self.alarm_repeat_string = self._get_alarm_repeat_string()
         self.alert = Alert("alarm-clock-elapsed", name)
 
-    def _update_expiration_time(self):
+    # two alarms are equal if they have the same name, time and days,
+    # the active attribute doesn't matter
+    def __eq__(self, other):
+        return self.name == other.name and \
+            self.hour == other.hour and \
+            self.minute == other.minute and \
+            self.days == other.days
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def _update_alarm_time(self):
         now = wallclock.datetime
         dt = now.replace(hour=self.hour, minute=self.minute, second=0, microsecond=0)
         # check if it can ring later today
@@ -99,9 +117,8 @@ class AlarmItem:
                 dt += timedelta(weeks=1, days=(self.days[0] - dt.weekday()))
         self.alarm_time = dt
 
-    def _reset_snooze(self, start_time):
+    def _update_snooze_time(self, start_time):
         self.snooze_time = start_time + timedelta(minutes=9)
-        self.is_snoozing = False
 
     def _get_alarm_repeat_string(self):
         n = len(self.days)
@@ -121,23 +138,34 @@ class AlarmItem:
                     days.append(LocalizedWeekdays.get_abbr(day_num))
             return ", ".join(days)
 
+    def _reset(self):
+        self._update_alarm_time()
+        self._update_snooze_time(self.alarm_time)
+        self.state = AlarmItem.State.READY
+
+    def set_active(self, active):
+        if active:
+            self._reset()
+        self.active = active
+
     def snooze(self):
-        self.is_snoozing = True
         self.alert.stop()
+        self.state = AlarmItem.State.SNOOZING
 
     def stop(self):
-        self._reset_snooze(self.alarm_time)
         self.alert.stop()
+        self._update_snooze_time(self.alarm_time)
+        self.state = AlarmItem.State.READY
 
     def check_expired(self):
-        if wallclock.datetime > self.alarm_time:
-            self.alert.show()
-            self._reset_snooze(self.alarm_time)
-            self._update_expiration_time()
+        if wallclock.datetime >= self.alarm_time:
+            self._update_snooze_time(self.alarm_time)
+            self._update_alarm_time()
+            self.state = AlarmItem.State.RINGING
             return True
-        elif self.is_snoozing and wallclock.datetime > self.snooze_time:
-            self.alert.show()
-            self._reset_snooze(self.snooze_time)
+        elif wallclock.datetime >= self.snooze_time:
+            self._update_snooze_time(self.snooze_time)
+            self.state = AlarmItem.State.RINGING
             return True
         else:
             return False
@@ -269,12 +297,10 @@ class AlarmDialog(Gtk.Dialog):
                 days.append(btn.data)
         # needed in case the first day of the week is not 0 (Monday)
         days.sort()
-
         # if no days were selected, create a daily alarm
         if not days:
             days = AlarmItem.EVERY_DAY
-
-        alarm = AlarmItem(name, h, m, days)
+        alarm = AlarmItem(name, h, m, days, True)
         return alarm
 
 
@@ -299,6 +325,14 @@ class AlarmStandalone(Gtk.EventBox):
         self.repeat_label.set_alignment(0.5, 0.5)
         time_box.pack_start(self.repeat_label, True, True, 0)
 
+        self.switch = Gtk.Switch()
+        self.switch.connect("notify::active", self._on_switch)
+        self.hbox_switch = Gtk.Box()
+        self.hbox_switch.pack_start(Gtk.Label(), True, True, 0)
+        self.hbox_switch.pack_start(self.switch, False, False, 0)
+        self.hbox_switch.pack_start(Gtk.Label(), True, True, 0)
+        time_box.pack_start(self.hbox_switch, False, False, 20)
+
         self.buttons = Gtk.Box()
         self.left_button = Gtk.Button()
         self.left_button.get_style_context().add_class("clocks-stop")
@@ -321,7 +355,6 @@ class AlarmStandalone(Gtk.EventBox):
 
         self.left_button.connect('clicked', self._on_stop_clicked)
         self.right_button.connect('clicked', self._on_snooze_clicked)
-
         time_box.pack_start(self.buttons, True, True, 48)
 
         hbox = Gtk.Box()
@@ -337,18 +370,31 @@ class AlarmStandalone(Gtk.EventBox):
 
         self.set_alarm(None)
 
-    def set_alarm(self, alarm, ringing=False):
+    def set_alarm(self, alarm):
         self.alarm = alarm
         if alarm:
             self.update()
+            state = alarm.state
+            self.left_button.set_sensitive(state != AlarmItem.State.READY)
+            self.right_button.set_sensitive(state == AlarmItem.State.RINGING)
+            self.switch.set_active(alarm.active)
             self.show_all()
-            self.buttons.set_visible(ringing)
+            self.switch.set_visible(state == AlarmItem.State.READY)
+            self.buttons.set_visible(state != AlarmItem.State.READY)
 
     def _on_stop_clicked(self, button):
         self.alarm.stop()
+        self.buttons.set_visible(False)
+        self.switch.set_visible(True)
 
     def _on_snooze_clicked(self, button):
+        self.right_button.set_sensitive(False)
         self.alarm.snooze()
+
+    def _on_switch(self, switch, param):
+        if self.alarm.active != switch.get_active():
+            self.alarm.set_active(switch.get_active())
+            self.view.save_alarms()
 
     def get_name(self):
         name = self.alarm.name
@@ -364,6 +410,9 @@ class AlarmStandalone(Gtk.EventBox):
                 "<span size='large' color='dimgray'><b>%s</b></span>" % repeat)
 
     def open_edit_dialog(self):
+        # implicitely disable, we do not want to ring while editing.
+        self.edited_active = self.alarm.active;
+        self.alarm.set_active(False)
         window = AlarmDialog(self.get_toplevel(), self.alarm)
         window.connect("response", self._on_dialog_response)
         window.show_all()
@@ -371,8 +420,13 @@ class AlarmStandalone(Gtk.EventBox):
     def _on_dialog_response(self, dialog, response):
         if response == 1:
             new_alarm = dialog.get_alarm_item()
-            self.alarm = self.view.update_alarm(self.alarm, new_alarm)
+            alarm = self.view.replace_alarm(self.alarm, new_alarm)
+            self.set_alarm(alarm)
             self.update()
+        else:
+            # edited alarms are always active, instead on cancel
+            # we restore the previous state
+            self.alarm.swicth(self.edited_active)
         dialog.destroy()
 
 
@@ -410,12 +464,17 @@ class Alarm(Clock):
         alarm = store.get_value(i, 2)
         cell.text = alarm.alarm_time_string
         cell.subtext = alarm.alarm_repeat_string
-        # FIXME: use a different class when we will have inactive alarms
-        cell.css_class = "active"
+        if alarm.active:
+            cell.css_class = "active"
+        else:
+            cell.css_class = "inactive"
 
     def set_mode(self, mode):
         self.mode = mode
         if mode is Clock.Mode.NORMAL:
+            if self.standalone.alarm and \
+                    self.standalone.alarm.state == AlarmItem.State.RINGING:
+                self.standalone.alarm.stop()
             self.notebook.set_current_page(0)
             self.iconview.set_selection_mode(False)
         elif mode is Clock.Mode.STANDALONE:
@@ -429,10 +488,10 @@ class Alarm(Clock):
 
     def _check_alarms(self, *args):
         for a in self.alarms:
-            if a.check_expired():
-                self.standalone.set_alarm(a, True)
+            if a.active and a.check_expired():
+                self.standalone.set_alarm(a)
+                a.alert.show()
                 self.emit("alarm-ringing")
-        return True
 
     def _on_item_activated(self, iconview, path):
         alarm = self.liststore[path][2]
@@ -460,32 +519,34 @@ class Alarm(Clock):
         for alarm in self.alarms:
             self._add_alarm_item(alarm)
 
-    def add_alarm(self, alarm):
-        self.alarms.append(alarm)
+    def save_alarms(self):
         self.storage.save(self.alarms)
-        self._add_alarm_item(alarm)
-        self.show_all()
+        self.liststore.clear()
+        self.load_alarms()
+        self.notify("can-select")
+
+    def add_alarm(self, alarm):
+        if alarm in self.alarms:
+            replace_alarm(self, alarm, alarm)
+        else:
+            self.alarms.append(alarm)
+            self._add_alarm_item(alarm)
+            self.show_all()
+            self.save_alarms()
 
     def _add_alarm_item(self, alarm):
         label = GLib.markup_escape_text(alarm.name)
         self.liststore.append([False, "<b>%s</b>" % label, alarm])
-        self.notify("can-select")
 
-    def update_alarm(self, old_alarm, new_alarm):
+    def replace_alarm(self, old_alarm, new_alarm):
         i = self.alarms.index(old_alarm)
         self.alarms[i] = new_alarm
-        self.storage.save(self.alarms)
-        self.liststore.clear()
-        self.load_alarms()
-        self.notify("can-select")
+        self.save_alarms()
         return self.alarms[i]
 
     def delete_alarms(self, alarms):
         self.alarms = [a for a in self.alarms if a not in alarms]
-        self.storage.save(self.alarms)
-        self.liststore.clear()
-        self.load_alarms()
-        self.notify("can-select")
+        self.save_alarms()
 
     def open_new_dialog(self):
         window = AlarmDialog(self.get_toplevel())
