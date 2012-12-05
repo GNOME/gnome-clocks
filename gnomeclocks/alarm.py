@@ -83,7 +83,6 @@ class AlarmItem:
 
         self.alarm_time_string = TimeString.format_time(self.alarm_time)
         self.alarm_repeat_string = self._get_alarm_repeat_string()
-        self.is_light = self._get_is_light()
         self.alert = Alert("alarm-clock-elapsed", name)
 
     def _update_expiration_time(self):
@@ -121,9 +120,6 @@ class AlarmItem:
                 if day_num in self.days:
                     days.append(LocalizedWeekdays.get_abbr(day_num))
             return ", ".join(days)
-
-    def _get_is_light(self):
-        return 7 <= self.hour <= 19
 
     def snooze(self):
         self.is_snoozing = True
@@ -390,11 +386,6 @@ class Alarm(Clock):
         self.notebook.set_show_border(False)
         self.add(self.notebook)
 
-        f = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
-        self.daypixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(f, 160, 160)
-        f = os.path.join(Dirs.get_image_dir(), "cities", "night.png")
-        self.nightpixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(f, 160, 160)
-
         self.liststore = Gtk.ListStore(bool, str, object)
         self.iconview = SelectableIconView(self.liststore, 0, 1, self._thumb_data_func)
         self.iconview.connect("item-activated", self._on_item_activated)
@@ -419,12 +410,8 @@ class Alarm(Clock):
         alarm = store.get_value(i, 2)
         cell.text = alarm.alarm_time_string
         cell.subtext = alarm.alarm_repeat_string
-        if alarm.is_light:
-            cell.props.pixbuf = self.daypixbuf
-            cell.css_class = "light"
-        else:
-            cell.props.pixbuf = self.nightpixbuf
-            cell.css_class = "dark"
+        # FIXME: use a different class when we will have inactive alarms
+        cell.css_class = "active"
 
     def set_mode(self, mode):
         self.mode = mode

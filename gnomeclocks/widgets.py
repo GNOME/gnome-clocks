@@ -83,11 +83,18 @@ class DigitalClockRenderer(Gtk.CellRendererPixbuf):
         cr.clip()
         cr.translate(cell_area.x, cell_area.y)
 
+        # draw background
+        Gtk.render_frame(context, cr, 0, 0, cell_area.width, cell_area.height)
+        Gtk.render_background(context, cr, 0, 0, cell_area.width, cell_area.height)
+
         # for now the space around the digital clock is hardcoded and
         # relative to the image width (not the width of the cell which
         # may be larger in case of long city names).
         # We need to know the width to create the pango layouts
-        pixbuf_margin = (cell_area.width - self.props.pixbuf.get_width()) // 2
+        if self.props.pixbuf:
+            pixbuf_margin = (cell_area.width - self.props.pixbuf.get_width()) // 2
+        else:
+            pixbuf_margin = 0
         margin = 12 + pixbuf_margin
         padding = 12
         w = cell_area.width - 2 * margin
@@ -119,6 +126,8 @@ class DigitalClockRenderer(Gtk.CellRendererPixbuf):
         h = 2 * padding + text_h + subtext_h + subtext_pad
         x = margin
         y = (cell_area.height - h) / 2
+
+        context.add_class("inner")
 
         # draw inner rectangle background
         Gtk.render_frame(context, cr, x, y, w, h)
@@ -175,6 +184,7 @@ class SelectableIconView(Gtk.IconView):
 
         self.icon_renderer = DigitalClockRenderer()
         self.icon_renderer.set_alignment(0.5, 0.5)
+        self.icon_renderer.set_fixed_size(160, 160)
         self.pack_start(self.icon_renderer, False)
         self.add_attribute(self.icon_renderer, "active", selection_col)
         self.set_cell_data_func(self.icon_renderer, thumb_data_func, None)
