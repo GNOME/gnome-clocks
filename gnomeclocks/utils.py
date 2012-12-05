@@ -59,10 +59,11 @@ class Dirs:
 
 
 class SystemSettings:
+    settings = Gio.Settings.new('org.gnome.desktop.interface')
+
     @staticmethod
     def get_clock_format():
-        settings = Gio.Settings.new('org.gnome.desktop.interface')
-        systemClockFormat = settings.get_string('clock-format')
+        systemClockFormat = SystemSettings.settings.get_string('clock-format')
         return systemClockFormat
 
 
