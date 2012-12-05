@@ -70,8 +70,6 @@ class DigitalClockRenderer(Gtk.CellRendererPixbuf):
         self.icon_size = 40
 
     def do_render(self, cr, widget, background_area, cell_area, flags):
-        Gtk.CellRendererPixbuf.do_render(self, cr, widget, background_area, cell_area, flags)
-
         context = widget.get_style_context()
 
         context.save()
@@ -81,11 +79,15 @@ class DigitalClockRenderer(Gtk.CellRendererPixbuf):
         cr.save()
         Gdk.cairo_rectangle(cr, cell_area)
         cr.clip()
-        cr.translate(cell_area.x, cell_area.y)
 
         # draw background
-        Gtk.render_frame(context, cr, 0, 0, cell_area.width, cell_area.height)
-        Gtk.render_background(context, cr, 0, 0, cell_area.width, cell_area.height)
+        if self.props.pixbuf:
+            Gtk.CellRendererPixbuf.do_render(self, cr, widget, background_area, cell_area, flags)
+        else:
+            Gtk.render_frame(context, cr, cell_area.x, cell_area.y, cell_area.width, cell_area.height)
+            Gtk.render_background(context, cr, cell_area.x, cell_area.y, cell_area.width, cell_area.height)
+
+        cr.translate(cell_area.x, cell_area.y)
 
         # for now the space around the digital clock is hardcoded and
         # relative to the image width (not the width of the cell which
