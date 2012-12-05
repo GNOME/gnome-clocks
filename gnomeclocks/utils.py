@@ -170,6 +170,8 @@ class WallClock(GObject.GObject):
 
 
 class Alert:
+    settings = Gio.Settings.new('org.gnome.desktop.sound')
+
     def __init__(self, soundid, msg):
         try:
             self.canberra = pycanberra.Canberra()
@@ -177,6 +179,7 @@ class Alert:
             print "Sound will not be available: ", e
             self.canberra = None
 
+        self.soundtheme = Alert.settings.get_string('theme-name')
         self.soundid = soundid
 
         self.notification = None
@@ -189,6 +192,7 @@ class Alert:
         if self.canberra:
             self.canberra.play(1,
                                pycanberra.CA_PROP_EVENT_ID, self.soundid,
+                               pycanberra.CA_PROP_CANBERRA_XDG_THEME_NAME, self.soundtheme,
                                pycanberra.CA_PROP_MEDIA_ROLE, "alarm",
                                None)
         if self.notification:
