@@ -426,7 +426,7 @@ class AlarmStandalone(Gtk.EventBox):
         else:
             # edited alarms are always active, instead on cancel
             # we restore the previous state
-            self.alarm.swicth(self.edited_active)
+            self.alarm.set_active(self.edited_active)
         dialog.destroy()
 
 
