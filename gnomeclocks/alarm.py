@@ -527,7 +527,7 @@ class Alarm(Clock):
 
     def add_alarm(self, alarm):
         if alarm in self.alarms:
-            replace_alarm(self, alarm, alarm)
+            self.replace_alarm(alarm, alarm)
         else:
             self.alarms.append(alarm)
             self._add_alarm_item(alarm)
