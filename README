@@ -13,29 +13,3 @@ Requirements
 - libnotify
 
 
-Installing
-----------
- - It is not mandatory to install, you can run the program from the source directory
- - If you want to install, run ./setup.py install (if you want you can specify an
-   installation prefix, e.g. ./setup.py install --prefix=/opt/gnome
-
-
-Running
--------
-
- - To run the program from the source directory, simply use ./gnome-clocks
- - If you installed the program in a custom prefix, you will need to export
-   the following environment variables:
-
-export GNOME_CLOCKS_IMAGE_PATH=/opt/gnome/share/gnome-clocks
-export GNOME_CLOCKS_DATA_PATH=/opt/gnome/share/gnome-clocks
-export GNOME_CLOCKS_LOCALE_PATH=/opt/gnome/share/locale
-
-   where "/opt/gnome" is the installation prefix. If you are using jhbuild
-   you can add the following lines to your .jhbuildrc file:
-
-os.environ['GNOME_CLOCKS_DATA_PATH'] = '/opt/gnome/share/gnome-clocks'
-os.environ['GNOME_CLOCKS_IMAGE_PATH'] = '/opt/gnome/share/gnome-clocks'
-os.environ['GNOME_CLOCKS_LOCALE_PATH'] = '/opt/gnome/share/locale'
-
-

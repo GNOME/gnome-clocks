@@ -308,9 +308,9 @@ class World(Clock):
         self.notebook.set_show_border(False)
         self.add(self.notebook)
 
-        f = os.path.join(Dirs.get_image_dir(), "cities", "day.png")
+        f = os.path.join(Dirs.get_images_dir(), "day.png")
         self.daypixbuf = GdkPixbuf.Pixbuf.new_from_file(f)
-        f = os.path.join(Dirs.get_image_dir(), "cities", "night.png")
+        f = os.path.join(Dirs.get_images_dir(), "night.png")
         self.nightpixbuf = GdkPixbuf.Pixbuf.new_from_file(f)
 
         self.liststore = Gtk.ListStore(bool, str, object)

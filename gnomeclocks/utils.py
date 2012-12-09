@@ -20,6 +20,7 @@ import os
 import time
 import datetime
 import pycanberra
+from gnomeclocks import GNOMECLOCKS_DATADIR
 from xdg import BaseDirectory
 from gi.repository import GObject, Gio, GnomeDesktop, Notify
 
@@ -29,29 +30,19 @@ def N_(message):
 
 
 class Dirs:
-    @staticmethod
-    def get_data_dir():
-        try:
-            path = os.environ['GNOME_CLOCKS_DATA_PATH']
-        except:
-            path = "../data"
-        return path
+    if os.path.exists(os.path.join("gnome-clocks.doap")):
+        print "Running from a source checkout, loading local data"
+        datadir = os.path.join("data")
+    else:
+        datadir = GNOMECLOCKS_DATADIR
 
     @staticmethod
-    def get_image_dir():
-        try:
-            path = os.environ['GNOME_CLOCKS_IMAGE_PATH']
-        except:
-            path = "../data"
-        return path
+    def get_css_dir():
+        return os.path.join(Dirs.datadir, "css")
 
     @staticmethod
-    def get_locale_dir():
-        try:
-            path = os.environ['GNOME_CLOCKS_LOCALE_PATH']
-        except:
-            path = "locale"
-        return path
+    def get_images_dir():
+        return os.path.join(Dirs.datadir, "images")
 
     @staticmethod
     def get_user_data_dir():

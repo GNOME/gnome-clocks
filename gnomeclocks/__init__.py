@@ -18,7 +18,20 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
-__version__ = "0.1.5"
+import locale
+import gettext
+from defs import *
+
+
+# Setup i18n support
+try:
+    locale.setlocale(locale.LC_ALL, '')
+except:
+    pass
+gettext.bindtextdomain(GETTEXT_PACKAGE, LOCALEDIR)
+gettext.textdomain(GETTEXT_PACKAGE)
+gettext.install(GETTEXT_PACKAGE, LOCALEDIR)
+
 
 # Credit every contributor, in alphabetical order
 AUTHORS = [
@@ -35,6 +48,7 @@ AUTHORS = [
     "Volker Sobek",
     "Jakub Steiner"
 ]
+
 
 COPYRIGHTS = \
     """2011 © Collabora Ltd.

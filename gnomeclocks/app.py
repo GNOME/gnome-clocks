@@ -27,7 +27,7 @@ from stopwatch import Stopwatch
 from timer import Timer
 from widgets import Embed
 from utils import Dirs
-from gnomeclocks import __version__, AUTHORS, COPYRIGHTS
+from gnomeclocks import VERSION, AUTHORS, COPYRIGHTS
 
 
 class Window(Gtk.ApplicationWindow):
@@ -46,8 +46,8 @@ class Window(Gtk.ApplicationWindow):
         self.add_action(action)
 
         css_provider = Gtk.CssProvider()
-        css_provider.load_from_path(os.path.join(Dirs.get_data_dir(),
-                                                 "gtk-style.css"))
+        css_provider.load_from_path(os.path.join(Dirs.get_css_dir(),
+                                                 "gnome-clocks.css"))
         context = Gtk.StyleContext()
         context.add_provider_for_screen(Gdk.Screen.get_default(),
                                         css_provider,
@@ -133,8 +133,8 @@ class Window(Gtk.ApplicationWindow):
         about = Gtk.AboutDialog()
         about.set_title(_("About Clocks"))
         about.set_program_name(_("GNOME Clocks"))
-        about.set_logo_icon_name("clocks")
-        about.set_version(__version__)
+        about.set_logo_icon_name("gnome-clocks")
+        about.set_version(VERSION)
         about.set_copyright(COPYRIGHTS)
         about.set_comments(
             _("Utilities to help you with the time."))

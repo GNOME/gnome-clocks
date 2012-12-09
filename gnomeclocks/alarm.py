@@ -411,7 +411,7 @@ class AlarmStandalone(Gtk.EventBox):
 
     def open_edit_dialog(self):
         # implicitely disable, we do not want to ring while editing.
-        self.edited_active = self.alarm.active;
+        self.edited_active = self.alarm.active
         self.alarm.set_active(False)
         window = AlarmDialog(self.get_toplevel(), self.alarm)
         window.connect("response", self._on_dialog_response)
