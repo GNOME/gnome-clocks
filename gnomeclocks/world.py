@@ -39,16 +39,14 @@ class WorldClockStorage:
 
     def save(self, clocks):
         locations = [str(c.location.serialize()) for c in clocks]
-        f = open(self.filename, "wb")
-        json.dump(locations, f)
-        f.close()
+        with open(self.filename, "wb") as f:
+            json.dump(locations, f, ensure_ascii=False)
 
     def load(self):
         clocks = []
         try:
-            f = open(self.filename, "rb")
-            locations = json.load(f)
-            f.close()
+            with open(self.filename, "rb") as f:
+                locations = json.load(f)
             for l in locations:
                 try:
                     variant = GLib.Variant.parse(None, l, None, None)

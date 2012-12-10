@@ -44,16 +44,14 @@ class AlarmsStorage:
                 "active": a.active
             }
             alarm_list.append(d)
-        f = open(self.filename, "wb")
-        json.dump(alarm_list, f)
-        f.close()
+        with open(self.filename, "wb") as f:
+            json.dump(alarm_list, f, ensure_ascii=False)
 
     def load(self):
         alarms = []
         try:
-            f = open(self.filename, "rb")
-            alarm_list = json.load(f)
-            f.close()
+            with open(self.filename, "rb") as f:
+                alarm_list = json.load(f)
             for a in alarm_list:
                 try:
                     n, h, m, d = (a['name'], int(a['hour']), int(a['minute']), a['days'])
