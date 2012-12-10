@@ -23,7 +23,7 @@ PKG_PROG_PKG_CONFIG([0.22])
 
 PKG_CHECK_MODULES(CLOCKS, [
     pycairo
-    pygobject-3.0 > 3.4.2
+    pygobject-3.0 >= 3.4.2
 ])
 
 AC_CONFIG_FILES([
