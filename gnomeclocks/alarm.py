@@ -144,6 +144,8 @@ class AlarmItem:
     def set_active(self, active):
         if active:
             self._reset()
+        elif self.state == AlarmItem.State.RINGING:
+            self.alert.stop()
         self.active = active
 
     def snooze(self):
@@ -310,28 +312,14 @@ class AlarmStandalone(Gtk.EventBox):
         self.view = view
         self.can_edit = True
 
-        self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        self.add(self.vbox)
-
-        time_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-
         self.alarm_label = Gtk.Label()
+        self.alarm_label.set_hexpand(True)
         self.alarm_label.set_alignment(0.5, 0.5)
-        time_box.pack_start(self.alarm_label, True, True, 0)
+        self.alarm_label.set_halign(Gtk.Align.CENTER)
 
         self.repeat_label = Gtk.Label()
         self.repeat_label.set_alignment(0.5, 0.5)
-        time_box.pack_start(self.repeat_label, True, True, 0)
 
-        self.switch = Gtk.Switch()
-        self.switch.connect("notify::active", self._on_switch)
-        self.hbox_switch = Gtk.Box()
-        self.hbox_switch.pack_start(Gtk.Label(), True, True, 0)
-        self.hbox_switch.pack_start(self.switch, False, False, 0)
-        self.hbox_switch.pack_start(Gtk.Label(), True, True, 0)
-        time_box.pack_start(self.hbox_switch, False, False, 20)
-
-        self.buttons = Gtk.Box()
         self.left_button = Gtk.Button()
         self.left_button.get_style_context().add_class("clocks-stop")
         self.left_button.set_size_request(200, -1)
@@ -341,57 +329,78 @@ class AlarmStandalone(Gtk.EventBox):
         self.right_button.set_size_request(200, -1)
         self.right_label = Gtk.Label()
         self.right_button.add(self.right_label)
-
-        self.buttons.pack_start(self.left_button, True, True, 0)
-        self.buttons.pack_start(Gtk.Box(), True, True, 24)
-        self.buttons.pack_start(self.right_button, True, True, 0)
-
         self.left_label.set_markup("<span font_desc=\"18.0\">%s</span>" % (_("Stop")))
         self.left_label.set_padding(6, 0)
         self.right_label.set_markup("<span font_desc=\"18.0\">%s</span>" % (_("Snooze")))
         self.right_label.set_padding(6, 0)
-
         self.left_button.connect('clicked', self._on_stop_clicked)
         self.right_button.connect('clicked', self._on_snooze_clicked)
-        time_box.pack_start(self.buttons, True, True, 48)
 
-        hbox = Gtk.Box()
-        hbox.set_homogeneous(False)
+        self.switch = Gtk.Switch()
+        self.switch.show()
+        self.switch.set_halign(Gtk.Align.CENTER)
+        self.switch.set_valign(Gtk.Align.START)
+        self.switch.connect("notify::active", self._on_switch)
 
-        hbox.pack_start(Gtk.Label(), True, True, 0)
-        hbox.pack_start(time_box, False, False, 0)
-        hbox.pack_start(Gtk.Label(), True, True, 0)
+        self.buttons = Gtk.Box()
+        self.buttons.show()
+        self.buttons.set_halign(Gtk.Align.CENTER)
+        self.buttons.set_valign(Gtk.Align.START)
+        self.buttons.pack_start(self.left_button, True, True, 0)
+        self.buttons.pack_start(Gtk.Label(), True, True, 12)
+        self.buttons.pack_start(self.right_button, True, True, 0)
 
-        self.vbox.pack_start(Gtk.Label(), True, True, 0)
-        self.vbox.pack_start(hbox, False, False, 0)
-        self.vbox.pack_start(Gtk.Label(), True, True, 0)
+        self.controls_notebook = Gtk.Notebook()
+        self.controls_notebook.set_margin_top(24)
+        self.controls_notebook.set_show_tabs(False)
+        self.controls_notebook.append_page(self.switch, None)
+        self.controls_notebook.append_page(self.buttons, None)
+
+        label_top = Gtk.Label()
+        label_top.set_vexpand(True)
+        label_bottom = Gtk.Label()
+        label_bottom.set_vexpand(True)
+
+        label_padding = Gtk.Label()
+        label_padding.set_size_request(-1, 30)
+
+        self.grid = Gtk.Grid()
+        self.grid.set_orientation(Gtk.Orientation.VERTICAL)
+        self.grid.add(label_top)
+        self.grid.add(label_padding)
+        self.grid.add(self.alarm_label)
+        self.grid.add(self.repeat_label)
+        self.grid.add(self.controls_notebook)
+        self.grid.add(label_bottom)
+
+        self.add(self.grid)
 
         self.set_alarm(None)
 
     def set_alarm(self, alarm):
         self.alarm = alarm
         if alarm:
+            is_ready = alarm.state == AlarmItem.State.READY
+            is_ringing = alarm.state == AlarmItem.State.RINGING
             self.update()
-            state = alarm.state
-            self.left_button.set_sensitive(state != AlarmItem.State.READY)
-            self.right_button.set_sensitive(state == AlarmItem.State.RINGING)
+            self.left_button.set_sensitive(not is_ready)
+            self.right_button.set_sensitive(is_ringing)
             self.switch.set_active(alarm.active)
             self.show_all()
-            self.switch.set_visible(state == AlarmItem.State.READY)
-            self.buttons.set_visible(state != AlarmItem.State.READY)
+            self.controls_notebook.set_current_page(0 if is_ready else 1)
 
     def _on_stop_clicked(self, button):
         self.alarm.stop()
-        self.buttons.set_visible(False)
-        self.switch.set_visible(True)
+        self.controls_notebook.set_current_page(0)
 
     def _on_snooze_clicked(self, button):
         self.right_button.set_sensitive(False)
         self.alarm.snooze()
 
     def _on_switch(self, switch, param):
-        if self.alarm.active != switch.get_active():
-            self.alarm.set_active(switch.get_active())
+        switch_active = switch.get_active()
+        if self.alarm.active != switch_active:
+            self.alarm.set_active(switch_active)
             self.view.save_alarms()
 
     def get_name(self):
