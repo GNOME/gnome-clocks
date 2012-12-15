@@ -153,7 +153,7 @@ class ClockItem:
 
         self._update_sunrise_sunset()
 
-        self.update_time()
+        self.tick()
 
     def _get_location_name(self):
         nation = self.location
@@ -203,7 +203,7 @@ class ClockItem:
             self.sunrise_string = TimeString.format_time(self.sunrise)
             self.sunset_string = TimeString.format_time(self.sunset)
 
-    def update_time(self):
+    def tick(self):
         self.location_time = self._get_location_time()
         self.time_string = TimeString.format_time(self.location_time)
         self.day_string = self._get_day_string()
@@ -329,7 +329,7 @@ class World(Clock):
         self.standalone = ClockStandalone()
         self.notebook.append_page(self.standalone, None)
 
-        wallclock.connect("time-changed", self._update_clocks)
+        wallclock.connect("time-changed", self._tick_clocks)
 
     def _thumb_data_func(self, view, cell, store, i, data):
         clock = store.get_value(i, 2)
@@ -352,9 +352,9 @@ class World(Clock):
         elif mode is Clock.Mode.SELECTION:
             self.iconview.set_selection_mode(True)
 
-    def _update_clocks(self, *args):
+    def _tick_clocks(self, *args):
         for c in self.clocks:
-            c.update_time()
+            c.tick()
         self.iconview.queue_draw()
         self.standalone.update()
         return True
