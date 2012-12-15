@@ -71,6 +71,8 @@ class AlarmsStorage:
 
 class AlarmItem:
     EVERY_DAY = [0, 1, 2, 3, 4, 5, 6]
+    # TODO: For now the alarm never rings that long
+    MAX_RING_DURATION = timedelta(minutes=5)
 
     class State:
         READY = 0
@@ -141,6 +143,10 @@ class AlarmItem:
         self._update_snooze_time(self.alarm_time)
         self.state = AlarmItem.State.READY
 
+    def _ring(self):
+        self.alert.show()
+        self.state = AlarmItem.State.RINGING
+
     def set_active(self, active):
         if active:
             self._reset()
@@ -157,19 +163,29 @@ class AlarmItem:
         self._update_snooze_time(self.alarm_time)
         self.state = AlarmItem.State.READY
 
-    def check_expired(self):
-        if wallclock.datetime >= self.alarm_time:
-            self._update_snooze_time(self.alarm_time)
-            self._update_alarm_time()
-            self.state = AlarmItem.State.RINGING
-            return True
-        elif wallclock.datetime >= self.snooze_time:
-            self._update_snooze_time(self.snooze_time)
-            self.state = AlarmItem.State.RINGING
-            return True
-        else:
+    def tick(self):
+        # Updates the state and ringing times of the AlarmItem and
+        # rings or stops the alarm as required, depending on the
+        # current time. Returns True if the state changed, False
+        # otherwise.
+        if not self.active:
             return False
-
+        last_state = self.state
+        if self.state != AlarmItem.State.RINGING:
+            if wallclock.datetime >= self.alarm_time:
+                self._ringing_start_time = self.alarm_time
+                self._update_snooze_time(self.alarm_time)
+                self._update_alarm_time()
+                self._ring()
+            elif wallclock.datetime >= self.snooze_time:
+                self._ringing_start_time = self.snooze_time
+                self._update_snooze_time(self.snooze_time)
+                self._ring()
+        elif wallclock.datetime >= self._ringing_start_time + \
+                AlarmItem.MAX_RING_DURATION:
+            # give up and stop ringing after 5 minutes
+            self.stop()
+        return self.state != last_state
 
 class AlarmDialog(Gtk.Dialog):
     def __init__(self, parent, alarm=None):
@@ -375,19 +391,25 @@ class AlarmStandalone(Gtk.EventBox):
 
         self.add(self.grid)
 
-        self.set_alarm(None)
+        self.alarm = None
 
     def set_alarm(self, alarm):
         self.alarm = alarm
-        if alarm:
-            is_ready = alarm.state == AlarmItem.State.READY
-            is_ringing = alarm.state == AlarmItem.State.RINGING
-            self.update()
-            self.left_button.set_sensitive(not is_ready)
-            self.right_button.set_sensitive(is_ringing)
-            self.switch.set_active(alarm.active)
-            self.show_all()
-            self.controls_notebook.set_current_page(0 if is_ready else 1)
+
+        timestr = self.alarm.alarm_time_string
+        repeat = self.alarm.alarm_repeat_string
+        self.alarm_label.set_markup(
+            "<span size='72000' color='dimgray'><b>%s</b></span>" % timestr)
+        self.repeat_label.set_markup(
+            "<span size='large' color='dimgray'><b>%s</b></span>" % repeat)
+
+        is_ready = alarm.state == AlarmItem.State.READY
+        is_ringing = alarm.state == AlarmItem.State.RINGING
+        self.left_button.set_sensitive(not is_ready)
+        self.right_button.set_sensitive(is_ringing)
+        self.switch.set_active(alarm.active)
+        self.controls_notebook.set_current_page(0 if is_ready else 1)
+        self.show_all()
 
     def _on_stop_clicked(self, button):
         self.alarm.stop()
@@ -407,15 +429,6 @@ class AlarmStandalone(Gtk.EventBox):
         name = self.alarm.name
         return GLib.markup_escape_text(name)
 
-    def update(self):
-        if self.alarm:
-            timestr = self.alarm.alarm_time_string
-            repeat = self.alarm.alarm_repeat_string
-            self.alarm_label.set_markup(
-                "<span size='72000' color='dimgray'><b>%s</b></span>" % timestr)
-            self.repeat_label.set_markup(
-                "<span size='large' color='dimgray'><b>%s</b></span>" % repeat)
-
     def open_edit_dialog(self):
         # implicitely disable, we do not want to ring while editing.
         self.edited_active = self.alarm.active
@@ -429,7 +442,6 @@ class AlarmStandalone(Gtk.EventBox):
             new_alarm = dialog.get_alarm_item()
             alarm = self.view.replace_alarm(self.alarm, new_alarm)
             self.set_alarm(alarm)
-            self.update()
         else:
             # edited alarms are always active, instead on cancel
             # we restore the previous state
@@ -465,7 +477,7 @@ class Alarm(Clock):
         self.standalone = AlarmStandalone(self)
         self.notebook.append_page(self.standalone, None)
 
-        wallclock.connect("time-changed", self._check_alarms)
+        wallclock.connect("time-changed", self._tick_alarms)
 
     def _thumb_data_func(self, view, cell, store, i, data):
         alarm = store.get_value(i, 2)
@@ -493,12 +505,17 @@ class Alarm(Clock):
     def alarm_ringing(self):
         self.set_mode(Clock.Mode.STANDALONE)
 
-    def _check_alarms(self, *args):
+    def _tick_alarms(self, *args):
         for a in self.alarms:
-            if a.active and a.check_expired():
-                self.standalone.set_alarm(a)
-                a.alert.show()
-                self.emit("alarm-ringing")
+            if a.tick():
+                # a.tick() returns True if the state changed
+                if a.state == AlarmItem.State.RINGING:
+                    self.standalone.set_alarm(a)
+                    self.emit("alarm-ringing")
+                elif self.standalone.alarm and self.standalone.alarm == a:
+                    # update the alarm shown in the standalone, it
+                    # might be visible
+                    self.standalone.set_alarm(a)
 
     def _on_item_activated(self, iconview, path):
         alarm = self.liststore[path][2]
