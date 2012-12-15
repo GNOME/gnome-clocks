@@ -163,7 +163,7 @@ class WallClock(GObject.GObject):
 class Alert:
     settings = Gio.Settings.new('org.gnome.desktop.sound')
 
-    def __init__(self, soundid, msg):
+    def __init__(self, soundid, title, msg):
         try:
             self.canberra = pycanberra.Canberra()
         except Exception as e:
@@ -175,7 +175,7 @@ class Alert:
 
         self.notification = None
         if Notify.is_initted() or Notify.init("GNOME Clocks"):
-            self.notification = Notify.Notification.new("Clocks", msg, 'clocks')
+            self.notification = Notify.Notification.new(title, msg, 'gnome-clocks')
         else:
             print "Error: Could not trigger Alert"
 

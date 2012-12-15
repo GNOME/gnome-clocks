@@ -88,7 +88,7 @@ class AlarmItem:
 
         self.alarm_time_string = TimeString.format_time(self.alarm_time)
         self.alarm_repeat_string = self._get_alarm_repeat_string()
-        self.alert = Alert("alarm-clock-elapsed", name)
+        self.alert = Alert("alarm-clock-elapsed", _("Alarm"), name)
 
     # two alarms are equal if they have the same name, time and days,
     # the active attribute doesn't matter

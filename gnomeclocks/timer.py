@@ -175,7 +175,9 @@ class Timer(Clock):
 
         self.show_all()
 
-        self.alert = Alert("complete", "Ta Da !")
+        self.alert = Alert("complete",
+                           _("Time is up!"),
+                           _("Timer countdown finished"))
 
     @GObject.Signal
     def alarm_ringing(self):
