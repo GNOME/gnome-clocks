@@ -189,6 +189,8 @@ class ClockItem:
                 return _("Tomorrow")
             else:
                 return _("Yesterday")
+        else:
+            return ""  # today
 
     def _update_sunrise_sunset(self):
         self.weather = GWeather.Info(location=self.location, world=gweather_world)
@@ -210,90 +212,84 @@ class ClockItem:
         self._update_sunrise_sunset()
 
 
-class ClockStandalone(Gtk.EventBox):
+class WorldStandalone(Gtk.EventBox):
     def __init__(self):
         Gtk.EventBox.__init__(self)
         self.get_style_context().add_class('view')
         self.get_style_context().add_class('content-view')
         self.can_edit = False
+
         self.time_label = Gtk.Label()
-
-        self.vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        self.add(self.vbox)
-
-        time_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        self.time_label.set_alignment(0.0, 0.5)
-        time_box.pack_start(self.time_label, True, True, 0)
-
-        self.hbox = hbox = Gtk.Box()
-        self.hbox.set_homogeneous(False)
-
-        self.hbox.pack_start(Gtk.Label(), True, True, 0)
-        self.hbox.pack_start(time_box, False, False, 0)
-        self.hbox.pack_start(Gtk.Label(), True, True, 0)
-
-        self.vbox.pack_start(Gtk.Label(), True, True, 25)
-        self.vbox.pack_start(hbox, False, False, 0)
-        self.vbox.pack_start(Gtk.Label(), True, True, 0)
+        self.time_label.set_hexpand(True)
+        self.day_label = Gtk.Label()
 
         sunrise_label = Gtk.Label()
         sunrise_label.set_markup(
             "<span size ='large' color='dimgray'>%s</span>" % (_("Sunrise")))
-        sunrise_label.set_alignment(1.0, 0.5)
         self.sunrise_time_label = Gtk.Label()
-        self.sunrise_time_label.set_alignment(0.0, 0.5)
-        sunrise_hbox = Gtk.Box(True, 9)
-        sunrise_hbox.pack_start(sunrise_label, False, False, 0)
-        sunrise_hbox.pack_start(self.sunrise_time_label, False, False, 0)
-
         sunset_label = Gtk.Label()
         sunset_label.set_markup(
             "<span size ='large' color='dimgray'>%s</span>" % (_("Sunset")))
-        sunset_label.set_alignment(1.0, 0.5)
         self.sunset_time_label = Gtk.Label()
-        self.sunset_time_label.set_alignment(0.0, 0.5)
-        sunset_hbox = Gtk.Box(True, 9)
-        sunset_hbox.pack_start(sunset_label, False, False, 0)
-        sunset_hbox.pack_start(self.sunset_time_label, False, False, 0)
 
-        self.sunbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        self.sunbox.set_homogeneous(True)
-        self.sunbox.set_spacing(3)
-        self.sunbox.pack_start(sunrise_hbox, False, False, 3)
-        self.sunbox.pack_start(sunset_hbox, False, False, 3)
+        self.sun_grid = Gtk.Grid()
+        self.sun_grid.set_column_homogeneous(False)
+        self.sun_grid.set_column_spacing(12)
+        self.sun_grid.attach(sunrise_label, 1, 0, 1, 1)
+        self.sun_grid.attach(self.sunrise_time_label, 2, 0, 1, 1)
+        self.sun_grid.attach(sunset_label, 1, 1, 1, 1)
+        self.sun_grid.attach(self.sunset_time_label, 2, 1, 1, 1 )
+        self.sun_grid.set_margin_bottom(24)
+        self.sun_grid.set_hexpand(False)
+        self.sun_grid.set_halign(Gtk.Align.CENTER)
 
-        hbox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
-        hbox.pack_start(Gtk.Label(), True, True, 0)
-        hbox.pack_start(self.sunbox, False, False, 0)
-        hbox.pack_start(Gtk.Label(), True, True, 0)
-        self.vbox.pack_end(hbox, False, False, 30)
+        day_label_dummy = Gtk.Label()
+        sizegroup = Gtk.SizeGroup(Gtk.SizeGroupMode.VERTICAL)
+        sizegroup.add_widget(self.day_label)
+        sizegroup.add_widget(day_label_dummy)
 
-        self.set_clock(None)
+        expand_label1 = Gtk.Label()
+        expand_label2 = Gtk.Label()
+        expand_label1.set_vexpand(True)
+        expand_label2.set_vexpand(True)
+
+        grid = Gtk.Grid()
+        grid.set_orientation(Gtk.Orientation.VERTICAL)
+        grid.add(expand_label1)
+        grid.add(day_label_dummy)
+        grid.add(self.time_label)
+        grid.add(self.day_label)
+        grid.add(expand_label2)
+        grid.add(self.sun_grid)
+
+        self.add(grid)
+
+        self.clock = None
 
     def set_clock(self, clock):
         self.clock = clock
-        if clock:
-            self.update()
-            self.show_all()
-            if not clock.sunrise:
-                self.sunbox.hide()
-
-    def get_name(self):
-        return GLib.markup_escape_text(self.clock.name)
+        self.show_all()
+        self.update()
 
     def update(self):
         if self.clock:
             timestr = self.clock.time_string
+            daystr = self.clock.day_string
             self.time_label.set_markup(
                 "<span size='72000' color='dimgray'><b>%s</b></span>" % timestr)
+            self.day_label.set_markup(
+                "<span size ='large' color='dimgray'><b>%s</b></span>" % daystr)
             if self.clock.sunrise_string and self.clock.sunset_string:
                 self.sunrise_time_label.set_markup(
                     "<span size ='large'>%s</span>" % self.clock.sunrise_string)
                 self.sunset_time_label.set_markup(
                     "<span size ='large'>%s</span>" % self.clock.sunset_string)
-                self.sunbox.show()
+                self.sun_grid.show()
             else:
-                self.sunbox.hide()
+                self.sun_grid.hide()
+
+    def get_name(self):
+        return GLib.markup_escape_text(self.clock.name)
 
 
 class World(Clock):
@@ -326,7 +322,7 @@ class World(Clock):
         self.load_clocks()
         self.show_all()
 
-        self.standalone = ClockStandalone()
+        self.standalone = WorldStandalone()
         self.notebook.append_page(self.standalone, None)
 
         wallclock.connect("time-changed", self._tick_clocks)
