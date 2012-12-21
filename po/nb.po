@@ -1,15 +1,15 @@
 # Norwegian bokmål translation of gnome-clocks.
 # Copyright (C) 1998-2004, 2005 Free Software Foundation, Inc.
-#
 # Kjartan Maraas <kmaraas@gnome.org>, 1998-2012.
 # Terance Edward Sola <terance@lyse.net>, 2005.
 # Torstein Adolf Winterseth <kvikende@fsfe.org>, 2010.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks 3.7.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-17 18:15+0100\n"
-"PO-Revision-Date: 2012-09-02 11:07+0200\n"
+"POT-Creation-Date: 2012-12-21 17:26+0100\n"
+"PO-Revision-Date: 2012-12-21 17:27+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -22,8 +22,8 @@ msgstr ""
 msgid "Clocks"
 msgstr "Klokker"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:122
-#: ../gnomeclocks/app.py:131
+#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:135
+#: ../gnomeclocks/app.py:144
 msgid "GNOME Clocks"
 msgstr "GNOME klokker"
 
@@ -35,90 +35,90 @@ msgstr "Klokker for verdenstid, alarmer, stoppeklokke og nedtelling"
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "tid;nedtelling;alarm;verdensur;stoppeklokke;tidssone;"
 
-#: ../gnomeclocks/alarm.py:131
+#. Translators: "New" refers to an alarm
+#: ../gnomeclocks/alarm.py:93 ../gnomeclocks/alarm.py:455
+msgid "Alarm"
+msgstr "Alarm"
+
+#: ../gnomeclocks/alarm.py:130
 msgid "Every day"
 msgstr "Hver dag"
 
-#: ../gnomeclocks/alarm.py:133
+#: ../gnomeclocks/alarm.py:132
 msgid "Weekdays"
 msgstr "Ukedager"
 
-#: ../gnomeclocks/alarm.py:158
+#: ../gnomeclocks/alarm.py:193
 msgid "Edit Alarm"
 msgstr "Rediger alarm"
 
-#: ../gnomeclocks/alarm.py:160 ../gnomeclocks/alarm.py:192
+#: ../gnomeclocks/alarm.py:195 ../gnomeclocks/alarm.py:221
 msgid "New Alarm"
 msgstr "Ny alarm"
 
 #. Translators: "Time" in this context is the time an alarm
 #. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:197
+#: ../gnomeclocks/alarm.py:226
 msgid "Time"
 msgstr "Tid"
 
-#: ../gnomeclocks/alarm.py:238
+#: ../gnomeclocks/alarm.py:269
 msgid "Name"
 msgstr "Navn"
 
-#: ../gnomeclocks/alarm.py:247
+#: ../gnomeclocks/alarm.py:278
 msgid "Repeat Every"
 msgstr "Gjenta hver"
 
-#. Translators: "New" refers to an alarm
-#: ../gnomeclocks/alarm.py:321
-msgid "Alarm"
-msgstr "Alarm"
-
-#: ../gnomeclocks/alarm.py:321 ../gnomeclocks/world.py:264
-msgid "New"
-msgstr "Ny"
-
-#: ../gnomeclocks/alarm.py:333
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Velg <b>Ny</b> for å legge til en alarm"
-
-#: ../gnomeclocks/alarm.py:478 ../gnomeclocks/stopwatch.py:109
+#: ../gnomeclocks/alarm.py:348 ../gnomeclocks/stopwatch.py:121
 msgid "Stop"
 msgstr "Stopp"
 
-#: ../gnomeclocks/alarm.py:480
+#: ../gnomeclocks/alarm.py:350
 msgid "Snooze"
 msgstr "Pause"
 
-#: ../gnomeclocks/app.py:121 ../gnomeclocks/app.py:412
+#: ../gnomeclocks/alarm.py:455 ../gnomeclocks/world.py:298
+msgid "New"
+msgstr "Ny"
+
+#: ../gnomeclocks/alarm.py:469
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Velg <b>Ny</b> for å legge til en alarm"
+
+#: ../gnomeclocks/app.py:134 ../gnomeclocks/app.py:418
 msgid "About Clocks"
 msgstr "Om klokker"
 
-#: ../gnomeclocks/app.py:127
+#: ../gnomeclocks/app.py:140
 msgid "Utilities to help you with the time."
 msgstr "Verktøy som hjelper deg å holde orden på tiden."
 
-#: ../gnomeclocks/app.py:129
+#: ../gnomeclocks/app.py:142
 msgid "translator-credits"
 msgstr ""
 "Kjartan Maraas <kmaraas@gnome.org>\n"
 "Torstein Adolf Winterseth <kvikende@fsfe.org>"
 
-#: ../gnomeclocks/app.py:282
+#: ../gnomeclocks/app.py:294
 msgid "Edit"
 msgstr "Rediger"
 
-#: ../gnomeclocks/app.py:287
+#: ../gnomeclocks/app.py:299
 msgid "Done"
 msgstr "Ferdig"
 
-#: ../gnomeclocks/app.py:357
+#: ../gnomeclocks/app.py:378
 msgid "Click on items to select them"
 msgstr "Klikk på oppføringer for å velge dem"
 
-#: ../gnomeclocks/app.py:359
+#: ../gnomeclocks/app.py:380
 msgid "{0} item selected"
 msgid_plural "{0} items selected"
 msgstr[0] "{0} oppføring valgt"
 msgstr[1] "{0} oppføringer valgt"
 
-#: ../gnomeclocks/app.py:415
+#: ../gnomeclocks/app.py:421
 msgid "Quit"
 msgstr "Avslutt"
 
@@ -126,94 +126,110 @@ msgstr "Avslutt"
 msgid "Stopwatch"
 msgstr "Stoppeklokke"
 
-#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:141
-#: ../gnomeclocks/timer.py:110
+#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:153
+#: ../gnomeclocks/timer.py:111
 msgid "Start"
 msgstr "Start"
 
-#: ../gnomeclocks/stopwatch.py:75 ../gnomeclocks/stopwatch.py:120
-#: ../gnomeclocks/timer.py:52
+#: ../gnomeclocks/stopwatch.py:75 ../gnomeclocks/stopwatch.py:132
+#: ../gnomeclocks/timer.py:53
 msgid "Reset"
 msgstr "Nullstill"
 
-#: ../gnomeclocks/stopwatch.py:85 ../gnomeclocks/stopwatch.py:112
+#: ../gnomeclocks/stopwatch.py:87 ../gnomeclocks/stopwatch.py:124
 msgid "Lap"
 msgstr "Runde"
 
-#: ../gnomeclocks/stopwatch.py:88
+#: ../gnomeclocks/stopwatch.py:93
 msgid "Split"
 msgstr "Del"
 
-#: ../gnomeclocks/stopwatch.py:91
+#: ../gnomeclocks/stopwatch.py:99
 msgid "Total"
 msgstr "Total"
 
-#: ../gnomeclocks/stopwatch.py:116 ../gnomeclocks/timer.py:69
+#: ../gnomeclocks/stopwatch.py:128 ../gnomeclocks/timer.py:70
 msgid "Continue"
 msgstr "Fortsett"
 
-#: ../gnomeclocks/timer.py:45 ../gnomeclocks/timer.py:63
-#: ../gnomeclocks/timer.py:73
+#: ../gnomeclocks/timer.py:46 ../gnomeclocks/timer.py:64
+#: ../gnomeclocks/timer.py:74
 msgid "Pause"
 msgstr "Pause"
 
-#: ../gnomeclocks/timer.py:155
+#: ../gnomeclocks/timer.py:156
 msgid "Timer"
 msgstr "Nedtelling"
 
-#: ../gnomeclocks/utils.py:71
+#: ../gnomeclocks/timer.py:179
+msgid "Time is up!"
+msgstr "Tiden er ute!"
+
+#: ../gnomeclocks/timer.py:180
+msgid "Timer countdown finished"
+msgstr "Nedtelling fullført"
+
+#: ../gnomeclocks/utils.py:83
 msgid "Mondays"
 msgstr "Mandager"
 
-#: ../gnomeclocks/utils.py:72
+#: ../gnomeclocks/utils.py:84
 msgid "Tuesdays"
 msgstr "Tirsdager"
 
-#: ../gnomeclocks/utils.py:73
+#: ../gnomeclocks/utils.py:85
 msgid "Wednesdays"
 msgstr "Onsdager"
 
-#: ../gnomeclocks/utils.py:74
+#: ../gnomeclocks/utils.py:86
 msgid "Thursdays"
 msgstr "Torsdager"
 
-#: ../gnomeclocks/utils.py:75
+#: ../gnomeclocks/utils.py:87
 msgid "Fridays"
 msgstr "Fredager"
 
-#: ../gnomeclocks/utils.py:76
+#: ../gnomeclocks/utils.py:88
 msgid "Saturdays"
 msgstr "Lørdager"
 
-#: ../gnomeclocks/utils.py:77
+#: ../gnomeclocks/utils.py:89
 msgid "Sundays"
 msgstr "Søndager"
 
-#: ../gnomeclocks/widgets.py:333
+#: ../gnomeclocks/widgets.py:299
 msgid "Delete"
 msgstr "Slett"
 
-#: ../gnomeclocks/world.py:66
+#: ../gnomeclocks/world.py:74
 msgid "Add a New World Clock"
 msgstr "Legg til en ny verdensklokke"
 
-#: ../gnomeclocks/world.py:75
+#: ../gnomeclocks/world.py:83
 msgid "Search for a city:"
 msgstr "Søk etter en by:"
 
-#. Translators: "New" refers to a world clock
-#: ../gnomeclocks/world.py:264
-msgid "World"
-msgstr "Verden"
+#: ../gnomeclocks/world.py:184 ../gnomeclocks/world.py:191
+msgid "Yesterday"
+msgstr "I går"
 
-#: ../gnomeclocks/world.py:275
-msgid "Select <b>New</b> to add a world clock"
-msgstr "Velg <b>Ny</b> for å legge til en verdensklokke"
+#: ../gnomeclocks/world.py:186 ../gnomeclocks/world.py:189
+msgid "Tomorrow"
+msgstr "I morgen"
 
-#: ../gnomeclocks/world.py:398
+#: ../gnomeclocks/world.py:228
 msgid "Sunrise"
 msgstr "Soloppgang"
 
-#: ../gnomeclocks/world.py:408
+#: ../gnomeclocks/world.py:232
 msgid "Sunset"
 msgstr "Solnedgang"
+
+#. Translators: "New" refers to a world clock
+#: ../gnomeclocks/world.py:298
+msgid "World"
+msgstr "Verden"
+
+#: ../gnomeclocks/world.py:317
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Velg <b>Ny</b> for å legge til en verdensklokke"
