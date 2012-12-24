@@ -18,8 +18,8 @@
 
 import time
 from gi.repository import GLib, Gtk
-from clocks import Clock
-from widgets import Toolbar
+from .clocks import Clock
+from .widgets import Toolbar
 
 
 class Stopwatch(Clock):

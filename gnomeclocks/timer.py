@@ -19,9 +19,9 @@
 import time
 import math
 from gi.repository import GLib,  GObject, Gtk
-from clocks import Clock
-from utils import Alert
-from widgets import Spinner, Toolbar
+from .clocks import Clock
+from .utils import Alert
+from .widgets import Spinner, Toolbar
 
 
 class TimerScreen(Gtk.Grid):

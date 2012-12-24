@@ -10,7 +10,7 @@ AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([1.11 tar-ustar dist-xz no-dist-gzip foreign])
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
 
-AM_PATH_PYTHON([2.7])
+AM_PATH_PYTHON([3.2])
 
 IT_PROG_INTLTOOL(0.40)
 AM_GNU_GETTEXT([external])

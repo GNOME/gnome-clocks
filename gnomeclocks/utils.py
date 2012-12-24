@@ -19,10 +19,10 @@
 import os
 import time
 import datetime
-import pycanberra
-from gnomeclocks import GNOMECLOCKS_DATADIR
 from xdg import BaseDirectory
 from gi.repository import GObject, Gio, GnomeDesktop, Notify
+from . import pycanberra
+from gnomeclocks import GNOMECLOCKS_DATADIR
 
 
 def N_(message):
@@ -31,7 +31,7 @@ def N_(message):
 
 class Dirs:
     if os.path.exists(os.path.join("gnome-clocks.doap")):
-        print "Running from a source checkout, loading local data"
+        print("Running from a source checkout, loading local data")
         datadir = os.path.join("data")
     else:
         datadir = GNOMECLOCKS_DATADIR
@@ -167,7 +167,7 @@ class Alert:
         try:
             self.canberra = pycanberra.Canberra()
         except Exception as e:
-            print "Sound will not be available: ", e
+            print("Sound will not be available: ", e)
             self.canberra = None
 
         self.soundtheme = Alert.settings.get_string('theme-name')
@@ -178,7 +178,7 @@ class Alert:
             self.notification = Notify.Notification.new(title, msg, "gnome-clocks")
             self.notification.set_hint_string("desktop-entry", "gnome-clocks")
         else:
-            print "Error: Could not trigger Alert"
+            print("Error: Could not trigger Alert")
 
     def show(self):
         if self.canberra:

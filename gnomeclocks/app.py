@@ -19,12 +19,12 @@
 import os
 import sys
 from gi.repository import Gtk, Gdk, Gio, GtkClutter
-from world import World
-from alarm import Alarm
-from stopwatch import Stopwatch
-from timer import Timer
-from widgets import Toolbar, Embed
-from utils import Dirs
+from .world import World
+from .alarm import Alarm
+from .stopwatch import Stopwatch
+from .timer import Timer
+from .widgets import Toolbar, Embed
+from .utils import Dirs
 from gnomeclocks import VERSION, AUTHORS, COPYRIGHTS, LICENSE
 
 

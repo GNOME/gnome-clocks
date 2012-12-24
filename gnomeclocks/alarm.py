@@ -21,9 +21,9 @@ import errno
 import json
 from datetime import timedelta
 from gi.repository import GLib, GObject, Gtk
-from clocks import Clock
-from utils import Alert, Dirs, LocalizedWeekdays, SystemSettings, TimeString, WallClock
-from widgets import Toolbar, ToolButton, SymbolicToolButton, SelectableIconView, ContentView
+from .clocks import Clock
+from .utils import Alert, Dirs, LocalizedWeekdays, SystemSettings, TimeString, WallClock
+from .widgets import Toolbar, ToolButton, SymbolicToolButton, SelectableIconView, ContentView
 
 
 wallclock = WallClock.get_default()
@@ -44,13 +44,13 @@ class AlarmsStorage:
                 "active": a.active
             }
             alarm_list.append(d)
-        with open(self.filename, "wb") as f:
+        with open(self.filename, 'w', encoding='utf-8') as f:
             json.dump(alarm_list, f, ensure_ascii=False)
 
     def load(self):
         alarms = []
         try:
-            with open(self.filename, "rb") as f:
+            with open(self.filename, encoding='utf-8') as f:
                 alarm_list = json.load(f)
             for a in alarm_list:
                 try:
@@ -60,7 +60,7 @@ class AlarmsStorage:
                 except:
                     # skip alarms which do not have the required fields
                     continue
-                alarm = AlarmItem(n.encode("utf-8"), h, m, d, active)
+                alarm = AlarmItem(n, h, m, d, active)
                 alarms.append(alarm)
         except IOError as e:
             if e.errno == errno.ENOENT:

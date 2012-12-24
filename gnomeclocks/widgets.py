@@ -206,7 +206,7 @@ class Spinner(Gtk.SpinButton):
         self.set_increments(1.0, 1.0)
         self.set_wrap(True)
         self.set_range(min_value, max_value)
-        attrs = Pango.parse_markup('<span font_desc=\"64.0\">00</span>', -1, u'\x00')[1]
+        attrs = Pango.parse_markup('<span font_desc=\"64.0\">00</span>', -1, '\x00')[1]
         self.set_attributes(attrs)
 
         self.connect('output', self._show_leading_zeros)

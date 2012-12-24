@@ -20,7 +20,7 @@
 
 import locale
 import gettext
-from defs import *
+from .defs import *
 
 
 # Setup i18n support

@@ -22,9 +22,9 @@ import time
 import json
 from gi.repository import GLib, Gio, GdkPixbuf, Gtk
 from gi.repository import GWeather
-from clocks import Clock
-from utils import Dirs, TimeString, WallClock
-from widgets import Toolbar, ToolButton, SymbolicToolButton, SelectableIconView, ContentView
+from .clocks import Clock
+from .utils import Dirs, TimeString, WallClock
+from .widgets import Toolbar, ToolButton, SymbolicToolButton, SelectableIconView, ContentView
 
 
 # keep the GWeather world around as a singletom, otherwise
@@ -39,13 +39,13 @@ class WorldClockStorage:
 
     def save(self, clocks):
         locations = [str(c.location.serialize()) for c in clocks]
-        with open(self.filename, "wb") as f:
+        with open(self.filename, 'w', encoding='utf-8') as f:
             json.dump(locations, f, ensure_ascii=False)
 
     def load(self):
         clocks = []
         try:
-            with open(self.filename, "rb") as f:
+            with open(self.filename, encoding='utf-8') as f:
                 locations = json.load(f)
             for l in locations:
                 try:
