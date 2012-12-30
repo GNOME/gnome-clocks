@@ -20,11 +20,11 @@ import os
 import errno
 import time
 import json
-from gi.repository import GLib, GObject, Gio, GdkPixbuf, Gtk
+from gi.repository import GLib, Gio, GdkPixbuf, Gtk
 from gi.repository import GWeather
 from clocks import Clock
 from utils import Dirs, TimeString, WallClock
-from widgets import SelectableIconView, ContentView
+from widgets import Toolbar, ToolButton, SymbolicToolButton, SelectableIconView, ContentView
 
 
 # keep the GWeather world around as a singletom, otherwise
@@ -238,7 +238,7 @@ class WorldStandalone(Gtk.EventBox):
         self.sun_grid.attach(sunrise_label, 1, 0, 1, 1)
         self.sun_grid.attach(self.sunrise_time_label, 2, 0, 1, 1)
         self.sun_grid.attach(sunset_label, 1, 1, 1, 1)
-        self.sun_grid.attach(self.sunset_time_label, 2, 1, 1, 1 )
+        self.sun_grid.attach(self.sunset_time_label, 2, 1, 1, 1)
         self.sun_grid.set_margin_bottom(24)
         self.sun_grid.set_hexpand(False)
         self.sun_grid.set_halign(Gtk.Align.CENTER)
@@ -293,9 +293,25 @@ class WorldStandalone(Gtk.EventBox):
 
 
 class World(Clock):
-    def __init__(self):
+    def __init__(self, embed, toolbar):
+        Clock.__init__(self, _("World"), embed, toolbar)
+
         # Translators: "New" refers to a world clock
-        Clock.__init__(self, _("World"), _("New"))
+        self.new_button = ToolButton(_("New"))
+        self.new_button.connect('clicked', self._on_new_clicked)
+
+        self.select_button = SymbolicToolButton("object-select-symbolic")
+        self.select_button.connect('clicked', self._on_select_clicked)
+
+        self.done_button = ToolButton(_("Done"))
+        self.done_button.get_style_context().add_class('suggested-action')
+        self.done_button.connect("clicked", self._on_done_clicked)
+
+        self.back_button = SymbolicToolButton("go-previous-symbolic")
+        self.back_button.connect('clicked', self._on_back_clicked)
+
+        self.delete_button = Gtk.Button(_("Delete"))
+        self.delete_button.connect('clicked', self._on_delete_clicked)
 
         self.notebook = Gtk.Notebook()
         self.notebook.set_show_tabs(False)
@@ -318,7 +334,6 @@ class World(Clock):
         self.notebook.append_page(contentview, None)
 
         self.storage = WorldClockStorage()
-        self.clocks = []
         self.load_clocks()
         self.show_all()
 
@@ -326,6 +341,24 @@ class World(Clock):
         self.notebook.append_page(self.standalone, None)
 
         wallclock.connect("time-changed", self._tick_clocks)
+
+    def _on_new_clicked(self, button):
+        self.activate_new()
+
+    def _on_select_clicked(self, button):
+        self.set_mode(Clock.Mode.SELECTION)
+
+    def _on_done_clicked(self, button):
+        self.set_mode(Clock.Mode.NORMAL)
+
+    def _on_back_clicked(self, button):
+        self.embed.spotlight(lambda: self.set_mode(Clock.Mode.NORMAL))
+
+    def _on_delete_clicked(self, button):
+        selection = self.iconview.get_selection()
+        clocks = [self.liststore[path][2] for path in selection]
+        self.delete_clocks(clocks)
+        self.iconview.selection_deleted()
 
     def _thumb_data_func(self, view, cell, store, i, data):
         clock = store.get_value(i, 2)
@@ -347,6 +380,7 @@ class World(Clock):
             self.notebook.set_current_page(1)
         elif mode is Clock.Mode.SELECTION:
             self.iconview.set_selection_mode(True)
+        self.update_toolbar()
 
     def _tick_clocks(self, *args):
         for c in self.clocks:
@@ -358,28 +392,22 @@ class World(Clock):
     def _on_item_activated(self, iconview, path):
         clock = self.liststore[path][2]
         self.standalone.set_clock(clock)
-        self.emit("item-activated")
+        self.embed.spotlight(lambda: self.set_mode(Clock.Mode.STANDALONE))
 
     def _on_selection_changed(self, iconview):
-        self.emit("selection-changed")
-
-    @GObject.Property(type=bool, default=False)
-    def can_select(self):
-        return len(self.liststore) != 0
-
-    def get_selection(self):
-        return self.iconview.get_selection()
-
-    def delete_selected(self):
-        selection = self.get_selection()
-        clocks = [self.liststore[path][2] for path in selection]
-        self.delete_clocks(clocks)
-        self.emit("selection-changed")
+        selection = iconview.get_selection()
+        n_selected = len(selection)
+        self.toolbar.set_selection(n_selected)
+        if n_selected > 0:
+            self.embed.show_floatingbar(self.delete_button)
+        else:
+            self.embed.hide_floatingbar()
 
     def load_clocks(self):
         self.clocks = self.storage.load()
         for clock in self.clocks:
             self._add_clock_item(clock)
+        self.select_button.set_sensitive(self.clocks)
 
     def add_clock(self, location):
         if any(c.location.equal(location) for c in self.clocks):
@@ -389,21 +417,33 @@ class World(Clock):
         self.clocks.append(clock)
         self.storage.save(self.clocks)
         self._add_clock_item(clock)
+        self.select_button.set_sensitive(True)
         self.show_all()
 
     def _add_clock_item(self, clock):
         label = GLib.markup_escape_text(clock.name)
         self.liststore.append([False, "<b>%s</b>" % label, clock])
-        self.notify("can-select")
 
     def delete_clocks(self, clocks):
         self.clocks = [c for c in self.clocks if c not in clocks]
         self.storage.save(self.clocks)
         self.liststore.clear()
         self.load_clocks()
-        self.notify("can-select")
 
-    def open_new_dialog(self):
+    def update_toolbar(self):
+        self.toolbar.clear()
+        if self.mode is Clock.Mode.NORMAL:
+            self.toolbar.set_mode(Toolbar.Mode.NORMAL)
+            self.toolbar.add_widget(self.new_button)
+            self.toolbar.add_widget(self.select_button, Gtk.PackType.END)
+        elif self.mode is Clock.Mode.SELECTION:
+            self.toolbar.set_mode(Toolbar.Mode.SELECTION)
+            self.toolbar.add_widget(self.done_button, Gtk.PackType.END)
+        elif self.mode is Clock.Mode.STANDALONE:
+            self.toolbar.set_mode(Toolbar.Mode.STANDALONE)
+            self.toolbar.add_widget(self.back_button)
+
+    def activate_new(self):
         window = NewWorldClockDialog(self.get_toplevel())
         window.connect("response", self._on_dialog_response)
         window.show_all()

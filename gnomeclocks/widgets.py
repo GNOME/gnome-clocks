@@ -16,8 +16,187 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
+from gettext import ngettext
 from gi.repository import GObject, Gio, Gtk, Gdk, Pango
 from gi.repository import Clutter, GtkClutter
+
+
+class PageButton(Gtk.RadioButton):
+    _radio_group = None
+    _size_group = None
+
+    def __init__(self, text, page):
+        Gtk.RadioButton.__init__(self, group=PageButton._radio_group, draw_indicator=False)
+        if not PageButton._radio_group:
+            PageButton._radio_group = self
+        if not PageButton._size_group:
+            PageButton._size_group = Gtk.SizeGroup(mode=Gtk.SizeGroupMode.HORIZONTAL)
+        self.page = page
+        # We use two labels to make sure they
+        # keep the same size even when using bold
+        self.label = Gtk.Label()
+        self.label.set_markup(text)
+        self.label.show()
+        self.bold_label = Gtk.Label()
+        self.bold_label.set_markup("<b>%s</b>" % text)
+        self.bold_label.show()
+        PageButton._size_group.add_widget(self.label)
+        PageButton._size_group.add_widget(self.bold_label)
+        if self.get_active():
+            self.add(self.bold_label)
+        else:
+            self.add(self.label)
+        self.set_alignment(0.5, 0.5)
+        self.set_size_request(100, 34)
+        self.get_style_context().add_class('linked')
+
+    def do_toggled(self):
+        try:
+            label = self.get_child()
+            self.remove(label)
+            # We need to unset the flag manually until GTK fixes
+            # https://bugzilla.gnome.org/show_bug.cgi?id=688519
+            label.unset_state_flags(Gtk.StateFlags.ACTIVE)
+            if self.get_active():
+                self.add(self.bold_label)
+            else:
+                self.add(self.label)
+            self.show_all()
+        except TypeError:
+            # at construction the is no label yet
+            pass
+
+
+class Toolbar(Gtk.Toolbar):
+    class Mode:
+        NORMAL = 0
+        SELECTION = 1
+        STANDALONE = 2
+
+    def __init__(self):
+        Gtk.Toolbar.__init__(self)
+
+        self.mode = Toolbar.Mode.NORMAL
+        self.n_pages = 0
+        self.cur_page = 0
+
+        self.get_style_context().add_class("clocks-toolbar")
+        self.set_icon_size(Gtk.IconSize.MENU)
+        self.get_style_context().add_class(Gtk.STYLE_CLASS_MENUBAR)
+
+        size_group = Gtk.SizeGroup(Gtk.SizeGroupMode.HORIZONTAL)
+
+        left_item = Gtk.ToolItem()
+        size_group.add_widget(left_item)
+        self.left_box = Gtk.Box()
+        left_item.add(self.left_box)
+        self.insert(left_item, -1)
+
+        center_item = Gtk.ToolItem()
+        center_item.set_expand(True)
+        self.center_box = Gtk.Box()
+        center_item.add(self.center_box)
+        self.insert(center_item, -1)
+
+        right_item = Gtk.ToolItem()
+        size_group.add_widget(right_item)
+        self.right_box = Gtk.Box()
+        right_item.add(self.right_box)
+        self.insert(right_item, -1)
+
+        self.pages_box = Gtk.Box()
+        self.pages_box.set_homogeneous(True)
+        self.pages_box.set_halign(Gtk.Align.CENTER)
+        self.pages_box.get_style_context().add_class("linked")
+        self.center_box.pack_start(self.pages_box, True, False, 0)
+
+        self.selection_label = Gtk.Label()
+        self.selection_label.set_halign(Gtk.Align.CENTER)
+        self.selection_label.set_valign(Gtk.Align.CENTER)
+        self.center_box.pack_start(self.selection_label, True, False, 0)
+        self.set_selection(0)
+
+        self.title_label = Gtk.Label()
+        self.title_label.set_halign(Gtk.Align.CENTER)
+        self.title_label.set_valign(Gtk.Align.CENTER)
+        self.center_box.pack_start(self.title_label, True, False, 0)
+
+        self.show_all()
+
+    def append_page(self, label):
+        button = PageButton(label, self.n_pages)
+        button.show()
+        self.pages_box.pack_start(button, True, True, 0)
+        button.connect("toggled", lambda b: self.set_page(b.page))
+        if self.n_pages == 0:
+            button.set_active(True)
+        self.n_pages += 1
+
+    def set_page(self, page):
+        if page != self.cur_page:
+            self.cur_page = page
+            self.emit("page-changed", page)
+
+    def add_widget(self, widget, pack=Gtk.PackType.START):
+        if pack == Gtk.PackType.START:
+            self.left_box.pack_start(widget, False, False, 0)
+        else:
+            self.right_box.pack_end(widget, False, False, 0)
+        widget.show()
+
+    def clear(self):
+        for w in self.left_box:
+            self.left_box.remove(w)
+        for w in self.right_box:
+            self.right_box.remove(w)
+
+    def set_mode(self, mode):
+        if mode is Toolbar.Mode.NORMAL:
+            self.get_style_context().remove_class("selection-mode")
+            self.pages_box.show()
+            self.selection_label.hide()
+            self.title_label.hide()
+        elif mode is Toolbar.Mode.SELECTION:
+            self.get_style_context().add_class("selection-mode")
+            self.pages_box.hide()
+            self.selection_label.show()
+            self.title_label.hide()
+        elif mode is Toolbar.Mode.STANDALONE:
+            self.get_style_context().remove_class("selection-mode")
+            self.pages_box.hide()
+            self.selection_label.hide()
+            self.title_label.show()
+
+    def set_selection(self, n):
+        if n == 0:
+            self.selection_label.set_markup("(%s)" % _("Click on items to select them"))
+        else:
+            msg = ngettext("{0} item selected", "{0} items selected", n).format(n)
+            self.selection_label.set_markup("<b>%s</b>" % (msg))
+
+    def set_title(self, title):
+        self.title_label.set_markup("<b>%s</b>" % title)
+
+    @GObject.Signal(arg_types=(int,))
+    def page_changed(self, page):
+        self.current_page = page
+
+
+class ToolButton(Gtk.Button):
+    def __init__(self, label):
+        Gtk.Button.__init__(self, label)
+        self.set_size_request(64, 34)
+
+
+class SymbolicToolButton(Gtk.Button):
+    def __init__(self, iconname):
+        Gtk.Button.__init__(self)
+        icon = Gio.ThemedIcon.new_with_default_fallbacks(iconname)
+        image = Gtk.Image()
+        image.set_from_gicon(icon, Gtk.IconSize.MENU)
+        image.show()
+        self.add(image)
+        self.set_size_request(34, 34)
 
 
 class Spinner(Gtk.SpinButton):
@@ -203,6 +382,11 @@ class SelectableIconView(Gtk.IconView):
         store = self.get_model()
         return [row.path for row in store if row[self.selection_col]]
 
+    def selection_deleted(self):
+        # IconView is not very smart and does not emit selection-changed
+        # if selected items are deleted, so we give it a push ourselves...
+        self.emit("selection-changed")
+
     def set_selection_mode(self, active):
         if self.selection_mode != active:
             # clear selection
@@ -265,7 +449,7 @@ class ContentView(Gtk.Box):
         self.show_all()
 
 
-class SelectionToolbar:
+class FloatingToolbar:
     DEFAULT_WIDTH = 300
 
     def __init__(self, parent_actor):
@@ -273,7 +457,7 @@ class SelectionToolbar:
         self.widget.set_show_arrow(False)
         self.widget.set_icon_size(Gtk.IconSize.LARGE_TOOLBAR)
         self.widget.get_style_context().add_class('osd')
-        self.widget.set_size_request(SelectionToolbar.DEFAULT_WIDTH, -1)
+        self.widget.set_size_request(FloatingToolbar.DEFAULT_WIDTH, -1)
 
         self.actor = GtkClutter.Actor.new_with_contents(self.widget)
         self.actor.set_opacity(0)
@@ -291,18 +475,24 @@ class SelectionToolbar:
         constraint.set_factor(0.95)
         self.actor.add_constraint(constraint)
 
-        self._leftBox = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
-        self._leftGroup = Gtk.ToolItem()
-        self._leftGroup.set_expand(True)
-        self._leftGroup.add(self._leftBox)
-        self.widget.insert(self._leftGroup, -1)
-        self._toolbarDelete = Gtk.Button(_("Delete"))
-        self._leftBox.pack_start(self._toolbarDelete, True, True, 0)
+        self.button_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
+        item = Gtk.ToolItem()
+        item.set_expand(True)
+        item.add(self.button_box)
+        self.widget.insert(item, -1)
 
         self.widget.show_all()
         self.actor.hide()
 
         self._transition = None
+
+    def add_widget(self, widget):
+        widget.show()
+        self.button_box.pack_start(widget, True, True, 0)
+
+    def clear(self):
+        for w in self.button_box:
+            self.button_box.remove(w)
 
     def fade_in(self):
         self.actor.show()
@@ -372,8 +562,8 @@ class Embed(GtkClutter.Embed):
                              Clutter.BinAlignment.FILL,
                              Clutter.BinAlignment.FILL)
 
-        self._selectionToolbar = SelectionToolbar(self._contentsActor)
-        self._overlayLayout.add(self._selectionToolbar.actor,
+        self._floatingToolbar = FloatingToolbar(self._contentsActor)
+        self._overlayLayout.add(self._floatingToolbar.actor,
                                 Clutter.BinAlignment.FIXED,
                                 Clutter.BinAlignment.FIXED)
         self.show_all()
@@ -413,8 +603,10 @@ class Embed(GtkClutter.Embed):
         self._background.restore_easing_state()
         self._background.connect('transition-stopped::opacity', self._spotlight_finished)
 
-    def set_show_selectionbar(self, show):
-        if show:
-            self._selectionToolbar.fade_in()
-        else:
-            self._selectionToolbar.fade_out()
+    def show_floatingbar(self, widget):
+        self._floatingToolbar.clear()
+        self._floatingToolbar.add_widget(widget)
+        self._floatingToolbar.fade_in()
+
+    def hide_floatingbar(self):
+        self._floatingToolbar.fade_out()

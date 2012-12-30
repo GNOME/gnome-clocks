@@ -152,8 +152,8 @@ class Timer(Clock):
         RUNNING = 1
         PAUSED = 2
 
-    def __init__(self):
-        Clock.__init__(self, _("Timer"))
+    def __init__(self, toolbar, embed):
+        Clock.__init__(self, _("Timer"), toolbar, embed)
         self.state = Timer.State.STOPPED
         self.timeout_id = 0
         self._last_set_time = None

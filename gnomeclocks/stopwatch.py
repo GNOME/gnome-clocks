@@ -31,8 +31,8 @@ class Stopwatch(Clock):
         RUNNING = 1
         STOPPED = 2
 
-    def __init__(self):
-        Clock.__init__(self, _("Stopwatch"))
+    def __init__(self, toolbar, embed):
+        Clock.__init__(self, _("Stopwatch"), toolbar, embed)
 
         self.state = Stopwatch.State.RESET
 

@@ -20,10 +20,10 @@ import os
 import errno
 import json
 from datetime import timedelta
-from gi.repository import GLib, GObject, GdkPixbuf, Gtk
+from gi.repository import GLib, GObject, Gtk
 from clocks import Clock
 from utils import Alert, Dirs, LocalizedWeekdays, SystemSettings, TimeString, WallClock
-from widgets import SelectableIconView, ContentView
+from widgets import Toolbar, ToolButton, SymbolicToolButton, SelectableIconView, ContentView
 
 
 wallclock = WallClock.get_default()
@@ -56,7 +56,7 @@ class AlarmsStorage:
                 try:
                     n, h, m, d = (a['name'], int(a['hour']), int(a['minute']), a['days'])
                     # support the old format that didn't have the active key
-                    active = a['active'] if a.has_key('active') else True
+                    active = a['active'] if 'active' in a else True
                 except:
                     # skip alarms which do not have the required fields
                     continue
@@ -186,6 +186,7 @@ class AlarmItem:
             # give up and stop ringing after 5 minutes
             self.stop()
         return self.state != last_state
+
 
 class AlarmDialog(Gtk.Dialog):
     def __init__(self, parent, alarm=None):
@@ -450,9 +451,28 @@ class AlarmStandalone(Gtk.EventBox):
 
 
 class Alarm(Clock):
-    def __init__(self):
+    def __init__(self, embed, toolbar):
+        Clock.__init__(self, _("Alarm"), embed, toolbar)
+
         # Translators: "New" refers to an alarm
-        Clock.__init__(self, _("Alarm"), _("New"))
+        self.new_button = ToolButton(_("New"))
+        self.new_button.connect('clicked', self._on_new_clicked)
+
+        self.select_button = SymbolicToolButton("object-select-symbolic")
+        self.select_button.connect('clicked', self._on_select_clicked)
+
+        self.done_button = ToolButton(_("Done"))
+        self.done_button.get_style_context().add_class('suggested-action')
+        self.done_button.connect("clicked", self._on_done_clicked)
+
+        self.back_button = SymbolicToolButton("go-previous-symbolic")
+        self.back_button.connect('clicked', self._on_back_clicked)
+
+        self.edit_button = ToolButton(_("Edit"))
+        self.edit_button.connect('clicked', self._on_edit_clicked)
+
+        self.delete_button = Gtk.Button(_("Delete"))
+        self.delete_button.connect('clicked', self._on_delete_clicked)
 
         self.notebook = Gtk.Notebook()
         self.notebook.set_show_tabs(False)
@@ -470,7 +490,6 @@ class Alarm(Clock):
         self.notebook.append_page(contentview, None)
 
         self.storage = AlarmsStorage()
-
         self.load_alarms()
         self.show_all()
 
@@ -478,6 +497,27 @@ class Alarm(Clock):
         self.notebook.append_page(self.standalone, None)
 
         wallclock.connect("time-changed", self._tick_alarms)
+
+    def _on_new_clicked(self, button):
+        self.activate_new()
+
+    def _on_select_clicked(self, button):
+        self.set_mode(Clock.Mode.SELECTION)
+
+    def _on_done_clicked(self, button):
+        self.set_mode(Clock.Mode.NORMAL)
+
+    def _on_back_clicked(self, button):
+        self.embed.spotlight(lambda: self.set_mode(Clock.Mode.NORMAL))
+
+    def _on_edit_clicked(self, button):
+        self.standalone.open_edit_dialog()
+
+    def _on_delete_clicked(self, button):
+        selection = self.iconview.get_selection()
+        alarms = [self.liststore[path][2] for path in selection]
+        self.delete_alarms(alarms)
+        self.iconview.selection_deleted()
 
     def _thumb_data_func(self, view, cell, store, i, data):
         alarm = store.get_value(i, 2)
@@ -496,10 +536,11 @@ class Alarm(Clock):
                 self.standalone.alarm.stop()
             self.notebook.set_current_page(0)
             self.iconview.set_selection_mode(False)
-        elif mode is Clock.Mode.STANDALONE:
-            self.notebook.set_current_page(1)
         elif mode is Clock.Mode.SELECTION:
             self.iconview.set_selection_mode(True)
+        elif mode is Clock.Mode.STANDALONE:
+            self.notebook.set_current_page(1)
+        self.update_toolbar()
 
     @GObject.Signal
     def alarm_ringing(self):
@@ -520,34 +561,27 @@ class Alarm(Clock):
     def _on_item_activated(self, iconview, path):
         alarm = self.liststore[path][2]
         self.standalone.set_alarm(alarm)
-        self.emit("item-activated")
+        self.embed.spotlight(lambda: self.set_mode(Clock.Mode.STANDALONE))
 
     def _on_selection_changed(self, iconview):
-        self.emit("selection-changed")
-
-    @GObject.Property(type=bool, default=False)
-    def can_select(self):
-        return len(self.liststore) != 0
-
-    def get_selection(self):
-        return self.iconview.get_selection()
-
-    def delete_selected(self):
-        selection = self.get_selection()
-        alarms = [self.liststore[path][2] for path in selection]
-        self.delete_alarms(alarms)
-        self.emit("selection-changed")
+        selection = iconview.get_selection()
+        n_selected = len(selection)
+        self.toolbar.set_selection(n_selected)
+        if n_selected > 0:
+            self.embed.show_floatingbar(self.delete_button)
+        else:
+            self.embed.hide_floatingbar()
 
     def load_alarms(self):
         self.alarms = self.storage.load()
         for alarm in self.alarms:
             self._add_alarm_item(alarm)
+        self.select_button.set_sensitive(self.alarms)
 
     def save_alarms(self):
         self.storage.save(self.alarms)
         self.liststore.clear()
         self.load_alarms()
-        self.notify("can-select")
 
     def add_alarm(self, alarm):
         if alarm in self.alarms:
@@ -572,7 +606,21 @@ class Alarm(Clock):
         self.alarms = [a for a in self.alarms if a not in alarms]
         self.save_alarms()
 
-    def open_new_dialog(self):
+    def update_toolbar(self):
+        self.toolbar.clear()
+        if self.mode is Clock.Mode.NORMAL:
+            self.toolbar.set_mode(Toolbar.Mode.NORMAL)
+            self.toolbar.add_widget(self.new_button)
+            self.toolbar.add_widget(self.select_button, Gtk.PackType.END)
+        elif self.mode is Clock.Mode.SELECTION:
+            self.toolbar.set_mode(Toolbar.Mode.SELECTION)
+            self.toolbar.add_widget(self.done_button, Gtk.PackType.END)
+        elif self.mode is Clock.Mode.STANDALONE:
+            self.toolbar.set_mode(Toolbar.Mode.STANDALONE)
+            self.toolbar.add_widget(self.back_button)
+            self.toolbar.add_widget(self.edit_button, Gtk.PackType.END)
+
+    def activate_new(self):
         window = AlarmDialog(self.get_toplevel())
         window.connect("response", self._on_dialog_response)
         window.show_all()

@@ -16,7 +16,7 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
-from gi.repository import GObject, Gtk
+from gi.repository import Gtk
 
 
 class Clock(Gtk.EventBox):
@@ -25,39 +25,24 @@ class Clock(Gtk.EventBox):
         STANDALONE = 1
         SELECTION = 2
 
-    def __init__(self, label, new_label=None):
+    def __init__(self, label, toolbar, embed):
         Gtk.EventBox.__init__(self)
 
-        # We catch map/unmap here to allow pausing of expensive UI
-        # updates, like for the stopwatch, when corresponding UI is not
-        # visible.
+        self.toolbar = toolbar
+        self.embed = embed
+
         self.connect('map', self._ui_thaw)
         self.connect('unmap', self._ui_freeze)
 
         self.label = label
-        self.new_label = new_label
         self.mode = Clock.Mode.NORMAL
         self.get_style_context().add_class('view')
         self.get_style_context().add_class('content-view')
 
-    @GObject.Signal
-    def item_activated(self):
-        pass
+    def update_toolbar(self):
+        self.toolbar.clear()
 
-    @GObject.Signal
-    def selection_changed(self):
-        pass
-
-    def open_new_dialog(self):
-        pass
-
-    def get_selection(self):
-        pass
-
-    def delete_selected(self):
-        pass
-
-    def set_mode(self, mode):
+    def activate_new(self):
         pass
 
     def _ui_freeze(self, widget):
