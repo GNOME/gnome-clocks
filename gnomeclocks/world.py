@@ -288,9 +288,6 @@ class WorldStandalone(Gtk.EventBox):
             else:
                 self.sun_grid.hide()
 
-    def get_name(self):
-        return GLib.markup_escape_text(self.clock.name)
-
 
 class World(Clock):
     def __init__(self, embed, toolbar):
@@ -442,6 +439,7 @@ class World(Clock):
         elif self.mode is Clock.Mode.STANDALONE:
             self.toolbar.set_mode(Toolbar.Mode.STANDALONE)
             self.toolbar.add_widget(self.back_button)
+            self.toolbar.set_title(GLib.markup_escape_text(self.standalone.clock.name))
 
     def activate_new(self):
         window = NewWorldClockDialog(self.get_toplevel())

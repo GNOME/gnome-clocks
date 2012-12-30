@@ -426,10 +426,6 @@ class AlarmStandalone(Gtk.EventBox):
             self.alarm.set_active(switch_active)
             self.view.save_alarms()
 
-    def get_name(self):
-        name = self.alarm.name
-        return GLib.markup_escape_text(name)
-
     def open_edit_dialog(self):
         # implicitely disable, we do not want to ring while editing.
         self.edited_active = self.alarm.active
@@ -619,6 +615,7 @@ class Alarm(Clock):
             self.toolbar.set_mode(Toolbar.Mode.STANDALONE)
             self.toolbar.add_widget(self.back_button)
             self.toolbar.add_widget(self.edit_button, Gtk.PackType.END)
+            self.toolbar.set_title(GLib.markup_escape_text(self.standalone.alarm.name))
 
     def activate_new(self):
         window = AlarmDialog(self.get_toplevel())
