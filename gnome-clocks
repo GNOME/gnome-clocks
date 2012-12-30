@@ -21,10 +21,10 @@
 
 import signal
 import sys
-from gnomeclocks.app import ClocksApplication
+from gnomeclocks.app import Application
 
 if __name__ == "__main__":
-    app = ClocksApplication()
+    app = Application()
     # FIXME: Get rid of the following line which has the only purpose of
     # working around Ctrl+C not exiting Gtk applications from bug 622084.
     # https://bugzilla.gnome.org/show_bug.cgi?id=622084

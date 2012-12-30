@@ -83,7 +83,7 @@ class Window(Gtk.ApplicationWindow):
         self.add(vbox)
         vbox.show()
 
-    def _on_new_activated(self):
+    def _on_new_activated(self, action, param):
         view = self.views[self.notebook.get_current_page()]
         view.activate_new()
 
@@ -132,7 +132,7 @@ class Window(Gtk.ApplicationWindow):
         about.show()
 
 
-class ClocksApplication(Gtk.Application):
+class Application(Gtk.Application):
     def __init__(self):
         Gtk.Application.__init__(self)
 
