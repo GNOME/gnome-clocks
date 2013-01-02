@@ -290,8 +290,8 @@ class WorldStandalone(Gtk.EventBox):
 
 
 class World(Clock):
-    def __init__(self, embed, toolbar):
-        Clock.__init__(self, _("World"), embed, toolbar)
+    def __init__(self, toolbar, embed):
+        Clock.__init__(self, _("World"), toolbar, embed)
 
         # Translators: "New" refers to a world clock
         self.new_button = ToolButton(_("New"))

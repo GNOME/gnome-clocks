@@ -447,8 +447,8 @@ class AlarmStandalone(Gtk.EventBox):
 
 
 class Alarm(Clock):
-    def __init__(self, embed, toolbar):
-        Clock.__init__(self, _("Alarm"), embed, toolbar)
+    def __init__(self, toolbar, embed):
+        Clock.__init__(self, _("Alarm"), toolbar, embed)
 
         # Translators: "New" refers to an alarm
         self.new_button = ToolButton(_("New"))
