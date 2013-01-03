@@ -175,7 +175,8 @@ class Alert:
 
         self.notification = None
         if Notify.is_initted() or Notify.init("GNOME Clocks"):
-            self.notification = Notify.Notification.new(title, msg, 'gnome-clocks')
+            self.notification = Notify.Notification.new(title, msg, "gnome-clocks")
+            self.notification.set_hint_string("desktop-entry", "gnome-clocks");
         else:
             print "Error: Could not trigger Alert"
 
