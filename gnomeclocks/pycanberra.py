@@ -4,8 +4,19 @@
 # License: LGPL 2.1
 ##########################################################################
 from ctypes import *
-import exceptions
 import time
+
+# This is inspired by the six module: http://pypi.python.org/pypi/six
+import sys
+if sys.version_info.major == 3:
+    string_types = str,
+    def b(s):
+        return s.encode("latin-1")
+else:
+    string_types = basestring,
+    def b(s):
+        return s
+
 
 # /**
 #  * CA_PROP_MEDIA_NAME:
@@ -519,16 +530,16 @@ def GetApi():
 # int ca_proplist_set(ca_proplist *p, const char *key, const void *data, size_t nbytes);
 
 
-class CanberraException(exceptions.Exception):
+class CanberraException(Exception):
    def __init__(self, err, *args, **kwargs):
       self._err = err
-      super(exceptions.Exception, self).__init__(*args, **kwargs)
+      super(Exception, self).__init__(*args, **kwargs)
 
    def get_error(self):
       return self._err
 
    def __str__(self):
-      return super(exceptions.Exception, self).__str__() + " (error %d)" % self._err
+      return super(Exception, self).__str__() + " (error %d)" % self._err
    
 
 class Canberra(object):
@@ -557,6 +568,8 @@ class Canberra(object):
          raise CanberraException(res, "Failed to destroy context")
 
    def change_props(self, *args):
+      args = tuple(b(arg) if isinstance(arg, string_types) else arg
+                   for arg in args)
       res = GetApi().ca_context_change_props(self._handle, *args)
       if res != CA_SUCCESS:
          raise CanberraException(res, "Failed to change props")
@@ -574,11 +587,15 @@ class Canberra(object):
       pass
 
    def play(self, playId, *args):
+      args = tuple(b(arg) if isinstance(arg, string_types) else arg
+                   for arg in args)
       res = GetApi().ca_context_play(self._handle, playId, *args)
       if res != CA_SUCCESS:
          raise CanberraException(res, "Failed to play!")
 
    def cache(self, *args):
+      args = tuple(b(arg) if isinstance(arg, string_types) else arg
+                   for arg in args)
       res = GetApi().ca_context_cache(self._handle, *args)
       if res != CA_SUCCESS:
          raise CanberraException(res, "Failed to cache")
@@ -597,6 +614,8 @@ class Canberra(object):
 
    def easy_play_sync(self, eventName):
       """ play an event sound synchronously """
+      if isinstance(eventName, string_types):
+          eventName = b(eventName)
       self.play(1,
                 CA_PROP_EVENT_ID, eventName,
                 None)
@@ -607,4 +626,3 @@ if __name__ == "__main__":
    canberra = Canberra()
    canberra.easy_play_sync("system-ready")
    canberra.destroy()
-
