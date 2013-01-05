@@ -19,47 +19,43 @@
 from gi.repository import Gtk
 
 
-class Clock(Gtk.EventBox):
-    class Mode:
-        NORMAL = 0
-        STANDALONE = 1
-        SELECTION = 2
-
+class Clock(Gtk.Notebook):
     def __init__(self, label, toolbar, embed):
-        Gtk.EventBox.__init__(self)
-
-        self.toolbar = toolbar
-        self.embed = embed
+        Gtk.Notebook.__init__(self, show_tabs=False, show_border=False)
+        self.show()
+        self.label = label
+        self._embed = embed
+        self._toolbar = toolbar
 
         self.connect('map', self._ui_thaw)
         self.connect('unmap', self._ui_freeze)
 
-        self.label = label
-        self.mode = Clock.Mode.NORMAL
-        self.get_style_context().add_class('view')
-        self.get_style_context().add_class('content-view')
+    def insert_page(self, page, page_number):
+        page.show_all()
+        Gtk.Notebook.insert_page(self, page, None, page_number)
+
+    def change_page(self, page_number):
+        self.set_current_page(page_number)
+        self.update_toolbar()
+
+    def change_page_spotlight(self, page_number):
+        self._embed.spotlight(lambda: self.change_page(page_number))
 
     def update_toolbar(self):
-        self.toolbar.clear()
-
-    def activate_new(self):
-        pass
+        """Updates the toolbar depending on the current clock page."""
+        raise NotImplementedError
 
     def _ui_freeze(self, widget):
-        """
-        Called when the clock widget is unmapped.
+        """Called when the Clock widget is unmapped.
 
         Derived classes can implement this method to remove timeouts
-        in order to save CPU time while the clock widget is not
-        visible.
-        """
+        in order to save CPU time while the Clock widget is not
+        visible."""
         pass
 
     def _ui_thaw(self, widget):
-        """
-        Called when the clock widget is mapped.
+        """Called when the clock widget is mapped.
 
-        Derived clock classes can implement this method to re-add
-        timeouts when the clock widget becomes visible again.
-        """
+        Derived Clock classes can implement this method to re-add
+        timeouts when the Clock widget becomes visible again."""
         pass

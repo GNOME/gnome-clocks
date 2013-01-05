@@ -21,7 +21,7 @@ import math
 from gi.repository import GLib,  GObject, Gtk
 from clocks import Clock
 from utils import Alert
-from widgets import Spinner
+from widgets import Spinner, Toolbar
 
 
 class TimerScreen(Gtk.Grid):
@@ -152,6 +152,10 @@ class Timer(Clock):
         RUNNING = 1
         PAUSED = 2
 
+    class Page:
+        SETUP = 0
+        TIMER = 1
+
     def __init__(self, toolbar, embed):
         Clock.__init__(self, _("Timer"), toolbar, embed)
         self.state = Timer.State.STOPPED
@@ -159,21 +163,16 @@ class Timer(Clock):
         self._last_set_time = None
         self._ui_is_frozen = False
 
-        self.notebook = Gtk.Notebook()
-        self.notebook.set_show_tabs(False)
-        self.notebook.set_show_border(False)
-        self.add(self.notebook)
-
         # force the time label and the spinner to the same size
         size_group = Gtk.SizeGroup(Gtk.SizeGroupMode.VERTICAL)
 
         self.setup_screen = TimerSetupScreen(self, size_group)
-        self.notebook.append_page(self.setup_screen, None)
+        self.insert_page(self.setup_screen, self.Page.SETUP)
 
         self.timer_screen = TimerScreen(self, size_group)
-        self.notebook.append_page(self.timer_screen, None)
+        self.insert_page(self.timer_screen, self.Page.TIMER)
 
-        self.show_all()
+        self.set_current_page(self.Page.SETUP)
 
         self.alert = Alert("complete",
                            _("Time is up!"),
@@ -182,14 +181,6 @@ class Timer(Clock):
     @GObject.Signal
     def alarm_ringing(self):
         self.alert.show()
-
-    def show_setup_screen(self, reset):
-        self.notebook.set_current_page(0)
-        if reset:
-            self.setup_screen.set_values(0, 0, 0)
-
-    def show_timer_screen(self):
-        self.notebook.set_current_page(1)
 
     def _add_timeout(self):
         if self.timeout_id == 0:
@@ -208,12 +199,13 @@ class Timer(Clock):
             self.deadline = time.time() + self.duration
             self.state = Timer.State.RUNNING
             self._add_timeout()
-            self.show_timer_screen()
+            self.change_page(self.Page.TIMER)
 
     def reset(self):
         self.state = Timer.State.STOPPED
         self._remove_timeout()
-        self.show_setup_screen(True)
+        self.setup_screen.set_values(0, 0, 0)
+        self.change_page(Timer.Page.SETUP)
 
     def pause(self):
         self.duration = self.deadline - time.time()
@@ -232,7 +224,7 @@ class Timer(Clock):
             self.state = Timer.State.STOPPED
             self._remove_timeout()
             self.timer_screen.set_time(0, 0, 0)
-            self.show_setup_screen(False)
+            self.change_page(self.Page.SETUP)
             return False
         elif not self._ui_is_frozen:
             # math.ceil() is needed because we count backwards. It assures the
@@ -245,6 +237,10 @@ class Timer(Clock):
                 self.timer_screen.set_time(h, m, s)
                 self._last_set_time = (h, m, s)
         return True
+
+    def update_toolbar(self):
+        self._toolbar.clear()
+        self._toolbar.set_mode(Toolbar.Mode.NORMAL)
 
     def _ui_freeze(self, widget):
         self._ui_is_frozen = True

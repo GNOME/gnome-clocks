@@ -447,6 +447,10 @@ class AlarmStandalone(Gtk.EventBox):
 
 
 class Alarm(Clock):
+    class Page:
+        OVERVIEW = 0
+        STANDALONE = 1
+
     def __init__(self, toolbar, embed):
         Clock.__init__(self, _("Alarm"), toolbar, embed)
 
@@ -470,11 +474,6 @@ class Alarm(Clock):
         self.delete_button = Gtk.Button(_("Delete"))
         self.delete_button.connect('clicked', self._on_delete_clicked)
 
-        self.notebook = Gtk.Notebook()
-        self.notebook.set_show_tabs(False)
-        self.notebook.set_show_border(False)
-        self.add(self.notebook)
-
         self.liststore = Gtk.ListStore(bool, str, object)
         self.iconview = SelectableIconView(self.liststore, 0, 1, self._thumb_data_func)
         self.iconview.connect("item-activated", self._on_item_activated)
@@ -483,14 +482,14 @@ class Alarm(Clock):
         contentview = ContentView(self.iconview,
                                   "alarm-symbolic",
                                   _("Select <b>New</b> to add an alarm"))
-        self.notebook.append_page(contentview, None)
+        self.standalone = AlarmStandalone(self)
+
+        self.insert_page(contentview, Alarm.Page.OVERVIEW)
+        self.insert_page(self.standalone, Alarm.Page.STANDALONE)
+        self.set_current_page(Alarm.Page.OVERVIEW)
 
         self.storage = AlarmsStorage()
         self.load_alarms()
-        self.show_all()
-
-        self.standalone = AlarmStandalone(self)
-        self.notebook.append_page(self.standalone, None)
 
         wallclock.connect("time-changed", self._tick_alarms)
 
@@ -498,13 +497,16 @@ class Alarm(Clock):
         self.activate_new()
 
     def _on_select_clicked(self, button):
-        self.set_mode(Clock.Mode.SELECTION)
+        self.iconview.set_selection_mode(True)
+        self.update_toolbar()
 
     def _on_done_clicked(self, button):
-        self.set_mode(Clock.Mode.NORMAL)
+        self.iconview.set_selection_mode(False)
+        self.update_toolbar()
+        self._embed.hide_floatingbar()
 
     def _on_back_clicked(self, button):
-        self.embed.spotlight(lambda: self.set_mode(Clock.Mode.NORMAL))
+        self.change_page_spotlight(Alarm.Page.OVERVIEW)
 
     def _on_edit_clicked(self, button):
         self.standalone.open_edit_dialog()
@@ -524,23 +526,9 @@ class Alarm(Clock):
         else:
             cell.css_class = "inactive"
 
-    def set_mode(self, mode):
-        self.mode = mode
-        if mode is Clock.Mode.NORMAL:
-            if self.standalone.alarm and \
-                    self.standalone.alarm.state == AlarmItem.State.RINGING:
-                self.standalone.alarm.stop()
-            self.notebook.set_current_page(0)
-            self.iconview.set_selection_mode(False)
-        elif mode is Clock.Mode.SELECTION:
-            self.iconview.set_selection_mode(True)
-        elif mode is Clock.Mode.STANDALONE:
-            self.notebook.set_current_page(1)
-        self.update_toolbar()
-
     @GObject.Signal
     def alarm_ringing(self):
-        self.set_mode(Clock.Mode.STANDALONE)
+        self.set_current_page(Alarm.Page.STANDALONE)
 
     def _tick_alarms(self, *args):
         for a in self.alarms:
@@ -557,16 +545,16 @@ class Alarm(Clock):
     def _on_item_activated(self, iconview, path):
         alarm = self.liststore[path][2]
         self.standalone.set_alarm(alarm)
-        self.embed.spotlight(lambda: self.set_mode(Clock.Mode.STANDALONE))
+        self.change_page_spotlight(Alarm.Page.STANDALONE)
 
     def _on_selection_changed(self, iconview):
         selection = iconview.get_selection()
         n_selected = len(selection)
-        self.toolbar.set_selection(n_selected)
+        self._toolbar.set_selection(n_selected)
         if n_selected > 0:
-            self.embed.show_floatingbar(self.delete_button)
+            self._embed.show_floatingbar(self.delete_button)
         else:
-            self.embed.hide_floatingbar()
+            self._embed.hide_floatingbar()
 
     def load_alarms(self):
         self.alarms = self.storage.load()
@@ -603,19 +591,21 @@ class Alarm(Clock):
         self.save_alarms()
 
     def update_toolbar(self):
-        self.toolbar.clear()
-        if self.mode is Clock.Mode.NORMAL:
-            self.toolbar.set_mode(Toolbar.Mode.NORMAL)
-            self.toolbar.add_widget(self.new_button)
-            self.toolbar.add_widget(self.select_button, Gtk.PackType.END)
-        elif self.mode is Clock.Mode.SELECTION:
-            self.toolbar.set_mode(Toolbar.Mode.SELECTION)
-            self.toolbar.add_widget(self.done_button, Gtk.PackType.END)
-        elif self.mode is Clock.Mode.STANDALONE:
-            self.toolbar.set_mode(Toolbar.Mode.STANDALONE)
-            self.toolbar.add_widget(self.back_button)
-            self.toolbar.add_widget(self.edit_button, Gtk.PackType.END)
-            self.toolbar.set_title(GLib.markup_escape_text(self.standalone.alarm.name))
+        self._toolbar.clear()
+        if self.get_current_page() == Alarm.Page.OVERVIEW:
+            if self.iconview.selection_mode:
+                self._toolbar.set_mode(Toolbar.Mode.SELECTION)
+                self._toolbar.add_widget(self.done_button, Gtk.PackType.END)
+            else:
+                self._toolbar.set_mode(Toolbar.Mode.NORMAL)
+                self._toolbar.add_widget(self.new_button)
+                self._toolbar.add_widget(self.select_button, Gtk.PackType.END)
+        elif self.get_current_page() == Alarm.Page.STANDALONE:
+            self._toolbar.set_mode(Toolbar.Mode.STANDALONE)
+            self._toolbar.add_widget(self.back_button)
+            self._toolbar.add_widget(self.edit_button, Gtk.PackType.END)
+            self._toolbar.set_title(GLib.markup_escape_text(
+                                    self.standalone.alarm.name))
 
     def activate_new(self):
         window = AlarmDialog(self.get_toplevel())

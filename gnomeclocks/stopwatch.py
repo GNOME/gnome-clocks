@@ -19,12 +19,16 @@
 import time
 from gi.repository import GLib, Gtk
 from clocks import Clock
+from widgets import Toolbar
 
 
 class Stopwatch(Clock):
     LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%04.1f</span>"
     LABEL_MARKUP_LONG = "<span font_desc=\"64.0\">%i:%02i:%04.1f</span>"
     BUTTON_MARKUP = "<span font_desc=\"18.0\">%s</span>"
+
+    class Page:
+        STANDALONE = 0
 
     class State:
         RESET = 0
@@ -46,7 +50,6 @@ class Stopwatch(Clock):
         self.lap_time_diff = 0
 
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-        self.add(vbox)
 
         grid = Gtk.Grid()
         grid.set_margin_top(36)
@@ -111,7 +114,7 @@ class Stopwatch(Clock):
         scroll.set_vexpand(True)
         scroll.add(self.laps_view)
         vbox.pack_start(scroll, True, True, 0)
-
+        self.insert_page(vbox, self.Page.STANDALONE)
         self.show_all()
 
     def _on_left_button_clicked(self, widget):
@@ -207,6 +210,10 @@ class Stopwatch(Clock):
         (h, m, s) = self.get_time()
         self.set_time_label(h, m, s)
         return True
+
+    def update_toolbar(self):
+        self._toolbar.clear()
+        self._toolbar.set_mode(Toolbar.Mode.NORMAL)
 
     def _ui_freeze(self, widget):
         if self.state == Stopwatch.State.RUNNING:

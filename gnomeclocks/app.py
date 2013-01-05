@@ -90,6 +90,7 @@ class Window(Gtk.ApplicationWindow):
 
     def _on_alarm_ringing(self, view):
         self.notebook.set_current_page(self.views.index(view))
+        view.update_toolbar()
 
     def _on_page_changed(self, toolbar, page):
         self.notebook.set_current_page(page)

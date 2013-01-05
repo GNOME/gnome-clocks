@@ -290,6 +290,10 @@ class WorldStandalone(Gtk.EventBox):
 
 
 class World(Clock):
+    class Page:
+        OVERVIEW = 0
+        STANDALONE = 1
+
     def __init__(self, toolbar, embed):
         Clock.__init__(self, _("World"), toolbar, embed)
 
@@ -310,11 +314,6 @@ class World(Clock):
         self.delete_button = Gtk.Button(_("Delete"))
         self.delete_button.connect('clicked', self._on_delete_clicked)
 
-        self.notebook = Gtk.Notebook()
-        self.notebook.set_show_tabs(False)
-        self.notebook.set_show_border(False)
-        self.add(self.notebook)
-
         f = os.path.join(Dirs.get_images_dir(), "day.png")
         self.daypixbuf = GdkPixbuf.Pixbuf.new_from_file(f)
         f = os.path.join(Dirs.get_images_dir(), "night.png")
@@ -328,14 +327,14 @@ class World(Clock):
         contentview = ContentView(self.iconview,
                                   "document-open-recent-symbolic",
                                   _("Select <b>New</b> to add a world clock"))
-        self.notebook.append_page(contentview, None)
+        self.standalone = WorldStandalone()
+
+        self.insert_page(contentview, World.Page.OVERVIEW)
+        self.insert_page(self.standalone, World.Page.STANDALONE)
+        self.set_current_page(World.Page.OVERVIEW)
 
         self.storage = WorldClockStorage()
         self.load_clocks()
-        self.show_all()
-
-        self.standalone = WorldStandalone()
-        self.notebook.append_page(self.standalone, None)
 
         wallclock.connect("time-changed", self._tick_clocks)
 
@@ -343,13 +342,16 @@ class World(Clock):
         self.activate_new()
 
     def _on_select_clicked(self, button):
-        self.set_mode(Clock.Mode.SELECTION)
+        self.iconview.set_selection_mode(True)
+        self.update_toolbar()
 
     def _on_done_clicked(self, button):
-        self.set_mode(Clock.Mode.NORMAL)
+        self.iconview.set_selection_mode(False)
+        self.update_toolbar()
+        self._embed.hide_floatingbar()
 
     def _on_back_clicked(self, button):
-        self.embed.spotlight(lambda: self.set_mode(Clock.Mode.NORMAL))
+        self.change_page_spotlight(World.Page.OVERVIEW)
 
     def _on_delete_clicked(self, button):
         selection = self.iconview.get_selection()
@@ -368,17 +370,6 @@ class World(Clock):
             cell.props.pixbuf = self.nightpixbuf
             cell.css_class = "dark"
 
-    def set_mode(self, mode):
-        self.mode = mode
-        if mode is Clock.Mode.NORMAL:
-            self.notebook.set_current_page(0)
-            self.iconview.set_selection_mode(False)
-        elif mode is Clock.Mode.STANDALONE:
-            self.notebook.set_current_page(1)
-        elif mode is Clock.Mode.SELECTION:
-            self.iconview.set_selection_mode(True)
-        self.update_toolbar()
-
     def _tick_clocks(self, *args):
         for c in self.clocks:
             c.tick()
@@ -389,16 +380,16 @@ class World(Clock):
     def _on_item_activated(self, iconview, path):
         clock = self.liststore[path][2]
         self.standalone.set_clock(clock)
-        self.embed.spotlight(lambda: self.set_mode(Clock.Mode.STANDALONE))
+        self.change_page_spotlight(World.Page.STANDALONE)
 
     def _on_selection_changed(self, iconview):
         selection = iconview.get_selection()
         n_selected = len(selection)
-        self.toolbar.set_selection(n_selected)
+        self._toolbar.set_selection(n_selected)
         if n_selected > 0:
-            self.embed.show_floatingbar(self.delete_button)
+            self._embed.show_floatingbar(self.delete_button)
         else:
-            self.embed.hide_floatingbar()
+            self._embed.hide_floatingbar()
 
     def load_clocks(self):
         self.clocks = self.storage.load()
@@ -428,18 +419,19 @@ class World(Clock):
         self.load_clocks()
 
     def update_toolbar(self):
-        self.toolbar.clear()
-        if self.mode is Clock.Mode.NORMAL:
-            self.toolbar.set_mode(Toolbar.Mode.NORMAL)
-            self.toolbar.add_widget(self.new_button)
-            self.toolbar.add_widget(self.select_button, Gtk.PackType.END)
-        elif self.mode is Clock.Mode.SELECTION:
-            self.toolbar.set_mode(Toolbar.Mode.SELECTION)
-            self.toolbar.add_widget(self.done_button, Gtk.PackType.END)
-        elif self.mode is Clock.Mode.STANDALONE:
-            self.toolbar.set_mode(Toolbar.Mode.STANDALONE)
-            self.toolbar.add_widget(self.back_button)
-            self.toolbar.set_title(GLib.markup_escape_text(self.standalone.clock.name))
+        self._toolbar.clear()
+        if self.get_current_page() == World.Page.OVERVIEW:
+            if self.iconview.selection_mode:
+                self._toolbar.set_mode(Toolbar.Mode.SELECTION)
+                self._toolbar.add_widget(self.done_button, Gtk.PackType.END)
+            else:
+                self._toolbar.set_mode(Toolbar.Mode.NORMAL)
+                self._toolbar.add_widget(self.new_button)
+                self._toolbar.add_widget(self.select_button, Gtk.PackType.END)
+        elif self.get_current_page() == World.Page.STANDALONE:
+            self._toolbar.set_mode(Toolbar.Mode.STANDALONE)
+            self._toolbar.add_widget(self.back_button)
+            self._toolbar.set_title(GLib.markup_escape_text(self.standalone.clock.name))
 
     def activate_new(self):
         window = NewWorldClockDialog(self.get_toplevel())
