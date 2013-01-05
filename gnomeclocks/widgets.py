@@ -360,8 +360,10 @@ class SelectableIconView(Gtk.IconView):
         self.selection_mode = False
         self.selection_col = selection_col
 
-        self.set_spacing(3)
         self.get_style_context().add_class('content-view')
+
+        self.set_column_spacing(20)
+        self.set_margin(16)
 
         self.icon_renderer = DigitalClockRenderer()
         self.icon_renderer.set_alignment(0.5, 0.5)
@@ -373,7 +375,7 @@ class SelectableIconView(Gtk.IconView):
         renderer_text = Gtk.CellRendererText()
         renderer_text.set_alignment(0.5, 0.5)
         renderer_text.set_fixed_size(160, -1)
-        renderer_text.props.wrap_width = 160
+        renderer_text.props.wrap_width = 140
         renderer_text.props.wrap_mode = Pango.WrapMode.WORD_CHAR
         self.pack_start(renderer_text, True)
         self.add_attribute(renderer_text, "markup", text_col)

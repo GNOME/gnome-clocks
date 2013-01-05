@@ -51,7 +51,8 @@ class Window(Gtk.ApplicationWindow):
                                         css_provider,
                                         Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
-        self.set_size_request(640, 480)
+        # Default size is enough for two rows of 8 clocks
+        self.set_size_request(788, 540)
 
         self.toolbar = Toolbar()
         self.toolbar.connect("page-changed", self._on_page_changed)

@@ -49,8 +49,8 @@ class Stopwatch(Clock):
         self.add(vbox)
 
         grid = Gtk.Grid()
-        grid.set_margin_top(12)
-        grid.set_margin_bottom(48)
+        grid.set_margin_top(36)
+        grid.set_margin_bottom(60)
         grid.set_halign(Gtk.Align.CENTER)
         grid.set_row_spacing(24)
         grid.set_column_spacing(24)
