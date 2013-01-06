@@ -3,15 +3,11 @@
 @define-color clocks_stop_color_a #f44848;
 @define-color clocks_stop_color_b #ff6565;
 
-.clocks-toolbar.toolbar {
+.clocks-content-view {
     border-style: solid;
     border-color: @borders;
-    border-width: 0 0 1px 0;
+    border-width: 1px 0 0 0;
     border-radius: 0;
-}
-
-.clocks-toolbar.selection-mode.toolbar {
-    border-width: 1px 0;
 }
 
 .clocks-digital-renderer {

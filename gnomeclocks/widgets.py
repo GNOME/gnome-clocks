@@ -80,7 +80,6 @@ class Toolbar(Gtk.Toolbar):
         self.n_pages = 0
         self.cur_page = 0
 
-        self.get_style_context().add_class("clocks-toolbar")
         self.set_icon_size(Gtk.IconSize.MENU)
         self.get_style_context().add_class(Gtk.STYLE_CLASS_MENUBAR)
 

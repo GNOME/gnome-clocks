@@ -27,6 +27,11 @@ class Clock(Gtk.Notebook):
         self._embed = embed
         self._toolbar = toolbar
 
+        self.set_show_border(True)
+        self.get_style_context().add_class('clocks-content-view')
+        self.get_style_context().add_class('view')
+        self.get_style_context().add_class('content-view')
+
         self.connect('map', self._ui_thaw)
         self.connect('unmap', self._ui_freeze)
 
