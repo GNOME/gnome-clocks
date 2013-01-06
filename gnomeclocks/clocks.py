@@ -21,13 +21,12 @@ from gi.repository import Gtk
 
 class Clock(Gtk.Notebook):
     def __init__(self, label, toolbar, embed):
-        Gtk.Notebook.__init__(self, show_tabs=False, show_border=False)
+        Gtk.Notebook.__init__(self, show_tabs=False, show_border=True)
         self.show()
         self.label = label
         self._embed = embed
         self._toolbar = toolbar
 
-        self.set_show_border(True)
         self.get_style_context().add_class('clocks-content-view')
         self.get_style_context().add_class('view')
         self.get_style_context().add_class('content-view')
