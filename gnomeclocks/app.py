@@ -59,7 +59,10 @@ class Window(Gtk.ApplicationWindow):
 
         self.notebook = Gtk.Notebook()
         self.notebook.set_show_tabs(False)
-        self.notebook.set_show_border(False)
+        self.notebook.set_show_border(True)
+        self.notebook.get_style_context().add_class('clocks-content-view')
+        self.notebook.get_style_context().add_class('view')
+        self.notebook.get_style_context().add_class('content-view')
 
         self.embed = Embed(self.notebook)
 
