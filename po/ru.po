@@ -9,26 +9,26 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-11-25 15:27+0000\n"
-"PO-Revision-Date: 2012-12-15 12:03+0300\n"
-"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-01-08 13:33+0000\n"
+"PO-Revision-Date: 2013-01-09 15:52+0400\n"
+"Last-Translator: Aleksej Kabanov <ak099@mail.ru>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Lokalize 1.4\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1
-#: ../gnomeclocks/app.py:35
+#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:33
 msgid "Clocks"
 msgstr "Часы"
 
-#: ../data/gnome-clocks.desktop.in.h:2
-#: ../gnomeclocks/app.py:136
-#: ../gnomeclocks/app.py:145
+#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:106
+#: ../gnomeclocks/app.py:115
 msgid "GNOME Clocks"
 msgstr "Часы GNOME"
 
@@ -40,139 +40,132 @@ msgstr "Часы мирового времени, а также будильни
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "время;таймер;будильник;мировое время;часовой пояс;"
 
-#: ../gnomeclocks/alarm.py:132
+#: ../gnomeclocks/alarm.py:93 ../gnomeclocks/alarm.py:455
+msgid "Alarm"
+msgstr "Будильник"
+
+#: ../gnomeclocks/alarm.py:130
 msgid "Every day"
 msgstr "Ежедневно"
 
-#: ../gnomeclocks/alarm.py:134
+#: ../gnomeclocks/alarm.py:132
 msgid "Weekdays"
 msgstr "Будни"
 
-#: ../gnomeclocks/alarm.py:164
+#: ../gnomeclocks/alarm.py:194
 msgid "Edit Alarm"
 msgstr "Настроить будильник"
 
-#: ../gnomeclocks/alarm.py:166
-#: ../gnomeclocks/alarm.py:192
+#: ../gnomeclocks/alarm.py:196 ../gnomeclocks/alarm.py:222
 msgid "New Alarm"
 msgstr "Создать будильник"
 
 #. Translators: "Time" in this context is the time an alarm
 #. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:197
+#: ../gnomeclocks/alarm.py:227
 msgid "Time"
 msgstr "Время"
 
-#: ../gnomeclocks/alarm.py:240
+#: ../gnomeclocks/alarm.py:270
 msgid "Name"
 msgstr "Имя"
 
-#: ../gnomeclocks/alarm.py:249
+#: ../gnomeclocks/alarm.py:279
 msgid "Repeat Every"
 msgstr "Повторять каждые"
 
-#: ../gnomeclocks/alarm.py:325
-#: ../gnomeclocks/stopwatch.py:111
+#: ../gnomeclocks/alarm.py:349 ../gnomeclocks/stopwatch.py:124
 msgid "Stop"
 msgstr "Остановить"
 
-#: ../gnomeclocks/alarm.py:327
+#: ../gnomeclocks/alarm.py:351
 msgid "Snooze"
 msgstr "Напомнить"
 
 #. Translators: "New" refers to an alarm
-#: ../gnomeclocks/alarm.py:390
-msgid "Alarm"
-msgstr "Будильник"
-
-#: ../gnomeclocks/alarm.py:390
-#: ../gnomeclocks/world.py:293
+#. Translators: "New" refers to a world clock
+#: ../gnomeclocks/alarm.py:458 ../gnomeclocks/world.py:301
 msgid "New"
 msgstr "Создать"
 
-#: ../gnomeclocks/alarm.py:409
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Выберите <b>Создать</b>, чтобы добавить будильник"
-
-#: ../gnomeclocks/app.py:135
-#: ../gnomeclocks/app.py:419
-msgid "About Clocks"
-msgstr "О программе"
-
-#: ../gnomeclocks/app.py:141
-msgid "Utilities to help you with the time."
-msgstr "Утилиты для помощи в организации времени."
-
-#: ../gnomeclocks/app.py:143
-msgid "translator-credits"
-msgstr "Станислав Соловей <whats_up@tut.by>, 2012"
-
-#: ../gnomeclocks/app.py:295
-msgid "Edit"
-msgstr "Правка"
-
-#: ../gnomeclocks/app.py:300
+#: ../gnomeclocks/alarm.py:464 ../gnomeclocks/world.py:307
 msgid "Done"
 msgstr "Готово"
 
-#: ../gnomeclocks/app.py:379
-msgid "Click on items to select them"
-msgstr "Нажмите на элемент, чтобы выбрать его"
+#: ../gnomeclocks/alarm.py:471
+msgid "Edit"
+msgstr "Правка"
 
-#: ../gnomeclocks/app.py:381
-msgid "{0} item selected"
-msgid_plural "{0} items selected"
-msgstr[0] "Выбран {0} элемент"
-msgstr[1] "Выбрано {0} элемента"
-msgstr[2] "Выбрано {0} элементов"
+#: ../gnomeclocks/alarm.py:474 ../gnomeclocks/world.py:314
+msgid "Delete"
+msgstr "Удалить"
 
-#: ../gnomeclocks/app.py:422
+#: ../gnomeclocks/alarm.py:484
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Выберите <b>Создать</b>, чтобы добавить будильник"
+
+#: ../gnomeclocks/app.py:105 ../gnomeclocks/app.py:147
+msgid "About Clocks"
+msgstr "О программе"
+
+#: ../gnomeclocks/app.py:111
+msgid "Utilities to help you with the time."
+msgstr "Утилиты для помощи в организации времени."
+
+#: ../gnomeclocks/app.py:113
+msgid "translator-credits"
+msgstr "Станислав Соловей <whats_up@tut.by>, 2012"
+
+#: ../gnomeclocks/app.py:150
 msgid "Quit"
 msgstr "Закончить"
 
-#: ../gnomeclocks/stopwatch.py:35
+#: ../gnomeclocks/stopwatch.py:39
 msgid "Stopwatch"
 msgstr "Секундомер"
 
-#: ../gnomeclocks/stopwatch.py:67
-#: ../gnomeclocks/stopwatch.py:143
-#: ../gnomeclocks/timer.py:110
+#: ../gnomeclocks/stopwatch.py:70 ../gnomeclocks/stopwatch.py:156
+#: ../gnomeclocks/timer.py:111
 msgid "Start"
 msgstr "Запустить"
 
-#: ../gnomeclocks/stopwatch.py:75
-#: ../gnomeclocks/stopwatch.py:122
-#: ../gnomeclocks/timer.py:52
+#: ../gnomeclocks/stopwatch.py:78 ../gnomeclocks/stopwatch.py:135
+#: ../gnomeclocks/timer.py:53
 msgid "Reset"
 msgstr "Сбросить"
 
-#: ../gnomeclocks/stopwatch.py:85
-#: ../gnomeclocks/stopwatch.py:114
+#: ../gnomeclocks/stopwatch.py:90 ../gnomeclocks/stopwatch.py:127
 msgid "Lap"
 msgstr "Круг"
 
-#: ../gnomeclocks/stopwatch.py:88
+#: ../gnomeclocks/stopwatch.py:96
 msgid "Split"
 msgstr "Разрыв"
 
-#: ../gnomeclocks/stopwatch.py:91
+#: ../gnomeclocks/stopwatch.py:102
 msgid "Total"
 msgstr "Общее"
 
-#: ../gnomeclocks/stopwatch.py:118
-#: ../gnomeclocks/timer.py:69
+#: ../gnomeclocks/stopwatch.py:131 ../gnomeclocks/timer.py:70
 msgid "Continue"
 msgstr "Продолжить"
 
-#: ../gnomeclocks/timer.py:45
-#: ../gnomeclocks/timer.py:63
-#: ../gnomeclocks/timer.py:73
+#: ../gnomeclocks/timer.py:46 ../gnomeclocks/timer.py:64
+#: ../gnomeclocks/timer.py:74
 msgid "Pause"
 msgstr "Приостановить"
 
-#: ../gnomeclocks/timer.py:155
+#: ../gnomeclocks/timer.py:160
 msgid "Timer"
 msgstr "Таймер"
+
+#: ../gnomeclocks/timer.py:178
+msgid "Time is up!"
+msgstr "Время истекло!"
+
+#: ../gnomeclocks/timer.py:179
+msgid "Timer countdown finished"
+msgstr "Обратный отсчёт таймера завершён"
 
 #: ../gnomeclocks/utils.py:83
 msgid "Mondays"
@@ -202,42 +195,46 @@ msgstr "субботы"
 msgid "Sundays"
 msgstr "воскресенья"
 
-#: ../gnomeclocks/widgets.py:306
-msgid "Delete"
-msgstr "Удалить"
+#: ../gnomeclocks/widgets.py:171
+msgid "Click on items to select them"
+msgstr "Нажмите на элемент, чтобы выбрать его"
 
-#: ../gnomeclocks/world.py:66
+#: ../gnomeclocks/widgets.py:173
+msgid "{0} item selected"
+msgid_plural "{0} items selected"
+msgstr[0] "Выбран {0} элемент"
+msgstr[1] "Выбрано {0} элемента"
+msgstr[2] "Выбрано {0} элементов"
+
+#: ../gnomeclocks/world.py:74
 msgid "Add a New World Clock"
 msgstr "Добавить новые мировые часы"
 
-#: ../gnomeclocks/world.py:75
+#: ../gnomeclocks/world.py:83
 msgid "Search for a city:"
 msgstr "Поиск по городу:"
 
-#: ../gnomeclocks/world.py:175
-#: ../gnomeclocks/world.py:182
+#: ../gnomeclocks/world.py:184 ../gnomeclocks/world.py:191
 msgid "Yesterday"
 msgstr "Вчера"
 
-#: ../gnomeclocks/world.py:177
-#: ../gnomeclocks/world.py:180
+#: ../gnomeclocks/world.py:186 ../gnomeclocks/world.py:189
 msgid "Tomorrow"
 msgstr "Завтра"
 
-#: ../gnomeclocks/world.py:237
+#: ../gnomeclocks/world.py:228
 msgid "Sunrise"
 msgstr "Рассвет"
 
-#: ../gnomeclocks/world.py:247
+#: ../gnomeclocks/world.py:232
 msgid "Sunset"
 msgstr "Закат"
 
-#. Translators: "New" refers to a world clock
-#: ../gnomeclocks/world.py:293
+#: ../gnomeclocks/world.py:298
 msgid "World"
 msgstr "Мировое время"
 
-#: ../gnomeclocks/world.py:312
+#: ../gnomeclocks/world.py:329
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Выберите <b>Создать</b>, чтобы добавить мировые часы"
 
