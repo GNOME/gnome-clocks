@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-24 22:43+0000\n"
+"POT-Creation-Date: 2012-12-15 14:21+0000\n"
 "PO-Revision-Date: 2012-09-26 15:11+0300\n"
 "Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
 "Language-Team: Belarusian <i18n-bel-gnome@googlegroups.com>\n"
@@ -23,8 +23,8 @@ msgstr ""
 msgid "Clocks"
 msgstr "Гадзіннікі"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:122
-#: ../gnomeclocks/app.py:131
+#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:135
+#: ../gnomeclocks/app.py:144
 msgid "GNOME Clocks"
 msgstr "Гадзіннікі GNOME"
 
@@ -34,183 +34,204 @@ msgstr ""
 "Гадзіннікі для адсочвання часу ў розных кутках свету, з будзільнікам, "
 "таймерам і секундамерам"
 
-#: ../gnomeclocks/alarm.py:117
+#: ../data/gnome-clocks.desktop.in.h:4
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr "час;таймер;гадзіннік;будзільнік;сусветны гадзіннік;секундамер;часавы пояс;"
+
+#. Translators: "New" refers to an alarm
+#: ../gnomeclocks/alarm.py:91 ../gnomeclocks/alarm.py:443
+msgid "Alarm"
+msgstr "Сігнал"
+
+#: ../gnomeclocks/alarm.py:128
 msgid "Every day"
 msgstr "Штодзень"
 
-#: ../gnomeclocks/alarm.py:119
+#: ../gnomeclocks/alarm.py:130
 msgid "Weekdays"
 msgstr "У будні"
 
-#: ../gnomeclocks/alarm.py:138
+#: ../gnomeclocks/alarm.py:177
 msgid "Edit Alarm"
 msgstr "Рэдагаванне сігнала"
 
-#: ../gnomeclocks/alarm.py:140 ../gnomeclocks/alarm.py:172
+#: ../gnomeclocks/alarm.py:179 ../gnomeclocks/alarm.py:205
 msgid "New Alarm"
 msgstr "Новы сігнал"
 
 #. Translators: "Time" in this context is the time an alarm
 #. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:177
+#: ../gnomeclocks/alarm.py:210
 msgid "Time"
 msgstr "Час"
 
-#: ../gnomeclocks/alarm.py:218
+#: ../gnomeclocks/alarm.py:253
 msgid "Name"
 msgstr "Назва"
 
-#: ../gnomeclocks/alarm.py:227
+#: ../gnomeclocks/alarm.py:262
 msgid "Repeat Every"
 msgstr "Паўтараць"
 
-#: ../gnomeclocks/alarm.py:300
-msgid "Alarm"
-msgstr "Сігнал"
-
-#: ../gnomeclocks/alarm.py:312
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Выберыце <b>Новы</b>, каб дадаць сігнал"
-
-#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:102
+#: ../gnomeclocks/alarm.py:332 ../gnomeclocks/stopwatch.py:121
 msgid "Stop"
 msgstr "Спыніць"
 
-#: ../gnomeclocks/alarm.py:459
+#: ../gnomeclocks/alarm.py:334
 msgid "Snooze"
 msgstr "Адкласці"
 
-#: ../gnomeclocks/app.py:121 ../gnomeclocks/app.py:390
-msgid "About Clocks"
-msgstr "Аб Гадзінніках"
-
-#: ../gnomeclocks/app.py:127
-msgid "Utilities to help you with the time."
-msgstr "Прылады, якія дапамогуць вам з часам."
-
-#: ../gnomeclocks/app.py:129
-msgid "translator-credits"
-msgstr "Ігар Грачышка <ihar.hrachyshka@gmail.com>"
-
-#. Translators: "New" refers to a world clock or an alarm
-#: ../gnomeclocks/app.py:213
+#: ../gnomeclocks/alarm.py:443 ../gnomeclocks/world.py:302
 msgid "New"
 msgstr "Новы"
 
-#: ../gnomeclocks/app.py:266
+#: ../gnomeclocks/alarm.py:457
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Выберыце <b>Новы</b>, каб дадаць сігнал"
+
+#: ../gnomeclocks/app.py:134 ../gnomeclocks/app.py:418
+msgid "About Clocks"
+msgstr "Аб Гадзінніках"
+
+#: ../gnomeclocks/app.py:140
+msgid "Utilities to help you with the time."
+msgstr "Прылады, якія дапамогуць вам з часам."
+
+#: ../gnomeclocks/app.py:142
+msgid "translator-credits"
+msgstr "Ігар Грачышка <ihar.hrachyshka@gmail.com>"
+
+#: ../gnomeclocks/app.py:294
 msgid "Edit"
 msgstr "Рэдагаваць"
 
-#: ../gnomeclocks/app.py:271
+#: ../gnomeclocks/app.py:299
 msgid "Done"
 msgstr "Зроблена"
 
-#: ../gnomeclocks/app.py:335
+#: ../gnomeclocks/app.py:378
 msgid "Click on items to select them"
 msgstr "Пстрыкніце ў аб'ект, каб вылучыць яго"
 
-#: ../gnomeclocks/app.py:337
+#: ../gnomeclocks/app.py:380
 msgid "{0} item selected"
 msgid_plural "{0} items selected"
 msgstr[0] "вылучаны {0} аб'ект"
 msgstr[1] "вылучаныя {0} аб'екты"
 msgstr[2] "вылучаныя {0} аб'ектаў"
 
-#: ../gnomeclocks/app.py:393
+#: ../gnomeclocks/app.py:421
 msgid "Quit"
 msgstr "Выйсці"
 
-#: ../gnomeclocks/stopwatch.py:34
+#: ../gnomeclocks/stopwatch.py:35
 msgid "Stopwatch"
 msgstr "Секундамер"
 
-#: ../gnomeclocks/stopwatch.py:63 ../gnomeclocks/stopwatch.py:128
-#: ../gnomeclocks/timer.py:110
+#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:153
+#: ../gnomeclocks/timer.py:111
 msgid "Start"
 msgstr "Запусціць"
 
-#: ../gnomeclocks/stopwatch.py:71 ../gnomeclocks/stopwatch.py:113
-#: ../gnomeclocks/timer.py:52
+#: ../gnomeclocks/stopwatch.py:75 ../gnomeclocks/stopwatch.py:132
+#: ../gnomeclocks/timer.py:53
 msgid "Reset"
 msgstr "Ануляваць"
 
-#: ../gnomeclocks/stopwatch.py:83
-msgid "Split"
-msgstr "Падзяліць"
-
-#: ../gnomeclocks/stopwatch.py:86
-msgid "Total"
-msgstr "Агулам"
-
-#: ../gnomeclocks/stopwatch.py:105
+#: ../gnomeclocks/stopwatch.py:87 ../gnomeclocks/stopwatch.py:124
 msgid "Lap"
 msgstr "Круг"
 
-#: ../gnomeclocks/stopwatch.py:109 ../gnomeclocks/timer.py:69
+#: ../gnomeclocks/stopwatch.py:93
+msgid "Split"
+msgstr "Падзяліць"
+
+#: ../gnomeclocks/stopwatch.py:99
+msgid "Total"
+msgstr "Агулам"
+
+#: ../gnomeclocks/stopwatch.py:128 ../gnomeclocks/timer.py:70
 msgid "Continue"
 msgstr "Працягнуць"
 
-#: ../gnomeclocks/timer.py:45 ../gnomeclocks/timer.py:63
-#: ../gnomeclocks/timer.py:73
+#: ../gnomeclocks/timer.py:46 ../gnomeclocks/timer.py:64
+#: ../gnomeclocks/timer.py:74
 msgid "Pause"
 msgstr "Прыпыніць"
 
-#: ../gnomeclocks/timer.py:155
+#: ../gnomeclocks/timer.py:156
 msgid "Timer"
 msgstr "Таймер"
 
-#: ../gnomeclocks/utils.py:71
+#: ../gnomeclocks/timer.py:179
+msgid "Time is up!"
+msgstr "Час надышоў!"
+
+#: ../gnomeclocks/timer.py:180
+msgid "Timer countdown finished"
+msgstr "Адлік часу закончаны"
+
+#: ../gnomeclocks/utils.py:83
 msgid "Mondays"
 msgstr "У панядзелкі"
 
-#: ../gnomeclocks/utils.py:72
+#: ../gnomeclocks/utils.py:84
 msgid "Tuesdays"
 msgstr "У аўторкі"
 
-#: ../gnomeclocks/utils.py:73
+#: ../gnomeclocks/utils.py:85
 msgid "Wednesdays"
 msgstr "У серады"
 
-#: ../gnomeclocks/utils.py:74
+#: ../gnomeclocks/utils.py:86
 msgid "Thursdays"
 msgstr "У чацвяргі"
 
-#: ../gnomeclocks/utils.py:75
+#: ../gnomeclocks/utils.py:87
 msgid "Fridays"
 msgstr "У пятніцы"
 
-#: ../gnomeclocks/utils.py:76
+#: ../gnomeclocks/utils.py:88
 msgid "Saturdays"
 msgstr "У суботы"
 
-#: ../gnomeclocks/utils.py:77
+#: ../gnomeclocks/utils.py:89
 msgid "Sundays"
 msgstr "У нядзелі"
 
-#: ../gnomeclocks/widgets.py:333
+#: ../gnomeclocks/widgets.py:299
 msgid "Delete"
 msgstr "Выдаліць"
 
-#: ../gnomeclocks/world.py:66
+#: ../gnomeclocks/world.py:74
 msgid "Add a New World Clock"
 msgstr "Дадаць новы сусветны гадзіннік"
 
-#: ../gnomeclocks/world.py:75
+#: ../gnomeclocks/world.py:83
 msgid "Search for a city:"
 msgstr "Пошук горада:"
 
-#: ../gnomeclocks/world.py:259
-msgid "World"
-msgstr "Сусвет"
+#: ../gnomeclocks/world.py:184 ../gnomeclocks/world.py:191
+msgid "Yesterday"
+msgstr "Учора"
 
-#: ../gnomeclocks/world.py:270
-msgid "Select <b>New</b> to add a world clock"
-msgstr "Выберыце <b>Новы</b>, каб дадаць сусветны гадзіннік"
+#: ../gnomeclocks/world.py:186 ../gnomeclocks/world.py:189
+msgid "Tomorrow"
+msgstr "Заўтра"
 
-#: ../gnomeclocks/world.py:393
+#: ../gnomeclocks/world.py:241
 msgid "Sunrise"
 msgstr "Усход сонца"
 
-#: ../gnomeclocks/world.py:403
+#: ../gnomeclocks/world.py:251
 msgid "Sunset"
 msgstr "Захад сонца"
+
+#. Translators: "New" refers to a world clock
+#: ../gnomeclocks/world.py:302
+msgid "World"
+msgstr "Сусвет"
+
+#: ../gnomeclocks/world.py:321
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Выберыце <b>Новы</b>, каб дадаць сусветны гадзіннік"
