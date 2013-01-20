@@ -27,9 +27,6 @@ class Clock(Gtk.Notebook):
         self._embed = embed
         self._toolbar = toolbar
 
-        self.connect('map', self._ui_thaw)
-        self.connect('unmap', self._ui_freeze)
-
     def insert_page(self, page, page_number):
         page.show_all()
         Gtk.Notebook.insert_page(self, page, None, page_number)
@@ -44,18 +41,3 @@ class Clock(Gtk.Notebook):
     def update_toolbar(self):
         """Updates the toolbar depending on the current clock page."""
         raise NotImplementedError
-
-    def _ui_freeze(self, widget):
-        """Called when the Clock widget is unmapped.
-
-        Derived classes can implement this method to remove timeouts
-        in order to save CPU time while the Clock widget is not
-        visible."""
-        pass
-
-    def _ui_thaw(self, widget):
-        """Called when the clock widget is mapped.
-
-        Derived Clock classes can implement this method to re-add
-        timeouts when the Clock widget becomes visible again."""
-        pass

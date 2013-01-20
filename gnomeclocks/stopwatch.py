@@ -50,6 +50,8 @@ class Stopwatch(Clock):
         self.lap_time_diff = 0
 
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        vbox.connect("map", self._on_stopwatch_mapped)
+        vbox.connect("unmap", self._on_stopwatch_unmapped)
 
         grid = Gtk.Grid()
         grid.set_margin_top(36)
@@ -215,11 +217,11 @@ class Stopwatch(Clock):
         self._toolbar.clear()
         self._toolbar.set_mode(Toolbar.Mode.NORMAL)
 
-    def _ui_freeze(self, widget):
+    def _on_stopwatch_unmapped(self, widget):
         if self.state == Stopwatch.State.RUNNING:
             self._remove_timeout()
 
-    def _ui_thaw(self, widget):
+    def _on_stopwatch_mapped(self, widget):
         if self.state == Stopwatch.State.RUNNING:
             self.count()
             self._add_timeout()

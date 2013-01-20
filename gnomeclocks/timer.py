@@ -161,7 +161,7 @@ class Timer(Clock):
         self.state = Timer.State.STOPPED
         self.timeout_id = 0
         self._last_set_time = None
-        self._ui_is_frozen = False
+        self._timer_screen_is_mapped = False
 
         # force the time label and the spinner to the same size
         size_group = Gtk.SizeGroup(Gtk.SizeGroupMode.VERTICAL)
@@ -171,6 +171,8 @@ class Timer(Clock):
 
         self.timer_screen = TimerScreen(self, size_group)
         self.insert_page(self.timer_screen, self.Page.TIMER)
+        self.timer_screen.connect("map", self._on_timer_screen_mapped)
+        self.timer_screen.connect("unmap", self._on_timer_screen_unmapped)
 
         self.set_current_page(self.Page.SETUP)
 
@@ -226,7 +228,7 @@ class Timer(Clock):
             self.timer_screen.set_time(0, 0, 0)
             self.change_page(self.Page.SETUP)
             return False
-        elif not self._ui_is_frozen:
+        elif not self._timer_screen_is_mapped:
             # math.ceil() is needed because we count backwards. It assures the
             # display shows the past and not the future, e.g. show 1 s and not
             # 0 s when we are at 0.3 s.
@@ -242,10 +244,10 @@ class Timer(Clock):
         self._toolbar.clear()
         self._toolbar.set_mode(Toolbar.Mode.NORMAL)
 
-    def _ui_freeze(self, widget):
-        self._ui_is_frozen = True
+    def _on_timer_screen_unmapped(self, widget):
+        self._timer_screen_is_mapped = True
 
-    def _ui_thaw(self, widget):
-        self._ui_is_frozen = False
+    def _on_timer_screen_mapped(self, widget):
+        self._timer_screen_is_mapped = False
         if self.state == Timer.State.RUNNING:
             self.count()
