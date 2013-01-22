@@ -49,7 +49,7 @@ hcicon_files = \
 	$(hcicon48_DATA) \
 	$(hcicon256_DATA)
 
-gtk_update_icon_cache = gtk-update-icon-cache -f -t $(datadir)/icons/hicolor; gt-update-icon-cache -f -t $(datadir)/icons/HighContrast
+gtk_update_icon_cache = gtk-update-icon-cache -f -t $(datadir)/icons/hicolor; gtk-update-icon-cache -f -t $(datadir)/icons/HighContrast
 
 install-data-hook: update-icon-cache
 uninstall-hook: update-icon-cache
@@ -93,7 +93,7 @@ EXTRA_DIST = \
 	$(bin_SCRIPTS)
 
 CLEANFILES = \
-	$(applications_DATA)
+	$(applications_DATA) \
 	$(wildcard $(srcdir)/gnomeclocks/*.pyc)
 
 DISTCLEANFILES = \
