@@ -19,7 +19,6 @@
 import os
 import time
 import datetime
-from xdg import BaseDirectory
 from gi.repository import GObject, Gio, GnomeDesktop, Notify
 from . import pycanberra
 from gnomeclocks import GNOMECLOCKS_DATADIR
@@ -43,10 +42,6 @@ class Dirs:
     @staticmethod
     def get_images_dir():
         return os.path.join(Dirs.datadir, "images")
-
-    @staticmethod
-    def get_user_data_dir():
-        return BaseDirectory.save_data_path("gnome-clocks")
 
 
 class SystemSettings:
