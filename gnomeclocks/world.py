@@ -33,42 +33,6 @@ gweather_world = GWeather.Location.new_world(True)
 wallclock = WallClock.get_default()
 
 
-class WorldClockStorage:
-    def __init__(self):
-        self.filename = os.path.join(Dirs.get_user_data_dir(), "clocks.json")
-
-    def save(self, clocks):
-        locations = [str(c.location.serialize()) for c in clocks]
-        with open(self.filename, 'w', encoding='utf-8') as f:
-            json.dump(locations, f, ensure_ascii=False)
-
-    def load(self):
-        clocks = []
-        try:
-            with open(self.filename, encoding='utf-8') as f:
-                locations = json.load(f)
-            for l in locations:
-                try:
-                    variant = GLib.Variant.parse(None, l, None, None)
-                    location = GWeather.Location.deserialize(gweather_world, variant)
-                except:
-                    location = None
-                if not location:
-                    # This is for backward compatibility importing the old clocks which
-                    # just saved the metar location code... for now we may end up here
-                    # both if deserialize fails of if variant parse throws an exception
-                    location = GWeather.Location.find_by_station_code(gweather_world, l)
-                if location:
-                    clock = ClockItem(location)
-                    clocks.append(clock)
-        except IOError as e:
-            if e.errno == errno.ENOENT:
-                # File does not exist yet, that's ok
-                pass
-
-        return clocks
-
-
 class NewWorldClockDialog(Gtk.Dialog):
     def __init__(self, parent):
         Gtk.Dialog.__init__(self, _("Add a New World Clock"), parent)
@@ -211,6 +175,9 @@ class ClockItem:
         self.day_string = self._get_day_string()
         self._update_sunrise_sunset()
 
+    def serialize(self):
+        return {"location": self.location.serialize()}
+
 
 class WorldStandalone(Gtk.EventBox):
     def __init__(self):
@@ -297,6 +264,8 @@ class World(Clock):
     def __init__(self, toolbar, embed):
         Clock.__init__(self, _("World"), toolbar, embed)
 
+        self.settings = Gio.Settings(schema='org.gnome.clocks')
+
         # Translators: "New" refers to a world clock
         self.new_button = ToolButton(_("New"))
         self.new_button.connect('clicked', self._on_new_clicked)
@@ -333,10 +302,33 @@ class World(Clock):
         self.insert_page(self.standalone, World.Page.STANDALONE)
         self.set_current_page(World.Page.OVERVIEW)
 
-        self.storage = WorldClockStorage()
-        self.load_clocks()
+        self._load()
 
         wallclock.connect("time-changed", self._tick_clocks)
+
+    def _save(self):
+        v = GLib.Variant('aa{sv}', [c.serialize() for c in self.clocks])
+        self.settings.set_value('world-clocks', v)
+
+    def _load(self):
+        self.clocks = []
+        # NOTE: we have to manually parse the variant because pygobject
+        # automatically unpacks all the variant to native python objects
+        # while we need to extract the variant object to pass to gweather
+        locations = self.settings.get_value('world-clocks')
+        for i in range(locations.n_children()):
+            l = {}
+            location_variant = locations.get_child_value(i)
+            for j in range(location_variant.n_children()):
+                v = location_variant.get_child_value(j)
+                l[v.get_child_value(0).get_string()] = v.get_child_value(1).get_child_value(0)
+            location = GWeather.Location.deserialize(gweather_world, l["location"])
+            if location:
+                self.clocks.append(ClockItem(location))
+
+        for clock in self.clocks:
+            self._add_clock_item(clock)
+        self.select_button.set_sensitive(self.clocks)
 
     def _on_new_clicked(self, button):
         self.activate_new()
@@ -391,19 +383,13 @@ class World(Clock):
         else:
             self._embed.hide_floatingbar()
 
-    def load_clocks(self):
-        self.clocks = self.storage.load()
-        for clock in self.clocks:
-            self._add_clock_item(clock)
-        self.select_button.set_sensitive(self.clocks)
-
     def add_clock(self, location):
         if any(c.location.equal(location) for c in self.clocks):
             # duplicate
             return
         clock = ClockItem(location)
         self.clocks.append(clock)
-        self.storage.save(self.clocks)
+        self._save()
         self._add_clock_item(clock)
         self.select_button.set_sensitive(True)
         self.show_all()
@@ -414,9 +400,9 @@ class World(Clock):
 
     def delete_clocks(self, clocks):
         self.clocks = [c for c in self.clocks if c not in clocks]
-        self.storage.save(self.clocks)
+        self._save()
         self.liststore.clear()
-        self.load_clocks()
+        self._load()
 
     def update_toolbar(self):
         self._toolbar.clear()

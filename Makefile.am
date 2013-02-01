@@ -10,6 +10,11 @@ applicationsdir = $(datadir)/applications
 applications_DATA = data/gnome-clocks.desktop
 dist_noinst_DATA = data/gnome-clocks.desktop.in
 
+# gsettings
+gsettings_SCHEMAS = data/org.gnome.clocks.gschema.xml
+@INTLTOOL_XML_NOMERGE_RULE@
+@GSETTINGS_RULES@
+
 # icons
 icon16dir = $(datadir)/icons/hicolor/16x16/apps
 icon16_DATA = data/icons/hicolor/16x16/apps/gnome-clocks.png

@@ -20,53 +20,13 @@ import os
 import errno
 import json
 from datetime import timedelta
-from gi.repository import GLib, GObject, Gtk
+from gi.repository import GLib, Gio, GObject, Gtk
 from .clocks import Clock
 from .utils import Alert, Dirs, LocalizedWeekdays, SystemSettings, TimeString, WallClock
 from .widgets import Toolbar, ToolButton, SymbolicToolButton, SelectableIconView, ContentView
 
 
 wallclock = WallClock.get_default()
-
-
-class AlarmsStorage:
-    def __init__(self):
-        self.filename = os.path.join(Dirs.get_user_data_dir(), "alarms.json")
-
-    def save(self, alarms):
-        alarm_list = []
-        for a in alarms:
-            d = {
-                "name": a.name,
-                "hour": a.hour,
-                "minute": a.minute,
-                "days": a.days,
-                "active": a.active
-            }
-            alarm_list.append(d)
-        with open(self.filename, 'w', encoding='utf-8') as f:
-            json.dump(alarm_list, f, ensure_ascii=False)
-
-    def load(self):
-        alarms = []
-        try:
-            with open(self.filename, encoding='utf-8') as f:
-                alarm_list = json.load(f)
-            for a in alarm_list:
-                try:
-                    n, h, m, d = (a['name'], int(a['hour']), int(a['minute']), a['days'])
-                    # support the old format that didn't have the active key
-                    active = a['active'] if 'active' in a else True
-                except:
-                    # skip alarms which do not have the required fields
-                    continue
-                alarm = AlarmItem(n, h, m, d, active)
-                alarms.append(alarm)
-        except IOError as e:
-            if e.errno == errno.ENOENT:
-                # File does not exist yet, that's ok
-                pass
-        return alarms
 
 
 class AlarmItem:
@@ -186,6 +146,15 @@ class AlarmItem:
             # give up and stop ringing after 5 minutes
             self.stop()
         return self.state != last_state
+
+    def serialize(self):
+        return {
+            "name": GLib.Variant('s', self.name),
+            "hour": GLib.Variant('i', self.hour),
+            "minute": GLib.Variant('i', self.minute),
+            "days": GLib.Variant('ai', self.days),
+            "active": GLib.Variant('b', self.active)
+        }
 
 
 class AlarmDialog(Gtk.Dialog):
@@ -454,6 +423,8 @@ class Alarm(Clock):
     def __init__(self, toolbar, embed):
         Clock.__init__(self, _("Alarm"), toolbar, embed)
 
+        self.settings = Gio.Settings(schema='org.gnome.clocks')
+
         # Translators: "New" refers to an alarm
         self.new_button = ToolButton(_("New"))
         self.new_button.connect('clicked', self._on_new_clicked)
@@ -488,10 +459,21 @@ class Alarm(Clock):
         self.insert_page(self.standalone, Alarm.Page.STANDALONE)
         self.set_current_page(Alarm.Page.OVERVIEW)
 
-        self.storage = AlarmsStorage()
-        self.load_alarms()
+        self._load()
 
         wallclock.connect("time-changed", self._tick_alarms)
+
+    def _save(self):
+        v = GLib.Variant('aa{sv}', [a.serialize() for a in self.alarms])
+        self.settings.set_value('alarms', v)
+
+    def _load(self):
+        self.alarms = []
+        for a in self.settings.get_value('alarms'):
+            self.alarms.append(AlarmItem(**a))
+        for a in self.alarms:
+            self._add_alarm_item(a)
+        self.select_button.set_sensitive(self.alarms)
 
     def _on_new_clicked(self, button):
         self.activate_new()
@@ -556,16 +538,10 @@ class Alarm(Clock):
         else:
             self._embed.hide_floatingbar()
 
-    def load_alarms(self):
-        self.alarms = self.storage.load()
-        for alarm in self.alarms:
-            self._add_alarm_item(alarm)
-        self.select_button.set_sensitive(self.alarms)
-
     def save_alarms(self):
-        self.storage.save(self.alarms)
+        self._save()
         self.liststore.clear()
-        self.load_alarms()
+        self._load()
 
     def add_alarm(self, alarm):
         if alarm in self.alarms:
