@@ -17,9 +17,7 @@
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
 import os
-import errno
 import time
-import json
 from gi.repository import GLib, Gio, GdkPixbuf, Gtk
 from gi.repository import GWeather
 from .clocks import Clock

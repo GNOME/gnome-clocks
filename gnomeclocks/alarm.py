@@ -16,9 +16,6 @@
 #
 # Author: Seif Lotfy <seif.lotfy@collabora.co.uk>
 
-import os
-import errno
-import json
 from datetime import timedelta
 from gi.repository import GLib, Gio, GObject, Gtk
 from .clocks import Clock
