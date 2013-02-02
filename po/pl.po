@@ -4,14 +4,14 @@
 # pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas:
 # gnomepl@aviary.pl
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Piotr Drąg <piotrdrag@gmail.com>, 2012.
-# Aviary.pl <gnomepl@aviary.pl>, 2012.
+# Piotr Drąg <piotrdrag@gmail.com>, 2012-2013.
+# Aviary.pl <gnomepl@aviary.pl>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-16 02:37+0100\n"
-"PO-Revision-Date: 2012-12-16 02:38+0100\n"
+"POT-Creation-Date: 2013-02-02 22:32+0100\n"
+"PO-Revision-Date: 2013-02-02 22:33+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -23,12 +23,12 @@ msgstr ""
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: Poland\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:35
+#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:33
 msgid "Clocks"
 msgstr "Zegar"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:135
-#: ../gnomeclocks/app.py:144
+#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:106
+#: ../gnomeclocks/app.py:115
 msgid "GNOME Clocks"
 msgstr "Zegar GNOME"
 
@@ -40,202 +40,218 @@ msgstr "Zegar światowy, budzik, stoper i minutnik"
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "czas;minutnik;timer;budzik;alarm;zegar światowy;stoper;strefa czasowa;"
 
-#. Translators: "New" refers to an alarm
-#: ../gnomeclocks/alarm.py:93 ../gnomeclocks/alarm.py:455
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+msgid "Configured world clocks"
+msgstr "Skonfigurowane zegary światowe"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+msgid "List of world clocks to show."
+msgstr "Lista wyświetlanych zegarów światowych."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+msgid "Configured alarms"
+msgstr "Skonfigurowane budziki"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+msgid "List of alarms set."
+msgstr "Lista ustawionych budzików."
+
+#: ../gnomeclocks/alarm.py:50 ../gnomeclocks/alarm.py:423
 msgid "Alarm"
 msgstr "Budzik"
 
-#: ../gnomeclocks/alarm.py:130
+#: ../gnomeclocks/alarm.py:87
 msgid "Every day"
 msgstr "Codziennie"
 
-#: ../gnomeclocks/alarm.py:132
+#: ../gnomeclocks/alarm.py:89
 msgid "Weekdays"
 msgstr "Dni robocze"
 
-#: ../gnomeclocks/alarm.py:193
+#: ../gnomeclocks/alarm.py:160
 msgid "Edit Alarm"
 msgstr "Modyfikuj budzik"
 
-#: ../gnomeclocks/alarm.py:195 ../gnomeclocks/alarm.py:221
+#: ../gnomeclocks/alarm.py:162 ../gnomeclocks/alarm.py:188
 msgid "New Alarm"
 msgstr "Nowy budzik"
 
 #. Translators: "Time" in this context is the time an alarm
 #. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:226
+#: ../gnomeclocks/alarm.py:193
 msgid "Time"
 msgstr "Czas"
 
-#: ../gnomeclocks/alarm.py:269
+#: ../gnomeclocks/alarm.py:236
 msgid "Name"
 msgstr "Nazwa"
 
-#: ../gnomeclocks/alarm.py:278
+#: ../gnomeclocks/alarm.py:245
 msgid "Repeat Every"
 msgstr "Powtarzanie"
 
-#: ../gnomeclocks/alarm.py:348 ../gnomeclocks/stopwatch.py:121
+#: ../gnomeclocks/alarm.py:311 ../gnomeclocks/stopwatch.py:127
 msgid "Stop"
 msgstr "Zatrzymaj"
 
-#: ../gnomeclocks/alarm.py:350
+#: ../gnomeclocks/alarm.py:318
 msgid "Snooze"
 msgstr "Drzemka"
 
-#: ../gnomeclocks/alarm.py:455 ../gnomeclocks/world.py:302
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../gnomeclocks/alarm.py:428 ../gnomeclocks/world.py:268
 msgid "New"
 msgstr "Nowy"
 
-#: ../gnomeclocks/alarm.py:469
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Kliknięcie przycisku <b>Nowy</b> doda budzik"
-
-#: ../gnomeclocks/app.py:134 ../gnomeclocks/app.py:418
-msgid "About Clocks"
-msgstr "O zegarze"
-
-#: ../gnomeclocks/app.py:140
-msgid "Utilities to help you with the time."
-msgstr "Narzędzia pomagające zarządzać czasem."
-
-#: ../gnomeclocks/app.py:142
-msgid "translator-credits"
-msgstr ""
-"Piotr Drąg <piotrdrag@gmail.com>, 2012\n"
-"Aviary.pl <gnomepl@aviary.pl>, 2012"
-
-#: ../gnomeclocks/app.py:294
-msgid "Edit"
-msgstr "Edycja"
-
-#: ../gnomeclocks/app.py:299
+#: ../gnomeclocks/alarm.py:434 ../gnomeclocks/world.py:274
 msgid "Done"
 msgstr "Gotowe"
 
-#: ../gnomeclocks/app.py:378
+#: ../gnomeclocks/alarm.py:441
+msgid "Edit"
+msgstr "Edycja"
+
+#: ../gnomeclocks/alarm.py:444 ../gnomeclocks/world.py:281
+msgid "Delete"
+msgstr "Usuń"
+
+#: ../gnomeclocks/alarm.py:454
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Kliknięcie przycisku <b>Nowy</b> doda budzik"
+
+#: ../gnomeclocks/app.py:105 ../gnomeclocks/app.py:147
+msgid "About Clocks"
+msgstr "O zegarze"
+
+#: ../gnomeclocks/app.py:111
+msgid "Utilities to help you with the time."
+msgstr "Narzędzia pomagające zarządzać czasem."
+
+#: ../gnomeclocks/app.py:113
+msgid "translator-credits"
+msgstr ""
+"Piotr Drąg <piotrdrag@gmail.com>, 2012-2013\n"
+"Aviary.pl <gnomepl@aviary.pl>, 2012-2013"
+
+#: ../gnomeclocks/app.py:150
+msgid "Quit"
+msgstr "Zakończ"
+
+#: ../gnomeclocks/stopwatch.py:38
+msgid "Stopwatch"
+msgstr "Stoper"
+
+#: ../gnomeclocks/stopwatch.py:72 ../gnomeclocks/stopwatch.py:159
+#: ../gnomeclocks/timer.py:114
+msgid "Start"
+msgstr "Rozpocznij"
+
+#: ../gnomeclocks/stopwatch.py:81 ../gnomeclocks/stopwatch.py:138
+#: ../gnomeclocks/timer.py:55
+msgid "Reset"
+msgstr "Resetuj"
+
+#: ../gnomeclocks/stopwatch.py:93 ../gnomeclocks/stopwatch.py:130
+msgid "Lap"
+msgstr "Okrążenie"
+
+#: ../gnomeclocks/stopwatch.py:99
+msgid "Split"
+msgstr "Międzyczas"
+
+#: ../gnomeclocks/stopwatch.py:105
+msgid "Total"
+msgstr "Razem"
+
+#: ../gnomeclocks/stopwatch.py:134 ../gnomeclocks/timer.py:72
+msgid "Continue"
+msgstr "Kontynuuj"
+
+#: ../gnomeclocks/timer.py:47 ../gnomeclocks/timer.py:66
+#: ../gnomeclocks/timer.py:76
+msgid "Pause"
+msgstr "Wstrzymaj"
+
+#: ../gnomeclocks/timer.py:162
+msgid "Timer"
+msgstr "Minutnik"
+
+#: ../gnomeclocks/timer.py:182
+msgid "Time is up!"
+msgstr "Czas minął!"
+
+#: ../gnomeclocks/timer.py:183
+msgid "Timer countdown finished"
+msgstr "Ukończono odliczanie stopera"
+
+#: ../gnomeclocks/utils.py:78
+msgid "Mondays"
+msgstr "Poniedziałek"
+
+#: ../gnomeclocks/utils.py:79
+msgid "Tuesdays"
+msgstr "Wtorek"
+
+#: ../gnomeclocks/utils.py:80
+msgid "Wednesdays"
+msgstr "Środa"
+
+#: ../gnomeclocks/utils.py:81
+msgid "Thursdays"
+msgstr "Czwartek"
+
+#: ../gnomeclocks/utils.py:82
+msgid "Fridays"
+msgstr "Piątek"
+
+#: ../gnomeclocks/utils.py:83
+msgid "Saturdays"
+msgstr "Sobota"
+
+#: ../gnomeclocks/utils.py:84
+msgid "Sundays"
+msgstr "Niedziela"
+
+#: ../gnomeclocks/widgets.py:171
 msgid "Click on items to select them"
 msgstr "Kliknięcie na elementach zaznacza je"
 
-#: ../gnomeclocks/app.py:380
+#: ../gnomeclocks/widgets.py:173
 msgid "{0} item selected"
 msgid_plural "{0} items selected"
 msgstr[0] "Zaznaczono {0} element"
 msgstr[1] "Zaznaczono {0} elementy"
 msgstr[2] "Zaznaczono {0} elementów"
 
-#: ../gnomeclocks/app.py:421
-msgid "Quit"
-msgstr "Zakończ"
-
-#: ../gnomeclocks/stopwatch.py:35
-msgid "Stopwatch"
-msgstr "Stoper"
-
-#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:153
-#: ../gnomeclocks/timer.py:111
-msgid "Start"
-msgstr "Rozpocznij"
-
-#: ../gnomeclocks/stopwatch.py:75 ../gnomeclocks/stopwatch.py:132
-#: ../gnomeclocks/timer.py:53
-msgid "Reset"
-msgstr "Resetuj"
-
-#: ../gnomeclocks/stopwatch.py:87 ../gnomeclocks/stopwatch.py:124
-msgid "Lap"
-msgstr "Okrążenie"
-
-#: ../gnomeclocks/stopwatch.py:93
-msgid "Split"
-msgstr "Międzyczas"
-
-#: ../gnomeclocks/stopwatch.py:99
-msgid "Total"
-msgstr "Razem"
-
-#: ../gnomeclocks/stopwatch.py:128 ../gnomeclocks/timer.py:70
-msgid "Continue"
-msgstr "Kontynuuj"
-
-#: ../gnomeclocks/timer.py:46 ../gnomeclocks/timer.py:64
-#: ../gnomeclocks/timer.py:74
-msgid "Pause"
-msgstr "Wstrzymaj"
-
-#: ../gnomeclocks/timer.py:156
-msgid "Timer"
-msgstr "Minutnik"
-
-#: ../gnomeclocks/timer.py:179
-msgid "Time is up!"
-msgstr "Czas minął!"
-
-#: ../gnomeclocks/timer.py:180
-msgid "Timer countdown finished"
-msgstr "Ukończono odliczanie stopera"
-
-#: ../gnomeclocks/utils.py:83
-msgid "Mondays"
-msgstr "Poniedziałek"
-
-#: ../gnomeclocks/utils.py:84
-msgid "Tuesdays"
-msgstr "Wtorek"
-
-#: ../gnomeclocks/utils.py:85
-msgid "Wednesdays"
-msgstr "Środa"
-
-#: ../gnomeclocks/utils.py:86
-msgid "Thursdays"
-msgstr "Czwartek"
-
-#: ../gnomeclocks/utils.py:87
-msgid "Fridays"
-msgstr "Piątek"
-
-#: ../gnomeclocks/utils.py:88
-msgid "Saturdays"
-msgstr "Sobota"
-
-#: ../gnomeclocks/utils.py:89
-msgid "Sundays"
-msgstr "Niedziela"
-
-#: ../gnomeclocks/widgets.py:299
-msgid "Delete"
-msgstr "Usuń"
-
-#: ../gnomeclocks/world.py:74
+#: ../gnomeclocks/world.py:36
 msgid "Add a New World Clock"
 msgstr "Dodanie nowego zegara światowego"
 
-#: ../gnomeclocks/world.py:83
+#: ../gnomeclocks/world.py:45
 msgid "Search for a city:"
 msgstr "Wyszukiwanie miasta:"
 
-#: ../gnomeclocks/world.py:184 ../gnomeclocks/world.py:191
+#: ../gnomeclocks/world.py:146 ../gnomeclocks/world.py:153
 msgid "Yesterday"
 msgstr "Wczoraj"
 
-#: ../gnomeclocks/world.py:186 ../gnomeclocks/world.py:189
+#: ../gnomeclocks/world.py:148 ../gnomeclocks/world.py:151
 msgid "Tomorrow"
 msgstr "Jutro"
 
-#: ../gnomeclocks/world.py:241
+#: ../gnomeclocks/world.py:193
 msgid "Sunrise"
 msgstr "Wschód słońca"
 
-#: ../gnomeclocks/world.py:251
+#: ../gnomeclocks/world.py:197
 msgid "Sunset"
 msgstr "Zachód słońca"
 
-#. Translators: "New" refers to a world clock
-#: ../gnomeclocks/world.py:302
+#: ../gnomeclocks/world.py:263
 msgid "World"
 msgstr "Świat"
 
-#: ../gnomeclocks/world.py:321
+#: ../gnomeclocks/world.py:296
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Kliknięcie przycisku <b>Nowy</b> doda zegar światowy"
