@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks 3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-28 10:47+0200\n"
-"PO-Revision-Date: 2012-12-28 10:49+0200\n"
+"POT-Creation-Date: 2013-02-02 15:00+0200\n"
+"PO-Revision-Date: 2013-02-02 15:01+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <sh.yaron@gmail.com>\n"
 "Language: \n"
@@ -21,13 +21,13 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: ../data/gnome-clocks.desktop.in.h:1
-#: ../gnomeclocks/app.py:35
+#: ../gnomeclocks/app.py:33
 msgid "Clocks"
 msgstr "שעונים"
 
 #: ../data/gnome-clocks.desktop.in.h:2
-#: ../gnomeclocks/app.py:135
-#: ../gnomeclocks/app.py:144
+#: ../gnomeclocks/app.py:106
+#: ../gnomeclocks/app.py:115
 msgid "GNOME Clocks"
 msgstr "שעונים מבית GNOME"
 
@@ -39,212 +39,230 @@ msgstr "שעונים לזמנים שונים ברחבי העולם לרבות ה
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "זמן;שעה;טיימר;קוצב זמן;שעון עולמי;שעון עצר;סטופר;אזור זמן;שעון;"
 
-#. Translators: "New" refers to an alarm
-#: ../gnomeclocks/alarm.py:93
-#: ../gnomeclocks/alarm.py:455
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+msgid "Configured world clocks"
+msgstr "Configured world clocks"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+msgid "List of world clocks to show."
+msgstr "List of world clocks to show."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+msgid "Configured alarms"
+msgstr "Configured alarms"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+msgid "List of alarms set."
+msgstr "List of alarms set."
+
+#: ../gnomeclocks/alarm.py:50
+#: ../gnomeclocks/alarm.py:423
 msgid "Alarm"
 msgstr "התרעה"
 
-#: ../gnomeclocks/alarm.py:130
+#: ../gnomeclocks/alarm.py:87
 msgid "Every day"
 msgstr "כל יום"
 
-#: ../gnomeclocks/alarm.py:132
+#: ../gnomeclocks/alarm.py:89
 msgid "Weekdays"
 msgstr "בימי השבוע"
 
-#: ../gnomeclocks/alarm.py:193
+#: ../gnomeclocks/alarm.py:160
 msgid "Edit Alarm"
 msgstr "עריכת התרעה"
 
-#: ../gnomeclocks/alarm.py:195
-#: ../gnomeclocks/alarm.py:221
+#: ../gnomeclocks/alarm.py:162
+#: ../gnomeclocks/alarm.py:188
 msgid "New Alarm"
 msgstr "התרעה חדשה"
 
 #. Translators: "Time" in this context is the time an alarm
 #. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:226
+#: ../gnomeclocks/alarm.py:193
 msgid "Time"
 msgstr "זמן"
 
-#: ../gnomeclocks/alarm.py:269
+#: ../gnomeclocks/alarm.py:236
 msgid "Name"
 msgstr "שם"
 
-#: ../gnomeclocks/alarm.py:278
+#: ../gnomeclocks/alarm.py:245
 msgid "Repeat Every"
 msgstr "חזרה בכול"
 
-#: ../gnomeclocks/alarm.py:348
-#: ../gnomeclocks/stopwatch.py:121
+#: ../gnomeclocks/alarm.py:311
+#: ../gnomeclocks/stopwatch.py:127
 msgid "Stop"
 msgstr "עצירה"
 
-#: ../gnomeclocks/alarm.py:350
+#: ../gnomeclocks/alarm.py:318
 msgid "Snooze"
 msgstr "נודניק"
 
-#: ../gnomeclocks/alarm.py:455
-#: ../gnomeclocks/world.py:298
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../gnomeclocks/alarm.py:428
+#: ../gnomeclocks/world.py:268
 msgid "New"
 msgstr "חדש"
 
-#: ../gnomeclocks/alarm.py:469
-msgid "Select <b>New</b> to add an alarm"
-msgstr "יש לבחור ב<b>חדש</b> כדי להוסיף התרעה"
-
-#: ../gnomeclocks/app.py:134
-#: ../gnomeclocks/app.py:418
-msgid "About Clocks"
-msgstr "על אודות שעונים"
-
-#: ../gnomeclocks/app.py:140
-msgid "Utilities to help you with the time."
-msgstr "עזרים כדי לסייע לך בניהול זמנים."
-
-#: ../gnomeclocks/app.py:142
-msgid "translator-credits"
-msgstr "ירון שהרבני <sh.yaron@gmail.com>"
-
-#: ../gnomeclocks/app.py:294
-msgid "Edit"
-msgstr "עריכה"
-
-#: ../gnomeclocks/app.py:299
+#: ../gnomeclocks/alarm.py:434
+#: ../gnomeclocks/world.py:274
 msgid "Done"
 msgstr "בוצע"
 
-#: ../gnomeclocks/app.py:378
+#: ../gnomeclocks/alarm.py:441
+msgid "Edit"
+msgstr "עריכה"
+
+#: ../gnomeclocks/alarm.py:444
+#: ../gnomeclocks/world.py:281
+msgid "Delete"
+msgstr "מחיקה"
+
+#: ../gnomeclocks/alarm.py:454
+msgid "Select <b>New</b> to add an alarm"
+msgstr "יש לבחור ב<b>חדש</b> כדי להוסיף התרעה"
+
+#: ../gnomeclocks/app.py:105
+#: ../gnomeclocks/app.py:147
+msgid "About Clocks"
+msgstr "על אודות שעונים"
+
+#: ../gnomeclocks/app.py:111
+msgid "Utilities to help you with the time."
+msgstr "עזרים כדי לסייע לך בניהול זמנים."
+
+#: ../gnomeclocks/app.py:113
+msgid "translator-credits"
+msgstr "ירון שהרבני <sh.yaron@gmail.com>"
+
+#: ../gnomeclocks/app.py:150
+msgid "Quit"
+msgstr "יציאה"
+
+#: ../gnomeclocks/stopwatch.py:38
+msgid "Stopwatch"
+msgstr "שעון עצר"
+
+#: ../gnomeclocks/stopwatch.py:72
+#: ../gnomeclocks/stopwatch.py:159
+#: ../gnomeclocks/timer.py:114
+msgid "Start"
+msgstr "התחלה"
+
+#: ../gnomeclocks/stopwatch.py:81
+#: ../gnomeclocks/stopwatch.py:138
+#: ../gnomeclocks/timer.py:55
+msgid "Reset"
+msgstr "איפוס"
+
+#: ../gnomeclocks/stopwatch.py:93
+#: ../gnomeclocks/stopwatch.py:130
+msgid "Lap"
+msgstr "הקפה"
+
+#: ../gnomeclocks/stopwatch.py:99
+msgid "Split"
+msgstr "פיצול"
+
+#: ../gnomeclocks/stopwatch.py:105
+msgid "Total"
+msgstr "סך הכול"
+
+#: ../gnomeclocks/stopwatch.py:134
+#: ../gnomeclocks/timer.py:72
+msgid "Continue"
+msgstr "המשך"
+
+#: ../gnomeclocks/timer.py:47
+#: ../gnomeclocks/timer.py:66
+#: ../gnomeclocks/timer.py:76
+msgid "Pause"
+msgstr "השהייה"
+
+#: ../gnomeclocks/timer.py:162
+msgid "Timer"
+msgstr "קוצב זמן"
+
+#: ../gnomeclocks/timer.py:182
+msgid "Time is up!"
+msgstr "נגמר הזמן!"
+
+#: ../gnomeclocks/timer.py:183
+msgid "Timer countdown finished"
+msgstr "הספירה לאחור הסתיימה"
+
+#: ../gnomeclocks/utils.py:78
+msgid "Mondays"
+msgstr "ימי שני"
+
+#: ../gnomeclocks/utils.py:79
+msgid "Tuesdays"
+msgstr "ימי שלישי"
+
+#: ../gnomeclocks/utils.py:80
+msgid "Wednesdays"
+msgstr "ימי רביעי"
+
+#: ../gnomeclocks/utils.py:81
+msgid "Thursdays"
+msgstr "ימי חמישי"
+
+#: ../gnomeclocks/utils.py:82
+msgid "Fridays"
+msgstr "ימי שישי"
+
+#: ../gnomeclocks/utils.py:83
+msgid "Saturdays"
+msgstr "שבתות"
+
+#: ../gnomeclocks/utils.py:84
+msgid "Sundays"
+msgstr "ימי ראשון"
+
+#: ../gnomeclocks/widgets.py:171
 msgid "Click on items to select them"
 msgstr "יש ללחוץ על פריטים כדי לבחור בהם"
 
-#: ../gnomeclocks/app.py:380
+#: ../gnomeclocks/widgets.py:173
 msgid "{0} item selected"
 msgid_plural "{0} items selected"
 msgstr[0] "נבחר פריט אחד"
 msgstr[1] "נבחרו {0} פריטים"
 
-#: ../gnomeclocks/app.py:421
-msgid "Quit"
-msgstr "יציאה"
-
-#: ../gnomeclocks/stopwatch.py:35
-msgid "Stopwatch"
-msgstr "שעון עצר"
-
-#: ../gnomeclocks/stopwatch.py:67
-#: ../gnomeclocks/stopwatch.py:153
-#: ../gnomeclocks/timer.py:111
-msgid "Start"
-msgstr "התחלה"
-
-#: ../gnomeclocks/stopwatch.py:75
-#: ../gnomeclocks/stopwatch.py:132
-#: ../gnomeclocks/timer.py:53
-msgid "Reset"
-msgstr "איפוס"
-
-#: ../gnomeclocks/stopwatch.py:87
-#: ../gnomeclocks/stopwatch.py:124
-msgid "Lap"
-msgstr "הקפה"
-
-#: ../gnomeclocks/stopwatch.py:93
-msgid "Split"
-msgstr "פיצול"
-
-#: ../gnomeclocks/stopwatch.py:99
-msgid "Total"
-msgstr "סך הכול"
-
-#: ../gnomeclocks/stopwatch.py:128
-#: ../gnomeclocks/timer.py:70
-msgid "Continue"
-msgstr "המשך"
-
-#: ../gnomeclocks/timer.py:46
-#: ../gnomeclocks/timer.py:64
-#: ../gnomeclocks/timer.py:74
-msgid "Pause"
-msgstr "השהייה"
-
-#: ../gnomeclocks/timer.py:156
-msgid "Timer"
-msgstr "קוצב זמן"
-
-#: ../gnomeclocks/timer.py:179
-msgid "Time is up!"
-msgstr "נגמר הזמן!"
-
-#: ../gnomeclocks/timer.py:180
-msgid "Timer countdown finished"
-msgstr "הספירה לאחור הסתיימה"
-
-#: ../gnomeclocks/utils.py:83
-msgid "Mondays"
-msgstr "ימי שני"
-
-#: ../gnomeclocks/utils.py:84
-msgid "Tuesdays"
-msgstr "ימי שלישי"
-
-#: ../gnomeclocks/utils.py:85
-msgid "Wednesdays"
-msgstr "ימי רביעי"
-
-#: ../gnomeclocks/utils.py:86
-msgid "Thursdays"
-msgstr "ימי חמישי"
-
-#: ../gnomeclocks/utils.py:87
-msgid "Fridays"
-msgstr "ימי שישי"
-
-#: ../gnomeclocks/utils.py:88
-msgid "Saturdays"
-msgstr "שבתות"
-
-#: ../gnomeclocks/utils.py:89
-msgid "Sundays"
-msgstr "ימי ראשון"
-
-#: ../gnomeclocks/widgets.py:299
-msgid "Delete"
-msgstr "מחיקה"
-
-#: ../gnomeclocks/world.py:74
+#: ../gnomeclocks/world.py:36
 msgid "Add a New World Clock"
 msgstr "הוספת שעון עולמי חדש"
 
-#: ../gnomeclocks/world.py:83
+#: ../gnomeclocks/world.py:45
 msgid "Search for a city:"
 msgstr "חיפוש אחר עיר:"
 
-#: ../gnomeclocks/world.py:184
-#: ../gnomeclocks/world.py:191
+#: ../gnomeclocks/world.py:146
+#: ../gnomeclocks/world.py:153
 msgid "Yesterday"
 msgstr "אתמול"
 
-#: ../gnomeclocks/world.py:186
-#: ../gnomeclocks/world.py:189
+#: ../gnomeclocks/world.py:148
+#: ../gnomeclocks/world.py:151
 msgid "Tomorrow"
 msgstr "מחר"
 
-#: ../gnomeclocks/world.py:228
+#: ../gnomeclocks/world.py:193
 msgid "Sunrise"
 msgstr "זריחה"
 
-#: ../gnomeclocks/world.py:232
+#: ../gnomeclocks/world.py:197
 msgid "Sunset"
 msgstr "שקיעה"
 
-#. Translators: "New" refers to a world clock
-#: ../gnomeclocks/world.py:298
+#: ../gnomeclocks/world.py:263
 msgid "World"
 msgstr "עולם"
 
-#: ../gnomeclocks/world.py:317
+#: ../gnomeclocks/world.py:296
 msgid "Select <b>New</b> to add a world clock"
 msgstr "יש לבחור ב<b>חדש</b> כדי להוסיף שעון עולמי"
 
