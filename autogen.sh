@@ -1,19 +1,28 @@
-#!/bin/bash
+#!/bin/sh
 # Run this to generate all the initial makefiles, etc.
 
-srcdir=`dirname $0`
-test -z "$srcdir" && srcdir=.
+test -n "$srcdir" || srcdir=`dirname "$0"`
+test -n "$srcdir" || srcdir=.
 
-PKG_NAME="gnome-clocks"
+OLDDIR=`pwd`
+cd $srcdir
 
-test -f $srcdir/configure.ac || {
-    echo "**Error**: Directory "\`$srcdir\'" does not look like the top-level $PKG_NAME directory"
+AUTORECONF=`which autoreconf`
+if test -z $AUTORECONF; then
+    echo "*** No autoreconf found, please install it ***"
     exit 1
-}
+fi
 
-which gnome-autogen.sh || {
-    echo "You need to install gnome-common from GNOME Git (or from your OS vendor's package manager)."
+INTLTOOLIZE=`which intltoolize`
+if test -z $INTLTOOLIZE; then
+    echo "*** No intltoolize found, please install the intltool package ***"
     exit 1
-}
+fi
 
-. gnome-autogen.sh "$@"
+git submodule update --init --recursive
+
+autopoint --force || exit $?
+AUTOPOINT='intltoolize --automake --copy' autoreconf --force --install --verbose
+
+cd $OLDDIR
+test -n "$NOCONFIGURE" || "$srcdir/configure" "$@"

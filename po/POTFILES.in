@@ -1,10 +1,16 @@
 data/gnome-clocks.desktop.in
 data/org.gnome.clocks.gschema.xml.in
-gnomeclocks/alarm.py
-gnomeclocks/app.py
-gnomeclocks/clocks.py
-gnomeclocks/stopwatch.py
-gnomeclocks/timer.py
-gnomeclocks/utils.py
-gnomeclocks/widgets.py
-gnomeclocks/world.py
+src/alarm.vala
+src/application.vala
+src/clock.vala
+src/stopwatch.vala
+src/timer.vala
+src/utils.vala
+src/widgets.vala
+src/window.vala
+src/world.vala
+[type: gettext/glade]src/alarm.ui
+[type: gettext/glade]src/menu.ui
+[type: gettext/glade]src/stopwatch.ui
+[type: gettext/glade]src/timer.ui
+[type: gettext/glade]src/world.ui

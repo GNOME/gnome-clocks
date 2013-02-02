@@ -1,6 +1,6 @@
-ACLOCAL_AMFLAGS = -I m4
+ACLOCAL_AMFLAGS = -I m4 -I libgd ${ACLOCAL_FLAGS}
 
-SUBDIRS = po
+SUBDIRS = libgd po
 
 # desktop file
 # (we can't use INTLTOOL_DESKTOP_RULE here due to lp#605826)
@@ -82,31 +82,84 @@ css_DATA = \
 	data/css/button-border-stop-active.svg \
 	data/css/button-border-stop.svg
 
-# main script
-bin_SCRIPTS = gnome-clocks
+AM_CPPFLAGS = \
+	-I$(top_srcdir)/egg-list-box \
+	-I$(top_srcdir)/libgd \
+	-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE \
+	-DGNOME_DESKTOP_USE_UNSTABLE_API \
+	-DGETTEXT_PACKAGE=\""$(GETTEXT_PACKAGE)"\" \
+	-DGNOMELOCALEDIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
+	-DDATADIR=\""$(datadir)"\"
 
-# python module (nobase means dirname is preserved in site-packages
-packagesdir = $(pythondir)
-nobase_dist_packages_PYTHON = \
-	$(wildcard $(srcdir)/gnomeclocks/*.py)
+AM_VALAFLAGS = \
+	--vapidir=egg-list-box \
+	--vapidir=libgd \
+	--pkg gio-2.0 \
+	--pkg gtk+-3.0 \
+	--pkg libcanberra \
+	--pkg libnotify \
+	--pkg gd-1.0
+
+bin_PROGRAMS = gnome-clocks
+
+BUILT_SOURCES = \
+	src/resources.c
+
+src/resources.c: $(top_srcdir)/src/gnome-clocks.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir=$(top_srcdir)/src $(top_srcdir)/src/gnome-clocks.gresource.xml)
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(top_srcdir)/src --generate-source $<
+
+VALA_SOURCES = \
+	src/application.vala \
+	src/window.vala \
+	src/clock.vala \
+	src/world.vala \
+	src/alarm.vala \
+	src/stopwatch.vala \
+	src/timer.vala \
+	src/utils.vala \
+	src/widgets.vala \
+	src/main.vala
+
+gnome_clocks_SOURCES = \
+	$(BUILT_SOURCES) \
+	$(VALA_SOURCES) \
+	src/cutils.c \
+	src/gweather-3.0.vapi \
+	src/gnome-desktop-3.0.vapi \
+	src/config.vapi
+
+AM_CFLAGS = \
+	$(CLOCKS_CFLAGS) \
+	-Wall \
+	-Wno-unused-but-set-variable \
+	-Wno-unused-variable
+
+gnome_clocks_LDFLAGS = -export-dynamic -rpath $(libdir)
+gnome_clocks_LDADD = \
+	$(top_builddir)/libgd/libgd.la \
+	$(CLOCKS_LIBS) \
+	-lm
 
 EXTRA_DIST = \
 	$(icon_files) \
 	$(hcicon_files) \
 	$(images_DATA) \
 	$(css_DATA) \
-	$(bin_SCRIPTS) \
-	data/org.gnome.clocks.gschema.xml.in
+	data/org.gnome.clocks.gschema.xml.in \
+	src/gnome-clocks.gresource.xml \
+	src/alarm.ui \
+	src/menu.ui \
+	src/stopwatch.ui \
+	src/timer.ui \
+	src/world.ui
 
 CLEANFILES = \
-	$(applications_DATA) \
-	$(wildcard $(srcdir)/gnomeclocks/*.pyc)
+	$(applications_DATA)
 
 DISTCLEANFILES = \
-	gnomeclocks/defs.py \
 	$(gsettings_SCHEMAS)
 
-MAINTAINERCLEANFILES = 		\
+MAINTAINERCLEANFILES = \
 	ABOUT-NLS \
 	aclocal.m4 \
 	config.guess \
@@ -122,7 +175,8 @@ MAINTAINERCLEANFILES = 		\
 	po/insert-header.sin \
 	po/quot.sed \
 	po/remove-potcdate.sin \
-	py-compile \
-	$(gsettings_SCHEMAS:.xml=.valid)
+	$(gsettings_SCHEMAS:.xml=.valid) \
+	$(VALA_SOURCES:.vala=.c) \
+	*.stamp
 
 -include $(top_srcdir)/git.mk
