@@ -41,16 +41,18 @@ class TimerScreen(Gtk.Grid):
         self.attach(self.time_label, 0, 0, 2, 1)
 
         self.left_button = Gtk.Button()
+        self.left_button.get_style_context().add_class("clocks-button")
         self.left_button.set_size_request(200, -1)
         self.left_label = Gtk.Label()
-        self.left_label.set_markup(Timer.BUTTON_MARKUP % (_("Pause")))
+        self.left_label.set_text(_("Pause"))
         self.left_button.add(self.left_label)
         self.attach(self.left_button, 0, 1, 1, 1)
 
         self.right_button = Gtk.Button()
+        self.right_button.get_style_context().add_class("clocks-button")
         self.right_button.set_size_request(200, -1)
         self.right_label = Gtk.Label()
-        self.right_label.set_markup(Timer.BUTTON_MARKUP % (_("Reset")))
+        self.right_label.set_text(_("Reset"))
         self.right_button.add(self.right_label)
         self.attach(self.right_button, 1, 1, 1, 1)
 
@@ -61,17 +63,17 @@ class TimerScreen(Gtk.Grid):
         self.time_label.set_markup(Timer.LABEL_MARKUP % (h, m, s))
 
     def _on_right_button_clicked(self, data):
-        self.left_label.set_markup(Timer.BUTTON_MARKUP % (_("Pause")))
+        self.left_label.set_text(_("Pause"))
         self.timer.reset()
 
     def _on_left_button_clicked(self, widget):
         if self.timer.state == Timer.State.RUNNING:
             self.timer.pause()
-            self.left_label.set_markup(Timer.BUTTON_MARKUP % (_("Continue")))
+            self.left_label.set_text(_("Continue"))
             self.left_button.get_style_context().add_class("clocks-go")
         elif self.timer.state == Timer.State.PAUSED:
             self.timer.cont()
-            self.left_label.set_markup(Timer.BUTTON_MARKUP % (_("Pause")))
+            self.left_label.set_text(_("Pause"))
             self.left_button.get_style_context().remove_class("clocks-go")
 
 
@@ -106,11 +108,12 @@ class TimerSetupScreen(Gtk.Grid):
         self.attach(spinner, 0, 0, 1, 1)
 
         self.start_button = Gtk.Button()
+        self.start_button.get_style_context().add_class("clocks-button")
         self.start_button.set_size_request(200, -1)
         label = Gtk.Label()
-        label.set_markup(Timer.BUTTON_MARKUP % (_("Start")))
-        self.start_button.set_sensitive(False)
+        label.set_text(_("Start"))
         self.start_button.add(label)
+        self.start_button.set_sensitive(False)
         self.attach(self.start_button, 0, 1, 1, 1)
 
         self.start_button.connect('clicked', self._on_start_clicked)
@@ -145,7 +148,6 @@ class TimerSetupScreen(Gtk.Grid):
 
 class Timer(Clock):
     LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%02i:%02i</span>"
-    BUTTON_MARKUP = "<span font_desc=\"18.0\">% s</span>"
 
     class State:
         STOPPED = 0

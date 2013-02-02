@@ -25,7 +25,6 @@ from .widgets import Toolbar
 class Stopwatch(Clock):
     LABEL_MARKUP = "<span font_desc=\"64.0\">%02i:%04.1f</span>"
     LABEL_MARKUP_LONG = "<span font_desc=\"64.0\">%i:%02i:%04.1f</span>"
-    BUTTON_MARKUP = "<span font_desc=\"18.0\">%s</span>"
 
     class Page:
         STANDALONE = 0
@@ -67,17 +66,19 @@ class Stopwatch(Clock):
         grid.attach(self.time_label, 0, 0, 2, 1)
 
         self.left_button = Gtk.Button()
+        self.left_button.get_style_context().add_class("clocks-button")
         self.left_button.set_size_request(200, -1)
         self.left_label = Gtk.Label()
-        self.left_label.set_markup(Stopwatch.BUTTON_MARKUP % (_("Start")))
+        self.left_label.set_text(_("Start"))
         self.left_button.add(self.left_label)
         self.left_button.get_style_context().add_class("clocks-go")
         grid.attach(self.left_button, 0, 1, 1, 1)
 
         self.right_button = Gtk.Button()
+        self.right_button.get_style_context().add_class("clocks-button")
         self.right_button.set_size_request(200, -1)
         self.right_label = Gtk.Label()
-        self.right_label.set_markup(Stopwatch.BUTTON_MARKUP % (_("Reset")))
+        self.right_label.set_text(_("Reset"))
         self.right_button.add(self.right_label)
         self.right_button.set_sensitive(False)
         grid.attach(self.right_button, 1, 1, 1, 1)
@@ -123,18 +124,18 @@ class Stopwatch(Clock):
         if self.state in (Stopwatch.State.RESET, Stopwatch.State.STOPPED):
             self.state = Stopwatch.State.RUNNING
             self.start()
-            self.left_label.set_markup(Stopwatch.BUTTON_MARKUP % (_("Stop")))
+            self.left_label.set_text(_("Stop"))
             self.left_button.get_style_context().add_class("clocks-stop")
             self.right_button.set_sensitive(True)
-            self.right_label.set_markup(Stopwatch.BUTTON_MARKUP % (_("Lap")))
+            self.right_label.set_text(_("Lap"))
         elif self.state == Stopwatch.State.RUNNING:
             self.state = Stopwatch.State.STOPPED
             self.stop()
-            self.left_label.set_markup(Stopwatch.BUTTON_MARKUP % (_("Continue")))
+            self.left_label.set_text(_("Continue"))
             self.left_button.get_style_context().remove_class("clocks-stop")
             self.left_button.get_style_context().add_class("clocks-go")
             self.right_button.set_sensitive(True)
-            self.right_label.set_markup(Stopwatch.BUTTON_MARKUP % (_("Reset")))
+            self.right_label.set_text(_("Reset"))
 
     def _on_right_button_clicked(self, widget):
         if self.state == Stopwatch.State.RUNNING:
@@ -155,7 +156,7 @@ class Stopwatch(Clock):
         if self.state == Stopwatch.State.STOPPED:
             self.state = Stopwatch.State.RESET
             self.reset()
-            self.left_label.set_markup(Stopwatch.BUTTON_MARKUP % (_("Start")))
+            self.left_label.set_text(_("Start"))
             self.left_button.get_style_context().add_class("clocks-go")
             self.right_button.set_sensitive(False)
             self.set_time_label(0, 0, 0)
