@@ -567,7 +567,6 @@ class Embed(GtkClutter.Embed):
         self._overlayLayout.add(self._floatingToolbar.actor,
                                 Clutter.BinAlignment.FIXED,
                                 Clutter.BinAlignment.FIXED)
-        self.show_all()
 
         # also pack a white background to use for spotlights
         # between window modes

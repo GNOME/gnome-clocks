@@ -84,8 +84,9 @@ class Window(Gtk.ApplicationWindow):
         vbox.pack_start(self.toolbar, False, False, 0)
         vbox.pack_end(self.embed, True, True, 0)
 
-        self.add(vbox)
+        self.embed.show_all()
         vbox.show()
+        self.add(vbox)
 
     def _on_new_activated(self, action, param):
         view = self.views[self.notebook.get_current_page()]
