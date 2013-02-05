@@ -95,14 +95,16 @@ EXTRA_DIST = \
 	$(hcicon_files) \
 	$(images_DATA) \
 	$(css_DATA) \
-	$(bin_SCRIPTS)
+	$(bin_SCRIPTS) \
+	data/org.gnome.clocks.gschema.xml.in
 
 CLEANFILES = \
 	$(applications_DATA) \
 	$(wildcard $(srcdir)/gnomeclocks/*.pyc)
 
 DISTCLEANFILES = \
-	gnomeclocks/defs.py
+	gnomeclocks/defs.py \
+	$(gsettings_SCHEMAS)
 
 MAINTAINERCLEANFILES = 		\
 	ABOUT-NLS \
@@ -120,6 +122,7 @@ MAINTAINERCLEANFILES = 		\
 	po/insert-header.sin \
 	po/quot.sed \
 	po/remove-potcdate.sin \
-	py-compile
+	py-compile \
+	$(gsettings_SCHEMAS:.xml=.valid)
 
 -include $(top_srcdir)/git.mk
