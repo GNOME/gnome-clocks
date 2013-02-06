@@ -20,7 +20,13 @@ import os
 import time
 import datetime
 from gi.repository import GObject, Gio, GnomeDesktop, Notify
-from . import pycanberra
+
+try:
+    import pycanberra
+except ImportError:
+    # Fallback on the bundled version
+    from . import pycanberra
+
 from gnomeclocks import GNOMECLOCKS_DATADIR
 
 
