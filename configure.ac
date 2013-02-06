@@ -24,7 +24,7 @@ GLIB_GSETTINGS
 PKG_PROG_PKG_CONFIG([0.22])
 
 PKG_CHECK_MODULES(CLOCKS, [
-    pycairo
+    py3cairo
     pygobject-3.0 >= 3.4.2
 ])
 
