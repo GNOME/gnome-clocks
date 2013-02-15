@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks"
 "&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-12-15 14:21+0000\n"
-"PO-Revision-Date: 2013-01-17 11:30+0200\n"
+"POT-Creation-Date: 2013-02-02 01:42+0000\n"
+"PO-Revision-Date: 2013-02-15 11:20+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -16,12 +16,12 @@ msgstr ""
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:35
+#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:33
 msgid "Clocks"
 msgstr "Satovi"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:135
-#: ../gnomeclocks/app.py:144
+#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:106
+#: ../gnomeclocks/app.py:115
 msgid "GNOME Clocks"
 msgstr "Gnomovi satovi"
 
@@ -33,123 +33,132 @@ msgstr "Satovi za svetska vremena, alarmi, štoperica i odbrojavač"
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "vreme;odbrojavač;alarm;svetski sat;štoperica;vremenska zona;"
 
-#. Translators: "New" refers to an alarm
-#: ../gnomeclocks/alarm.py:91 ../gnomeclocks/alarm.py:443
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+msgid "Configured world clocks"
+msgstr "Podešeni svetski satovi"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+msgid "List of world clocks to show."
+msgstr "Spisak svetskih satova za prikazivanje."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+msgid "Configured alarms"
+msgstr "Podešeni alarmi"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+msgid "List of alarms set."
+msgstr "Spisak podešenih alarma."
+
+#: ../gnomeclocks/alarm.py:53 ../gnomeclocks/alarm.py:424
 msgid "Alarm"
 msgstr "Alarm"
 
-#: ../gnomeclocks/alarm.py:128
+#: ../gnomeclocks/alarm.py:90
 msgid "Every day"
 msgstr "Svakog dana"
 
-#: ../gnomeclocks/alarm.py:130
+#: ../gnomeclocks/alarm.py:92
 msgid "Weekdays"
 msgstr "Radnim danima"
 
-#: ../gnomeclocks/alarm.py:177
+#: ../gnomeclocks/alarm.py:163
 msgid "Edit Alarm"
 msgstr "Uredite alarm"
 
-#: ../gnomeclocks/alarm.py:179 ../gnomeclocks/alarm.py:205
+#: ../gnomeclocks/alarm.py:165 ../gnomeclocks/alarm.py:191
 msgid "New Alarm"
 msgstr "Novi alarm"
 
 #. Translators: "Time" in this context is the time an alarm
 #. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:210
+#: ../gnomeclocks/alarm.py:196
 msgid "Time"
 msgstr "Vreme"
 
-#: ../gnomeclocks/alarm.py:253
+#: ../gnomeclocks/alarm.py:239
 msgid "Name"
 msgstr "Naziv"
 
-#: ../gnomeclocks/alarm.py:262
+#: ../gnomeclocks/alarm.py:248
 msgid "Repeat Every"
 msgstr "Ponavljaj"
 
-#: ../gnomeclocks/alarm.py:332 ../gnomeclocks/stopwatch.py:121
+#: ../gnomeclocks/alarm.py:318 ../gnomeclocks/stopwatch.py:124
 msgid "Stop"
 msgstr "Zaustavi"
 
-#: ../gnomeclocks/alarm.py:334
+#: ../gnomeclocks/alarm.py:320
 msgid "Snooze"
 msgstr "Dremaj"
 
-#: ../gnomeclocks/alarm.py:443 ../gnomeclocks/world.py:302
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../gnomeclocks/alarm.py:429 ../gnomeclocks/world.py:270
 msgid "New"
 msgstr "Novo"
 
-#: ../gnomeclocks/alarm.py:457
+#: ../gnomeclocks/alarm.py:435 ../gnomeclocks/world.py:276
+msgid "Done"
+msgstr "Urađeno"
+
+#: ../gnomeclocks/alarm.py:442
+msgid "Edit"
+msgstr "Uredi"
+
+#: ../gnomeclocks/alarm.py:445 ../gnomeclocks/world.py:283
+msgid "Delete"
+msgstr "Obriši"
+
+#: ../gnomeclocks/alarm.py:455
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Izaberite <b>Novo</b> da dodate alarm"
 
-#: ../gnomeclocks/app.py:134 ../gnomeclocks/app.py:418
+#: ../gnomeclocks/app.py:105 ../gnomeclocks/app.py:147
 msgid "About Clocks"
 msgstr "O satovima"
 
-#: ../gnomeclocks/app.py:140
+#: ../gnomeclocks/app.py:111
 msgid "Utilities to help you with the time."
 msgstr "Alati koji će vam pomoći sa vremenom."
 
-#: ../gnomeclocks/app.py:142
+#: ../gnomeclocks/app.py:113
 msgid "translator-credits"
 msgstr ""
 "  Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "\n"
 "http://prevod.org — prevod na srpski jezik"
 
-#: ../gnomeclocks/app.py:294
-msgid "Edit"
-msgstr "Uredi"
-
-#: ../gnomeclocks/app.py:299
-msgid "Done"
-msgstr "Urađeno"
-
-#: ../gnomeclocks/app.py:378
-msgid "Click on items to select them"
-msgstr "Kliknite na stavke da ih izaberete"
-
-#: ../gnomeclocks/app.py:380
-msgid "{0} item selected"
-msgid_plural "{0} items selected"
-msgstr[0] "Izabrana je {0} stavka"
-msgstr[1] "Izabrane su {0} stavke"
-msgstr[2] "Izabrano je {0} stavki"
-msgstr[3] "Izabrana je jedna stavka"
-
-#: ../gnomeclocks/app.py:421
+#: ../gnomeclocks/app.py:150
 msgid "Quit"
 msgstr "Izađi"
 
-#: ../gnomeclocks/stopwatch.py:35
+#: ../gnomeclocks/stopwatch.py:39
 msgid "Stopwatch"
 msgstr "Štoperica"
 
-#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:153
+#: ../gnomeclocks/stopwatch.py:70 ../gnomeclocks/stopwatch.py:156
 #: ../gnomeclocks/timer.py:111
 msgid "Start"
 msgstr "Pokreni"
 
-#: ../gnomeclocks/stopwatch.py:75 ../gnomeclocks/stopwatch.py:132
+#: ../gnomeclocks/stopwatch.py:78 ../gnomeclocks/stopwatch.py:135
 #: ../gnomeclocks/timer.py:53
 msgid "Reset"
 msgstr "Povrati"
 
-#: ../gnomeclocks/stopwatch.py:87 ../gnomeclocks/stopwatch.py:124
+#: ../gnomeclocks/stopwatch.py:90 ../gnomeclocks/stopwatch.py:127
 msgid "Lap"
 msgstr "Krug"
 
-#: ../gnomeclocks/stopwatch.py:93
+#: ../gnomeclocks/stopwatch.py:96
 msgid "Split"
 msgstr "Podeli"
 
-#: ../gnomeclocks/stopwatch.py:99
+#: ../gnomeclocks/stopwatch.py:102
 msgid "Total"
 msgstr "Ukupno"
 
-#: ../gnomeclocks/stopwatch.py:128 ../gnomeclocks/timer.py:70
+#: ../gnomeclocks/stopwatch.py:131 ../gnomeclocks/timer.py:70
 msgid "Continue"
 msgstr "Nastavi"
 
@@ -158,79 +167,86 @@ msgstr "Nastavi"
 msgid "Pause"
 msgstr "Pauziraj"
 
-#: ../gnomeclocks/timer.py:156
+#: ../gnomeclocks/timer.py:160
 msgid "Timer"
 msgstr "Odbrojavač"
 
-#: ../gnomeclocks/timer.py:179
+#: ../gnomeclocks/timer.py:178
 msgid "Time is up!"
 msgstr "Vreme je isteklo!"
 
-#: ../gnomeclocks/timer.py:180
+#: ../gnomeclocks/timer.py:179
 msgid "Timer countdown finished"
 msgstr "Odbrojavač je završio"
 
-#: ../gnomeclocks/utils.py:83
+#: ../gnomeclocks/utils.py:78
 msgid "Mondays"
 msgstr "ponedeljkom"
 
-#: ../gnomeclocks/utils.py:84
+#: ../gnomeclocks/utils.py:79
 msgid "Tuesdays"
 msgstr "utorkom"
 
-#: ../gnomeclocks/utils.py:85
+#: ../gnomeclocks/utils.py:80
 msgid "Wednesdays"
 msgstr "sredom"
 
-#: ../gnomeclocks/utils.py:86
+#: ../gnomeclocks/utils.py:81
 msgid "Thursdays"
 msgstr "četvrtkom"
 
-#: ../gnomeclocks/utils.py:87
+#: ../gnomeclocks/utils.py:82
 msgid "Fridays"
 msgstr "petkom"
 
-#: ../gnomeclocks/utils.py:88
+#: ../gnomeclocks/utils.py:83
 msgid "Saturdays"
 msgstr "subotom"
 
-#: ../gnomeclocks/utils.py:89
+#: ../gnomeclocks/utils.py:84
 msgid "Sundays"
 msgstr "nedeljom"
 
-#: ../gnomeclocks/widgets.py:299
-msgid "Delete"
-msgstr "Obriši"
+#: ../gnomeclocks/widgets.py:171
+msgid "Click on items to select them"
+msgstr "Kliknite na stavke da ih izaberete"
 
-#: ../gnomeclocks/world.py:74
+#: ../gnomeclocks/widgets.py:173
+msgid "{0} item selected"
+msgid_plural "{0} items selected"
+msgstr[0] "Izabrana je {0} stavka"
+msgstr[1] "Izabrane su {0} stavke"
+msgstr[2] "Izabrano je {0} stavki"
+msgstr[3] "Izabrana je jedna stavka"
+
+#: ../gnomeclocks/world.py:38
 msgid "Add a New World Clock"
 msgstr "Dodaj novi svetski sat"
 
-#: ../gnomeclocks/world.py:83
+#: ../gnomeclocks/world.py:47
 msgid "Search for a city:"
 msgstr "Potraži grad:"
 
-#: ../gnomeclocks/world.py:184 ../gnomeclocks/world.py:191
+#: ../gnomeclocks/world.py:148 ../gnomeclocks/world.py:155
 msgid "Yesterday"
 msgstr "Juče"
 
-#: ../gnomeclocks/world.py:186 ../gnomeclocks/world.py:189
+#: ../gnomeclocks/world.py:150 ../gnomeclocks/world.py:153
 msgid "Tomorrow"
 msgstr "Sutra"
 
-#: ../gnomeclocks/world.py:241
+#: ../gnomeclocks/world.py:195
 msgid "Sunrise"
 msgstr "Sunce izlazi u"
 
-#: ../gnomeclocks/world.py:251
+#: ../gnomeclocks/world.py:199
 msgid "Sunset"
 msgstr "Sunce zalazi u"
 
-#. Translators: "New" refers to a world clock
-#: ../gnomeclocks/world.py:302
+#: ../gnomeclocks/world.py:265
 msgid "World"
 msgstr "Svet"
 
-#: ../gnomeclocks/world.py:321
+#: ../gnomeclocks/world.py:298
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Izaberite <b>Novo</b> da dodate svetski sat"
