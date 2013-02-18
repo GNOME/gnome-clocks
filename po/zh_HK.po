@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-28 09:55+0800\n"
-"PO-Revision-Date: 2013-01-28 09:56+0800\n"
+"POT-Creation-Date: 2013-02-18 18:31+0800\n"
+"PO-Revision-Date: 2013-02-18 18:31+0800\n"
 "Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "Language: zh_TW\n"
@@ -16,13 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:33
 msgid "Clocks"
 msgstr "時鐘"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:106
-#: ../gnomeclocks/app.py:115
+#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:107
+#: ../gnomeclocks/app.py:116
 msgid "GNOME Clocks"
 msgstr "GNOME Clocks"
 
@@ -35,162 +36,181 @@ msgstr "包含世界時刻的時鐘，加上鬧鐘、碼表和計時器"
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "time;timer;alarm;world clock;stopwatch;time zone;時間;計時器;鬧鐘;鬧鈴;世界時鐘;碼表;時區;"
 
-#: ../gnomeclocks/alarm.py:93 ../gnomeclocks/alarm.py:455
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+#, fuzzy
+msgid "Configured world clocks"
+msgstr "已設定的世界時鐘"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+#, fuzzy
+msgid "List of world clocks to show."
+msgstr "要顯示的世界時鐘清單。"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+#, fuzzy
+msgid "Configured alarms"
+msgstr "已設定的鬧鐘"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+#, fuzzy
+msgid "List of alarms set."
+msgstr "設定的鬧鐘清單。"
+
+#: ../gnomeclocks/alarm.py:50 ../gnomeclocks/alarm.py:423
 msgid "Alarm"
 msgstr "鬧鐘"
 
-#: ../gnomeclocks/alarm.py:130
+#: ../gnomeclocks/alarm.py:87
 msgid "Every day"
 msgstr "每天"
 
-#: ../gnomeclocks/alarm.py:132
+#: ../gnomeclocks/alarm.py:89
 msgid "Weekdays"
 msgstr "工作週"
 
-#: ../gnomeclocks/alarm.py:194
+#: ../gnomeclocks/alarm.py:160
 msgid "Edit Alarm"
 msgstr "編輯鬧鐘"
 
-#: ../gnomeclocks/alarm.py:196 ../gnomeclocks/alarm.py:222
+#: ../gnomeclocks/alarm.py:162 ../gnomeclocks/alarm.py:188
 msgid "New Alarm"
 msgstr "新增鬧鐘"
 
 #. Translators: "Time" in this context is the time an alarm
 #. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:227
+#: ../gnomeclocks/alarm.py:193
 msgid "Time"
 msgstr "時間"
 
-#: ../gnomeclocks/alarm.py:270
+#: ../gnomeclocks/alarm.py:236
 msgid "Name"
 msgstr "名稱"
 
-#: ../gnomeclocks/alarm.py:279
+#: ../gnomeclocks/alarm.py:245
 msgid "Repeat Every"
 msgstr "重複於每"
 
-#: ../gnomeclocks/alarm.py:349 ../gnomeclocks/stopwatch.py:124
+#: ../gnomeclocks/alarm.py:311 ../gnomeclocks/stopwatch.py:127
 msgid "Stop"
 msgstr "停止"
 
-#: ../gnomeclocks/alarm.py:351
+#: ../gnomeclocks/alarm.py:318
 msgid "Snooze"
 msgstr "延期"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../gnomeclocks/alarm.py:458 ../gnomeclocks/world.py:301
+#: ../gnomeclocks/alarm.py:428 ../gnomeclocks/world.py:268
 msgid "New"
 msgstr "新增"
 
-#: ../gnomeclocks/alarm.py:464 ../gnomeclocks/world.py:307
+#: ../gnomeclocks/alarm.py:434 ../gnomeclocks/world.py:274
 msgid "Done"
 msgstr "完成"
 
-#: ../gnomeclocks/alarm.py:471
+#: ../gnomeclocks/alarm.py:441
 msgid "Edit"
 msgstr "編輯"
 
-#: ../gnomeclocks/alarm.py:474 ../gnomeclocks/world.py:314
+#: ../gnomeclocks/alarm.py:444 ../gnomeclocks/world.py:281
 msgid "Delete"
 msgstr "刪除"
 
-#: ../gnomeclocks/alarm.py:484
+#: ../gnomeclocks/alarm.py:454
 msgid "Select <b>New</b> to add an alarm"
 msgstr "選擇 <b>新增</b> 來加入鬧鐘"
 
-#: ../gnomeclocks/app.py:105 ../gnomeclocks/app.py:147
+#: ../gnomeclocks/app.py:106 ../gnomeclocks/app.py:148
 msgid "About Clocks"
 msgstr "關於 Clocks"
 
-#: ../gnomeclocks/app.py:111
+#: ../gnomeclocks/app.py:112
 msgid "Utilities to help you with the time."
 msgstr "協助你時間方面的工具。"
 
-#: ../gnomeclocks/app.py:113
+#: ../gnomeclocks/app.py:114
 msgid "translator-credits"
 msgstr "Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>, 2012"
 
-#: ../gnomeclocks/app.py:150
+#: ../gnomeclocks/app.py:151
 msgid "Quit"
 msgstr "結束"
 
-#: ../gnomeclocks/stopwatch.py:39
+#: ../gnomeclocks/stopwatch.py:38
 msgid "Stopwatch"
 msgstr "碼表"
 
-#: ../gnomeclocks/stopwatch.py:70 ../gnomeclocks/stopwatch.py:156
-#: ../gnomeclocks/timer.py:111
+#: ../gnomeclocks/stopwatch.py:72 ../gnomeclocks/stopwatch.py:159
+#: ../gnomeclocks/timer.py:114
 msgid "Start"
 msgstr "開始"
 
-#: ../gnomeclocks/stopwatch.py:78 ../gnomeclocks/stopwatch.py:135
-#: ../gnomeclocks/timer.py:53
+#: ../gnomeclocks/stopwatch.py:81 ../gnomeclocks/stopwatch.py:138
+#: ../gnomeclocks/timer.py:55
 msgid "Reset"
 msgstr "重設"
 
-#: ../gnomeclocks/stopwatch.py:90 ../gnomeclocks/stopwatch.py:127
+#: ../gnomeclocks/stopwatch.py:93 ../gnomeclocks/stopwatch.py:130
 #, fuzzy
 msgid "Lap"
 msgstr "圈數"
 
-#: ../gnomeclocks/stopwatch.py:96
+#: ../gnomeclocks/stopwatch.py:99
 #, fuzzy
 msgid "Split"
 msgstr "切分"
 
-#: ../gnomeclocks/stopwatch.py:102
+#: ../gnomeclocks/stopwatch.py:105
 #, fuzzy
 msgid "Total"
 msgstr "總計"
 
-#: ../gnomeclocks/stopwatch.py:131 ../gnomeclocks/timer.py:70
+#: ../gnomeclocks/stopwatch.py:134 ../gnomeclocks/timer.py:72
 msgid "Continue"
 msgstr "繼續"
 
-#: ../gnomeclocks/timer.py:46 ../gnomeclocks/timer.py:64
-#: ../gnomeclocks/timer.py:74
+#: ../gnomeclocks/timer.py:47 ../gnomeclocks/timer.py:66
+#: ../gnomeclocks/timer.py:76
 msgid "Pause"
 msgstr "暫停"
 
-#: ../gnomeclocks/timer.py:160
+#: ../gnomeclocks/timer.py:162
 msgid "Timer"
 msgstr "計時器"
 
-#: ../gnomeclocks/timer.py:178
+#: ../gnomeclocks/timer.py:182
 msgid "Time is up!"
 msgstr "時間到！"
 
-#: ../gnomeclocks/timer.py:179
-#, fuzzy
+#: ../gnomeclocks/timer.py:183
 msgid "Timer countdown finished"
 msgstr "計時器倒數截止"
 
-#: ../gnomeclocks/utils.py:83
+#: ../gnomeclocks/utils.py:84
 msgid "Mondays"
 msgstr "星期一"
 
-#: ../gnomeclocks/utils.py:84
+#: ../gnomeclocks/utils.py:85
 msgid "Tuesdays"
 msgstr "星期二"
 
-#: ../gnomeclocks/utils.py:85
+#: ../gnomeclocks/utils.py:86
 msgid "Wednesdays"
 msgstr "星期三"
 
-#: ../gnomeclocks/utils.py:86
+#: ../gnomeclocks/utils.py:87
 msgid "Thursdays"
 msgstr "星期四"
 
-#: ../gnomeclocks/utils.py:87
+#: ../gnomeclocks/utils.py:88
 msgid "Fridays"
 msgstr "星期五"
 
-#: ../gnomeclocks/utils.py:88
+#: ../gnomeclocks/utils.py:89
 msgid "Saturdays"
 msgstr "星期六"
 
-#: ../gnomeclocks/utils.py:89
+#: ../gnomeclocks/utils.py:90
 msgid "Sundays"
 msgstr "星期日"
 
@@ -203,37 +223,35 @@ msgid "{0} item selected"
 msgid_plural "{0} items selected"
 msgstr[0] "已選取 {0} 個項目"
 
-#: ../gnomeclocks/world.py:74
+#: ../gnomeclocks/world.py:36
 msgid "Add a New World Clock"
 msgstr "加入新的世界時鐘"
 
-#: ../gnomeclocks/world.py:83
+#: ../gnomeclocks/world.py:45
 msgid "Search for a city:"
 msgstr "搜尋城市："
 
-#: ../gnomeclocks/world.py:184 ../gnomeclocks/world.py:191
-#, fuzzy
+#: ../gnomeclocks/world.py:146 ../gnomeclocks/world.py:153
 msgid "Yesterday"
 msgstr "昨天"
 
-#: ../gnomeclocks/world.py:186 ../gnomeclocks/world.py:189
-#, fuzzy
+#: ../gnomeclocks/world.py:148 ../gnomeclocks/world.py:151
 msgid "Tomorrow"
 msgstr "明天"
 
-#: ../gnomeclocks/world.py:228
+#: ../gnomeclocks/world.py:193
 msgid "Sunrise"
 msgstr "日出"
 
-#: ../gnomeclocks/world.py:232
+#: ../gnomeclocks/world.py:197
 msgid "Sunset"
 msgstr "日落"
 
-#: ../gnomeclocks/world.py:298
+#: ../gnomeclocks/world.py:263
 msgid "World"
 msgstr "世界"
 
-#: ../gnomeclocks/world.py:329
+#: ../gnomeclocks/world.py:296
 msgid "Select <b>New</b> to add a world clock"
 msgstr "選擇 <b>新增</b> 來加入世界時鐘"
 
