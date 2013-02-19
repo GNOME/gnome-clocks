@@ -19,9 +19,9 @@
 namespace Clocks {
 
 public class Window : Gtk.ApplicationWindow {
-    // Default size is enough for two rows of 4 clocks
-    private const int DEFAULT_WIDTH = 788;
-    private const int DEFAULT_HEIGHT = 540;
+    // Default size is enough for two rows of three clocks
+    private const int DEFAULT_WIDTH = 882;
+    private const int DEFAULT_HEIGHT = 680;
 
     private const GLib.ActionEntry[] action_entries = {
         // app menu

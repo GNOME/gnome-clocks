@@ -258,16 +258,16 @@ public class IconView : Gtk.IconView {
 
         thumb_renderer = new DigitalClockRenderer ();
         thumb_renderer.set_alignment (0.5f, 0.5f);
-        thumb_renderer.set_fixed_size (160, 160);
+        thumb_renderer.set_fixed_size (256, 256);
         pack_start (thumb_renderer, false);
         add_attribute (thumb_renderer, "active", Column.SELECTED);
         set_cell_data_func (thumb_renderer, (owned) thumb_data_func);
 
         var text_renderer = new Gtk.CellRendererText ();
         text_renderer.set_alignment (0.5f, 0.5f);
-        text_renderer.set_fixed_size (160, -1);
+        text_renderer.set_fixed_size (256, -1);
         text_renderer.alignment = Pango.Alignment.CENTER;
-        text_renderer.wrap_width = 140;
+        text_renderer.wrap_width = 220;
         text_renderer.wrap_mode = Pango.WrapMode.WORD_CHAR;
         pack_start (text_renderer, true);
         add_attribute (text_renderer, "markup", Column.LABEL);
