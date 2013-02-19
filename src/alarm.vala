@@ -454,11 +454,18 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
                 Item alarm;
                 list_store.get (i, IconView.Column.ITEM, out alarm);
                 var dialog = new SetupDialog ((Gtk.Window) get_toplevel (), alarm);
+
+                // Disable alarm while editing it and remember the original active state.
+                var saved_active = alarm.active;
+                alarm.active = false;
+
                 dialog.response.connect ((dialog, response) => {
                     if (response == 1) {
                         ((SetupDialog) dialog).apply_to_alarm (alarm);
                         alarm.reset ();
                         save ();
+                    } else {
+                        alarm.active = saved_active;
                     }
                     dialog.destroy ();
                 });
