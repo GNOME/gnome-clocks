@@ -194,7 +194,7 @@ private class Item : Object {
 
     public void serialize (GLib.VariantBuilder builder) {
         builder.open (new GLib.VariantType ("a{sv}"));
-        builder.add ("{sv}", "name", new GLib.Variant.string ("name"));
+        builder.add ("{sv}", "name", new GLib.Variant.string (name));
         builder.add ("{sv}", "active", new GLib.Variant.boolean (active));
         builder.add ("{sv}", "hour", new GLib.Variant.int32 (hour));
         builder.add ("{sv}", "minute", new GLib.Variant.int32 (minute));
@@ -222,8 +222,10 @@ private class Item : Object {
                 days = Utils.Weekdays.deserialize (v.get_child_value (1).get_child_value (0));
             }
         }
-        if (name != null && hour > 0 && minute > 0) {
+        if (name != null && hour >= 0 && minute >= 0) {
             return new Item.with_data (name, active, hour, minute, days);
+        } else {
+            warning ("Invalid alarm %s", name != null ? name : "name missing");
         }
         return null;
     }
@@ -532,9 +534,11 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
 
     private void load () {
         foreach (var a in settings.get_value ("alarms")) {
-            Item alarm = Item.deserialize (a);
-            alarms.prepend (alarm);
-            icon_view.add_item (alarm.name, alarm);
+            Item? alarm = Item.deserialize (a);
+            if (alarm != null) {
+                alarms.prepend (alarm);
+                icon_view.add_item (alarm.name, alarm);
+            }
         }
         alarms.reverse ();
     }

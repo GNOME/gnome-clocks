@@ -310,9 +310,11 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
 
     private void load () {
         foreach (var l in settings.get_value ("world-clocks")) {
-            Item location = Item.deserialize (l);
-            locations.prepend (location);
-            icon_view.add_item (location.name, location);
+            Item? location = Item.deserialize (l);
+            if (location != null) {
+                locations.prepend (location);
+                icon_view.add_item (location.name, location);
+            }
         }
         locations.reverse ();
     }
