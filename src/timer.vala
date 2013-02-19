@@ -123,7 +123,13 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
         var m = m_spinbutton.get_value_as_int ();
         var s = s_spinbutton.get_value_as_int ();
 
-        start_button.set_sensitive (h != 0 || m != 0 || s != 0);
+        if (h != 0 || m != 0 || s != 0) {
+            start_button.set_sensitive (true);
+            start_button.get_style_context ().add_class ("clocks-go");
+        } else {
+            start_button.set_sensitive (false);
+            start_button.get_style_context ().remove_class ("clocks-go");
+        }
     }
 
     private void reset () {
