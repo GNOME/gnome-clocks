@@ -122,18 +122,16 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
         // to the image width (not the width of the cell which may be larger in
         // case of long city names).
         // We need to know the width to create the pango layouts
-        int pixbuf_margin = 0;
+        int margin = 0;
         if (pixbuf != null) {
-            pixbuf_margin = (int) ((cell_area.width - pixbuf.width) / 2);
+            margin = (int) ((cell_area.width - pixbuf.width) / 2);
         }
 
-        int margin = 12 + pixbuf_margin;
-        int padding = 12;
         int w = cell_area.width - 2 * margin;
 
         // create the layouts so that we can measure them
         var layout = widget.create_pango_layout ("");
-        layout.set_markup ("<span size='xx-large'><b>%s</b></span>".printf (text), -1);
+        layout.set_markup ("<span font_desc=\"32.0\">%s</span>".printf (text), -1);
         layout.set_width (w * Pango.SCALE);
         layout.set_alignment (Pango.Alignment.CENTER);
         int text_w, text_h;
@@ -145,11 +143,11 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
         int subtext_pad = 0;
         if (subtext != null) {
             layout_subtext = widget.create_pango_layout ("");
-            layout_subtext.set_markup ("<span size='medium'>%s</span>".printf (subtext), -1);
+            layout_subtext.set_markup ("<span font_desc=\"14.0\">%s</span>".printf (subtext), -1);
             layout_subtext.set_width (w * Pango.SCALE);
             layout_subtext.set_alignment (Pango.Alignment.CENTER);
             layout_subtext.get_pixel_size (out subtext_w, out subtext_h);
-            subtext_pad = 6;
+            subtext_pad = 4;
             // We just assume the first line is the longest
             var line = layout_subtext.get_line (0);
             Pango.Rectangle ink_rect, log_rect;
@@ -157,21 +155,21 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
             subtext_w = log_rect.width;
         }
 
-        // measure the actual height and coordinates (xpad is ignored for now)
-        int h = 2 * padding + text_h + subtext_h + subtext_pad;
+        // draw the stripe background
+        int stripe_h = 128;
         int x = margin;
-        int y = (cell_area.height - h) / 2;
+        int y = (cell_area.height - stripe_h) / 2;
 
-        context.add_class ("inner");
+        context.add_class ("stripe");
+        context.render_frame (cr, x, y, w, stripe_h);
+        context.render_background (cr, x, y, w, stripe_h);
 
-        // draw inner rectangle background
-        context.render_frame (cr, x, y, w, h);
-        context.render_background (cr, x, y, w, h);
-
-        // draw text
-        context.render_layout (cr, x, y + padding, layout);
+        // draw text centered on the stripe
+        y += (stripe_h - text_h - subtext_h - subtext_pad) / 2;
+        context.render_layout (cr, x, y, layout);
         if (subtext != null) {
-            context.render_layout (cr, x, y + padding + text_h + subtext_pad, layout_subtext);
+            y += text_h + subtext_pad;
+            context.render_layout (cr, x, y, layout_subtext);
         }
 
         context.restore ();
