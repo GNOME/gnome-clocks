@@ -266,6 +266,7 @@ public class IconView : Gtk.IconView {
         var text_renderer = new Gtk.CellRendererText ();
         text_renderer.set_alignment (0.5f, 0.5f);
         text_renderer.set_fixed_size (160, -1);
+        text_renderer.alignment = Pango.Alignment.CENTER;
         text_renderer.wrap_width = 140;
         text_renderer.wrap_mode = Pango.WrapMode.WORD_CHAR;
         pack_start (text_renderer, true);
