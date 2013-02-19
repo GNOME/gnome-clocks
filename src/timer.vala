@@ -110,7 +110,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     }
 
     public virtual signal void ring () {
-        bell.ring ();
+        bell.ring_once ();
     }
 
     private bool show_leading_zeros (Gtk.SpinButton spin_button) {

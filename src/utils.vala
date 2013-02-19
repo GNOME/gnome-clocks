@@ -302,12 +302,32 @@ public class Bell : Object {
         }
     }
 
-    public void ring () {
+    private bool keep_ringing () {
+        Canberra.Proplist pl;
+        Canberra.Proplist.create (out pl);
+        pl.sets (Canberra.PROP_EVENT_ID, sound);
+        pl.sets (Canberra.PROP_CANBERRA_XDG_THEME_NAME, soundtheme);
+        pl.sets (Canberra.PROP_MEDIA_ROLE, "alarm");
+
+        canberra.play_full (1, pl, (c, id, code) => {
+            if (code == Canberra.SUCCESS) {
+                GLib.Idle.add (keep_ringing);
+            }
+        });
+
+        return false;
+    }
+
+    private void ring_real (bool once) {
         if (canberra != null) {
-            canberra.play (1,
-                           Canberra.PROP_EVENT_ID, sound,
-                           Canberra.PROP_CANBERRA_XDG_THEME_NAME, soundtheme,
-                           Canberra.PROP_MEDIA_ROLE, "alarm");
+            if (once) {
+                canberra.play (1,
+                               Canberra.PROP_EVENT_ID, sound,
+                               Canberra.PROP_CANBERRA_XDG_THEME_NAME, soundtheme,
+                               Canberra.PROP_MEDIA_ROLE, "alarm");
+            } else {
+                GLib.Idle.add (keep_ringing);
+            }
         }
 
         if (notification != null) {
@@ -317,6 +337,14 @@ public class Bell : Object {
                 warning (error.message);
             }
         }
+    }
+
+    public void ring_once () {
+        ring_real (true);
+    }
+
+    public void ring () {
+        ring_real (false);
     }
 
     public void stop () {
