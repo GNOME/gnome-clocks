@@ -243,7 +243,7 @@ private class SetupDialog : Gtk.Dialog {
     public SetupDialog (Gtk.Window parent, Item? alarm) {
         Object (transient_for: parent, modal: true, title: _("New Alarm"));
 
-        add_buttons (Gtk.Stock.CANCEL, 0, Gtk.Stock.SAVE, 1);
+        add_buttons (Gtk.Stock.CANCEL, 0, _("_Done"), 1);
         set_default_response (1);
 
         format  = Utils.WallClock.get_default ().format;
