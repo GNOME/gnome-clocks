@@ -303,7 +303,7 @@ private class SetupDialog : Gtk.Dialog {
 
         if (alarm == null) {
             var wc = Utils.WallClock.get_default ();
-            name = _("New Alarm");
+            name = _("Alarm");
             hour = wc.date_time.get_hour();
             minute = wc.date_time.get_minute();
             days = null;
