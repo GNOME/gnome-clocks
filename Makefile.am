@@ -134,7 +134,7 @@ AM_CFLAGS = \
 	-Wno-unused-but-set-variable \
 	-Wno-unused-variable
 
-gnome_clocks_LDFLAGS = -export-dynamic -rpath $(libdir)
+gnome_clocks_LDFLAGS = -export-dynamic
 gnome_clocks_LDADD = \
 	$(top_builddir)/libgd/libgd.la \
 	$(CLOCKS_LIBS) \
@@ -163,7 +163,6 @@ MAINTAINERCLEANFILES = \
 	ABOUT-NLS \
 	aclocal.m4 \
 	config.guess \
-	config.rpath \
 	config.sub \
 	install-sh \
 	missing \
