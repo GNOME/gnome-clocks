@@ -352,6 +352,12 @@ public class Bell : Object {
             canberra.cancel (1);
         }
     }
+
+    public void add_action (string action, string label, owned Notify.ActionCallback callback) {
+        if (notification != null) {
+            notification.add_action (action, label, (owned) callback);
+        }
+    }
 }
 
 } // namespace Utils

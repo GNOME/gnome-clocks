@@ -38,7 +38,7 @@ private class Item : Object {
 
         set {
             _name = value;
-            bell = new Utils.Bell ("alarm-clock-elapsed", _("Alarm"), _name);
+            setup_bell ();
         }
     }
 
@@ -91,16 +91,24 @@ private class Item : Object {
     private Utils.Bell bell;
 
     public Item () {
-        bell = new Utils.Bell ("alarm-clock-elapsed", _("Alarm"), "");
         days = new Utils.Weekdays ();
     }
 
     public Item.with_data (string name, bool active, int hour, int minute, Utils.Weekdays days) {
         Object (name: name, active: active, hour: hour, minute: minute, days: days);
 
-        bell = new Utils.Bell ("alarm-clock-elapsed", _("Alarm"), name);
-
+        setup_bell ();
         reset ();
+    }
+
+    private void setup_bell () {
+        bell = new Utils.Bell ("alarm-clock-elapsed", _("Alarm"), name);
+        bell.add_action ("stop", _("Stop"), () => {
+            stop ();
+        });
+        bell.add_action ("snooze", _("Snooze"), () => {
+            snooze ();
+        });
     }
 
     public void reset () {
@@ -378,8 +386,29 @@ private class SetupDialog : Gtk.Dialog {
 }
 
 private class StandalonePanel : Gtk.EventBox {
-    public Item alarm { get; set; }
+    public Item alarm {
+        get {
+            return _alarm;
+        }
+        set {
+            if (_alarm != null) {
+                _alarm.disconnect (alarm_state_handler);
+            }
 
+            _alarm = value;
+
+            if (_alarm != null) {
+                alarm_state_handler = _alarm.notify["state"].connect (() => {
+                    if (alarm.state != Item.State.RINGING) {
+                        dismiss ();
+                    }
+                });
+            }
+        }
+    }
+
+    private Item? _alarm;
+    private ulong alarm_state_handler;
     private Gtk.Label time_label;
     private Gtk.Button stop_button;
     private Gtk.Button snooze_button;
@@ -396,18 +425,18 @@ private class StandalonePanel : Gtk.EventBox {
 
         stop_button.clicked.connect (() => {
             alarm.stop ();
-            dismiss ();
         });
 
         snooze_button.clicked.connect (() => {
             alarm.snooze ();
-            dismiss ();
         });
 
         add (grid);
     }
 
-    public signal void dismiss ();
+    public virtual signal void dismiss () {
+        alarm = null;
+    }
 
     public void update () {
         if (alarm != null) {
