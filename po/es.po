@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-18 23:59+0000\n"
-"PO-Revision-Date: 2013-02-19 12:25+0100\n"
+"POT-Creation-Date: 2013-02-19 22:19+0000\n"
+"PO-Revision-Date: 2013-02-21 16:46+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -54,17 +54,22 @@ msgid "List of alarms set."
 msgstr "Lista de alarmas establecidas."
 
 #: ../src/alarm.vala:41 ../src/alarm.vala:94 ../src/alarm.vala:101
-#: ../src/alarm.vala:428
+#: ../src/alarm.vala:306 ../src/alarm.vala:430
 msgid "Alarm"
 msgstr "Alarma"
 
-#: ../src/alarm.vala:242 ../src/alarm.vala:304
+#: ../src/alarm.vala:244
 msgid "New Alarm"
 msgstr "Alarma nueva"
 
+#: ../src/alarm.vala:246
+#| msgid "Done"
+msgid "_Done"
+msgstr "_Hecho"
+
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:578 ../src/world.vala:356
+#: ../src/alarm.vala:589 ../src/world.vala:358
 msgid "New"
 msgstr "Nuevo"
 
@@ -141,7 +146,6 @@ msgid "Sundays"
 msgstr "Domingos"
 
 #: ../src/utils.vala:233
-#| msgid "Every day"
 msgid "Every Day"
 msgstr "Cada día"
 
@@ -149,29 +153,26 @@ msgstr "Cada día"
 msgid "Weekdays"
 msgstr "Días de la semana"
 
-#: ../src/widgets.vala:402 ../src/widgets.vala:471
+#: ../src/widgets.vala:401 ../src/widgets.vala:470
 msgid "Click on items to select them"
 msgstr "Pulse sobre los elementos para seleccionarlos"
 
-#: ../src/widgets.vala:404
+#: ../src/widgets.vala:403
 #, c-format
-#| msgid "{0} item selected"
-#| msgid_plural "{0} items selected"
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d seleccionado"
 msgstr[1] "%d seleccionados"
 
-#: ../src/widgets.vala:427
+#: ../src/widgets.vala:426
 msgid "Delete"
 msgstr "Eliminar"
 
-#: ../src/widgets.vala:470
+#: ../src/widgets.vala:469
 msgid "Done"
 msgstr "Hecho"
 
 #: ../src/window.vala:146
-#| msgid "GNOME Clocks"
 msgid "Gnome Clocks"
 msgstr "Relojes de GNOME"
 
@@ -238,7 +239,6 @@ msgid "_About"
 msgstr "A_cerca de"
 
 #: ../src/menu.ui.h:3
-#| msgid "Quit"
 msgid "_Quit"
 msgstr "_Salir"
 
