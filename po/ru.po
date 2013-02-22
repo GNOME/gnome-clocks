@@ -4,31 +4,30 @@
 #
 # Stas Solovey <whats_up@tut.by>, 2012.
 # Yuri Kozlov <yuray@komyakino.ru>, 2012.
-# Yuri Myasoedov <omerta13@yandex.ru>, 2012.
+# Yuri Myasoedov <omerta13@yandex.ru>, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-08 13:33+0000\n"
-"PO-Revision-Date: 2013-01-09 15:52+0400\n"
-"Last-Translator: Aleksej Kabanov <ak099@mail.ru>\n"
+"POT-Creation-Date: 2013-02-22 09:33+0000\n"
+"PO-Revision-Date: 2013-02-22 16:10+0400\n"
+"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:33
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
 msgid "Clocks"
 msgstr "Часы"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:106
-#: ../gnomeclocks/app.py:115
+#: ../data/gnome-clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "Часы GNOME"
 
@@ -40,203 +39,257 @@ msgstr "Часы мирового времени, а также будильни
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "время;таймер;будильник;мировое время;часовой пояс;"
 
-#: ../gnomeclocks/alarm.py:93 ../gnomeclocks/alarm.py:455
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+msgid "Configured world clocks"
+msgstr "Настроенные мировые часы"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+msgid "List of world clocks to show."
+msgstr "Список мировых часов."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+msgid "Configured alarms"
+msgstr "Настроенные будильники"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+msgid "List of alarms set."
+msgstr "Список настроенных будильников."
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:314 ../src/alarm.vala:459
 msgid "Alarm"
 msgstr "Будильник"
 
-#: ../gnomeclocks/alarm.py:130
-msgid "Every day"
-msgstr "Ежедневно"
-
-#: ../gnomeclocks/alarm.py:132
-msgid "Weekdays"
-msgstr "Будни"
-
-#: ../gnomeclocks/alarm.py:194
-msgid "Edit Alarm"
-msgstr "Настроить будильник"
-
-#: ../gnomeclocks/alarm.py:196 ../gnomeclocks/alarm.py:222
-msgid "New Alarm"
-msgstr "Создать будильник"
-
-#. Translators: "Time" in this context is the time an alarm
-#. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:227
-msgid "Time"
-msgstr "Время"
-
-#: ../gnomeclocks/alarm.py:270
-msgid "Name"
-msgstr "Имя"
-
-#: ../gnomeclocks/alarm.py:279
-msgid "Repeat Every"
-msgstr "Повторять каждые"
-
-#: ../gnomeclocks/alarm.py:349 ../gnomeclocks/stopwatch.py:124
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:124 ../src/alarm.ui.h:2
 msgid "Stop"
 msgstr "Остановить"
 
-#: ../gnomeclocks/alarm.py:351
+#: ../src/alarm.vala:109 ../src/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Напомнить"
 
+#: ../src/alarm.vala:252
+msgid "New Alarm"
+msgstr "Создать будильник"
+
+#: ../src/alarm.vala:254
+#| msgid "Done"
+msgid "_Done"
+msgstr "_Готово"
+
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../gnomeclocks/alarm.py:458 ../gnomeclocks/world.py:301
+#: ../src/alarm.vala:618 ../src/world.vala:358
 msgid "New"
 msgstr "Создать"
 
-#: ../gnomeclocks/alarm.py:464 ../gnomeclocks/world.py:307
-msgid "Done"
-msgstr "Готово"
+#: ../src/application.vala:24
+msgid "Print version information and exit"
+msgstr "Показать информацию о версии и выйти"
 
-#: ../gnomeclocks/alarm.py:471
-msgid "Edit"
-msgstr "Правка"
-
-#: ../gnomeclocks/alarm.py:474 ../gnomeclocks/world.py:314
-msgid "Delete"
-msgstr "Удалить"
-
-#: ../gnomeclocks/alarm.py:484
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Выберите <b>Создать</b>, чтобы добавить будильник"
-
-#: ../gnomeclocks/app.py:105 ../gnomeclocks/app.py:147
-msgid "About Clocks"
-msgstr "О программе"
-
-#: ../gnomeclocks/app.py:111
-msgid "Utilities to help you with the time."
-msgstr "Утилиты для помощи в организации времени."
-
-#: ../gnomeclocks/app.py:113
-msgid "translator-credits"
-msgstr "Станислав Соловей <whats_up@tut.by>, 2012"
-
-#: ../gnomeclocks/app.py:150
-msgid "Quit"
-msgstr "Закончить"
-
-#: ../gnomeclocks/stopwatch.py:39
+#: ../src/stopwatch.vala:50
 msgid "Stopwatch"
 msgstr "Секундомер"
 
-#: ../gnomeclocks/stopwatch.py:70 ../gnomeclocks/stopwatch.py:156
-#: ../gnomeclocks/timer.py:111
-msgid "Start"
-msgstr "Запустить"
-
-#: ../gnomeclocks/stopwatch.py:78 ../gnomeclocks/stopwatch.py:135
-#: ../gnomeclocks/timer.py:53
-msgid "Reset"
-msgstr "Сбросить"
-
-#: ../gnomeclocks/stopwatch.py:90 ../gnomeclocks/stopwatch.py:127
+#: ../src/stopwatch.vala:127 ../src/stopwatch.ui.h:3
 msgid "Lap"
 msgstr "Круг"
 
-#: ../gnomeclocks/stopwatch.py:96
-msgid "Split"
-msgstr "Разрыв"
-
-#: ../gnomeclocks/stopwatch.py:102
-msgid "Total"
-msgstr "Общее"
-
-#: ../gnomeclocks/stopwatch.py:131 ../gnomeclocks/timer.py:70
+#: ../src/stopwatch.vala:134 ../src/timer.vala:85
 msgid "Continue"
 msgstr "Продолжить"
 
-#: ../gnomeclocks/timer.py:46 ../gnomeclocks/timer.py:64
-#: ../gnomeclocks/timer.py:74
-msgid "Pause"
-msgstr "Приостановить"
+#: ../src/stopwatch.vala:138 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:4
+msgid "Reset"
+msgstr "Сбросить"
 
-#: ../gnomeclocks/timer.py:160
+#: ../src/stopwatch.vala:146 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:2
+msgid "Start"
+msgstr "Запустить"
+
+#: ../src/timer.vala:48
 msgid "Timer"
 msgstr "Таймер"
 
-#: ../gnomeclocks/timer.py:178
+#: ../src/timer.vala:50
 msgid "Time is up!"
 msgstr "Время истекло!"
 
-#: ../gnomeclocks/timer.py:179
+#: ../src/timer.vala:50
 msgid "Timer countdown finished"
 msgstr "Обратный отсчёт таймера завершён"
 
-#: ../gnomeclocks/utils.py:83
+#: ../src/timer.vala:90 ../src/timer.vala:100 ../src/timer.ui.h:3
+msgid "Pause"
+msgstr "Приостановить"
+
+#: ../src/utils.vala:147
 msgid "Mondays"
 msgstr "понедельники"
 
-#: ../gnomeclocks/utils.py:84
+#: ../src/utils.vala:148
 msgid "Tuesdays"
 msgstr "вторники"
 
-#: ../gnomeclocks/utils.py:85
+#: ../src/utils.vala:149
 msgid "Wednesdays"
 msgstr "среды"
 
-#: ../gnomeclocks/utils.py:86
+#: ../src/utils.vala:150
 msgid "Thursdays"
 msgstr "четверги"
 
-#: ../gnomeclocks/utils.py:87
+#: ../src/utils.vala:151
 msgid "Fridays"
 msgstr "пятницы"
 
-#: ../gnomeclocks/utils.py:88
+#: ../src/utils.vala:152
 msgid "Saturdays"
 msgstr "субботы"
 
-#: ../gnomeclocks/utils.py:89
+#: ../src/utils.vala:153
 msgid "Sundays"
 msgstr "воскресенья"
 
-#: ../gnomeclocks/widgets.py:171
+#: ../src/utils.vala:233
+#| msgid "Every day"
+msgid "Every Day"
+msgstr "Ежедневно"
+
+#: ../src/utils.vala:235
+msgid "Weekdays"
+msgstr "Будни"
+
+#: ../src/widgets.vala:401 ../src/widgets.vala:470
 msgid "Click on items to select them"
 msgstr "Нажмите на элемент, чтобы выбрать его"
 
-#: ../gnomeclocks/widgets.py:173
-msgid "{0} item selected"
-msgid_plural "{0} items selected"
-msgstr[0] "Выбран {0} элемент"
-msgstr[1] "Выбрано {0} элемента"
-msgstr[2] "Выбрано {0} элементов"
+#: ../src/widgets.vala:403
+#, c-format
+#| msgid "{0} item selected"
+#| msgid_plural "{0} items selected"
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "Выбран %d элемент"
+msgstr[1] "Выбрано %d элемента"
+msgstr[2] "Выбрано %d элементов"
 
-#: ../gnomeclocks/world.py:74
-msgid "Add a New World Clock"
-msgstr "Добавить новые мировые часы"
+#: ../src/widgets.vala:426
+msgid "Delete"
+msgstr "Удалить"
 
-#: ../gnomeclocks/world.py:83
-msgid "Search for a city:"
-msgstr "Поиск по городу:"
+#: ../src/widgets.vala:469
+msgid "Done"
+msgstr "Готово"
 
-#: ../gnomeclocks/world.py:184 ../gnomeclocks/world.py:191
-msgid "Yesterday"
-msgstr "Вчера"
+#: ../src/window.vala:146
+#| msgid "GNOME Clocks"
+msgid "Gnome Clocks"
+msgstr "Часы GNOME"
 
-#: ../gnomeclocks/world.py:186 ../gnomeclocks/world.py:189
+#: ../src/window.vala:149
+msgid "Utilities to help you with the time."
+msgstr "Утилиты для помощи в организации времени."
+
+#: ../src/window.vala:154
+msgid "translator-credits"
+msgstr "Станислав Соловей <whats_up@tut.by>, 2012"
+
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:80 ../src/world.vala:83
 msgid "Tomorrow"
 msgstr "Завтра"
 
-#: ../gnomeclocks/world.py:228
-msgid "Sunrise"
-msgstr "Рассвет"
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:80 ../src/world.vala:83
+msgid "Yesterday"
+msgstr "Вчера"
 
-#: ../gnomeclocks/world.py:232
-msgid "Sunset"
-msgstr "Закат"
+#: ../src/world.vala:137
+msgid "Add a New World Clock"
+msgstr "Добавить новые мировые часы"
 
-#: ../gnomeclocks/world.py:298
+#: ../src/world.vala:234
 msgid "World"
 msgstr "Мировое время"
 
-#: ../gnomeclocks/world.py:329
+#. namespace World
+#. namespace Clocks
+#: ../src/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Выберите <b>Создать</b>, чтобы добавить будильник"
+
+#: ../src/alarm.ui.h:4 ../src/timer.ui.h:1
+msgid ":"
+msgstr ":"
+
+#: ../src/alarm.ui.h:5
+msgid "Name"
+msgstr "Имя"
+
+#: ../src/alarm.ui.h:6
+msgid "Repeat Every"
+msgstr "Повторять каждые"
+
+#: ../src/alarm.ui.h:7
+msgid "Active"
+msgstr "Включено"
+
+#: ../src/menu.ui.h:1
+msgid "_New"
+msgstr "_Создать"
+
+#: ../src/menu.ui.h:2
+msgid "_About"
+msgstr "_О программе"
+
+#: ../src/menu.ui.h:3
+#| msgid "Quit"
+msgid "_Quit"
+msgstr "_Закончить"
+
+#: ../src/menu.ui.h:4
+msgid "Select All"
+msgstr "Выбрать все"
+
+#: ../src/menu.ui.h:5
+msgid "Select None"
+msgstr "Отменить выбор"
+
+#: ../src/stopwatch.ui.h:4
+msgid "Split"
+msgstr "Разрыв"
+
+#: ../src/stopwatch.ui.h:5
+msgid "Total"
+msgstr "Общее"
+
+#: ../src/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Выберите <b>Создать</b>, чтобы добавить мировые часы"
+
+#: ../src/world.ui.h:2
+msgid "Search for a city:"
+msgstr "Поиск по городу:"
+
+#: ../src/world.ui.h:3
+msgid "Sunrise"
+msgstr "Рассвет"
+
+#: ../src/world.ui.h:4
+msgid "Sunset"
+msgstr "Закат"
+
+#~ msgid "Edit Alarm"
+#~ msgstr "Настроить будильник"
+
+#~ msgid "Time"
+#~ msgstr "Время"
+
+#~ msgid "Edit"
+#~ msgstr "Правка"
+
+#~ msgid "About Clocks"
+#~ msgstr "О программе"
 
 #~ msgid "Laps"
 #~ msgstr "Круги"
