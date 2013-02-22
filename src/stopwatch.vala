@@ -49,11 +49,8 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
     public MainPanel (Toolbar toolbar) {
         Object (label: _("Stopwatch"), toolbar: toolbar);
 
-        state = State.RESET;
         timer = new GLib.Timer ();
         timeout_id = 0;
-        current_lap = 0;
-        last_lap_time = 0;
 
         var builder = Utils.load_ui ("stopwatch.ui");
 
@@ -63,8 +60,6 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         right_button = builder.get_object ("right_button") as Gtk.Button;
         laps_model = builder.get_object ("laps_model") as Gtk.ListStore;
         laps_view = builder.get_object ("laps_view") as Gtk.TreeView;
-
-        update_time_label ();
 
         left_button.clicked.connect (on_left_button_clicked);
         right_button.clicked.connect (on_right_button_clicked);
@@ -81,6 +76,8 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
                 remove_timeout ();
             }
         });
+
+        reset ();
 
         add (stopwatch_panel);
         show_all ();
@@ -147,6 +144,7 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         left_button.get_style_context ().add_class ("clocks-go");
         right_button.set_sensitive (false);
         current_lap = 0;
+        last_lap_time = 0;
         laps_model.clear ();
     }
 
