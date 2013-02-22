@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-19 22:19+0000\n"
+"POT-Creation-Date: 2013-02-22 09:33+0000\n"
 "PO-Revision-Date: 2013-02-22 10:23+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
@@ -52,22 +52,29 @@ msgstr "Nastavená buzení"
 msgid "List of alarms set."
 msgstr "Seznam nastavených buzení."
 
-#: ../src/alarm.vala:41 ../src/alarm.vala:94 ../src/alarm.vala:101
-#: ../src/alarm.vala:306 ../src/alarm.vala:430
+#: ../src/alarm.vala:105 ../src/alarm.vala:314 ../src/alarm.vala:459
 msgid "Alarm"
 msgstr "Budík"
 
-#: ../src/alarm.vala:244
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:124 ../src/alarm.ui.h:2
+msgid "Stop"
+msgstr "Stop"
+
+#: ../src/alarm.vala:109 ../src/alarm.ui.h:3
+msgid "Snooze"
+msgstr "Spát"
+
+#: ../src/alarm.vala:252
 msgid "New Alarm"
 msgstr "Nové buzení"
 
-#: ../src/alarm.vala:246
+#: ../src/alarm.vala:254
 msgid "_Done"
 msgstr "_Dokončit"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:589 ../src/world.vala:358
+#: ../src/alarm.vala:618 ../src/world.vala:358
 msgid "New"
 msgstr "Nový"
 
@@ -78,10 +85,6 @@ msgstr "Vypsat informace o verzi a skončit"
 #: ../src/stopwatch.vala:50
 msgid "Stopwatch"
 msgstr "Stopky"
-
-#: ../src/stopwatch.vala:124 ../src/alarm.ui.h:2
-msgid "Stop"
-msgstr "Stop"
 
 #: ../src/stopwatch.vala:127 ../src/stopwatch.ui.h:3
 msgid "Lap"
@@ -207,10 +210,6 @@ msgstr "Svět"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Zvolením <b>Nový</b> přidáte nový čas buzení"
 
-#: ../src/alarm.ui.h:3
-msgid "Snooze"
-msgstr "Spát"
-
 #: ../src/alarm.ui.h:4 ../src/timer.ui.h:1
 msgid ":"
 msgstr "."
@@ -263,10 +262,13 @@ msgstr "Zvolením <b>Nový</b> přidáte světový čas"
 msgid "Search for a city:"
 msgstr "Hledat město:"
 
-#: ../src/world.ui.h:4
+#: ../src/world.ui.h:3
 msgid "Sunrise"
 msgstr "Východ slunce"
 
-#: ../src/world.ui.h:5
+#: ../src/world.ui.h:4
 msgid "Sunset"
 msgstr "Západ slunce"
+
+msgid "Edit"
+msgstr "Upravit"
