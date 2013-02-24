@@ -409,11 +409,9 @@ public class ContentView : Gtk.Bin {
             main_toolbar.set_labels (label, null);
 
             if (n_items != 0) {
-                selection_toolbar.show ();
-                selection_toolbar.get_style_context ().add_class ("clocks-fade-in");
+                fade_in (selection_toolbar);
             } else {
-                selection_toolbar.hide ();
-                selection_toolbar.get_style_context ().remove_class ("clocks-fade-in");
+                fade_out (selection_toolbar);
             }
         });
 
@@ -484,6 +482,29 @@ public class ContentView : Gtk.Bin {
             }
         }
         show_all ();
+    }
+
+    private void fade_in (Gtk.Widget w) {
+        uint timeout_id = w.get_data<uint> ("cloks-fade-out-timeout-id");
+        if (timeout_id != 0) {
+            Source.remove (timeout_id);
+            w.set_data<uint> ("cloks-fade-out-timeout-id", 0);
+        }
+        w.show ();
+        w.get_style_context ().add_class ("clocks-fade-in");
+    }
+
+    private void fade_out (Gtk.Widget w) {
+        uint timeout_id = w.get_data<uint> ("cloks-fade-out-timeout-id");
+        if (timeout_id == 0) {
+            w.get_style_context ().remove_class ("clocks-fade-in");
+            timeout_id = Timeout.add (300, () => {
+                w.set_data<uint> ("cloks-fade-out-timeout-id", 0);
+                w.hide ();
+                return false;
+            });
+            w.set_data<uint> ("cloks-fade-out-timeout-id", timeout_id);
+        }
     }
 
     // Note: this is not efficient: we first walk the model to collect
