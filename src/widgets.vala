@@ -274,6 +274,11 @@ public class IconView : Gtk.IconView {
     public override bool button_press_event (Gdk.EventButton event) {
         var path = get_path_at_pos ((int) event.x, (int) event.y);
         if (path != null) {
+            // On right click, swicth to selection mode automatically
+            if (event.button == Gdk.BUTTON_SECONDARY) {
+                mode = Mode.SELECTION;
+            }
+
             if (mode == Mode.SELECTION) {
                 var store = (Gtk.ListStore) model;
                 Gtk.TreeIter i;
