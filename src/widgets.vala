@@ -502,7 +502,6 @@ public class ContentView : Gtk.Bin {
             main_toolbar.set_labels_menu (selection_menu);
             done_button.get_style_context ().add_class ("suggested-action");
             done_button.clicked.connect (() => {
-                selection_toolbar.set_visible (false);
                 icon_view.mode = IconView.Mode.NORMAL;
             });
             break;
