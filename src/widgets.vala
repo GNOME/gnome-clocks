@@ -86,7 +86,10 @@ public class Toolbar : Gd.MainToolbar {
 }
 
 private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
-    const int CHECK_ICON_SIZE = 40;
+    public const int TILE_SIZE = 256;
+    public const int CHECK_ICON_SIZE = 40;
+    public const int TILE_MARGIN = CHECK_ICON_SIZE / 4;
+    public const int TILE_MARGIN_BOTTOM = CHECK_ICON_SIZE / 8; // less margin, the text label is below
 
     public string text { get; set; }
     public string subtext { get; set; }
@@ -108,23 +111,18 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
         Gdk.cairo_rectangle (cr, cell_area);
         cr.clip ();
 
-        // draw background
-        if (pixbuf != null) {
-            base.render (cr, widget, background_area, cell_area, flags);
-        } else {
-            context.render_frame (cr, cell_area.x, cell_area.y, cell_area.width, cell_area.height);
-            context.render_background (cr, cell_area.x, cell_area.y, cell_area.width, cell_area.height);
-        }
-
         cr.translate (cell_area.x, cell_area.y);
 
-        // for now the space around the digital clock is hardcoded and relative
-        // to the image width (not the width of the cell which may be larger in
-        // case of long city names).
-        // We need to know the width to create the pango layouts
-        int margin = 0;
+        // the width of the cell which may be larger in case of long city names
+        int margin = int.max (TILE_MARGIN, (int) ((cell_area.width - TILE_SIZE) / 2));
+
+        // draw the tile
         if (pixbuf != null) {
-            margin = (int) ((cell_area.width - pixbuf.width) / 2);
+            Gdk.Rectangle area = {margin, margin, TILE_SIZE, TILE_SIZE};
+            base.render (cr, widget, area, area, flags);
+        } else {
+            context.render_frame (cr, margin, margin, TILE_SIZE, TILE_SIZE);
+            context.render_background (cr, margin, margin, TILE_SIZE, TILE_SIZE);
         }
 
         int w = cell_area.width - 2 * margin;
@@ -202,12 +200,6 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
 
         cr.restore ();
     }
-
-    public override void get_size (Gtk.Widget widget, Gdk.Rectangle? cell_area, out int x_offset, out int y_offset, out int width, out int height) {
-        base.get_size (widget, cell_area, out x_offset, out y_offset, out width, out height);
-        width += CHECK_ICON_SIZE / 4;
-        height += CHECK_ICON_SIZE / 4;
-    }
 }
 
 public class IconView : Gtk.IconView {
@@ -251,19 +243,22 @@ public class IconView : Gtk.IconView {
         model = new Gtk.ListStore (Column.COLUMNS, typeof (bool), typeof (string), typeof (Object));
 
         get_style_context ().add_class ("content-view");
-        set_column_spacing (20);
-        set_margin (16);
+        set_item_padding (0);
+        set_margin (12);
+
+        var tile_width = DigitalClockRenderer.TILE_SIZE + 2 * DigitalClockRenderer.TILE_MARGIN;
+        var tile_height = DigitalClockRenderer.TILE_SIZE + DigitalClockRenderer.TILE_MARGIN + DigitalClockRenderer.TILE_MARGIN_BOTTOM;
 
         thumb_renderer = new DigitalClockRenderer ();
         thumb_renderer.set_alignment (0.5f, 0.5f);
-        thumb_renderer.set_fixed_size (256, 256);
+        thumb_renderer.set_fixed_size (tile_width, tile_height);
         pack_start (thumb_renderer, false);
         add_attribute (thumb_renderer, "active", Column.SELECTED);
         set_cell_data_func (thumb_renderer, (owned) thumb_data_func);
 
         var text_renderer = new Gtk.CellRendererText ();
         text_renderer.set_alignment (0.5f, 0.5f);
-        text_renderer.set_fixed_size (256, -1);
+        text_renderer.set_fixed_size (tile_width, -1);
         text_renderer.alignment = Pango.Alignment.CENTER;
         text_renderer.wrap_width = 220;
         text_renderer.wrap_mode = Pango.WrapMode.WORD_CHAR;
