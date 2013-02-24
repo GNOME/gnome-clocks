@@ -408,7 +408,13 @@ public class ContentView : Gtk.Bin {
             }
             main_toolbar.set_labels (label, null);
 
-            selection_toolbar.set_visible (n_items != 0);
+            if (n_items != 0) {
+                selection_toolbar.show ();
+                selection_toolbar.get_style_context ().add_class ("clocks-fade-in");
+            } else {
+                selection_toolbar.hide ();
+                selection_toolbar.get_style_context ().remove_class ("clocks-fade-in");
+            }
         });
 
         icon_view.item_activated.connect ((path) => {
@@ -436,6 +442,7 @@ public class ContentView : Gtk.Bin {
         toolbar.valign = Gtk.Align.END;
         toolbar.margin_bottom = 40;
         toolbar.get_style_context ().add_class ("osd");
+        toolbar.get_style_context ().add_class ("clocks-fade");
         toolbar.set_size_request (SELECTION_TOOLBAR_WIDTH, -1);
         toolbar.no_show_all = true;
 
