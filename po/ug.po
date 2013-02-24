@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-09 01:24+0000\n"
-"PO-Revision-Date: 2013-02-16 12:44+0900\n"
+"POT-Creation-Date: 2013-02-22 09:33+0000\n"
+"PO-Revision-Date: 2013-02-24 13:15+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
@@ -17,12 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:33
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
 msgid "Clocks"
 msgstr "سائەتلەر"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:107
-#: ../gnomeclocks/app.py:116
+#: ../data/gnome-clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "گىنوم سائەتلىرى"
 
@@ -50,200 +49,238 @@ msgstr "سەپلەنگەن قوڭغۇراقلار"
 msgid "List of alarms set."
 msgstr "قوڭغۇراقلارنىڭ تىزىمى."
 
-#: ../gnomeclocks/alarm.py:50 ../gnomeclocks/alarm.py:423
+#: ../src/alarm.vala:105 ../src/alarm.vala:314 ../src/alarm.vala:459
 msgid "Alarm"
 msgstr "قوڭغۇراق"
 
-#: ../gnomeclocks/alarm.py:87
-msgid "Every day"
-msgstr "ھەر كۈنى"
-
-#: ../gnomeclocks/alarm.py:89
-msgid "Weekdays"
-msgstr "بىنەپتە كۈنلەر"
-
-#: ../gnomeclocks/alarm.py:160
-msgid "Edit Alarm"
-msgstr "قوڭغۇراقنى تەھرىرلەش"
-
-#: ../gnomeclocks/alarm.py:162 ../gnomeclocks/alarm.py:188
-msgid "New Alarm"
-msgstr "يېڭى قوڭغۇراق"
-
-#. Translators: "Time" in this context is the time an alarm
-#. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:193
-msgid "Time"
-msgstr "ۋاقىت"
-
-#: ../gnomeclocks/alarm.py:236
-msgid "Name"
-msgstr "ئاتى"
-
-#: ../gnomeclocks/alarm.py:245
-msgid "Repeat Every"
-msgstr "تەكرار"
-
-#: ../gnomeclocks/alarm.py:311 ../gnomeclocks/stopwatch.py:127
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:124 ../src/alarm.ui.h:2
 msgid "Stop"
 msgstr "توختا"
 
-#: ../gnomeclocks/alarm.py:318
+#: ../src/alarm.vala:109 ../src/alarm.ui.h:3
 msgid "Snooze"
 msgstr "جىرىڭلاتما"
 
+#: ../src/alarm.vala:252
+msgid "New Alarm"
+msgstr "يېڭى قوڭغۇراق"
+
+#: ../src/alarm.vala:254
+#| msgid "Done"
+msgid "_Done"
+msgstr "تامام(_D)"
+
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../gnomeclocks/alarm.py:428 ../gnomeclocks/world.py:268
+#: ../src/alarm.vala:618 ../src/world.vala:358
 msgid "New"
 msgstr "يېڭى"
 
-#: ../gnomeclocks/alarm.py:434 ../gnomeclocks/world.py:274
-msgid "Done"
-msgstr "تامام"
+#: ../src/application.vala:24
+msgid "Print version information and exit"
+msgstr "نەشر ئۇچۇرىنى كۆرسىتىپ ئاخىرلىشىدۇ"
 
-#: ../gnomeclocks/alarm.py:441
-msgid "Edit"
-msgstr "تەھرىرلەش"
+#: ../src/stopwatch.vala:50
+msgid "Stopwatch"
+msgstr "Stopwatch"
 
-#: ../gnomeclocks/alarm.py:444 ../gnomeclocks/world.py:281
+#: ../src/stopwatch.vala:127 ../src/stopwatch.ui.h:3
+msgid "Lap"
+msgstr ""
+
+#: ../src/stopwatch.vala:134 ../src/timer.vala:85
+msgid "Continue"
+msgstr "داۋاملاشتۇر"
+
+#: ../src/stopwatch.vala:138 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:4
+msgid "Reset"
+msgstr "ئەسلىگە قايتۇرۇش"
+
+#: ../src/stopwatch.vala:146 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:2
+msgid "Start"
+msgstr "باشلاش"
+
+#: ../src/timer.vala:48
+msgid "Timer"
+msgstr "ۋاقىت ئۆلچىگۈچ"
+
+#: ../src/timer.vala:50
+msgid "Time is up!"
+msgstr "ۋاقىت توشتى!"
+
+#: ../src/timer.vala:50
+msgid "Timer countdown finished"
+msgstr "تەتۈر ساناش تاماملاندى"
+
+#: ../src/timer.vala:90 ../src/timer.vala:100 ../src/timer.ui.h:3
+msgid "Pause"
+msgstr "ۋاقىتلىق توختا"
+
+#: ../src/utils.vala:147
+msgid "Mondays"
+msgstr "دۈشەنبە"
+
+#: ../src/utils.vala:148
+msgid "Tuesdays"
+msgstr "سەيشەنبە"
+
+#: ../src/utils.vala:149
+msgid "Wednesdays"
+msgstr "چارشەنبە"
+
+#: ../src/utils.vala:150
+msgid "Thursdays"
+msgstr "پەيشەنبە"
+
+#: ../src/utils.vala:151
+msgid "Fridays"
+msgstr "جۈمە"
+
+#: ../src/utils.vala:152
+msgid "Saturdays"
+msgstr "شەنبە"
+
+#: ../src/utils.vala:153
+msgid "Sundays"
+msgstr "يەكشەنبە"
+
+#: ../src/utils.vala:233
+#| msgid "Every day"
+msgid "Every Day"
+msgstr "ھەر كۈنى"
+
+#: ../src/utils.vala:235
+msgid "Weekdays"
+msgstr "بىنەپتە كۈنلەر"
+
+#: ../src/widgets.vala:401 ../src/widgets.vala:470
+msgid "Click on items to select them"
+msgstr "تاللاش ئۈچۈن تۈرنى چېكىڭ"
+
+#: ../src/widgets.vala:403
+#, c-format
+#| msgid "{0} item selected"
+#| msgid_plural "{0} items selected"
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d تاللاندى"
+
+#: ../src/widgets.vala:426
 msgid "Delete"
 msgstr "ئۆچۈر"
 
-#: ../gnomeclocks/alarm.py:454
-msgid "Select <b>New</b> to add an alarm"
-msgstr "يېڭى قوڭغۇراق قوشۇش ئۈچۈن <b>يېڭى</b> نى تاللاڭ"
+#: ../src/widgets.vala:469
+msgid "Done"
+msgstr "تامام"
 
-#: ../gnomeclocks/app.py:106 ../gnomeclocks/app.py:148
-msgid "About Clocks"
-msgstr "سائەت ھەققىدە"
+#: ../src/window.vala:146
+#| msgid "GNOME Clocks"
+msgid "Gnome Clocks"
+msgstr "گىنوم سائەتلىرى"
 
-#: ../gnomeclocks/app.py:112
+#: ../src/window.vala:149
 msgid "Utilities to help you with the time."
 msgstr "قۇلاي بولغان سائەت قوراللىرى."
 
-#: ../gnomeclocks/app.py:114
+#: ../src/window.vala:154
 msgid "translator-credits"
 msgstr "Gheyret Kenji <gheyret@gmail.com>\n"
 "Sahran<sahran@live.com>\n"
 "Muhemmed Erdem <misran_erdem@hotmail.com>"
 
-#: ../gnomeclocks/app.py:151
-msgid "Quit"
-msgstr "ئاخىرلاشتۇر"
-
-#: ../gnomeclocks/stopwatch.py:38
-msgid "Stopwatch"
-msgstr "Stopwatch"
-
-#: ../gnomeclocks/stopwatch.py:72 ../gnomeclocks/stopwatch.py:159
-#: ../gnomeclocks/timer.py:114
-msgid "Start"
-msgstr "باشلاش"
-
-#: ../gnomeclocks/stopwatch.py:81 ../gnomeclocks/stopwatch.py:138
-#: ../gnomeclocks/timer.py:55
-msgid "Reset"
-msgstr "ئەسلىگە قايتۇرۇش"
-
-#: ../gnomeclocks/stopwatch.py:93 ../gnomeclocks/stopwatch.py:130
-msgid "Lap"
-msgstr ""
-
-#: ../gnomeclocks/stopwatch.py:99
-msgid "Split"
-msgstr "پارچىلا"
-
-#: ../gnomeclocks/stopwatch.py:105
-msgid "Total"
-msgstr "جەمئىي"
-
-#: ../gnomeclocks/stopwatch.py:134 ../gnomeclocks/timer.py:72
-msgid "Continue"
-msgstr "داۋاملاشتۇر"
-
-#: ../gnomeclocks/timer.py:47 ../gnomeclocks/timer.py:66
-#: ../gnomeclocks/timer.py:76
-msgid "Pause"
-msgstr "ۋاقىتلىق توختا"
-
-#: ../gnomeclocks/timer.py:162
-msgid "Timer"
-msgstr "ۋاقىت ئۆلچىگۈچ"
-
-#: ../gnomeclocks/timer.py:182
-msgid "Time is up!"
-msgstr "ۋاقىت توشتى!"
-
-#: ../gnomeclocks/timer.py:183
-msgid "Timer countdown finished"
-msgstr "تەتۈر ساناش تاماملاندى"
-
-#: ../gnomeclocks/utils.py:84
-msgid "Mondays"
-msgstr "دۈشەنبە"
-
-#: ../gnomeclocks/utils.py:85
-msgid "Tuesdays"
-msgstr "سەيشەنبە"
-
-#: ../gnomeclocks/utils.py:86
-msgid "Wednesdays"
-msgstr "چارشەنبە"
-
-#: ../gnomeclocks/utils.py:87
-msgid "Thursdays"
-msgstr "پەيشەنبە"
-
-#: ../gnomeclocks/utils.py:88
-msgid "Fridays"
-msgstr "جۈمە"
-
-#: ../gnomeclocks/utils.py:89
-msgid "Saturdays"
-msgstr "شەنبە"
-
-#: ../gnomeclocks/utils.py:90
-msgid "Sundays"
-msgstr "يەكشەنبە"
-
-#: ../gnomeclocks/widgets.py:171
-msgid "Click on items to select them"
-msgstr "تاللاش ئۈچۈن تۈرنى چېكىڭ"
-
-#: ../gnomeclocks/widgets.py:173
-msgid "{0} item selected"
-msgid_plural "{0} items selected"
-msgstr[0] "{0} تۇر تاللاندى"
-
-#: ../gnomeclocks/world.py:36
-msgid "Add a New World Clock"
-msgstr "يېڭى دۇنيا سائىتى قوشۇش"
-
-#: ../gnomeclocks/world.py:45
-msgid "Search for a city:"
-msgstr "شەھەر ئىزدەش:"
-
-#: ../gnomeclocks/world.py:146 ../gnomeclocks/world.py:153
-msgid "Yesterday"
-msgstr "تۈنۈگۈن"
-
-#: ../gnomeclocks/world.py:148 ../gnomeclocks/world.py:151
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:80 ../src/world.vala:83
 msgid "Tomorrow"
 msgstr "ئەتە"
 
-#: ../gnomeclocks/world.py:193
-msgid "Sunrise"
-msgstr "كۈن چىقىش"
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:80 ../src/world.vala:83
+msgid "Yesterday"
+msgstr "تۈنۈگۈن"
 
-#: ../gnomeclocks/world.py:197
-msgid "Sunset"
-msgstr "كۈن ئولتۇرۇش(Sunset)"
+#: ../src/world.vala:137
+msgid "Add a New World Clock"
+msgstr "يېڭى دۇنيا سائىتى قوشۇش"
 
-#: ../gnomeclocks/world.py:263
+#: ../src/world.vala:234
 msgid "World"
 msgstr "دۇنيا"
 
-#: ../gnomeclocks/world.py:296
+#. namespace World
+#. namespace Clocks
+#: ../src/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "يېڭى قوڭغۇراق قوشۇش ئۈچۈن <b>يېڭى</b> نى تاللاڭ"
+
+#: ../src/alarm.ui.h:4 ../src/timer.ui.h:1
+msgid ":"
+msgstr ":"
+
+#: ../src/alarm.ui.h:5
+msgid "Name"
+msgstr "ئاتى"
+
+#: ../src/alarm.ui.h:6
+msgid "Repeat Every"
+msgstr "تەكرار"
+
+#: ../src/alarm.ui.h:7
+msgid "Active"
+msgstr "ئاكتىپ"
+
+#: ../src/menu.ui.h:1
+msgid "_New"
+msgstr "يېڭىدىن قۇر(_N)"
+
+#: ../src/menu.ui.h:2
+msgid "_About"
+msgstr "ھەققىدە(_A)"
+
+#: ../src/menu.ui.h:3
+#| msgid "Quit"
+msgid "_Quit"
+msgstr "ئاخىرلاشتۇر(_Q)"
+
+#: ../src/menu.ui.h:4
+msgid "Select All"
+msgstr "ھەممىنى تاللا"
+
+#: ../src/menu.ui.h:5
+msgid "Select None"
+msgstr "ھەممىنى تاللىما"
+
+#: ../src/stopwatch.ui.h:4
+msgid "Split"
+msgstr "پارچىلا"
+
+#: ../src/stopwatch.ui.h:5
+msgid "Total"
+msgstr "جەمئىي"
+
+#: ../src/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "يېڭى دۇنيا سائىتى قوشۇش ئۈچۈن <b>يېڭى</b> نى تاللاڭ"
+
+#: ../src/world.ui.h:2
+msgid "Search for a city:"
+msgstr "شەھەر ئىزدەش:"
+
+#: ../src/world.ui.h:3
+msgid "Sunrise"
+msgstr "كۈن چىقىش"
+
+#: ../src/world.ui.h:4
+msgid "Sunset"
+msgstr "كۈن ئولتۇرۇش(Sunset)"
+
+#~ msgid "Edit Alarm"
+#~ msgstr "قوڭغۇراقنى تەھرىرلەش"
+
+#~ msgid "Time"
+#~ msgstr "ۋاقىت"
+
+#~ msgid "Edit"
+#~ msgstr "تەھرىرلەش"
+
+#~ msgid "About Clocks"
+#~ msgstr "سائەت ھەققىدە"
