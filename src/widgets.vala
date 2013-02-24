@@ -301,8 +301,8 @@ public class IconView : Gtk.IconView {
 
     // Redefine selection handling methods since we handle selection manually
 
-    public new List<Gtk.TreePath>? get_selected_items () {
-        List<Gtk.TreePath>? items = null;
+    public new List<Gtk.TreePath> get_selected_items () {
+        var items = new List<Gtk.TreePath> ();
         model.foreach ((model, path, iter) => {
             bool selected;
             ((Gtk.ListStore) model).get (iter, Column.SELECTED, out selected);
@@ -407,8 +407,20 @@ public class ContentView : Gtk.Bin {
             selection_toolbar.set_visible (n_items != 0);
         });
 
+        icon_view.item_activated.connect ((path) => {
+            var store = (Gtk.ListStore) icon_view.model;
+            Gtk.TreeIter i;
+            if (store.get_iter (out i, path)) {
+                Object item;
+                store.get (i, IconView.Column.ITEM, out item);
+                item_activated (item);
+            }
+        });
+
         add (empty_page);
     }
+
+    public signal void item_activated (Object item);
 
     public signal void delete_selected ();
 
@@ -461,6 +473,26 @@ public class ContentView : Gtk.Bin {
             }
         }
         show_all ();
+    }
+
+    // Note: this is not efficient: we first walk the model to collect
+    // a list then the caller has to walk this list and then it has to
+    // delete the items from the view, which walks the model again...
+    // Our models are small enough that it does not matter and hopefully
+    // we will get rid of GtkListStore/GtkIconView soon.
+    public List<Object>? get_selected_items () {
+        var items = new List<Object> ();
+        var store = (Gtk.ListStore) icon_view.model;
+        foreach (Gtk.TreePath path in icon_view.get_selected_items ()) {
+            Gtk.TreeIter i;
+            if (store.get_iter (out i, path)) {
+                Object item;
+                store.get (i, IconView.Column.ITEM, out item);
+                items.prepend (item);
+            }
+        }
+        items.reverse ();
+        return (owned) items;
     }
 
     public void update_toolbar () {

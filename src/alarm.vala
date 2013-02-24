@@ -476,36 +476,23 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
             }
         });
 
-        icon_view.item_activated.connect ((path) => {
-            var list_store = (Gtk.ListStore) icon_view.model;
-            Gtk.TreeIter i;
-            if (list_store.get_iter (out i, path)) {
-                Item alarm;
-                list_store.get (i, IconView.Column.ITEM, out alarm);
-                if (alarm.state == Item.State.SNOOZING) {
-                    show_ringing_panel (alarm);
-                } else {
-                    edit (alarm);
-                }
-            }
-        });
-
         var builder = Utils.load_ui ("alarm.ui");
         var empty_view = builder.get_object ("empty_panel") as Gtk.Widget;
         content_view = new ContentView (empty_view, icon_view, toolbar);
         add (content_view);
 
+        content_view.item_activated.connect ((item) => {
+            Item alarm = (Item) item;
+            if (alarm.state == Item.State.SNOOZING) {
+                show_ringing_panel (alarm);
+            } else {
+                edit (alarm);
+            }
+        });
+
         content_view.delete_selected.connect (() => {
-            // FIXME: this is not efficient, but we have few itesm and
-            // we are probably going to drop the TreeModel soon
-            var list_store = (Gtk.ListStore) icon_view.model;
-            foreach (Gtk.TreePath path in icon_view.get_selected_items ()) {
-                Gtk.TreeIter i;
-                if (list_store.get_iter (out i, path)) {
-                    Item location;
-                    list_store.get (i, IconView.Column.ITEM, out location);
-                    alarms.remove (location);
-                }
+            foreach (Object i in content_view.get_selected_items ()) {
+                alarms.remove ((Item) i);
             }
             icon_view.remove_selected ();
             save ();
