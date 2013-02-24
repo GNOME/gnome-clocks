@@ -357,7 +357,6 @@ public class ContentView : Gtk.Bin {
     private GLib.MenuModel selection_menu;
     private Gtk.Toolbar selection_toolbar;
     private Gtk.Overlay overlay;
-    private Gtk.ScrolledWindow scrolled_window;
 
     public ContentView (Gtk.Widget e, IconView iv, Toolbar t) {
         empty_page = e;
@@ -367,14 +366,14 @@ public class ContentView : Gtk.Bin {
         var builder = Utils.load_ui ("menu.ui");
         selection_menu = builder.get_object ("selection-menu") as GLib.MenuModel;
 
+        var scrolled_window = new Gtk.ScrolledWindow (null, null);
+        scrolled_window.add (icon_view);
+
         overlay = new Gtk.Overlay ();
-        overlay.add (icon_view);
+        overlay.add (scrolled_window);
 
         selection_toolbar = create_selection_toolbar ();
         overlay.add_overlay (selection_toolbar);
-
-        scrolled_window = new Gtk.ScrolledWindow (null, null);
-        scrolled_window.add (overlay);
 
         var model = icon_view.get_model ();
         model.row_inserted.connect(() => {
@@ -460,9 +459,9 @@ public class ContentView : Gtk.Bin {
 
         var child = get_child ();
         if (model.get_iter_first (out i)) {
-            if (child != scrolled_window) {
+            if (child != overlay) {
                 remove (child);
-                add (scrolled_window);
+                add (overlay);
                 empty = false;
             }
         } else {
