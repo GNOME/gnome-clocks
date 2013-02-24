@@ -482,23 +482,11 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
             if (list_store.get_iter (out i, path)) {
                 Item alarm;
                 list_store.get (i, IconView.Column.ITEM, out alarm);
-                var dialog = new SetupDialog ((Gtk.Window) get_toplevel (), alarm);
-
-                // Disable alarm while editing it and remember the original active state.
-                var saved_active = alarm.active;
-                alarm.active = false;
-
-                dialog.response.connect ((dialog, response) => {
-                    if (response == 1) {
-                        ((SetupDialog) dialog).apply_to_alarm (alarm);
-                        alarm.reset ();
-                        save ();
-                    } else {
-                        alarm.active = saved_active;
-                    }
-                    dialog.destroy ();
-                });
-                dialog.show_all ();
+                if (alarm.state == Item.State.SNOOZING) {
+                    show_ringing_panel (alarm);
+                } else {
+                    edit (alarm);
+                }
             }
         });
 
@@ -553,8 +541,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
                 // a.tick() returns true if the state changed
                 if (a.tick()) {
                     if (a.state == Item.State.RINGING) {
-                        standalone.alarm = a;
-                        standalone.update ();
+                        show_ringing_panel (a);
                         ring ();
                     } else if (standalone.alarm == a) {
                         standalone.update ();
@@ -564,9 +551,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
         });
     }
 
-    public virtual signal void ring () {
-        visible_child = standalone;
-    }
+    public signal void ring ();
 
     private void load () {
         foreach (var a in settings.get_value ("alarms")) {
@@ -585,6 +570,32 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
             i.serialize (builder);
         }
         settings.set_value ("alarms", builder.end ());
+    }
+
+    private void edit (Item alarm) {
+        var dialog = new SetupDialog ((Gtk.Window) get_toplevel (), alarm);
+
+        // Disable alarm while editing it and remember the original active state.
+        var saved_active = alarm.active;
+        alarm.active = false;
+
+        dialog.response.connect ((dialog, response) => {
+            if (response == 1) {
+                ((SetupDialog) dialog).apply_to_alarm (alarm);
+                alarm.reset ();
+                save ();
+            } else {
+                alarm.active = saved_active;
+            }
+            dialog.destroy ();
+        });
+        dialog.show_all ();
+    }
+
+    private void show_ringing_panel (Item alarm) {
+        standalone.alarm = alarm;
+        standalone.update ();
+        visible_child = standalone;
     }
 
     public void activate_new () {
