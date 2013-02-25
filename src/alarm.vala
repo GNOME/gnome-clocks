@@ -609,6 +609,14 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
         icon_view.unselect_all ();
     }
 
+    public bool escape_pressed () {
+        if (icon_view.mode == IconView.Mode.SELECTION) {
+            icon_view.mode = IconView.Mode.NORMAL;
+            return true;
+        }
+        return false;
+    }
+
     public void update_toolbar () {
         switch (toolbar.mode) {
         case Toolbar.Mode.NORMAL:

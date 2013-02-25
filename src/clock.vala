@@ -31,6 +31,10 @@ public interface Clock : GLib.Object {
     public virtual void activate_select_none () {
     }
 
+    public virtual bool escape_pressed () {
+        return false;
+    }
+
     public virtual void update_toolbar () {
     }
 }

@@ -121,6 +121,15 @@ public class Window : Gtk.ApplicationWindow {
         ((Clock) stack.visible_child).activate_select_none ();
     }
 
+    public override bool key_press_event (Gdk.EventKey event) {
+        uint keyval;
+        if (((Gdk.Event*)(&event))->get_keyval (out keyval) && keyval == Gdk.Key.Escape) {
+            return ((Clock) stack.visible_child).escape_pressed ();
+        }
+
+        return false;
+    }
+
     private void on_about_activate () {
         const string copyright = "Copyright \xc2\xa9 2011 Collabora Ltd.\n" +
                                  "Copyright \xc2\xa9 2012-2013 Collabora Ltd., Seif Lotfy, Emily Gonyer\n" +
