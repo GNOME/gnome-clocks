@@ -282,6 +282,8 @@ public class Bell : Object {
     private string sound;
     private Notify.Notification? notification;
 
+    public delegate void ActionCallback ();
+
     public Bell (string soundid, string title, string msg) {
         settings = new GLib.Settings("org.gnome.desktop.sound");
 
@@ -353,9 +355,11 @@ public class Bell : Object {
         }
     }
 
-    public void add_action (string action, string label, owned Notify.ActionCallback callback) {
+    public void add_action (string action, string label, owned ActionCallback callback) {
         if (notification != null) {
-            notification.add_action (action, label, (owned) callback);
+            notification.add_action (action, label, (n, a) => {
+                callback ();
+            });
         }
     }
 }
