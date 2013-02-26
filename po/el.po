@@ -2,14 +2,14 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Tom Tryfonidis <tomtryf@gmail.com>, 2012.
-# Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2012.
+# Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks"
 "&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-12-15 14:21+0000\n"
-"PO-Revision-Date: 2012-12-24 21:04+0300\n"
+"POT-Creation-Date: 2013-02-22 09:33+0000\n"
+"PO-Revision-Date: 2013-02-26 15:07+0300\n"
 "Last-Translator: Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
@@ -20,12 +20,11 @@ msgstr ""
 "X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:35
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
 msgid "Clocks"
 msgstr "Ρολόγια"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:135
-#: ../gnomeclocks/app.py:144
+#: ../data/gnome-clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "Ρολόγια του GNOME"
 
@@ -39,66 +38,157 @@ msgstr ""
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "χρόνος;χρονόμετρο;συναγερμός;παγκόσμιο ρολόι;χρονόμετρο;ώρα ζώνης;"
 
-#. Translators: "New" refers to an alarm
-#: ../gnomeclocks/alarm.py:91 ../gnomeclocks/alarm.py:443
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+msgid "Configured world clocks"
+msgstr "Ρυθμισμένα παγκόσμια ρολόγια"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+msgid "List of world clocks to show."
+msgstr "Λίστα παγκόσμιων ρολογιών για εμφάνιση."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+msgid "Configured alarms"
+msgstr "Ρυθμισμένη ειδοποίηση"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+msgid "List of alarms set."
+msgstr "Λίστα του συνόλου ειδοποιήσεων."
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:314 ../src/alarm.vala:459
 msgid "Alarm"
 msgstr "Ειδοποίηση"
 
-#: ../gnomeclocks/alarm.py:128
-msgid "Every day"
-msgstr "Καθημερινά"
-
-#: ../gnomeclocks/alarm.py:130
-msgid "Weekdays"
-msgstr "Εργάσιμες"
-
-#: ../gnomeclocks/alarm.py:177
-msgid "Edit Alarm"
-msgstr "Επεξεργασία ειδοποίησης"
-
-#: ../gnomeclocks/alarm.py:179 ../gnomeclocks/alarm.py:205
-msgid "New Alarm"
-msgstr "Νέα ειδοποίηση"
-
-#. Translators: "Time" in this context is the time an alarm
-#. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:210
-msgid "Time"
-msgstr "Ώρα"
-
-#: ../gnomeclocks/alarm.py:253
-msgid "Name"
-msgstr "Όνομα"
-
-#: ../gnomeclocks/alarm.py:262
-msgid "Repeat Every"
-msgstr "Επανάληψη κάθε"
-
-#: ../gnomeclocks/alarm.py:332 ../gnomeclocks/stopwatch.py:121
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:124 ../src/alarm.ui.h:2
 msgid "Stop"
 msgstr "Διακοπή"
 
-#: ../gnomeclocks/alarm.py:334
+#: ../src/alarm.vala:109 ../src/alarm.ui.h:3
 msgid "Snooze"
-msgstr "Χρονική μετάθεση ειδοποίησης"
+msgstr "Μετάθεση ειδοποίησης"
 
-#: ../gnomeclocks/alarm.py:443 ../gnomeclocks/world.py:302
+#: ../src/alarm.vala:252
+msgid "New Alarm"
+msgstr "Νέα ειδοποίηση"
+
+#: ../src/alarm.vala:254
+#| msgid "Done"
+msgid "_Done"
+msgstr "_Ολοκλήρωση"
+
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:618 ../src/world.vala:358
 msgid "New"
 msgstr "Νέο"
 
-#: ../gnomeclocks/alarm.py:457
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Επιλέξτε <b>Νέο</b> για να προσθέσετε μια ειδοποίηση"
+#: ../src/application.vala:24
+msgid "Print version information and exit"
+msgstr "Προβολή πληροφοριών έκδοσης και έξοδος"
 
-#: ../gnomeclocks/app.py:134 ../gnomeclocks/app.py:418
-msgid "About Clocks"
-msgstr "Περί του Ρολόγια"
+#: ../src/stopwatch.vala:50
+msgid "Stopwatch"
+msgstr "Χρονόμετρο"
 
-#: ../gnomeclocks/app.py:140
+#: ../src/stopwatch.vala:127 ../src/stopwatch.ui.h:3
+msgid "Lap"
+msgstr "Γύρος"
+
+#: ../src/stopwatch.vala:134 ../src/timer.vala:85
+msgid "Continue"
+msgstr "Συνέχεια"
+
+#: ../src/stopwatch.vala:138 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:4
+msgid "Reset"
+msgstr "Επαναφορά"
+
+#: ../src/stopwatch.vala:146 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:2
+msgid "Start"
+msgstr "Έναρξη"
+
+#: ../src/timer.vala:48
+msgid "Timer"
+msgstr "Αντίστροφη μέτρηση"
+
+#: ../src/timer.vala:50
+msgid "Time is up!"
+msgstr "Τέλος χρόνου!"
+
+#: ../src/timer.vala:50
+msgid "Timer countdown finished"
+msgstr "Η αντίστροφη μέτρηση του χρονομέτρου τελείωσε"
+
+#: ../src/timer.vala:90 ../src/timer.vala:100 ../src/timer.ui.h:3
+msgid "Pause"
+msgstr "Παύση"
+
+#: ../src/utils.vala:147
+msgid "Mondays"
+msgstr "Δευτέρες"
+
+#: ../src/utils.vala:148
+msgid "Tuesdays"
+msgstr "Τρίτες"
+
+#: ../src/utils.vala:149
+msgid "Wednesdays"
+msgstr "Τετάρτες"
+
+#: ../src/utils.vala:150
+msgid "Thursdays"
+msgstr "Πέμπτες"
+
+#: ../src/utils.vala:151
+msgid "Fridays"
+msgstr "Παρασκευές"
+
+#: ../src/utils.vala:152
+msgid "Saturdays"
+msgstr "Σάββατα"
+
+#: ../src/utils.vala:153
+msgid "Sundays"
+msgstr "Κυριακές"
+
+#: ../src/utils.vala:233
+#| msgid "Every day"
+msgid "Every Day"
+msgstr "Καθημερινά"
+
+#: ../src/utils.vala:235
+msgid "Weekdays"
+msgstr "Εργάσιμες"
+
+#: ../src/widgets.vala:401 ../src/widgets.vala:470
+msgid "Click on items to select them"
+msgstr "Κάντε κλικ στα αντικείμενα για να τα επιλέξετε"
+
+#: ../src/widgets.vala:403
+#, c-format
+#| msgid "{0} item selected"
+#| msgid_plural "{0} items selected"
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "Επιλέχθηκε %d"
+msgstr[1] "Επιλέχθηκαν %d"
+
+#: ../src/widgets.vala:426
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: ../src/widgets.vala:469
+msgid "Done"
+msgstr "Ολοκλήρωση"
+
+#: ../src/window.vala:146
+#| msgid "GNOME Clocks"
+msgid "Gnome Clocks"
+msgstr "Ρολόγια του GNOME"
+
+#: ../src/window.vala:149
 msgid "Utilities to help you with the time."
 msgstr "Προγράμματα για να βοηθηθείτε με το χρόνο."
 
-#: ../gnomeclocks/app.py:142
+#: ../src/window.vala:154
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
@@ -106,139 +196,102 @@ msgstr ""
 " Θάνος Τρυφωνίδης <tomtryf@gmail.com>\n"
 "Για περισσότερα δείτε http://www.gnome.gr/."
 
-#: ../gnomeclocks/app.py:294
-msgid "Edit"
-msgstr "Επεξεργασία"
-
-#: ../gnomeclocks/app.py:299
-msgid "Done"
-msgstr "Ολοκλήρωση"
-
-#: ../gnomeclocks/app.py:378
-msgid "Click on items to select them"
-msgstr "Κάντε κλικ στα αντικείμενα για να τα επιλέξετε"
-
-#: ../gnomeclocks/app.py:380
-msgid "{0} item selected"
-msgid_plural "{0} items selected"
-msgstr[0] "Επιλέχθηκε {0} αντικείμενο"
-msgstr[1] "Επιλέχθηκαν {0} αντικείμενα"
-
-#: ../gnomeclocks/app.py:421
-msgid "Quit"
-msgstr "Έξοδος"
-
-#: ../gnomeclocks/stopwatch.py:35
-msgid "Stopwatch"
-msgstr "Χρονόμετρο"
-
-#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:153
-#: ../gnomeclocks/timer.py:111
-msgid "Start"
-msgstr "Έναρξη"
-
-#: ../gnomeclocks/stopwatch.py:75 ../gnomeclocks/stopwatch.py:132
-#: ../gnomeclocks/timer.py:53
-msgid "Reset"
-msgstr "Επαναφορά"
-
-#: ../gnomeclocks/stopwatch.py:87 ../gnomeclocks/stopwatch.py:124
-msgid "Lap"
-msgstr "Γύρος"
-
-#: ../gnomeclocks/stopwatch.py:93
-msgid "Split"
-msgstr "Διαχωρισμός"
-
-#: ../gnomeclocks/stopwatch.py:99
-msgid "Total"
-msgstr "Σύνολο"
-
-#: ../gnomeclocks/stopwatch.py:128 ../gnomeclocks/timer.py:70
-msgid "Continue"
-msgstr "Συνέχεια"
-
-#: ../gnomeclocks/timer.py:46 ../gnomeclocks/timer.py:64
-#: ../gnomeclocks/timer.py:74
-msgid "Pause"
-msgstr "Παύση"
-
-#: ../gnomeclocks/timer.py:156
-msgid "Timer"
-msgstr "Αντίστροφη μέτρηση"
-
-#: ../gnomeclocks/timer.py:179
-msgid "Time is up!"
-msgstr "Τέλος χρόνου!"
-
-#: ../gnomeclocks/timer.py:180
-msgid "Timer countdown finished"
-msgstr "Η αντίστροφη μέτρηση του χρονομέτρου τελείωσε"
-
-#: ../gnomeclocks/utils.py:83
-msgid "Mondays"
-msgstr "Δευτέρες"
-
-#: ../gnomeclocks/utils.py:84
-msgid "Tuesdays"
-msgstr "Τρίτες"
-
-#: ../gnomeclocks/utils.py:85
-msgid "Wednesdays"
-msgstr "Τετάρτες"
-
-#: ../gnomeclocks/utils.py:86
-msgid "Thursdays"
-msgstr "Πέμπτες"
-
-#: ../gnomeclocks/utils.py:87
-msgid "Fridays"
-msgstr "Παρασκευές"
-
-#: ../gnomeclocks/utils.py:88
-msgid "Saturdays"
-msgstr "Σάββατα"
-
-#: ../gnomeclocks/utils.py:89
-msgid "Sundays"
-msgstr "Κυριακές"
-
-#: ../gnomeclocks/widgets.py:299
-msgid "Delete"
-msgstr "Διαγραφή"
-
-#: ../gnomeclocks/world.py:74
-msgid "Add a New World Clock"
-msgstr "Προσθήκη παγκόσμιου ρολογιού"
-
-#: ../gnomeclocks/world.py:83
-msgid "Search for a city:"
-msgstr "Αναζήτηση πόλης:"
-
-#: ../gnomeclocks/world.py:184 ../gnomeclocks/world.py:191
-msgid "Yesterday"
-msgstr "Χθες"
-
-#: ../gnomeclocks/world.py:186 ../gnomeclocks/world.py:189
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:80 ../src/world.vala:83
 msgid "Tomorrow"
 msgstr "Αύριο"
 
-#: ../gnomeclocks/world.py:241
-msgid "Sunrise"
-msgstr "Ανατολή"
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:80 ../src/world.vala:83
+msgid "Yesterday"
+msgstr "Χθες"
 
-#: ../gnomeclocks/world.py:251
-msgid "Sunset"
-msgstr "Δύση"
+#: ../src/world.vala:137
+msgid "Add a New World Clock"
+msgstr "Προσθήκη παγκόσμιου ρολογιού"
 
-#. Translators: "New" refers to a world clock
-#: ../gnomeclocks/world.py:302
+#: ../src/world.vala:234
 msgid "World"
 msgstr "Κόσμος"
 
-#: ../gnomeclocks/world.py:321
+#. namespace World
+#. namespace Clocks
+#: ../src/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Επιλέξτε <b>Νέο</b> για να προσθέσετε μια ειδοποίηση"
+
+#: ../src/alarm.ui.h:4 ../src/timer.ui.h:1
+msgid ":"
+msgstr ":"
+
+#: ../src/alarm.ui.h:5
+msgid "Name"
+msgstr "Όνομα"
+
+#: ../src/alarm.ui.h:6
+msgid "Repeat Every"
+msgstr "Επανάληψη κάθε"
+
+#: ../src/alarm.ui.h:7
+msgid "Active"
+msgstr "Ενεργό"
+
+#: ../src/menu.ui.h:1
+msgid "_New"
+msgstr "_Νέο"
+
+#: ../src/menu.ui.h:2
+msgid "_About"
+msgstr "_Περί"
+
+#: ../src/menu.ui.h:3
+#| msgid "Quit"
+msgid "_Quit"
+msgstr "Έ_ξοδος"
+
+#: ../src/menu.ui.h:4
+msgid "Select All"
+msgstr "Επιλογή Όλων"
+
+#: ../src/menu.ui.h:5
+msgid "Select None"
+msgstr "Καμία επιλογή"
+
+#: ../src/stopwatch.ui.h:4
+msgid "Split"
+msgstr "Διαχωρισμός"
+
+#: ../src/stopwatch.ui.h:5
+msgid "Total"
+msgstr "Σύνολο"
+
+#: ../src/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Επιλέξτε <b>Νέο</b> για να προσθέσετε ένα παγκόσμιο ρολόι"
+
+#: ../src/world.ui.h:2
+msgid "Search for a city:"
+msgstr "Αναζήτηση πόλης:"
+
+#: ../src/world.ui.h:3
+msgid "Sunrise"
+msgstr "Ανατολή"
+
+#: ../src/world.ui.h:4
+msgid "Sunset"
+msgstr "Δύση"
+
+#~ msgid "Edit Alarm"
+#~ msgstr "Επεξεργασία ειδοποίησης"
+
+#~ msgid "Time"
+#~ msgstr "Ώρα"
+
+#~ msgid "About Clocks"
+#~ msgstr "Περί του Ρολόγια"
+
+#~ msgid "Edit"
+#~ msgstr "Επεξεργασία"
 
 #~ msgid "Laps"
 #~ msgstr "Γύροι"
