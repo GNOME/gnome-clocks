@@ -24,7 +24,7 @@ private class Item : Object, ContentItem {
     static const int RING_MINUTES = 3;
 
     // FIXME: should we add a "MISSED" state where the alarm stopped
-    // ringing but we keep showing the standalone?
+    // ringing but we keep showing the ringing panel?
     public enum State {
         READY,
         RINGING,
@@ -398,7 +398,7 @@ private class SetupDialog : Gtk.Dialog {
     }
 }
 
-private class StandalonePanel : Gtk.EventBox {
+private class RingingPanel : Gtk.EventBox {
     public Item alarm {
         get {
             return _alarm;
@@ -426,7 +426,7 @@ private class StandalonePanel : Gtk.EventBox {
     private Gtk.Button stop_button;
     private Gtk.Button snooze_button;
 
-    public StandalonePanel () {
+    public RingingPanel () {
         get_style_context ().add_class ("view");
         get_style_context ().add_class ("content-view");
 
@@ -465,7 +465,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     private List<Item> alarms;
     private GLib.Settings settings;
     private ContentView content_view;
-    private StandalonePanel standalone;
+    private RingingPanel ringing_panel;
 
     public MainPanel (Toolbar toolbar) {
         Object (label: _("Alarm"), toolbar: toolbar);
@@ -494,10 +494,10 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
             save ();
         });
 
-        standalone = new StandalonePanel ();
-        add (standalone);
+        ringing_panel = new RingingPanel ();
+        add (ringing_panel);
 
-        standalone.dismiss.connect (() => {
+        ringing_panel.dismiss.connect (() => {
             visible_child = content_view;
         });
 
@@ -506,7 +506,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
         var id = notify["visible-child"].connect (() => {
             if (visible_child == content_view) {
                 toolbar.mode = Toolbar.Mode.NORMAL;
-            } else if (visible_child == standalone) {
+            } else if (visible_child == ringing_panel) {
                 toolbar.mode = Toolbar.Mode.STANDALONE;
             }
         });
@@ -526,8 +526,8 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
                     if (a.state == Item.State.RINGING) {
                         show_ringing_panel (a);
                         ring ();
-                    } else if (standalone.alarm == a) {
-                        standalone.update ();
+                    } else if (ringing_panel.alarm == a) {
+                        ringing_panel.update ();
                     }
                 }
             }
@@ -576,9 +576,9 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     }
 
     private void show_ringing_panel (Item alarm) {
-        standalone.alarm = alarm;
-        standalone.update ();
-        visible_child = standalone;
+        ringing_panel.alarm = alarm;
+        ringing_panel.update ();
+        visible_child = ringing_panel;
     }
 
     public void activate_new () {
@@ -624,7 +624,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
             break;
         case Toolbar.Mode.STANDALONE:
             toolbar.set_labels_menu (null);
-            toolbar.set_labels (GLib.Markup.escape_text (standalone.alarm.name), null);
+            toolbar.set_labels (GLib.Markup.escape_text (ringing_panel.alarm.name), null);
             break;
         default:
             assert_not_reached ();
