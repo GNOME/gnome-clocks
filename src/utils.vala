@@ -124,7 +124,8 @@ public class WallClock : Object {
     }
 
     public string format_time (GLib.DateTime date_time) {
-        return date_time.format (format == Format.TWELVE ? "%I:%M %p" : "%H:%M");
+        // Note that the format uses unicode RATIO and THIN SPACE characters
+        return date_time.format (format == Format.TWELVE ? "%I∶%M %p" : "%H∶%M");
     }
 }
 

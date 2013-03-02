@@ -216,7 +216,8 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     }
 
     private void update_countdown_label (int h, int m, int s) {
-        time_label.set_text ("%02i:%02i:%02i".printf (h, m, s));
+        // Note that the format uses unicode RATIO character
+        time_label.set_text ("%02i∶%02i∶%02i".printf (h, m, s));
     }
 }
 
