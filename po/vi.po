@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-31 15:05+0000\n"
-"PO-Revision-Date: 2012-09-01 14:20+0700\n"
+"POT-Creation-Date: 2013-03-02 14:16+0000\n"
+"PO-Revision-Date: 2013-03-02 21:27+0700\n"
 "Last-Translator: Nguyễn Thái Ngọc Duy <pclouds@gmail.com>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "Language: vi\n"
@@ -18,12 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:35
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
 msgid "Clocks"
 msgstr "Đồng hồ"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:120
-#: ../gnomeclocks/app.py:129
+#: ../data/gnome-clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "Đồng hồ GNOME"
 
@@ -31,172 +30,260 @@ msgstr "Đồng hồ GNOME"
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Đồng hồ thế giới, kèm báo giờ và đo giờ"
 
-#: ../gnomeclocks/alarm.py:94
-msgid "Every day"
-msgstr "Mỗi ngày"
+#: ../data/gnome-clocks.desktop.in.h:4
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr ""
 
-#: ../gnomeclocks/alarm.py:96
-msgid "Weekdays"
-msgstr "Các ngày trong tuần"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+msgid "Configured world clocks"
+msgstr ""
 
-#: ../gnomeclocks/alarm.py:101
-msgid "Mondays"
-msgstr "Các thứ hai"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+msgid "List of world clocks to show."
+msgstr ""
 
-#: ../gnomeclocks/alarm.py:103
-msgid "Tuesdays"
-msgstr "Các thứ ba"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+msgid "Configured alarms"
+msgstr ""
 
-#: ../gnomeclocks/alarm.py:105
-msgid "Wednesdays"
-msgstr "Các thứ tư"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+msgid "List of alarms set."
+msgstr ""
 
-#: ../gnomeclocks/alarm.py:107
-msgid "Thursdays"
-msgstr "Các thứ năm"
-
-#: ../gnomeclocks/alarm.py:109
-msgid "Fridays"
-msgstr "Các thứ sáu"
-
-#: ../gnomeclocks/alarm.py:111
-msgid "Saturdays"
-msgstr "Các thứ bảy"
-
-#: ../gnomeclocks/alarm.py:113
-msgid "Sundays"
-msgstr "Các chủ nhật"
-
-#: ../gnomeclocks/alarm.py:144
-msgid "Edit Alarm"
-msgstr "Sửa báo giờ"
-
-#: ../gnomeclocks/alarm.py:146 ../gnomeclocks/alarm.py:178
-msgid "New Alarm"
-msgstr "Báo giờ mới"
-
-#: ../gnomeclocks/alarm.py:181
-msgid "Time"
-msgstr "Thời gian"
-
-#: ../gnomeclocks/alarm.py:220
-msgid "Name"
-msgstr "Tên"
-
-#: ../gnomeclocks/alarm.py:229
-msgid "Repeat Every"
-msgstr "Lặp mỗi"
-
-#: ../gnomeclocks/alarm.py:303
+#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:475
 msgid "Alarm"
 msgstr "Báo giờ"
 
-#: ../gnomeclocks/alarm.py:315
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Chọn <b>Mới</b> để thêm báo giờ"
-
-#: ../gnomeclocks/alarm.py:455 ../gnomeclocks/stopwatch.py:79
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../src/alarm.ui.h:2
 msgid "Stop"
 msgstr "Dừng"
 
-#: ../gnomeclocks/alarm.py:457
+#: ../src/alarm.vala:109 ../src/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Chờ tí"
 
-#: ../gnomeclocks/app.py:119 ../gnomeclocks/app.py:414
-msgid "About Clocks"
-msgstr "Giới thiệu đồng hồ"
+#: ../src/alarm.vala:265
+msgid "Edit Alarm"
+msgstr "Sửa báo giờ"
 
-#: ../gnomeclocks/app.py:125
-msgid "Utilities to help you with the time."
-msgstr "Tiện ích giúp bạn về mặt thời gian."
+#: ../src/alarm.vala:265
+msgid "New Alarm"
+msgstr "Báo giờ mới"
 
-#: ../gnomeclocks/app.py:127
-msgid "translator-credits"
-msgstr "Nguyễn Thái Ngọc Duy <pclouds@gmail.com>"
+#: ../src/alarm.vala:267
+#, fuzzy
+#| msgid "Done"
+msgid "_Done"
+msgstr "Xong"
 
-#: ../gnomeclocks/app.py:204
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:620 ../src/world.vala:355
 msgid "New"
 msgstr "Mới"
 
-#: ../gnomeclocks/app.py:270
-msgid "Edit"
-msgstr "Sửa"
+#: ../src/application.vala:24
+msgid "Print version information and exit"
+msgstr ""
 
-#: ../gnomeclocks/app.py:275
-msgid "Done"
-msgstr "Xong"
-
-#: ../gnomeclocks/app.py:359
-msgid "Click on items to select them"
-msgstr "Nhấn vào mục để chọn"
-
-#: ../gnomeclocks/app.py:361
-#, python-format
-#| msgid "1 item selected"
-#| msgid_plural "%d items selected"
-msgid "%d item selected"
-msgid_plural "%d items selected"
-msgstr[0] "đã chọn %d mục"
-
-#: ../gnomeclocks/app.py:417
-msgid "Quit"
-msgstr "Thoát"
-
-#: ../gnomeclocks/stopwatch.py:34
+#: ../src/stopwatch.vala:50
 msgid "Stopwatch"
 msgstr "Đo giờ"
 
-#: ../gnomeclocks/stopwatch.py:59 ../gnomeclocks/stopwatch.py:97
-#: ../gnomeclocks/timer.py:107
-msgid "Start"
-msgstr "Bắt đầu"
+#: ../src/stopwatch.vala:124 ../src/stopwatch.ui.h:3
+msgid "Lap"
+msgstr ""
 
-#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:86
-#: ../gnomeclocks/timer.py:54
-msgid "Reset"
-msgstr "Làm lại"
-
-#: ../gnomeclocks/stopwatch.py:85 ../gnomeclocks/timer.py:71
+#: ../src/stopwatch.vala:131 ../src/timer.vala:85
 msgid "Continue"
 msgstr "Tiếp tục"
 
-#: ../gnomeclocks/timer.py:47 ../gnomeclocks/timer.py:65
-#: ../gnomeclocks/timer.py:75
-msgid "Pause"
-msgstr "Tạm dừng"
+#: ../src/stopwatch.vala:135 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:3
+msgid "Reset"
+msgstr "Làm lại"
 
-#: ../gnomeclocks/timer.py:149
+#: ../src/stopwatch.vala:143 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:1
+msgid "Start"
+msgstr "Bắt đầu"
+
+#: ../src/timer.vala:48
 msgid "Timer"
 msgstr "Đồng hồ bấm giờ"
 
-#: ../gnomeclocks/widgets.py:373
+#: ../src/timer.vala:50
+msgid "Time is up!"
+msgstr ""
+
+#: ../src/timer.vala:50
+msgid "Timer countdown finished"
+msgstr ""
+
+#: ../src/timer.vala:90 ../src/timer.vala:100 ../src/timer.ui.h:2
+msgid "Pause"
+msgstr "Tạm dừng"
+
+#: ../src/utils.vala:148
+msgid "Mondays"
+msgstr "Các thứ hai"
+
+#: ../src/utils.vala:149
+msgid "Tuesdays"
+msgstr "Các thứ ba"
+
+#: ../src/utils.vala:150
+msgid "Wednesdays"
+msgstr "Các thứ tư"
+
+#: ../src/utils.vala:151
+msgid "Thursdays"
+msgstr "Các thứ năm"
+
+#: ../src/utils.vala:152
+msgid "Fridays"
+msgstr "Các thứ sáu"
+
+#: ../src/utils.vala:153
+msgid "Saturdays"
+msgstr "Các thứ bảy"
+
+#: ../src/utils.vala:154
+msgid "Sundays"
+msgstr "Các chủ nhật"
+
+#: ../src/utils.vala:234
+#, fuzzy
+#| msgid "Every day"
+msgid "Every Day"
+msgstr "Mỗi ngày"
+
+#: ../src/utils.vala:236
+msgid "Weekdays"
+msgstr "Các ngày trong tuần"
+
+#: ../src/widgets.vala:422 ../src/widgets.vala:573
+msgid "Click on items to select them"
+msgstr "Nhấn vào mục để chọn"
+
+#: ../src/widgets.vala:424
+#, fuzzy, c-format
+#| msgid "%d item selected"
+#| msgid_plural "%d items selected"
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "đã chọn %d mục"
+
+#: ../src/widgets.vala:466
 msgid "Delete"
 msgstr "Xoá"
 
-#: ../gnomeclocks/world.py:61
+#: ../src/widgets.vala:572
+msgid "Done"
+msgstr "Xong"
+
+#: ../src/window.vala:155
+#, fuzzy
+#| msgid "GNOME Clocks"
+msgid "Gnome Clocks"
+msgstr "Đồng hồ GNOME"
+
+#: ../src/window.vala:158
+msgid "Utilities to help you with the time."
+msgstr "Tiện ích giúp bạn về mặt thời gian."
+
+#: ../src/window.vala:163
+msgid "translator-credits"
+msgstr "Nguyễn Thái Ngọc Duy <pclouds@gmail.com>"
+
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:90 ../src/world.vala:93
+msgid "Tomorrow"
+msgstr ""
+
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:90 ../src/world.vala:93
+msgid "Yesterday"
+msgstr ""
+
+#: ../src/world.vala:160
 msgid "Add a New World Clock"
 msgstr "Thêm đồng hồ thế giới"
 
-#: ../gnomeclocks/world.py:70
-msgid "Search for a city:"
-msgstr "Tìm thành phố:"
-
-#: ../gnomeclocks/world.py:257
+#: ../src/world.vala:256
 msgid "World"
 msgstr "Thế giới"
 
-#: ../gnomeclocks/world.py:268
+#. namespace World
+#. namespace Clocks
+#: ../src/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Chọn <b>Mới</b> để thêm báo giờ"
+
+#: ../src/alarm.ui.h:4
+msgid "Name"
+msgstr "Tên"
+
+#: ../src/alarm.ui.h:5
+msgid "Repeat Every"
+msgstr "Lặp mỗi"
+
+#: ../src/alarm.ui.h:6
+msgid "Active"
+msgstr ""
+
+#: ../src/menu.ui.h:1
+msgid "_New"
+msgstr ""
+
+#: ../src/menu.ui.h:2
+msgid "_About"
+msgstr ""
+
+#: ../src/menu.ui.h:3
+#, fuzzy
+#| msgid "Quit"
+msgid "_Quit"
+msgstr "Thoát"
+
+#: ../src/menu.ui.h:4
+msgid "Select All"
+msgstr ""
+
+#: ../src/menu.ui.h:5
+msgid "Select None"
+msgstr ""
+
+#: ../src/stopwatch.ui.h:4
+msgid "Split"
+msgstr ""
+
+#: ../src/stopwatch.ui.h:5
+msgid "Total"
+msgstr ""
+
+#: ../src/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Chọn <b>Mới</b> để thêm đồng hồ thế giới"
 
-#: ../gnomeclocks/world.py:391
+#: ../src/world.ui.h:2
+msgid "Search for a city:"
+msgstr "Tìm thành phố:"
+
+#: ../src/world.ui.h:3
 msgid "Sunrise"
 msgstr "Bình minh"
 
-#: ../gnomeclocks/world.py:401
+#: ../src/world.ui.h:4
 msgid "Sunset"
 msgstr "Hoàng hôn"
+
+#~ msgid "Time"
+#~ msgstr "Thời gian"
+
+#~ msgid "About Clocks"
+#~ msgstr "Giới thiệu đồng hồ"
+
+#~ msgid "Edit"
+#~ msgstr "Sửa"
 
 #~ msgid "About GNOME Clocks"
 #~ msgstr "Giới thiệu đồng hồ GNOME"
