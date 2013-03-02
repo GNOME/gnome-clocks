@@ -249,7 +249,7 @@ private class SetupDialog : Gtk.Dialog {
     private Gtk.Switch active_switch;
 
     public SetupDialog (Gtk.Window parent, Item? alarm) {
-        Object (transient_for: parent, modal: true, title: _("New Alarm"));
+        Object (transient_for: parent, modal: true, title: alarm != null ? _("Edit Alarm") : _("New Alarm"));
 
         add_buttons (Gtk.Stock.CANCEL, 0, _("_Done"), 1);
         set_default_response (1);
