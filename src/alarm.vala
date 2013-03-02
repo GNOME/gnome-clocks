@@ -19,7 +19,7 @@
 namespace Clocks {
 namespace Alarm {
 
-private class Item : Object {
+private class Item : Object, ContentItem {
     static const int SNOOZE_MINUTES = 9;
     static const int RING_MINUTES = 3;
 
@@ -198,6 +198,19 @@ private class Item : Object {
         }
 
         return state != last_state;
+    }
+
+    public void get_thumb_properties (out string text, out string subtext, out Gdk.Pixbuf? pixbuf, out string css_class) {
+        if (state == State.SNOOZING) {
+            text = snooze_time_label;
+            subtext = "(%s)".printf(time_label);
+            css_class = "snoozing";
+        } else {
+            text = time_label;
+            subtext = repeat_label;
+            css_class = active ? "active" : "inactive";
+        }
+        pixbuf = null;
     }
 
     public void serialize (GLib.VariantBuilder builder) {
@@ -451,7 +464,6 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
 
     private List<Item> alarms;
     private GLib.Settings settings;
-    private IconView icon_view;
     private ContentView content_view;
     private StandalonePanel standalone;
 
@@ -461,24 +473,9 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
         alarms = new List<Item> ();
         settings = new GLib.Settings("org.gnome.clocks");
 
-        icon_view = new IconView ((column, cell, model, iter) => {
-            Item alarm;
-            model.get (iter, IconView.Column.ITEM, out alarm);
-            var renderer = (DigitalClockRenderer) cell;
-            if (alarm.state == Item.State.SNOOZING) {
-                renderer.text = alarm.snooze_time_label;
-                renderer.subtext = "(%s)".printf(alarm.time_label);
-                renderer.css_class = "snoozing";
-            } else {
-                renderer.text = alarm.time_label;
-                renderer.subtext = alarm.repeat_label;
-                renderer.css_class = alarm.active ? "active" : "inactive";
-            }
-        });
-
         var builder = Utils.load_ui ("alarm.ui");
         var empty_view = builder.get_object ("empty_panel") as Gtk.Widget;
-        content_view = new ContentView (empty_view, icon_view, toolbar);
+        content_view = new ContentView (empty_view, toolbar);
         add (content_view);
 
         content_view.item_activated.connect ((item) => {
@@ -494,7 +491,6 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
             foreach (Object i in content_view.get_selected_items ()) {
                 alarms.remove ((Item) i);
             }
-            icon_view.remove_selected ();
             save ();
         });
 
@@ -545,7 +541,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
             Item? alarm = Item.deserialize (a);
             if (alarm != null) {
                 alarms.prepend (alarm);
-                icon_view.add_item (alarm.name, alarm);
+                content_view.add_item (alarm);
             }
         }
         alarms.reverse ();
@@ -592,7 +588,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
                 var alarm = new Item ();
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
                 alarms.append (alarm);
-                icon_view.add_item (alarm.name, alarm);
+                content_view.add_item (alarm);
                 alarm.reset();
                 save ();
             }
@@ -602,19 +598,15 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     }
 
     public void activate_select_all () {
-        icon_view.select_all ();
+        content_view.select_all ();
     }
 
     public void activate_select_none () {
-        icon_view.unselect_all ();
+        content_view.unselect_all ();
     }
 
     public bool escape_pressed () {
-        if (icon_view.mode == IconView.Mode.SELECTION) {
-            icon_view.mode = IconView.Mode.NORMAL;
-            return true;
-        }
-        return false;
+        return content_view.escape_pressed ();
     }
 
     public void update_toolbar () {

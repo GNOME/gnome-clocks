@@ -28,21 +28,31 @@ private GWeather.Location get_world_location () {
     return gweather_world;
 }
 
-private class Item : Object {
+private class Item : Object, ContentItem {
+    private static Gdk.Pixbuf? day_pixbuf = Utils.load_image ("day.png");
+    private static Gdk.Pixbuf? night_pixbuf = Utils.load_image ("night.png");
+
     public GWeather.Location location { get; set; }
     public string name {
-        owned get {
+        get {
             var nation = location;
 
             while (nation != null && nation.get_level () != GWeather.LocationLevel.COUNTRY) {
                 nation = nation.get_parent ();
             }
 
+            // We store it in a _name member even if we overwrite it every time
+            // since we the abstract name property does not return an owned string
             if (nation != null) {
-                return "%s, %s".printf (location.get_city_name (), nation.get_name ());
+                _name = "%s, %s".printf (location.get_city_name (), nation.get_name ());
             } else {
-                return location.get_city_name ();
+                _name = location.get_city_name ();
             }
+
+            return _name;
+        }
+        set {
+            // ignored
         }
     }
 
@@ -87,6 +97,7 @@ private class Item : Object {
         }
     }
 
+    private string _name;
     private GLib.TimeZone time_zone;
     private GLib.DateTime local_time;
     private GLib.DateTime date_time;
@@ -108,6 +119,18 @@ private class Item : Object {
 
         // We don't need to call update(), we're using only astronomical data
         weather_info = new GWeather.Info.for_world (get_world_location (), location, GWeather.ForecastType.LIST);
+    }
+
+    public void get_thumb_properties (out string text, out string subtext, out Gdk.Pixbuf? pixbuf, out string css_class) {
+        text = time_label;
+        subtext = day_label;
+        if (is_daytime) {
+            pixbuf = day_pixbuf;
+            css_class = "light";
+        } else {
+            pixbuf = night_pixbuf;
+            css_class = "dark";
+        }
     }
 
     public void serialize (GLib.VariantBuilder builder) {
@@ -226,7 +249,6 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     private GLib.Settings settings;
     private Gdk.Pixbuf? day_pixbuf;
     private Gdk.Pixbuf? night_pixbuf;
-    private IconView icon_view;
     private ContentView content_view;
     private StandalonePanel standalone;
 
@@ -239,24 +261,9 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
         day_pixbuf = Utils.load_image ("day.png");
         night_pixbuf = Utils.load_image ("night.png");
 
-        icon_view = new IconView ((column, cell, model, iter) => {
-            Item location;
-            model.get (iter, IconView.Column.ITEM, out location);
-            var renderer = (DigitalClockRenderer) cell;
-            renderer.text = location.time_label;
-            renderer.subtext = location.day_label;
-            if (location.is_daytime) {
-                renderer.pixbuf = day_pixbuf;
-                renderer.css_class = "light";
-            } else {
-                renderer.pixbuf = night_pixbuf;
-                renderer.css_class = "dark";
-            }
-        });
-
         var builder = Utils.load_ui ("world.ui");
         var empty_view = builder.get_object ("empty_panel") as Gtk.Widget;
-        content_view = new ContentView (empty_view, icon_view, toolbar);
+        content_view = new ContentView (empty_view, toolbar);
         add (content_view);
 
         content_view.item_activated.connect ((item) => {
@@ -270,7 +277,6 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
             foreach (Object i in content_view.get_selected_items ()) {
                 locations.remove ((Item) i);
             }
-            icon_view.remove_selected ();
             save ();
         });
 
@@ -300,7 +306,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
             Item? location = Item.deserialize (l);
             if (location != null) {
                 locations.prepend (location);
-                icon_view.add_item (location.name, location);
+                content_view.add_item (location);
             }
         }
         locations.reverse ();
@@ -321,7 +327,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
             if (response == 1) {
                 var location = ((LocationDialog) dialog).get_location ();
                 locations.append (location);
-                icon_view.add_item (location.name, location);
+                content_view.add_item (location);
                 save ();
             }
             dialog.destroy ();
@@ -330,19 +336,15 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     }
 
     public void activate_select_all () {
-        icon_view.select_all ();
+        content_view.select_all ();
     }
 
     public void activate_select_none () {
-        icon_view.unselect_all ();
+        content_view.unselect_all ();
     }
 
     public bool escape_pressed () {
-        if (icon_view.mode == IconView.Mode.SELECTION) {
-            icon_view.mode = IconView.Mode.NORMAL;
-            return true;
-        }
-        return false;
+        return content_view.escape_pressed ();
     }
 
     public void update_toolbar () {

@@ -202,7 +202,12 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
     }
 }
 
-public class IconView : Gtk.IconView {
+public interface ContentItem : GLib.Object {
+    public abstract string name { get; set; }
+    public abstract void get_thumb_properties (out string text, out string subtext, out Gdk.Pixbuf? pixbuf, out string css_class);
+}
+
+private class IconView : Gtk.IconView {
     public enum Mode {
         NORMAL,
         SELECTION
@@ -210,7 +215,6 @@ public class IconView : Gtk.IconView {
 
     public enum Column {
         SELECTED,
-        LABEL,
         ITEM,
         COLUMNS
     }
@@ -237,10 +241,10 @@ public class IconView : Gtk.IconView {
     private Mode _mode;
     private DigitalClockRenderer thumb_renderer;
 
-    public IconView (owned Gtk.CellLayoutDataFunc thumb_data_func) {
+    public IconView () {
         Object (selection_mode: Gtk.SelectionMode.NONE, mode: Mode.NORMAL);
 
-        model = new Gtk.ListStore (Column.COLUMNS, typeof (bool), typeof (string), typeof (Object));
+        model = new Gtk.ListStore (Column.COLUMNS, typeof (bool), typeof (ContentItem));
 
         get_style_context ().add_class ("content-view");
         set_item_padding (0);
@@ -254,7 +258,20 @@ public class IconView : Gtk.IconView {
         thumb_renderer.set_fixed_size (tile_width, tile_height);
         pack_start (thumb_renderer, false);
         add_attribute (thumb_renderer, "active", Column.SELECTED);
-        set_cell_data_func (thumb_renderer, (owned) thumb_data_func);
+        set_cell_data_func (thumb_renderer, (column, cell, model, iter) => {
+            ContentItem item;
+            model.get (iter, IconView.Column.ITEM, out item);
+            var renderer = (DigitalClockRenderer) cell;
+            string text;
+            string subtext;
+            Gdk.Pixbuf? pixbuf;
+            string css_class;
+            item.get_thumb_properties (out text, out subtext, out pixbuf, out css_class);
+            renderer.text = text;
+            renderer.subtext = subtext;
+            renderer.pixbuf = pixbuf;
+            renderer.css_class = css_class;
+        });
 
         var text_renderer = new Gtk.CellRendererText ();
         text_renderer.set_alignment (0.5f, 0.5f);
@@ -263,7 +280,12 @@ public class IconView : Gtk.IconView {
         text_renderer.wrap_width = 220;
         text_renderer.wrap_mode = Pango.WrapMode.WORD_CHAR;
         pack_start (text_renderer, true);
-        add_attribute (text_renderer, "markup", Column.LABEL);
+        set_cell_data_func (text_renderer, (column, cell, model, iter) => {
+            ContentItem item;
+            model.get (iter, IconView.Column.ITEM, out item);
+            var renderer = (Gtk.CellRendererText) cell;
+            renderer.markup = GLib.Markup.escape_text (item.name);
+        });
     }
 
     public override bool button_press_event (Gdk.EventButton event) {
@@ -291,12 +313,11 @@ public class IconView : Gtk.IconView {
         return false;
     }
 
-    public void add_item (string name, Object item) {
+    public void add_item (Object item) {
         var store = (Gtk.ListStore) model;
-        var label = GLib.Markup.escape_text (name);
         Gtk.TreeIter i;
         store.append (out i);
-        store.set (i, Column.SELECTED, false, Column.LABEL, label, Column.ITEM, item);
+        store.set (i, Column.SELECTED, false, Column.ITEM, item);
     }
 
     // Redefine selection handling methods since we handle selection manually
@@ -358,10 +379,11 @@ public class ContentView : Gtk.Bin {
     private Gtk.Toolbar selection_toolbar;
     private Gtk.Overlay overlay;
 
-    public ContentView (Gtk.Widget e, IconView iv, Toolbar t) {
+    public ContentView (Gtk.Widget e, Toolbar t) {
         empty_page = e;
-        icon_view = iv;
         main_toolbar = t;
+
+        icon_view = new IconView ();
 
         var builder = Utils.load_ui ("menu.ui");
         selection_menu = builder.get_object ("selection-menu") as GLib.MenuModel;
@@ -425,7 +447,9 @@ public class ContentView : Gtk.Bin {
 
     public signal void item_activated (Object item);
 
-    public signal void delete_selected ();
+    public virtual signal void delete_selected () {
+        icon_view.remove_selected ();
+    }
 
     private Gtk.Toolbar create_selection_toolbar () {
         var toolbar = new Gtk.Toolbar ();
@@ -502,6 +526,10 @@ public class ContentView : Gtk.Bin {
         }
     }
 
+    public void add_item (ContentItem item) {
+        icon_view.add_item (item);
+    }
+
     // Note: this is not efficient: we first walk the model to collect
     // a list then the caller has to walk this list and then it has to
     // delete the items from the view, which walks the model again...
@@ -520,6 +548,22 @@ public class ContentView : Gtk.Bin {
         }
         items.reverse ();
         return (owned) items;
+    }
+
+    public void select_all () {
+        icon_view.select_all ();
+    }
+
+    public void unselect_all () {
+        icon_view.unselect_all ();
+    }
+
+    public bool escape_pressed () {
+        if (icon_view.mode == IconView.Mode.SELECTION) {
+            icon_view.mode = IconView.Mode.NORMAL;
+            return true;
+        }
+        return false;
     }
 
     public void update_toolbar () {
