@@ -453,7 +453,11 @@ private class RingingPanel : Gtk.EventBox {
 
     public void update () {
         if (alarm != null) {
-            time_label.set_text (alarm.time_label);
+            if (alarm.state == Item.State.SNOOZING) {
+                time_label.set_text (alarm.snooze_time_label);
+            } else {
+                time_label.set_text (alarm.time_label);
+            }
         }
     }
 }
