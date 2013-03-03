@@ -119,7 +119,7 @@ public class Window : Gtk.ApplicationWindow {
             return ((Clock) stack.visible_child).escape_pressed ();
         }
 
-        return false;
+        return base.key_press_event (event);
     }
 
     private void on_about_activate () {
