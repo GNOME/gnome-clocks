@@ -48,7 +48,11 @@ public class Window : Gtk.ApplicationWindow {
 
         set_size_request (DEFAULT_WIDTH, DEFAULT_HEIGHT);
 
-        toolbar = new Toolbar ();
+        var builder = Utils.load_ui ("window.ui");
+
+        var main_panel = builder.get_object ("main_panel") as Gtk.Widget;
+        toolbar = builder.get_object ("toolbar") as Toolbar;
+        stack = builder.get_object ("stack") as Gd.Stack;
 
         world = new World.MainPanel (toolbar);
         alarm = new Alarm.MainPanel (toolbar);
@@ -60,8 +64,6 @@ public class Window : Gtk.ApplicationWindow {
         toolbar.add_clock (stopwatch);
         toolbar.add_clock (timer);
 
-        stack = new Gd.Stack ();
-        stack.duration = 0;
         stack.add (world);
         stack.add (alarm);
         stack.add (stopwatch);
@@ -71,16 +73,16 @@ public class Window : Gtk.ApplicationWindow {
             stack.visible_child = (Gtk.Widget) c;
         });
 
-        var id = stack.notify["visible-child"].connect (() => {
+        stack.notify["visible-child"].connect (() => {
             update_toolbar ();
         });
 
-        toolbar.notify["mode"].connect (() => {
+        var id = toolbar.notify["mode"].connect (() => {
             update_toolbar ();
         });
 
-        toolbar.destroy.connect(() => {
-            stack.disconnect (id);
+        stack.destroy.connect(() => {
+            toolbar.disconnect (id);
             id = 0;
         });
 
@@ -95,17 +97,7 @@ public class Window : Gtk.ApplicationWindow {
         stack.visible_child = world;
         world.update_toolbar ();
 
-        var frame = new Gtk.Frame (null);
-        frame.get_style_context ().add_class ("clocks-content-view");
-        frame.get_style_context ().add_class ("view");
-        frame.get_style_context ().add_class ("content-view");
-        frame.add (stack);
-
-        var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-        vbox.pack_start (toolbar, false, false, 0);
-        vbox.pack_end (frame, true, true, 0);
-        add (vbox);
-
+        add (main_panel);
         show_all ();
     }
 

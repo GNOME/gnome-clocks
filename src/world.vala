@@ -285,16 +285,12 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
 
         load ();
 
-        var id = notify["visible-child"].connect (() => {
+        notify["visible-child"].connect (() => {
             if (visible_child == content_view) {
                 toolbar.mode = Toolbar.Mode.NORMAL;
             } else if (visible_child == standalone) {
                 toolbar.mode = Toolbar.Mode.STANDALONE;
             }
-        });
-        toolbar.destroy.connect(() => {
-            disconnect (id);
-            id = 0;
         });
 
         visible_child = content_view;

@@ -53,11 +53,6 @@ public class Toolbar : Gd.MainToolbar {
 
     private Mode _mode;
 
-    public Toolbar () {
-        Object (show_modes: true, vexpand: false);
-        get_style_context ().add_class (Gtk.STYLE_CLASS_MENUBAR);
-    }
-
     public signal void clock_changed (Clock clock);
 
     public void add_clock (Clock clock) {

@@ -151,6 +151,7 @@ EXTRA_DIST = \
 	src/menu.ui \
 	src/stopwatch.ui \
 	src/timer.ui \
+	src/window.ui \
 	src/world.ui
 
 CLEANFILES = \
