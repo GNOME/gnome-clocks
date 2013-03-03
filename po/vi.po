@@ -1,7 +1,7 @@
 # Vietnamese translation for gnome-clocks.
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-# Nguyễn Thái Ngọc Duy <pclouds@gmail.com>, 2012.
+# Nguyễn Thái Ngọc Duy <pclouds@gmail.com>, 2012-2013.
 #
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2013-03-02 14:16+0000\n"
-"PO-Revision-Date: 2013-03-02 21:27+0700\n"
+"PO-Revision-Date: 2013-03-02 21:31+0700\n"
 "Last-Translator: Nguyễn Thái Ngọc Duy <pclouds@gmail.com>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "Language: vi\n"
@@ -33,22 +33,24 @@ msgstr "Đồng hồ thế giới, kèm báo giờ và đo giờ"
 #: ../data/gnome-clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
+"time;thời;gian;thoi;;timer;hẹn;giờ;hen;gio;alarm;world clock;đồng;hồ;dong;ho;"
+"stopwatch;time zone;múi;mui;"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:1
 msgid "Configured world clocks"
-msgstr ""
+msgstr "Đồng hồ thế giới được cấu hình"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:2
 msgid "List of world clocks to show."
-msgstr ""
+msgstr "Danh sách đồng hồ thế giới cần hiện."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:3
 msgid "Configured alarms"
-msgstr ""
+msgstr "Báo giờ"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:4
 msgid "List of alarms set."
-msgstr ""
+msgstr "Danh sách báo giờ."
 
 #: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:475
 msgid "Alarm"
@@ -71,10 +73,8 @@ msgid "New Alarm"
 msgstr "Báo giờ mới"
 
 #: ../src/alarm.vala:267
-#, fuzzy
-#| msgid "Done"
 msgid "_Done"
-msgstr "Xong"
+msgstr "_Xong"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
@@ -84,7 +84,7 @@ msgstr "Mới"
 
 #: ../src/application.vala:24
 msgid "Print version information and exit"
-msgstr ""
+msgstr "In thông tin phiên bản và thoát"
 
 #: ../src/stopwatch.vala:50
 msgid "Stopwatch"
@@ -92,7 +92,7 @@ msgstr "Đo giờ"
 
 #: ../src/stopwatch.vala:124 ../src/stopwatch.ui.h:3
 msgid "Lap"
-msgstr ""
+msgstr "Vòng"
 
 #: ../src/stopwatch.vala:131 ../src/timer.vala:85
 msgid "Continue"
@@ -112,11 +112,11 @@ msgstr "Đồng hồ bấm giờ"
 
 #: ../src/timer.vala:50
 msgid "Time is up!"
-msgstr ""
+msgstr "Hết giờ!"
 
 #: ../src/timer.vala:50
 msgid "Timer countdown finished"
-msgstr ""
+msgstr "Hoàn tất đếm ngược"
 
 #: ../src/timer.vala:90 ../src/timer.vala:100 ../src/timer.ui.h:2
 msgid "Pause"
@@ -151,8 +151,6 @@ msgid "Sundays"
 msgstr "Các chủ nhật"
 
 #: ../src/utils.vala:234
-#, fuzzy
-#| msgid "Every day"
 msgid "Every Day"
 msgstr "Mỗi ngày"
 
@@ -165,9 +163,7 @@ msgid "Click on items to select them"
 msgstr "Nhấn vào mục để chọn"
 
 #: ../src/widgets.vala:424
-#, fuzzy, c-format
-#| msgid "%d item selected"
-#| msgid_plural "%d items selected"
+#, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "đã chọn %d mục"
@@ -181,8 +177,6 @@ msgid "Done"
 msgstr "Xong"
 
 #: ../src/window.vala:155
-#, fuzzy
-#| msgid "GNOME Clocks"
 msgid "Gnome Clocks"
 msgstr "Đồng hồ GNOME"
 
@@ -197,12 +191,12 @@ msgstr "Nguyễn Thái Ngọc Duy <pclouds@gmail.com>"
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
 #: ../src/world.vala:90 ../src/world.vala:93
 msgid "Tomorrow"
-msgstr ""
+msgstr "Ngày mai"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
 #: ../src/world.vala:90 ../src/world.vala:93
 msgid "Yesterday"
-msgstr ""
+msgstr "Hôm qua"
 
 #: ../src/world.vala:160
 msgid "Add a New World Clock"
@@ -228,37 +222,35 @@ msgstr "Lặp mỗi"
 
 #: ../src/alarm.ui.h:6
 msgid "Active"
-msgstr ""
+msgstr "Hoạt động"
 
 #: ../src/menu.ui.h:1
 msgid "_New"
-msgstr ""
+msgstr "Mớ_i"
 
 #: ../src/menu.ui.h:2
 msgid "_About"
-msgstr ""
+msgstr "_Giới thiệu"
 
 #: ../src/menu.ui.h:3
-#, fuzzy
-#| msgid "Quit"
 msgid "_Quit"
-msgstr "Thoát"
+msgstr "T_hoát"
 
 #: ../src/menu.ui.h:4
 msgid "Select All"
-msgstr ""
+msgstr "Chọn tất cả"
 
 #: ../src/menu.ui.h:5
 msgid "Select None"
-msgstr ""
+msgstr "Bỏ chọn"
 
 #: ../src/stopwatch.ui.h:4
 msgid "Split"
-msgstr ""
+msgstr "Tách"
 
 #: ../src/stopwatch.ui.h:5
 msgid "Total"
-msgstr ""
+msgstr "Tổng cộng"
 
 #: ../src/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
