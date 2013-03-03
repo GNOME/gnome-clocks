@@ -571,6 +571,7 @@ public class ContentView : Gtk.Bin {
             done_button.clicked.connect (() => {
                 icon_view.mode = IconView.Mode.NORMAL;
             });
+            done_button.show ();
             break;
         case Toolbar.Mode.NORMAL:
             main_toolbar.set_labels (null, null);
@@ -579,6 +580,7 @@ public class ContentView : Gtk.Bin {
             select_button.clicked.connect (() => {
                 icon_view.mode = IconView.Mode.SELECTION;
             });
+            select_button.show ();
             bind_property ("empty", select_button, "sensitive", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
             break;
         }
@@ -610,7 +612,6 @@ public class AmPmToggleButton : Gtk.Button {
 
     public AmPmToggleButton () {
         stack = new Gd.Stack ();
-        stack.duration = 0;
 
         get_style_context ().add_class ("clocks-ampm-toggle-button");
 

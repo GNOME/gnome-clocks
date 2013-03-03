@@ -617,6 +617,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
             new_button.clicked.connect (() => {
                 activate_new ();
             });
+            new_button.show ();
             content_view.update_toolbar ();
             break;
         case Toolbar.Mode.SELECTION:

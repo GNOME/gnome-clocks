@@ -45,7 +45,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     private GLib.Timer timer;
 
     public MainPanel (Toolbar toolbar) {
-        Object (label: _("Timer"), toolbar: toolbar);
+        Object (label: _("Timer"), toolbar: toolbar, transition_type: Gd.StackTransitionType.CROSSFADE);
 
         bell = new Utils.Bell ("complete", _("Time is up!"), _("Timer countdown finished"));
 

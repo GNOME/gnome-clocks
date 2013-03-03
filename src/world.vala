@@ -253,7 +253,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     private StandalonePanel standalone;
 
     public MainPanel (Toolbar toolbar) {
-        Object (label: _("World"), toolbar: toolbar, homogeneous: true);
+        Object (label: _("World"), toolbar: toolbar, transition_type: Gd.StackTransitionType.CROSSFADE);
 
         locations = new List<Item> ();
         settings = new GLib.Settings("org.gnome.clocks");
@@ -352,6 +352,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
             new_button.clicked.connect (() => {
                 activate_new ();
             });
+            new_button.show ();
             content_view.update_toolbar ();
             break;
         case Toolbar.Mode.SELECTION:
@@ -364,6 +365,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
             back_button.clicked.connect (() => {
                 visible_child = content_view;
             });
+            back_button.show ();
             break;
         default:
             assert_not_reached ();
