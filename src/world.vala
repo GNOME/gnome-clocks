@@ -112,7 +112,7 @@ private class Item : Object, ContentItem {
         tick ();
     }
 
-    private void tick () {
+    public void tick () {
         var wallclock = Utils.WallClock.get_default ();
         local_time = wallclock.date_time;
         date_time = local_time.to_timezone (time_zone);
@@ -295,6 +295,15 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
 
         visible_child = content_view;
         show_all ();
+
+        // Start ticking...
+        Utils.WallClock.get_default ().tick.connect (() => {
+            foreach (var l in locations) {
+                l.tick();
+            }
+            content_view.queue_draw ();
+            standalone.update ();
+        });
     }
 
     private void load () {
