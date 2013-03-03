@@ -156,13 +156,16 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
 
         int h;
         int m;
-        double s;
-        Utils.time_to_hms (e, out h, out m, out s);
+        int s;
+        double r;
+        Utils.time_to_hms (e, out h, out m, out s, out r);
+        int cs = (int) (r * 100);
 
         int split_h;
         int split_m;
-        double split_s;
-        Utils.time_to_hms (split, out split_h, out split_m, out split_s);
+        int split_s;
+        Utils.time_to_hms (split, out split_h, out split_m, out split_s, out r);
+        int split_cs = (int) (r * 100);
 
         var n_label = "<span color='dimgray'> %d </span>".printf (current_lap);
 
@@ -170,16 +173,16 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
 
         string split_label;
         if (split_h > 0) {
-            split_label = "%i∶%02i∶%05.2f".printf (split_h, split_m, split_s);
+            split_label = "%i∶%02i∶%02i.%i".printf (split_h, split_m, split_s, split_cs);
         } else {
-            split_label = "%02i∶%05.2f".printf (split_m, split_s);
+            split_label = "%02i∶%02i.%i".printf (split_m, split_s, split_cs);
         }
 
         string tot_label;
         if (h > 0) {
-            tot_label = "%i∶%02i∶%05.2f".printf (h, m, s);
+            tot_label = "%i∶%02i∶%02i.%i".printf (h, m, s, cs);
         } else {
-            tot_label = "%02i∶%05.2f".printf (m, s);
+            tot_label = "%02i∶%02i.%i".printf (m, s, cs);
         }
 
         Gtk.TreeIter i;
@@ -208,16 +211,19 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
     private bool update_time_label () {
         int h = 0;
         int m = 0;
-        double s = 0;
+        int s = 0;
+        double r = 0;
         if (state != State.RESET) {
-            Utils.time_to_hms (timer.elapsed (), out h, out m, out s);
+            Utils.time_to_hms (timer.elapsed (), out h, out m, out s, out r);
         }
+
+        int ds = (int) (r * 10);
 
         // Note that the format uses unicode RATIO character
         if (h > 0) {
-            time_label.set_text ("%i∶%02i∶%04.1f".printf (h, m, s));
+            time_label.set_text ("%i∶%02i∶%02i.%i".printf (h, m, s, ds));
         } else {
-            time_label.set_text ("%02i∶%04.1f".printf (m, s));
+            time_label.set_text ("%02i∶%02i.%i".printf (m, s, ds));
         }
 
         return true;

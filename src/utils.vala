@@ -52,12 +52,13 @@ public Gdk.Pixbuf? load_image (string image) {
     return null;
 }
 
-public void time_to_hms (double t, out int h, out int m, out double s) {
-    s = t;
-    h = (int) s / 3600;
-    s = t % 3600;
-    m = (int) s / 60;
-    s = s % 60;
+public void time_to_hms (double t, out int h, out int m, out int s, out double remainder) {
+    h = (int) t / 3600;
+    t = t % 3600;
+    m = (int) t / 60;
+    t = t % 60;
+    s = (int) t;
+    remainder = t - s;
 }
 
 // TODO: For now we are wrapping Gnome's clock, but we should probably

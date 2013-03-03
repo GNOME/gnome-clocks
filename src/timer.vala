@@ -206,12 +206,14 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
         if (time_label.get_mapped ()) {
             int h;
             int m;
-            double s;
-            Utils.time_to_hms (t, out h, out m, out s);
+            int s;
+            double r;
+            Utils.time_to_hms (t, out h, out m, out s, out r);
 
             // Math.ceil() because we count backwards: with 0.3 seconds
             // we want to show 1 second remaining
-            update_countdown_label (h, m, (int)Math.ceil(s));
+            s += (int) Math.ceil (r);
+            update_countdown_label (h, m, s);
         }
     }
 
