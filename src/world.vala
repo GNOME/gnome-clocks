@@ -256,7 +256,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
         Object (label: _("World"), toolbar: toolbar, transition_type: Gd.StackTransitionType.CROSSFADE);
 
         locations = new List<Item> ();
-        settings = new GLib.Settings("org.gnome.clocks");
+        settings = new GLib.Settings ("org.gnome.clocks");
 
         day_pixbuf = Utils.load_image ("day.png");
         night_pixbuf = Utils.load_image ("night.png");

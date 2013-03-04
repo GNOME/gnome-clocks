@@ -30,6 +30,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     public Toolbar toolbar { get; construct set; }
 
     private State state;
+    private GLib.Settings settings;
     private uint timeout_id;
     private Utils.Bell bell;
     private Gtk.Widget setup_panel;
@@ -46,6 +47,8 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
 
     public MainPanel (Toolbar toolbar) {
         Object (label: _("Timer"), toolbar: toolbar, transition_type: Gd.StackTransitionType.CROSSFADE);
+
+        settings = new GLib.Settings ("org.gnome.clocks");
 
         bell = new Utils.Bell ("complete", _("Time is up!"), _("Timer countdown finished"));
 
@@ -136,11 +139,11 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
         state = State.STOPPED;
         timer.reset ();
         remove_timeout ();
-        span = 0;
-        h_spinbutton.value = 0;
-        m_spinbutton.value = 0;
-        s_spinbutton.value = 0;
-        start_button.set_sensitive (false);
+        span = settings.get_uint ("timer");
+        h_spinbutton.value = (int) span / 3600;
+        m_spinbutton.value = (int) span / 60;
+        s_spinbutton.value = span % 60;
+        start_button.set_sensitive (span > 0);
         visible_child = setup_panel;
     }
 
@@ -152,8 +155,10 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
 
             state = State.RUNNING;
             span = h * 3600 + m * 60 + s;
-            timer.start ();
 
+            settings.set_uint ("timer", (uint) span);
+
+            timer.start ();
             visible_child = countdown_panel;
 
             update_countdown_label (h, m, s);

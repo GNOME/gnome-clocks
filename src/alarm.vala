@@ -475,7 +475,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
         Object (label: _("Alarm"), toolbar: toolbar);
 
         alarms = new List<Item> ();
-        settings = new GLib.Settings("org.gnome.clocks");
+        settings = new GLib.Settings ("org.gnome.clocks");
 
         var builder = Utils.load_ui ("alarm.ui");
         var empty_view = builder.get_object ("empty_panel") as Gtk.Widget;
