@@ -1,6 +1,6 @@
 # Norwegian bokmål translation of gnome-clocks.
 # Copyright (C) 1998-2004, 2005 Free Software Foundation, Inc.
-# Kjartan Maraas <kmaraas@gnome.org>, 1998-2012.
+# Kjartan Maraas <kmaraas@gnome.org>, 1998-2013.
 # Terance Edward Sola <terance@lyse.net>, 2005.
 # Torstein Adolf Winterseth <kvikende@fsfe.org>, 2010.
 #
@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks 3.7.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-25 18:01+0100\n"
-"PO-Revision-Date: 2013-02-25 18:06+0100\n"
+"POT-Creation-Date: 2013-03-04 14:41+0100\n"
+"PO-Revision-Date: 2013-03-04 14:42+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -50,7 +50,7 @@ msgstr "Konfigurerte alarmer"
 msgid "List of alarms set."
 msgstr "Liste med alarmer som er satt."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:314 ../src/alarm.vala:459
+#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:475
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -62,17 +62,21 @@ msgstr "Stopp"
 msgid "Snooze"
 msgstr "Pause"
 
-#: ../src/alarm.vala:252
+#: ../src/alarm.vala:265
+msgid "Edit Alarm"
+msgstr "Rediger alarm"
+
+#: ../src/alarm.vala:265
 msgid "New Alarm"
 msgstr "Ny alarm"
 
-#: ../src/alarm.vala:254
+#: ../src/alarm.vala:267
 msgid "_Done"
 msgstr "Fer_dig"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:616 ../src/world.vala:345
+#: ../src/alarm.vala:616 ../src/world.vala:360
 msgid "New"
 msgstr "Ny"
 
@@ -92,11 +96,11 @@ msgstr "Runde"
 msgid "Continue"
 msgstr "Fortsett"
 
-#: ../src/stopwatch.vala:135 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:4
+#: ../src/stopwatch.vala:135 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:3
 msgid "Reset"
 msgstr "Nullstill"
 
-#: ../src/stopwatch.vala:143 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:2
+#: ../src/stopwatch.vala:143 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:1
 msgid "Start"
 msgstr "Start"
 
@@ -112,94 +116,94 @@ msgstr "Tiden er ute!"
 msgid "Timer countdown finished"
 msgstr "Nedtelling fullført"
 
-#: ../src/timer.vala:90 ../src/timer.vala:100 ../src/timer.ui.h:3
+#: ../src/timer.vala:90 ../src/timer.vala:100 ../src/timer.ui.h:2
 msgid "Pause"
 msgstr "Pause"
 
-#: ../src/utils.vala:147
+#: ../src/utils.vala:149
 msgid "Mondays"
 msgstr "Mandager"
 
-#: ../src/utils.vala:148
+#: ../src/utils.vala:150
 msgid "Tuesdays"
 msgstr "Tirsdager"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:151
 msgid "Wednesdays"
 msgstr "Onsdager"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:152
 msgid "Thursdays"
 msgstr "Torsdager"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:153
 msgid "Fridays"
 msgstr "Fredager"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:154
 msgid "Saturdays"
 msgstr "Lørdager"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:155
 msgid "Sundays"
 msgstr "Søndager"
 
-#: ../src/utils.vala:233
+#: ../src/utils.vala:235
 msgid "Every Day"
 msgstr "Hver dag"
 
-#: ../src/utils.vala:235
+#: ../src/utils.vala:237
 msgid "Weekdays"
 msgstr "Ukedager"
 
-#: ../src/widgets.vala:400 ../src/widgets.vala:529
+#: ../src/widgets.vala:417 ../src/widgets.vala:568
 msgid "Click on items to select them"
 msgstr "Klikk på oppføringer for å velge dem"
 
-#: ../src/widgets.vala:402
+#: ../src/widgets.vala:419
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d valgt"
 msgstr[1] "%d valgt"
 
-#: ../src/widgets.vala:442
+#: ../src/widgets.vala:461
 msgid "Delete"
 msgstr "Slett"
 
-#: ../src/widgets.vala:528
+#: ../src/widgets.vala:567
 msgid "Done"
 msgstr "Ferdig"
 
-#: ../src/window.vala:146
+#: ../src/window.vala:147
 msgid "Gnome Clocks"
 msgstr "GNOME klokker"
 
-#: ../src/window.vala:149
+#: ../src/window.vala:150
 msgid "Utilities to help you with the time."
 msgstr "Verktøy som hjelper deg å holde orden på tiden."
 
-#: ../src/window.vala:154
+#: ../src/window.vala:155
 msgid "translator-credits"
 msgstr ""
 "Kjartan Maraas <kmaraas@gnome.org>\n"
 "Torstein Adolf Winterseth <kvikende@fsfe.org>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:80 ../src/world.vala:83
+#: ../src/world.vala:90 ../src/world.vala:93
 msgid "Tomorrow"
 msgstr "I morgen"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:80 ../src/world.vala:83
+#: ../src/world.vala:90 ../src/world.vala:93
 msgid "Yesterday"
 msgstr "I går"
 
-#: ../src/world.vala:137
+#: ../src/world.vala:160
 msgid "Add a New World Clock"
 msgstr "Legg til en ny verdensklokke"
 
-#: ../src/world.vala:234
+#: ../src/world.vala:256
 msgid "World"
 msgstr "Verden"
 
@@ -209,19 +213,15 @@ msgstr "Verden"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Velg <b>Ny</b> for å legge til en alarm"
 
-#: ../src/alarm.ui.h:4 ../src/timer.ui.h:1
-msgid ":"
-msgstr "."
-
-#: ../src/alarm.ui.h:5
+#: ../src/alarm.ui.h:4
 msgid "Name"
 msgstr "Navn"
 
-#: ../src/alarm.ui.h:6
+#: ../src/alarm.ui.h:5
 msgid "Repeat Every"
 msgstr "Gjenta hver"
 
-#: ../src/alarm.ui.h:7
+#: ../src/alarm.ui.h:6
 msgid "Active"
 msgstr "Aktiv"
 
