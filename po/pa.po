@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-19 22:19+0000\n"
-"PO-Revision-Date: 2013-02-20 01:30+0000\n"
+"POT-Creation-Date: 2013-03-06 07:27+0000\n"
+"PO-Revision-Date: 2013-03-06 17:46+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>\n"
 "Language: pa\n"
@@ -54,23 +54,41 @@ msgstr "ਸੰਰਚਿਤ ਕੀਤੇ ਅਲਾਰਮ"
 msgid "List of alarms set."
 msgstr "ਅਲਾਰਮ ਸੈੱਟ ਦੀ ਸੂਚੀ ਹੈ।"
 
-#: ../src/alarm.vala:41 ../src/alarm.vala:94 ../src/alarm.vala:101
-#: ../src/alarm.vala:306 ../src/alarm.vala:430
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
+msgid "Timer"
+msgstr "ਟਾਈਮਰ"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "ਸਕਿੰਟਾਂ ਵਿੱਚ ਸੰਰਚਿਤ ਸਮਾਂ ਅੰਤਰਾਲ।"
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:475
 msgid "Alarm"
 msgstr "ਅਲਾਰਮ"
 
-#: ../src/alarm.vala:244
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../src/alarm.ui.h:2
+msgid "Stop"
+msgstr "ਰੋਕੋ"
+
+#: ../src/alarm.vala:109 ../src/alarm.ui.h:3
+msgid "Snooze"
+msgstr "ਟਾਲੋ"
+
+#: ../src/alarm.vala:265
+msgid "Edit Alarm"
+msgstr "ਅਲਾਰਮ ਸੋਧ"
+
+#: ../src/alarm.vala:265
 msgid "New Alarm"
 msgstr "ਨਵਾਂ ਅਲਾਰਮ"
 
-#: ../src/alarm.vala:246
-#| msgid "Done"
+#: ../src/alarm.vala:267
 msgid "_Done"
 msgstr "ਮੁਕੰਮਲ(_D)"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:589 ../src/world.vala:358
+#: ../src/alarm.vala:616 ../src/world.vala:360
 msgid "New"
 msgstr "ਨਵਾਂ"
 
@@ -82,130 +100,118 @@ msgstr "ਵਰਜਨ ਜਾਣਕਾਰੀ ਛਾਪੋ ਅਤੇ ਬੰਦ ਕ�
 msgid "Stopwatch"
 msgstr "ਸਟਾਪਵਾਚ"
 
-#: ../src/stopwatch.vala:124 ../src/alarm.ui.h:2
-msgid "Stop"
-msgstr "ਰੋਕੋ"
-
-#: ../src/stopwatch.vala:127 ../src/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:124 ../src/stopwatch.ui.h:3
 msgid "Lap"
 msgstr "ਲੈਪ"
 
-#: ../src/stopwatch.vala:134 ../src/timer.vala:85
+#: ../src/stopwatch.vala:131 ../src/timer.vala:88
 msgid "Continue"
 msgstr "ਜਾਰੀ ਰੱਖੋ"
 
-#: ../src/stopwatch.vala:138 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:4
+#: ../src/stopwatch.vala:135 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:3
 msgid "Reset"
 msgstr "ਮੁੜ-ਸੈੱਟ"
 
-#: ../src/stopwatch.vala:146 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:2
+#: ../src/stopwatch.vala:143 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:1
 msgid "Start"
 msgstr "ਸ਼ੁਰੂ"
 
-#: ../src/timer.vala:48
-msgid "Timer"
-msgstr "ਟਾਈਮਰ"
-
-#: ../src/timer.vala:50
+#: ../src/timer.vala:53
 msgid "Time is up!"
 msgstr "ਸਮਾਂ ਸਮਾਪਤ!"
 
-#: ../src/timer.vala:50
+#: ../src/timer.vala:53
 msgid "Timer countdown finished"
 msgstr "ਟਾਈਮਰ ਕਾਊਂਟ-ਡਾਊਨ ਪੂਰਾ ਹੋਇਆ"
 
-#: ../src/timer.vala:90 ../src/timer.vala:100 ../src/timer.ui.h:3
+#: ../src/timer.vala:93 ../src/timer.vala:103 ../src/timer.ui.h:2
 msgid "Pause"
 msgstr "ਵਿਰਾਮ"
 
-#: ../src/utils.vala:147
+#: ../src/utils.vala:149
 msgid "Mondays"
 msgstr "ਸੋਮਵਾਰ"
 
-#: ../src/utils.vala:148
+#: ../src/utils.vala:150
 msgid "Tuesdays"
 msgstr "ਮੰਗਲਵਾਰ"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:151
 msgid "Wednesdays"
 msgstr "ਬੁੱਧਵਾਰ"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:152
 msgid "Thursdays"
 msgstr "ਵੀਰਵਾਰ"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:153
 msgid "Fridays"
 msgstr "ਸ਼ੁੱਕਰਵਾਰ"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:154
 msgid "Saturdays"
 msgstr "ਸ਼ਨਿੱਚਰਵਾਰ"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:155
 msgid "Sundays"
 msgstr "ਐਤਵਾਰ"
 
-#: ../src/utils.vala:233
-#| msgid "Every day"
+#: ../src/utils.vala:235
 msgid "Every Day"
 msgstr "ਹਰ ਰੋਜ਼"
 
-#: ../src/utils.vala:235
+#: ../src/utils.vala:237
 msgid "Weekdays"
 msgstr "ਹਫ਼ਤੇ ਦੇ ਦਿਨ"
 
-#: ../src/widgets.vala:401 ../src/widgets.vala:470
+#: ../src/widgets.vala:417 ../src/widgets.vala:568
 msgid "Click on items to select them"
 msgstr "ਆਈਟਮਾਂ ਨੂੰ ਚੁਣਨ ਲਈ ਉਹਨਾਂ ਉੱਤੇ ਕਲਿੱਕ ਕਰੋ"
 
-#: ../src/widgets.vala:403
+#: ../src/widgets.vala:419
 #, c-format
-#| msgid "{0} item selected"
-#| msgid_plural "{0} items selected"
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d ਚੁਣਿਆ"
 msgstr[1] "%d ਚੁਣੇ"
 
-#: ../src/widgets.vala:426
+#: ../src/widgets.vala:461
 msgid "Delete"
 msgstr "ਹਟਾਓ"
 
-#: ../src/widgets.vala:469
+#: ../src/widgets.vala:567
 msgid "Done"
 msgstr "ਮੁਕੰਮਲ"
 
-#: ../src/window.vala:146
-#| msgid "GNOME Clocks"
+#: ../src/window.vala:147
 msgid "Gnome Clocks"
 msgstr "ਗਨੋਮ ਘੜੀ"
 
-#: ../src/window.vala:149
+#: ../src/window.vala:150
 msgid "Utilities to help you with the time."
 msgstr "ਸਮਾਂ ਵਾਸਤੇ ਤੁਹਾਡੀ ਮੱਦਦ ਵਾਸਤੇ ਸਹੂਲਤ ਹੈ।"
 
-#: ../src/window.vala:154
+#: ../src/window.vala:155
 msgid "translator-credits"
 msgstr ""
 "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ\n"
 "ਪੰਜਾਬੀ ਓਪਨਸੋਰਸ ਟੀਮ (POST)"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:80 ../src/world.vala:83
+#: ../src/world.vala:90 ../src/world.vala:93
 msgid "Tomorrow"
 msgstr "ਭਲਕ"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:80 ../src/world.vala:83
+#: ../src/world.vala:90 ../src/world.vala:93
 msgid "Yesterday"
 msgstr "ਕੱਲ੍ਹ"
 
-#: ../src/world.vala:137
+#: ../src/world.vala:160
 msgid "Add a New World Clock"
 msgstr "ਨਵੀਂ ਸੰਸਾਰ ਘੜੀ ਜੋੜੋ"
 
-#: ../src/world.vala:234
+#: ../src/world.vala:256
 msgid "World"
 msgstr "ਸੰਸਾਰ"
 
@@ -215,23 +221,15 @@ msgstr "ਸੰਸਾਰ"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "ਅਲਾਰਮ ਜੋੜਨ ਲਈ <b>ਨਵਾਂ</b> ਚੁਣੋ"
 
-#: ../src/alarm.ui.h:3
-msgid "Snooze"
-msgstr "ਟਾਲੋ"
-
-#: ../src/alarm.ui.h:4 ../src/timer.ui.h:1
-msgid ":"
-msgstr ":"
-
-#: ../src/alarm.ui.h:5
+#: ../src/alarm.ui.h:4
 msgid "Name"
 msgstr "ਨਾਂ"
 
-#: ../src/alarm.ui.h:6
+#: ../src/alarm.ui.h:5
 msgid "Repeat Every"
 msgstr "ਦੁਹਰਾਉ ਹਰੇਕ"
 
-#: ../src/alarm.ui.h:7
+#: ../src/alarm.ui.h:6
 msgid "Active"
 msgstr "ਸਰਗਰਮ"
 
@@ -244,7 +242,6 @@ msgid "_About"
 msgstr "ਇਸ ਬਾਰੇ(_A)"
 
 #: ../src/menu.ui.h:3
-#| msgid "Quit"
 msgid "_Quit"
 msgstr "ਬੰਦ ਕਰੋ(_Q)"
 
@@ -273,23 +270,21 @@ msgid "Search for a city:"
 msgstr "ਸ਼ਹਿਰ ਲਈ ਖੋਜ:"
 
 #: ../src/world.ui.h:3
-msgid "  "
-msgstr "  "
-
-#: ../src/world.ui.h:4
 msgid "Sunrise"
 msgstr "ਸੂਰਜ ਚੜ੍ਹੇਗੇ"
 
-#: ../src/world.ui.h:5
+#: ../src/world.ui.h:4
 msgid "Sunset"
 msgstr "ਸੂਰਜ ਡੁੱਬੇਗਾ"
 
-#: ../src/world.ui.h:6
-msgid "label"
-msgstr "ਲੇਬਲ"
+#~ msgid ":"
+#~ msgstr ":"
 
-#~ msgid "Edit Alarm"
-#~ msgstr "ਅਲਾਰਮ ਸੋਧ"
+#~ msgid "  "
+#~ msgstr "  "
+
+#~ msgid "label"
+#~ msgstr "ਲੇਬਲ"
 
 #~ msgid "Time"
 #~ msgstr "ਸਮਾਂ"
