@@ -8,10 +8,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-03 22:15+0000\n"
-"PO-Revision-Date: 2013-02-26 23:51-0300\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-03-06 07:27+0000\n"
+"PO-Revision-Date: 2013-03-06 13:52-0300\n"
 "Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -22,7 +21,8 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
+#: ../data/gnome-clocks.desktop.in.h:1
+#: ../src/window.vala:44
 msgid "Clocks"
 msgstr "Relógios"
 
@@ -32,8 +32,7 @@ msgstr "Relógios do GNOME"
 
 #: ../data/gnome-clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr ""
-"Relógios para horários mundiais além de alarmes, cronômetro e um temporizador"
+msgstr "Relógios para horários mundiais além de alarmes, cronômetro e um temporizador"
 
 #: ../data/gnome-clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
@@ -55,15 +54,29 @@ msgstr "Alarmes configurados"
 msgid "List of alarms set."
 msgstr "Lista de alarmes ajustados."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:475
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5
+#: ../src/timer.vala:49
+msgid "Timer"
+msgstr "Temporizador"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "Duração configurada do temporizador em segundos."
+
+#: ../src/alarm.vala:105
+#: ../src/alarm.vala:327
+#: ../src/alarm.vala:475
 msgid "Alarm"
 msgstr "Alarme"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../src/alarm.ui.h:2
+#: ../src/alarm.vala:106
+#: ../src/stopwatch.vala:121
+#: ../src/alarm.ui.h:2
 msgid "Stop"
 msgstr "Parar"
 
-#: ../src/alarm.vala:109 ../src/alarm.ui.h:3
+#: ../src/alarm.vala:109
+#: ../src/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Cochilar mais um pouco"
 
@@ -81,7 +94,8 @@ msgstr "_Concluído"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:616 ../src/world.vala:360
+#: ../src/alarm.vala:616
+#: ../src/world.vala:360
 msgid "New"
 msgstr "Novo"
 
@@ -93,35 +107,39 @@ msgstr "Exibir informações da versão e sair"
 msgid "Stopwatch"
 msgstr "Cronômetro"
 
-#: ../src/stopwatch.vala:124 ../src/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:124
+#: ../src/stopwatch.ui.h:3
 msgid "Lap"
 msgstr "Volta"
 
-#: ../src/stopwatch.vala:131 ../src/timer.vala:85
+#: ../src/stopwatch.vala:131
+#: ../src/timer.vala:88
 msgid "Continue"
 msgstr "Continuar"
 
-#: ../src/stopwatch.vala:135 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:3
+#: ../src/stopwatch.vala:135
+#: ../src/stopwatch.ui.h:2
+#: ../src/timer.ui.h:3
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: ../src/stopwatch.vala:143 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:1
+#: ../src/stopwatch.vala:143
+#: ../src/stopwatch.ui.h:1
+#: ../src/timer.ui.h:1
 msgid "Start"
 msgstr "Iniciar"
 
-#: ../src/timer.vala:48
-msgid "Timer"
-msgstr "Temporizador"
-
-#: ../src/timer.vala:50
+#: ../src/timer.vala:53
 msgid "Time is up!"
 msgstr "Tempo esgotado!"
 
-#: ../src/timer.vala:50
+#: ../src/timer.vala:53
 msgid "Timer countdown finished"
 msgstr "Contagem regressiva do temporizador finalizada"
 
-#: ../src/timer.vala:90 ../src/timer.vala:100 ../src/timer.ui.h:2
+#: ../src/timer.vala:93
+#: ../src/timer.vala:103
+#: ../src/timer.ui.h:2
 msgid "Pause"
 msgstr "Pausar"
 
@@ -161,7 +179,8 @@ msgstr "Todo dia"
 msgid "Weekdays"
 msgstr "Dias da semana"
 
-#: ../src/widgets.vala:417 ../src/widgets.vala:568
+#: ../src/widgets.vala:417
+#: ../src/widgets.vala:568
 msgid "Click on items to select them"
 msgstr "Clique sobre os ítens para selecioná-los"
 
@@ -196,12 +215,14 @@ msgstr ""
 "Rafael Ferreira <rafael.f.f1@gmail.com>, 2013."
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:90 ../src/world.vala:93
+#: ../src/world.vala:90
+#: ../src/world.vala:93
 msgid "Tomorrow"
 msgstr "Amanhã"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:90 ../src/world.vala:93
+#: ../src/world.vala:90
+#: ../src/world.vala:93
 msgid "Yesterday"
 msgstr "Ontem"
 
