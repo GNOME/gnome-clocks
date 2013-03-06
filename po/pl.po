@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-02 19:00+0100\n"
-"PO-Revision-Date: 2013-03-02 19:01+0100\n"
+"POT-Creation-Date: 2013-03-06 17:08+0100\n"
+"PO-Revision-Date: 2013-03-06 17:09+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -55,6 +55,14 @@ msgstr "Skonfigurowane budziki"
 msgid "List of alarms set."
 msgstr "Lista ustawionych budzików."
 
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
+msgid "Timer"
+msgstr "Minutnik"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "Skonfigurowany czas trwania minutnika w sekundach."
+
 #: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:475
 msgid "Alarm"
 msgstr "Budzik"
@@ -81,7 +89,7 @@ msgstr "_Gotowe"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:620 ../src/world.vala:355
+#: ../src/alarm.vala:616 ../src/world.vala:360
 msgid "New"
 msgstr "Nowy"
 
@@ -97,7 +105,7 @@ msgstr "Stoper"
 msgid "Lap"
 msgstr "Okrążenie"
 
-#: ../src/stopwatch.vala:131 ../src/timer.vala:85
+#: ../src/stopwatch.vala:131 ../src/timer.vala:88
 msgid "Continue"
 msgstr "Kontynuuj"
 
@@ -109,63 +117,59 @@ msgstr "Resetuj"
 msgid "Start"
 msgstr "Rozpocznij"
 
-#: ../src/timer.vala:48
-msgid "Timer"
-msgstr "Minutnik"
-
-#: ../src/timer.vala:50
+#: ../src/timer.vala:53
 msgid "Time is up!"
 msgstr "Czas minął!"
 
-#: ../src/timer.vala:50
+#: ../src/timer.vala:53
 msgid "Timer countdown finished"
 msgstr "Ukończono odliczanie stopera"
 
-#: ../src/timer.vala:90 ../src/timer.vala:100 ../src/timer.ui.h:2
+#: ../src/timer.vala:93 ../src/timer.vala:103 ../src/timer.ui.h:2
 msgid "Pause"
 msgstr "Wstrzymaj"
 
-#: ../src/utils.vala:148
+#: ../src/utils.vala:149
 msgid "Mondays"
 msgstr "Poniedziałek"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:150
 msgid "Tuesdays"
 msgstr "Wtorek"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:151
 msgid "Wednesdays"
 msgstr "Środa"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:152
 msgid "Thursdays"
 msgstr "Czwartek"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:153
 msgid "Fridays"
 msgstr "Piątek"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:154
 msgid "Saturdays"
 msgstr "Sobota"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:155
 msgid "Sundays"
 msgstr "Niedziela"
 
-#: ../src/utils.vala:234
+#: ../src/utils.vala:235
 msgid "Every Day"
 msgstr "Codziennie"
 
-#: ../src/utils.vala:236
+#: ../src/utils.vala:237
 msgid "Weekdays"
 msgstr "Dni robocze"
 
-#: ../src/widgets.vala:422 ../src/widgets.vala:573
+#: ../src/widgets.vala:417 ../src/widgets.vala:568
 msgid "Click on items to select them"
 msgstr "Kliknięcie na elementach zaznacza je"
 
-#: ../src/widgets.vala:424
+#: ../src/widgets.vala:419
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -173,23 +177,23 @@ msgstr[0] "Zaznaczono: %d"
 msgstr[1] "Zaznaczono: %d"
 msgstr[2] "Zaznaczono: %d"
 
-#: ../src/widgets.vala:466
+#: ../src/widgets.vala:461
 msgid "Delete"
 msgstr "Usuń"
 
-#: ../src/widgets.vala:572
+#: ../src/widgets.vala:567
 msgid "Done"
 msgstr "Gotowe"
 
-#: ../src/window.vala:155
+#: ../src/window.vala:147
 msgid "Gnome Clocks"
 msgstr "Zegar GNOME"
 
-#: ../src/window.vala:158
+#: ../src/window.vala:150
 msgid "Utilities to help you with the time."
 msgstr "Narzędzia pomagające zarządzać czasem."
 
-#: ../src/window.vala:163
+#: ../src/window.vala:155
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2012-2013\n"
