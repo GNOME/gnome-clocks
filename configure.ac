@@ -1,7 +1,7 @@
 AC_PREREQ(2.63)
 
 AC_INIT([gnome-clocks],
-        [3.7.90],
+        [3.7.91],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-clocks],
         [gnome-clocks])
 
@@ -45,7 +45,7 @@ PKG_PROG_PKG_CONFIG([0.22])
 
 PKG_CHECK_MODULES(CLOCKS, [
     gio-2.0 >= 2.30.0
-    gtk+-3.0 >= 3.7.9
+    gtk+-3.0 >= 3.7.12
     libcanberra >= 0.30
     gweather-3.0 >= 3.7.90
     gnome-desktop-3.0 >= 3.7.90
