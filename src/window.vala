@@ -33,7 +33,7 @@ public class Window : Gtk.ApplicationWindow {
         { "select-none", on_select_none_activate }
     };
 
-    private Toolbar toolbar;
+    private HeaderBar header_bar;
     private Gd.Stack stack;
     private World.MainPanel world;
     private Alarm.MainPanel alarm;
@@ -51,39 +51,32 @@ public class Window : Gtk.ApplicationWindow {
         var builder = Utils.load_ui ("window.ui");
 
         var main_panel = builder.get_object ("main_panel") as Gtk.Widget;
-        toolbar = builder.get_object ("toolbar") as Toolbar;
+        header_bar = builder.get_object ("header_bar") as HeaderBar;
         stack = builder.get_object ("stack") as Gd.Stack;
 
-        world = new World.MainPanel (toolbar);
-        alarm = new Alarm.MainPanel (toolbar);
-        stopwatch = new Stopwatch.MainPanel (toolbar);
-        timer = new Timer.MainPanel (toolbar);
+        world = new World.MainPanel (header_bar);
+        alarm = new Alarm.MainPanel (header_bar);
+        stopwatch = new Stopwatch.MainPanel (header_bar);
+        timer = new Timer.MainPanel (header_bar);
 
-        toolbar.add_clock (world);
-        toolbar.add_clock (alarm);
-        toolbar.add_clock (stopwatch);
-        toolbar.add_clock (timer);
+        stack.add_titled (world, world.label, world.label);
+        stack.add_titled (alarm, alarm.label, alarm.label);
+        stack.add_titled (stopwatch, stopwatch.label, stopwatch.label);
+        stack.add_titled (timer, timer.label, timer.label);
 
-        stack.add (world);
-        stack.add (alarm);
-        stack.add (stopwatch);
-        stack.add (timer);
-
-        toolbar.clock_changed.connect ((c) => {
-            stack.visible_child = (Gtk.Widget) c;
-        });
+        header_bar.set_stack (stack);
 
         var stack_id = stack.notify["visible-child"].connect (() => {
-            update_toolbar ();
+            update_header_bar ();
         });
 
-        var toolbar_id = toolbar.notify["mode"].connect (() => {
-            update_toolbar ();
+        var header_bar_id = header_bar.notify["mode"].connect (() => {
+            update_header_bar ();
         });
 
         stack.destroy.connect(() => {
-            toolbar.disconnect (toolbar_id);
-            toolbar_id = 0;
+            header_bar.disconnect (header_bar_id);
+            header_bar_id = 0;
             stack.disconnect (stack_id);
             stack_id = 0;
         });
@@ -97,7 +90,7 @@ public class Window : Gtk.ApplicationWindow {
         });
 
         stack.visible_child = world;
-        world.update_toolbar ();
+        update_header_bar ();
 
         add (main_panel);
         show_all ();
@@ -158,11 +151,11 @@ public class Window : Gtk.ApplicationWindow {
                                null);
     }
 
-    private void update_toolbar () {
-        toolbar.clear ();
+    private void update_header_bar () {
+        header_bar.clear ();
         var clock = (Clock) stack.visible_child;
         if (clock != null) {
-            clock.update_toolbar ();
+            clock.update_header_bar ();
         }
     }
 }

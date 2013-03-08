@@ -27,7 +27,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     }
 
     public string label { get; construct set; }
-    public Toolbar toolbar { get; construct set; }
+    public HeaderBar header_bar { get; construct set; }
 
     private State state;
     private GLib.Settings settings;
@@ -45,8 +45,8 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     private double span;
     private GLib.Timer timer;
 
-    public MainPanel (Toolbar toolbar) {
-        Object (label: _("Timer"), toolbar: toolbar, transition_type: Gd.StackTransitionType.CROSSFADE);
+    public MainPanel (HeaderBar header_bar) {
+        Object (label: _("Timer"), header_bar: header_bar, transition_type: Gd.StackTransitionType.CROSSFADE);
 
         settings = new GLib.Settings ("org.gnome.clocks");
 

@@ -243,7 +243,7 @@ private class StandalonePanel : Gtk.EventBox {
 
 public class MainPanel : Gd.Stack, Clocks.Clock {
     public string label { get; construct set; }
-    public Toolbar toolbar { get; construct set; }
+    public HeaderBar header_bar { get; construct set; }
 
     private List<Item> locations;
     private GLib.Settings settings;
@@ -252,8 +252,8 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     private ContentView content_view;
     private StandalonePanel standalone;
 
-    public MainPanel (Toolbar toolbar) {
-        Object (label: _("World"), toolbar: toolbar, transition_type: Gd.StackTransitionType.CROSSFADE);
+    public MainPanel (HeaderBar header_bar) {
+        Object (label: _("World"), header_bar: header_bar, transition_type: Gd.StackTransitionType.CROSSFADE);
 
         locations = new List<Item> ();
         settings = new GLib.Settings ("org.gnome.clocks");
@@ -263,7 +263,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
 
         var builder = Utils.load_ui ("world.ui");
         var empty_view = builder.get_object ("empty_panel") as Gtk.Widget;
-        content_view = new ContentView (empty_view, toolbar);
+        content_view = new ContentView (empty_view, header_bar);
         add (content_view);
 
         content_view.item_activated.connect ((item) => {
@@ -287,9 +287,9 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
 
         notify["visible-child"].connect (() => {
             if (visible_child == content_view) {
-                toolbar.mode = Toolbar.Mode.NORMAL;
+                header_bar.mode = HeaderBar.Mode.NORMAL;
             } else if (visible_child == standalone) {
-                toolbar.mode = Toolbar.Mode.STANDALONE;
+                header_bar.mode = HeaderBar.Mode.STANDALONE;
             }
         });
 
@@ -352,25 +352,24 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
         return content_view.escape_pressed ();
     }
 
-    public void update_toolbar () {
-        toolbar.clear ();
-        switch (toolbar.mode) {
-        case Toolbar.Mode.NORMAL:
+    public void update_header_bar () {
+        header_bar.clear ();
+        switch (header_bar.mode) {
+        case HeaderBar.Mode.NORMAL:
             // Translators: "New" refers to a world clock
-            var new_button = toolbar.add_button (null, _("New"), true);
+            var new_button = header_bar.add_button (null, _("New"), true);
             new_button.clicked.connect (() => {
                 activate_new ();
             });
             new_button.show ();
-            content_view.update_toolbar ();
+            content_view.update_header_bar ();
             break;
-        case Toolbar.Mode.SELECTION:
-            content_view.update_toolbar ();
+        case HeaderBar.Mode.SELECTION:
+            content_view.update_header_bar ();
             break;
-        case Toolbar.Mode.STANDALONE:
-            toolbar.set_labels_menu (null);
-            toolbar.set_labels (GLib.Markup.escape_text (standalone.location.name), null);
-            var back_button = toolbar.add_button ("go-previous-symbolic", null, true);
+        case HeaderBar.Mode.STANDALONE:
+            header_bar.title = GLib.Markup.escape_text (standalone.location.name);
+            var back_button = header_bar.add_button ("go-previous-symbolic", null, true);
             back_button.clicked.connect (() => {
                 visible_child = content_view;
             });

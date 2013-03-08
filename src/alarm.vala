@@ -464,22 +464,22 @@ private class RingingPanel : Gtk.EventBox {
 
 public class MainPanel : Gd.Stack, Clocks.Clock {
     public string label { get; construct set; }
-    public Toolbar toolbar { get; construct set; }
+    public HeaderBar header_bar { get; construct set; }
 
     private List<Item> alarms;
     private GLib.Settings settings;
     private ContentView content_view;
     private RingingPanel ringing_panel;
 
-    public MainPanel (Toolbar toolbar) {
-        Object (label: _("Alarm"), toolbar: toolbar);
+    public MainPanel (HeaderBar header_bar) {
+        Object (label: _("Alarm"), header_bar: header_bar);
 
         alarms = new List<Item> ();
         settings = new GLib.Settings ("org.gnome.clocks");
 
         var builder = Utils.load_ui ("alarm.ui");
         var empty_view = builder.get_object ("empty_panel") as Gtk.Widget;
-        content_view = new ContentView (empty_view, toolbar);
+        content_view = new ContentView (empty_view, header_bar);
         add (content_view);
 
         content_view.item_activated.connect ((item) => {
@@ -509,9 +509,9 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
 
         notify["visible-child"].connect (() => {
             if (visible_child == content_view) {
-                toolbar.mode = Toolbar.Mode.NORMAL;
+                header_bar.mode = HeaderBar.Mode.NORMAL;
             } else if (visible_child == ringing_panel) {
-                toolbar.mode = Toolbar.Mode.STANDALONE;
+                header_bar.mode = HeaderBar.Mode.STANDALONE;
             }
         });
 
@@ -609,23 +609,22 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
         return content_view.escape_pressed ();
     }
 
-    public void update_toolbar () {
-        switch (toolbar.mode) {
-        case Toolbar.Mode.NORMAL:
+    public void update_header_bar () {
+        switch (header_bar.mode) {
+        case HeaderBar.Mode.NORMAL:
             // Translators: "New" refers to an alarm
-            var new_button = toolbar.add_button (null, _("New"), true);
+            var new_button = header_bar.add_button (null, _("New"), true);
             new_button.clicked.connect (() => {
                 activate_new ();
             });
             new_button.show ();
-            content_view.update_toolbar ();
+            content_view.update_header_bar ();
             break;
-        case Toolbar.Mode.SELECTION:
-            content_view.update_toolbar ();
+        case HeaderBar.Mode.SELECTION:
+            content_view.update_header_bar ();
             break;
-        case Toolbar.Mode.STANDALONE:
-            toolbar.set_labels_menu (null);
-            toolbar.set_labels (GLib.Markup.escape_text (ringing_panel.alarm.name), null);
+        case HeaderBar.Mode.STANDALONE:
+            header_bar.title = GLib.Markup.escape_text (ringing_panel.alarm.name);
             break;
         default:
             assert_not_reached ();

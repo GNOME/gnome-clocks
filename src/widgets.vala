@@ -18,7 +18,7 @@
 
 namespace Clocks {
 
-public class Toolbar : Gd.MainToolbar {
+public class HeaderBar : Gd.HeaderBar {
     public enum Mode {
         NORMAL,
         SELECTION,
@@ -26,7 +26,7 @@ public class Toolbar : Gd.MainToolbar {
     }
 
     private List<Gtk.Widget> buttons;
-    private List<Clock> clocks;
+    private Gd.StackSwitcher stack_switcher;
 
     [CCode (notify = false)]
     public Mode mode {
@@ -35,10 +35,10 @@ public class Toolbar : Gd.MainToolbar {
         }
 
         set {
-            if (_mode != value) {
+            if (_mode != value && get_realized ()) {
                 _mode = value;
 
-                show_modes = (_mode == Mode.NORMAL);
+                custom_title = (_mode == Mode.NORMAL) ? stack_switcher : null;
 
                 if (_mode == Mode.SELECTION) {
                     get_style_context ().add_class ("selection-mode");
@@ -53,27 +53,33 @@ public class Toolbar : Gd.MainToolbar {
 
     private Mode _mode;
 
-    public signal void clock_changed (Clock clock);
-
-    public void add_clock (Clock clock) {
-        var button = add_mode (clock.label) as Gtk.ToggleButton;
-        clocks.prepend (clock);
-        button.toggled.connect(() => {
-            if (button.active) {
-                clock_changed (clock);
-            }
-        });
+    construct {
+        stack_switcher = new Gd.StackSwitcher ();
+        realize.connect (() => {
+            custom_title = stack_switcher;
+	});
     }
 
-    // we wrap add_button so that we can keep track of which
-    // buttons to remove in clear() without removing the radio buttons
-    public new Gtk.Button add_button (string? icon_name, string? label, bool pack_start) {
-        var button = base.add_button (icon_name, label, pack_start);
+    public void set_stack (Gd.Stack stack) {
+        stack_switcher.set_stack (stack);
+    }
+
+    public Gtk.Button add_button (string? icon_name, string? label, bool should_pack_start) {
+        var button = new Gd.HeaderSimpleButton ();
+        button.label = label;
+        button.symbolic_icon_name = icon_name;
+
+        if (should_pack_start) {
+            pack_start (button);
+        } else {
+            pack_end (button);
+        }
+
         buttons.prepend (button);
         return (Gtk.Button) button;
     }
 
-    public new void clear () {
+    public void clear () {
         foreach (Gtk.Widget button in buttons) {
             button.destroy ();
         }
@@ -369,14 +375,15 @@ public class ContentView : Gtk.Bin {
 
     private Gtk.Widget empty_page;
     private IconView icon_view;
-    private Toolbar main_toolbar;
+    private HeaderBar header_bar;
+    private Gd.HeaderMenuButton selection_button;
     private GLib.MenuModel selection_menu;
     private Gtk.Toolbar selection_toolbar;
     private Gtk.Overlay overlay;
 
-    public ContentView (Gtk.Widget e, Toolbar t) {
+    public ContentView (Gtk.Widget e, HeaderBar b) {
         empty_page = e;
-        main_toolbar = t;
+        header_bar = b;
 
         icon_view = new IconView ();
 
@@ -402,9 +409,10 @@ public class ContentView : Gtk.Bin {
 
         icon_view.notify["mode"].connect (() => {
             if (icon_view.mode == IconView.Mode.SELECTION) {
-                main_toolbar.mode = Toolbar.Mode.SELECTION;
+                header_bar.mode = HeaderBar.Mode.SELECTION;
             } else if (icon_view.mode == IconView.Mode.NORMAL) {
-                main_toolbar.mode = Toolbar.Mode.NORMAL;
+                header_bar.mode = HeaderBar.Mode.NORMAL;
+                selection_button = null;
             }
         });
 
@@ -418,7 +426,7 @@ public class ContentView : Gtk.Bin {
             } else {
                 label = ngettext ("%d selected", "%d selected", n_items).printf (n_items);
             }
-            main_toolbar.set_labels (label, null);
+            selection_button.label = label;
 
             if (n_items != 0) {
                 fade_in (selection_toolbar);
@@ -561,22 +569,24 @@ public class ContentView : Gtk.Bin {
         return false;
     }
 
-    public void update_toolbar () {
-        switch (main_toolbar.mode) {
-        case Toolbar.Mode.SELECTION:
-            var done_button = main_toolbar.add_button (null, _("Done"), false);
-            main_toolbar.set_labels (_("Click on items to select them"), null);
-            main_toolbar.set_labels_menu (selection_menu);
+    public void update_header_bar () {
+        switch (header_bar.mode) {
+        case HeaderBar.Mode.SELECTION:
+            selection_button = new Gd.HeaderMenuButton ();
+            selection_button.label = _("Click on items to select them");
+            selection_button.menu_model = selection_menu;
+            selection_button.get_style_context ().add_class ("selection-menu");
+            header_bar.custom_title = selection_button;
+
+            var done_button = header_bar.add_button (null, _("Done"), false);
             done_button.get_style_context ().add_class ("suggested-action");
             done_button.clicked.connect (() => {
                 icon_view.mode = IconView.Mode.NORMAL;
             });
             done_button.show ();
             break;
-        case Toolbar.Mode.NORMAL:
-            main_toolbar.set_labels (null, null);
-            main_toolbar.set_labels_menu (null);
-            var select_button = main_toolbar.add_button ("object-select-symbolic", null, false);
+        case HeaderBar.Mode.NORMAL:
+            var select_button = header_bar.add_button ("object-select-symbolic", null, false);
             select_button.clicked.connect (() => {
                 icon_view.mode = IconView.Mode.SELECTION;
             });

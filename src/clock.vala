@@ -20,7 +20,7 @@ namespace Clocks {
 
 public interface Clock : GLib.Object {
     public abstract string label { get; protected construct set; }
-    public abstract Toolbar toolbar { get; protected construct set; }
+    public abstract HeaderBar header_bar { get; protected construct set; }
 
     public virtual void activate_new () {
     }
@@ -35,7 +35,7 @@ public interface Clock : GLib.Object {
         return false;
     }
 
-    public virtual void update_toolbar () {
+    public virtual void update_header_bar () {
     }
 }
 

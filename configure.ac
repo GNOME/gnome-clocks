@@ -54,7 +54,7 @@ PKG_CHECK_MODULES(CLOCKS, [
 
 LIBGD_INIT([
     static
-    main-toolbar
+    header-bar
     stack
     vapi
 ])
