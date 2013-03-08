@@ -73,17 +73,19 @@ public class Window : Gtk.ApplicationWindow {
             stack.visible_child = (Gtk.Widget) c;
         });
 
-        stack.notify["visible-child"].connect (() => {
+        var stack_id = stack.notify["visible-child"].connect (() => {
             update_toolbar ();
         });
 
-        var id = toolbar.notify["mode"].connect (() => {
+        var toolbar_id = toolbar.notify["mode"].connect (() => {
             update_toolbar ();
         });
 
         stack.destroy.connect(() => {
-            toolbar.disconnect (id);
-            id = 0;
+            toolbar.disconnect (toolbar_id);
+            toolbar_id = 0;
+            stack.disconnect (stack_id);
+            stack_id = 0;
         });
 
         alarm.ring.connect ((w) => {
