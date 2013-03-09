@@ -35,24 +35,36 @@ private class Item : Object, ContentItem {
     public GWeather.Location location { get; set; }
     public string name {
         get {
-            var nation = location;
-
-            while (nation != null && nation.get_level () != GWeather.LocationLevel.COUNTRY) {
-                nation = nation.get_parent ();
-            }
-
             // We store it in a _name member even if we overwrite it every time
-            // since we the abstract name property does not return an owned string
-            if (nation != null) {
-                _name = "%s, %s".printf (location.get_city_name (), nation.get_name ());
+            // since the abstract name property does not return an owned string
+            if (nation_name != null) {
+                _name = "%s, %s".printf (city_name, nation_name);
             } else {
-                _name = location.get_city_name ();
+                _name = city_name;
             }
 
             return _name;
         }
         set {
             // ignored
+        }
+    }
+
+    public string city_name {
+        owned get {
+            return location.get_city_name ();
+        }
+    }
+
+    public string? nation_name {
+        owned get {
+            var nation = location;
+
+            while (nation != null && nation.get_level () != GWeather.LocationLevel.COUNTRY) {
+                nation = nation.get_parent ();
+            }
+
+            return nation != null ? nation.get_name () : null;
         }
     }
 
@@ -381,7 +393,8 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
             content_view.update_header_bar ();
             break;
         case HeaderBar.Mode.STANDALONE:
-            header_bar.title = GLib.Markup.escape_text (standalone.location.name);
+            header_bar.title = GLib.Markup.escape_text (standalone.location.city_name);
+            header_bar.subtitle = GLib.Markup.escape_text (standalone.location.nation_name);
             back_button.show ();
             break;
         default:
