@@ -468,6 +468,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
 
     private List<Item> alarms;
     private GLib.Settings settings;
+    private Gd.HeaderSimpleButton new_button;
     private ContentView content_view;
     private RingingPanel ringing_panel;
 
@@ -476,6 +477,14 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
 
         alarms = new List<Item> ();
         settings = new GLib.Settings ("org.gnome.clocks");
+
+        new_button = new Gd.HeaderSimpleButton ();
+
+        // Translators: "New" refers to an alarm
+        new_button.label = _("New");
+        new_button.no_show_all = true;
+        new_button.action_name = "win.new";
+        header_bar.pack_start (new_button);
 
         var builder = Utils.load_ui ("alarm.ui");
         var empty_view = builder.get_object ("empty_panel") as Gtk.Widget;
@@ -612,11 +621,6 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     public void update_header_bar () {
         switch (header_bar.mode) {
         case HeaderBar.Mode.NORMAL:
-            // Translators: "New" refers to an alarm
-            var new_button = header_bar.add_button (null, _("New"), true);
-            new_button.clicked.connect (() => {
-                activate_new ();
-            });
             new_button.show ();
             content_view.update_header_bar ();
             break;

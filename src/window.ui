@@ -8,9 +8,6 @@
       <object class="ClocksHeaderBar" id="header_bar">
         <property name="visible">True</property>
         <property name="vexpand">False</property>
-        <style>
-          <class name="menubar"/>
-        </style>
       </object>
       <packing>
         <property name="left_attach">0</property>
@@ -20,20 +17,12 @@
       </packing>
     </child>
     <child>
-      <object class="GtkFrame" id="frame1">
+      <object class="GdStack" id="stack">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="label_xalign">0</property>
         <style>
-          <class name="clocks-content-view"/>
           <class name="view"/>
           <class name="content-view"/>
         </style>
-        <child>
-          <object class="GdStack" id="stack">
-            <property name="visible">True</property>
-          </object>
-        </child>
       </object>
       <packing>
         <property name="left_attach">0</property>

@@ -247,6 +247,8 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
 
     private List<Item> locations;
     private GLib.Settings settings;
+    private Gd.HeaderSimpleButton new_button;
+    private Gd.HeaderSimpleButton back_button;
     private Gdk.Pixbuf? day_pixbuf;
     private Gdk.Pixbuf? night_pixbuf;
     private ContentView content_view;
@@ -260,6 +262,22 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
 
         day_pixbuf = Utils.load_image ("day.png");
         night_pixbuf = Utils.load_image ("night.png");
+
+        new_button = new Gd.HeaderSimpleButton ();
+
+        // Translators: "New" refers to a world clock
+        new_button.label = _("New");
+        new_button.no_show_all = true;
+        new_button.action_name = "win.new";
+        header_bar.pack_start (new_button);
+
+        back_button = new Gd.HeaderSimpleButton ();
+        back_button.symbolic_icon_name = "go-previous-symbolic";
+        back_button.no_show_all = true;
+        back_button.clicked.connect (() => {
+            visible_child = content_view;
+        });
+        header_bar.pack_start (back_button);
 
         var builder = Utils.load_ui ("world.ui");
         var empty_view = builder.get_object ("empty_panel") as Gtk.Widget;
@@ -356,11 +374,6 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
         header_bar.clear ();
         switch (header_bar.mode) {
         case HeaderBar.Mode.NORMAL:
-            // Translators: "New" refers to a world clock
-            var new_button = header_bar.add_button (null, _("New"), true);
-            new_button.clicked.connect (() => {
-                activate_new ();
-            });
             new_button.show ();
             content_view.update_header_bar ();
             break;
@@ -369,10 +382,6 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
             break;
         case HeaderBar.Mode.STANDALONE:
             header_bar.title = GLib.Markup.escape_text (standalone.location.name);
-            var back_button = header_bar.add_button ("go-previous-symbolic", null, true);
-            back_button.clicked.connect (() => {
-                visible_child = content_view;
-            });
             back_button.show ();
             break;
         default:

@@ -25,7 +25,6 @@ public class HeaderBar : Gd.HeaderBar {
         STANDALONE
     }
 
-    private List<Gtk.Widget> buttons;
     private Gd.StackSwitcher stack_switcher;
 
     [CCode (notify = false)]
@@ -57,31 +56,16 @@ public class HeaderBar : Gd.HeaderBar {
         stack_switcher = new Gd.StackSwitcher ();
         realize.connect (() => {
             custom_title = stack_switcher;
-	});
+        });
     }
 
     public void set_stack (Gd.Stack stack) {
         stack_switcher.set_stack (stack);
     }
 
-    public Gtk.Button add_button (string? icon_name, string? label, bool should_pack_start) {
-        var button = new Gd.HeaderSimpleButton ();
-        button.label = label;
-        button.symbolic_icon_name = icon_name;
-
-        if (should_pack_start) {
-            pack_start (button);
-        } else {
-            pack_end (button);
-        }
-
-        buttons.prepend (button);
-        return (Gtk.Button) button;
-    }
-
     public void clear () {
-        foreach (Gtk.Widget button in buttons) {
-            button.destroy ();
+        foreach (Gtk.Widget w in get_children ()) {
+            w.hide ();
         }
     }
 }
@@ -376,8 +360,10 @@ public class ContentView : Gtk.Bin {
     private Gtk.Widget empty_page;
     private IconView icon_view;
     private HeaderBar header_bar;
-    private Gd.HeaderMenuButton selection_button;
+    private Gd.HeaderSimpleButton select_button;
+    private Gd.HeaderSimpleButton done_button;
     private GLib.MenuModel selection_menu;
+    private Gd.HeaderMenuButton selection_menubutton;
     private Gtk.Toolbar selection_toolbar;
     private Gtk.Overlay overlay;
 
@@ -387,8 +373,31 @@ public class ContentView : Gtk.Bin {
 
         icon_view = new IconView ();
 
+        select_button = new Gd.HeaderSimpleButton ();
+        select_button.symbolic_icon_name = "object-select-symbolic";
+        select_button.no_show_all = true;
+        bind_property ("empty", select_button, "sensitive", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
+        select_button.clicked.connect (() => {
+            icon_view.mode = IconView.Mode.SELECTION;
+        });
+        header_bar.pack_end (select_button);
+
+        done_button = new Gd.HeaderSimpleButton ();
+        done_button.label = _("Done");
+        done_button.no_show_all = true;
+        done_button.get_style_context ().add_class ("suggested-action");
+        done_button.clicked.connect (() => {
+            icon_view.mode = IconView.Mode.NORMAL;
+        });
+        header_bar.pack_end (done_button);
+
         var builder = Utils.load_ui ("menu.ui");
         selection_menu = builder.get_object ("selection-menu") as GLib.MenuModel;
+
+        selection_menubutton = new Gd.HeaderMenuButton ();
+        selection_menubutton.label = _("Click on items to select them");
+        selection_menubutton.menu_model = selection_menu;
+        selection_menubutton.get_style_context ().add_class ("selection-menu");
 
         var scrolled_window = new Gtk.ScrolledWindow (null, null);
         scrolled_window.add (icon_view);
@@ -412,7 +421,6 @@ public class ContentView : Gtk.Bin {
                 header_bar.mode = HeaderBar.Mode.SELECTION;
             } else if (icon_view.mode == IconView.Mode.NORMAL) {
                 header_bar.mode = HeaderBar.Mode.NORMAL;
-                selection_button = null;
             }
         });
 
@@ -426,7 +434,7 @@ public class ContentView : Gtk.Bin {
             } else {
                 label = ngettext ("%d selected", "%d selected", n_items).printf (n_items);
             }
-            selection_button.label = label;
+            selection_menubutton.label = label;
 
             if (n_items != 0) {
                 fade_in (selection_toolbar);
@@ -572,26 +580,11 @@ public class ContentView : Gtk.Bin {
     public void update_header_bar () {
         switch (header_bar.mode) {
         case HeaderBar.Mode.SELECTION:
-            selection_button = new Gd.HeaderMenuButton ();
-            selection_button.label = _("Click on items to select them");
-            selection_button.menu_model = selection_menu;
-            selection_button.get_style_context ().add_class ("selection-menu");
-            header_bar.custom_title = selection_button;
-
-            var done_button = header_bar.add_button (null, _("Done"), false);
-            done_button.get_style_context ().add_class ("suggested-action");
-            done_button.clicked.connect (() => {
-                icon_view.mode = IconView.Mode.NORMAL;
-            });
+            header_bar.custom_title = selection_menubutton;
             done_button.show ();
             break;
         case HeaderBar.Mode.NORMAL:
-            var select_button = header_bar.add_button ("object-select-symbolic", null, false);
-            select_button.clicked.connect (() => {
-                icon_view.mode = IconView.Mode.SELECTION;
-            });
             select_button.show ();
-            bind_property ("empty", select_button, "sensitive", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
             break;
         }
     }
