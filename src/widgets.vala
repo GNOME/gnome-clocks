@@ -562,6 +562,7 @@ public class ContentView : Gtk.Bin {
     }
 
     public void select_all () {
+        icon_view.mode = IconView.Mode.SELECTION;
         icon_view.select_all ();
     }
 

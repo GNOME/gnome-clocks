@@ -56,6 +56,8 @@ public class Application : Gtk.Application {
         var builder = Utils.load_ui ("menu.ui");
         var app_menu = builder.get_object ("appmenu") as MenuModel;
         set_app_menu (app_menu);
+
+        add_accelerator ("<Primary>a", "win.select-all", null);
     }
 
     protected override bool local_command_line ([CCode (array_length = false, array_null_terminated = true)] ref unowned string[] arguments, out int exit_status) {
