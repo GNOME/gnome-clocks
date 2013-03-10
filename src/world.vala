@@ -383,7 +383,6 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     }
 
     public void update_header_bar () {
-        header_bar.clear ();
         switch (header_bar.mode) {
         case HeaderBar.Mode.NORMAL:
             new_button.show ();
