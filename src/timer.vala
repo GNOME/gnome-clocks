@@ -209,15 +209,15 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
 
     private void update_countdown (double t) {
         if (time_label.get_mapped ()) {
+            // Math.ceil() because we count backwards:
+            // with 0.3 seconds we want to show 1 second remaining,
+            // with 59.2 seconds we want to show 1 minute, etc
+            t = Math.ceil (t);
             int h;
             int m;
             int s;
             double r;
             Utils.time_to_hms (t, out h, out m, out s, out r);
-
-            // Math.ceil() because we count backwards: with 0.3 seconds
-            // we want to show 1 second remaining
-            s += (int) Math.ceil (r);
             update_countdown_label (h, m, s);
         }
     }
