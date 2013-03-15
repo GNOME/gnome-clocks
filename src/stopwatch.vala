@@ -173,16 +173,16 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
 
         string split_label;
         if (split_h > 0) {
-            split_label = "%i∶%02i∶%02i.%i".printf (split_h, split_m, split_s, split_cs);
+            split_label = "%i∶%02i∶%02i.%02i".printf (split_h, split_m, split_s, split_cs);
         } else {
-            split_label = "%02i∶%02i.%i".printf (split_m, split_s, split_cs);
+            split_label = "%02i∶%02i.%02i".printf (split_m, split_s, split_cs);
         }
 
         string tot_label;
         if (h > 0) {
-            tot_label = "%i∶%02i∶%02i.%i".printf (h, m, s, cs);
+            tot_label = "%i∶%02i∶%02i.%02i".printf (h, m, s, cs);
         } else {
-            tot_label = "%02i∶%02i.%i".printf (m, s, cs);
+            tot_label = "%02i∶%02i.%02i".printf (m, s, cs);
         }
 
         Gtk.TreeIter i;
