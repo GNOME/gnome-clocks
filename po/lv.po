@@ -2,13 +2,14 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 #
-# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2012.
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-25 02:56+0300\n"
-"PO-Revision-Date: 2012-09-25 02:56+0300\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-03-06 07:27+0000\n"
+"PO-Revision-Date: 2013-03-17 12:13+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -19,12 +20,11 @@ msgstr ""
 "2);\n"
 "X-Generator: Lokalize 1.4\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:35
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
 msgid "Clocks"
 msgstr "Pulksteņi"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:122
-#: ../gnomeclocks/app.py:131
+#: ../data/gnome-clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "GNOME pulksteņi"
 
@@ -32,186 +32,263 @@ msgstr "GNOME pulksteņi"
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Pulksteņi pasaules laikiem, kā arī modinātājs, hronometrs un taimeris"
 
-#: ../gnomeclocks/alarm.py:117
-msgid "Every day"
-msgstr "Katru dienu"
+#: ../data/gnome-clocks.desktop.in.h:4
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr ""
+"laiks;taimeris;modinātājs;pasaules pulkstenis;hronometrs;laika zona;signāls;"
 
-#: ../gnomeclocks/alarm.py:119
-msgid "Weekdays"
-msgstr "Darba dienas"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+msgid "Configured world clocks"
+msgstr "Konfigurētie pasaules pulksteņi"
 
-#: ../gnomeclocks/alarm.py:138
-msgid "Edit Alarm"
-msgstr "Rediģēt signālu"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+msgid "List of world clocks to show."
+msgstr "Saraksts ar pasaules pulksteņiem, ko rādīt."
 
-#: ../gnomeclocks/alarm.py:140 ../gnomeclocks/alarm.py:172
-msgid "New Alarm"
-msgstr "Jauns signāls"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+msgid "Configured alarms"
+msgstr "Konfigurēt signālu."
 
-#. Translators: "Time" in this context is the time an alarm
-#. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:177
-msgid "Time"
-msgstr "Laiks"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+msgid "List of alarms set."
+msgstr "Nav iestatītu signālu."
 
-#: ../gnomeclocks/alarm.py:218
-msgid "Name"
-msgstr "Nosaukums"
-
-#: ../gnomeclocks/alarm.py:227
-msgid "Repeat Every"
-msgstr "Atkārtot katras"
-
-#: ../gnomeclocks/alarm.py:300
-msgid "Alarm"
-msgstr "Signāls"
-
-#: ../gnomeclocks/alarm.py:312
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Izvēlieties <b>Jauns</b>, lai pievienotu signālu"
-
-#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:102
-msgid "Stop"
-msgstr "Apturēt"
-
-#: ../gnomeclocks/alarm.py:459
-msgid "Snooze"
-msgstr "Iesnaudināt"
-
-#: ../gnomeclocks/app.py:121 ../gnomeclocks/app.py:390
-msgid "About Clocks"
-msgstr "Par “Pulksteņi”"
-
-#: ../gnomeclocks/app.py:127
-msgid "Utilities to help you with the time."
-msgstr "Utilītas, kas palīdz pārvaldīt laiku."
-
-#: ../gnomeclocks/app.py:129
-msgid "translator-credits"
-msgstr "Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>"
-
-#. Translators: "New" refers to a world clock or an alarm
-#: ../gnomeclocks/app.py:213
-msgid "New"
-msgstr "Jauns"
-
-#: ../gnomeclocks/app.py:266
-msgid "Edit"
-msgstr "Rediģēt"
-
-#: ../gnomeclocks/app.py:271
-msgid "Done"
-msgstr "Pabeigts"
-
-#: ../gnomeclocks/app.py:335
-msgid "Click on items to select them"
-msgstr "Spiediet uz vienumiem, lai tos izvēlētos"
-
-#: ../gnomeclocks/app.py:337
-msgid "{0} item selected"
-msgid_plural "{0} items selected"
-msgstr[0] "Izvēlēts {0} vienums"
-msgstr[1] "Izvēlēti {0} vienumi"
-msgstr[2] "Izvēlēti {0} vienumu"
-
-#: ../gnomeclocks/app.py:393
-msgid "Quit"
-msgstr "Iziet"
-
-#: ../gnomeclocks/stopwatch.py:34
-msgid "Stopwatch"
-msgstr "Hronometrs"
-
-#: ../gnomeclocks/stopwatch.py:63 ../gnomeclocks/stopwatch.py:128
-#: ../gnomeclocks/timer.py:110
-msgid "Start"
-msgstr "Sākt"
-
-#: ../gnomeclocks/stopwatch.py:71 ../gnomeclocks/stopwatch.py:113
-#: ../gnomeclocks/timer.py:52
-msgid "Reset"
-msgstr "Atstatīt"
-
-#: ../gnomeclocks/stopwatch.py:83
-msgid "Split"
-msgstr "Sadalīt"
-
-#: ../gnomeclocks/stopwatch.py:86
-msgid "Total"
-msgstr "Kopā"
-
-#: ../gnomeclocks/stopwatch.py:105
-msgid "Lap"
-msgstr "Aplis"
-
-#: ../gnomeclocks/stopwatch.py:109 ../gnomeclocks/timer.py:69
-msgid "Continue"
-msgstr "Turpināt"
-
-#: ../gnomeclocks/timer.py:45 ../gnomeclocks/timer.py:63
-#: ../gnomeclocks/timer.py:73
-msgid "Pause"
-msgstr "Pauzēt"
-
-#: ../gnomeclocks/timer.py:155
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
 msgid "Timer"
 msgstr "Taimeris"
 
-#: ../gnomeclocks/utils.py:71
+#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "Konfigurēts taimera ilgumu sekundēs."
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:475
+msgid "Alarm"
+msgstr "Signāls"
+
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../src/alarm.ui.h:2
+msgid "Stop"
+msgstr "Apturēt"
+
+#: ../src/alarm.vala:109 ../src/alarm.ui.h:3
+msgid "Snooze"
+msgstr "Iesnaudināt"
+
+#: ../src/alarm.vala:265
+msgid "Edit Alarm"
+msgstr "Rediģēt signālu"
+
+#: ../src/alarm.vala:265
+msgid "New Alarm"
+msgstr "Jauns signāls"
+
+#: ../src/alarm.vala:267
+#| msgid "Done"
+msgid "_Done"
+msgstr "_Darīts"
+
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:616 ../src/world.vala:360
+msgid "New"
+msgstr "Jauns"
+
+#: ../src/application.vala:24
+msgid "Print version information and exit"
+msgstr "Parādīt informāciju par versiju un iziet"
+
+#: ../src/stopwatch.vala:50
+msgid "Stopwatch"
+msgstr "Hronometrs"
+
+#: ../src/stopwatch.vala:124 ../src/stopwatch.ui.h:3
+msgid "Lap"
+msgstr "Aplis"
+
+#: ../src/stopwatch.vala:131 ../src/timer.vala:88
+msgid "Continue"
+msgstr "Turpināt"
+
+#: ../src/stopwatch.vala:135 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:3
+msgid "Reset"
+msgstr "Atstatīt"
+
+#: ../src/stopwatch.vala:143 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:1
+msgid "Start"
+msgstr "Sākt"
+
+#: ../src/timer.vala:53
+msgid "Time is up!"
+msgstr "Laiks beidzies!"
+
+#: ../src/timer.vala:53
+msgid "Timer countdown finished"
+msgstr "Taimera laiks iztecējis"
+
+#: ../src/timer.vala:93 ../src/timer.vala:103 ../src/timer.ui.h:2
+msgid "Pause"
+msgstr "Pauzēt"
+
+#: ../src/utils.vala:149
 msgid "Mondays"
 msgstr "Pirmdienas"
 
-#: ../gnomeclocks/utils.py:72
+#: ../src/utils.vala:150
 msgid "Tuesdays"
 msgstr "Otrdienas"
 
-#: ../gnomeclocks/utils.py:73
+#: ../src/utils.vala:151
 msgid "Wednesdays"
 msgstr "Trešdienas"
 
-#: ../gnomeclocks/utils.py:74
+#: ../src/utils.vala:152
 msgid "Thursdays"
 msgstr "Ceturtdienas"
 
-#: ../gnomeclocks/utils.py:75
+#: ../src/utils.vala:153
 msgid "Fridays"
 msgstr "Piektdienas"
 
-#: ../gnomeclocks/utils.py:76
+#: ../src/utils.vala:154
 msgid "Saturdays"
 msgstr "Sestdienas"
 
-#: ../gnomeclocks/utils.py:77
+#: ../src/utils.vala:155
 msgid "Sundays"
 msgstr "Svētdienas"
 
-#: ../gnomeclocks/widgets.py:333
+#: ../src/utils.vala:235
+#| msgid "Every day"
+msgid "Every Day"
+msgstr "Katru dienu"
+
+#: ../src/utils.vala:237
+msgid "Weekdays"
+msgstr "Darba dienas"
+
+#: ../src/widgets.vala:417 ../src/widgets.vala:568
+msgid "Click on items to select them"
+msgstr "Spiediet uz vienumiem, lai tos izvēlētos"
+
+#: ../src/widgets.vala:419
+#, c-format
+#| msgid "{0} item selected"
+#| msgid_plural "{0} items selected"
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d izvēlēts"
+msgstr[1] "%d izvēlēti"
+msgstr[2] "%d izvēlētu"
+
+#: ../src/widgets.vala:461
 msgid "Delete"
 msgstr "Dzēst"
 
-#: ../gnomeclocks/world.py:66
+#: ../src/widgets.vala:567
+msgid "Done"
+msgstr "Pabeigts"
+
+#: ../src/window.vala:147
+#| msgid "GNOME Clocks"
+msgid "Gnome Clocks"
+msgstr "Gnome pulksteņi"
+
+#: ../src/window.vala:150
+msgid "Utilities to help you with the time."
+msgstr "Utilītas, kas palīdz pārvaldīt laiku."
+
+#: ../src/window.vala:155
+msgid "translator-credits"
+msgstr "Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>"
+
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:90 ../src/world.vala:93
+msgid "Tomorrow"
+msgstr "Rīt"
+
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:90 ../src/world.vala:93
+msgid "Yesterday"
+msgstr "Vakar"
+
+#: ../src/world.vala:160
 msgid "Add a New World Clock"
 msgstr "Pievienot jaunu pasaules pulksteni"
 
-#: ../gnomeclocks/world.py:75
-msgid "Search for a city:"
-msgstr "Meklēt pilsētu:"
-
-#: ../gnomeclocks/world.py:259
+#: ../src/world.vala:256
 msgid "World"
 msgstr "Pasaule"
 
-#: ../gnomeclocks/world.py:270
+#. namespace World
+#. namespace Clocks
+#: ../src/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Izvēlieties <b>Jauns</b>, lai pievienotu signālu"
+
+#: ../src/alarm.ui.h:4
+msgid "Name"
+msgstr "Nosaukums"
+
+#: ../src/alarm.ui.h:5
+msgid "Repeat Every"
+msgstr "Atkārtot katras"
+
+#: ../src/alarm.ui.h:6
+msgid "Active"
+msgstr "Aktīvs"
+
+#: ../src/menu.ui.h:1
+msgid "_New"
+msgstr "Jau_ns"
+
+#: ../src/menu.ui.h:2
+msgid "_About"
+msgstr "P_ar"
+
+#: ../src/menu.ui.h:3
+#| msgid "Quit"
+msgid "_Quit"
+msgstr "_Iziet"
+
+#: ../src/menu.ui.h:4
+msgid "Select All"
+msgstr "Izvēlēties visu"
+
+#: ../src/menu.ui.h:5
+msgid "Select None"
+msgstr "Neizvēlēties nevienu"
+
+#: ../src/stopwatch.ui.h:4
+msgid "Split"
+msgstr "Sadalīt"
+
+#: ../src/stopwatch.ui.h:5
+msgid "Total"
+msgstr "Kopā"
+
+#: ../src/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Izvēlieties <b>Jauns</b>, lai pievienotu pasaules pulksteni"
 
-#: ../gnomeclocks/world.py:393
+#: ../src/world.ui.h:2
+msgid "Search for a city:"
+msgstr "Meklēt pilsētu:"
+
+#: ../src/world.ui.h:3
 msgid "Sunrise"
 msgstr "Saullēkts"
 
-#: ../gnomeclocks/world.py:403
+#: ../src/world.ui.h:4
 msgid "Sunset"
 msgstr "Saulriets"
+
+#~ msgid "Time"
+#~ msgstr "Laiks"
+
+#~ msgid "About Clocks"
+#~ msgstr "Par “Pulksteņi”"
+
+#~ msgid "Edit"
+#~ msgstr "Rediģēt"
 
 #~ msgid "Laps"
 #~ msgstr "Apļi"
