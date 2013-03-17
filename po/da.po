@@ -1,15 +1,17 @@
 # Danish translation for gnome-clocks.
-# Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
+# Copyright (C) 2012-2013 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
+#
 # Kenneth Nielsen <k.nielsen81@gmail.com>, 2012.
+# Ask Hjorth Larsen <asklarsen@gmail.com>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-16 14:53+0200\n"
-"PO-Revision-Date: 2012-09-16 14:20+0200\n"
-"Last-Translator: Kenneth Nielsen <k.nielsen81@gmail.com>\n"
+"POT-Creation-Date: 2013-03-17 08:10+0100\n"
+"PO-Revision-Date: 2013-03-16 18:40+0100\n"
+"Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -17,12 +19,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:35
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
 msgid "Clocks"
 msgstr "Ure"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:122
-#: ../gnomeclocks/app.py:131
+#: ../data/gnome-clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "GNOME Ure"
 
@@ -30,176 +31,261 @@ msgstr "GNOME Ure"
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Verdensur plus alarmer, stopur og en timer"
 
-#: ../gnomeclocks/alarm.py:117
-msgid "Every day"
-msgstr "Hver dag"
+#: ../data/gnome-clocks.desktop.in.h:4
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr "tid;alarm;vækkeur;verdensur;stopur;ur;tidszone;klokken;"
 
-#: ../gnomeclocks/alarm.py:119
-msgid "Weekdays"
-msgstr "Hverdage"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+msgid "Configured world clocks"
+msgstr "Konfigurerede verdensure"
 
-#: ../gnomeclocks/alarm.py:138
-msgid "Edit Alarm"
-msgstr "Redigér alarm"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+msgid "List of world clocks to show."
+msgstr "Liste af verdensure, der skal vises."
 
-#: ../gnomeclocks/alarm.py:140 ../gnomeclocks/alarm.py:172
-msgid "New Alarm"
-msgstr "Ny alarm"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+msgid "Configured alarms"
+msgstr "Konfigurerede alarmer"
 
-#. Translators: "Time" in this context is the time an alarm
-#. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:177
-msgid "Time"
-msgstr "Tidspunkt"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+msgid "List of alarms set."
+msgstr "Liste af indstillede alarmer."
 
-#: ../gnomeclocks/alarm.py:218
-msgid "Name"
-msgstr "Navn"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
+msgid "Timer"
+msgstr "Timer"
 
-# Strengt taget forkert hvis det f.eks. er hvert minut, men jeg har svært ved at forestille mig hvordan det kan indernationaliseres bedre, så vi må nok nøjes med en lokalisering som ikke er perfekt
-#: ../gnomeclocks/alarm.py:227
-msgid "Repeat Every"
-msgstr "Gentagelsesinterval"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "Indstillet tidsudløb i sekunder."
 
-#: ../gnomeclocks/alarm.py:303
+#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:476
 msgid "Alarm"
 msgstr "Alarm"
 
-#: ../gnomeclocks/alarm.py:315
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Vælg <b>Ny</b> for at tilføje en alarm"
-
-#: ../gnomeclocks/alarm.py:455 ../gnomeclocks/stopwatch.py:79
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../src/alarm.ui.h:2
 msgid "Stop"
 msgstr "Stop"
 
-#: ../gnomeclocks/alarm.py:457
+#: ../src/alarm.vala:109 ../src/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Slumr"
 
-#: ../gnomeclocks/app.py:121 ../gnomeclocks/app.py:390
-msgid "About Clocks"
-msgstr "Om Ure"
+#: ../src/alarm.vala:265
+msgid "Edit Alarm"
+msgstr "Redigér alarm"
 
-#: ../gnomeclocks/app.py:127
+#: ../src/alarm.vala:265
+msgid "New Alarm"
+msgstr "Ny alarm"
+
+#: ../src/alarm.vala:267
+msgid "_Done"
+msgstr "_Færdig"
+
+# New refererer så vidt jeg kan se til en alarm eller et verdensur, så den kan desværre ikke oversættes strengt korrekt til dansk
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:484 ../src/world.vala:281
+msgid "New"
+msgstr "Ny"
+
+#: ../src/application.vala:24
+msgid "Print version information and exit"
+msgstr "Vis versionsoplysninger og afslut"
+
+#: ../src/stopwatch.vala:50
+msgid "Stopwatch"
+msgstr "Stopur"
+
+#: ../src/stopwatch.vala:124 ../src/stopwatch.ui.h:3
+msgid "Lap"
+msgstr "Omgang"
+
+#: ../src/stopwatch.vala:131 ../src/timer.vala:88
+msgid "Continue"
+msgstr "Fortsæt"
+
+#: ../src/stopwatch.vala:135 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:3
+msgid "Reset"
+msgstr "Nulstil"
+
+#: ../src/stopwatch.vala:143 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:1
+msgid "Start"
+msgstr "Start"
+
+#: ../src/timer.vala:53
+msgid "Time is up!"
+msgstr "Tiden er udløbet!"
+
+#: ../src/timer.vala:53
+msgid "Timer countdown finished"
+msgstr "Nedtællingen afsluttet"
+
+#: ../src/timer.vala:93 ../src/timer.vala:103 ../src/timer.ui.h:2
+msgid "Pause"
+msgstr "Pause"
+
+#: ../src/utils.vala:149
+msgid "Mondays"
+msgstr "Mandage"
+
+#: ../src/utils.vala:150
+msgid "Tuesdays"
+msgstr "Tirsdage"
+
+#: ../src/utils.vala:151
+msgid "Wednesdays"
+msgstr "Onsdage"
+
+#: ../src/utils.vala:152
+msgid "Thursdays"
+msgstr "Torsdage"
+
+#: ../src/utils.vala:153
+msgid "Fridays"
+msgstr "Fredage"
+
+#: ../src/utils.vala:154
+msgid "Saturdays"
+msgstr "Lørdage"
+
+#: ../src/utils.vala:155
+msgid "Sundays"
+msgstr "Søndage"
+
+#: ../src/utils.vala:235
+msgid "Every Day"
+msgstr "Hver dag"
+
+#: ../src/utils.vala:237
+msgid "Weekdays"
+msgstr "Hverdage"
+
+#: ../src/widgets.vala:386
+msgid "Done"
+msgstr "Færdig"
+
+#: ../src/widgets.vala:398 ../src/widgets.vala:433
+msgid "Click on items to select them"
+msgstr "Klik på elementer for at markere dem"
+
+#: ../src/widgets.vala:435
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d markeret"
+msgstr[1] "%d markeret"
+
+#: ../src/widgets.vala:477
+msgid "Delete"
+msgstr "Slet"
+
+# yuck
+#: ../src/window.vala:142
+msgid "Gnome Clocks"
+msgstr "Gnome Ure"
+
+#: ../src/window.vala:145
 msgid "Utilities to help you with the time."
 msgstr "Værktøjer til at hjælpe dig med tiden."
 
-#: ../gnomeclocks/app.py:129
+#: ../src/window.vala:150
 msgid "translator-credits"
 msgstr ""
 "Kenneth Nielsen\n"
+"Ask Hjorth Larsen\n"
 "\n"
 "Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
 "Mere info: http://www.dansk-gruppen.dk"
 
-# New refererer så vidt jeg kan se til en alarm eller et verdensur, så den kan desværre ikke oversættes strengt korrekt til dansk
-#. Translators: "New" refers to a world clock or an alarm
-#: ../gnomeclocks/app.py:213
-msgid "New"
-msgstr "Ny"
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:102 ../src/world.vala:105
+msgid "Tomorrow"
+msgstr "I morgen"
 
-#: ../gnomeclocks/app.py:266
-msgid "Edit"
-msgstr "Redigér"
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:102 ../src/world.vala:105
+msgid "Yesterday"
+msgstr "I går"
 
-#: ../gnomeclocks/app.py:271
-msgid "Done"
-msgstr "Færdig"
-
-#: ../gnomeclocks/app.py:335
-msgid "Click on items to select them"
-msgstr "Klik på elementer for at markere dem"
-
-#: ../gnomeclocks/app.py:337
-msgid "{0} item selected"
-msgid_plural "{0} items selected"
-msgstr[0] "{0} element markeret"
-msgstr[1] "{0} elementer markeret"
-
-#: ../gnomeclocks/app.py:393
-msgid "Quit"
-msgstr "Afslut"
-
-#: ../gnomeclocks/stopwatch.py:34
-msgid "Stopwatch"
-msgstr "Stopur"
-
-#: ../gnomeclocks/stopwatch.py:59 ../gnomeclocks/stopwatch.py:97
-#: ../gnomeclocks/timer.py:111
-msgid "Start"
-msgstr "Start"
-
-#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:86
-#: ../gnomeclocks/timer.py:54
-msgid "Reset"
-msgstr "Nulstil"
-
-#: ../gnomeclocks/stopwatch.py:85 ../gnomeclocks/timer.py:71
-msgid "Continue"
-msgstr "Fortsæt"
-
-#: ../gnomeclocks/timer.py:47 ../gnomeclocks/timer.py:65
-#: ../gnomeclocks/timer.py:75
-msgid "Pause"
-msgstr "Pause"
-
-#: ../gnomeclocks/timer.py:156
-msgid "Timer"
-msgstr "Timer"
-
-#: ../gnomeclocks/utils.py:71
-msgid "Mondays"
-msgstr "Mandage"
-
-#: ../gnomeclocks/utils.py:72
-msgid "Tuesdays"
-msgstr "Tirsdage"
-
-#: ../gnomeclocks/utils.py:73
-msgid "Wednesdays"
-msgstr "Onsdage"
-
-#: ../gnomeclocks/utils.py:74
-msgid "Thursdays"
-msgstr "Torsdage"
-
-#: ../gnomeclocks/utils.py:75
-msgid "Fridays"
-msgstr "Fredage"
-
-#: ../gnomeclocks/utils.py:76
-msgid "Saturdays"
-msgstr "Lørdage"
-
-#: ../gnomeclocks/utils.py:77
-msgid "Sundays"
-msgstr "Søndage"
-
-#: ../gnomeclocks/widgets.py:333
-msgid "Delete"
-msgstr "Slet"
-
-#: ../gnomeclocks/world.py:62
+#: ../src/world.vala:172
 msgid "Add a New World Clock"
 msgstr "Tilføj et nyt verdensur"
 
-#: ../gnomeclocks/world.py:71
-msgid "Search for a city:"
-msgstr "Søg efter en by:"
-
-#: ../gnomeclocks/world.py:257
+#: ../src/world.vala:270
 msgid "World"
 msgstr "Verden"
 
-#: ../gnomeclocks/world.py:268
+#. namespace World
+#. namespace Clocks
+#: ../src/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Vælg <b>Ny</b> for at tilføje en alarm"
+
+#: ../src/alarm.ui.h:4
+msgid "Name"
+msgstr "Navn"
+
+# Strengt taget forkert hvis det f.eks. er hvert minut, men jeg har svært ved at forestille mig hvordan det kan indernationaliseres bedre, så vi må nok nøjes med en lokalisering som ikke er perfekt
+#: ../src/alarm.ui.h:5
+msgid "Repeat Every"
+msgstr "Gentagelsesinterval"
+
+#: ../src/alarm.ui.h:6
+msgid "Active"
+msgstr "Aktiv"
+
+#: ../src/menu.ui.h:1
+msgid "_New"
+msgstr "_Ny"
+
+#: ../src/menu.ui.h:2
+msgid "_About"
+msgstr "_Om"
+
+#: ../src/menu.ui.h:3
+msgid "_Quit"
+msgstr "_Afslut"
+
+#: ../src/menu.ui.h:4
+msgid "Select All"
+msgstr "Vælg alle"
+
+#: ../src/menu.ui.h:5
+msgid "Select None"
+msgstr "Vælg ingen"
+
+# Fryser den viste tid men tæller videre i baggrunden
+#: ../src/stopwatch.ui.h:4
+msgid "Split"
+msgstr "Mellemtid"
+
+#: ../src/stopwatch.ui.h:5
+msgid "Total"
+msgstr "Samlet"
+
+#: ../src/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Vælg <b>Ny</b> for at tilføje et verdensur"
 
-#: ../gnomeclocks/world.py:397
+#: ../src/world.ui.h:2
+msgid "Search for a city:"
+msgstr "Søg efter en by:"
+
+#: ../src/world.ui.h:3
 msgid "Sunrise"
 msgstr "Solopgang"
 
-#: ../gnomeclocks/world.py:407
+#: ../src/world.ui.h:4
 msgid "Sunset"
 msgstr "Solnedgang"
+
+#~ msgid "Time"
+#~ msgstr "Tidspunkt"
+
+#~ msgid "About Clocks"
+#~ msgstr "Om Ure"
+
+#~ msgid "Edit"
+#~ msgstr "Redigér"
