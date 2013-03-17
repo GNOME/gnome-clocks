@@ -73,15 +73,6 @@ images_DATA = \
 	data/images/day.png \
 	data/images/night.png
 
-# css
-cssdir = $(datadir)/gnome-clocks/css
-css_DATA = \
-	data/css/gnome-clocks.css \
-	data/css/button-border-go-active.svg \
-	data/css/button-border-go.svg \
-	data/css/button-border-stop-active.svg \
-	data/css/button-border-stop.svg
-
 AM_CPPFLAGS = \
 	-I$(top_srcdir)/egg-list-box \
 	-I$(top_srcdir)/libgd \
@@ -105,8 +96,8 @@ bin_PROGRAMS = gnome-clocks
 BUILT_SOURCES = \
 	src/resources.c
 
-src/resources.c: $(top_srcdir)/src/gnome-clocks.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir=$(top_srcdir)/src $(top_srcdir)/src/gnome-clocks.gresource.xml)
-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(top_srcdir)/src --generate-source $<
+src/resources.c: $(top_srcdir)/data/gnome-clocks.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir=$(top_srcdir)/data $(top_srcdir)/data/gnome-clocks.gresource.xml)
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(top_srcdir)/data --generate-source $<
 
 VALA_SOURCES = \
 	src/application.vala \
@@ -144,15 +135,14 @@ EXTRA_DIST = \
 	$(icon_files) \
 	$(hcicon_files) \
 	$(images_DATA) \
-	$(css_DATA) \
 	data/org.gnome.clocks.gschema.xml.in \
-	src/gnome-clocks.gresource.xml \
-	src/alarm.ui \
-	src/menu.ui \
-	src/stopwatch.ui \
-	src/timer.ui \
-	src/window.ui \
-	src/world.ui
+	data/gnome-clocks.gresource.xml \
+	data/ui/alarm.ui \
+	data/ui/menu.ui \
+	data/ui/stopwatch.ui \
+	data/ui/timer.ui \
+	data/ui/window.ui \
+	data/ui/world.ui
 
 CLEANFILES = \
 	$(applications_DATA)

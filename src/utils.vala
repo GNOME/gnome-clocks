@@ -24,8 +24,8 @@ namespace Utils {
 public Gtk.CssProvider load_css (string css) {
     var provider = new Gtk.CssProvider ();
     try {
-        var path = Path.build_filename (Config.DATADIR, "gnome-clocks", "css", css);
-        provider.load_from_path (path);
+        var file = File.new_for_uri("resource:///org/gnome/clocks/css/" + css);
+        provider.load_from_file (file);
     } catch (Error e) {
         warning ("loading css: %s", e.message);
     }
