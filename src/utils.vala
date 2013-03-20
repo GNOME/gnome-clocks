@@ -145,6 +145,10 @@ public class Weekdays {
         true, true, true, true, true, false, false
     };
 
+    private const bool[] weekends = {
+        false, false, false, false, false, true, true
+    };
+
     private const string[] plurals = {
         N_("Mondays"),
         N_("Tuesdays"),
@@ -235,6 +239,8 @@ public class Weekdays {
             r = _("Every Day");
         } else if (days_equal (weekdays)) {
             r = _("Weekdays");
+        } else if (days_equal (weekends)) {
+            r = _("Weekends");
         } else {
             string[] abbrs = {};
             for (int i = 0; i < 7; i++) {
