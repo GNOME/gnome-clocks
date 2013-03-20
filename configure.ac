@@ -5,6 +5,10 @@ AC_INIT([gnome-clocks],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-clocks],
         [gnome-clocks])
 
+dnl http://people.gnome.org/~walters/docs/build-api.txt
+dnl We don't support separate builddir when building from git
+echo \#buildapi-variable-no-builddir >/dev/null
+
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS(config.h)
 AC_CONFIG_SRCDIR(src/main.vala)
