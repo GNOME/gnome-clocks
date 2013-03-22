@@ -1,29 +1,29 @@
 # Persian translation for gnome-clocks.
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Arash Mousavi <mousavi.arash@gmail.com> 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-04 07:32+0000\n"
-"PO-Revision-Date: 2012-09-04 13:16+0330\n"
+"POT-Creation-Date: 2013-03-06 07:27+0000\n"
+"PO-Revision-Date: 2013-03-22 11:38+0330\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1)\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:35
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
 msgid "Clocks"
 msgstr "ساعت‌ها"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:120
-#: ../gnomeclocks/app.py:129
+#: ../data/gnome-clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "ساعت‌های گنوم"
 
@@ -31,167 +31,258 @@ msgstr "ساعت‌های گنوم"
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "ساعت‌هایی برای زمان‌ها در دنیا، با اضافه‌ی زنگ هشدار، کرنومتر و زمان‌سنج"
 
-#: ../gnomeclocks/alarm.py:117
-msgid "Every day"
-msgstr "هر روز"
+#: ../data/gnome-clocks.desktop.in.h:4
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr "زمان;زمانسنج;زنگ;ساعت جهانی;stopwatch;منطقه زمانی;"
 
-#: ../gnomeclocks/alarm.py:119
-msgid "Weekdays"
-msgstr "روزهای هفته"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+msgid "Configured world clocks"
+msgstr "پیکربندی ساعت‌های جهانی"
 
-#: ../gnomeclocks/alarm.py:138
-msgid "Edit Alarm"
-msgstr "ویرایش زنگ هشدار"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+msgid "List of world clocks to show."
+msgstr "فهرست ساعت‌های جهانی برای نمایش."
 
-#: ../gnomeclocks/alarm.py:140 ../gnomeclocks/alarm.py:172
-msgid "New Alarm"
-msgstr "زنگ هشدار جدید"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+msgid "Configured alarms"
+msgstr "پیکربندی زنگ‌ها"
 
-#: ../gnomeclocks/alarm.py:175
-msgid "Time"
-msgstr "زمان"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+msgid "List of alarms set."
+msgstr "فهرست تنظیم زنگ‌ها."
 
-#: ../gnomeclocks/alarm.py:216
-msgid "Name"
-msgstr "نام"
-
-#: ../gnomeclocks/alarm.py:225
-msgid "Repeat Every"
-msgstr "تکرار هر"
-
-#: ../gnomeclocks/alarm.py:301
-msgid "Alarm"
-msgstr "زنگ هشدار"
-
-#: ../gnomeclocks/alarm.py:313
-msgid "Select <b>New</b> to add an alarm"
-msgstr "برای اضافه کردن یک زنگ هشدار «جدید» را انتخاب کنید"
-
-#: ../gnomeclocks/alarm.py:453 ../gnomeclocks/stopwatch.py:79
-msgid "Stop"
-msgstr "توقف"
-
-#: ../gnomeclocks/alarm.py:455
-msgid "Snooze"
-msgstr "خواب کوتاه"
-
-#: ../gnomeclocks/app.py:119 ../gnomeclocks/app.py:414
-msgid "About Clocks"
-msgstr "درباره ساعت‌ها"
-
-#: ../gnomeclocks/app.py:125
-msgid "Utilities to help you with the time."
-msgstr "ابزارهایی برای کمک به شما درباره زمان."
-
-#: ../gnomeclocks/app.py:127
-msgid "translator-credits"
-msgstr "آرش موسوی <mousavi.arash@gmail.com>"
-
-#: ../gnomeclocks/app.py:204
-msgid "New"
-msgstr "جدید"
-
-#: ../gnomeclocks/app.py:270
-msgid "Edit"
-msgstr "ویرایش"
-
-#: ../gnomeclocks/app.py:275
-msgid "Done"
-msgstr "پایان"
-
-#: ../gnomeclocks/app.py:359
-msgid "Click on items to select them"
-msgstr "بر روی موارد کلیک کنید تا انتخاب شوند"
-
-#: ../gnomeclocks/app.py:361
-msgid "{0} item selected"
-msgid_plural "{0} items selected"
-msgstr[0] "{0} مورد انتخاب شد"
-msgstr[1] "{0} مورد انتخاب شدند"
-
-#: ../gnomeclocks/app.py:417
-msgid "Quit"
-msgstr "خروج"
-
-#: ../gnomeclocks/stopwatch.py:34
-msgid "Stopwatch"
-msgstr "کرنومتر"
-
-#: ../gnomeclocks/stopwatch.py:59 ../gnomeclocks/stopwatch.py:97
-#: ../gnomeclocks/timer.py:111
-msgid "Start"
-msgstr "شروع"
-
-#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:86
-#: ../gnomeclocks/timer.py:54
-msgid "Reset"
-msgstr "تنظیم مجدد"
-
-#: ../gnomeclocks/stopwatch.py:85 ../gnomeclocks/timer.py:71
-msgid "Continue"
-msgstr "ادامه"
-
-#: ../gnomeclocks/timer.py:47 ../gnomeclocks/timer.py:65
-#: ../gnomeclocks/timer.py:75
-msgid "Pause"
-msgstr "مکث"
-
-#: ../gnomeclocks/timer.py:156
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
 msgid "Timer"
 msgstr "زمانسنج"
 
-#: ../gnomeclocks/utils.py:71
+#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "پیکربندی مدت زمانسنج به ثانیه."
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:475
+msgid "Alarm"
+msgstr "زنگ هشدار"
+
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../src/alarm.ui.h:2
+msgid "Stop"
+msgstr "توقف"
+
+#: ../src/alarm.vala:109 ../src/alarm.ui.h:3
+msgid "Snooze"
+msgstr "خواب کوتاه"
+
+#: ../src/alarm.vala:265
+msgid "Edit Alarm"
+msgstr "ویرایش زنگ هشدار"
+
+#: ../src/alarm.vala:265
+msgid "New Alarm"
+msgstr "زنگ هشدار جدید"
+
+#: ../src/alarm.vala:267
+#| msgid "Done"
+msgid "_Done"
+msgstr "_انجام شد"
+
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:616 ../src/world.vala:360
+msgid "New"
+msgstr "جدید"
+
+#: ../src/application.vala:24
+msgid "Print version information and exit"
+msgstr "چاپ اطلاعات نسخه و خروج"
+
+#: ../src/stopwatch.vala:50
+msgid "Stopwatch"
+msgstr "کرنومتر"
+
+#: ../src/stopwatch.vala:124 ../src/stopwatch.ui.h:3
+msgid "Lap"
+msgstr "دور"
+
+#: ../src/stopwatch.vala:131 ../src/timer.vala:88
+msgid "Continue"
+msgstr "ادامه"
+
+#: ../src/stopwatch.vala:135 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:3
+msgid "Reset"
+msgstr "تنظیم مجدد"
+
+#: ../src/stopwatch.vala:143 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:1
+msgid "Start"
+msgstr "شروع"
+
+#: ../src/timer.vala:53
+msgid "Time is up!"
+msgstr "زمان تمام شد!"
+
+#: ../src/timer.vala:53
+msgid "Timer countdown finished"
+msgstr "شمارش معکوس زمانسنج پایان یافت"
+
+#: ../src/timer.vala:93 ../src/timer.vala:103 ../src/timer.ui.h:2
+msgid "Pause"
+msgstr "مکث"
+
+#: ../src/utils.vala:149
 msgid "Mondays"
 msgstr "دوشنبه‌ها"
 
-#: ../gnomeclocks/utils.py:72
+#: ../src/utils.vala:150
 msgid "Tuesdays"
 msgstr "سه‌شنبه‌ها"
 
-#: ../gnomeclocks/utils.py:73
+#: ../src/utils.vala:151
 msgid "Wednesdays"
 msgstr "چهارشنبه‌ها"
 
-#: ../gnomeclocks/utils.py:74
+#: ../src/utils.vala:152
 msgid "Thursdays"
 msgstr "پنج‌شنبه‌ها"
 
-#: ../gnomeclocks/utils.py:75
+#: ../src/utils.vala:153
 msgid "Fridays"
 msgstr "جمعه‌ها"
 
-#: ../gnomeclocks/utils.py:76
+#: ../src/utils.vala:154
 msgid "Saturdays"
 msgstr "شنبه‌ها"
 
-#: ../gnomeclocks/utils.py:77
+#: ../src/utils.vala:155
 msgid "Sundays"
 msgstr "یک‌شنبه‌ها"
 
-#: ../gnomeclocks/widgets.py:377
+#: ../src/utils.vala:235
+#| msgid "Every day"
+msgid "Every Day"
+msgstr "هر روز"
+
+#: ../src/utils.vala:237
+msgid "Weekdays"
+msgstr "روزهای هفته"
+
+#: ../src/widgets.vala:417 ../src/widgets.vala:568
+msgid "Click on items to select them"
+msgstr "بر روی موارد کلیک کنید تا انتخاب شوند"
+
+#: ../src/widgets.vala:419
+#, c-format
+#| msgid "{0} item selected"
+#| msgid_plural "{0} items selected"
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%Id انتخاب شد"
+msgstr[1] "%Id انتخاب شدند"
+
+#: ../src/widgets.vala:461
 msgid "Delete"
 msgstr "حذف"
 
-#: ../gnomeclocks/world.py:62
+#: ../src/widgets.vala:567
+msgid "Done"
+msgstr "پایان"
+
+#: ../src/window.vala:147
+#| msgid "GNOME Clocks"
+msgid "Gnome Clocks"
+msgstr "ساعت‌های گنوم"
+
+#: ../src/window.vala:150
+msgid "Utilities to help you with the time."
+msgstr "ابزارهایی برای کمک به شما درباره زمان."
+
+#: ../src/window.vala:155
+msgid "translator-credits"
+msgstr "آرش موسوی <mousavi.arash@gmail.com>"
+
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:90 ../src/world.vala:93
+msgid "Tomorrow"
+msgstr "فردا"
+
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:90 ../src/world.vala:93
+msgid "Yesterday"
+msgstr "دیروز"
+
+#: ../src/world.vala:160
 msgid "Add a New World Clock"
 msgstr "اضافه کردن یک ساعت جهانی دیگر"
 
-#: ../gnomeclocks/world.py:71
-msgid "Search for a city:"
-msgstr "جست‌وجو برای یک شهر"
-
-#: ../gnomeclocks/world.py:246
+#: ../src/world.vala:256
 msgid "World"
 msgstr "جهان"
 
-#: ../gnomeclocks/world.py:257
+#. namespace World
+#. namespace Clocks
+#: ../src/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "برای اضافه کردن یک زنگ هشدار «جدید» را انتخاب کنید"
+
+#: ../src/alarm.ui.h:4
+msgid "Name"
+msgstr "نام"
+
+#: ../src/alarm.ui.h:5
+msgid "Repeat Every"
+msgstr "تکرار هر"
+
+#: ../src/alarm.ui.h:6
+msgid "Active"
+msgstr "فعال"
+
+#: ../src/menu.ui.h:1
+msgid "_New"
+msgstr "_جدید"
+
+#: ../src/menu.ui.h:2
+msgid "_About"
+msgstr "_درباره"
+
+#: ../src/menu.ui.h:3
+#| msgid "Quit"
+msgid "_Quit"
+msgstr "_خروج"
+
+#: ../src/menu.ui.h:4
+msgid "Select All"
+msgstr "انتخاب همه"
+
+#: ../src/menu.ui.h:5
+msgid "Select None"
+msgstr "انتخاب هیچکدام"
+
+#: ../src/stopwatch.ui.h:4
+msgid "Split"
+msgstr "جدا کردن"
+
+#: ../src/stopwatch.ui.h:5
+msgid "Total"
+msgstr "مجموع"
+
+#: ../src/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "برای اضافه کردن یک ساعت جهانی دیگر «جدید» را انتخاب کنید"
 
-#: ../gnomeclocks/world.py:386
+#: ../src/world.ui.h:2
+msgid "Search for a city:"
+msgstr "جست‌وجو برای یک شهر"
+
+#: ../src/world.ui.h:3
 msgid "Sunrise"
 msgstr "طلوع"
 
-#: ../gnomeclocks/world.py:396
+#: ../src/world.ui.h:4
 msgid "Sunset"
 msgstr "غروب"
+
+#~ msgid "Time"
+#~ msgstr "زمان"
+
+#~ msgid "About Clocks"
+#~ msgstr "درباره ساعت‌ها"
+
+#~ msgid "Edit"
+#~ msgstr "ویرایش"
