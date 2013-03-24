@@ -2,14 +2,14 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Takeshi AIHANA <takeshi.aihana@gmail.com>, 2012.
-# Jiro Matsuzawa <jmatsuzawa@gnome.org>, 2012.
+# Jiro Matsuzawa <jmatsuzawa@gnome.org>, 2012-2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-12-17 13:54+0000\n"
-"PO-Revision-Date: 2012-12-28 23:47+0900\n"
+"POT-Creation-Date: 2013-03-17 11:28+0000\n"
+"PO-Revision-Date: 2013-03-15 23:35+0900\n"
 "Last-Translator: Jiro Matsuzawa <jmatsuzawa@gnome.org>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
@@ -18,12 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:35
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
 msgid "Clocks"
 msgstr "時計"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:135
-#: ../gnomeclocks/app.py:144
+#: ../data/gnome-clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "GNOME Clocks"
 
@@ -35,204 +34,252 @@ msgstr "世界時計、アラーム、ストップウォッチ、およびタイ
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "time;timer;alarm;world clock;stopwatch;time zone;時間;時刻;タイム;タイマー;アラーム;世界時計;時計;ストップウォッチ;ストップウオッチ;タイムゾーン;"
 
-#. Translators: "New" refers to an alarm
-#: ../gnomeclocks/alarm.py:93 ../gnomeclocks/alarm.py:455
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+msgid "Configured world clocks"
+msgstr "設定した世界時計"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+msgid "List of world clocks to show."
+msgstr "表示する世界時計のリストです。"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+msgid "Configured alarms"
+msgstr "設定したアラーム"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+msgid "List of alarms set."
+msgstr "セットしたアラームのリストです。"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
+msgid "Timer"
+msgstr "タイマー"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "設定したタイマー時間です (秒単位)。"
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:476
 msgid "Alarm"
 msgstr "アラーム"
 
-#: ../gnomeclocks/alarm.py:130
-msgid "Every day"
-msgstr "毎日"
-
-#: ../gnomeclocks/alarm.py:132
-msgid "Weekdays"
-msgstr "平日"
-
-#: ../gnomeclocks/alarm.py:193
-msgid "Edit Alarm"
-msgstr "アラームの編集"
-
-#: ../gnomeclocks/alarm.py:195 ../gnomeclocks/alarm.py:221
-msgid "New Alarm"
-msgstr "新しいアラーム"
-
-#. Translators: "Time" in this context is the time an alarm
-#. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:226
-msgid "Time"
-msgstr "時刻"
-
-#: ../gnomeclocks/alarm.py:269
-msgid "Name"
-msgstr "名称"
-
-#: ../gnomeclocks/alarm.py:278
-msgid "Repeat Every"
-msgstr "繰り返し"
-
-#: ../gnomeclocks/alarm.py:348 ../gnomeclocks/stopwatch.py:121
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "停止"
 
-#: ../gnomeclocks/alarm.py:350
+#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "スヌーズ"
 
-#: ../gnomeclocks/alarm.py:455 ../gnomeclocks/world.py:298
+#: ../src/alarm.vala:265
+msgid "Edit Alarm"
+msgstr "アラームの編集"
+
+#: ../src/alarm.vala:265
+msgid "New Alarm"
+msgstr "新しいアラーム"
+
+#: ../src/alarm.vala:267
+msgid "_Done"
+msgstr "完了(_D)"
+
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:484 ../src/world.vala:281
 msgid "New"
 msgstr "新規"
 
-#: ../gnomeclocks/alarm.py:469
-msgid "Select <b>New</b> to add an alarm"
-msgstr "アラームを追加するには<b>新規</b>を選択します"
+#: ../src/application.vala:24
+msgid "Print version information and exit"
+msgstr "バージョン情報を表示して終了する"
 
-#: ../gnomeclocks/app.py:134 ../gnomeclocks/app.py:418
-msgid "About Clocks"
-msgstr "このアプリケーションについて"
+#: ../src/stopwatch.vala:50
+msgid "Stopwatch"
+msgstr "ストップウォッチ"
 
-#: ../gnomeclocks/app.py:140
+#: ../src/stopwatch.vala:124 ../data/ui/stopwatch.ui.h:3
+msgid "Lap"
+msgstr "ラップ"
+
+#: ../src/stopwatch.vala:131 ../src/timer.vala:88
+msgid "Continue"
+msgstr "続行"
+
+#: ../src/stopwatch.vala:135 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
+msgid "Reset"
+msgstr "リセット"
+
+#: ../src/stopwatch.vala:143 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
+msgid "Start"
+msgstr "開始"
+
+#: ../src/timer.vala:53
+msgid "Time is up!"
+msgstr "タイムアップ!"
+
+#: ../src/timer.vala:53
+msgid "Timer countdown finished"
+msgstr "タイマー満了です"
+
+#: ../src/timer.vala:93 ../src/timer.vala:103 ../data/ui/timer.ui.h:2
+msgid "Pause"
+msgstr "一時停止"
+
+#: ../src/utils.vala:149
+msgid "Mondays"
+msgstr "月曜日"
+
+#: ../src/utils.vala:150
+msgid "Tuesdays"
+msgstr "火曜日"
+
+#: ../src/utils.vala:151
+msgid "Wednesdays"
+msgstr "水曜日"
+
+#: ../src/utils.vala:152
+msgid "Thursdays"
+msgstr "木曜日"
+
+#: ../src/utils.vala:153
+msgid "Fridays"
+msgstr "金曜日"
+
+#: ../src/utils.vala:154
+msgid "Saturdays"
+msgstr "土曜日"
+
+#: ../src/utils.vala:155
+msgid "Sundays"
+msgstr "日曜日"
+
+#: ../src/utils.vala:235
+msgid "Every Day"
+msgstr "毎日"
+
+#: ../src/utils.vala:237
+msgid "Weekdays"
+msgstr "平日"
+
+#: ../src/widgets.vala:386
+msgid "Done"
+msgstr "完了"
+
+#: ../src/widgets.vala:398 ../src/widgets.vala:433
+msgid "Click on items to select them"
+msgstr "選択するアイテムをクリックします"
+
+#: ../src/widgets.vala:435
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d 件選択"
+
+#: ../src/widgets.vala:477
+msgid "Delete"
+msgstr "削除"
+
+#: ../src/window.vala:142
+msgid "Gnome Clocks"
+msgstr "Gnome Clocks"
+
+#: ../src/window.vala:145
 msgid "Utilities to help you with the time."
 msgstr "便利な時計ユーティリティです。"
 
-#: ../gnomeclocks/app.py:142
+#: ../src/window.vala:150
 msgid "translator-credits"
 msgstr ""
 "相花 毅 <takeshi.aihana@gmail.com>\n"
 "松澤二郎 <jmatsuzawa@gnome.org>\n"
 "日本GNOMEユーザー会 <http://www.gnome.gr.jp/>"
 
-#: ../gnomeclocks/app.py:294
-msgid "Edit"
-msgstr "編集"
-
-#: ../gnomeclocks/app.py:299
-msgid "Done"
-msgstr "完了"
-
-#: ../gnomeclocks/app.py:378
-msgid "Click on items to select them"
-msgstr "選択するアイテムをクリックします"
-
-#: ../gnomeclocks/app.py:380
-msgid "{0} item selected"
-msgid_plural "{0} items selected"
-msgstr[0] "{0} 件選択"
-
-#: ../gnomeclocks/app.py:421
-msgid "Quit"
-msgstr "終了"
-
-#: ../gnomeclocks/stopwatch.py:35
-msgid "Stopwatch"
-msgstr "ストップウォッチ"
-
-#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:153
-#: ../gnomeclocks/timer.py:111
-msgid "Start"
-msgstr "開始"
-
-#: ../gnomeclocks/stopwatch.py:75 ../gnomeclocks/stopwatch.py:132
-#: ../gnomeclocks/timer.py:53
-msgid "Reset"
-msgstr "リセット"
-
-#: ../gnomeclocks/stopwatch.py:87 ../gnomeclocks/stopwatch.py:124
-msgid "Lap"
-msgstr "ラップ"
-
-#: ../gnomeclocks/stopwatch.py:93
-msgid "Split"
-msgstr "スプリット"
-
-#: ../gnomeclocks/stopwatch.py:99
-msgid "Total"
-msgstr "合計"
-
-#: ../gnomeclocks/stopwatch.py:128 ../gnomeclocks/timer.py:70
-msgid "Continue"
-msgstr "続行"
-
-#: ../gnomeclocks/timer.py:46 ../gnomeclocks/timer.py:64
-#: ../gnomeclocks/timer.py:74
-msgid "Pause"
-msgstr "一時停止"
-
-#: ../gnomeclocks/timer.py:156
-msgid "Timer"
-msgstr "タイマー"
-
-#: ../gnomeclocks/timer.py:179
-msgid "Time is up!"
-msgstr "タイムアップ!"
-
-#: ../gnomeclocks/timer.py:180
-msgid "Timer countdown finished"
-msgstr "タイマー満了です"
-
-#: ../gnomeclocks/utils.py:83
-msgid "Mondays"
-msgstr "月曜日"
-
-#: ../gnomeclocks/utils.py:84
-msgid "Tuesdays"
-msgstr "火曜日"
-
-#: ../gnomeclocks/utils.py:85
-msgid "Wednesdays"
-msgstr "水曜日"
-
-#: ../gnomeclocks/utils.py:86
-msgid "Thursdays"
-msgstr "木曜日"
-
-#: ../gnomeclocks/utils.py:87
-msgid "Fridays"
-msgstr "金曜日"
-
-#: ../gnomeclocks/utils.py:88
-msgid "Saturdays"
-msgstr "土曜日"
-
-#: ../gnomeclocks/utils.py:89
-msgid "Sundays"
-msgstr "日曜日"
-
-#: ../gnomeclocks/widgets.py:299
-msgid "Delete"
-msgstr "削除"
-
-#: ../gnomeclocks/world.py:74
-msgid "Add a New World Clock"
-msgstr "世界時計の新規追加"
-
-#: ../gnomeclocks/world.py:83
-msgid "Search for a city:"
-msgstr "都市の検索:"
-
-#: ../gnomeclocks/world.py:184 ../gnomeclocks/world.py:191
-msgid "Yesterday"
-msgstr "昨日"
-
-#: ../gnomeclocks/world.py:186 ../gnomeclocks/world.py:189
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:102 ../src/world.vala:105
 msgid "Tomorrow"
 msgstr "明日"
 
-#: ../gnomeclocks/world.py:228
-msgid "Sunrise"
-msgstr "日の出"
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:102 ../src/world.vala:105
+msgid "Yesterday"
+msgstr "昨日"
 
-#: ../gnomeclocks/world.py:232
-msgid "Sunset"
-msgstr "日の入"
+#: ../src/world.vala:172
+msgid "Add a New World Clock"
+msgstr "世界時計の新規追加"
 
-#. Translators: "New" refers to a world clock
-#: ../gnomeclocks/world.py:298
+#: ../src/world.vala:270
 msgid "World"
 msgstr "世界時計"
 
-#: ../gnomeclocks/world.py:317
+#. namespace World
+#. namespace Clocks
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "アラームを追加するには<b>新規</b>を選択します"
+
+#: ../data/ui/alarm.ui.h:4
+msgid "Name"
+msgstr "名称"
+
+#: ../data/ui/alarm.ui.h:5
+msgid "Repeat Every"
+msgstr "繰り返し"
+
+#: ../data/ui/alarm.ui.h:6
+msgid "Active"
+msgstr "アクティブ"
+
+#: ../data/ui/menu.ui.h:1
+msgid "_New"
+msgstr "新規(_N)"
+
+#: ../data/ui/menu.ui.h:2
+msgid "_About"
+msgstr "このアプリケーションについて(_A)"
+
+#: ../data/ui/menu.ui.h:3
+msgid "_Quit"
+msgstr "終了(_Q)"
+
+#: ../data/ui/menu.ui.h:4
+msgid "Select All"
+msgstr "すべて選択"
+
+#: ../data/ui/menu.ui.h:5
+msgid "Select None"
+msgstr "何も選択しない"
+
+#: ../data/ui/stopwatch.ui.h:4
+msgid "Split"
+msgstr "スプリット"
+
+#: ../data/ui/stopwatch.ui.h:5
+msgid "Total"
+msgstr "合計"
+
+#: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "世界時計を追加するには<b>新規</b>を選択します"
+
+#: ../data/ui/world.ui.h:2
+msgid "Search for a city:"
+msgstr "都市の検索:"
+
+#: ../data/ui/world.ui.h:3
+msgid "Sunrise"
+msgstr "日の出"
+
+#: ../data/ui/world.ui.h:4
+msgid "Sunset"
+msgstr "日の入"
+
+#~ msgid "About Clocks"
+#~ msgstr "このアプリケーションについて"
+
+#~ msgid "Edit"
+#~ msgstr "編集"
 
 #~ msgid "Laps"
 #~ msgstr "ラップ"
