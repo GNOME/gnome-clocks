@@ -2,15 +2,15 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 #
-# Marek Černocký <marek@manet.cz>, 2012.
+# Marek Černocký <marek@manet.cz>, 2012, 2013.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-clocks master\n"
+"Project-Id-Version: gnome-clocks master gnome-3.6\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-11-12 16:48+0000\n"
-"PO-Revision-Date: 2012-11-13 15:06+0200\n"
+"POT-Creation-Date: 2013-02-18 12:51+0000\n"
+"PO-Revision-Date: 2013-03-27 08:19+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -18,13 +18,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:35
 msgid "Clocks"
 msgstr "Hodiny"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:122
-#: ../gnomeclocks/app.py:131
+#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:135
+#: ../gnomeclocks/app.py:144
 msgid "GNOME Clocks"
 msgstr "Hodiny GNOME"
 
@@ -36,89 +37,89 @@ msgstr "Hodiny s časy ve světě, budíkem, stopkami a odpočtem"
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "čas;časovač;budík;světový čas;stopky;časové pásmo;"
 
-#: ../gnomeclocks/alarm.py:117
+#: ../gnomeclocks/alarm.py:114
 msgid "Every day"
 msgstr "Všechny dny"
 
-#: ../gnomeclocks/alarm.py:119
+#: ../gnomeclocks/alarm.py:116
 msgid "Weekdays"
 msgstr "Pracovní dny"
 
-#: ../gnomeclocks/alarm.py:138
+#: ../gnomeclocks/alarm.py:153
 msgid "Edit Alarm"
 msgstr "Upravit buzení"
 
-#: ../gnomeclocks/alarm.py:140 ../gnomeclocks/alarm.py:172
+#: ../gnomeclocks/alarm.py:155 ../gnomeclocks/alarm.py:181
 msgid "New Alarm"
 msgstr "Nové buzení"
 
 #. Translators: "Time" in this context is the time an alarm
 #. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:177
+#: ../gnomeclocks/alarm.py:186
 msgid "Time"
 msgstr "Čas"
 
-#: ../gnomeclocks/alarm.py:218
+#: ../gnomeclocks/alarm.py:229
 msgid "Name"
 msgstr "Název"
 
-#: ../gnomeclocks/alarm.py:227
+#: ../gnomeclocks/alarm.py:238
 msgid "Repeat Every"
 msgstr "Opakovat v"
 
-#. Translators: "New" refers to an alarm
-#: ../gnomeclocks/alarm.py:301
-msgid "Alarm"
-msgstr "Budík"
-
-#: ../gnomeclocks/alarm.py:301 ../gnomeclocks/world.py:260
-msgid "New"
-msgstr "Nový"
-
-#: ../gnomeclocks/alarm.py:313
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Zvolením <b>Nový</b> přidáte nový čas buzení"
-
-#: ../gnomeclocks/alarm.py:458 ../gnomeclocks/stopwatch.py:109
+#: ../gnomeclocks/alarm.py:321 ../gnomeclocks/stopwatch.py:121
 msgid "Stop"
 msgstr "Stop"
 
-#: ../gnomeclocks/alarm.py:460
+#: ../gnomeclocks/alarm.py:323
 msgid "Snooze"
 msgstr "Spát"
 
-#: ../gnomeclocks/app.py:121 ../gnomeclocks/app.py:395
+#. Translators: "New" refers to an alarm
+#: ../gnomeclocks/alarm.py:386
+msgid "Alarm"
+msgstr "Budík"
+
+#: ../gnomeclocks/alarm.py:386 ../gnomeclocks/world.py:307
+msgid "New"
+msgstr "Nový"
+
+#: ../gnomeclocks/alarm.py:405
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Zvolením <b>Nový</b> přidáte nový čas buzení"
+
+#: ../gnomeclocks/app.py:134 ../gnomeclocks/app.py:418
 msgid "About Clocks"
 msgstr "O aplikaci Hodiny"
 
-#: ../gnomeclocks/app.py:127
+#: ../gnomeclocks/app.py:140
 msgid "Utilities to help you with the time."
 msgstr "Užitečné programy, které vám pomohu s časem."
 
-#: ../gnomeclocks/app.py:129
+#: ../gnomeclocks/app.py:142
 msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>"
 
-#: ../gnomeclocks/app.py:265
+#: ../gnomeclocks/app.py:294
 msgid "Edit"
 msgstr "Upravit"
 
-#: ../gnomeclocks/app.py:270
+#: ../gnomeclocks/app.py:299
 msgid "Done"
 msgstr "Dokončit"
 
-#: ../gnomeclocks/app.py:340
+#: ../gnomeclocks/app.py:378
 msgid "Click on items to select them"
 msgstr "Kliknutím se položky vyberou"
 
-#: ../gnomeclocks/app.py:342
+#: ../gnomeclocks/app.py:380
 msgid "{0} item selected"
 msgid_plural "{0} items selected"
 msgstr[0] "{0} vybraná položka"
 msgstr[1] "{0} vybrané položky"
 msgstr[2] "{0} vybraných položek"
 
-#: ../gnomeclocks/app.py:398
+#: ../gnomeclocks/app.py:421
 msgid "Quit"
 msgstr "Ukončit"
 
@@ -126,94 +127,102 @@ msgstr "Ukončit"
 msgid "Stopwatch"
 msgstr "Stopky"
 
-#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:141
-#: ../gnomeclocks/timer.py:110
+#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:153
+#: ../gnomeclocks/timer.py:111
 msgid "Start"
 msgstr "Start"
 
-#: ../gnomeclocks/stopwatch.py:75 ../gnomeclocks/stopwatch.py:120
-#: ../gnomeclocks/timer.py:52
+#: ../gnomeclocks/stopwatch.py:75 ../gnomeclocks/stopwatch.py:132
+#: ../gnomeclocks/timer.py:53
 msgid "Reset"
 msgstr "Vynulovat"
 
-#: ../gnomeclocks/stopwatch.py:85 ../gnomeclocks/stopwatch.py:112
+#: ../gnomeclocks/stopwatch.py:87 ../gnomeclocks/stopwatch.py:124
 msgid "Lap"
 msgstr "Kolo"
 
-#: ../gnomeclocks/stopwatch.py:88
+#: ../gnomeclocks/stopwatch.py:93
 msgid "Split"
 msgstr "Mezičas"
 
-#: ../gnomeclocks/stopwatch.py:91
+#: ../gnomeclocks/stopwatch.py:99
 msgid "Total"
 msgstr "Celkem"
 
-#: ../gnomeclocks/stopwatch.py:116 ../gnomeclocks/timer.py:69
+#: ../gnomeclocks/stopwatch.py:128 ../gnomeclocks/timer.py:70
 msgid "Continue"
 msgstr "Pokračovat"
 
-#: ../gnomeclocks/timer.py:45 ../gnomeclocks/timer.py:63
-#: ../gnomeclocks/timer.py:73
+#: ../gnomeclocks/timer.py:46 ../gnomeclocks/timer.py:64
+#: ../gnomeclocks/timer.py:74
 msgid "Pause"
 msgstr "Pauza"
 
-#: ../gnomeclocks/timer.py:155
+#: ../gnomeclocks/timer.py:156
 msgid "Timer"
 msgstr "Odpočet"
 
-#: ../gnomeclocks/utils.py:71
+#: ../gnomeclocks/utils.py:91
 msgid "Mondays"
 msgstr "Pondělky"
 
-#: ../gnomeclocks/utils.py:72
+#: ../gnomeclocks/utils.py:92
 msgid "Tuesdays"
 msgstr "Úterky"
 
-#: ../gnomeclocks/utils.py:73
+#: ../gnomeclocks/utils.py:93
 msgid "Wednesdays"
 msgstr "Středy"
 
-#: ../gnomeclocks/utils.py:74
+#: ../gnomeclocks/utils.py:94
 msgid "Thursdays"
 msgstr "Čtvrtky"
 
-#: ../gnomeclocks/utils.py:75
+#: ../gnomeclocks/utils.py:95
 msgid "Fridays"
 msgstr "Pátky"
 
-#: ../gnomeclocks/utils.py:76
+#: ../gnomeclocks/utils.py:96
 msgid "Saturdays"
 msgstr "Soboty"
 
-#: ../gnomeclocks/utils.py:77
+#: ../gnomeclocks/utils.py:97
 msgid "Sundays"
 msgstr "Neděle"
 
-#: ../gnomeclocks/widgets.py:333
+#: ../gnomeclocks/widgets.py:284
 msgid "Delete"
 msgstr "Smazat"
 
-#: ../gnomeclocks/world.py:66
+#: ../gnomeclocks/world.py:67
 msgid "Add a New World Clock"
 msgstr "Přidání nového světového času"
 
-#: ../gnomeclocks/world.py:75
+#: ../gnomeclocks/world.py:76
 msgid "Search for a city:"
 msgstr "Hledat město:"
 
-#. Translators: "New" refers to a world clock
-#: ../gnomeclocks/world.py:260
-msgid "World"
-msgstr "Svět"
+#: ../gnomeclocks/world.py:177 ../gnomeclocks/world.py:184
+msgid "Yesterday"
+msgstr "Včera"
 
-#: ../gnomeclocks/world.py:271
-msgid "Select <b>New</b> to add a world clock"
-msgstr "Zvolením <b>Nový</b> přidáte světový čas"
+#: ../gnomeclocks/world.py:179 ../gnomeclocks/world.py:182
+msgid "Tomorrow"
+msgstr "Zítra"
 
-#: ../gnomeclocks/world.py:394
+#: ../gnomeclocks/world.py:246
 msgid "Sunrise"
 msgstr "Východ slunce"
 
-#: ../gnomeclocks/world.py:404
+#: ../gnomeclocks/world.py:256
 msgid "Sunset"
 msgstr "Západ slunce"
+
+#. Translators: "New" refers to a world clock
+#: ../gnomeclocks/world.py:307
+msgid "World"
+msgstr "Svět"
+
+#: ../gnomeclocks/world.py:326
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Zvolením <b>Nový</b> přidáte světový čas"
