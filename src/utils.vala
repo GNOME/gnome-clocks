@@ -164,7 +164,7 @@ public class Weekdays {
 
     public static string plural (Day d) {
         assert (d >= 0 && d < 7);
-        return plurals[d].dup ();
+        return plurals[d];
     }
 
     public static string abbreviation (Day d) {
@@ -183,7 +183,7 @@ public class Weekdays {
                  (new GLib.DateTime.utc (1, 1, 7, 0, 0, 0)).format ("%a"),
             };
         }
-        return abbreviations[d].dup ();
+        return abbreviations[d];
     }
 
     private bool[] days= {
@@ -228,13 +228,13 @@ public class Weekdays {
         }
 
         if (n == 0) {
-            r = "".dup ();
+            r = "";
         } else if (n == 1) {
             r = plural ((Day) first);
         } else if (n == 7) {
-            r = _("Every Day").dup ();
+            r = _("Every Day");
         } else if (days_equal (weekdays)) {
-            r = _("Weekdays").dup ();
+            r = _("Weekdays");
         } else {
             string[] abbrs = {};
             for (int i = 0; i < 7; i++) {
