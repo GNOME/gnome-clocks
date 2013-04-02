@@ -8,10 +8,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-19 22:19+0000\n"
-"PO-Revision-Date: 2013-02-21 18:47+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-02 22:26+0200\n"
+"PO-Revision-Date: 2013-04-02 22:26+0200\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "Language: eu\n"
@@ -36,8 +35,7 @@ msgstr ""
 
 #: ../data/gnome-clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr ""
-"ordua;tenporizadorea;alarma;munduko ordulariak;kronometroa;ordu-zona;"
+msgstr "ordua;tenporizadorea;alarma;munduko ordulariak;kronometroa;ordu-zona;"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:1
 msgid "Configured world clocks"
@@ -55,23 +53,41 @@ msgstr "Konfiguratutako alarmak"
 msgid "List of alarms set."
 msgstr "Ezarritako alarmen zerrenda."
 
-#: ../src/alarm.vala:41 ../src/alarm.vala:94 ../src/alarm.vala:101
-#: ../src/alarm.vala:306 ../src/alarm.vala:430
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
+msgid "Timer"
+msgstr "Tenporizadorea"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "Tenporizadorearen denbora segundotan konfiguratuta."
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:476
 msgid "Alarm"
 msgstr "Alarma"
 
-#: ../src/alarm.vala:244
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../data/ui/alarm.ui.h:2
+msgid "Stop"
+msgstr "Gelditu"
+
+#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
+msgid "Snooze"
+msgstr "Errepikatu"
+
+#: ../src/alarm.vala:265
+msgid "Edit Alarm"
+msgstr "Editatu alarma"
+
+#: ../src/alarm.vala:265
 msgid "New Alarm"
 msgstr "Alarma berria"
 
-#: ../src/alarm.vala:246
-#| msgid "Done"
+#: ../src/alarm.vala:267
 msgid "_Done"
 msgstr "_Eginda"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:589 ../src/world.vala:358
+#: ../src/alarm.vala:484 ../src/world.vala:281
 msgid "New"
 msgstr "Berria"
 
@@ -83,214 +99,193 @@ msgstr "Erakutsi bertsioaren informazioa eta irten"
 msgid "Stopwatch"
 msgstr "Kronometroa"
 
-#: ../src/stopwatch.vala:124 ../src/alarm.ui.h:2
-msgid "Stop"
-msgstr "Gelditu"
-
-#: ../src/stopwatch.vala:127 ../src/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:124 ../data/ui/stopwatch.ui.h:3
 msgid "Lap"
 msgstr "Itzulia"
 
-#: ../src/stopwatch.vala:134 ../src/timer.vala:85
+#: ../src/stopwatch.vala:131 ../src/timer.vala:88
 msgid "Continue"
 msgstr "Jarraitu"
 
-#: ../src/stopwatch.vala:138 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:4
+#: ../src/stopwatch.vala:135 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Berrezarri"
 
-#: ../src/stopwatch.vala:146 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:2
+#: ../src/stopwatch.vala:143 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Hasi"
 
-#: ../src/timer.vala:48
-msgid "Timer"
-msgstr "Tenporizadorea"
-
-#: ../src/timer.vala:50
+#: ../src/timer.vala:53
 msgid "Time is up!"
 msgstr "Denbora amaitu da!"
 
-#: ../src/timer.vala:50
+#: ../src/timer.vala:53
 msgid "Timer countdown finished"
 msgstr "Tenporizadorearen atzekoz aurrera zenbatzea amaituta"
 
-#: ../src/timer.vala:90 ../src/timer.vala:100 ../src/timer.ui.h:3
+#: ../src/timer.vala:93 ../src/timer.vala:103 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Pausatu"
 
-#: ../src/utils.vala:147
+#: ../src/utils.vala:149
 msgid "Mondays"
 msgstr "Astelehenero"
 
-#: ../src/utils.vala:148
+#: ../src/utils.vala:150
 msgid "Tuesdays"
 msgstr "Asteartero"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:151
 msgid "Wednesdays"
 msgstr "Asteazkenero"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:152
 msgid "Thursdays"
 msgstr "Ostegunero"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:153
 msgid "Fridays"
 msgstr "Ostiralero"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:154
 msgid "Saturdays"
 msgstr "Larunbatero"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:155
 msgid "Sundays"
 msgstr "Igandero"
 
-#: ../src/utils.vala:233
-#| msgid "Every day"
+#: ../src/utils.vala:235
 msgid "Every Day"
 msgstr "Egunero"
 
-#: ../src/utils.vala:235
+#: ../src/utils.vala:237
 msgid "Weekdays"
 msgstr "Astegunero"
 
-#: ../src/widgets.vala:401 ../src/widgets.vala:470
+#: ../src/widgets.vala:386
+msgid "Done"
+msgstr "Eginda"
+
+#: ../src/widgets.vala:398 ../src/widgets.vala:433
 msgid "Click on items to select them"
 msgstr "Egin klik elementuetan haiek hautatzeko"
 
-#: ../src/widgets.vala:403
+#: ../src/widgets.vala:435
 #, c-format
-#| msgid "{0} item selected"
-#| msgid_plural "{0} items selected"
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d hautatuta"
 msgstr[1] "%d hautatuta"
 
-#: ../src/widgets.vala:426
+#: ../src/widgets.vala:477
 msgid "Delete"
 msgstr "Ezabatu"
 
-#: ../src/widgets.vala:469
-msgid "Done"
-msgstr "Eginda"
-
-#: ../src/window.vala:146
-#| msgid "GNOME Clocks"
+#: ../src/window.vala:142
 msgid "Gnome Clocks"
 msgstr "GNOMEren ordulariak"
 
-#: ../src/window.vala:149
+#: ../src/window.vala:145
 msgid "Utilities to help you with the time."
 msgstr "Orduarekin lagunduko dizuten tresnak."
 
-#: ../src/window.vala:154
+#: ../src/window.vala:150
 msgid "translator-credits"
 msgstr ""
 "Asier Sarasua Garmendia <asiersar@yahoo.com>\n"
 "Iñaki Larrañaga Murgoitio <dooteo@zundan.com>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:80 ../src/world.vala:83
+#: ../src/world.vala:102 ../src/world.vala:105
 msgid "Tomorrow"
 msgstr "Bihar"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:80 ../src/world.vala:83
+#: ../src/world.vala:102 ../src/world.vala:105
 msgid "Yesterday"
 msgstr "Atzo"
 
-#: ../src/world.vala:137
+#: ../src/world.vala:172
 msgid "Add a New World Clock"
 msgstr "Gehitu munduko ordulari berri bat"
 
-#: ../src/world.vala:234
+#: ../src/world.vala:270
 msgid "World"
 msgstr "Mundua"
 
 #. namespace World
 #. namespace Clocks
-#: ../src/alarm.ui.h:1
+#: ../data/ui/alarm.ui.h:1
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Hautatu <b>Berria</b> alarma bat gehitzeko"
 
-#: ../src/alarm.ui.h:3
-msgid "Snooze"
-msgstr "Errepikatu"
-
-#: ../src/alarm.ui.h:4 ../src/timer.ui.h:1
-msgid ":"
-msgstr ":"
-
-#: ../src/alarm.ui.h:5
+#: ../data/ui/alarm.ui.h:4
 msgid "Name"
 msgstr "Izena"
 
-#: ../src/alarm.ui.h:6
+#: ../data/ui/alarm.ui.h:5
 msgid "Repeat Every"
 msgstr "Errepikatze-aldia"
 
-#: ../src/alarm.ui.h:7
+#: ../data/ui/alarm.ui.h:6
 msgid "Active"
 msgstr "Aktibo"
 
-#: ../src/menu.ui.h:1
+#: ../data/ui/menu.ui.h:1
 msgid "_New"
 msgstr "_Berria"
 
-#: ../src/menu.ui.h:2
+#: ../data/ui/menu.ui.h:2
 msgid "_About"
 msgstr "Honi _buruz"
 
-#: ../src/menu.ui.h:3
-#| msgid "Quit"
+#: ../data/ui/menu.ui.h:3
 msgid "_Quit"
 msgstr "I_rten"
 
-#: ../src/menu.ui.h:4
+#: ../data/ui/menu.ui.h:4
 msgid "Select All"
 msgstr "Hautatu denak"
 
-#: ../src/menu.ui.h:5
+#: ../data/ui/menu.ui.h:5
 msgid "Select None"
 msgstr "Bat ere ez hautatu"
 
-#: ../src/stopwatch.ui.h:4
+#: ../data/ui/stopwatch.ui.h:4
 msgid "Split"
 msgstr "Zatitu"
 
-#: ../src/stopwatch.ui.h:5
+#: ../data/ui/stopwatch.ui.h:5
 msgid "Total"
 msgstr "Guztira"
 
-#: ../src/world.ui.h:1
+#: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Hautatu <b>Berria</b> munduko beste ordulari bat gehitzeko"
 
-#: ../src/world.ui.h:2
+#: ../data/ui/world.ui.h:2
 msgid "Search for a city:"
 msgstr "Bilatu hiria:"
 
-#: ../src/world.ui.h:3
-msgid "  "
-msgstr "  "
-
-#: ../src/world.ui.h:4
+#: ../data/ui/world.ui.h:3
 msgid "Sunrise"
 msgstr "Egunsentia"
 
-#: ../src/world.ui.h:5
+#: ../data/ui/world.ui.h:4
 msgid "Sunset"
 msgstr "Ilunabarra"
 
-#: ../src/world.ui.h:6
-msgid "label"
-msgstr "etiketa"
+#~ msgid ":"
+#~ msgstr ":"
 
-#~ msgid "Edit Alarm"
-#~ msgstr "Editatu alarma"
+#~ msgid "  "
+#~ msgstr "  "
+
+#~ msgid "label"
+#~ msgstr "etiketa"
 
 #~ msgid "Time"
 #~ msgstr "Ordua"
