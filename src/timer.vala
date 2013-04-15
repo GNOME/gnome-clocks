@@ -226,6 +226,12 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
         // Note that the format uses unicode RATIO character
         time_label.set_text ("%02i∶%02i∶%02i".printf (h, m, s));
     }
+
+    public override void grab_focus () {
+        if (visible_child == setup_panel) {
+            start_button.grab_focus ();
+        }
+    }
 }
 
 } // namespace Timer

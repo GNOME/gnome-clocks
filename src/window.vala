@@ -156,6 +156,7 @@ public class Window : Gtk.ApplicationWindow {
         var clock = (Clock) stack.visible_child;
         if (clock != null) {
             clock.update_header_bar ();
+            ((Gtk.Widget) clock).grab_focus ();
         }
     }
 }

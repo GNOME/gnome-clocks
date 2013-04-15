@@ -228,6 +228,10 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
 
         return true;
     }
+
+    public override void grab_focus () {
+        left_button.grab_focus ();
+    }
 }
 
 } // namespace Stopwatch
