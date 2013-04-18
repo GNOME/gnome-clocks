@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-06 07:27+0000\n"
-"PO-Revision-Date: 2013-03-09 18:05+0200\n"
+"POT-Creation-Date: 2013-03-29 16:47+0000\n"
+"PO-Revision-Date: 2013-04-01 18:39+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -33,8 +33,8 @@ msgstr "Kellot eri puolille maailmaa, hälytykset, sekuntikello ja ajastin"
 #: ../data/gnome-clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
-"time;timer;alarm;world clock;stopwatch;time "
-"zone;aika;ajastin;hälytys;maailmankello;aikavyöhyke;"
+"time;timer;alarm;world clock;stopwatch;time zone;aika;ajastin;hälytys;"
+"maailmankello;aikavyöhyke;"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:1
 msgid "Configured world clocks"
@@ -60,15 +60,15 @@ msgstr "Ajastin"
 msgid "Configured timer duration in seconds."
 msgstr "Määritetty ajastimen kesto sekunneissa."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:475
+#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:476
 msgid "Alarm"
 msgstr "Hälytys"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../src/alarm.ui.h:2
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Pysäytä"
 
-#: ../src/alarm.vala:109 ../src/alarm.ui.h:3
+#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Torkku"
 
@@ -81,13 +81,12 @@ msgid "New Alarm"
 msgstr "Uusi hälytys"
 
 #: ../src/alarm.vala:267
-#| msgid "Done"
 msgid "_Done"
 msgstr "_Valmis"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:616 ../src/world.vala:360
+#: ../src/alarm.vala:484 ../src/world.vala:281
 msgid "New"
 msgstr "Uusi"
 
@@ -99,7 +98,7 @@ msgstr "Tulosta versiotiedot ja poistu"
 msgid "Stopwatch"
 msgstr "Sekuntikello"
 
-#: ../src/stopwatch.vala:124 ../src/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:124 ../data/ui/stopwatch.ui.h:3
 msgid "Lap"
 msgstr "Kierros"
 
@@ -107,11 +106,13 @@ msgstr "Kierros"
 msgid "Continue"
 msgstr "Jatka"
 
-#: ../src/stopwatch.vala:135 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:3
+#: ../src/stopwatch.vala:135 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Nollaa"
 
-#: ../src/stopwatch.vala:143 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:1
+#: ../src/stopwatch.vala:143 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Käynnistä"
 
@@ -123,7 +124,7 @@ msgstr "Aika loppui!"
 msgid "Timer countdown finished"
 msgstr "Ajastimen laskenta valmistui"
 
-#: ../src/timer.vala:93 ../src/timer.vala:103 ../src/timer.ui.h:2
+#: ../src/timer.vala:93 ../src/timer.vala:103 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Keskeytä"
 
@@ -156,7 +157,6 @@ msgid "Sundays"
 msgstr "Sunnuntaisin"
 
 #: ../src/utils.vala:235
-#| msgid "Every day"
 msgid "Every Day"
 msgstr "Päivittäin"
 
@@ -164,118 +164,114 @@ msgstr "Päivittäin"
 msgid "Weekdays"
 msgstr "Arkisin"
 
-#: ../src/widgets.vala:417 ../src/widgets.vala:568
+#: ../src/widgets.vala:386
+msgid "Done"
+msgstr "Valmis"
+
+#: ../src/widgets.vala:398 ../src/widgets.vala:433
 msgid "Click on items to select them"
 msgstr "Napsauta kohteita valitaksesi ne"
 
-#: ../src/widgets.vala:419
+#: ../src/widgets.vala:435
 #, c-format
-#| msgid "{0} item selected"
-#| msgid_plural "{0} items selected"
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d valittu"
 msgstr[1] "%d valittu"
 
-#: ../src/widgets.vala:461
+#: ../src/widgets.vala:477
 msgid "Delete"
 msgstr "Poista"
 
-#: ../src/widgets.vala:567
-msgid "Done"
-msgstr "Valmis"
-
-#: ../src/window.vala:147
-#| msgid "GNOME Clocks"
+#: ../src/window.vala:142
 msgid "Gnome Clocks"
 msgstr "Gnomen kellot"
 
-#: ../src/window.vala:150
+#: ../src/window.vala:145
 msgid "Utilities to help you with the time."
 msgstr "Ajan kanssa helpottavat työkalut."
 
-#: ../src/window.vala:155
+#: ../src/window.vala:150
 msgid "translator-credits"
 msgstr "Jiri Grönroos"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:90 ../src/world.vala:93
+#: ../src/world.vala:102 ../src/world.vala:105
 msgid "Tomorrow"
 msgstr "Huomenna"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:90 ../src/world.vala:93
+#: ../src/world.vala:102 ../src/world.vala:105
 msgid "Yesterday"
 msgstr "Eilen"
 
-#: ../src/world.vala:160
+#: ../src/world.vala:172
 msgid "Add a New World Clock"
 msgstr "Lisää uusi maailmankello"
 
-#: ../src/world.vala:256
+#: ../src/world.vala:270
 msgid "World"
 msgstr "Maailma"
 
 #. namespace World
 #. namespace Clocks
-#: ../src/alarm.ui.h:1
+#: ../data/ui/alarm.ui.h:1
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Lisää hälytys valitsemalla <b>Uusi</b>"
 
-#: ../src/alarm.ui.h:4
+#: ../data/ui/alarm.ui.h:4
 msgid "Name"
 msgstr "Nimi"
 
-#: ../src/alarm.ui.h:5
+#: ../data/ui/alarm.ui.h:5
 msgid "Repeat Every"
 msgstr "Toisto"
 
-#: ../src/alarm.ui.h:6
+#: ../data/ui/alarm.ui.h:6
 msgid "Active"
 msgstr "Aktiivinen"
 
-#: ../src/menu.ui.h:1
+#: ../data/ui/menu.ui.h:1
 msgid "_New"
 msgstr "_Uusi"
 
-#: ../src/menu.ui.h:2
+#: ../data/ui/menu.ui.h:2
 msgid "_About"
 msgstr "_Tietoja"
 
-#: ../src/menu.ui.h:3
-#| msgid "Quit"
+#: ../data/ui/menu.ui.h:3
 msgid "_Quit"
 msgstr "_Lopeta"
 
-#: ../src/menu.ui.h:4
+#: ../data/ui/menu.ui.h:4
 msgid "Select All"
 msgstr "Valitse kaikki"
 
-#: ../src/menu.ui.h:5
+#: ../data/ui/menu.ui.h:5
 msgid "Select None"
 msgstr "Poista valinnat"
 
-#: ../src/stopwatch.ui.h:4
+#: ../data/ui/stopwatch.ui.h:4
 msgid "Split"
-msgstr "Jaettu"
+msgstr "Väliaika"
 
-#: ../src/stopwatch.ui.h:5
+#: ../data/ui/stopwatch.ui.h:5
 msgid "Total"
 msgstr "Yhteensä"
 
-#: ../src/world.ui.h:1
+#: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Lisää maailmankello valitsemalla <b>Uusi</b>"
 
-#: ../src/world.ui.h:2
+#: ../data/ui/world.ui.h:2
 msgid "Search for a city:"
 msgstr "Etsi kaupunkia:"
 
-#: ../src/world.ui.h:3
+#: ../data/ui/world.ui.h:3
 msgid "Sunrise"
 msgstr "Auringonnousu"
 
-#: ../src/world.ui.h:4
+#: ../data/ui/world.ui.h:4
 msgid "Sunset"
 msgstr "Auringonlasku"
 
