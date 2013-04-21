@@ -9,6 +9,14 @@ SUBDIRS = libgd po
 applicationsdir = $(datadir)/applications
 applications_DATA = data/gnome-clocks.desktop
 dist_noinst_DATA = data/gnome-clocks.desktop.in
+dbusservicedir = $(datadir)/dbus-1/services
+dbusservice_DATA = data/org.gnome.clocks.service
+
+data/org.gnome.clocks.service: Makefile
+	$(AM_V_GEN) (echo '[D-BUS Service]'; \
+	             echo 'Name=org.gnome.clocks'; \
+	             echo 'Exec=${libexecdir}/gnome-clocks-service') > $@.tmp && \
+	            mv $@.tmp $@
 
 # gsettings
 gsettings_SCHEMAS = data/org.gnome.clocks.gschema.xml
@@ -91,6 +99,7 @@ AM_VALAFLAGS = \
 	--pkg libnotify \
 	--pkg gd-1.0
 
+libexec_PROGRAMS = gnome-clocks-service
 bin_PROGRAMS = gnome-clocks
 
 BUILT_SOURCES = \
@@ -111,7 +120,7 @@ VALA_SOURCES = \
 	src/widgets.vala \
 	src/main.vala
 
-gnome_clocks_SOURCES = \
+gnome_clocks_service_SOURCES = \
 	$(BUILT_SOURCES) \
 	$(VALA_SOURCES) \
 	src/cutils.c \
@@ -125,11 +134,16 @@ AM_CFLAGS = \
 	-Wno-unused-but-set-variable \
 	-Wno-unused-variable
 
-gnome_clocks_LDFLAGS = -export-dynamic
-gnome_clocks_LDADD = \
+gnome_clocks_service_LDFLAGS = -export-dynamic
+gnome_clocks_service_LDADD = \
 	$(top_builddir)/libgd/libgd.la \
 	$(CLOCKS_LIBS) \
 	-lm
+
+gnome_clocks_LDADD = $(CLOCKS_LIBS)
+gnome_clocks_SOURCES = \
+	src/launcher.vala \
+	src/config.vapi
 
 EXTRA_DIST = \
 	$(icon_files) \
