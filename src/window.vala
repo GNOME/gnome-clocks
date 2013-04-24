@@ -139,7 +139,7 @@ public class Window : Gtk.ApplicationWindow {
         };
 
         Gtk.show_about_dialog (this,
-                               "program-name", _("Gnome Clocks"),
+                               "program-name", _("Clocks"),
                                "logo-icon-name", "gnome-clocks",
                                "version", Config.VERSION,
                                "comments", _("Utilities to help you with the time."),
