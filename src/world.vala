@@ -204,14 +204,22 @@ private class LocationDialog : Gtk.Dialog {
 
     private void location_changed () {
         GWeather.Location? l = null;
+        GWeather.Timezone? t = null;
         if (entry.get_text () == "") {
             entry.set_icon_from_gicon (Gtk.EntryIconPosition.SECONDARY, find_icon);
         } else {
             entry.set_icon_from_gicon (Gtk.EntryIconPosition.SECONDARY, clear_icon);
             l = entry.get_location ();
+            if (l != null) {
+                t = l.get_timezone ();
+
+                if (t == null) {
+                    GLib.warning ("Timezone not defined for %s. This is a bug in libgweather database", l.get_city_name ());
+                }
+            }
         }
 
-        set_response_sensitive(1, l != null);
+        set_response_sensitive(1, l != null && t != null);
     }
 
     public Item? get_location () {
