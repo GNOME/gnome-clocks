@@ -19,6 +19,12 @@
 namespace Clocks {
 
 public class Application : Gtk.Application {
+    static bool print_version;
+    const OptionEntry[] option_entries = {
+        { "version", 'v', 0, OptionArg.NONE, ref print_version, N_("Print version information and exit"), null },
+        { null }
+    };
+
     const GLib.ActionEntry[] action_entries = {
         { "quit", on_quit_activate }
     };
@@ -26,7 +32,7 @@ public class Application : Gtk.Application {
     private Window window;
 
     public Application () {
-        Object (application_id: "org.gnome.clocks", flags: ApplicationFlags.IS_SERVICE);
+        Object (application_id: "org.gnome.clocks");
 
         add_action_entries (action_entries, this);
     }
@@ -52,6 +58,31 @@ public class Application : Gtk.Application {
         set_app_menu (app_menu);
 
         add_accelerator ("<Primary>a", "win.select-all", null);
+    }
+
+    protected override bool local_command_line ([CCode (array_length = false, array_null_terminated = true)] ref unowned string[] arguments, out int exit_status) {
+        var ctx = new OptionContext ("");
+
+        ctx.add_main_entries (option_entries, Config.GETTEXT_PACKAGE);
+        ctx.add_group (Gtk.get_option_group (true));
+
+        // Workaround for bug #642885
+        unowned string[] argv = arguments;
+
+        try {
+            ctx.parse (ref argv);
+        } catch (Error e) {
+            exit_status = 1;
+            return true;
+        }
+
+        if (print_version) {
+            print ("%s %s\n", Environment.get_application_name (), Config.VERSION);
+            exit_status = 0;
+            return true;
+        }
+
+        return base.local_command_line (ref arguments, out exit_status);
     }
 
     void on_quit_activate () {
