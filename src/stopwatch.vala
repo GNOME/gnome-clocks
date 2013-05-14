@@ -34,6 +34,7 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
 
     public string label { get; construct set; }
     public HeaderBar header_bar { get; construct set; }
+    public PanelId panel_id { get; construct set; }
 
     private State state;
     private GLib.Timer timer;
@@ -47,7 +48,7 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
     private Gtk.TreeView laps_view;
 
     public MainPanel (HeaderBar header_bar) {
-        Object (label: _("Stopwatch"), header_bar: header_bar);
+        Object (label: _("Stopwatch"), header_bar: header_bar, panel_id: PanelId.STOPWATCH);
 
         timer = new GLib.Timer ();
         timeout_id = 0;

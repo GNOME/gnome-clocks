@@ -18,9 +18,19 @@
 
 namespace Clocks {
 
+public enum PanelId {
+    WORLD,
+    ALARM,
+    STOPWATCH,
+    TIMER,
+}
+
+public static const int N_PANELS = 4;
+
 public interface Clock : GLib.Object {
     public abstract string label { get; protected construct set; }
     public abstract HeaderBar header_bar { get; protected construct set; }
+    public abstract PanelId panel_id { get; protected construct set; }
 
     public virtual void activate_new () {
     }

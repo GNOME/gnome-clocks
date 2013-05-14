@@ -465,6 +465,7 @@ private class RingingPanel : Gtk.EventBox {
 public class MainPanel : Gd.Stack, Clocks.Clock {
     public string label { get; construct set; }
     public HeaderBar header_bar { get; construct set; }
+    public PanelId panel_id { get; construct set; }
 
     private List<Item> alarms;
     private GLib.Settings settings;
@@ -473,7 +474,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     private RingingPanel ringing_panel;
 
     public MainPanel (HeaderBar header_bar) {
-        Object (label: _("Alarm"), header_bar: header_bar);
+        Object (label: _("Alarm"), header_bar: header_bar, panel_id: PanelId.ALARM);
 
         alarms = new List<Item> ();
         settings = new GLib.Settings ("org.gnome.clocks");

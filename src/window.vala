@@ -19,10 +19,6 @@
 namespace Clocks {
 
 public class Window : Gtk.ApplicationWindow {
-    // Default size is enough for two rows of three clocks
-    private const int DEFAULT_WIDTH = 870;
-    private const int DEFAULT_HEIGHT = 680;
-
     private const GLib.ActionEntry[] action_entries = {
         // app menu
         { "new", on_new_activate },
@@ -35,10 +31,8 @@ public class Window : Gtk.ApplicationWindow {
 
     private HeaderBar header_bar;
     private Gd.Stack stack;
-    private World.MainPanel world;
-    private Alarm.MainPanel alarm;
-    private Stopwatch.MainPanel stopwatch;
-    private Timer.MainPanel timer;
+    private GLib.Settings settings;
+    private Gtk.Widget[] panels;
 
     public Window (Application app) {
         Object (application: app, title: _("Clocks"));
@@ -46,7 +40,17 @@ public class Window : Gtk.ApplicationWindow {
         set_hide_titlebar_when_maximized (true);
         add_action_entries (action_entries, this);
 
-        set_size_request (DEFAULT_WIDTH, DEFAULT_HEIGHT);
+        settings = new Settings ("org.gnome.clocks.state.window");
+
+        // Setup window geometry saving
+        Gdk.WindowState window_state = (Gdk.WindowState)settings.get_int ("state");
+        if (Gdk.WindowState.MAXIMIZED in window_state) {
+            maximize ();
+        }
+
+        int width, height;
+        settings.get ("size", "(ii)", out width, out height);
+        resize (width, height);
 
         var builder = Utils.load_ui ("window.ui");
 
@@ -54,15 +58,16 @@ public class Window : Gtk.ApplicationWindow {
         header_bar = builder.get_object ("header_bar") as HeaderBar;
         stack = builder.get_object ("stack") as Gd.Stack;
 
-        world = new World.MainPanel (header_bar);
-        alarm = new Alarm.MainPanel (header_bar);
-        stopwatch = new Stopwatch.MainPanel (header_bar);
-        timer = new Timer.MainPanel (header_bar);
+        panels = new Gtk.Widget[N_PANELS];
 
-        stack.add_titled (world, world.label, world.label);
-        stack.add_titled (alarm, alarm.label, alarm.label);
-        stack.add_titled (stopwatch, stopwatch.label, stopwatch.label);
-        stack.add_titled (timer, timer.label, timer.label);
+        panels[PanelId.WORLD] = new World.MainPanel (header_bar);
+        panels[PanelId.ALARM] =  new Alarm.MainPanel (header_bar);
+        panels[PanelId.STOPWATCH] = new Stopwatch.MainPanel (header_bar);
+        panels[PanelId.TIMER] = new Timer.MainPanel (header_bar);
+
+        foreach (var clock in panels) {
+            stack.add_titled (clock, ((Clock)clock).label, ((Clock)clock).label);
+        }
 
         header_bar.set_stack (stack);
 
@@ -81,15 +86,16 @@ public class Window : Gtk.ApplicationWindow {
             stack_id = 0;
         });
 
-        alarm.ring.connect ((w) => {
+        ((Alarm.MainPanel)panels[PanelId.ALARM]).ring.connect ((w) => {
             stack.visible_child = w;
         });
 
-        timer.ring.connect ((w) => {
+        ((Timer.MainPanel)panels[PanelId.TIMER]).ring.connect ((w) => {
             stack.visible_child = w;
         });
 
-        stack.visible_child = world;
+        stack.visible_child = panels[settings.get_enum ("panel-id")];
+
         update_header_bar ();
 
         add (main_panel);
@@ -115,6 +121,19 @@ public class Window : Gtk.ApplicationWindow {
         }
 
         return base.key_press_event (event);
+    }
+
+    protected override bool configure_event (Gdk.EventConfigure event) {
+        if (get_realized () && !(Gdk.WindowState.MAXIMIZED in get_window ().get_state ())) {
+            settings.set ("size", "(ii)", event.width, event.height);
+        }
+
+        return base.configure_event (event);
+    }
+
+    protected override bool window_state_event (Gdk.EventWindowState event) {
+        settings.set_int ("state", event.new_window_state);
+        return base.window_state_event (event);
     }
 
     private void on_about_activate () {
@@ -155,6 +174,7 @@ public class Window : Gtk.ApplicationWindow {
         header_bar.clear ();
         var clock = (Clock) stack.visible_child;
         if (clock != null) {
+            settings.set_enum ("panel-id", clock.panel_id);
             clock.update_header_bar ();
             ((Gtk.Widget) clock).grab_focus ();
         }

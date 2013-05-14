@@ -22,4 +22,36 @@
       </_description>
     </key>
   </schema>
+  <enum id="org.gnome.clocks.panelid">
+    <value nick="world" value="0"/>
+    <value nick="alarm" value="1"/>
+    <value nick="stopwatch" value="2"/>
+    <value nick="timer" value="3"/>
+  </enum>
+  <schema id="org.gnome.clocks.state" path="/org/gnome/clocks/state/">
+    <child schema="org.gnome.clocks.state.window" name="window"/>
+  </schema>
+  <schema id="org.gnome.clocks.state.window" path="/org/gnome/clocks/state/window/">
+    <key type="i" name="state">
+      <default>0</default>
+      <summary>Window state</summary>
+      <description>
+        State of the window: i.e. maximized.
+      </description>
+    </key>
+    <key type="(ii)" name="size">
+      <default>(870, 690)</default>
+      <_summary>Window width and height</_summary>
+      <_description>
+        Width and height of the window.
+      </_description>
+    </key>
+    <key enum="org.gnome.clocks.panelid" name="panel-id">
+      <default>"world"</default>
+      <_summary>Panel state</_summary>
+      <_description>
+        Current clock panel.
+      </_description>
+    </key>
+  </schema>
 </schemalist>
