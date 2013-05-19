@@ -19,15 +19,6 @@
 namespace Clocks {
 namespace World {
 
-static GWeather.Location? gweather_world = null;
-
-private GWeather.Location get_world_location () {
-    if (gweather_world == null) {
-        gweather_world = new GWeather.Location.world (true);
-    }
-    return gweather_world;
-}
-
 private class Item : Object, ContentItem {
     private static Gdk.Pixbuf? day_pixbuf = Utils.load_image ("day.png");
     private static Gdk.Pixbuf? night_pixbuf = Utils.load_image ("night.png");
@@ -130,7 +121,7 @@ private class Item : Object, ContentItem {
         date_time = local_time.to_timezone (time_zone);
 
         // We don't need to call update(), we're using only astronomical data
-        weather_info = new GWeather.Info.for_world (get_world_location (), location, GWeather.ForecastType.LIST);
+        weather_info = new GWeather.Info (location, GWeather.ForecastType.LIST);
     }
 
     public void get_thumb_properties (out string text, out string subtext, out Gdk.Pixbuf? pixbuf, out string css_class) {
@@ -153,10 +144,15 @@ private class Item : Object, ContentItem {
 
     public static Item deserialize (GLib.Variant location_variant) {
         GWeather.Location? location = null;
+
+        // This looks like a constructor for historic reasons
+        // it returns the same instance after the first call
+        var world = new GWeather.Location.world (true);
+
         foreach (var v in location_variant) {
             var key = v.get_child_value (0).get_string ();
             if (key == "location") {
-                location = get_world_location ().deserialize (v.get_child_value (1).get_child_value (0));
+                location = world.deserialize (v.get_child_value (1).get_child_value (0));
             }
         }
         return location != null ? new Item (location) : null;
@@ -165,8 +161,6 @@ private class Item : Object, ContentItem {
 
 private class LocationDialog : Gtk.Dialog {
     private GWeather.LocationEntry entry;
-    private GLib.ThemedIcon find_icon;
-    private GLib.ThemedIcon clear_icon;
 
     public LocationDialog (Gtk.Window parent) {
         Object (transient_for: parent, modal: true, title: _("Add a New World Clock"));
@@ -180,14 +174,7 @@ private class LocationDialog : Gtk.Dialog {
         var grid = builder.get_object ("location_dialog_content") as Gtk.Grid;
         get_content_area ().add (grid);
 
-        entry = new GWeather.LocationEntry (get_world_location ());
-        entry.set_size_request (400, -1);
-        find_icon = new GLib.ThemedIcon.with_default_fallbacks ("edit-find-symbolic");
-        clear_icon = new GLib.ThemedIcon.with_default_fallbacks ("edit-clear-symbolic");
-        entry.set_icon_from_gicon (Gtk.EntryIconPosition.SECONDARY, find_icon);
-        entry.set_activates_default (true);
-        entry.show ();
-        grid.attach (entry, 0, 1, 1, 1);
+        entry = builder.get_object ("location_entry") as GWeather.LocationEntry;
 
         entry.changed.connect (() => {
             location_changed ();
@@ -196,7 +183,7 @@ private class LocationDialog : Gtk.Dialog {
             location_changed ();
         });
         entry.icon_release.connect (() => {
-            if (entry.get_icon_gicon (Gtk.EntryIconPosition.SECONDARY) == clear_icon) {
+            if (entry.secondary_icon_name == "edit-clear-symbolic") {
                 entry.set_text ("");
             }
         });
@@ -206,9 +193,10 @@ private class LocationDialog : Gtk.Dialog {
         GWeather.Location? l = null;
         GWeather.Timezone? t = null;
         if (entry.get_text () == "") {
-            entry.set_icon_from_gicon (Gtk.EntryIconPosition.SECONDARY, find_icon);
+            entry.secondary_icon_name = "edit-find-symbolic";
         } else {
-            entry.set_icon_from_gicon (Gtk.EntryIconPosition.SECONDARY, clear_icon);
+            entry.secondary_icon_name = "edit-clear-symbolic";
+
             l = entry.get_location ();
             if (l != null) {
                 t = l.get_timezone ();

@@ -61,6 +61,21 @@
         <property name="height">1</property>
       </packing>
     </child>
+    <child>
+      <object class="GWeatherLocationEntry" id="location_entry">
+        <property name="width_request">400</property>
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="secondary_icon_name">edit-find-symbolic</property>
+        <property name="activates-default">True</property>
+      </object>
+      <packing>
+        <property name="left_attach">0</property>
+        <property name="top_attach">1</property>
+        <property name="width">1</property>
+        <property name="height">1</property>
+      </packing>
+    </child>
   </object>
   <object class="GtkGrid" id="standalone_content">
     <property name="visible">True</property>
