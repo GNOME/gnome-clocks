@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks 3.8.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-03 13:58+0200\n"
-"PO-Revision-Date: 2013-04-03 14:00+0200\n"
+"POT-Creation-Date: 2013-05-20 14:09+0200\n"
+"PO-Revision-Date: 2013-05-20 14:09+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -18,7 +18,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8-bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:38
+#: ../src/window.vala:161
 msgid "Clocks"
 msgstr "Klokker"
 
@@ -50,7 +51,7 @@ msgstr "Konfigurerte alarmer"
 msgid "List of alarms set."
 msgstr "Liste med alarmer som er satt."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:50
 msgid "Timer"
 msgstr "Nedtelling"
 
@@ -58,11 +59,27 @@ msgstr "Nedtelling"
 msgid "Configured timer duration in seconds."
 msgstr "Konfigurert varighet for nedtelling i sekunder."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:476
+#: ../data/org.gnome.clocks.gschema.xml.in.h:7
+msgid "Window width and height"
+msgstr "Høyde og bredde på vindu"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:8
+msgid "Width and height of the window."
+msgstr "Høyde og bredde på vinduet."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:9
+msgid "Panel state"
+msgstr "Tilstand for panel"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:10
+msgid "Current clock panel."
+msgstr "Aktivt klokkepanel."
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:477
 msgid "Alarm"
 msgstr "Alarm"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:122 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Stopp"
 
@@ -84,7 +101,7 @@ msgstr "Fer_dig"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:484 ../src/world.vala:281
+#: ../src/alarm.vala:485 ../src/world.vala:278
 msgid "New"
 msgstr "Ny"
 
@@ -92,37 +109,37 @@ msgstr "Ny"
 msgid "Print version information and exit"
 msgstr "Skriv ut versjonsinformasjon og avslutt"
 
-#: ../src/stopwatch.vala:50
+#: ../src/stopwatch.vala:51
 msgid "Stopwatch"
 msgstr "Stoppeklokke"
 
-#: ../src/stopwatch.vala:124 ../data/ui/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:125 ../data/ui/stopwatch.ui.h:3
 msgid "Lap"
 msgstr "Runde"
 
-#: ../src/stopwatch.vala:131 ../src/timer.vala:88
+#: ../src/stopwatch.vala:132 ../src/timer.vala:89
 msgid "Continue"
 msgstr "Fortsett"
 
-#: ../src/stopwatch.vala:135 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:136 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Nullstill"
 
-#: ../src/stopwatch.vala:143 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:144 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Start"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:54
 msgid "Time is up!"
 msgstr "Tiden er ute!"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:54
 msgid "Timer countdown finished"
 msgstr "Nedtelling fullført"
 
-#: ../src/timer.vala:93 ../src/timer.vala:103 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:94 ../src/timer.vala:104 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Pause"
 
@@ -181,35 +198,31 @@ msgstr[1] "%d valgt"
 msgid "Delete"
 msgstr "Slett"
 
-#: ../src/window.vala:142
-msgid "Gnome Clocks"
-msgstr "GNOME klokker"
-
-#: ../src/window.vala:145
+#: ../src/window.vala:164
 msgid "Utilities to help you with the time."
 msgstr "Verktøy som hjelper deg å holde orden på tiden."
 
-#: ../src/window.vala:150
+#: ../src/window.vala:169
 msgid "translator-credits"
 msgstr ""
 "Kjartan Maraas <kmaraas@gnome.org>\n"
 "Torstein Adolf Winterseth <kvikende@fsfe.org>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:102 ../src/world.vala:105
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Tomorrow"
 msgstr "I morgen"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:102 ../src/world.vala:105
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Yesterday"
 msgstr "I går"
 
-#: ../src/world.vala:172
+#: ../src/world.vala:166
 msgid "Add a New World Clock"
 msgstr "Legg til en ny verdensklokke"
 
-#: ../src/world.vala:270
+#: ../src/world.vala:267
 msgid "World"
 msgstr "Verden"
 
