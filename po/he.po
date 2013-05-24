@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks 3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-03 08:39+0300\n"
-"PO-Revision-Date: 2013-04-03 08:39+0200\n"
+"POT-Creation-Date: 2013-05-24 12:16+0300\n"
+"PO-Revision-Date: 2013-05-24 12:16+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <sh.yaron@gmail.com>\n"
 "Language: \n"
@@ -21,7 +21,8 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: ../data/gnome-clocks.desktop.in.h:1
-#: ../src/window.vala:44
+#: ../src/window.vala:38
+#: ../src/window.vala:161
 msgid "Clocks"
 msgstr "שעונים"
 
@@ -54,7 +55,7 @@ msgid "List of alarms set."
 msgstr "List of alarms set."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:5
-#: ../src/timer.vala:49
+#: ../src/timer.vala:50
 msgid "Timer"
 msgstr "קוצב זמן"
 
@@ -62,14 +63,30 @@ msgstr "קוצב זמן"
 msgid "Configured timer duration in seconds."
 msgstr "Configured timer duration in seconds."
 
+#: ../data/org.gnome.clocks.gschema.xml.in.h:7
+msgid "Window width and height"
+msgstr "Window width and height"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:8
+msgid "Width and height of the window."
+msgstr "Width and height of the window."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:9
+msgid "Panel state"
+msgstr "Panel state"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:10
+msgid "Current clock panel."
+msgstr "Current clock panel."
+
 #: ../src/alarm.vala:105
 #: ../src/alarm.vala:327
-#: ../src/alarm.vala:476
+#: ../src/alarm.vala:477
 msgid "Alarm"
 msgstr "התרעה"
 
 #: ../src/alarm.vala:106
-#: ../src/stopwatch.vala:121
+#: ../src/stopwatch.vala:122
 #: ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "עצירה"
@@ -93,8 +110,8 @@ msgstr "_בוצע"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:484
-#: ../src/world.vala:281
+#: ../src/alarm.vala:485
+#: ../src/world.vala:278
 msgid "New"
 msgstr "חדש"
 
@@ -102,42 +119,42 @@ msgstr "חדש"
 msgid "Print version information and exit"
 msgstr "Print version information and exit"
 
-#: ../src/stopwatch.vala:50
+#: ../src/stopwatch.vala:51
 msgid "Stopwatch"
 msgstr "שעון עצר"
 
-#: ../src/stopwatch.vala:124
+#: ../src/stopwatch.vala:125
 #: ../data/ui/stopwatch.ui.h:3
 msgid "Lap"
 msgstr "הקפה"
 
-#: ../src/stopwatch.vala:131
-#: ../src/timer.vala:88
+#: ../src/stopwatch.vala:132
+#: ../src/timer.vala:89
 msgid "Continue"
 msgstr "המשך"
 
-#: ../src/stopwatch.vala:135
+#: ../src/stopwatch.vala:136
 #: ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "איפוס"
 
-#: ../src/stopwatch.vala:143
+#: ../src/stopwatch.vala:144
 #: ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "התחלה"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:54
 msgid "Time is up!"
 msgstr "נגמר הזמן!"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:54
 msgid "Timer countdown finished"
 msgstr "הספירה לאחור הסתיימה"
 
-#: ../src/timer.vala:93
-#: ../src/timer.vala:103
+#: ../src/timer.vala:94
+#: ../src/timer.vala:104
 #: ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "השהייה"
@@ -198,35 +215,31 @@ msgstr[1] "%d נבחרו"
 msgid "Delete"
 msgstr "מחיקה"
 
-#: ../src/window.vala:142
-msgid "Gnome Clocks"
-msgstr "שעונים מבית Gnome"
-
-#: ../src/window.vala:145
+#: ../src/window.vala:164
 msgid "Utilities to help you with the time."
 msgstr "עזרים כדי לסייע לך בניהול זמנים."
 
-#: ../src/window.vala:150
+#: ../src/window.vala:169
 msgid "translator-credits"
 msgstr "ירון שהרבני <sh.yaron@gmail.com>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:102
-#: ../src/world.vala:105
+#: ../src/world.vala:93
+#: ../src/world.vala:96
 msgid "Tomorrow"
 msgstr "מחר"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:102
-#: ../src/world.vala:105
+#: ../src/world.vala:93
+#: ../src/world.vala:96
 msgid "Yesterday"
 msgstr "אתמול"
 
-#: ../src/world.vala:172
+#: ../src/world.vala:166
 msgid "Add a New World Clock"
 msgstr "הוספת שעון עולמי חדש"
 
-#: ../src/world.vala:270
+#: ../src/world.vala:267
 msgid "World"
 msgstr "עולם"
 
@@ -291,6 +304,9 @@ msgstr "זריחה"
 #: ../data/ui/world.ui.h:4
 msgid "Sunset"
 msgstr "שקיעה"
+
+#~ msgid "Gnome Clocks"
+#~ msgstr "שעונים מבית Gnome"
 
 #~ msgid ":"
 #~ msgstr ":"
