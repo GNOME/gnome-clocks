@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-19 22:12+0000\n"
-"PO-Revision-Date: 2013-03-20 10:26+0000\n"
+"POT-Creation-Date: 2013-05-19 16:09+0000\n"
+"PO-Revision-Date: 2013-05-20 07:25+0100\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -20,7 +20,8 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:38
+#: ../src/window.vala:161
 msgid "Clocks"
 msgstr "Hodiny"
 
@@ -56,7 +57,7 @@ msgstr "Nastavené budíky"
 msgid "List of alarms set."
 msgstr "Zoznam nastavených budíkov."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:50
 msgid "Timer"
 msgstr "Časovač"
 
@@ -65,11 +66,31 @@ msgstr "Časovač"
 msgid "Configured timer duration in seconds."
 msgstr "Nastavené trvanie časovača v sekundách."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:476
+# summary
+#: ../data/org.gnome.clocks.gschema.xml.in.h:7
+msgid "Window width and height"
+msgstr "Šírka a výška okna"
+
+# desc
+#: ../data/org.gnome.clocks.gschema.xml.in.h:8
+msgid "Width and height of the window."
+msgstr "Šírka a výška okna."
+
+# summary
+#: ../data/org.gnome.clocks.gschema.xml.in.h:9
+msgid "Panel state"
+msgstr "Stav panela"
+
+# desc
+#: ../data/org.gnome.clocks.gschema.xml.in.h:10
+msgid "Current clock panel."
+msgstr "Aktuálny panel s hodinami."
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:477
 msgid "Alarm"
 msgstr "Budík"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:122 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Zastaviť"
 
@@ -92,7 +113,7 @@ msgstr "_Dokončiť"
 # DK:Nový budík/Nový svetový čas
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:484 ../src/world.vala:281
+#: ../src/alarm.vala:485 ../src/world.vala:278
 msgid "New"
 msgstr "Nový"
 
@@ -101,37 +122,37 @@ msgstr "Nový"
 msgid "Print version information and exit"
 msgstr "Zobrazí informácie o verzii a skončí"
 
-#: ../src/stopwatch.vala:50
+#: ../src/stopwatch.vala:51
 msgid "Stopwatch"
 msgstr "Stopky"
 
-#: ../src/stopwatch.vala:124 ../data/ui/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:125 ../data/ui/stopwatch.ui.h:3
 msgid "Lap"
 msgstr "Okruh"
 
-#: ../src/stopwatch.vala:131 ../src/timer.vala:88
+#: ../src/stopwatch.vala:132 ../src/timer.vala:89
 msgid "Continue"
 msgstr "Pokračovať"
 
-#: ../src/stopwatch.vala:135 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:136 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Vynulovať"
 
-#: ../src/stopwatch.vala:143 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:144 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Spustiť"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:54
 msgid "Time is up!"
 msgstr "Čas vypršal!"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:54
 msgid "Timer countdown finished"
 msgstr "Odpočítavanie časovača je dokončené"
 
-#: ../src/timer.vala:93 ../src/timer.vala:103 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:94 ../src/timer.vala:104 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Pozastaviť"
 
@@ -191,33 +212,29 @@ msgstr[2] "%d vybrané položky"
 msgid "Delete"
 msgstr "Odstrániť"
 
-#: ../src/window.vala:142
-msgid "Gnome Clocks"
-msgstr "Hodiny prostredia Gnome"
-
-#: ../src/window.vala:145
+#: ../src/window.vala:164
 msgid "Utilities to help you with the time."
 msgstr "Nástroje na pomoc s časom."
 
-#: ../src/window.vala:150
+#: ../src/window.vala:169
 msgid "translator-credits"
 msgstr "Dušan Kazik <prescott66@gmail.com>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:102 ../src/world.vala:105
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Tomorrow"
 msgstr "Zajtra"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:102 ../src/world.vala:105
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Yesterday"
 msgstr "Včera"
 
-#: ../src/world.vala:172
+#: ../src/world.vala:166
 msgid "Add a New World Clock"
 msgstr "Pridať nové svetové hodiny"
 
-#: ../src/world.vala:270
+#: ../src/world.vala:267
 msgid "World"
 msgstr "Svet"
 
@@ -289,3 +306,6 @@ msgstr "Východ slnka"
 #: ../data/ui/world.ui.h:4
 msgid "Sunset"
 msgstr "Západ slnka"
+
+#~ msgid "Gnome Clocks"
+#~ msgstr "Hodiny prostredia Gnome"
