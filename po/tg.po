@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Tajik Gnome\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-17 11:28+0000\n"
-"PO-Revision-Date: 2013-05-30 16:59+0500\n"
+"POT-Creation-Date: 2013-05-30 12:01+0000\n"
+"PO-Revision-Date: 2013-05-30 17:03+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: \n"
 "Language: Tajik\n"
@@ -20,7 +20,8 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-Bookmarks: -1,24,-1,-1,-1,-1,-1,-1,-1,-1\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:38
+#: ../src/window.vala:161
 msgid "Clocks"
 msgstr "Соатҳо"
 
@@ -53,7 +54,7 @@ msgstr "Ҳушдорҳои танзимшуда"
 msgid "List of alarms set."
 msgstr "Рӯйхати ҳушдорҳои танзимшуда."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:50
 msgid "Timer"
 msgstr "Вақтсанҷ"
 
@@ -61,11 +62,27 @@ msgstr "Вақтсанҷ"
 msgid "Configured timer duration in seconds."
 msgstr "Давомнокии танзимшудаи вақтсанҷ дар сонияҳо"
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:476
+#: ../data/org.gnome.clocks.gschema.xml.in.h:7
+msgid "Window width and height"
+msgstr "Бар ва баландии равзана"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:8
+msgid "Width and height of the window."
+msgstr "Бар ва баландии равзана."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:9
+msgid "Panel state"
+msgstr "Вазъияти панел"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:10
+msgid "Current clock panel."
+msgstr "Панели соати ҷорӣ."
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:477
 msgid "Alarm"
 msgstr "Ҳушдор"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:122 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Истодан"
 
@@ -82,13 +99,12 @@ msgid "New Alarm"
 msgstr "Ҳушдори нав"
 
 #: ../src/alarm.vala:267
-#| msgid "Done"
 msgid "_Done"
 msgstr "_Тайёр"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:484 ../src/world.vala:281
+#: ../src/alarm.vala:485 ../src/world.vala:278
 msgid "New"
 msgstr "Нав"
 
@@ -96,37 +112,37 @@ msgstr "Нав"
 msgid "Print version information and exit"
 msgstr "Иттилооти версияро намоиш диҳед ва бароед"
 
-#: ../src/stopwatch.vala:50
+#: ../src/stopwatch.vala:51
 msgid "Stopwatch"
 msgstr "Сонияшумор"
 
-#: ../src/stopwatch.vala:124 ../data/ui/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:125 ../data/ui/stopwatch.ui.h:3
 msgid "Lap"
 msgstr "Доира"
 
-#: ../src/stopwatch.vala:131 ../src/timer.vala:88
+#: ../src/stopwatch.vala:132 ../src/timer.vala:89
 msgid "Continue"
 msgstr "Идома додан"
 
-#: ../src/stopwatch.vala:135 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:136 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Бозоғозидан"
 
-#: ../src/stopwatch.vala:143 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:144 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Оғоз кардан"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:54
 msgid "Time is up!"
 msgstr "Вақти таъиншуда расид!"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:54
 msgid "Timer countdown finished"
 msgstr "Вақти сонияшумор ба анҷом расид"
 
-#: ../src/timer.vala:93 ../src/timer.vala:103 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:94 ../src/timer.vala:104 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Таваққуф кардан"
 
@@ -159,7 +175,6 @@ msgid "Sundays"
 msgstr "Якшанбеҳо"
 
 #: ../src/utils.vala:235
-#| msgid "Every day"
 msgid "Every Day"
 msgstr "Ҳар рӯз"
 
@@ -177,8 +192,6 @@ msgstr "Барои илова кардани объектҳо, онҳоро зе
 
 #: ../src/widgets.vala:435
 #, c-format
-#| msgid "{0} item selected"
-#| msgid_plural "{0} items selected"
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d интихоб шудааст"
@@ -188,34 +201,29 @@ msgstr[1] "%d интихоб шудаанд"
 msgid "Delete"
 msgstr "Нест кардан"
 
-#: ../src/window.vala:142
-#| msgid "GNOME Clocks"
-msgid "Gnome Clocks"
-msgstr "Соатҳои Gnome"
-
-#: ../src/window.vala:145
+#: ../src/window.vala:164
 msgid "Utilities to help you with the time."
 msgstr "Барномаҳои хидматӣ барои кор бо вақт."
 
-#: ../src/window.vala:150
+#: ../src/window.vala:169
 msgid "translator-credits"
 msgstr "Victor Ibragimov"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:102 ../src/world.vala:105
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Tomorrow"
 msgstr "Фардо"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:102 ../src/world.vala:105
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Yesterday"
 msgstr "Дирӯз"
 
-#: ../src/world.vala:172
+#: ../src/world.vala:166
 msgid "Add a New World Clock"
 msgstr "Илова кардани соати ҷаҳонии нав"
 
-#: ../src/world.vala:270
+#: ../src/world.vala:267
 msgid "World"
 msgstr "Ҷаҳон"
 
@@ -246,7 +254,6 @@ msgid "_About"
 msgstr "_Дар бораи барнома"
 
 #: ../data/ui/menu.ui.h:3
-#| msgid "Quit"
 msgid "_Quit"
 msgstr "_Баромад"
 
@@ -281,12 +288,3 @@ msgstr "Субҳидам"
 #: ../data/ui/world.ui.h:4
 msgid "Sunset"
 msgstr "Ғуруб"
-
-#~ msgid "Time"
-#~ msgstr "Вақт"
-
-#~ msgid "Edit"
-#~ msgstr "Таҳрир кардан"
-
-#~ msgid "About Clocks"
-#~ msgstr "Дар бораи Соатҳо"
