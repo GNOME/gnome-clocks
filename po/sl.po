@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-07 13:23+0000\n"
-"PO-Revision-Date: 2013-03-07 17:41+0100\n"
+"POT-Creation-Date: 2013-05-30 12:04+0000\n"
+"PO-Revision-Date: 2013-06-03 21:15+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -22,7 +22,8 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:38
+#: ../src/window.vala:161
 msgid "Clocks"
 msgstr "Ure"
 
@@ -54,7 +55,7 @@ msgstr "Nastavljeni alarmi"
 msgid "List of alarms set."
 msgstr "Seznam nastavljenih alarmov"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:50
 msgid "Timer"
 msgstr "Časomer"
 
@@ -62,15 +63,31 @@ msgstr "Časomer"
 msgid "Configured timer duration in seconds."
 msgstr "Nastavljeno merjenje časomera v sekundah."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:475
+#: ../data/org.gnome.clocks.gschema.xml.in.h:7
+msgid "Window width and height"
+msgstr "Širina in višina okna"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:8
+msgid "Width and height of the window."
+msgstr "Širina in višina okna."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:9
+msgid "Panel state"
+msgstr "Stanje pladnja"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:10
+msgid "Current clock panel."
+msgstr "Trenutni pladenj ure."
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:477
 msgid "Alarm"
 msgstr "Alarm"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../src/alarm.ui.h:2
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:122 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Zaustavi"
 
-#: ../src/alarm.vala:109 ../src/alarm.ui.h:3
+#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Zadremaj"
 
@@ -88,7 +105,7 @@ msgstr "_Končano"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:616 ../src/world.vala:360
+#: ../src/alarm.vala:485 ../src/world.vala:278
 msgid "New"
 msgstr "Novo"
 
@@ -96,35 +113,37 @@ msgstr "Novo"
 msgid "Print version information and exit"
 msgstr "Izpiši podatke o različici in končaj"
 
-#: ../src/stopwatch.vala:50
+#: ../src/stopwatch.vala:51
 msgid "Stopwatch"
 msgstr "Štoparica"
 
-#: ../src/stopwatch.vala:124 ../src/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:125 ../data/ui/stopwatch.ui.h:3
 msgid "Lap"
 msgstr "Krog"
 
-#: ../src/stopwatch.vala:131 ../src/timer.vala:88
+#: ../src/stopwatch.vala:132 ../src/timer.vala:89
 msgid "Continue"
 msgstr "Nadaljuj"
 
-#: ../src/stopwatch.vala:135 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:3
+#: ../src/stopwatch.vala:136 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Počisti"
 
-#: ../src/stopwatch.vala:143 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:1
+#: ../src/stopwatch.vala:144 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Začni"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:54
 msgid "Time is up!"
 msgstr "Čas je potekel!"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:54
 msgid "Timer countdown finished"
 msgstr "Odštevanje je končano."
 
-#: ../src/timer.vala:93 ../src/timer.vala:103 ../src/timer.ui.h:2
+#: ../src/timer.vala:94 ../src/timer.vala:104 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Premor"
 
@@ -164,11 +183,15 @@ msgstr "Vsak dan"
 msgid "Weekdays"
 msgstr "Dnevi tedna"
 
-#: ../src/widgets.vala:417 ../src/widgets.vala:568
+#: ../src/widgets.vala:386
+msgid "Done"
+msgstr "Končano"
+
+#: ../src/widgets.vala:398 ../src/widgets.vala:433
 msgid "Click on items to select them"
 msgstr "S klikom na predmet se ta izbere"
 
-#: ../src/widgets.vala:419
+#: ../src/widgets.vala:435
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -177,106 +200,101 @@ msgstr[1] "%d izbran"
 msgstr[2] "%d izbrana"
 msgstr[3] "%d izbrani"
 
-#: ../src/widgets.vala:461
+#: ../src/widgets.vala:477
 msgid "Delete"
 msgstr "Izbriši"
 
-#: ../src/widgets.vala:567
-msgid "Done"
-msgstr "Končano"
-
-#: ../src/window.vala:147
-msgid "Gnome Clocks"
-msgstr "Gnomeove ure"
-
-#: ../src/window.vala:150
+#: ../src/window.vala:164
 msgid "Utilities to help you with the time."
 msgstr "Programska orodja za pomoč s časom."
 
-#: ../src/window.vala:155
+#: ../src/window.vala:169
 msgid "translator-credits"
 msgstr "Matej Urbančič <mateju@svn@gnome.org>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:90 ../src/world.vala:93
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Tomorrow"
 msgstr "Jutri"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:90 ../src/world.vala:93
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Yesterday"
 msgstr "Včeraj"
 
-#: ../src/world.vala:160
+#: ../src/world.vala:166
 msgid "Add a New World Clock"
 msgstr "Dodaj nov svetovni čas"
 
-#: ../src/world.vala:256
+#: ../src/world.vala:267
 msgid "World"
 msgstr "Svet"
 
 #. namespace World
 #. namespace Clocks
-#: ../src/alarm.ui.h:1
+#: ../data/ui/alarm.ui.h:1
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Za dodajanje novega alarma je treba izbrati <b>Novo</b>"
 
-#: ../src/alarm.ui.h:4
+#: ../data/ui/alarm.ui.h:4
 msgid "Name"
 msgstr "Ime"
 
-#: ../src/alarm.ui.h:5
+#: ../data/ui/alarm.ui.h:5
 msgid "Repeat Every"
 msgstr "Ponovi vsakih"
 
-#: ../src/alarm.ui.h:6
+#: ../data/ui/alarm.ui.h:6
 msgid "Active"
 msgstr "Dejavno"
 
-#: ../src/menu.ui.h:1
+#: ../data/ui/menu.ui.h:1
 msgid "_New"
 msgstr "_Nova"
 
-#: ../src/menu.ui.h:2
+#: ../data/ui/menu.ui.h:2
 msgid "_About"
 msgstr "_O programu"
 
-#: ../src/menu.ui.h:3
+#: ../data/ui/menu.ui.h:3
 msgid "_Quit"
 msgstr "_Končaj"
 
-#: ../src/menu.ui.h:4
+#: ../data/ui/menu.ui.h:4
 msgid "Select All"
 msgstr "Izberi vse"
 
-#: ../src/menu.ui.h:5
+#: ../data/ui/menu.ui.h:5
 msgid "Select None"
 msgstr "Odstrani izbor"
 
-#: ../src/stopwatch.ui.h:4
+#: ../data/ui/stopwatch.ui.h:4
 msgid "Split"
 msgstr "Razdeli"
 
-#: ../src/stopwatch.ui.h:5
+#: ../data/ui/stopwatch.ui.h:5
 msgid "Total"
 msgstr "Skupaj"
 
-#: ../src/world.ui.h:1
+#: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr ""
 "Za dodajanje nove ure za prikaz svetovnega časa je treba izbrati <b>Novo</b>"
 
-#: ../src/world.ui.h:2
+#: ../data/ui/world.ui.h:2
 msgid "Search for a city:"
 msgstr "Iskanje mesta:"
 
-#: ../src/world.ui.h:3
+#: ../data/ui/world.ui.h:3
 msgid "Sunrise"
 msgstr "Sončni vzhod"
 
-#: ../src/world.ui.h:4
+#: ../data/ui/world.ui.h:4
 msgid "Sunset"
 msgstr "Sončni zahod"
+
+#~ msgid "Gnome Clocks"
+#~ msgstr "Gnomeove ure"
 
 #~ msgid ":"
 #~ msgstr ":"
