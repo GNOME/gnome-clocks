@@ -353,19 +353,19 @@ private class IconView : Gtk.IconView {
 }
 
 public class ContentView : Gtk.Bin {
-    private const int SELECTION_TOOLBAR_WIDTH = 300;
-
     public bool empty { get; private set; default = true; }
 
     private Gtk.Widget empty_page;
     private IconView icon_view;
     private HeaderBar header_bar;
     private Gd.HeaderSimpleButton select_button;
-    private Gd.HeaderSimpleButton done_button;
+    private Gd.HeaderSimpleButton cancel_button;
     private GLib.MenuModel selection_menu;
     private Gd.HeaderMenuButton selection_menubutton;
-    private Gtk.Toolbar selection_toolbar;
-    private Gtk.Overlay overlay;
+    private Gtk.Frame selection_toolbar;
+    private Gtk.Grid grid;
+    private Gd.Revealer revealer;
+    private Gtk.Button delete_button;
 
     public ContentView (Gtk.Widget e, HeaderBar b) {
         empty_page = e;
@@ -382,14 +382,14 @@ public class ContentView : Gtk.Bin {
         });
         header_bar.pack_end (select_button);
 
-        done_button = new Gd.HeaderSimpleButton ();
-        done_button.label = _("Done");
-        done_button.no_show_all = true;
-        done_button.get_style_context ().add_class ("suggested-action");
-        done_button.clicked.connect (() => {
+        cancel_button = new Gd.HeaderSimpleButton ();
+        cancel_button.label = _("Cancel");
+        cancel_button.no_show_all = true;
+        cancel_button.get_style_context ().add_class ("suggested-action");
+        cancel_button.clicked.connect (() => {
             icon_view.mode = IconView.Mode.NORMAL;
         });
-        header_bar.pack_end (done_button);
+        header_bar.pack_end (cancel_button);
 
         var builder = Utils.load_ui ("menu.ui");
         selection_menu = builder.get_object ("selection-menu") as GLib.MenuModel;
@@ -401,12 +401,20 @@ public class ContentView : Gtk.Bin {
 
         var scrolled_window = new Gtk.ScrolledWindow (null, null);
         scrolled_window.add (icon_view);
+        scrolled_window.hexpand = true;
+        scrolled_window.vexpand = true;
+        scrolled_window.halign = Gtk.Align.FILL;
+        scrolled_window.valign = Gtk.Align.FILL;
 
-        overlay = new Gtk.Overlay ();
-        overlay.add (scrolled_window);
+        grid = new Gtk.Grid ();
+        grid.attach (scrolled_window, 0, 0, 1, 1);
 
         selection_toolbar = create_selection_toolbar ();
-        overlay.add_overlay (selection_toolbar);
+        revealer = new Gd.Revealer ();
+        revealer.hexpand = true;
+        revealer.halign = Gtk.Align.FILL;
+        revealer.add (selection_toolbar);
+        grid.attach (revealer, 0, 1, 1, 1);
 
         var model = icon_view.get_model ();
         model.row_inserted.connect(() => {
@@ -419,8 +427,10 @@ public class ContentView : Gtk.Bin {
         icon_view.notify["mode"].connect (() => {
             if (icon_view.mode == IconView.Mode.SELECTION) {
                 header_bar.mode = HeaderBar.Mode.SELECTION;
+                revealer.reveal_child = true;
             } else if (icon_view.mode == IconView.Mode.NORMAL) {
                 header_bar.mode = HeaderBar.Mode.NORMAL;
+                revealer.reveal_child = false;
             }
         });
 
@@ -437,9 +447,9 @@ public class ContentView : Gtk.Bin {
             selection_menubutton.label = label;
 
             if (n_items != 0) {
-                fade_in (selection_toolbar);
+                delete_button.sensitive = true;
             } else {
-                fade_out (selection_toolbar);
+                delete_button.sensitive = false;
             }
         });
 
@@ -462,36 +472,28 @@ public class ContentView : Gtk.Bin {
         icon_view.remove_selected ();
     }
 
-    private Gtk.Toolbar create_selection_toolbar () {
-        var toolbar = new Gtk.Toolbar ();
-        toolbar.show_arrow = false;
-        toolbar.icon_size = Gtk.IconSize.LARGE_TOOLBAR;
-        toolbar.halign = Gtk.Align.CENTER;
-        toolbar.valign = Gtk.Align.END;
-        toolbar.margin_bottom = 40;
-        toolbar.get_style_context ().add_class ("osd");
-        toolbar.get_style_context ().add_class ("clocks-fade");
-        toolbar.set_size_request (SELECTION_TOOLBAR_WIDTH, -1);
-        toolbar.no_show_all = true;
+    private Gtk.Frame create_selection_toolbar () {
+        var frame = new Gtk.Frame (null);
+        frame.get_style_context ().add_class ("clocks-selection-bar");
 
-        var delete_button = new Gtk.Button.with_label (_("Delete"));
+        delete_button = new Gtk.Button ();
+        delete_button.label = _("Delete");
+        delete_button.get_style_context ().add_class ("text-button");
+        delete_button.sensitive = false;
+        delete_button.halign = Gtk.Align.END;
         delete_button.hexpand = true;
         delete_button.clicked.connect (() => {
             delete_selected ();
+            icon_view.mode = IconView.Mode.NORMAL;
         });
 
-        var hbox = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-        hbox.hexpand = true;
-        hbox.add (delete_button);
+        var grid = new Gtk.Grid ();
+        grid.attach (delete_button, 0, 0, 1, 1);
 
-        var item = new Gtk.ToolItem ();
-        item.set_expand (true);
-        item.add (hbox);
-        item.show_all ();
+        frame.add (grid);
+        frame.show_all ();
 
-        toolbar.insert (item, -1);
-
-        return toolbar;
+        return frame;
     }
 
     private void update_empty_view (Gtk.TreeModel model) {
@@ -499,9 +501,9 @@ public class ContentView : Gtk.Bin {
 
         var child = get_child ();
         if (model.get_iter_first (out i)) {
-            if (child != overlay) {
+            if (child != grid) {
                 remove (child);
-                add (overlay);
+                add (grid);
                 empty = false;
             }
         } else {
@@ -512,29 +514,6 @@ public class ContentView : Gtk.Bin {
             }
         }
         show_all ();
-    }
-
-    private void fade_in (Gtk.Widget w) {
-        uint timeout_id = w.get_data<uint> ("cloks-fade-out-timeout-id");
-        if (timeout_id != 0) {
-            Source.remove (timeout_id);
-            w.set_data<uint> ("cloks-fade-out-timeout-id", 0);
-        }
-        w.show ();
-        w.get_style_context ().add_class ("clocks-fade-in");
-    }
-
-    private void fade_out (Gtk.Widget w) {
-        uint timeout_id = w.get_data<uint> ("cloks-fade-out-timeout-id");
-        if (timeout_id == 0) {
-            w.get_style_context ().remove_class ("clocks-fade-in");
-            timeout_id = Timeout.add (300, () => {
-                w.set_data<uint> ("cloks-fade-out-timeout-id", 0);
-                w.hide ();
-                return false;
-            });
-            w.set_data<uint> ("cloks-fade-out-timeout-id", timeout_id);
-        }
     }
 
     public void add_item (ContentItem item) {
@@ -582,7 +561,7 @@ public class ContentView : Gtk.Bin {
         switch (header_bar.mode) {
         case HeaderBar.Mode.SELECTION:
             header_bar.custom_title = selection_menubutton;
-            done_button.show ();
+            cancel_button.show ();
             break;
         case HeaderBar.Mode.NORMAL:
             select_button.show ();

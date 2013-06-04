@@ -174,13 +174,16 @@
     border-image: url("button-border-stop-active.svg") 3 3 4 3 / 3 3 4 3 stretch;
 }
 
-.clocks-fade {
-    opacity: 0;
-    transition: opacity 300ms;
+.clocks-selection-bar {
+    border-width: 1px 0 0;
+    border-style: solid;
+    border-color: shade(@borders, 0.90);
+    border-color: @borders;
+    padding: 9px;
 }
 
-.clocks-fade-in {
-    opacity: 1;
+.clocks-selection-bar .button.text-button {
+    padding: 2px 16px;
 }
 
 .view.clocks-laps {
