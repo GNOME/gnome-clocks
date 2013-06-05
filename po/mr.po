@@ -2,30 +2,29 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Abhay Kadam <abhaykadam@fedoraproject.org>, 2012.
-# Sandeep Shedmake <sshedmak@redhat.com>, 2012.
+# Sandeep Shedmake <sshedmak@redhat.com>, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks"
-"&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-22 15:17+0000\n"
-"PO-Revision-Date: 2012-09-23 11:59+0530\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-04-22 08:38+0000\n"
+"PO-Revision-Date: 2013-06-05 18:23+0530\n"
 "Last-Translator: Sandeep Shedmake <sshedmak@redhat.com>\n"
-"Language-Team: Marathi\n"
+"Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
 "Language: mr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Lokalize 1.5\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:35
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
 msgid "Clocks"
 msgstr "घड्याळी"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:122
-#: ../gnomeclocks/app.py:131
+#: ../data/gnome-clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "GNOME घड्याळी"
 
@@ -33,180 +32,265 @@ msgstr "GNOME घड्याळी"
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "जागतिक वेळ, तसेच गजर, स्टॉपवॉच व टाइमरकरीता घड्याळी"
 
-#: ../gnomeclocks/alarm.py:117
-msgid "Every day"
-msgstr "प्रतिदीन"
+#: ../data/gnome-clocks.desktop.in.h:4
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr "टाइम;टाइमर;गजर;जागतिक घड्याळ;स्टॉपवॉच;वेळ क्षेत्र;"
 
-#: ../gnomeclocks/alarm.py:119
-msgid "Weekdays"
-msgstr "कामाचे दिवस"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+msgid "Configured world clocks"
+msgstr "जागतिक घड्याळी संरचीत केले"
 
-#: ../gnomeclocks/alarm.py:138
-msgid "Edit Alarm"
-msgstr "गजर संपादित करा"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+msgid "List of world clocks to show."
+msgstr "दाखवण्याकरिता जागतिक घड्याळ्यांची सूची."
 
-#: ../gnomeclocks/alarm.py:140 ../gnomeclocks/alarm.py:172
-msgid "New Alarm"
-msgstr "नवीन गजर"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+msgid "Configured alarms"
+msgstr "संरचीत गजर"
 
-#. Translators: "Time" in this context is the time an alarm
-#. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:177
-msgid "Time"
-msgstr "वेळ"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+msgid "List of alarms set."
+msgstr "गजर संचाची सूची."
 
-#: ../gnomeclocks/alarm.py:218
-msgid "Name"
-msgstr "नाव"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
+msgid "Timer"
+msgstr "टाइमर"
 
-#: ../gnomeclocks/alarm.py:227
-msgid "Repeat Every"
-msgstr "प्रत्येक वेळानंतर पुन: करा"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "संकेदातील संरचीत टाइमर कालावधी."
 
-#: ../gnomeclocks/alarm.py:300
+#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:476
 msgid "Alarm"
 msgstr "गजर"
 
-#: ../gnomeclocks/alarm.py:312
-msgid "Select <b>New</b> to add an alarm"
-msgstr "गजर समाविष्ट करण्यासाठी <b>नवीन</b> निवडा"
-
-#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:95
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "थांबा"
 
-#: ../gnomeclocks/alarm.py:459
+#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "डुलकी"
 
-#: ../gnomeclocks/app.py:121 ../gnomeclocks/app.py:390
-msgid "About Clocks"
-msgstr "घड्याळींविषयी"
+#: ../src/alarm.vala:265
+msgid "Edit Alarm"
+msgstr "गजर संपादित करा"
 
-#: ../gnomeclocks/app.py:127
+#: ../src/alarm.vala:265
+msgid "New Alarm"
+msgstr "नवीन गजर"
+
+#: ../src/alarm.vala:267
+#| msgid "Done"
+msgid "_Done"
+msgstr "पूर्ण झाले (_D)"
+
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:484 ../src/world.vala:281
+msgid "New"
+msgstr "नवीन"
+
+#: ../src/application.vala:24
+msgid "Print version information and exit"
+msgstr "आवृत्ती माहिती छपाई करा व बाहेर पडा"
+
+#: ../src/stopwatch.vala:50
+msgid "Stopwatch"
+msgstr "स्टॉपवॉच"
+
+#: ../src/stopwatch.vala:124 ../data/ui/stopwatch.ui.h:3
+msgid "Lap"
+msgstr "फेरी"
+
+#: ../src/stopwatch.vala:131 ../src/timer.vala:88
+msgid "Continue"
+msgstr "चालू ठेवा"
+
+#: ../src/stopwatch.vala:135 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
+msgid "Reset"
+msgstr "मूळस्थिती"
+
+#: ../src/stopwatch.vala:143 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
+msgid "Start"
+msgstr "सुरू"
+
+#: ../src/timer.vala:53
+msgid "Time is up!"
+msgstr "वेळ संपाप्त"
+
+#: ../src/timer.vala:53
+msgid "Timer countdown finished"
+msgstr "टाइमर काउंटडाउन पूर्ण झाले"
+
+#: ../src/timer.vala:93 ../src/timer.vala:103 ../data/ui/timer.ui.h:2
+msgid "Pause"
+msgstr "विराम"
+
+#: ../src/utils.vala:149
+msgid "Mondays"
+msgstr "सोमवार"
+
+#: ../src/utils.vala:150
+msgid "Tuesdays"
+msgstr "मंगळवार"
+
+#: ../src/utils.vala:151
+msgid "Wednesdays"
+msgstr "बुधवार"
+
+#: ../src/utils.vala:152
+msgid "Thursdays"
+msgstr "गुरूवार"
+
+#: ../src/utils.vala:153
+msgid "Fridays"
+msgstr "शुक्रवार"
+
+#: ../src/utils.vala:154
+msgid "Saturdays"
+msgstr "शनिवार"
+
+#: ../src/utils.vala:155
+msgid "Sundays"
+msgstr "रविवार"
+
+#: ../src/utils.vala:235
+#| msgid "Every day"
+msgid "Every Day"
+msgstr "प्रत्येक दिवस"
+
+#: ../src/utils.vala:237
+msgid "Weekdays"
+msgstr "कामाचे दिवस"
+
+#: ../src/widgets.vala:386
+msgid "Done"
+msgstr "पूर्ण झाले"
+
+#: ../src/widgets.vala:398 ../src/widgets.vala:433
+msgid "Click on items to select them"
+msgstr "निवडण्यासाठी बाबींवर क्लिक करा"
+
+#: ../src/widgets.vala:435
+#, c-format
+#| msgid "{0} item selected"
+#| msgid_plural "{0} items selected"
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d निवडले"
+msgstr[1] "%d निवडले"
+
+#: ../src/widgets.vala:477
+msgid "Delete"
+msgstr "नष्ट करा"
+
+#: ../src/window.vala:142
+#| msgid "GNOME Clocks"
+msgid "Gnome Clocks"
+msgstr "ग्नोम घड्याळी"
+
+#: ../src/window.vala:145
 msgid "Utilities to help you with the time."
 msgstr "वेळेच्या नियोजनकरीता युटिलिटिज्."
 
-#: ../gnomeclocks/app.py:129
+#: ../src/window.vala:150
 msgid "translator-credits"
 msgstr ""
 "Abhay Kadam <abhaykadam@fedoraproject.org>, 2012; Sandeep Shedmake "
 "<sshedmak@redhat.com>, 2012;"
 
-#. Translators: "New" refers to a world clock or an alarm
-#: ../gnomeclocks/app.py:213
-msgid "New"
-msgstr "नवीन"
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:102 ../src/world.vala:105
+msgid "Tomorrow"
+msgstr "उद्या"
 
-#: ../gnomeclocks/app.py:266
-msgid "Edit"
-msgstr "संपादित करा"
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:102 ../src/world.vala:105
+msgid "Yesterday"
+msgstr "काल"
 
-#: ../gnomeclocks/app.py:271
-msgid "Done"
-msgstr "पूर्ण झाले"
-
-#: ../gnomeclocks/app.py:335
-msgid "Click on items to select them"
-msgstr "निवडण्यासाठी बाबींवर क्लिक करा"
-
-#: ../gnomeclocks/app.py:337
-msgid "{0} item selected"
-msgid_plural "{0} items selected"
-msgstr[0] "{0} बाब निवडली"
-msgstr[1] "{0} बाबी निवडल्या"
-
-#: ../gnomeclocks/app.py:393
-msgid "Quit"
-msgstr "बाहेर पडा"
-
-#: ../gnomeclocks/stopwatch.py:34
-msgid "Stopwatch"
-msgstr "स्टॉपवॉच"
-
-#: ../gnomeclocks/stopwatch.py:57 ../gnomeclocks/stopwatch.py:117
-#: ../gnomeclocks/timer.py:110
-msgid "Start"
-msgstr "सुरू"
-
-#: ../gnomeclocks/stopwatch.py:65 ../gnomeclocks/stopwatch.py:106
-#: ../gnomeclocks/timer.py:52
-msgid "Reset"
-msgstr "मूळस्थिती"
-
-#: ../gnomeclocks/stopwatch.py:75
-msgid "Laps"
-msgstr "फेऱ्या"
-
-#: ../gnomeclocks/stopwatch.py:98
-msgid "Lap"
-msgstr "फेरी"
-
-#: ../gnomeclocks/stopwatch.py:102 ../gnomeclocks/timer.py:69
-msgid "Continue"
-msgstr "चालू ठेवा"
-
-#: ../gnomeclocks/timer.py:45 ../gnomeclocks/timer.py:63
-#: ../gnomeclocks/timer.py:73
-msgid "Pause"
-msgstr "विराम"
-
-#: ../gnomeclocks/timer.py:155
-msgid "Timer"
-msgstr "टाइमर"
-
-#: ../gnomeclocks/utils.py:71
-msgid "Mondays"
-msgstr "सोमवार"
-
-#: ../gnomeclocks/utils.py:72
-msgid "Tuesdays"
-msgstr "मंगळवार"
-
-#: ../gnomeclocks/utils.py:73
-msgid "Wednesdays"
-msgstr "बुधवार"
-
-#: ../gnomeclocks/utils.py:74
-msgid "Thursdays"
-msgstr "गुरूवार"
-
-#: ../gnomeclocks/utils.py:75
-msgid "Fridays"
-msgstr "शुक्रवार"
-
-#: ../gnomeclocks/utils.py:76
-msgid "Saturdays"
-msgstr "शनिवार"
-
-#: ../gnomeclocks/utils.py:77
-msgid "Sundays"
-msgstr "रविवार"
-
-#: ../gnomeclocks/widgets.py:333
-msgid "Delete"
-msgstr "नष्ट करा"
-
-#: ../gnomeclocks/world.py:66
+#: ../src/world.vala:172
 msgid "Add a New World Clock"
 msgstr "नवीन जागतिक घड्याळ समाविष्ट करा"
 
-#: ../gnomeclocks/world.py:75
-msgid "Search for a city:"
-msgstr "शहर शोधा:"
-
-#: ../gnomeclocks/world.py:259
+#: ../src/world.vala:270
 msgid "World"
 msgstr "जग"
 
-#: ../gnomeclocks/world.py:270
+#. namespace World
+#. namespace Clocks
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "गजर समाविष्ट करण्यासाठी <b>नवीन</b> निवडा"
+
+#: ../data/ui/alarm.ui.h:4
+msgid "Name"
+msgstr "नाव"
+
+#: ../data/ui/alarm.ui.h:5
+msgid "Repeat Every"
+msgstr "प्रत्येक वेळानंतर पुन: करा"
+
+#: ../data/ui/alarm.ui.h:6
+msgid "Active"
+msgstr "सक्रीय"
+
+#: ../data/ui/menu.ui.h:1
+msgid "_New"
+msgstr "नवीन (_N)"
+
+#: ../data/ui/menu.ui.h:2
+msgid "_About"
+msgstr "विषयी (_A)"
+
+#: ../data/ui/menu.ui.h:3
+#| msgid "Quit"
+msgid "_Quit"
+msgstr "बाहेर पडा (_Q)"
+
+#: ../data/ui/menu.ui.h:4
+msgid "Select All"
+msgstr "सर्व नीवडा"
+
+#: ../data/ui/menu.ui.h:5
+msgid "Select None"
+msgstr "काहिच नीवडू नका"
+
+#: ../data/ui/stopwatch.ui.h:4
+msgid "Split"
+msgstr "विभागणी करा"
+
+#: ../data/ui/stopwatch.ui.h:5
+msgid "Total"
+msgstr "एकूण"
+
+#: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "जागतिक घडयाळ समाविष्ट करण्यासाठी <b>नवीन</b> निवडा"
 
-#: ../gnomeclocks/world.py:393
+#: ../data/ui/world.ui.h:2
+msgid "Search for a city:"
+msgstr "शहर शोधा:"
+
+#: ../data/ui/world.ui.h:3
 msgid "Sunrise"
 msgstr "सूर्योदय"
 
-#: ../gnomeclocks/world.py:403
+#: ../data/ui/world.ui.h:4
 msgid "Sunset"
 msgstr "सूर्यास्त"
+
+#~ msgid "Time"
+#~ msgstr "वेळ"
+
+#~ msgid "About Clocks"
+#~ msgstr "घड्याळींविषयी"
+
+#~ msgid "Edit"
+#~ msgstr "संपादित करा"
+
+#~ msgid "Laps"
+#~ msgstr "फेऱ्या"
