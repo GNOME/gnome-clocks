@@ -18,6 +18,7 @@
 
 namespace Clocks {
 
+[GtkTemplate (ui = "/org/gnome/clocks/ui/window.ui")]
 public class Window : Gtk.ApplicationWindow {
     private const GLib.ActionEntry[] action_entries = {
         // app menu
@@ -29,15 +30,18 @@ public class Window : Gtk.ApplicationWindow {
         { "select-none", on_select_none_activate }
     };
 
+    [GtkChild]
     private HeaderBar header_bar;
+    [GtkChild]
     private Gd.Stack stack;
     private GLib.Settings settings;
     private Gtk.Widget[] panels;
+    private Gtk.Separator separator;
+    private Gtk.Button close_button;
 
     public Window (Application app) {
-        Object (application: app, title: _("Clocks"));
+        Object (application: app);
 
-        set_hide_titlebar_when_maximized (true);
         add_action_entries (action_entries, this);
 
         settings = new Settings ("org.gnome.clocks.state.window");
@@ -52,12 +56,6 @@ public class Window : Gtk.ApplicationWindow {
         settings.get ("size", "(ii)", out width, out height);
         resize (width, height);
 
-        var builder = Utils.load_ui ("window.ui");
-
-        var main_panel = builder.get_object ("main_panel") as Gtk.Widget;
-        header_bar = builder.get_object ("header_bar") as HeaderBar;
-        stack = builder.get_object ("stack") as Gd.Stack;
-
         panels = new Gtk.Widget[N_PANELS];
 
         panels[PanelId.WORLD] = new World.MainPanel (header_bar);
@@ -70,6 +68,31 @@ public class Window : Gtk.ApplicationWindow {
         }
 
         header_bar.set_stack (stack);
+
+        separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
+        separator.no_show_all = true;
+        separator.valign = Gtk.Align.FILL;
+        header_bar.pack_end (separator);
+
+        close_button = new Gtk.Button ();
+        Gtk.Image close_image = new Gtk.Image.from_icon_name ("window-close-symbolic", Gtk.IconSize.MENU);
+        close_button.set_image (close_image);
+        close_button.get_style_context ().add_class ("image-button");
+        close_button.relief = Gtk.ReliefStyle.NONE;
+        close_button.valign = Gtk.Align.CENTER;
+        close_button.clicked.connect (() => {
+            Gdk.Event event;
+
+            event = new Gdk.Event (Gdk.EventType.DESTROY);
+
+            event.any.window = this.get_window ();
+            event.any.send_event = 1;
+
+            Gtk.main_do_event (event);
+        });
+
+        close_button.no_show_all = true;
+        header_bar.pack_end (close_button);
 
         var stack_id = stack.notify["visible-child"].connect (() => {
             update_header_bar ();
@@ -98,7 +121,6 @@ public class Window : Gtk.ApplicationWindow {
 
         update_header_bar ();
 
-        add (main_panel);
         show_all ();
     }
 
@@ -177,6 +199,11 @@ public class Window : Gtk.ApplicationWindow {
             settings.set_enum ("panel-id", clock.panel_id);
             clock.update_header_bar ();
             ((Gtk.Widget) clock).grab_focus ();
+        }
+
+        if (header_bar.mode != HeaderBar.Mode.SELECTION) {
+            separator.show ();
+            close_button.show ();
         }
     }
 }

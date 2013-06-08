@@ -1,7 +1,7 @@
 AC_PREREQ(2.63)
 
 AC_INIT([gnome-clocks],
-        [3.8.1],
+        [3.9.2],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-clocks],
         [gnome-clocks])
 
@@ -26,7 +26,7 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE",[The name of the gettext d
 AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
-AM_PROG_VALAC([0.17.4])
+AM_PROG_VALAC([0.20.1.19])
 
 # _NL_TIME_FIRST_WEEKDAY is an enum and not a define
 AC_MSG_CHECKING([for _NL_TIME_FIRST_WEEKDAY])
@@ -49,7 +49,8 @@ PKG_PROG_PKG_CONFIG([0.22])
 
 PKG_CHECK_MODULES(CLOCKS, [
     gio-2.0 >= 2.30.0
-    gtk+-3.0 >= 3.7.12
+    glib-2.0 >= 2.36
+    gtk+-3.0 >= 3.9.0
     libcanberra >= 0.30
     gweather-3.0 >= 3.9.2
     gnome-desktop-3.0 >= 3.7.90
