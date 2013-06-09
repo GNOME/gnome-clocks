@@ -19,7 +19,7 @@
 namespace Clocks {
 namespace Timer {
 
-public class MainPanel : Gd.Stack, Clocks.Clock {
+public class MainPanel : Gtk.Stack, Clocks.Clock {
     enum State {
         STOPPED,
         RUNNING,
@@ -47,7 +47,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     private GLib.Timer timer;
 
     public MainPanel (HeaderBar header_bar) {
-        Object (label: _("Timer"), header_bar: header_bar, transition_type: Gd.StackTransitionType.CROSSFADE, panel_id: PanelId.TIMER);
+        Object (label: _("Timer"), header_bar: header_bar, transition_type: Gtk.StackTransitionType.CROSSFADE, panel_id: PanelId.TIMER);
 
         settings = new GLib.Settings ("org.gnome.clocks");
 

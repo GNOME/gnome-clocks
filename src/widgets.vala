@@ -25,7 +25,7 @@ public class HeaderBar : Gd.HeaderBar {
         STANDALONE
     }
 
-    private Gd.StackSwitcher stack_switcher;
+    private Gtk.StackSwitcher stack_switcher;
 
     [CCode (notify = false)]
     public Mode mode {
@@ -53,13 +53,13 @@ public class HeaderBar : Gd.HeaderBar {
     private Mode _mode;
 
     construct {
-        stack_switcher = new Gd.StackSwitcher ();
+        stack_switcher = new Gtk.StackSwitcher ();
         realize.connect (() => {
             custom_title = stack_switcher;
         });
     }
 
-    public void set_stack (Gd.Stack stack) {
+    public void set_stack (Gtk.Stack stack) {
         stack_switcher.set_stack (stack);
     }
 
@@ -589,12 +589,12 @@ public class AmPmToggleButton : Gtk.Button {
     }
 
     private AmPm _choice;
-    private Gd.Stack stack;
+    private Gtk.Stack stack;
     private Gtk.Label am_label;
     private Gtk.Label pm_label;
 
     public AmPmToggleButton () {
-        stack = new Gd.Stack ();
+        stack = new Gtk.Stack ();
 
         get_style_context ().add_class ("clocks-ampm-toggle-button");
 

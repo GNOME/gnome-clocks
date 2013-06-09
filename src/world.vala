@@ -249,7 +249,7 @@ private class StandalonePanel : Gtk.EventBox {
     }
 }
 
-public class MainPanel : Gd.Stack, Clocks.Clock {
+public class MainPanel : Gtk.Stack, Clocks.Clock {
     public string label { get; construct set; }
     public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
@@ -264,7 +264,7 @@ public class MainPanel : Gd.Stack, Clocks.Clock {
     private StandalonePanel standalone;
 
     public MainPanel (HeaderBar header_bar) {
-        Object (label: _("World"), header_bar: header_bar, transition_type: Gd.StackTransitionType.CROSSFADE, panel_id: PanelId.WORLD);
+        Object (label: _("World"), header_bar: header_bar, transition_type: Gtk.StackTransitionType.CROSSFADE, panel_id: PanelId.WORLD);
 
         locations = new List<Item> ();
         settings = new GLib.Settings ("org.gnome.clocks");

@@ -462,7 +462,7 @@ private class RingingPanel : Gtk.EventBox {
     }
 }
 
-public class MainPanel : Gd.Stack, Clocks.Clock {
+public class MainPanel : Gtk.Stack, Clocks.Clock {
     public string label { get; construct set; }
     public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }

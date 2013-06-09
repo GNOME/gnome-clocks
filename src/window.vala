@@ -33,7 +33,7 @@ public class Window : Gtk.ApplicationWindow {
     [GtkChild]
     private HeaderBar header_bar;
     [GtkChild]
-    private Gd.Stack stack;
+    private Gtk.Stack stack;
     private GLib.Settings settings;
     private Gtk.Widget[] panels;
     private Gtk.Separator separator;
