@@ -364,7 +364,7 @@ public class ContentView : Gtk.Bin {
     private Gd.HeaderMenuButton selection_menubutton;
     private Gtk.Frame selection_toolbar;
     private Gtk.Grid grid;
-    private Gd.Revealer revealer;
+    private Gtk.Revealer revealer;
     private Gtk.Button delete_button;
 
     public ContentView (Gtk.Widget e, HeaderBar b) {
@@ -410,7 +410,7 @@ public class ContentView : Gtk.Bin {
         grid.attach (scrolled_window, 0, 0, 1, 1);
 
         selection_toolbar = create_selection_toolbar ();
-        revealer = new Gd.Revealer ();
+        revealer = new Gtk.Revealer ();
         revealer.hexpand = true;
         revealer.halign = Gtk.Align.FILL;
         revealer.add (selection_toolbar);
