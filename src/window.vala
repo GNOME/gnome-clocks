@@ -171,6 +171,7 @@ public class Window : Gtk.ApplicationWindow {
             "Allan Day",
             "Piotr Drąg",
             "Emily Gonyer",
+            "Evgeny Bobkin",
             "Maël Lavault",
             "Seif Lotfy",
             "William Jon McCann",
