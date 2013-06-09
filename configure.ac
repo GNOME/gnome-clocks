@@ -57,14 +57,8 @@ PKG_CHECK_MODULES(CLOCKS, [
     libnotify >= 0.7.0
 ])
 
-LIBGD_INIT([
-    static
-    vapi
-])
-
 AC_CONFIG_FILES([
     Makefile
-    libgd/Makefile
     po/Makefile.in
 ])
 

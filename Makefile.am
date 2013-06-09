@@ -1,6 +1,6 @@
-ACLOCAL_AMFLAGS = -I m4 -I libgd ${ACLOCAL_FLAGS}
+ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
-SUBDIRS = libgd po
+SUBDIRS = po
 
 # desktop file
 # (we can't use INTLTOOL_DESKTOP_RULE here due to lp#605826)
@@ -75,7 +75,6 @@ images_DATA = \
 
 AM_CPPFLAGS = \
 	-I$(top_srcdir)/egg-list-box \
-	-I$(top_srcdir)/libgd \
 	-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE \
 	-DGNOME_DESKTOP_USE_UNSTABLE_API \
 	-DGETTEXT_PACKAGE=\""$(GETTEXT_PACKAGE)"\" \
@@ -85,12 +84,10 @@ AM_CPPFLAGS = \
 AM_VALAFLAGS = \
 	--target-glib=2.36 \
 	--vapidir=egg-list-box \
-	--vapidir=libgd \
 	--pkg gio-2.0 \
 	--pkg gtk+-3.0 \
 	--pkg libcanberra \
 	--pkg libnotify \
-	--pkg gd-1.0 \
 	--gresources  $(top_srcdir)/data/gnome-clocks.gresource.xml
 
 bin_PROGRAMS = gnome-clocks
@@ -129,7 +126,6 @@ AM_CFLAGS = \
 
 gnome_clocks_LDFLAGS = -export-dynamic
 gnome_clocks_LDADD = \
-	$(top_builddir)/libgd/libgd.la \
 	$(CLOCKS_LIBS) \
 	-lm
 
