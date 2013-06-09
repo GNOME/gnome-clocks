@@ -34,6 +34,8 @@ public class Window : Gtk.ApplicationWindow {
     private HeaderBar header_bar;
     [GtkChild]
     private Gtk.Stack stack;
+    [GtkChild]
+    private Gtk.StackSwitcher stack_switcher;
     private GLib.Settings settings;
     private Gtk.Widget[] panels;
     private Gtk.Separator separator;
@@ -67,7 +69,7 @@ public class Window : Gtk.ApplicationWindow {
             stack.add_titled (clock, ((Clock)clock).label, ((Clock)clock).label);
         }
 
-        header_bar.set_stack (stack);
+        stack_switcher.set_stack (stack);
 
         separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
         separator.no_show_all = true;
@@ -194,11 +196,16 @@ public class Window : Gtk.ApplicationWindow {
 
     private void update_header_bar () {
         header_bar.clear ();
+
         var clock = (Clock) stack.visible_child;
         if (clock != null) {
             settings.set_enum ("panel-id", clock.panel_id);
             clock.update_header_bar ();
             ((Gtk.Widget) clock).grab_focus ();
+        }
+
+        if (header_bar.mode == HeaderBar.Mode.NORMAL) {
+            header_bar.custom_title = stack_switcher;
         }
 
         if (header_bar.mode != HeaderBar.Mode.SELECTION) {

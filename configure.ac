@@ -59,7 +59,6 @@ PKG_CHECK_MODULES(CLOCKS, [
 
 LIBGD_INIT([
     static
-    header-bar
     vapi
 ])
 

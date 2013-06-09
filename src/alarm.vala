@@ -469,7 +469,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
 
     private List<Item> alarms;
     private GLib.Settings settings;
-    private Gd.HeaderSimpleButton new_button;
+    private Gtk.Button new_button;
     private ContentView content_view;
     private RingingPanel ringing_panel;
 
@@ -479,10 +479,10 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         alarms = new List<Item> ();
         settings = new GLib.Settings ("org.gnome.clocks");
 
-        new_button = new Gd.HeaderSimpleButton ();
-
         // Translators: "New" refers to an alarm
-        new_button.label = _("New");
+        new_button = new Gtk.Button.with_label (_("New"));
+        new_button.get_style_context ().add_class ("text-button");
+        new_button.valign = Gtk.Align.CENTER;
         new_button.no_show_all = true;
         new_button.action_name = "win.new";
         header_bar.pack_start (new_button);

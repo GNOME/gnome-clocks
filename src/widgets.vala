@@ -18,14 +18,12 @@
 
 namespace Clocks {
 
-public class HeaderBar : Gd.HeaderBar {
+public class HeaderBar : Gtk.HeaderBar {
     public enum Mode {
         NORMAL,
         SELECTION,
         STANDALONE
     }
-
-    private Gtk.StackSwitcher stack_switcher;
 
     [CCode (notify = false)]
     public Mode mode {
@@ -34,10 +32,8 @@ public class HeaderBar : Gd.HeaderBar {
         }
 
         set {
-            if (_mode != value && get_realized ()) {
+            if (_mode != value) {
                 _mode = value;
-
-                custom_title = (_mode == Mode.NORMAL) ? stack_switcher : null;
 
                 if (_mode == Mode.SELECTION) {
                     get_style_context ().add_class ("selection-mode");
@@ -52,18 +48,8 @@ public class HeaderBar : Gd.HeaderBar {
 
     private Mode _mode;
 
-    construct {
-        stack_switcher = new Gtk.StackSwitcher ();
-        realize.connect (() => {
-            custom_title = stack_switcher;
-        });
-    }
-
-    public void set_stack (Gtk.Stack stack) {
-        stack_switcher.set_stack (stack);
-    }
-
     public void clear () {
+        custom_title = null;
         foreach (Gtk.Widget w in get_children ()) {
             w.hide ();
         }
@@ -358,10 +344,10 @@ public class ContentView : Gtk.Bin {
     private Gtk.Widget empty_page;
     private IconView icon_view;
     private HeaderBar header_bar;
-    private Gd.HeaderSimpleButton select_button;
-    private Gd.HeaderSimpleButton cancel_button;
+    private Gtk.Button select_button;
+    private Gtk.Button cancel_button;
     private GLib.MenuModel selection_menu;
-    private Gd.HeaderMenuButton selection_menubutton;
+    private Gtk.MenuButton selection_menubutton;
     private Gtk.Frame selection_toolbar;
     private Gtk.Grid grid;
     private Gtk.Revealer revealer;
@@ -373,8 +359,11 @@ public class ContentView : Gtk.Bin {
 
         icon_view = new IconView ();
 
-        select_button = new Gd.HeaderSimpleButton ();
-        select_button.symbolic_icon_name = "object-select-symbolic";
+        select_button = new Gtk.Button ();
+        Gtk.Image select_button_image = new Gtk.Image.from_icon_name ("object-select-symbolic", Gtk.IconSize.MENU);
+        select_button.set_image (select_button_image);
+        select_button.valign = Gtk.Align.CENTER;
+        select_button.get_style_context ().add_class ("image-button");
         select_button.no_show_all = true;
         bind_property ("empty", select_button, "sensitive", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
         select_button.clicked.connect (() => {
@@ -382,10 +371,11 @@ public class ContentView : Gtk.Bin {
         });
         header_bar.pack_end (select_button);
 
-        cancel_button = new Gd.HeaderSimpleButton ();
-        cancel_button.label = _("Cancel");
+        cancel_button = new Gtk.Button.with_label (_("Cancel"));
         cancel_button.no_show_all = true;
         cancel_button.get_style_context ().add_class ("suggested-action");
+        cancel_button.get_style_context ().add_class ("text-button");
+        cancel_button.valign = Gtk.Align.CENTER;
         cancel_button.clicked.connect (() => {
             icon_view.mode = IconView.Mode.NORMAL;
         });
@@ -394,8 +384,10 @@ public class ContentView : Gtk.Bin {
         var builder = Utils.load_ui ("menu.ui");
         selection_menu = builder.get_object ("selection-menu") as GLib.MenuModel;
 
-        selection_menubutton = new Gd.HeaderMenuButton ();
+        selection_menubutton = new Gtk.MenuButton ();
         selection_menubutton.label = _("Click on items to select them");
+        selection_menubutton.valign = Gtk.Align.CENTER;
+        selection_menubutton.get_style_context ().add_class ("image-button");
         selection_menubutton.menu_model = selection_menu;
         selection_menubutton.get_style_context ().add_class ("selection-menu");
 

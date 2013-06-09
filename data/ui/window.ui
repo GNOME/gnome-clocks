@@ -6,8 +6,13 @@
     <child type="titlebar">
       <object class="ClocksHeaderBar" id="header_bar">
         <property name="visible">True</property>
-        <property name="vexpand">False</property>
         <property name="hexpand">True</property>
+        <property name="vexpand">False</property>
+        <child type="title">
+          <object class="GtkStackSwitcher" id="stack_switcher">
+            <property name="visible">True</property>
+          </object>
+        </child>
       </object>
     </child>
     <child>
@@ -23,8 +28,8 @@
         </style>
         <child>
           <object class="GtkStack" id="stack">
-	    <property name="visible">True</property>
-	    <property name="can_focus">False</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
           </object>
         </child>
       </object>

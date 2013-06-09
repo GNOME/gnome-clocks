@@ -256,8 +256,8 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
 
     private List<Item> locations;
     private GLib.Settings settings;
-    private Gd.HeaderSimpleButton new_button;
-    private Gd.HeaderSimpleButton back_button;
+    private Gtk.Button new_button;
+    private Gtk.Button back_button;
     private Gdk.Pixbuf? day_pixbuf;
     private Gdk.Pixbuf? night_pixbuf;
     private ContentView content_view;
@@ -272,16 +272,19 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         day_pixbuf = Utils.load_image ("day.png");
         night_pixbuf = Utils.load_image ("night.png");
 
-        new_button = new Gd.HeaderSimpleButton ();
-
         // Translators: "New" refers to a world clock
-        new_button.label = _("New");
+        new_button = new Gtk.Button.with_label (_("New"));
+        new_button.get_style_context ().add_class ("text-button");
+        new_button.valign = Gtk.Align.CENTER;
         new_button.no_show_all = true;
         new_button.action_name = "win.new";
         header_bar.pack_start (new_button);
 
-        back_button = new Gd.HeaderSimpleButton ();
-        back_button.symbolic_icon_name = "go-previous-symbolic";
+        back_button = new Gtk.Button ();
+        var back_button_image = new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.MENU);
+        back_button.valign = Gtk.Align.CENTER;
+        back_button.get_style_context ().add_class ("image-button");
+        back_button.set_image (back_button_image);
         back_button.no_show_all = true;
         back_button.clicked.connect (() => {
             visible_child = content_view;
