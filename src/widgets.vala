@@ -348,6 +348,7 @@ public class ContentView : Gtk.Bin {
     private Gtk.Button cancel_button;
     private GLib.MenuModel selection_menu;
     private Gtk.MenuButton selection_menubutton;
+    private Gtk.Label selection_menubutton_label;
     private Gtk.Frame selection_toolbar;
     private Gtk.Grid grid;
     private Gtk.Revealer revealer;
@@ -385,7 +386,14 @@ public class ContentView : Gtk.Bin {
         selection_menu = builder.get_object ("selection-menu") as GLib.MenuModel;
 
         selection_menubutton = new Gtk.MenuButton ();
-        selection_menubutton.label = _("Click on items to select them");
+        selection_menubutton_label = new Gtk.Label (_("Click on items to select them"));
+        Gtk.Arrow selection_menubutton_arrow = new Gtk.Arrow (Gtk.ArrowType.DOWN, Gtk.ShadowType.NONE);
+        Gtk.Grid selection_menubutton_grid = new Gtk.Grid ();
+        selection_menubutton_grid.set_column_spacing (6);
+        selection_menubutton_grid.attach (selection_menubutton_label, 0, 0, 1, 1);
+        selection_menubutton_grid.attach (selection_menubutton_arrow, 1, 0, 1, 1);
+        selection_menubutton.add (selection_menubutton_grid);
+        selection_menubutton.show_all();
         selection_menubutton.valign = Gtk.Align.CENTER;
         selection_menubutton.get_style_context ().add_class ("image-button");
         selection_menubutton.menu_model = selection_menu;
@@ -436,7 +444,7 @@ public class ContentView : Gtk.Bin {
             } else {
                 label = ngettext ("%d selected", "%d selected", n_items).printf (n_items);
             }
-            selection_menubutton.label = label;
+            selection_menubutton_label.label = label;
 
             if (n_items != 0) {
                 delete_button.sensitive = true;
