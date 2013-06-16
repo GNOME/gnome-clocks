@@ -182,21 +182,12 @@ private class LocationDialog : Gtk.Dialog {
         entry.activate.connect (() => {
             location_changed ();
         });
-        entry.icon_release.connect (() => {
-            if (entry.secondary_icon_name == "edit-clear-symbolic") {
-                entry.set_text ("");
-            }
-        });
     }
 
     private void location_changed () {
         GWeather.Location? l = null;
         GWeather.Timezone? t = null;
-        if (entry.get_text () == "") {
-            entry.secondary_icon_name = "edit-find-symbolic";
-        } else {
-            entry.secondary_icon_name = "edit-clear-symbolic";
-
+        if (entry.get_text () != "") {
             l = entry.get_location ();
             if (l != null) {
                 t = l.get_timezone ();
