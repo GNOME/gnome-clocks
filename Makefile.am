@@ -140,6 +140,7 @@ EXTRA_DIST = \
 	data/ui/stopwatch.ui \
 	data/ui/timer.ui \
 	data/ui/window.ui \
+	data/ui/worldlocationdialog.ui \
 	data/ui/world.ui
 
 CLEANFILES = \

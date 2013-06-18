@@ -159,36 +159,30 @@ private class Item : Object, ContentItem {
     }
 }
 
+[GtkTemplate (ui = "/org/gnome/clocks/ui/worldlocationdialog.ui")]
 private class LocationDialog : Gtk.Dialog {
-    private GWeather.LocationEntry entry;
+    [GtkChild]
+    private GWeather.LocationEntry location_entry;
 
     public LocationDialog (Gtk.Window parent) {
-        Object (transient_for: parent, modal: true, title: _("Add a New World Clock"));
-
-        add_buttons (Gtk.Stock.CANCEL, 0, Gtk.Stock.ADD, 1);
-        set_default_response (1);
-        set_response_sensitive (1, false);
-
-        var builder = Utils.load_ui ("world.ui");
-
-        var grid = builder.get_object ("location_dialog_content") as Gtk.Grid;
-        get_content_area ().add (grid);
-
-        entry = builder.get_object ("location_entry") as GWeather.LocationEntry;
-
-        entry.changed.connect (() => {
-            location_changed ();
-        });
-        entry.activate.connect (() => {
-            location_changed ();
-        });
+        Object (transient_for: parent);
     }
 
+    [GtkCallback]
+    private void icon_released () {
+        if (location_entry.secondary_icon_name == "edit-clear-symbolic") {
+            location_entry.set_text ("");
+        }
+    }
+
+    [GtkCallback]
     private void location_changed () {
         GWeather.Location? l = null;
         GWeather.Timezone? t = null;
-        if (entry.get_text () != "") {
-            l = entry.get_location ();
+
+        if (location_entry.get_text () != "") {
+            l = location_entry.get_location ();
+
             if (l != null) {
                 t = l.get_timezone ();
 
@@ -202,7 +196,7 @@ private class LocationDialog : Gtk.Dialog {
     }
 
     public Item? get_location () {
-        var location = entry.get_location ();
+        var location = location_entry.get_location ();
         return location != null ? new Item (location) : null;
     }
 }
