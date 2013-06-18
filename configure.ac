@@ -52,7 +52,7 @@ PKG_CHECK_MODULES(CLOCKS, [
     glib-2.0 >= 2.36
     gtk+-3.0 >= 3.9.0
     libcanberra >= 0.30
-    gweather-3.0 >= 3.9.2
+    gweather-3.0 >= 3.9.3
     gnome-desktop-3.0 >= 3.7.90
     libnotify >= 0.7.0
 ])
