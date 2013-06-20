@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-clocks 3.8.x\n"
+"Project-Id-Version: gnome-clocks 3.9.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-20 14:09+0200\n"
-"PO-Revision-Date: 2013-05-20 14:09+0200\n"
+"POT-Creation-Date: 2013-06-20 10:23+0200\n"
+"PO-Revision-Date: 2013-06-20 10:23+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -18,8 +18,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8-bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:38
-#: ../src/window.vala:161
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:186
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Klokker"
 
@@ -101,7 +101,7 @@ msgstr "Fer_dig"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:485 ../src/world.vala:278
+#: ../src/alarm.vala:483 ../src/world.vala:261
 msgid "New"
 msgstr "Ny"
 
@@ -143,66 +143,70 @@ msgstr "Nedtelling fullført"
 msgid "Pause"
 msgstr "Pause"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:153
 msgid "Mondays"
 msgstr "Mandager"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:154
 msgid "Tuesdays"
 msgstr "Tirsdager"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:155
 msgid "Wednesdays"
 msgstr "Onsdager"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:156
 msgid "Thursdays"
 msgstr "Torsdager"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:157
 msgid "Fridays"
 msgstr "Fredager"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:158
 msgid "Saturdays"
 msgstr "Lørdager"
 
-#: ../src/utils.vala:155
+#: ../src/utils.vala:159
 msgid "Sundays"
 msgstr "Søndager"
 
-#: ../src/utils.vala:235
+#: ../src/utils.vala:239
 msgid "Every Day"
 msgstr "Hver dag"
 
-#: ../src/utils.vala:237
+#: ../src/utils.vala:241
 msgid "Weekdays"
 msgstr "Ukedager"
 
-#: ../src/widgets.vala:386
-msgid "Done"
-msgstr "Ferdig"
+#: ../src/utils.vala:243
+msgid "Weekends"
+msgstr "Helger"
 
-#: ../src/widgets.vala:398 ../src/widgets.vala:433
+#: ../src/widgets.vala:375
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: ../src/widgets.vala:389 ../src/widgets.vala:443
 msgid "Click on items to select them"
 msgstr "Klikk på oppføringer for å velge dem"
 
-#: ../src/widgets.vala:435
+#: ../src/widgets.vala:445
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d valgt"
 msgstr[1] "%d valgt"
 
-#: ../src/widgets.vala:477
+#: ../src/widgets.vala:480
 msgid "Delete"
 msgstr "Slett"
 
-#: ../src/window.vala:164
+#: ../src/window.vala:189
 msgid "Utilities to help you with the time."
 msgstr "Verktøy som hjelper deg å holde orden på tiden."
 
-#: ../src/window.vala:169
+#: ../src/window.vala:194
 msgid "translator-credits"
 msgstr ""
 "Kjartan Maraas <kmaraas@gnome.org>\n"
@@ -218,11 +222,7 @@ msgstr "I morgen"
 msgid "Yesterday"
 msgstr "I går"
 
-#: ../src/world.vala:166
-msgid "Add a New World Clock"
-msgstr "Legg til en ny verdensklokke"
-
-#: ../src/world.vala:267
+#: ../src/world.vala:252
 msgid "World"
 msgstr "Verden"
 
@@ -272,18 +272,22 @@ msgstr "Del"
 msgid "Total"
 msgstr "Total"
 
+#: ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Legg til en ny verdensklokke"
+
+#: ../data/ui/worldlocationdialog.ui.h:2
+msgid "Search for a city:"
+msgstr "Søk etter en by:"
+
 #: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Velg <b>Ny</b> for å legge til en verdensklokke"
 
 #: ../data/ui/world.ui.h:2
-msgid "Search for a city:"
-msgstr "Søk etter en by:"
-
-#: ../data/ui/world.ui.h:3
 msgid "Sunrise"
 msgstr "Soloppgang"
 
-#: ../data/ui/world.ui.h:4
+#: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Solnedgang"
