@@ -4,25 +4,27 @@
 # Enrico Nicoletto <liverig@gmail.com>, 2012, 2013.
 # Djavan Fagundes <djavan@comum.org>, 2012.
 # Rafael Ferreira <rafael.f.f1@gmail.com>, 2013.
+# Edson Silva <edsonlead@gmail.com>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-06 07:27+0000\n"
-"PO-Revision-Date: 2013-03-06 13:52-0300\n"
-"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-06-19 19:51+0000\n"
+"PO-Revision-Date: 2013-06-26 22:24-0300\n"
+"Last-Translator: Edson Silva <edsonlead@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Gtranslator 2.91.6\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1
-#: ../src/window.vala:44
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:186
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Relógios"
 
@@ -32,7 +34,8 @@ msgstr "Relógios do GNOME"
 
 #: ../data/gnome-clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Relógios para horários mundiais além de alarmes, cronômetro e um temporizador"
+msgstr ""
+"Relógios para horários mundiais além de alarmes, cronômetro e um temporizador"
 
 #: ../data/gnome-clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
@@ -54,8 +57,7 @@ msgstr "Alarmes configurados"
 msgid "List of alarms set."
 msgstr "Lista de alarmes ajustados."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5
-#: ../src/timer.vala:49
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:50
 msgid "Timer"
 msgstr "Temporizador"
 
@@ -63,20 +65,31 @@ msgstr "Temporizador"
 msgid "Configured timer duration in seconds."
 msgstr "Duração configurada do temporizador em segundos."
 
-#: ../src/alarm.vala:105
-#: ../src/alarm.vala:327
-#: ../src/alarm.vala:475
+#: ../data/org.gnome.clocks.gschema.xml.in.h:7
+msgid "Window width and height"
+msgstr "Largura e altura da janela"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:8
+msgid "Width and height of the window."
+msgstr "Largura e altura da janela."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:9
+msgid "Panel state"
+msgstr "Estado do painel"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:10
+msgid "Current clock panel."
+msgstr "Painel do relógio atual."
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:477
 msgid "Alarm"
 msgstr "Alarme"
 
-#: ../src/alarm.vala:106
-#: ../src/stopwatch.vala:121
-#: ../src/alarm.ui.h:2
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:122 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Parar"
 
-#: ../src/alarm.vala:109
-#: ../src/alarm.ui.h:3
+#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Cochilar mais um pouco"
 
@@ -94,8 +107,7 @@ msgstr "_Concluído"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:616
-#: ../src/world.vala:360
+#: ../src/alarm.vala:483 ../src/world.vala:261
 msgid "New"
 msgstr "Novo"
 
@@ -103,111 +115,105 @@ msgstr "Novo"
 msgid "Print version information and exit"
 msgstr "Exibir informações da versão e sair"
 
-#: ../src/stopwatch.vala:50
+#: ../src/stopwatch.vala:51
 msgid "Stopwatch"
 msgstr "Cronômetro"
 
-#: ../src/stopwatch.vala:124
-#: ../src/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:125 ../data/ui/stopwatch.ui.h:3
 msgid "Lap"
 msgstr "Volta"
 
-#: ../src/stopwatch.vala:131
-#: ../src/timer.vala:88
+#: ../src/stopwatch.vala:132 ../src/timer.vala:89
 msgid "Continue"
 msgstr "Continuar"
 
-#: ../src/stopwatch.vala:135
-#: ../src/stopwatch.ui.h:2
-#: ../src/timer.ui.h:3
+#: ../src/stopwatch.vala:136 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: ../src/stopwatch.vala:143
-#: ../src/stopwatch.ui.h:1
-#: ../src/timer.ui.h:1
+#: ../src/stopwatch.vala:144 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Iniciar"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:54
 msgid "Time is up!"
 msgstr "Tempo esgotado!"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:54
 msgid "Timer countdown finished"
 msgstr "Contagem regressiva do temporizador finalizada"
 
-#: ../src/timer.vala:93
-#: ../src/timer.vala:103
-#: ../src/timer.ui.h:2
+#: ../src/timer.vala:94 ../src/timer.vala:104 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Pausar"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:153
 msgid "Mondays"
 msgstr "Segundas-feira"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:154
 msgid "Tuesdays"
 msgstr "Terças-feira"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:155
 msgid "Wednesdays"
 msgstr "Quartas-feira"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:156
 msgid "Thursdays"
 msgstr "Quintas-feira"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:157
 msgid "Fridays"
 msgstr "Sextas-feira"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:158
 msgid "Saturdays"
 msgstr "Sábados"
 
-#: ../src/utils.vala:155
+#: ../src/utils.vala:159
 msgid "Sundays"
 msgstr "Domingos"
 
-#: ../src/utils.vala:235
+#: ../src/utils.vala:239
 msgid "Every Day"
 msgstr "Todo dia"
 
-#: ../src/utils.vala:237
+#: ../src/utils.vala:241
 msgid "Weekdays"
 msgstr "Dias da semana"
 
-#: ../src/widgets.vala:417
-#: ../src/widgets.vala:568
+#: ../src/utils.vala:243
+#| msgid "Weekdays"
+msgid "Weekends"
+msgstr "Finais de semana"
+
+#: ../src/widgets.vala:375
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: ../src/widgets.vala:389 ../src/widgets.vala:443
 msgid "Click on items to select them"
 msgstr "Clique sobre os ítens para selecioná-los"
 
-#: ../src/widgets.vala:419
+#: ../src/widgets.vala:445
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d selecionado"
 msgstr[1] "%d selecionados"
 
-#: ../src/widgets.vala:461
+#: ../src/widgets.vala:480
 msgid "Delete"
 msgstr "Excluír"
 
-#: ../src/widgets.vala:567
-msgid "Done"
-msgstr "Concluído"
-
-#: ../src/window.vala:147
-msgid "Gnome Clocks"
-msgstr "Relógios do Gnome"
-
-#: ../src/window.vala:150
+#: ../src/window.vala:189
 msgid "Utilities to help you with the time."
 msgstr "Utilitário para auxiliá-lo com o tempo."
 
-#: ../src/window.vala:155
+#: ../src/window.vala:194
 msgid "translator-credits"
 msgstr ""
 "Enrico Nicoletto <liverig@gmail.com>, 2012, 2013.\n"
@@ -215,86 +221,90 @@ msgstr ""
 "Rafael Ferreira <rafael.f.f1@gmail.com>, 2013."
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:90
-#: ../src/world.vala:93
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Tomorrow"
 msgstr "Amanhã"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:90
-#: ../src/world.vala:93
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Yesterday"
 msgstr "Ontem"
 
-#: ../src/world.vala:160
-msgid "Add a New World Clock"
-msgstr "Adicionar um novo relógio mundial"
-
-#: ../src/world.vala:256
+#: ../src/world.vala:252
 msgid "World"
 msgstr "Mundial"
 
 #. namespace World
 #. namespace Clocks
-#: ../src/alarm.ui.h:1
+#: ../data/ui/alarm.ui.h:1
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Selecione <b>Novo</b> para adicionar um alarme"
 
-#: ../src/alarm.ui.h:4
+#: ../data/ui/alarm.ui.h:4
 msgid "Name"
 msgstr "Nome"
 
-#: ../src/alarm.ui.h:5
+#: ../data/ui/alarm.ui.h:5
 msgid "Repeat Every"
 msgstr "Repetir a cada"
 
-#: ../src/alarm.ui.h:6
+#: ../data/ui/alarm.ui.h:6
 msgid "Active"
 msgstr "Ativo"
 
-#: ../src/menu.ui.h:1
+#: ../data/ui/menu.ui.h:1
 msgid "_New"
 msgstr "_Novo"
 
-#: ../src/menu.ui.h:2
+#: ../data/ui/menu.ui.h:2
 msgid "_About"
 msgstr "_Sobre"
 
-#: ../src/menu.ui.h:3
+#: ../data/ui/menu.ui.h:3
 msgid "_Quit"
 msgstr "Sa_ir"
 
-#: ../src/menu.ui.h:4
+#: ../data/ui/menu.ui.h:4
 msgid "Select All"
 msgstr "Selecionar tudo"
 
-#: ../src/menu.ui.h:5
+#: ../data/ui/menu.ui.h:5
 msgid "Select None"
 msgstr "Desmarcar tudo"
 
-#: ../src/stopwatch.ui.h:4
+#: ../data/ui/stopwatch.ui.h:4
 msgid "Split"
 msgstr "Dividir"
 
-#: ../src/stopwatch.ui.h:5
+#: ../data/ui/stopwatch.ui.h:5
 msgid "Total"
 msgstr "Total"
 
-#: ../src/world.ui.h:1
-msgid "Select <b>New</b> to add a world clock"
-msgstr "Selecione <b>Novo</b> para adicionar um relógio mundial"
+#: ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Adicionar um novo relógio mundial"
 
-#: ../src/world.ui.h:2
+#: ../data/ui/worldlocationdialog.ui.h:2
 msgid "Search for a city:"
 msgstr "Pesquisar por uma cidade:"
 
-#: ../src/world.ui.h:3
+#: ../data/ui/world.ui.h:1
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Selecione <b>Novo</b> para adicionar um relógio mundial"
+
+#: ../data/ui/world.ui.h:2
 msgid "Sunrise"
 msgstr "Nascer do sol"
 
-#: ../src/world.ui.h:4
+#: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Pôr-do-sol"
+
+#~ msgid "Done"
+#~ msgstr "Concluído"
+
+#~ msgid "Gnome Clocks"
+#~ msgstr "Relógios do Gnome"
 
 #~ msgid ":"
 #~ msgstr ":"
