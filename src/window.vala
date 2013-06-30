@@ -80,20 +80,13 @@ public class Window : Gtk.ApplicationWindow {
         Gtk.Image close_image = new Gtk.Image.from_icon_name ("window-close-symbolic", Gtk.IconSize.MENU);
         close_button.set_image (close_image);
         close_button.get_style_context ().add_class ("image-button");
+        close_button.no_show_all = true;
         close_button.relief = Gtk.ReliefStyle.NONE;
         close_button.valign = Gtk.Align.CENTER;
         close_button.clicked.connect (() => {
-            Gdk.Event event;
-
-            event = new Gdk.Event (Gdk.EventType.DESTROY);
-
-            event.any.window = this.get_window ();
-            event.any.send_event = 1;
-
-            Gtk.main_do_event (event);
+            close();
         });
 
-        close_button.no_show_all = true;
         header_bar.pack_end (close_button);
 
         var stack_id = stack.notify["visible-child"].connect (() => {
