@@ -7,8 +7,8 @@ SUBDIRS = po
 %.desktop: %.desktop.in
 	$(MKDIR_P) $(dir $@); LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 applicationsdir = $(datadir)/applications
-applications_DATA = data/gnome-clocks.desktop
-dist_noinst_DATA = data/gnome-clocks.desktop.in
+applications_DATA = data/org.gnome.clocks.desktop
+dist_noinst_DATA = data/org.gnome.clocks.desktop.in
 
 # gsettings
 gsettings_SCHEMAS = data/org.gnome.clocks.gschema.xml
