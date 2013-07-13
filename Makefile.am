@@ -153,17 +153,13 @@ MAINTAINERCLEANFILES = \
 	ABOUT-NLS \
 	aclocal.m4 \
 	config.guess \
+	config.h.in \
+	config.rpath \
 	config.sub \
+	depcomp \
 	install-sh \
+	ltmain.sh \
 	missing \
-	po/Makevars.template \
-	po/Rules-quot \
-	po/boldquot.sed \
-	po/en@boldquot.header \
-	po/en@quot.header \
-	po/insert-header.sin \
-	po/quot.sed \
-	po/remove-potcdate.sin \
 	$(gsettings_SCHEMAS:.xml=.valid) \
 	$(VALA_SOURCES:.vala=.c) \
 	*.stamp
