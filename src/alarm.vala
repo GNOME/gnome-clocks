@@ -252,37 +252,32 @@ private class Item : Object, ContentItem {
     }
 }
 
+[GtkTemplate (ui = "/org/gnome/clocks/ui/alarmsetupdialog.ui")]
 private class SetupDialog : Gtk.Dialog {
     private Utils.WallClock.Format format;
+    [GtkChild]
     private Gtk.SpinButton h_spinbutton;
+    [GtkChild]
     private Gtk.SpinButton m_spinbutton;
+    [GtkChild]
     private Gtk.Entry name_entry;
     private AmPmToggleButton am_pm_button;
     private Gtk.ToggleButton[] day_buttons;
+    [GtkChild]
     private Gtk.Switch active_switch;
+    [GtkChild]
+    private Gtk.Box day_buttons_box;
+    [GtkChild]
+    private Gtk.Alignment am_pm_alignment;
+    [GtkChild]
+    private Gtk.SizeGroup am_pm_sizegroup;
 
     public SetupDialog (Gtk.Window parent, Item? alarm) {
-        Object (transient_for: parent, modal: true, title: alarm != null ? _("Edit Alarm") : _("New Alarm"));
-
-        add_buttons (Gtk.Stock.CANCEL, 0, _("_Done"), 1);
-        set_default_response (1);
+        Object (transient_for: parent, title: alarm != null ? _("Edit Alarm") : _("New Alarm"));
 
         format  = Utils.WallClock.get_default ().format;
         am_pm_button = new AmPmToggleButton ();
 
-        // Get objects from the ui file
-        var builder = Utils.load_ui ("alarm.ui");
-        var grid = builder.get_object ("setup_dialog_content") as Gtk.Grid;
-        var am_pm_alignment = builder.get_object ("am_pm_alignment") as Gtk.Alignment;
-        var am_pm_sizegroup = builder.get_object ("am_pm_sizegroup") as Gtk.SizeGroup;
-        var day_buttons_box = builder.get_object ("day_buttons_box") as Gtk.Box;
-        h_spinbutton = builder.get_object ("h_spinbutton") as Gtk.SpinButton;
-        m_spinbutton = builder.get_object ("m_spinbutton") as Gtk.SpinButton;
-        name_entry = builder.get_object ("name_entry") as Gtk.Entry;
-        active_switch = builder.get_object ("active_switch") as Gtk.Switch;
-
-        h_spinbutton.output.connect (show_leading_zeros);
-        m_spinbutton.output.connect (show_leading_zeros);
         if (format == Utils.WallClock.Format.TWENTYFOUR)
             // 24h format
             h_spinbutton.set_range (0, 23);
@@ -310,7 +305,6 @@ private class SetupDialog : Gtk.Dialog {
             day_buttons_box.pack_start (day_buttons[day_number]);
         }
 
-        get_content_area ().add (grid);
         set_from_alarm (alarm);
     }
 
@@ -392,6 +386,7 @@ private class SetupDialog : Gtk.Dialog {
         }
     }
 
+    [GtkCallback]
     private bool show_leading_zeros (Gtk.SpinButton spin_button) {
         spin_button.set_text ("%02i".printf (spin_button.get_value_as_int ()));
         return true;

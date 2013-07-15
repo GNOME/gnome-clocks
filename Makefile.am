@@ -136,6 +136,7 @@ EXTRA_DIST = \
 	data/org.gnome.clocks.gschema.xml.in \
 	data/gnome-clocks.gresource.xml \
 	data/ui/alarm.ui \
+	data/ui/alarmsetupdialog.ui \
 	data/ui/menu.ui \
 	data/ui/stopwatch.ui \
 	data/ui/timer.ui \
