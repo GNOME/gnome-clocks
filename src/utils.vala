@@ -125,8 +125,10 @@ public class WallClock : Object {
     }
 
     public string format_time (GLib.DateTime date_time) {
-        // Note that the format uses unicode RATIO and THIN SPACE characters
-        return date_time.format (format == Format.TWELVE ? "%I∶%M %p" : "%H∶%M");
+        // Note that the format uses unicode RATIO ("∶" \xE2\x88\xB6 or "\u2236")
+        // prepended by the LTR mark(\xE2\x80\x8E or "\u200E") and
+        // THIN SPACE(\xE2\x80\x89 or "\u2009") characters
+        return date_time.format (format == Format.TWELVE ? "%I\xE2\x80\x8E\xE2\x88\xB6%M\xE2\x80\x89%p" : "%H\xE2\x80\x8E\xE2\x88\xB6%M");
     }
 }
 
