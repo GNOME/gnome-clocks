@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Tajik Gnome\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-05-30 12:01+0000\n"
-"PO-Revision-Date: 2013-05-30 17:03+0500\n"
+"POT-Creation-Date: 2013-07-09 06:04+0000\n"
+"PO-Revision-Date: 2013-07-18 16:47+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: \n"
 "Language: Tajik\n"
@@ -20,8 +20,8 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-Bookmarks: -1,24,-1,-1,-1,-1,-1,-1,-1,-1\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:38
-#: ../src/window.vala:161
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:179
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Соатҳо"
 
@@ -104,7 +104,7 @@ msgstr "_Тайёр"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:485 ../src/world.vala:278
+#: ../src/alarm.vala:483 ../src/world.vala:261
 msgid "New"
 msgstr "Нав"
 
@@ -146,66 +146,71 @@ msgstr "Вақти сонияшумор ба анҷом расид"
 msgid "Pause"
 msgstr "Таваққуф кардан"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:153
 msgid "Mondays"
 msgstr "Душанбеҳо"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:154
 msgid "Tuesdays"
 msgstr "Сешанбеҳо"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:155
 msgid "Wednesdays"
 msgstr "Чоршанбеҳо"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:156
 msgid "Thursdays"
 msgstr "Панҷшанбеҳо"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:157
 msgid "Fridays"
 msgstr "Ҷумъаҳо"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:158
 msgid "Saturdays"
 msgstr "Шанбеҳо"
 
-#: ../src/utils.vala:155
+#: ../src/utils.vala:159
 msgid "Sundays"
 msgstr "Якшанбеҳо"
 
-#: ../src/utils.vala:235
+#: ../src/utils.vala:239
 msgid "Every Day"
 msgstr "Ҳар рӯз"
 
-#: ../src/utils.vala:237
+#: ../src/utils.vala:241
 msgid "Weekdays"
 msgstr "Рӯзҳои ҳафта"
 
-#: ../src/widgets.vala:386
-msgid "Done"
-msgstr "Тайёр"
+#: ../src/utils.vala:243
+#| msgid "Weekdays"
+msgid "Weekends"
+msgstr "Рӯзҳои истироҳат"
 
-#: ../src/widgets.vala:398 ../src/widgets.vala:433
+#: ../src/widgets.vala:375
+msgid "Cancel"
+msgstr "Бекор кардан"
+
+#: ../src/widgets.vala:389 ../src/widgets.vala:443
 msgid "Click on items to select them"
 msgstr "Барои илова кардани объектҳо, онҳоро зер намоед"
 
-#: ../src/widgets.vala:435
+#: ../src/widgets.vala:445
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d интихоб шудааст"
 msgstr[1] "%d интихоб шудаанд"
 
-#: ../src/widgets.vala:477
+#: ../src/widgets.vala:480
 msgid "Delete"
 msgstr "Нест кардан"
 
-#: ../src/window.vala:164
+#: ../src/window.vala:182
 msgid "Utilities to help you with the time."
 msgstr "Барномаҳои хидматӣ барои кор бо вақт."
 
-#: ../src/window.vala:169
+#: ../src/window.vala:187
 msgid "translator-credits"
 msgstr "Victor Ibragimov"
 
@@ -219,11 +224,7 @@ msgstr "Фардо"
 msgid "Yesterday"
 msgstr "Дирӯз"
 
-#: ../src/world.vala:166
-msgid "Add a New World Clock"
-msgstr "Илова кардани соати ҷаҳонии нав"
-
-#: ../src/world.vala:267
+#: ../src/world.vala:252
 msgid "World"
 msgstr "Ҷаҳон"
 
@@ -273,18 +274,25 @@ msgstr "Тақсим кардан"
 msgid "Total"
 msgstr "Ҳамагӣ"
 
+#: ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Илова кардани соати ҷаҳонии нав"
+
+#: ../data/ui/worldlocationdialog.ui.h:2
+msgid "Search for a city:"
+msgstr "Ҷустуҷӯи шаҳр:"
+
 #: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Барои илова кардани соати ҷаҳонӣ <b>Нав</b>-ро зер кунед"
 
 #: ../data/ui/world.ui.h:2
-msgid "Search for a city:"
-msgstr "Ҷустуҷӯи шаҳр:"
-
-#: ../data/ui/world.ui.h:3
 msgid "Sunrise"
 msgstr "Субҳидам"
 
-#: ../data/ui/world.ui.h:4
+#: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Ғуруб"
+
+#~ msgid "Done"
+#~ msgstr "Тайёр"
