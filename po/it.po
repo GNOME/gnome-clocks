@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-15 10:13+0200\n"
-"PO-Revision-Date: 2013-07-15 10:12+0200\n"
+"POT-Creation-Date: 2013-07-19 09:13+0200\n"
+"PO-Revision-Date: 2013-07-19 09:14+0200\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -76,7 +76,7 @@ msgstr "Stato del pannello"
 msgid "Current clock panel."
 msgstr "Pannello attualle dell'orologio."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:477
+#: ../src/alarm.vala:105 ../src/alarm.vala:321 ../src/alarm.vala:472
 msgid "Alarm"
 msgstr "Sveglia"
 
@@ -88,21 +88,17 @@ msgstr "Interrompi"
 msgid "Snooze"
 msgstr "Ripeti"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:276
 msgid "Edit Alarm"
 msgstr "Modifica sveglia"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:276
 msgid "New Alarm"
 msgstr "Nuova sveglia"
 
-#: ../src/alarm.vala:267
-msgid "_Done"
-msgstr "_Fatto"
-
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:483 ../src/world.vala:261
+#: ../src/alarm.vala:478 ../src/world.vala:261
 msgid "New"
 msgstr "Nuovo"
 
@@ -233,16 +229,20 @@ msgstr "Fusi orari"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Scegliere <b>Nuovo</b> per aggiungere una sveglia"
 
-#: ../data/ui/alarm.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:1
+msgid "0"
+msgstr "0"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2
 msgid "Name"
 msgstr "Nome"
 
-#: ../data/ui/alarm.ui.h:5
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "Repeat Every"
 msgstr "Ripetere ogni"
 
 # (ndt) switch on/off per, in teoria, una sveglia
-#: ../data/ui/alarm.ui.h:6
+#: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "Active"
 msgstr "Attivata"
 
