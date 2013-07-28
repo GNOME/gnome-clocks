@@ -82,7 +82,7 @@ AM_CPPFLAGS = \
 	-DDATADIR=\""$(datadir)"\"
 
 AM_VALAFLAGS = \
-	--target-glib=2.36 \
+	--target-glib=2.38 \
 	--vapidir=egg-list-box \
 	--pkg gio-2.0 \
 	--pkg gtk+-3.0 \
