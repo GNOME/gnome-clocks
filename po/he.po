@@ -7,22 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks 3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-24 12:16+0300\n"
-"PO-Revision-Date: 2013-05-24 12:16+0200\n"
+"POT-Creation-Date: 2013-07-31 09:46+0300\n"
+"PO-Revision-Date: 2013-07-31 09:46+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <sh.yaron@gmail.com>\n"
-"Language: \n"
+"Language: he_IL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-Language: Hebrew\n"
-"X-Poedit-Country: ISRAEL\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1
-#: ../src/window.vala:38
-#: ../src/window.vala:161
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:179
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "שעונים"
 
@@ -54,8 +52,7 @@ msgstr "Configured alarms"
 msgid "List of alarms set."
 msgstr "List of alarms set."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5
-#: ../src/timer.vala:50
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:50
 msgid "Timer"
 msgstr "קוצב זמן"
 
@@ -79,39 +76,29 @@ msgstr "Panel state"
 msgid "Current clock panel."
 msgstr "Current clock panel."
 
-#: ../src/alarm.vala:105
-#: ../src/alarm.vala:327
-#: ../src/alarm.vala:477
+#: ../src/alarm.vala:105 ../src/alarm.vala:321 ../src/alarm.vala:472
 msgid "Alarm"
 msgstr "התרעה"
 
-#: ../src/alarm.vala:106
-#: ../src/stopwatch.vala:122
-#: ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:122 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "עצירה"
 
-#: ../src/alarm.vala:109
-#: ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "נודניק"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:276
 msgid "Edit Alarm"
 msgstr "עריכת התרעה"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:276
 msgid "New Alarm"
 msgstr "התרעה חדשה"
 
-#: ../src/alarm.vala:267
-msgid "_Done"
-msgstr "_בוצע"
-
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:485
-#: ../src/world.vala:278
+#: ../src/alarm.vala:478 ../src/world.vala:261
 msgid "New"
 msgstr "חדש"
 
@@ -123,24 +110,20 @@ msgstr "Print version information and exit"
 msgid "Stopwatch"
 msgstr "שעון עצר"
 
-#: ../src/stopwatch.vala:125
-#: ../data/ui/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:125 ../data/ui/stopwatch.ui.h:3
 msgid "Lap"
 msgstr "הקפה"
 
-#: ../src/stopwatch.vala:132
-#: ../src/timer.vala:89
+#: ../src/stopwatch.vala:132 ../src/timer.vala:89
 msgid "Continue"
 msgstr "המשך"
 
-#: ../src/stopwatch.vala:136
-#: ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:136 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "איפוס"
 
-#: ../src/stopwatch.vala:144
-#: ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:144 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "התחלה"
@@ -153,93 +136,88 @@ msgstr "נגמר הזמן!"
 msgid "Timer countdown finished"
 msgstr "הספירה לאחור הסתיימה"
 
-#: ../src/timer.vala:94
-#: ../src/timer.vala:104
-#: ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:94 ../src/timer.vala:104 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "השהייה"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:163
 msgid "Mondays"
 msgstr "ימי שני"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:164
 msgid "Tuesdays"
 msgstr "ימי שלישי"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:165
 msgid "Wednesdays"
 msgstr "ימי רביעי"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:166
 msgid "Thursdays"
 msgstr "ימי חמישי"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:167
 msgid "Fridays"
 msgstr "ימי שישי"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:168
 msgid "Saturdays"
 msgstr "שבתות"
 
-#: ../src/utils.vala:155
+#: ../src/utils.vala:169
 msgid "Sundays"
 msgstr "ימי ראשון"
 
-#: ../src/utils.vala:235
+#: ../src/utils.vala:249
 msgid "Every Day"
 msgstr "כל יום"
 
-#: ../src/utils.vala:237
+#: ../src/utils.vala:251
 msgid "Weekdays"
 msgstr "בימי השבוע"
 
-#: ../src/widgets.vala:386
-msgid "Done"
-msgstr "בוצע"
+#: ../src/utils.vala:253
+msgid "Weekends"
+msgstr "סופי שבוע"
 
-#: ../src/widgets.vala:398
-#: ../src/widgets.vala:433
+#: ../src/widgets.vala:375
+msgid "Cancel"
+msgstr "ביטול"
+
+#: ../src/widgets.vala:389 ../src/widgets.vala:443
 msgid "Click on items to select them"
 msgstr "יש ללחוץ על פריטים כדי לבחור בהם"
 
-#: ../src/widgets.vala:435
+#: ../src/widgets.vala:445
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "נבחר פריט אחד"
 msgstr[1] "%d נבחרו"
 
-#: ../src/widgets.vala:477
+#: ../src/widgets.vala:480
 msgid "Delete"
 msgstr "מחיקה"
 
-#: ../src/window.vala:164
+#: ../src/window.vala:182
 msgid "Utilities to help you with the time."
 msgstr "עזרים כדי לסייע לך בניהול זמנים."
 
-#: ../src/window.vala:169
+#: ../src/window.vala:187
 msgid "translator-credits"
 msgstr "ירון שהרבני <sh.yaron@gmail.com>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:93
-#: ../src/world.vala:96
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Tomorrow"
 msgstr "מחר"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:93
-#: ../src/world.vala:96
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Yesterday"
 msgstr "אתמול"
 
-#: ../src/world.vala:166
-msgid "Add a New World Clock"
-msgstr "הוספת שעון עולמי חדש"
-
-#: ../src/world.vala:267
+#: ../src/world.vala:252
 msgid "World"
 msgstr "עולם"
 
@@ -249,15 +227,19 @@ msgstr "עולם"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "יש לבחור ב<b>חדש</b> כדי להוסיף התרעה"
 
-#: ../data/ui/alarm.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:1
+msgid "_Done"
+msgstr "_בוצע"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2
 msgid "Name"
 msgstr "שם"
 
-#: ../data/ui/alarm.ui.h:5
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "Repeat Every"
 msgstr "חזרה בכול"
 
-#: ../data/ui/alarm.ui.h:6
+#: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "Active"
 msgstr "פעיל"
 
@@ -289,21 +271,28 @@ msgstr "פיצול"
 msgid "Total"
 msgstr "סך הכול"
 
+#: ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "הוספת שעון עולמי חדש"
+
+#: ../data/ui/worldlocationdialog.ui.h:2
+msgid "Search for a city:"
+msgstr "חיפוש אחר עיר:"
+
 #: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "יש לבחור ב<b>חדש</b> כדי להוסיף שעון עולמי"
 
 #: ../data/ui/world.ui.h:2
-msgid "Search for a city:"
-msgstr "חיפוש אחר עיר:"
-
-#: ../data/ui/world.ui.h:3
 msgid "Sunrise"
 msgstr "זריחה"
 
-#: ../data/ui/world.ui.h:4
+#: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "שקיעה"
+
+#~ msgid "Done"
+#~ msgstr "בוצע"
 
 #~ msgid "Gnome Clocks"
 #~ msgstr "שעונים מבית Gnome"
