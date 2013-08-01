@@ -35,6 +35,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     private uint timeout_id;
     private Utils.Bell bell;
     private Gtk.Widget setup_panel;
+    private Gtk.Grid grid_spinbuttons;
     private Gtk.SpinButton h_spinbutton;
     private Gtk.SpinButton m_spinbutton;
     private Gtk.SpinButton s_spinbutton;
@@ -60,10 +61,14 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         var builder = Utils.load_ui ("timer.ui");
 
         setup_panel = builder.get_object ("setup_panel") as Gtk.Widget;
+        grid_spinbuttons = builder.get_object ("grid_spinbuttons") as Gtk.Grid;
         h_spinbutton = builder.get_object ("spinbutton_hours") as Gtk.SpinButton;
         m_spinbutton = builder.get_object ("spinbutton_minutes") as Gtk.SpinButton;
         s_spinbutton = builder.get_object ("spinbutton_seconds") as Gtk.SpinButton;
         start_button = builder.get_object ("start_button") as Gtk.Button;
+
+        // Force LTR since we do not want to reverse [hh] : [mm] : [ss]
+        grid_spinbuttons.set_direction (Gtk.TextDirection.LTR);
 
         h_spinbutton.output.connect (show_leading_zeros);
         m_spinbutton.output.connect (show_leading_zeros);
@@ -224,8 +229,9 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     }
 
     private void update_countdown_label (int h, int m, int s) {
-        // Note that the format uses unicode RATIO character
-        time_label.set_text ("%02i∶%02i∶%02i".printf (h, m, s));
+        // Note that the format uses unicode RATIO character,
+        // which is prepended with a LTR mark
+        time_label.set_text ("%02i\xE2\x80\x8E∶%02i\xE2\x80\x8E∶%02i".printf (h, m, s));
     }
 
     public override void grab_focus () {
