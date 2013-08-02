@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-16 03:32+0200\n"
-"PO-Revision-Date: 2013-05-16 03:33+0200\n"
+"POT-Creation-Date: 2013-08-02 13:08+0200\n"
+"PO-Revision-Date: 2013-08-02 13:08+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -22,8 +22,8 @@ msgstr ""
 "X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:38
-#: ../src/window.vala:161
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:179
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Reloxos"
 
@@ -81,7 +81,7 @@ msgstr "Estado do panel"
 msgid "Current clock panel."
 msgstr "Panel do reloxo actual."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:477
+#: ../src/alarm.vala:105 ../src/alarm.vala:321 ../src/alarm.vala:472
 msgid "Alarm"
 msgstr "Alarma"
 
@@ -93,21 +93,17 @@ msgstr "Deter"
 msgid "Snooze"
 msgstr "Silenciar"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:276
 msgid "Edit Alarm"
 msgstr "Editar alarma"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:276
 msgid "New Alarm"
 msgstr "Nova alarma"
 
-#: ../src/alarm.vala:267
-msgid "_Done"
-msgstr "_Feito"
-
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:485 ../src/world.vala:290
+#: ../src/alarm.vala:478 ../src/world.vala:261
 msgid "New"
 msgstr "Novo"
 
@@ -149,86 +145,86 @@ msgstr "Conta atrás do temporizador rematado"
 msgid "Pause"
 msgstr "Pausar"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:163
 msgid "Mondays"
 msgstr "Luns"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:164
 msgid "Tuesdays"
 msgstr "Martes"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:165
 msgid "Wednesdays"
 msgstr "Mércores"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:166
 msgid "Thursdays"
 msgstr "Xoves"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:167
 msgid "Fridays"
 msgstr "Venres"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:168
 msgid "Saturdays"
 msgstr "Sábados"
 
-#: ../src/utils.vala:155
+#: ../src/utils.vala:169
 msgid "Sundays"
 msgstr "Domingos"
 
-#: ../src/utils.vala:235
+#: ../src/utils.vala:249
 msgid "Every Day"
 msgstr "Cada día"
 
-#: ../src/utils.vala:237
+#: ../src/utils.vala:251
 msgid "Weekdays"
 msgstr "Días laborábeis"
 
-#: ../src/widgets.vala:386
-msgid "Done"
-msgstr "Feito"
+#: ../src/utils.vala:253
+msgid "Weekends"
+msgstr "Fins de semana"
 
-#: ../src/widgets.vala:398 ../src/widgets.vala:433
+#: ../src/widgets.vala:375
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: ../src/widgets.vala:389 ../src/widgets.vala:443
 msgid "Click on items to select them"
 msgstr "Prema nos elementos para seleccionalos"
 
-#: ../src/widgets.vala:435
+#: ../src/widgets.vala:445
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d seleccionado"
 msgstr[1] "%d seleccionados"
 
-#: ../src/widgets.vala:477
+#: ../src/widgets.vala:480
 msgid "Delete"
 msgstr "Eliminar"
 
-#: ../src/window.vala:164
+#: ../src/window.vala:182
 msgid "Utilities to help you with the time."
 msgstr "Utilidades que lle axudan co tempo."
 
-#: ../src/window.vala:169
+#: ../src/window.vala:187
 msgid "translator-credits"
 msgstr ""
 "Leandro Regueiro <leandro.regueiro@gmail.com>, 2012\n"
 "Fran Diéguez <frandieguez@gnome.org>, 2012"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:102 ../src/world.vala:105
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Tomorrow"
 msgstr "Mañá"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:102 ../src/world.vala:105
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Yesterday"
 msgstr "Onte"
 
-#: ../src/world.vala:172
-msgid "Add a New World Clock"
-msgstr "Engadir un novo reloxo mundial"
-
-#: ../src/world.vala:279
+#: ../src/world.vala:252
 msgid "World"
 msgstr "Mundo"
 
@@ -238,15 +234,19 @@ msgstr "Mundo"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Seleccione <b>Novo</b> para engadir unha alarma"
 
-#: ../data/ui/alarm.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:1
+msgid "_Done"
+msgstr "_Feito"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2
 msgid "Name"
 msgstr "Nome"
 
-#: ../data/ui/alarm.ui.h:5
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "Repeat Every"
 msgstr "Repetir cada"
 
-#: ../data/ui/alarm.ui.h:6
+#: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "Active"
 msgstr "Activa"
 
@@ -278,21 +278,28 @@ msgstr "Dividir"
 msgid "Total"
 msgstr "Total"
 
+#: ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Engadir un novo reloxo mundial"
+
+#: ../data/ui/worldlocationdialog.ui.h:2
+msgid "Search for a city:"
+msgstr "Buscar unha cidade:"
+
 #: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Seleccione <b>Novo</b> para engadir un novo reloxo mundial"
 
 #: ../data/ui/world.ui.h:2
-msgid "Search for a city:"
-msgstr "Buscar unha cidade:"
-
-#: ../data/ui/world.ui.h:3
 msgid "Sunrise"
 msgstr "Amencer"
 
-#: ../data/ui/world.ui.h:4
+#: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Solpor"
+
+#~ msgid "Done"
+#~ msgstr "Feito"
 
 #~ msgid "Gnome Clocks"
 #~ msgstr "Reloxos de GNOME"
@@ -320,9 +327,6 @@ msgstr "Solpor"
 
 #~ msgid "About GNOME Clocks"
 #~ msgstr "Sobre Reloxos de GNOME"
-
-#~ msgid "Cancel"
-#~ msgstr "Cancelar"
 
 #~ msgid "Add"
 #~ msgstr "Engadir"
