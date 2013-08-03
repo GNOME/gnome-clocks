@@ -2,14 +2,14 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Takeshi AIHANA <takeshi.aihana@gmail.com>, 2012.
-# Jiro Matsuzawa <jmatsuzawa@gnome.org>, 2012-2013.
+# Jiro Matsuzawa <jmatsuzawa@gnome.org>, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-17 11:28+0000\n"
-"PO-Revision-Date: 2013-03-15 23:35+0900\n"
+"POT-Creation-Date: 2013-07-26 10:41+0000\n"
+"PO-Revision-Date: 2013-07-26 19:03+0900\n"
 "Last-Translator: Jiro Matsuzawa <jmatsuzawa@gnome.org>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
@@ -18,7 +18,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:179
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "時計"
 
@@ -50,7 +51,7 @@ msgstr "設定したアラーム"
 msgid "List of alarms set."
 msgstr "セットしたアラームのリストです。"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:50
 msgid "Timer"
 msgstr "タイマー"
 
@@ -58,11 +59,27 @@ msgstr "タイマー"
 msgid "Configured timer duration in seconds."
 msgstr "設定したタイマー時間です (秒単位)。"
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:476
+#: ../data/org.gnome.clocks.gschema.xml.in.h:7
+msgid "Window width and height"
+msgstr "ウィンドウの幅と高さ"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:8
+msgid "Width and height of the window."
+msgstr "ウィンドウの幅と高さです。"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:9
+msgid "Panel state"
+msgstr "パネルの状態"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:10
+msgid "Current clock panel."
+msgstr "現在のパネルの状態です。"
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:321 ../src/alarm.vala:472
 msgid "Alarm"
 msgstr "アラーム"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:122 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "停止"
 
@@ -70,21 +87,17 @@ msgstr "停止"
 msgid "Snooze"
 msgstr "スヌーズ"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:276
 msgid "Edit Alarm"
 msgstr "アラームの編集"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:276
 msgid "New Alarm"
 msgstr "新しいアラーム"
 
-#: ../src/alarm.vala:267
-msgid "_Done"
-msgstr "完了(_D)"
-
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:484 ../src/world.vala:281
+#: ../src/alarm.vala:478 ../src/world.vala:261
 msgid "New"
 msgstr "新規"
 
@@ -92,103 +105,103 @@ msgstr "新規"
 msgid "Print version information and exit"
 msgstr "バージョン情報を表示して終了する"
 
-#: ../src/stopwatch.vala:50
+#: ../src/stopwatch.vala:51
 msgid "Stopwatch"
 msgstr "ストップウォッチ"
 
-#: ../src/stopwatch.vala:124 ../data/ui/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:125 ../data/ui/stopwatch.ui.h:3
 msgid "Lap"
 msgstr "ラップ"
 
-#: ../src/stopwatch.vala:131 ../src/timer.vala:88
+#: ../src/stopwatch.vala:132 ../src/timer.vala:89
 msgid "Continue"
 msgstr "続行"
 
-#: ../src/stopwatch.vala:135 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:136 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "リセット"
 
-#: ../src/stopwatch.vala:143 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:144 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "開始"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:54
 msgid "Time is up!"
 msgstr "タイムアップ!"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:54
 msgid "Timer countdown finished"
 msgstr "タイマー満了です"
 
-#: ../src/timer.vala:93 ../src/timer.vala:103 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:94 ../src/timer.vala:104 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "一時停止"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:163
 msgid "Mondays"
 msgstr "月曜日"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:164
 msgid "Tuesdays"
 msgstr "火曜日"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:165
 msgid "Wednesdays"
 msgstr "水曜日"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:166
 msgid "Thursdays"
 msgstr "木曜日"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:167
 msgid "Fridays"
 msgstr "金曜日"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:168
 msgid "Saturdays"
 msgstr "土曜日"
 
-#: ../src/utils.vala:155
+#: ../src/utils.vala:169
 msgid "Sundays"
 msgstr "日曜日"
 
-#: ../src/utils.vala:235
+#: ../src/utils.vala:249
 msgid "Every Day"
 msgstr "毎日"
 
-#: ../src/utils.vala:237
+#: ../src/utils.vala:251
 msgid "Weekdays"
 msgstr "平日"
 
-#: ../src/widgets.vala:386
-msgid "Done"
-msgstr "完了"
+#: ../src/utils.vala:253
+msgid "Weekends"
+msgstr "週末"
 
-#: ../src/widgets.vala:398 ../src/widgets.vala:433
+#: ../src/widgets.vala:375
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: ../src/widgets.vala:389 ../src/widgets.vala:443
 msgid "Click on items to select them"
 msgstr "選択するアイテムをクリックします"
 
-#: ../src/widgets.vala:435
+#: ../src/widgets.vala:445
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d 件選択"
 
-#: ../src/widgets.vala:477
+#: ../src/widgets.vala:480
 msgid "Delete"
 msgstr "削除"
 
-#: ../src/window.vala:142
-msgid "Gnome Clocks"
-msgstr "Gnome Clocks"
-
-#: ../src/window.vala:145
+#: ../src/window.vala:182
 msgid "Utilities to help you with the time."
 msgstr "便利な時計ユーティリティです。"
 
-#: ../src/window.vala:150
+#: ../src/window.vala:187
 msgid "translator-credits"
 msgstr ""
 "相花 毅 <takeshi.aihana@gmail.com>\n"
@@ -196,20 +209,16 @@ msgstr ""
 "日本GNOMEユーザー会 <http://www.gnome.gr.jp/>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:102 ../src/world.vala:105
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Tomorrow"
 msgstr "明日"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:102 ../src/world.vala:105
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Yesterday"
 msgstr "昨日"
 
-#: ../src/world.vala:172
-msgid "Add a New World Clock"
-msgstr "世界時計の新規追加"
-
-#: ../src/world.vala:270
+#: ../src/world.vala:252
 msgid "World"
 msgstr "世界時計"
 
@@ -219,15 +228,19 @@ msgstr "世界時計"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "アラームを追加するには<b>新規</b>を選択します"
 
-#: ../data/ui/alarm.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:1
+msgid "_Done"
+msgstr "完了(_D)"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2
 msgid "Name"
 msgstr "名称"
 
-#: ../data/ui/alarm.ui.h:5
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "Repeat Every"
 msgstr "繰り返し"
 
-#: ../data/ui/alarm.ui.h:6
+#: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "Active"
 msgstr "アクティブ"
 
@@ -259,21 +272,31 @@ msgstr "スプリット"
 msgid "Total"
 msgstr "合計"
 
+#: ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "世界時計の新規追加"
+
+#: ../data/ui/worldlocationdialog.ui.h:2
+msgid "Search for a city:"
+msgstr "都市の検索:"
+
 #: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "世界時計を追加するには<b>新規</b>を選択します"
 
 #: ../data/ui/world.ui.h:2
-msgid "Search for a city:"
-msgstr "都市の検索:"
-
-#: ../data/ui/world.ui.h:3
 msgid "Sunrise"
 msgstr "日の出"
 
-#: ../data/ui/world.ui.h:4
+#: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "日の入"
+
+#~ msgid "Done"
+#~ msgstr "完了"
+
+#~ msgid "Gnome Clocks"
+#~ msgstr "Gnome Clocks"
 
 #~ msgid "About Clocks"
 #~ msgstr "このアプリケーションについて"
