@@ -38,8 +38,6 @@ public class Window : Gtk.ApplicationWindow {
     private Gtk.StackSwitcher stack_switcher;
     private GLib.Settings settings;
     private Gtk.Widget[] panels;
-    private Gtk.Separator separator;
-    private Gtk.Button close_button;
 
     public Window (Application app) {
         Object (application: app);
@@ -70,24 +68,6 @@ public class Window : Gtk.ApplicationWindow {
         }
 
         stack_switcher.set_stack (stack);
-
-        separator = new Gtk.Separator (Gtk.Orientation.VERTICAL);
-        separator.no_show_all = true;
-        separator.valign = Gtk.Align.FILL;
-        header_bar.pack_end (separator);
-
-        close_button = new Gtk.Button ();
-        Gtk.Image close_image = new Gtk.Image.from_icon_name ("window-close-symbolic", Gtk.IconSize.MENU);
-        close_button.set_image (close_image);
-        close_button.get_style_context ().add_class ("image-button");
-        close_button.no_show_all = true;
-        close_button.relief = Gtk.ReliefStyle.NONE;
-        close_button.valign = Gtk.Align.CENTER;
-        close_button.clicked.connect (() => {
-            close();
-        });
-
-        header_bar.pack_end (close_button);
 
         var stack_id = stack.notify["visible-child"].connect (() => {
             update_header_bar ();
@@ -202,10 +182,7 @@ public class Window : Gtk.ApplicationWindow {
             header_bar.custom_title = stack_switcher;
         }
 
-        if (header_bar.mode != HeaderBar.Mode.SELECTION) {
-            separator.show ();
-            close_button.show ();
-        }
+        header_bar.set_show_close_button (header_bar.mode != HeaderBar.Mode.SELECTION);
     }
 }
 

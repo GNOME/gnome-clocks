@@ -51,7 +51,7 @@ PKG_PROG_PKG_CONFIG([0.22])
 PKG_CHECK_MODULES(CLOCKS, [
     gio-2.0 >= 2.30.0
     glib-2.0 >= 2.36
-    gtk+-3.0 >= 3.9.7
+    gtk+-3.0 >= 3.9.11
     libcanberra >= 0.30
     gweather-3.0 >= 3.9.3
     gnome-desktop-3.0 >= 3.7.90
