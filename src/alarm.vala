@@ -256,6 +256,8 @@ private class Item : Object, ContentItem {
 private class SetupDialog : Gtk.Dialog {
     private Utils.WallClock.Format format;
     [GtkChild]
+    private Gtk.Grid time_grid;
+    [GtkChild]
     private Gtk.SpinButton h_spinbutton;
     [GtkChild]
     private Gtk.SpinButton m_spinbutton;
@@ -274,6 +276,9 @@ private class SetupDialog : Gtk.Dialog {
 
     public SetupDialog (Gtk.Window parent, Item? alarm) {
         Object (transient_for: parent, title: alarm != null ? _("Edit Alarm") : _("New Alarm"));
+
+        // Force LTR since we do not want to reverse [hh] : [mm]
+        time_grid.set_direction (Gtk.TextDirection.LTR);
 
         format  = Utils.WallClock.get_default ().format;
         am_pm_button = new AmPmToggleButton ();
