@@ -171,19 +171,20 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         var n_label = "<span color='dimgray'> %d </span>".printf (current_lap);
 
         // Note that the format uses unicode RATIO character
+        // We also prepend the LTR mark to make sure text is always in this direction
 
         string split_label;
         if (split_h > 0) {
-            split_label = "%i∶%02i∶%02i.%02i".printf (split_h, split_m, split_s, split_cs);
+            split_label = "%i\u200E∶%02i\u200E∶%02i.%02i".printf (split_h, split_m, split_s, split_cs);
         } else {
-            split_label = "%02i∶%02i.%02i".printf (split_m, split_s, split_cs);
+            split_label = "%02i\u200E∶%02i.%02i".printf (split_m, split_s, split_cs);
         }
 
         string tot_label;
         if (h > 0) {
-            tot_label = "%i∶%02i∶%02i.%02i".printf (h, m, s, cs);
+            tot_label = "%i\u200E∶%02i\u200E∶%02i.%02i".printf (h, m, s, cs);
         } else {
-            tot_label = "%02i∶%02i.%02i".printf (m, s, cs);
+            tot_label = "%02i\u200E∶%02i.%02i".printf (m, s, cs);
         }
 
         Gtk.TreeIter i;
@@ -221,10 +222,11 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         int ds = (int) (r * 10);
 
         // Note that the format uses unicode RATIO character
+        // We also prepend the LTR mark to make sure text is always in this direction
         if (h > 0) {
-            time_label.set_text ("%i∶%02i∶%02i.%i".printf (h, m, s, ds));
+            time_label.set_text ("%i\u200E∶%02i\u200E∶%02i.%i".printf (h, m, s, ds));
         } else {
-            time_label.set_text ("%02i∶%02i.%i".printf (m, s, ds));
+            time_label.set_text ("%02i\u200E∶%02i.%i".printf (m, s, ds));
         }
 
         return true;
