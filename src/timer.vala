@@ -229,8 +229,8 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     }
 
     private void update_countdown_label (int h, int m, int s) {
-        // Note that the format uses unicode RATIO character,
-        // which is prepended with a LTR mark
+        // Note that the format uses unicode RATIO character
+        // We also prepend the LTR mark to make sure text is always in this direction
         time_label.set_text ("%02i\xE2\x80\x8E∶%02i\xE2\x80\x8E∶%02i".printf (h, m, s));
     }
 
