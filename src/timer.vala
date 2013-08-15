@@ -32,7 +32,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
 
     private State state;
     private GLib.Settings settings;
-    private uint timeout_id;
+    private uint tick_id;
     private Utils.Bell bell;
     private Gtk.Widget setup_panel;
     private Gtk.Grid grid_spinbuttons;
@@ -54,7 +54,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
 
         bell = new Utils.Bell ("complete", _("Time is up!"), _("Timer countdown finished"));
 
-        timeout_id = 0;
+        tick_id = 0;
         span = 0;
         timer = new GLib.Timer ();
 
@@ -144,7 +144,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     private void reset () {
         state = State.STOPPED;
         timer.reset ();
-        remove_timeout ();
+        remove_tick ();
         span = settings.get_uint ("timer");
         h_spinbutton.value = (int) span / 3600;
         m_spinbutton.value = (int) span / 60;
@@ -154,7 +154,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     }
 
     private void start () {
-        if (state == State.STOPPED && timeout_id == 0) {
+        if (state == State.STOPPED && tick_id == 0) {
             var h = h_spinbutton.get_value_as_int ();
             var m = m_spinbutton.get_value_as_int ();
             var s = s_spinbutton.get_value_as_int ();
@@ -168,33 +168,35 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
             visible_child = countdown_panel;
 
             update_countdown_label (h, m, s);
-            add_timeout ();
+            add_tick ();
         }
     }
 
     private void restart () {
         state = State.RUNNING;
         timer.start ();
-        add_timeout ();
+        add_tick ();
     }
 
     private void pause () {
         state = State.PAUSED;
         timer.stop ();
         span -= timer.elapsed ();
-        remove_timeout ();
+        remove_tick ();
     }
 
-    private void add_timeout () {
-        if (timeout_id == 0) {
-            timeout_id = Timeout.add (100, count);
+    private void add_tick () {
+        if (tick_id == 0) {
+            tick_id = add_tick_callback ((c) => {
+                return count ();
+            });
         }
     }
 
-    private void remove_timeout () {
-        if (timeout_id != 0) {
-            Source.remove (timeout_id);
-            timeout_id = 0;
+    private void remove_tick () {
+        if (tick_id != 0) {
+            remove_tick_callback (tick_id);
+            tick_id = 0;
         }
     }
 
@@ -203,7 +205,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         if (e >= span) {
             ring ();
             state = State.STOPPED;
-            remove_timeout ();
+            remove_tick ();
             update_countdown_label (0, 0, 0);
             visible_child = setup_panel;
             return false;

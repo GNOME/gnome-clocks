@@ -38,7 +38,7 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
 
     private State state;
     private GLib.Timer timer;
-    private uint timeout_id;
+    private uint tick_id;
     private int current_lap;
     private double last_lap_time;
     private Gtk.Label time_label;
@@ -51,7 +51,7 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         Object (label: _("Stopwatch"), header_bar: header_bar, panel_id: PanelId.STOPWATCH);
 
         timer = new GLib.Timer ();
-        timeout_id = 0;
+        tick_id = 0;
 
         var builder = Utils.load_ui ("stopwatch.ui");
 
@@ -68,13 +68,13 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         map.connect ((w) => {
             if (state == State.RUNNING) {
                 update_time_label ();
-                add_timeout ();
+                add_tick ();
             }
         });
 
         unmap.connect ((w) => {
             if (state == State.RUNNING) {
-                remove_timeout ();
+                remove_tick ();
             }
         });
 
@@ -118,7 +118,7 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
             timer.continue ();
         }
         state = State.RUNNING;
-        add_timeout ();
+        add_tick ();
         left_button.set_label (_("Stop"));
         left_button.get_style_context ().add_class ("clocks-stop");
         right_button.set_sensitive (true);
@@ -128,7 +128,7 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
     private void stop () {
         timer.stop ();
         state = State.STOPPED;
-        remove_timeout ();
+        remove_tick ();
         left_button.set_label (_("Continue"));
         left_button.get_style_context ().remove_class ("clocks-stop");
         left_button.get_style_context ().add_class ("clocks-go");
@@ -139,7 +139,7 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
     private void reset () {
         timer.reset ();
         state = State.RESET;
-        remove_timeout ();
+        remove_tick ();
         update_time_label ();
         left_button.set_label (_("Start"));
         left_button.get_style_context ().add_class ("clocks-go");
@@ -197,16 +197,18 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         laps_view.scroll_to_cell (p, null, false, 0, 0);
     }
 
-    private void add_timeout () {
-        if (timeout_id == 0) {
-            timeout_id = Timeout.add (100, update_time_label);
+    private void add_tick () {
+        if (tick_id == 0) {
+            tick_id = add_tick_callback ((c) => {
+                return update_time_label ();
+            });
         }
     }
 
-    private void remove_timeout () {
-        if (timeout_id != 0) {
-            Source.remove (timeout_id);
-            timeout_id = 0;
+    private void remove_tick () {
+        if (tick_id != 0) {
+            remove_tick_callback (tick_id);
+            tick_id = 0;
         }
     }
 
