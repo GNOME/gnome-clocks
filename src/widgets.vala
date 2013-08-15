@@ -618,4 +618,90 @@ public class AmPmToggleButton : Gtk.Button {
     }
 }
 
+public class AnalogFrame : Gtk.Frame {
+    protected const int LINE_WIDTH = 6;
+    protected const int RADIUS_PAD = 48;
+
+    private int calculate_diameter () {
+        int ret = 2 * RADIUS_PAD;
+        var child = get_child ();
+        if (child != null && child.visible) {
+            int w, h;
+            child.get_preferred_width (out w, null);
+            child.get_preferred_height (out h, null);
+            ret += (int) Math.sqrt (w * w + h * h);
+        }
+
+        return ret;
+    }
+
+    public override void get_preferred_width (out int min_w, out int natural_w) {
+        var d = calculate_diameter ();
+        min_w = d;
+        natural_w = d;
+    }
+
+    public override void get_preferred_height (out int min_h, out int natural_h) {
+        var d = calculate_diameter ();
+        min_h = d;
+        natural_h = d;
+    }
+
+    public override void size_allocate (Gtk.Allocation allocation) {
+        set_allocation (allocation);
+        var child = get_child ();
+        if (child != null && child.visible) {
+            int w, h;
+            child.get_preferred_width (out w, null);
+            child.get_preferred_height (out h, null);
+
+            Gtk.Allocation child_allocation = {};
+            child_allocation.x = allocation.x + (allocation.width - w) / 2;
+            child_allocation.y = allocation.y + (allocation.height - h) / 2;
+            child_allocation.width = w;
+            child_allocation.height =  h;
+            child.size_allocate (child_allocation);
+        }
+    }
+
+    public override bool draw (Cairo.Context cr) {
+        var context = get_style_context ();
+
+        Gtk.Allocation allocation;
+        get_allocation (out allocation);
+        var center_x = allocation.width / 2;
+        var center_y = allocation.height / 2;
+
+        var radius = calculate_diameter () / 2;
+
+        cr.save ();
+        cr.move_to (center_x + radius, center_y);
+
+        context.save ();
+        context.add_class ("clocks-analog-frame");
+
+        context.save ();
+        context.add_class (Gtk.STYLE_CLASS_TROUGH);
+
+        var color = context.get_color (Gtk.StateFlags.NORMAL);
+
+        cr.set_line_width (LINE_WIDTH);
+        Gdk.cairo_set_source_rgba (cr, color);
+        cr.arc (center_x, center_y, radius - LINE_WIDTH / 2, 0, 2 * Math.PI);
+        cr.stroke ();
+
+        context.restore ();
+
+        draw_progress (cr, center_x, center_y, radius);
+
+        context.restore ();
+        cr.restore ();
+
+        return base.draw(cr);
+    }
+
+    public virtual void draw_progress (Cairo.Context cr, int center_x, int center_y, int radius) {
+    }
+}
+
 } // namespace Clocks
