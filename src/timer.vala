@@ -149,6 +149,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         h_spinbutton.value = (int) span / 3600;
         m_spinbutton.value = (int) span / 60;
         s_spinbutton.value = span % 60;
+        left_button.get_style_context ().remove_class("clocks-go");
         start_button.set_sensitive (span > 0);
         visible_child = setup_panel;
     }
