@@ -8,6 +8,9 @@
         <property name="visible">True</property>
         <property name="hexpand">True</property>
         <property name="vexpand">False</property>
+        <style>
+          <class name="titlebar"/>
+        </style>
         <child type="title">
           <object class="GtkStackSwitcher" id="stack_switcher">
             <property name="visible">True</property>
