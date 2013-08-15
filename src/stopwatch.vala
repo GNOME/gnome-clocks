@@ -19,6 +19,76 @@
 namespace Clocks {
 namespace Stopwatch {
 
+public class Frame : AnalogFrame {
+    private int seconds;
+    private double millisecs;
+
+    public void update (int s, double ms) {
+        seconds = s;
+        millisecs = ms;
+    }
+
+    public void reset () {
+        update (0, 0);
+    }
+
+    public override void draw_progress (Cairo.Context cr, int center_x, int center_y, int radius) {
+        var context = get_style_context ();
+
+        context.save ();
+        context.add_class ("progress");
+
+        cr.set_line_width (LINE_WIDTH);
+        cr.set_line_cap  (Cairo.LineCap.ROUND);
+
+        var color = context.get_color (Gtk.StateFlags.NORMAL);
+        var progress = ((double) seconds + millisecs) / 60;
+        if (progress > 0) {
+            cr.arc (center_x, center_y, radius - LINE_WIDTH / 2, 1.5  * Math.PI, (1.5 + progress * 2 ) * Math.PI);
+            Gdk.cairo_set_source_rgba (cr, color);
+            cr.stroke ();
+        }
+
+        context.restore ();
+
+        context.save ();
+        context.add_class ("progress-fast");
+
+        cr.set_line_width (LINE_WIDTH - 2);
+        color = context.get_color (Gtk.StateFlags.NORMAL);
+        progress = millisecs;
+        if (progress > 0) {
+            cr.arc (center_x, center_y, radius - LINE_WIDTH / 2, (1.5 + progress * 2 ) * Math.PI - 0.1, (1.5 + progress * 2 ) * Math.PI + 0.1);
+            Gdk.cairo_set_source_rgba (cr, color);
+            cr.stroke ();
+        }
+
+        context.restore ();
+    }
+}
+
+[GtkTemplate (ui = "/org/gnome/clocks/ui/stopwatchlapsrow.ui")]
+private class LapsRow : Gtk.ListBoxRow {
+    [GtkChild]
+    private Gtk.Revealer slider;
+    [GtkChild]
+    private Gtk.Label num_label;
+    [GtkChild]
+    private Gtk.Label split_label;
+    [GtkChild]
+    private Gtk.Label tot_label;
+
+    public LapsRow (string n, string split, string tot) {
+        num_label.label = n;
+        split_label.label = split;
+        tot_label.label = tot;
+    }
+
+    public void slide_in () {
+        slider.reveal_child = true;
+    }
+}
+
 public class MainPanel : Gtk.Box, Clocks.Clock {
     private enum State {
         RESET,
@@ -41,11 +111,12 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
     private uint tick_id;
     private int current_lap;
     private double last_lap_time;
+    private Frame analog_frame;
     private Gtk.Label time_label;
     private Gtk.Button left_button;
     private Gtk.Button right_button;
-    private Gtk.ListStore laps_model;
-    private Gtk.TreeView laps_view;
+    private Gtk.ScrolledWindow laps_scrollwin;
+    private Gtk.ListBox laps_list;
 
     public MainPanel (HeaderBar header_bar) {
         Object (label: _("Stopwatch"), header_bar: header_bar, panel_id: PanelId.STOPWATCH);
@@ -56,11 +127,12 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         var builder = Utils.load_ui ("stopwatch.ui");
 
         var stopwatch_panel = builder.get_object ("stopwatch_panel") as Gtk.Widget;
+        analog_frame = builder.get_object ("analog_frame") as Frame;
         time_label = builder.get_object ("time_label") as Gtk.Label;
         left_button = builder.get_object ("left_button") as Gtk.Button;
         right_button = builder.get_object ("right_button") as Gtk.Button;
-        laps_model = builder.get_object ("laps_model") as Gtk.ListStore;
-        laps_view = builder.get_object ("laps_view") as Gtk.TreeView;
+        laps_scrollwin = builder.get_object ("laps_scrollwin") as Gtk.ScrolledWindow;
+        laps_list = builder.get_object ("laps_list") as Gtk.ListBox;
 
         left_button.clicked.connect (on_left_button_clicked);
         right_button.clicked.connect (on_right_button_clicked);
@@ -146,7 +218,9 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         right_button.set_sensitive (false);
         current_lap = 0;
         last_lap_time = 0;
-        laps_model.clear ();
+        foreach (var l in laps_list.get_children ()) {
+            laps_list.remove (l);
+        }
     }
 
     private void lap () {
@@ -168,7 +242,7 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         Utils.time_to_hms (split, out split_h, out split_m, out split_s, out r);
         int split_cs = (int) (r * 100);
 
-        var n_label = "<span color='dimgray'> %d </span>".printf (current_lap);
+        var n_label = "%d".printf (current_lap);
 
         // Note that the format uses unicode RATIO character
         // We also prepend the LTR mark to make sure text is always in this direction
@@ -187,14 +261,10 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
             tot_label = "%02i\u200E∶%02i.%02i".printf (m, s, cs);
         }
 
-        Gtk.TreeIter i;
-        laps_model.append (out i);
-        laps_model.set (i,
-                        LapsColumn.LAP, n_label,
-                        LapsColumn.SPLIT, split_label,
-                        LapsColumn.TOTAL, tot_label);
-        var p = laps_model.get_path (i);
-        laps_view.scroll_to_cell (p, null, false, 0, 0);
+        var row = new LapsRow (n_label, split_label, tot_label);
+        laps_list.prepend (row);
+        row.slide_in ();
+        laps_scrollwin.vadjustment.value = laps_scrollwin.vadjustment.lower;
     }
 
     private void add_tick () {
@@ -230,6 +300,8 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         } else {
             time_label.set_text ("%02i\u200E∶%02i.%i".printf (m, s, ds));
         }
+
+        analog_frame.update (s, r);
 
         return true;
     }
