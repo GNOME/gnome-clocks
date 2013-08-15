@@ -99,7 +99,7 @@
 }
 
 .clocks-time-label {
-    font-size: 64px;
+    font-size: 48px;
 }
 
 .clocks-secondary-time-label {
@@ -107,7 +107,7 @@
 }
 
 .clocks-button {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .clocks-alarm-setup-time {
@@ -115,7 +115,7 @@
 }
 
 .clocks-spinbutton {
-    font-size: 64px;
+    font-size: 48px;
 }
 
 .clocks-go {
@@ -172,6 +172,34 @@
                                       @clocks_stop_color_a
                                       );
     border-image: url("button-border-stop-active.svg") 3 3 4 3 / 3 3 4 3 stretch;
+}
+
+.linked .clocks-go:first-child,
+.linked .clocks-stop:first-child,
+.linked .clocks-go:active:first-child,
+.linked .clocks-stop:active:first-child,
+.linked .clocks-go:active:hover:first-child,
+.linked .clocks-stop:active:hover:first-child,
+.linked .clocks-go:insensitive:first-child,
+.linked .clocks-stop:insensitive:first-child {
+    border-right-width: 0;
+    border-image-width: 3px 0 4px 3px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.linked .clocks-go:last-child,
+.linked .clocks-stop:last-child,
+.linked .clocks-go:active:last-child,
+.linked .clocks-stop:active:last-child,
+.linked .clocks-go:active:hover:last-child,
+.linked .clocks-stop:active:hover:last-child,
+.linked .clocks-go:insensitive:last-child,
+.linked .clocks-stop:insensitive:last-child {
+    border-left-width: 0;
+    border-image-width: 3px 3px 4px 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
 }
 
 .clocks-selection-bar {

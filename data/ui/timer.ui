@@ -31,13 +31,27 @@
         <property name="valign">center</property>
         <property name="hexpand">True</property>
         <property name="vexpand">True</property>
-        <property name="row_spacing">48</property>
+        <property name="row_spacing">24</property>
         <child>
           <object class="GtkGrid" id="grid_spinbuttons">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
+            <child>
+              <object class="GtkLabel" id="dummy_label1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="hexpand">True</property>
+                <property name="label"></property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
             <child>
               <object class="GtkSpinButton" id="spinbutton_hours">
                 <property name="visible">True</property>
@@ -55,7 +69,23 @@
                 </style>
               </object>
               <packing>
-                <property name="left_attach">0</property>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="colon_label1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label">∶</property>
+                <style>
+                  <class name="clocks-time-label"/>
+                </style>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
                 <property name="top_attach">0</property>
                 <property name="width">1</property>
                 <property name="height">1</property>
@@ -78,7 +108,23 @@
                 </style>
               </object>
               <packing>
-                <property name="left_attach">2</property>
+                <property name="left_attach">3</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="colon_label2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label">∶</property>
+                <style>
+                  <class name="clocks-time-label"/>
+                </style>
+              </object>
+              <packing>
+                <property name="left_attach">4</property>
                 <property name="top_attach">0</property>
                 <property name="width">1</property>
                 <property name="height">1</property>
@@ -101,41 +147,21 @@
                 </style>
               </object>
               <packing>
-                <property name="left_attach">4</property>
+                <property name="left_attach">5</property>
                 <property name="top_attach">0</property>
                 <property name="width">1</property>
                 <property name="height">1</property>
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="colon_label1">
+              <object class="GtkLabel" id="dummy_label2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="hexpand">True</property>
-                <property name="label">∶</property>
-                <attributes>
-                  <attribute name="font-desc" value="64"/>
-                </attributes>
+                <property name="label"></property>
               </object>
               <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="colon_label2">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="hexpand">True</property>
-                <property name="label">∶</property>
-                <attributes>
-                  <attribute name="font-desc" value="64"/>
-                </attributes>
-              </object>
-              <packing>
-                <property name="left_attach">3</property>
+                <property name="left_attach">6</property>
                 <property name="top_attach">0</property>
                 <property name="width">1</property>
                 <property name="height">1</property>
@@ -152,7 +178,7 @@
         <child>
           <object class="GtkButton" id="start_button">
             <property name="label" translatable="yes">Start</property>
-            <property name="width_request">200</property>
+            <property name="width_request">280</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
@@ -185,8 +211,7 @@
         <property name="valign">center</property>
         <property name="hexpand">True</property>
         <property name="vexpand">True</property>
-        <property name="row_spacing">48</property>
-        <property name="column_spacing">24</property>
+        <property name="row_spacing">24</property>
         <child>
           <object class="GtkLabel" id="countdown_label">
             <property name="visible">True</property>
@@ -205,14 +230,16 @@
           </packing>
         </child>
         <child>
-          <object class="GtkGrid" id="button_grid">
+          <object class="GtkBox" id="button_box">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="column_spacing">24</property>
+            <property name="hexpand">True</property>
+            <property name="homogeneous">True</property>
+            <property name="spacing">16</property>
             <child>
               <object class="GtkButton" id="left_button">
                 <property name="label" translatable="yes">Pause</property>
-                <property name="width_request">200</property>
+                <property name="width_request">132</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -221,16 +248,15 @@
                 </style>
               </object>
               <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
               </packing>
             </child>
             <child>
               <object class="GtkButton" id="right_button">
                 <property name="label" translatable="yes">Reset</property>
-                <property name="width_request">200</property>
+                <property name="width_request">132</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -239,10 +265,9 @@
                 </style>
               </object>
               <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
               </packing>
             </child>
           </object>
@@ -261,7 +286,7 @@
       <widget name="grid_spinbuttons"/>
       <widget name="start_button"/>
       <widget name="countdown_label"/>
-      <widget name="button_grid"/>
+      <widget name="button_box"/>
     </widgets>
   </object>
   <object class="GtkSizeGroup" id="sizegroup2">
@@ -275,7 +300,7 @@
     <property name="mode">vertical</property>
     <widgets>
       <widget name="start_button"/>
-      <widget name="button_grid"/>
+      <widget name="button_box"/>
     </widgets>
   </object>
 </interface>
