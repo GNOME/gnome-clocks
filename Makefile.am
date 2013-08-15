@@ -95,7 +95,8 @@ bin_PROGRAMS = gnome-clocks
 BUILT_SOURCES = \
 	src/resources.c
 
-src/resources.c: $(top_srcdir)/data/gnome-clocks.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir=$(top_srcdir)/data $(top_srcdir)/data/gnome-clocks.gresource.xml)
+resource_files = $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies --sourcedir=$(top_srcdir)/data $(top_srcdir)/data/gnome-clocks.gresource.xml)
+src/resources.c: $(top_srcdir)/data/gnome-clocks.gresource.xml $(resource_files)
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(top_srcdir)/data --generate-source $<
 
 VALA_SOURCES = \
@@ -133,16 +134,7 @@ EXTRA_DIST = \
 	$(icon_files) \
 	$(hcicon_files) \
 	$(images_DATA) \
-	data/org.gnome.clocks.gschema.xml.in \
-	data/gnome-clocks.gresource.xml \
-	data/ui/alarm.ui \
-	data/ui/alarmsetupdialog.ui \
-	data/ui/menu.ui \
-	data/ui/stopwatch.ui \
-	data/ui/timer.ui \
-	data/ui/window.ui \
-	data/ui/worldlocationdialog.ui \
-	data/ui/world.ui
+	$(resource_files)
 
 CLEANFILES = \
 	$(applications_DATA)
