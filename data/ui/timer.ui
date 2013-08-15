@@ -170,7 +170,7 @@
     <property name="row_spacing">48</property>
     <property name="column_spacing">24</property>
     <child>
-      <object class="GtkLabel" id="time_label">
+      <object class="GtkLabel" id="countdown_label">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="halign">center</property>
@@ -240,7 +240,7 @@
     <widgets>
       <widget name="grid_spinbuttons"/>
       <widget name="start_button"/>
-      <widget name="time_label"/>
+      <widget name="countdown_label"/>
       <widget name="button_grid"/>
     </widgets>
   </object>
@@ -248,7 +248,7 @@
     <property name="mode">vertical</property>
     <widgets>
       <widget name="grid_spinbuttons"/>
-      <widget name="time_label"/>
+      <widget name="countdown_label"/>
     </widgets>
   </object>
   <object class="GtkSizeGroup" id="sizegroup3">

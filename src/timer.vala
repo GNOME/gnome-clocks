@@ -41,7 +41,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     private Gtk.SpinButton s_spinbutton;
     private Gtk.Button start_button;
     private Gtk.Widget countdown_panel;
-    private Gtk.Label time_label;
+    private Gtk.Label countdown_label;
     private Gtk.Button left_button;
     private Gtk.Button right_button;
     private double span;
@@ -83,7 +83,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         });
 
         countdown_panel = builder.get_object ("countdown_panel") as Gtk.Widget;
-        time_label = builder.get_object ("time_label") as Gtk.Label;
+        countdown_label = builder.get_object ("countdown_label") as Gtk.Label;
         left_button = builder.get_object ("left_button") as Gtk.Button;
         right_button = builder.get_object ("right_button") as Gtk.Button;
 
@@ -214,7 +214,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     }
 
     private void update_countdown (double t) {
-        if (time_label.get_mapped ()) {
+        if (countdown_label.get_mapped ()) {
             // Math.ceil() because we count backwards:
             // with 0.3 seconds we want to show 1 second remaining,
             // with 59.2 seconds we want to show 1 minute, etc
@@ -231,7 +231,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     private void update_countdown_label (int h, int m, int s) {
         // Note that the format uses unicode RATIO character
         // We also prepend the LTR mark to make sure text is always in this direction
-        time_label.set_text ("%02i\xE2\x80\x8E∶%02i\xE2\x80\x8E∶%02i".printf (h, m, s));
+        countdown_label.set_text ("%02i\xE2\x80\x8E∶%02i\xE2\x80\x8E∶%02i".printf (h, m, s));
     }
 
     public override void grab_focus () {
