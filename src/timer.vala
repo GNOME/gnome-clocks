@@ -225,6 +225,8 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         state = State.RUNNING;
         timer.start ();
         add_tick ();
+        var context = countdown_label.get_style_context ();
+        context.remove_class ("clocks-blink");
     }
 
     private void pause () {
@@ -233,6 +235,8 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         span -= timer.elapsed ();
         countdown_frame.pause ();
         remove_tick ();
+        var context = countdown_label.get_style_context ();
+        context.add_class ("clocks-blink");
     }
 
     private void add_tick () {

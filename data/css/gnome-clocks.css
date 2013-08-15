@@ -236,3 +236,15 @@
     border-color: #d3d7cf;
 }
 
+@keyframes clocks-blink {
+    0% { color: @theme_fg_color; }
+    100% { color: @insensitive_fg_color; }
+}
+
+.clocks-blink {
+    animation-name: clocks-blink;
+    animation-iteration-count: infinite;  
+    animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+    animation-duration: 1s; 
+}
+
