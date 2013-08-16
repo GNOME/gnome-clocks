@@ -1,123 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.6 -->
-  <object class="GtkGrid" id="stopwatch_panel">
+  <template class="ClocksStopwatchMainPanel" parent="GtkBox">
     <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="hexpand">True</property>
     <child>
-      <object class="ClocksStopwatchFrame" id="analog_frame">
+      <object class="GtkGrid" id="stopwatch_panel">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="margin_left">48</property>
-        <property name="margin_right">48</property>
-        <property name="margin_top">48</property>
-        <property name="margin_bottom">48</property>
+        <property name="hexpand">True</property>
         <child>
-          <object class="GtkGrid" id="top_grid">
+          <object class="ClocksStopwatchFrame" id="analog_frame">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">center</property>
-            <property name="hexpand">True</property>
-            <property name="valign">center</property>
-            <property name="row_spacing">24</property>
-            <property name="column_homogeneous">True</property>
-            <child>
-              <object class="GtkLabel" id="time_label">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <style>
-                  <class name="clocks-stopwatch-label"/>
-                </style>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkBox" id="button_box">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="hexpand">True</property>
-                <property name="homogeneous">True</property>
-                <property name="spacing">16</property>
-                <child>
-                  <object class="GtkButton" id="left_button">
-                    <property name="label" translatable="yes">Start</property>
-                    <property name="width_request">132</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <style>
-                      <class name="clocks-button"/>
-                      <class name="clocks-go"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="right_button">
-                    <property name="label" translatable="yes">Reset</property>
-                    <property name="width_request">132</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <style>
-                      <class name="clocks-button"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">1</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
-          </object>
-        </child>
-      </object>
-      <packing>
-        <property name="left_attach">0</property>
-        <property name="top_attach">0</property>
-        <property name="width">1</property>
-        <property name="height">1</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkGrid" id="laps_panel">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="vexpand">True</property>
-        <child>
-          <object class="GtkScrolledWindow" id="laps_scrollwin">
-            <property name="width_request">220</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="hexpand">True</property>
-            <property name="vexpand">True</property>
+            <property name="margin_left">48</property>
             <property name="margin_right">48</property>
-            <property name="margin_top">120</property>
-            <property name="margin_bottom">120</property>
-            <property name="shadow_type">in</property>
+            <property name="margin_top">48</property>
+            <property name="margin_bottom">48</property>
             <child>
-              <object class="GtkListBox" id="laps_list">
+              <object class="GtkGrid" id="top_grid">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="vexpand">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">center</property>
+                <property name="hexpand">True</property>
+                <property name="valign">center</property>
+                <property name="row_spacing">24</property>
+                <property name="column_homogeneous">True</property>
+                <child>
+                  <object class="GtkLabel" id="time_label">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <style>
+                      <class name="clocks-stopwatch-label"/>
+                    </style>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkBox" id="button_box">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="hexpand">True</property>
+                    <property name="homogeneous">True</property>
+                    <property name="spacing">16</property>
+                    <child>
+                      <object class="GtkButton" id="left_button">
+                        <property name="label" translatable="yes">Start</property>
+                        <property name="width_request">132</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <signal name="clicked" handler="on_left_button_clicked" swapped="no"/>
+                        <style>
+                          <class name="clocks-button"/>
+                          <class name="clocks-go"/>
+                        </style>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="right_button">
+                        <property name="label" translatable="yes">Reset</property>
+                        <property name="width_request">132</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <signal name="clicked" handler="on_right_button_clicked" swapped="no"/>
+                        <style>
+                          <class name="clocks-button"/>
+                        </style>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
               </object>
             </child>
           </object>
@@ -128,13 +102,46 @@
             <property name="height">1</property>
           </packing>
         </child>
+        <child>
+          <object class="GtkGrid" id="laps_panel">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="vexpand">True</property>
+            <child>
+              <object class="GtkScrolledWindow" id="laps_scrollwin">
+                <property name="width_request">220</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="hexpand">True</property>
+                <property name="vexpand">True</property>
+                <property name="margin_right">48</property>
+                <property name="margin_top">120</property>
+                <property name="margin_bottom">120</property>
+                <property name="shadow_type">in</property>
+                <child>
+                  <object class="GtkListBox" id="laps_list">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="vexpand">True</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">0</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
       </object>
-      <packing>
-        <property name="left_attach">1</property>
-        <property name="top_attach">0</property>
-        <property name="width">1</property>
-        <property name="height">1</property>
-      </packing>
     </child>
-  </object>
+  </template>
 </interface>

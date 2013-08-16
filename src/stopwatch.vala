@@ -89,6 +89,7 @@ private class LapsRow : Gtk.ListBoxRow {
     }
 }
 
+[GtkTemplate (ui = "/org/gnome/clocks/ui/stopwatch.ui")]
 public class MainPanel : Gtk.Box, Clocks.Clock {
     private enum State {
         RESET,
@@ -111,11 +112,17 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
     private uint tick_id;
     private int current_lap;
     private double last_lap_time;
+    [GtkChild]
     private Frame analog_frame;
+    [GtkChild]
     private Gtk.Label time_label;
+    [GtkChild]
     private Gtk.Button left_button;
+    [GtkChild]
     private Gtk.Button right_button;
+    [GtkChild]
     private Gtk.ScrolledWindow laps_scrollwin;
+    [GtkChild]
     private Gtk.ListBox laps_list;
 
     public MainPanel (HeaderBar header_bar) {
@@ -123,19 +130,6 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
 
         timer = new GLib.Timer ();
         tick_id = 0;
-
-        var builder = Utils.load_ui ("stopwatch.ui");
-
-        var stopwatch_panel = builder.get_object ("stopwatch_panel") as Gtk.Widget;
-        analog_frame = builder.get_object ("analog_frame") as Frame;
-        time_label = builder.get_object ("time_label") as Gtk.Label;
-        left_button = builder.get_object ("left_button") as Gtk.Button;
-        right_button = builder.get_object ("right_button") as Gtk.Button;
-        laps_scrollwin = builder.get_object ("laps_scrollwin") as Gtk.ScrolledWindow;
-        laps_list = builder.get_object ("laps_list") as Gtk.ListBox;
-
-        left_button.clicked.connect (on_left_button_clicked);
-        right_button.clicked.connect (on_right_button_clicked);
 
         map.connect ((w) => {
             if (state == State.RUNNING) {
@@ -151,11 +145,9 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         });
 
         reset ();
-
-        add (stopwatch_panel);
-        show_all ();
     }
 
+    [GtkCallback]
     private void on_left_button_clicked (Gtk.Button button) {
         switch (state) {
         case State.RESET:
@@ -170,6 +162,7 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         }
     }
 
+    [GtkCallback]
     private void on_right_button_clicked (Gtk.Button button) {
         switch (state) {
         case State.STOPPED:
