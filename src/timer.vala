@@ -195,6 +195,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         m_spinbutton.value = (int) span / 60;
         s_spinbutton.value = span % 60;
         left_button.get_style_context ().remove_class("clocks-go");
+        countdown_label.get_style_context ().remove_class ("clocks-blink");
         start_button.set_sensitive (span > 0);
         countdown_frame.reset ();
         visible_child = setup_frame;
@@ -225,8 +226,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         state = State.RUNNING;
         timer.start ();
         add_tick ();
-        var context = countdown_label.get_style_context ();
-        context.remove_class ("clocks-blink");
+        countdown_label.get_style_context ().remove_class ("clocks-blink");
     }
 
     private void pause () {
@@ -235,8 +235,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         span -= timer.elapsed ();
         countdown_frame.pause ();
         remove_tick ();
-        var context = countdown_label.get_style_context ();
-        context.add_class ("clocks-blink");
+        countdown_label.get_style_context ().add_class ("clocks-blink");
     }
 
     private void add_tick () {
