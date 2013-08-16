@@ -98,11 +98,12 @@
     background-image: none;
 }
 
-.clocks-time-label {
-    font-size: 48px;
+.clocks-standalone-label,
+.clocks-ringing-label {
+    font-size: 64px;
 }
 
-.clocks-secondary-time-label {
+.clocks-secondary-standalone-label {
     font-size: 18px;
 }
 
@@ -115,6 +116,11 @@
 }
 
 .clocks-spinbutton {
+    font-size: 48px;
+}
+
+.clocks-stopwatch-label,
+.clocks-timer-label {
     font-size: 48px;
 }
 
