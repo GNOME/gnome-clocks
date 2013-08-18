@@ -64,6 +64,7 @@ public class CountdownFrame : AnalogFrame {
     }
 }
 
+[GtkTemplate (ui = "/org/gnome/clocks/ui/timer.ui")]
 public class MainPanel : Gtk.Stack, Clocks.Clock {
     enum State {
         STOPPED,
@@ -78,100 +79,56 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     private State state;
     private GLib.Settings settings;
     private uint tick_id;
-    private Utils.Bell bell;
-    private Gtk.Grid grid_spinbuttons;
-    private Gtk.SpinButton h_spinbutton;
-    private Gtk.SpinButton m_spinbutton;
-    private Gtk.SpinButton s_spinbutton;
-    private Gtk.Button start_button;
-    private AnalogFrame setup_frame;
-    private CountdownFrame countdown_frame;
-    private Gtk.Label countdown_label;
-    private Gtk.Button left_button;
-    private Gtk.Button right_button;
     private double span;
     private GLib.Timer timer;
+    private Utils.Bell bell;
+    [GtkChild]
+    private AnalogFrame setup_frame;
+    [GtkChild]
+    private Gtk.Grid grid_spinbuttons;
+    [GtkChild]
+    private Gtk.SpinButton h_spinbutton;
+    [GtkChild]
+    private Gtk.SpinButton m_spinbutton;
+    [GtkChild]
+    private Gtk.SpinButton s_spinbutton;
+    [GtkChild]
+    private Gtk.Button start_button;
+    [GtkChild]
+    private CountdownFrame countdown_frame;
+    [GtkChild]
+    private Gtk.Label countdown_label;
+    [GtkChild]
+    private Gtk.Button left_button;
 
     public MainPanel (HeaderBar header_bar) {
         Object (label: _("Timer"), header_bar: header_bar, transition_type: Gtk.StackTransitionType.CROSSFADE, panel_id: PanelId.TIMER);
 
         settings = new GLib.Settings ("org.gnome.clocks");
 
-        bell = new Utils.Bell ("complete", _("Time is up!"), _("Timer countdown finished"));
-
         tick_id = 0;
         span = 0;
         timer = new GLib.Timer ();
 
-        var builder = Utils.load_ui ("timer.ui");
-
-        setup_frame = builder.get_object ("setup_frame") as AnalogFrame;
-        grid_spinbuttons = builder.get_object ("grid_spinbuttons") as Gtk.Grid;
-        h_spinbutton = builder.get_object ("spinbutton_hours") as Gtk.SpinButton;
-        m_spinbutton = builder.get_object ("spinbutton_minutes") as Gtk.SpinButton;
-        s_spinbutton = builder.get_object ("spinbutton_seconds") as Gtk.SpinButton;
-        start_button = builder.get_object ("start_button") as Gtk.Button;
+        bell = new Utils.Bell ("complete", _("Time is up!"), _("Timer countdown finished"));
 
         // Force LTR since we do not want to reverse [hh] : [mm] : [ss]
         grid_spinbuttons.set_direction (Gtk.TextDirection.LTR);
 
-        h_spinbutton.output.connect (show_leading_zeros);
-        m_spinbutton.output.connect (show_leading_zeros);
-        s_spinbutton.output.connect (show_leading_zeros);
-
-        h_spinbutton.value_changed.connect (update_start_button);
-        m_spinbutton.value_changed.connect (update_start_button);
-        s_spinbutton.value_changed.connect (update_start_button);
-
-        start_button.clicked.connect (() => {
-            start ();
-        });
-
-        countdown_frame = builder.get_object ("countdown_frame") as CountdownFrame;
-        countdown_label = builder.get_object ("countdown_label") as Gtk.Label;
-        left_button = builder.get_object ("left_button") as Gtk.Button;
-        right_button = builder.get_object ("right_button") as Gtk.Button;
-
-        left_button.clicked.connect (() => {
-            switch (state) {
-            case State.RUNNING:
-                pause ();
-                left_button.set_label (_("Continue"));
-                left_button.get_style_context ().add_class ("clocks-go");
-                break;
-            case State.PAUSED:
-                restart ();
-                left_button.set_label (_("Pause"));
-                left_button.get_style_context ().remove_class("clocks-go");
-                break;
-            default:
-                assert_not_reached ();
-            }
-        });
-
-        right_button.clicked.connect (() => {
-            reset ();
-            left_button.set_label (_("Pause"));
-        });
-
-        add (setup_frame);
-        add (countdown_frame);
-
         reset ();
-
-        visible_child = setup_frame;
-        show_all ();
     }
 
     public virtual signal void ring () {
         bell.ring_once ();
     }
 
+    [GtkCallback]
     private bool show_leading_zeros (Gtk.SpinButton spin_button) {
         spin_button.set_text ("%02i".printf(spin_button.get_value_as_int ()));
         return true;
     }
 
+    [GtkCallback]
     private void update_start_button () {
         var h = h_spinbutton.get_value_as_int ();
         var m = m_spinbutton.get_value_as_int ();
@@ -184,6 +141,35 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
             start_button.set_sensitive (false);
             start_button.get_style_context ().remove_class ("clocks-go");
         }
+    }
+
+    [GtkCallback]
+    private void on_start_button_clicked () {
+        start ();
+    }
+
+    [GtkCallback]
+    private void on_left_button_clicked () {
+        switch (state) {
+        case State.RUNNING:
+            pause ();
+            left_button.set_label (_("Continue"));
+            left_button.get_style_context ().add_class ("clocks-go");
+            break;
+        case State.PAUSED:
+            restart ();
+            left_button.set_label (_("Pause"));
+            left_button.get_style_context ().remove_class("clocks-go");
+            break;
+        default:
+            assert_not_reached ();
+        }
+    }
+
+    [GtkCallback]
+    private void on_right_button_clicked () {
+        reset ();
+        left_button.set_label (_("Pause"));
     }
 
     private void reset () {
