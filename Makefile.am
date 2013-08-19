@@ -134,7 +134,8 @@ EXTRA_DIST = \
 	$(icon_files) \
 	$(hcicon_files) \
 	$(images_DATA) \
-	$(resource_files)
+	$(resource_files) \
+	data/org.gnome.clocks.gschema.xml.in
 
 CLEANFILES = \
 	$(applications_DATA)
