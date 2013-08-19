@@ -259,7 +259,6 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
 
         // Translators: "New" refers to a world clock
         new_button = new Gtk.Button.with_label (_("New"));
-        new_button.get_style_context ().add_class ("text-button");
         new_button.valign = Gtk.Align.CENTER;
         new_button.no_show_all = true;
         new_button.action_name = "win.new";
@@ -274,7 +273,6 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
             back_button_image.icon_name = "go-previous-rtl-symbolic";
         }
         back_button.valign = Gtk.Align.CENTER;
-        back_button.get_style_context ().add_class ("image-button");
         back_button.set_image (back_button_image);
         back_button.no_show_all = true;
         back_button.clicked.connect (() => {

@@ -364,7 +364,6 @@ public class ContentView : Gtk.Bin {
         Gtk.Image select_button_image = new Gtk.Image.from_icon_name ("object-select-symbolic", Gtk.IconSize.MENU);
         select_button.set_image (select_button_image);
         select_button.valign = Gtk.Align.CENTER;
-        select_button.get_style_context ().add_class ("image-button");
         select_button.no_show_all = true;
         bind_property ("empty", select_button, "sensitive", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
         select_button.clicked.connect (() => {
@@ -375,7 +374,6 @@ public class ContentView : Gtk.Bin {
         cancel_button = new Gtk.Button.with_label (_("Cancel"));
         cancel_button.no_show_all = true;
         cancel_button.get_style_context ().add_class ("suggested-action");
-        cancel_button.get_style_context ().add_class ("text-button");
         cancel_button.valign = Gtk.Align.CENTER;
         cancel_button.clicked.connect (() => {
             icon_view.mode = IconView.Mode.NORMAL;
@@ -395,7 +393,6 @@ public class ContentView : Gtk.Bin {
         selection_menubutton.add (selection_menubutton_grid);
         selection_menubutton.show_all();
         selection_menubutton.valign = Gtk.Align.CENTER;
-        selection_menubutton.get_style_context ().add_class ("image-button");
         selection_menubutton.menu_model = selection_menu;
         selection_menubutton.get_style_context ().add_class ("selection-menu");
 
@@ -478,7 +475,6 @@ public class ContentView : Gtk.Bin {
 
         delete_button = new Gtk.Button ();
         delete_button.label = _("Delete");
-        delete_button.get_style_context ().add_class ("text-button");
         delete_button.sensitive = false;
         delete_button.halign = Gtk.Align.END;
         delete_button.hexpand = true;
