@@ -135,6 +135,7 @@ EXTRA_DIST = \
 	$(hcicon_files) \
 	$(images_DATA) \
 	$(resource_files) \
+	data/gnome-clocks.gresource.xml \
 	data/org.gnome.clocks.gschema.xml.in
 
 CLEANFILES = \
