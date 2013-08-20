@@ -45,6 +45,7 @@ public class Window : Gtk.ApplicationWindow {
         add_action_entries (action_entries, this);
 
         settings = new Settings ("org.gnome.clocks.state.window");
+        settings.delay ();
 
         // Setup window geometry saving
         Gdk.WindowState window_state = (Gdk.WindowState)settings.get_int ("state");
@@ -97,6 +98,10 @@ public class Window : Gtk.ApplicationWindow {
         update_header_bar ();
 
         show_all ();
+    }
+
+    ~Window () {
+        settings.apply ();
     }
 
     private void on_new_activate () {
