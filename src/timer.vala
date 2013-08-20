@@ -136,10 +136,10 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
 
         if (h != 0 || m != 0 || s != 0) {
             start_button.set_sensitive (true);
-            start_button.get_style_context ().add_class ("clocks-go");
+            start_button.get_style_context ().add_class ("suggested-action");
         } else {
             start_button.set_sensitive (false);
-            start_button.get_style_context ().remove_class ("clocks-go");
+            start_button.get_style_context ().remove_class ("suggested-action");
         }
     }
 
@@ -154,12 +154,12 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         case State.RUNNING:
             pause ();
             left_button.set_label (_("Continue"));
-            left_button.get_style_context ().add_class ("clocks-go");
+            left_button.get_style_context ().add_class ("suggested-action");
             break;
         case State.PAUSED:
             restart ();
             left_button.set_label (_("Pause"));
-            left_button.get_style_context ().remove_class("clocks-go");
+            left_button.get_style_context ().remove_class("suggested-action");
             break;
         default:
             assert_not_reached ();

@@ -47,6 +47,7 @@
                     <property name="hexpand">True</property>
                     <property name="homogeneous">True</property>
                     <property name="spacing">16</property>
+                    <property name="height_request">40</property>
                     <child>
                       <object class="GtkButton" id="left_button">
                         <property name="label" translatable="yes">Start</property>
@@ -57,7 +58,6 @@
                         <signal name="clicked" handler="on_left_button_clicked" swapped="no"/>
                         <style>
                           <class name="clocks-button"/>
-                          <class name="clocks-go"/>
                         </style>
                       </object>
                       <packing>

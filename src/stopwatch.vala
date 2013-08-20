@@ -185,7 +185,7 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         state = State.RUNNING;
         add_tick ();
         left_button.set_label (_("Stop"));
-        left_button.get_style_context ().add_class ("clocks-stop");
+        left_button.get_style_context ().add_class ("destructive-action");
         right_button.set_sensitive (true);
         right_button.set_label (_("Lap"));
     }
@@ -195,8 +195,8 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         state = State.STOPPED;
         remove_tick ();
         left_button.set_label (_("Continue"));
-        left_button.get_style_context ().remove_class ("clocks-stop");
-        left_button.get_style_context ().add_class ("clocks-go");
+        left_button.get_style_context ().remove_class ("destructive-action");
+        left_button.get_style_context ().add_class ("suggested-action");
         right_button.set_sensitive (true);
         right_button.set_label (_("Reset"));
     }
@@ -207,7 +207,7 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         remove_tick ();
         update_time_label ();
         left_button.set_label (_("Start"));
-        left_button.get_style_context ().add_class ("clocks-go");
+        left_button.get_style_context ().add_class ("suggested-action");
         right_button.set_sensitive (false);
         current_lap = 0;
         last_lap_time = 0;

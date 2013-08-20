@@ -1,8 +1,3 @@
-@define-color clocks_go_color_a #7fc141;
-@define-color clocks_go_color_b #8fc95d;
-@define-color clocks_stop_color_a #f44848;
-@define-color clocks_stop_color_b #ff6565;
-
 .clocks-digital-renderer {
     background-color: transparent;
 }
@@ -124,90 +119,6 @@
     font-size: 48px;
 }
 
-.clocks-go {
-    background-image: linear-gradient(to bottom,
-                                      @clocks_go_color_a,
-                                      darker(@clocks_go_color_a) 70%
-                                      );
-    color: #ffffff;
-    border-image: url("button-border-go.svg") 3 3 4 3 / 3 3 4 3 stretch;
-    border-radius: 3px;
-    border-width: 1px 1px 2px 1px;
-    border-style: solid;
-    border-color: transparent;
-}
-
-.clocks-go:hover {
-    background-image: linear-gradient(to bottom,
-                                      @clocks_go_color_b,
-                                      darker(@clocks_go_color_b) 70%
-                                      );
-}
-
-.clocks-go:active {
-    background-image: linear-gradient(to bottom,
-                                      darker(@clocks_go_color_a),
-                                      @clocks_go_color_a
-                                      );
-    border-image: url("button-border-go-active.svg") 3 3 4 3 / 3 3 4 3 stretch;
-}
-
-.clocks-stop {
-    background-image: linear-gradient(to bottom,
-                                      @clocks_stop_color_a,
-                                      darker(@clocks_stop_color_a) 70%
-                                      );
-    color: #ffffff;
-    border-image: url("button-border-stop.svg") 3 3 4 3 / 3 3 4 3 stretch;
-    border-radius: 3px;
-    border-width: 1px 1px 2px 1px;
-    border-style: solid;
-    border-color: transparent;
-}
-
-.clocks-stop:hover {
-    background-image: linear-gradient(to bottom,
-                                      @clocks_stop_color_b,
-                                      darker(@clocks_stop_color_b) 70%
-                                      );
-}
-
-.clocks-stop:active {
-    background-image: linear-gradient(to bottom,
-                                      darker(@clocks_stop_color_a),
-                                      @clocks_stop_color_a
-                                      );
-    border-image: url("button-border-stop-active.svg") 3 3 4 3 / 3 3 4 3 stretch;
-}
-
-.linked .clocks-go:first-child,
-.linked .clocks-stop:first-child,
-.linked .clocks-go:active:first-child,
-.linked .clocks-stop:active:first-child,
-.linked .clocks-go:active:hover:first-child,
-.linked .clocks-stop:active:hover:first-child,
-.linked .clocks-go:insensitive:first-child,
-.linked .clocks-stop:insensitive:first-child {
-    border-right-width: 0;
-    border-image-width: 3px 0 4px 3px;
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-}
-
-.linked .clocks-go:last-child,
-.linked .clocks-stop:last-child,
-.linked .clocks-go:active:last-child,
-.linked .clocks-stop:active:last-child,
-.linked .clocks-go:active:hover:last-child,
-.linked .clocks-stop:active:hover:last-child,
-.linked .clocks-go:insensitive:last-child,
-.linked .clocks-stop:insensitive:last-child {
-    border-left-width: 0;
-    border-image-width: 3px 3px 4px 0;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-}
-
 .clocks-selection-bar {
     border-width: 1px 0 0;
     border-style: solid;
@@ -246,7 +157,7 @@
 }
 
 .clocks-stopwatch-laps-row {
-    font-size: larger;
+    font-size: 14px;
     border-width: 0 0 1px 0;
     border-style: solid;
     border-color: #d3d7cf;
