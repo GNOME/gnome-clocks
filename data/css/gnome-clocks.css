@@ -131,15 +131,15 @@
 }
 
 .clocks-analog-frame.trough {
-    color: #d3d7cf;
+    color: @scrollbar_trough;
 }
 
 .clocks-analog-frame.progress {
-    color: #2e3436;
+    color: @scrollbar_slider_prelight;
 }
 
 .clocks-analog-frame.progress-fast {
-    color: #888a85;
+    color: @theme_text_color;
 }
 
 .clocks-laps-panel {
