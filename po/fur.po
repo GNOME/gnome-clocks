@@ -1,0 +1,284 @@
+# Friulian translation for gnome-clocks.
+# Copyright (C) 2013 gnome-clocks's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-clocks package.
+# Fabio Tomat <f.t.public@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-clocks master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-08-19 21:31+0000\n"
+"PO-Revision-Date: 2013-08-20 10:32+0100\n"
+"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
+"Language-Team: Friulian <fur@li.org>\n"
+"Language: fur\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:159
+#: ../data/ui/window.ui.h:1
+msgid "Clocks"
+msgstr "Orlois"
+
+#: ../data/gnome-clocks.desktop.in.h:2
+msgid "GNOME Clocks"
+msgstr "Orlois par GNOME"
+
+#: ../data/gnome-clocks.desktop.in.h:3
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "Orlois par i fûs oraris tal mont, sveis, cronometri e un timer"
+
+#: ../data/gnome-clocks.desktop.in.h:4
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr "ore;orari;timp;orloi;cronometri;fûs orari;svee;alarme;"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+msgid "Configured world clocks"
+msgstr "Orlois mondiai configurâts"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+msgid "List of world clocks to show."
+msgstr "Liste di orlois mondiai di mostrâ."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+msgid "Configured alarms"
+msgstr "Sveis configuradis"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+msgid "List of alarms set."
+msgstr "Liste di sveis configuradis."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:105
+msgid "Timer"
+msgstr "Timer"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "Durade dal timer in seconts."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:7
+msgid "Window width and height"
+msgstr "Largjece e altece dal balcon"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:8
+msgid "Width and height of the window."
+msgstr "Largjece e altece dal balcon."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:9
+msgid "Panel state"
+msgstr ""
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:10
+msgid "Current clock panel."
+msgstr ""
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:326 ../src/alarm.vala:477
+msgid "Alarm"
+msgstr "Svee"
+
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+msgid "Stop"
+msgstr "Ferme"
+
+#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
+msgid "Snooze"
+msgstr "Ripet"
+
+#: ../src/alarm.vala:278
+msgid "Edit Alarm"
+msgstr "Cambie svee"
+
+#: ../src/alarm.vala:278
+msgid "New Alarm"
+msgstr "Gnove svee"
+
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:483 ../src/world.vala:261
+msgid "New"
+msgstr "Gnûf"
+
+#: ../src/application.vala:24
+msgid "Print version information and exit"
+msgstr "Scrîf informazions di version e jes"
+
+#: ../src/stopwatch.vala:129
+msgid "Stopwatch"
+msgstr "Cronometri"
+
+#: ../src/stopwatch.vala:190
+msgid "Lap"
+msgstr "Gîr"
+
+#: ../src/stopwatch.vala:197 ../src/timer.vala:156
+msgid "Continue"
+msgstr "Continue"
+
+#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
+msgid "Reset"
+msgstr ""
+
+#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
+msgid "Start"
+msgstr "Tache"
+
+#: ../src/timer.vala:113
+msgid "Time is up!"
+msgstr "Timp scjadût"
+
+#: ../src/timer.vala:113
+msgid "Timer countdown finished"
+msgstr "Conte par ledrôs finide"
+
+#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
+msgid "Pause"
+msgstr "Pause"
+
+#: ../src/utils.vala:163
+msgid "Mondays"
+msgstr "Lunis"
+
+#: ../src/utils.vala:164
+msgid "Tuesdays"
+msgstr "Martars"
+
+#: ../src/utils.vala:165
+msgid "Wednesdays"
+msgstr "Miarcus"
+
+#: ../src/utils.vala:166
+msgid "Thursdays"
+msgstr "Joibe"
+
+#: ../src/utils.vala:167
+msgid "Fridays"
+msgstr "Vinars"
+
+#: ../src/utils.vala:168
+msgid "Saturdays"
+msgstr "Sabide"
+
+#: ../src/utils.vala:169
+msgid "Sundays"
+msgstr "Domenie"
+
+#: ../src/utils.vala:249
+msgid "Every Day"
+msgstr "Ogni dì"
+
+#: ../src/utils.vala:251
+msgid "Weekdays"
+msgstr "Dîs de vore"
+
+#: ../src/utils.vala:253
+msgid "Weekends"
+msgstr "Dîs di fieste"
+
+#: ../src/widgets.vala:374
+msgid "Cancel"
+msgstr "Anule"
+
+#: ../src/widgets.vala:387 ../src/widgets.vala:440
+msgid "Click on items to select them"
+msgstr "Fâs clic sui elements par selezionaju"
+
+#: ../src/widgets.vala:442
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d selezionât"
+msgstr[1] "%d selezionâts"
+
+#: ../src/widgets.vala:477
+msgid "Delete"
+msgstr "Elimine "
+
+#: ../src/window.vala:162
+msgid "Utilities to help you with the time."
+msgstr "Imprescj par controlâ le ore."
+
+#: ../src/window.vala:167
+msgid "translator-credits"
+msgstr "Fabio Tomat (f.t.public at gmail.com)"
+
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:93 ../src/world.vala:96
+msgid "Tomorrow"
+msgstr "Doman"
+
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:93 ../src/world.vala:96
+msgid "Yesterday"
+msgstr "Îr"
+
+#: ../src/world.vala:252
+msgid "World"
+msgstr "Mont"
+
+#. namespace World
+#. namespace Clocks
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Selezione <b>Gnûf</b> par zontâ une svee"
+
+#: ../data/ui/alarmsetupdialog.ui.h:1
+msgid "_Done"
+msgstr "_Fat"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2
+msgid "Name"
+msgstr "Non"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
+msgid "Repeat Every"
+msgstr "Ripet ogni"
+
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "Active"
+msgstr "Ativade"
+
+#: ../data/ui/menu.ui.h:1
+msgid "_New"
+msgstr "_Gnûf"
+
+#: ../data/ui/menu.ui.h:2
+msgid "_About"
+msgstr "I_nformazions"
+
+#: ../data/ui/menu.ui.h:3
+msgid "_Quit"
+msgstr "_Jes"
+
+#: ../data/ui/menu.ui.h:4
+msgid "Select All"
+msgstr "Selezione dut"
+
+#: ../data/ui/menu.ui.h:5
+msgid "Select None"
+msgstr "Anule selezion"
+
+#: ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Zonte un gnûf orloi"
+
+#: ../data/ui/worldlocationdialog.ui.h:2
+msgid "Search for a city:"
+msgstr "Cîr une citât:"
+
+#: ../data/ui/world.ui.h:1
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Selezione <b>Gnûf</b> par zontâ un orloi par une localitât tal mont"
+
+#: ../data/ui/world.ui.h:2
+msgid "Sunrise"
+msgstr "Cricâ dal dî"
+
+#: ../data/ui/world.ui.h:3
+msgid "Sunset"
+msgstr "Amont"
