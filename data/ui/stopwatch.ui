@@ -8,21 +8,21 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="hexpand">True</property>
+        <property name="valign">center</property>
+        <property name="margin_left">48</property>
+        <property name="margin_right">48</property>
+        <property name="margin_top">48</property>
+        <property name="margin_bottom">48</property>
+        <property name="column_spacing">48</property>
         <child>
           <object class="ClocksStopwatchFrame" id="analog_frame">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="margin_left">48</property>
-            <property name="margin_right">48</property>
-            <property name="margin_top">48</property>
-            <property name="margin_bottom">48</property>
             <child>
               <object class="GtkGrid" id="top_grid">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
-                <property name="hexpand">True</property>
-                <property name="valign">center</property>
                 <property name="row_spacing">24</property>
                 <property name="column_homogeneous">True</property>
                 <child>
@@ -106,7 +106,6 @@
           <object class="GtkFrame" id="laps_panel">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="vexpand">True</property>
             <style>
               <class name="clocks-laps-panel"/>
             </style>
