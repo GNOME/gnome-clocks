@@ -220,7 +220,13 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         current_lap += 1;
         var e = timer.elapsed ();
         var split = e - last_lap_time;
-        last_lap_time = e;
+
+        // Discard milliseconds in the saved lap time to ensure
+        // total and split times are consistent: for instance if we saved
+        // 0.108000 and the next lap is 1.202000, we would see on screen 0.10
+        // and 1.20, so we would expect a split time of 1.10, but we would
+        // instead get 1.094000 and thus display 1.09
+        last_lap_time = Math.floor(e * 100) / 100;
 
         int h;
         int m;
