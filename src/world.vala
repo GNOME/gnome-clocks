@@ -303,6 +303,10 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         add (standalone);
 
         load ();
+        
+        use_geolocation.begin ((obj, res) => {
+            use_geolocation.end (res);
+        });
 
         notify["visible-child"].connect (() => {
             if (visible_child == content_view) {
@@ -342,6 +346,40 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
             i.serialize (builder);
         }
         settings.set_value ("world-clocks", builder.end ());
+    }
+    
+    private async void use_geolocation () {
+        GeoInfo.LocationInfo? geo_location = null;
+        GWeather.Location? found_location = null;
+
+        GeoInfo.LocationMonitor monitor = new GeoInfo.LocationMonitor ();
+
+        try {
+            geo_location = yield monitor.search ();
+
+            found_location = GeoInfo.Utils.search_locations (geo_location.latitude, 
+                                                             geo_location.longitude);
+        } catch (IOError e) {
+            warning ("obtaining geolocation: %s", e.message);
+        }
+
+        if (found_location != null) {
+            bool not_included = true;
+
+            foreach (Item i in locations) {
+                if (i.location == found_location) {
+                    not_included = false;
+                }
+            }
+            
+            if (not_included) {
+                var item = new Item (found_location);
+
+                locations.append (item);
+                content_view.add_item (item);
+                save ();
+            }
+        }
     }
 
     public void activate_new () {
