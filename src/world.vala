@@ -24,6 +24,7 @@ private class Item : Object, ContentItem {
     private static Gdk.Pixbuf? night_pixbuf = Utils.load_image ("night.png");
 
     public GWeather.Location location { get; set; }
+    public bool automatic { get; set; default = false; }
     public string name {
         get {
             // We store it in a _name member even if we overwrite it every time
@@ -376,10 +377,9 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
             
             if (not_included) {
                 var item = new Item (found_location);
-
+                item.automatic = true;
                 locations.append (item);
                 content_view.add_item (item);
-                save ();
             }
         }
     }
