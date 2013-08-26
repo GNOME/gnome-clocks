@@ -454,9 +454,16 @@ public class ContentView : Gtk.Bin {
             var store = (Gtk.ListStore) icon_view.model;
             Gtk.TreeIter i;
             if (store.get_iter (out i, path)) {
-                Object item;
-                store.get (i, IconView.Column.ITEM, out item);
-                item_activated (item);
+                if (icon_view.mode == IconView.Mode.SELECTION) {
+                    bool selected;
+                    store.get (i, IconView.Column.SELECTED, out selected);
+                    store.set (i, IconView.Column.SELECTED, !selected);
+                    icon_view.selection_changed ();
+                } else {
+                    Object item;
+                    store.get (i, IconView.Column.ITEM, out item);
+                    item_activated (item);
+                }
             }
         });
 
