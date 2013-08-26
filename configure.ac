@@ -60,6 +60,7 @@ PKG_CHECK_MODULES(CLOCKS, [
 
 AC_CONFIG_FILES([
     Makefile
+    data/org.gnome.clocks.gschema.xml.in
     po/Makefile.in
 ])
 
