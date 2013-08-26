@@ -373,7 +373,6 @@ public class ContentView : Gtk.Bin {
 
         cancel_button = new Gtk.Button.with_label (_("Cancel"));
         cancel_button.no_show_all = true;
-        cancel_button.get_style_context ().add_class ("suggested-action");
         cancel_button.valign = Gtk.Align.CENTER;
         cancel_button.clicked.connect (() => {
             icon_view.mode = IconView.Mode.NORMAL;
