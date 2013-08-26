@@ -343,7 +343,9 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     private void save () {
         var builder = new GLib.VariantBuilder (new VariantType ("aa{sv}"));
         foreach (Item i in locations) {
-            i.serialize (builder);
+            if (!i.automatic) {
+                i.serialize (builder);
+            }
         }
         settings.set_value ("world-clocks", builder.end ());
     }
