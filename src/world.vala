@@ -350,7 +350,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         }
         settings.set_value ("world-clocks", builder.end ());
     }
-    
+
     private async void use_geolocation () {
         GeoInfo.LocationInfo? geo_location = null;
         GWeather.Location? found_location = null;
@@ -374,12 +374,13 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
                     not_included = false;
                 }
             }
-            
+
             if (not_included) {
                 var item = new Item (found_location);
+
                 item.automatic = true;
                 locations.append (item);
-                content_view.add_item (item);
+                content_view.add_first (item);
             }
         }
     }

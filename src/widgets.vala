@@ -359,6 +359,13 @@ private class IconView : Gtk.IconView {
         store.set (i, Column.SELECTED, false, Column.ITEM, item);
     }
 
+    public void add_first (Object item) {
+        var store = (Gtk.ListStore) model;
+        Gtk.TreeIter i;
+        store.insert (out i, 0);
+        store.set (i, Column.SELECTED, false, Column.ITEM, item);
+    }
+
     // Redefine selection handling methods since we handle selection manually
 
     public new List<Gtk.TreePath> get_selected_items () {
@@ -582,6 +589,10 @@ public class ContentView : Gtk.Bin {
 
     public void add_item (ContentItem item) {
         icon_view.add_item (item);
+    }
+
+    public void add_first (ContentItem item) {
+        icon_view.add_first (item);
     }
 
     // Note: this is not efficient: we first walk the model to collect
