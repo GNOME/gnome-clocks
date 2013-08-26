@@ -31,6 +31,7 @@ private class Item : Object, ContentItem {
         SNOOZING
     }
 
+    public bool automatic { get; set; default = false; }
     public string name {
         get {
             return _name;
