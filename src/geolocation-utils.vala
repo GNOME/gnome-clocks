@@ -16,10 +16,10 @@ private double get_distance (double latitude1, double longitude1, double latitud
 }
 
 private void search_locations_helper (GeoInfo.LocationInfo geo_location, GWeather.Location location, ref double minimal_distance,  ref GWeather.Location? found_location) {
-    if (geo_location.country_name != null) {
-        string? country_name = get_country_name (location);
-        if (country_name != null) {
-            if (country_name != geo_location.country_name) {
+    if (geo_location.country_code != null) {
+        string? country_code = location.get_country ();
+        if (country_code != null) {
+            if (country_code != geo_location.country_code) {
                 return;
             }
         }
@@ -45,16 +45,6 @@ private void search_locations_helper (GeoInfo.LocationInfo geo_location, GWeathe
             search_locations_helper (geo_location, locations[i], ref minimal_distance, ref found_location);
         }
     }
-}
-
-private string? get_country_name (GWeather.Location location) {
-     var nation = location;
-
-     while (nation != null && nation.get_level () != GWeather.LocationLevel.COUNTRY) {
-        nation = nation.get_parent ();
-     }
-
-     return nation != null ? nation.get_name () : null;
 }
 
 public GWeather.Location? search_locations (GeoInfo.LocationInfo geo_location) {

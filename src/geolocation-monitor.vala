@@ -66,6 +66,10 @@ public class LocationMonitor : GLib.Object {
             location.country_name = root_object.get_string_member ("country_name");
         }
 
+        if (root_object.has_member ("country_code")) {
+            location.country_code = root_object.get_string_member ("country_code");
+        }
+
         return location;
     }
 

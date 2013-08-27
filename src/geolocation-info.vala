@@ -50,6 +50,7 @@ public class LocationInfo : GLib.Object {
     public LocationAccuracy accuracy { get; set; default = LocationAccuracy.UNKNOWN; }
     public string? description { get; set; default = null; }
     public string? country_name { get; set; default = null; }
+    public string? country_code { get; set; default = null; }
     public uint64 timestamp { get; set; default = 0; }
     
     public LocationInfo (double lat, double lon, LocationAccuracy acc = LocationAccuracy.UNKNOWN) {
