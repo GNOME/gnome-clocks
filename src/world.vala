@@ -360,8 +360,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         try {
             geo_location = yield monitor.search ();
 
-            found_location = GeoInfo.Utils.search_locations (geo_location.latitude, 
-                                                             geo_location.longitude);
+            found_location = GeoInfo.Utils.search_locations (geo_location);
         } catch (IOError e) {
             warning ("obtaining geolocation: %s", e.message);
         }

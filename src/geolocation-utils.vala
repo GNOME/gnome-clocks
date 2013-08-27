@@ -15,17 +15,27 @@ private double get_distance (double latitude1, double longitude1, double latitud
     return Math.acos (Math.cos (lat1) * Math.cos (lat2) * Math.cos (lon1 - lon2) + Math.sin (lat1) * Math.sin (lat2)) * radius;
 }
 
-private void search_locations_helper (double lat, double lon, GWeather.Location location, ref double minimal_distance,  ref GWeather.Location? found_location) {
+private void search_locations_helper (GeoInfo.LocationInfo geo_location, GWeather.Location location, ref double minimal_distance,  ref GWeather.Location? found_location) {
     GWeather.Location? [] locations = location.get_children ();
 
     if (locations != null) {
         for (int i = 0; i < locations.length; i++) {
             if (locations[i].get_level () == GWeather.LocationLevel.CITY) {
                 if (locations[i].has_coords ()) {
+                    if (geo_location.country_name != null) {
+                        stdout.printf ("geo name %s\n", geo_location.country_name);
+                        string? country_name = get_country_name (location);
+                        if (country_name != null) {
+                            if (country_name != geo_location.country_name) {
+                                continue;
+                            }
+                        }
+                    }
+
                     double latitude, longitude, distance;
 
                     locations[i].get_coords (out latitude, out longitude);
-                    distance = get_distance (lat, lon, latitude, longitude);
+                    distance = get_distance (geo_location.latitude, geo_location.longitude, latitude, longitude);
 
                     if (distance < minimal_distance) {
                         found_location = locations[i];
@@ -34,17 +44,27 @@ private void search_locations_helper (double lat, double lon, GWeather.Location 
                 }
             }
 
-            search_locations_helper (lat, lon, locations[i], ref minimal_distance, ref found_location);
+            search_locations_helper (geo_location, locations[i], ref minimal_distance, ref found_location);
         }
     }
 }
 
-public GWeather.Location? search_locations (double lat, double lon) {
+private string? get_country_name (GWeather.Location location) {
+     var nation = location;
+
+     while (nation != null && nation.get_level () != GWeather.LocationLevel.COUNTRY) {
+        nation = nation.get_parent ();
+     }
+
+     return nation != null ? nation.get_name () : null;
+}
+
+public GWeather.Location? search_locations (GeoInfo.LocationInfo geo_location) {
     GWeather.Location locations = new GWeather.Location.world (true);
     GWeather.Location? found_location = null;
     double minimal_distance = 1000.0d;
 
-    search_locations_helper (lat, lon, locations, ref minimal_distance, ref found_location);
+    search_locations_helper (geo_location, locations, ref minimal_distance, ref found_location);
 
     return found_location;
 }
