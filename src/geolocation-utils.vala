@@ -16,22 +16,20 @@ private double get_distance (double latitude1, double longitude1, double latitud
 }
 
 private void search_locations_helper (GeoInfo.LocationInfo geo_location, GWeather.Location location, ref double minimal_distance,  ref GWeather.Location? found_location) {
-    GWeather.Location? [] locations = location.get_children ();
+    if (geo_location.country_name != null) {
+        string? country_name = get_country_name (location);
+        if (country_name != null) {
+            if (country_name != geo_location.country_name) {
+                return;
+            }
+        }
+    }
 
+    GWeather.Location? [] locations = location.get_children ();
     if (locations != null) {
         for (int i = 0; i < locations.length; i++) {
             if (locations[i].get_level () == GWeather.LocationLevel.CITY) {
                 if (locations[i].has_coords ()) {
-                    if (geo_location.country_name != null) {
-                        stdout.printf ("geo name %s\n", geo_location.country_name);
-                        string? country_name = get_country_name (location);
-                        if (country_name != null) {
-                            if (country_name != geo_location.country_name) {
-                                continue;
-                            }
-                        }
-                    }
-
                     double latitude, longitude, distance;
 
                     locations[i].get_coords (out latitude, out longitude);
