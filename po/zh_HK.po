@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-06 19:42+0800\n"
-"PO-Revision-Date: 2013-08-06 19:42+0800\n"
+"POT-Creation-Date: 2013-08-29 21:49+0800\n"
+"PO-Revision-Date: 2013-08-29 21:49+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.5.5\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:179
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:164
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "時鐘"
@@ -35,51 +35,59 @@ msgstr "包含世界時刻的時鐘，加上鬧鐘、碼表和計時器"
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "time;timer;alarm;world clock;stopwatch;time zone;時間;計時器;鬧鐘;鬧鈴;世界時鐘;碼表;時區;"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
 msgid "Configured world clocks"
 msgstr "設定的世界時鐘"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
 msgid "List of world clocks to show."
 msgstr "要顯示的世界時鐘清單。"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
 msgid "Configured alarms"
 msgstr "設定的鬧鐘"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
 msgid "List of alarms set."
 msgstr "鬧鐘設定清單"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:50
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:105
 msgid "Timer"
 msgstr "計時器"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
 msgid "Configured timer duration in seconds."
 msgstr "設定的計時器，以秒計時。"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:7
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Window state"
+msgstr "視窗狀態"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "State of the window: i.e. maximized."
+msgstr "視窗的狀態：例如為最大化狀態。"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
 msgid "Window width and height"
 msgstr "視窗的闊度與高度"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:8
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
 msgid "Width and height of the window."
 msgstr "視窗的闊度與高度。"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:9
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
 msgid "Panel state"
 msgstr "面板狀態"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:10
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
 msgid "Current clock panel."
 msgstr "目前的時鐘面板"
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:321 ../src/alarm.vala:472
+#: ../src/alarm.vala:105 ../src/alarm.vala:326 ../src/alarm.vala:477
 msgid "Alarm"
 msgstr "鬧鐘"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:122 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "停止"
 
@@ -87,17 +95,17 @@ msgstr "停止"
 msgid "Snooze"
 msgstr "延期"
 
-#: ../src/alarm.vala:276
+#: ../src/alarm.vala:278
 msgid "Edit Alarm"
 msgstr "編輯鬧鐘"
 
-#: ../src/alarm.vala:276
+#: ../src/alarm.vala:278
 msgid "New Alarm"
 msgstr "新增鬧鐘"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:478 ../src/world.vala:261
+#: ../src/alarm.vala:483 ../src/world.vala:261
 msgid "New"
 msgstr "新增"
 
@@ -105,37 +113,37 @@ msgstr "新增"
 msgid "Print version information and exit"
 msgstr "輸出版本資訊並離開"
 
-#: ../src/stopwatch.vala:51
+#: ../src/stopwatch.vala:129
 msgid "Stopwatch"
 msgstr "碼表"
 
-#: ../src/stopwatch.vala:125 ../data/ui/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:190
 msgid "Lap"
 msgstr "圈數"
 
-#: ../src/stopwatch.vala:132 ../src/timer.vala:89
+#: ../src/stopwatch.vala:197 ../src/timer.vala:156
 msgid "Continue"
 msgstr "繼續"
 
-#: ../src/stopwatch.vala:136 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "重設"
 
-#: ../src/stopwatch.vala:144 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "開始"
 
-#: ../src/timer.vala:54
+#: ../src/timer.vala:113
 msgid "Time is up!"
 msgstr "時間到！"
 
-#: ../src/timer.vala:54
+#: ../src/timer.vala:113
 msgid "Timer countdown finished"
 msgstr "計時器倒數截止"
 
-#: ../src/timer.vala:94 ../src/timer.vala:104 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "暫停"
 
@@ -179,29 +187,29 @@ msgstr "工作週"
 msgid "Weekends"
 msgstr "週末"
 
-#: ../src/widgets.vala:375
+#: ../src/widgets.vala:374
 msgid "Cancel"
 msgstr "取消"
 
-#: ../src/widgets.vala:389 ../src/widgets.vala:443
+#: ../src/widgets.vala:387 ../src/widgets.vala:440
 msgid "Click on items to select them"
 msgstr "點按項目來選取它們"
 
-#: ../src/widgets.vala:445
+#: ../src/widgets.vala:442
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "已選擇 %d 個"
 
-#: ../src/widgets.vala:480
+#: ../src/widgets.vala:484
 msgid "Delete"
 msgstr "刪除"
 
-#: ../src/window.vala:182
+#: ../src/window.vala:167
 msgid "Utilities to help you with the time."
 msgstr "協助你時間方面的工具。"
 
-#: ../src/window.vala:187
+#: ../src/window.vala:172
 msgid "translator-credits"
 msgstr "Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>, 2012"
 
@@ -221,10 +229,6 @@ msgstr "世界"
 
 #. namespace World
 #. namespace Clocks
-#: ../data/ui/alarm.ui.h:1
-msgid "Select <b>New</b> to add an alarm"
-msgstr "選擇 <b>新增</b> 來加入鬧鐘"
-
 #: ../data/ui/alarmsetupdialog.ui.h:1
 msgid "_Done"
 msgstr "完成(_D)"
@@ -240,6 +244,10 @@ msgstr "重複於每"
 #: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "Active"
 msgstr "使用"
+
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "選擇 <b>新增</b> 來加入鬧鐘"
 
 #: ../data/ui/menu.ui.h:1
 msgid "_New"
@@ -261,14 +269,6 @@ msgstr "全選"
 msgid "Select None"
 msgstr "取消全選"
 
-#: ../data/ui/stopwatch.ui.h:4
-msgid "Split"
-msgstr "分割"
-
-#: ../data/ui/stopwatch.ui.h:5
-msgid "Total"
-msgstr "總數"
-
 #: ../data/ui/worldlocationdialog.ui.h:1
 msgid "Add a New World Clock"
 msgstr "加入新的世界時鐘"
@@ -288,6 +288,12 @@ msgstr "日出"
 #: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "日落"
+
+#~ msgid "Split"
+#~ msgstr "分割"
+
+#~ msgid "Total"
+#~ msgstr "總數"
 
 #~ msgid "Done"
 #~ msgstr "完成"
