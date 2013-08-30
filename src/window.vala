@@ -65,6 +65,11 @@ public class Window : Gtk.ApplicationWindow {
         panels[PanelId.STOPWATCH] = new Stopwatch.MainPanel (header_bar);
         panels[PanelId.TIMER] = new Timer.MainPanel (header_bar);
 
+        var world = (World.MainPanel)panels[PanelId.WORLD];
+        var alarm = (Alarm.MainPanel)panels[PanelId.ALARM];
+        var stopwatch = (Stopwatch.MainPanel)panels[PanelId.STOPWATCH];
+        var timer = (Timer.MainPanel)panels[PanelId.TIMER];
+
         foreach (var clock in panels) {
             stack.add_titled (clock, ((Clock)clock).label, ((Clock)clock).label);
         }
@@ -86,14 +91,22 @@ public class Window : Gtk.ApplicationWindow {
             stack_id = 0;
         });
 
-        ((Alarm.MainPanel)panels[PanelId.ALARM]).ring.connect ((w) => {
-            ((World.MainPanel)panels[PanelId.WORLD]).reset_view ();
+        alarm.ring.connect ((w) => {
+            world.reset_view ();
             stack.visible_child = w;
         });
 
-        ((Timer.MainPanel)panels[PanelId.TIMER]).ring.connect ((w) => {
-            ((World.MainPanel)panels[PanelId.WORLD]).reset_view ();
+        stopwatch.notify["state"].connect ((w) => {
+            stack.child_set_property (stopwatch, "needs-attention", stopwatch.state == Stopwatch.MainPanel.State.RUNNING);
+        });
+
+        timer.ring.connect ((w) => {
+            world.reset_view ();
             stack.visible_child = w;
+        });
+
+        timer.notify["state"].connect ((w) => {
+            stack.child_set_property (timer, "needs-attention", timer.state == Timer.MainPanel.State.RUNNING);
         });
 
         stack.visible_child = panels[settings.get_enum ("panel-id")];

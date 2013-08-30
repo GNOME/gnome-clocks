@@ -66,7 +66,7 @@ public class CountdownFrame : AnalogFrame {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/timer.ui")]
 public class MainPanel : Gtk.Stack, Clocks.Clock {
-    enum State {
+    public enum State {
         STOPPED,
         RUNNING,
         PAUSED
@@ -76,7 +76,8 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
 
-    private State state;
+    public State state { get; private set; default = State.STOPPED; }
+
     private GLib.Settings settings;
     private uint tick_id;
     private double span;

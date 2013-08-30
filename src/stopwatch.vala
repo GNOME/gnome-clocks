@@ -91,7 +91,7 @@ private class LapsRow : Gtk.ListBoxRow {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/stopwatch.ui")]
 public class MainPanel : Gtk.Box, Clocks.Clock {
-    private enum State {
+    public enum State {
         RESET,
         RUNNING,
         STOPPED
@@ -107,7 +107,8 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
     public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
 
-    private State state;
+    public State state { get; private set; default = State.RESET; }
+
     private GLib.Timer timer;
     private uint tick_id;
     private int current_lap;
