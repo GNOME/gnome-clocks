@@ -3,25 +3,26 @@
 # This file is distributed under the same license as the gnome-clocks package.
 #
 # Dirgita <dirgitadevina@yahoo.co.id>, 2012, 2013.
-# Andika Triwidada <andika@gmail.com>, 2012.
+# Andika Triwidada <andika@gmail.com>, 2012, 2013.
 # Bonaventura Aditya Perdana <bonaditya@about.me>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-22 13:24+0000\n"
-"PO-Revision-Date: 2013-03-24 20:33+0700\n"
-"Last-Translator: Dirgita <dirgitadevina@yahoo.co.id>\n"
+"POT-Creation-Date: 2013-08-26 16:35+0000\n"
+"PO-Revision-Date: 2013-08-31 13:35+0700\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Poedit 1.5.7\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:164
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Jam"
 
@@ -37,35 +38,59 @@ msgstr "Jam untuk waktu dunia, alarm, stopwatch dan penghitung waktu"
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "time;timer;alarm;world clock;stopwatch;time zone;jam;waktu;"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
 msgid "Configured world clocks"
 msgstr "Jam dunia yang telah disetel"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
 msgid "List of world clocks to show."
 msgstr "Daftar jam dunia untuk ditampilkan."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
 msgid "Configured alarms"
 msgstr "Alarm yang telah disetel"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
 msgid "List of alarms set."
 msgstr "Daftar alarm yang telah disetel."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:105
 msgid "Timer"
 msgstr "Timer"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
 msgid "Configured timer duration in seconds."
 msgstr "Durasi timer yang telah disetel dalam satuan detik."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:476
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Window state"
+msgstr "Keadaan jendela"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "State of the window: i.e. maximized."
+msgstr "Keadaan jendela: mis. dimaksimalkan."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+msgid "Window width and height"
+msgstr "Lebar dan tinggi jendela"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+msgid "Width and height of the window."
+msgstr "Lebar dan tinggi jendela.."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+msgid "Panel state"
+msgstr "Keadaan panel"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+msgid "Current clock panel."
+msgstr "Panel jam saat ini."
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:326 ../src/alarm.vala:477
 msgid "Alarm"
 msgstr "Alarm"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Berhenti"
 
@@ -73,21 +98,17 @@ msgstr "Berhenti"
 msgid "Snooze"
 msgstr "Jeda"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:278
 msgid "Edit Alarm"
 msgstr "Sunting Alarm"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:278
 msgid "New Alarm"
 msgstr "Alarm Baru"
 
-#: ../src/alarm.vala:267
-msgid "_Done"
-msgstr "Selesa_i"
-
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:484 ../src/world.vala:281
+#: ../src/alarm.vala:483 ../src/world.vala:261
 msgid "New"
 msgstr "Baru"
 
@@ -95,85 +116,89 @@ msgstr "Baru"
 msgid "Print version information and exit"
 msgstr "Menampilkan informasi versi dan keluar"
 
-#: ../src/stopwatch.vala:50
+#: ../src/stopwatch.vala:129
 msgid "Stopwatch"
 msgstr "Stopwatch"
 
-#: ../src/stopwatch.vala:124 ../data/ui/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:190
 msgid "Lap"
 msgstr "Lintasan"
 
-#: ../src/stopwatch.vala:131 ../src/timer.vala:88
+#: ../src/stopwatch.vala:197 ../src/timer.vala:156
 msgid "Continue"
 msgstr "Lanjutkan"
 
-#: ../src/stopwatch.vala:135 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Atur ulang"
 
-#: ../src/stopwatch.vala:143 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Mulai"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:113
 msgid "Time is up!"
 msgstr "Waktu habis!"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:113
 msgid "Timer countdown finished"
 msgstr "Timer sudah selesai"
 
-#: ../src/timer.vala:93 ../src/timer.vala:103 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Jeda"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:163
 msgid "Mondays"
 msgstr "Senin"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:164
 msgid "Tuesdays"
 msgstr "Selasa"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:165
 msgid "Wednesdays"
 msgstr "Rabu"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:166
 msgid "Thursdays"
 msgstr "Kamis"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:167
 msgid "Fridays"
 msgstr "Jumat"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:168
 msgid "Saturdays"
 msgstr "Sabtu"
 
-#: ../src/utils.vala:155
+#: ../src/utils.vala:169
 msgid "Sundays"
 msgstr "Minggu"
 
-#: ../src/utils.vala:235
+#: ../src/utils.vala:249
 msgid "Every Day"
 msgstr "Tiap hari"
 
-#: ../src/utils.vala:237
+#: ../src/utils.vala:251
 msgid "Weekdays"
 msgstr "Hari kerja"
 
-#: ../src/widgets.vala:386
-msgid "Done"
-msgstr "Selesai"
+#: ../src/utils.vala:253
+msgid "Weekends"
+msgstr "Akhir minggu"
 
-#: ../src/widgets.vala:398 ../src/widgets.vala:433
+#: ../src/widgets.vala:374
+msgid "Cancel"
+msgstr "Batal"
+
+#: ../src/widgets.vala:387 ../src/widgets.vala:440
 msgid "Click on items to select them"
 msgstr "Klik pada item untuk memilih mereka"
 
-#: ../src/widgets.vala:435
+#: ../src/widgets.vala:442
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -183,15 +208,11 @@ msgstr[0] "%d dipilih"
 msgid "Delete"
 msgstr "Hapus"
 
-#: ../src/window.vala:142
-msgid "Gnome Clocks"
-msgstr "Gnome Jam"
-
-#: ../src/window.vala:145
+#: ../src/window.vala:167
 msgid "Utilities to help you with the time."
 msgstr "Aplikasi untuk membantu Anda mengenai waktu"
 
-#: ../src/window.vala:150
+#: ../src/window.vala:172
 msgid "translator-credits"
 msgstr ""
 "Dirgita <dirgitadevina@yahoo.co.id>, 2012.\n"
@@ -199,40 +220,40 @@ msgstr ""
 "Bonaventura Aditya Perdana <bonaditya@about.me>, 2012."
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:102 ../src/world.vala:105
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Tomorrow"
 msgstr "Besok"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:102 ../src/world.vala:105
+#: ../src/world.vala:93 ../src/world.vala:96
 msgid "Yesterday"
 msgstr "Kemarin"
 
-#: ../src/world.vala:172
-msgid "Add a New World Clock"
-msgstr "Tambahkan sebuah Jam Dunia Baru"
-
-#: ../src/world.vala:270
+#: ../src/world.vala:252
 msgid "World"
 msgstr "Dunia"
 
 #. namespace World
 #. namespace Clocks
-#: ../data/ui/alarm.ui.h:1
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Klik <b>Baru</b> untuk menambah alarm"
+#: ../data/ui/alarmsetupdialog.ui.h:1
+msgid "_Done"
+msgstr "Selesa_i"
 
-#: ../data/ui/alarm.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:2
 msgid "Name"
 msgstr "Nama"
 
-#: ../data/ui/alarm.ui.h:5
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "Repeat Every"
 msgstr "Ulang Setiap"
 
-#: ../data/ui/alarm.ui.h:6
+#: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "Active"
 msgstr "Aktif"
+
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Klik <b>Baru</b> untuk menambah alarm"
 
 #: ../data/ui/menu.ui.h:1
 msgid "_New"
@@ -254,35 +275,22 @@ msgstr "Pilih Semua"
 msgid "Select None"
 msgstr "Jangan Pilih"
 
-#: ../data/ui/stopwatch.ui.h:4
-msgid "Split"
-msgstr "Belah"
+#: ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Tambahkan sebuah Jam Dunia Baru"
 
-#: ../data/ui/stopwatch.ui.h:5
-msgid "Total"
-msgstr "Total"
+#: ../data/ui/worldlocationdialog.ui.h:2
+msgid "Search for a city:"
+msgstr "Cari kota:"
 
 #: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Klik <b>Baru</b> untuk menambahkan jam dunia"
 
 #: ../data/ui/world.ui.h:2
-msgid "Search for a city:"
-msgstr "Cari kota:"
-
-#: ../data/ui/world.ui.h:3
 msgid "Sunrise"
 msgstr "Matahari terbit"
 
-#: ../data/ui/world.ui.h:4
+#: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Matahari terbenam"
-
-#~ msgid "Time"
-#~ msgstr "Waktu"
-
-#~ msgid "About Clocks"
-#~ msgstr "Tentang Jam"
-
-#~ msgid "Edit"
-#~ msgstr "Sunting"
