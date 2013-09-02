@@ -86,6 +86,7 @@ AM_VALAFLAGS = \
 	--vapidir=egg-list-box \
 	--pkg gio-2.0 \
 	--pkg gtk+-3.0 \
+	--pkg gweather-3.0 \
 	--pkg libcanberra \
 	--pkg libnotify \
 	--gresources  $(top_srcdir)/data/gnome-clocks.gresource.xml
@@ -115,7 +116,6 @@ gnome_clocks_SOURCES = \
 	$(BUILT_SOURCES) \
 	$(VALA_SOURCES) \
 	src/cutils.c \
-	src/gweather-3.0.vapi \
 	src/gnome-desktop-3.0.vapi \
 	src/config.vapi
 

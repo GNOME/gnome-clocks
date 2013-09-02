@@ -145,9 +145,7 @@ private class Item : Object, ContentItem {
     public static Item deserialize (GLib.Variant location_variant) {
         GWeather.Location? location = null;
 
-        // This looks like a constructor for historic reasons
-        // it returns the same instance after the first call
-        var world = new GWeather.Location.world (true);
+        var world = GWeather.Location.get_world ();
 
         foreach (var v in location_variant) {
             var key = v.get_child_value (0).get_string ();
