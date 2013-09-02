@@ -10,6 +10,10 @@ applicationsdir = $(datadir)/applications
 applications_DATA = data/gnome-clocks.desktop
 dist_noinst_DATA = data/gnome-clocks.desktop.in
 
+# appdata file
+appdatadir = $(datadir)/appdata
+appdata_DATA = data/appdata/gnome-clocks.appdata.xml
+
 # gsettings
 gsettings_SCHEMAS = data/org.gnome.clocks.gschema.xml
 @INTLTOOL_XML_NOMERGE_RULE@
@@ -135,6 +139,7 @@ EXTRA_DIST = \
 	$(hcicon_files) \
 	$(images_DATA) \
 	$(resource_files) \
+	data/appdata/gnome-clocks.appdata.xml \
 	data/gnome-clocks.gresource.xml \
 	data/org.gnome.clocks.gschema.xml.in.in
 
