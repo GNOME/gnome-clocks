@@ -365,7 +365,7 @@ public class ContentView : Gtk.Bin {
         select_button.set_image (select_button_image);
         select_button.valign = Gtk.Align.CENTER;
         select_button.no_show_all = true;
-        bind_property ("empty", select_button, "sensitive", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
+        bind_property ("empty", select_button, "visible", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
         select_button.clicked.connect (() => {
             icon_view.mode = IconView.Mode.SELECTION;
         });
@@ -566,7 +566,7 @@ public class ContentView : Gtk.Bin {
             cancel_button.show ();
             break;
         case HeaderBar.Mode.NORMAL:
-            select_button.show ();
+            select_button.visible = !empty;
             break;
         }
     }
