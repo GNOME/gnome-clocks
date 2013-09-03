@@ -1,0 +1,64 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:its="http://www.w3.org/2005/11/its"
+      type="guide" style="task"
+      id="stopwatch">
+
+  <info>
+    <link type="guide" xref="index#stopwatch"/>
+
+    <revision pkgversion="3.9" date="2013-09-03" status="draft"/>
+
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <credit type="author copyright">
+      <name>Aruna Sankaranarayanan</name>
+      <email its:translate="no">aruna.evam@gmail.com</email>
+      <years>2013</years>
+    </credit>
+
+    <desc>Use the stopwatch to measure the time taken to finish a task.</desc>
+  </info>
+
+  <title>Clock your best times</title>
+
+  <p>A stopwatch can be used to measure the different parts of a task while
+  also keeping track of the time taken to finish the whole task. It is often
+  used by athletes to measure the time taken to cover each lap and the time
+  taken to cover the entire distance of the race.</p>
+
+  <steps>
+    <item>
+      <p>Press the <gui style="button">Stopwatch</gui> button.</p>
+    </item>
+    <item>
+      <p>Press <gui style="button">Start</gui> to start the stopwatch.</p>
+    </item>
+    <item>
+    <list>
+      <title>After completing one phase of the task:</title>
+      <item>
+	<p><!--After completing one phase of the task,--> If you want to time
+	the next phase immediately, press the <gui style="button">Lap</gui>
+	button.  This will clock the time taken for the current phase in the
+	table and start the timer for the next phase.</p>
+      </item>
+      <item>
+	<p>If you want to time the next phase after a break, press the <gui
+	style="button">Stop</gui> button to clock your time. You can press the
+	<gui style="button">Continue</gui> button when you are ready to use the
+	stopwatch again.</p>
+      </item>
+    </list>
+    </item>
+    <item>
+      <p>You can use the <gui style="button">Reset</gui> button to reset the
+      stop clock or when you have finished using the stopwatch.</p>
+    </item>
+  </steps>
+
+  <note style="info">
+    <p>Unless the stopwatch is reset or <app>Clocks</app> is restarted, the
+    times clocked by the stopwatch are not disturbed.</p>
+  </note>
+
+</page>
