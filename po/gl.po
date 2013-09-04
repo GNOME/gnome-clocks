@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-27 02:32+0200\n"
-"PO-Revision-Date: 2013-08-27 02:32+0200\n"
+"POT-Creation-Date: 2013-09-04 16:56+0200\n"
+"PO-Revision-Date: 2013-09-04 16:56+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -111,7 +111,7 @@ msgstr "Nova alarma"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:483 ../src/world.vala:261
+#: ../src/alarm.vala:483 ../src/world.vala:271
 msgid "New"
 msgstr "Novo"
 
@@ -197,18 +197,18 @@ msgstr "Fins de semana"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../src/widgets.vala:387 ../src/widgets.vala:440
+#: ../src/widgets.vala:386 ../src/widgets.vala:439
 msgid "Click on items to select them"
 msgstr "Prema nos elementos para seleccionalos"
 
-#: ../src/widgets.vala:442
+#: ../src/widgets.vala:441
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d seleccionado"
 msgstr[1] "%d seleccionados"
 
-#: ../src/widgets.vala:484
+#: ../src/widgets.vala:483
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -223,16 +223,16 @@ msgstr ""
 "Fran Diéguez <frandieguez@gnome.org>, 2012"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:93 ../src/world.vala:96
+#: ../src/world.vala:105 ../src/world.vala:108
 msgid "Tomorrow"
 msgstr "Mañá"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:93 ../src/world.vala:96
+#: ../src/world.vala:105 ../src/world.vala:108
 msgid "Yesterday"
 msgstr "Onte"
 
-#: ../src/world.vala:252
+#: ../src/world.vala:262
 msgid "World"
 msgstr "Mundo"
 
@@ -263,18 +263,22 @@ msgid "_New"
 msgstr "_Nova"
 
 #: ../data/ui/menu.ui.h:2
+msgid "_Help"
+msgstr "_Axuda"
+
+#: ../data/ui/menu.ui.h:3
 msgid "_About"
 msgstr "_Sobre"
 
-#: ../data/ui/menu.ui.h:3
+#: ../data/ui/menu.ui.h:4
 msgid "_Quit"
 msgstr "_Saír"
 
-#: ../data/ui/menu.ui.h:4
+#: ../data/ui/menu.ui.h:5
 msgid "Select All"
 msgstr "Seleccionar todas"
 
-#: ../data/ui/menu.ui.h:5
+#: ../data/ui/menu.ui.h:6
 msgid "Select None"
 msgstr "Deseleccionar todas"
 
