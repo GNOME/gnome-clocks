@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-26 16:35+0000\n"
-"PO-Revision-Date: 2013-08-27 19:32+0200\n"
+"POT-Creation-Date: 2013-09-04 09:17+0000\n"
+"PO-Revision-Date: 2013-09-04 17:20+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:164
@@ -63,7 +63,6 @@ msgid "Configured timer duration in seconds."
 msgstr "Duración del temporizador configurado, en segundos."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
-#| msgid "Panel state"
 msgid "Window state"
 msgstr "Estado de la ventana"
 
@@ -109,7 +108,7 @@ msgstr "Alarma nueva"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:483 ../src/world.vala:261
+#: ../src/alarm.vala:483 ../src/world.vala:271
 msgid "New"
 msgstr "Nuevo"
 
@@ -195,18 +194,18 @@ msgstr "Fines de semana"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../src/widgets.vala:387 ../src/widgets.vala:440
+#: ../src/widgets.vala:386 ../src/widgets.vala:439
 msgid "Click on items to select them"
 msgstr "Pulse sobre los elementos para seleccionarlos"
 
-#: ../src/widgets.vala:442
+#: ../src/widgets.vala:441
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d seleccionado"
 msgstr[1] "%d seleccionados"
 
-#: ../src/widgets.vala:477
+#: ../src/widgets.vala:483
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -221,16 +220,16 @@ msgstr ""
 "Israel Campoy, <churritzu@yahoo.com>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:93 ../src/world.vala:96
+#: ../src/world.vala:105 ../src/world.vala:108
 msgid "Tomorrow"
 msgstr "Mañana"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:93 ../src/world.vala:96
+#: ../src/world.vala:105 ../src/world.vala:108
 msgid "Yesterday"
 msgstr "Ayer"
 
-#: ../src/world.vala:252
+#: ../src/world.vala:262
 msgid "World"
 msgstr "Mundo"
 
@@ -261,18 +260,22 @@ msgid "_New"
 msgstr "_Nuevo"
 
 #: ../data/ui/menu.ui.h:2
+msgid "_Help"
+msgstr "_Ayuda"
+
+#: ../data/ui/menu.ui.h:3
 msgid "_About"
 msgstr "A_cerca de"
 
-#: ../data/ui/menu.ui.h:3
+#: ../data/ui/menu.ui.h:4
 msgid "_Quit"
 msgstr "_Salir"
 
-#: ../data/ui/menu.ui.h:4
+#: ../data/ui/menu.ui.h:5
 msgid "Select All"
 msgstr "Seleccionar todo"
 
-#: ../data/ui/menu.ui.h:5
+#: ../data/ui/menu.ui.h:6
 msgid "Select None"
 msgstr "No seleccionar ninguno"
 
