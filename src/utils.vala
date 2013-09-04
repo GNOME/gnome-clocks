@@ -178,7 +178,7 @@ public class Weekdays {
 
     public static string plural (Day d) {
         assert (d >= 0 && d < 7);
-        return plurals[d];
+        return _(plurals[d]);
     }
 
     public static string abbreviation (Day d) {
