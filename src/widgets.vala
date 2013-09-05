@@ -440,7 +440,7 @@ public class ContentView : Gtk.Bin {
         select_button.set_image (select_button_image);
         select_button.valign = Gtk.Align.CENTER;
         select_button.no_show_all = true;
-        bind_property ("empty", select_button, "sensitive", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
+        bind_property ("empty", select_button, "visible", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
         select_button.clicked.connect (() => {
             icon_view.mode = IconView.Mode.SELECTION;
         });
@@ -448,7 +448,6 @@ public class ContentView : Gtk.Bin {
 
         cancel_button = new Gtk.Button.with_label (_("Cancel"));
         cancel_button.no_show_all = true;
-        cancel_button.get_style_context ().add_class ("suggested-action");
         cancel_button.valign = Gtk.Align.CENTER;
         cancel_button.clicked.connect (() => {
             icon_view.mode = IconView.Mode.NORMAL;
@@ -529,9 +528,16 @@ public class ContentView : Gtk.Bin {
             var store = (Gtk.ListStore) icon_view.model;
             Gtk.TreeIter i;
             if (store.get_iter (out i, path)) {
-                Object item;
-                store.get (i, IconView.Column.ITEM, out item);
-                item_activated (item);
+                if (icon_view.mode == IconView.Mode.SELECTION) {
+                    bool selected;
+                    store.get (i, IconView.Column.SELECTED, out selected);
+                    store.set (i, IconView.Column.SELECTED, !selected);
+                    icon_view.selection_changed ();
+                } else {
+                    Object item;
+                    store.get (i, IconView.Column.ITEM, out item);
+                    item_activated (item);
+                }
             }
         });
 
@@ -639,7 +645,7 @@ public class ContentView : Gtk.Bin {
             cancel_button.show ();
             break;
         case HeaderBar.Mode.NORMAL:
-            select_button.show ();
+            select_button.visible = !empty;
             break;
         }
     }

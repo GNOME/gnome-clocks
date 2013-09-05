@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks"
 "&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-06 07:27+0000\n"
-"PO-Revision-Date: 2013-03-08 20:30+0200\n"
+"POT-Creation-Date: 2013-09-04 09:17+0000\n"
+"PO-Revision-Date: 2013-09-05 09:00+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -19,7 +19,8 @@ msgstr ""
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:164
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Сатови"
 
@@ -35,58 +36,77 @@ msgstr "Сатови за светска времена, аларми, штоп�
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "време;одбројавач;аларм;светски сат;штоперица;временска зона;"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
 msgid "Configured world clocks"
 msgstr "Подешени светски сатови"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
 msgid "List of world clocks to show."
 msgstr "Списак светских сатова за приказивање."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
 msgid "Configured alarms"
 msgstr "Подешени аларми"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
 msgid "List of alarms set."
 msgstr "Списак подешених аларма."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:105
 msgid "Timer"
 msgstr "Одбројавач"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
 msgid "Configured timer duration in seconds."
 msgstr "Подешено трајање одбројавача у секундама."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:475
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Window state"
+msgstr "Стање прозора"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "State of the window: i.e. maximized."
+msgstr "Стање прозора: нпр. увећан."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+msgid "Window width and height"
+msgstr "Ширина и висина прозора"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+msgid "Width and height of the window."
+msgstr "Ширина и висина прозора"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+msgid "Panel state"
+msgstr "Стање панела"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+msgid "Current clock panel."
+msgstr "Панел тренутног сата."
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:326 ../src/alarm.vala:477
 msgid "Alarm"
 msgstr "Аларм"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../src/alarm.ui.h:2
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Заустави"
 
-#: ../src/alarm.vala:109 ../src/alarm.ui.h:3
+#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Дремај"
 
-#: ../src/alarm.vala:265
-#| msgid "Alarm"
+#: ../src/alarm.vala:278
 msgid "Edit Alarm"
 msgstr "Уреди аларм"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:278
 msgid "New Alarm"
 msgstr "Нови аларм"
 
-#: ../src/alarm.vala:267
-msgid "_Done"
-msgstr "_Урађено"
-
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:616 ../src/world.vala:360
+#: ../src/alarm.vala:483 ../src/world.vala:271
 msgid "New"
 msgstr "Ново"
 
@@ -94,79 +114,90 @@ msgstr "Ново"
 msgid "Print version information and exit"
 msgstr "Исписује податке о издању и излази"
 
-#: ../src/stopwatch.vala:50
+#: ../src/stopwatch.vala:129
 msgid "Stopwatch"
 msgstr "Штоперица"
 
-#: ../src/stopwatch.vala:124 ../src/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:190
 msgid "Lap"
 msgstr "Круг"
 
-#: ../src/stopwatch.vala:131 ../src/timer.vala:88
+#: ../src/stopwatch.vala:197 ../src/timer.vala:156
 msgid "Continue"
 msgstr "Настави"
 
-#: ../src/stopwatch.vala:135 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:3
+#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Поврати"
 
-#: ../src/stopwatch.vala:143 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:1
+#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Покрени"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:113
 msgid "Time is up!"
 msgstr "Време је истекло!"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:113
 msgid "Timer countdown finished"
 msgstr "Одбројавач је завршио"
 
-#: ../src/timer.vala:93 ../src/timer.vala:103 ../src/timer.ui.h:2
+#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Паузирај"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:163
 msgid "Mondays"
 msgstr "понедељком"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:164
 msgid "Tuesdays"
 msgstr "уторком"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:165
 msgid "Wednesdays"
 msgstr "средом"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:166
 msgid "Thursdays"
 msgstr "четвртком"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:167
 msgid "Fridays"
 msgstr "петком"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:168
 msgid "Saturdays"
 msgstr "суботом"
 
-#: ../src/utils.vala:155
+#: ../src/utils.vala:169
 msgid "Sundays"
 msgstr "недељом"
 
-#: ../src/utils.vala:235
+#: ../src/utils.vala:249
 msgid "Every Day"
-msgstr "Сваког дана"
+msgstr "сваког дана"
 
-#: ../src/utils.vala:237
+#: ../src/utils.vala:251
 msgid "Weekdays"
-msgstr "Радним данима"
+msgstr "радним данима"
 
-#: ../src/widgets.vala:417 ../src/widgets.vala:568
+#: ../src/utils.vala:253
+#| msgid "Weekdays"
+msgid "Weekends"
+msgstr "викендом"
+
+#: ../src/widgets.vala:374
+msgid "Cancel"
+msgstr "Откажи"
+
+#: ../src/widgets.vala:386 ../src/widgets.vala:439
 msgid "Click on items to select them"
 msgstr "Кликните на ставке да их изаберете"
 
-#: ../src/widgets.vala:419
+#: ../src/widgets.vala:441
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -175,23 +206,15 @@ msgstr[1] "Изабране су %d ставке"
 msgstr[2] "Изабрано је %d ставки"
 msgstr[3] "Изабрана је једна ставка"
 
-#: ../src/widgets.vala:461
+#: ../src/widgets.vala:483
 msgid "Delete"
 msgstr "Обриши"
 
-#: ../src/widgets.vala:567
-msgid "Done"
-msgstr "Урађено"
-
-#: ../src/window.vala:147
-msgid "Gnome Clocks"
-msgstr "Гномови сатови"
-
-#: ../src/window.vala:150
+#: ../src/window.vala:167
 msgid "Utilities to help you with the time."
 msgstr "Алати који ће вам помоћи са временом."
 
-#: ../src/window.vala:155
+#: ../src/window.vala:172
 msgid "translator-credits"
 msgstr ""
 "  Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
@@ -199,81 +222,81 @@ msgstr ""
 "http://prevod.org — превод на српски језик"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:90 ../src/world.vala:93
+#: ../src/world.vala:105 ../src/world.vala:108
 msgid "Tomorrow"
 msgstr "Сутра"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:90 ../src/world.vala:93
+#: ../src/world.vala:105 ../src/world.vala:108
 msgid "Yesterday"
 msgstr "Јуче"
 
-#: ../src/world.vala:160
-msgid "Add a New World Clock"
-msgstr "Додај нови светски сат"
-
-#: ../src/world.vala:256
+#: ../src/world.vala:262
 msgid "World"
 msgstr "Свет"
 
 #. namespace World
 #. namespace Clocks
-#: ../src/alarm.ui.h:1
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Изаберите <b>Ново</b> да додате аларм"
+#: ../data/ui/alarmsetupdialog.ui.h:1
+msgid "_Done"
+msgstr "_Урађено"
 
-#: ../src/alarm.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:2
 msgid "Name"
 msgstr "Назив"
 
-#: ../src/alarm.ui.h:5
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "Repeat Every"
 msgstr "Понављај"
 
-#: ../src/alarm.ui.h:6
+#: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "Active"
 msgstr "Радан"
 
-#: ../src/menu.ui.h:1
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Изаберите <b>Ново</b> да додате аларм"
+
+#: ../data/ui/menu.ui.h:1
 msgid "_New"
 msgstr "_Нови"
 
-#: ../src/menu.ui.h:2
+#: ../data/ui/menu.ui.h:2
+msgid "_Help"
+msgstr "По_моћ"
+
+#: ../data/ui/menu.ui.h:3
 msgid "_About"
 msgstr "_О програму"
 
-#: ../src/menu.ui.h:3
+#: ../data/ui/menu.ui.h:4
 msgid "_Quit"
 msgstr "_Изађи"
 
-#: ../src/menu.ui.h:4
+#: ../data/ui/menu.ui.h:5
 msgid "Select All"
 msgstr "Изабери све"
 
-#: ../src/menu.ui.h:5
+#: ../data/ui/menu.ui.h:6
 msgid "Select None"
 msgstr "Поништи избор"
 
-#: ../src/stopwatch.ui.h:4
-msgid "Split"
-msgstr "Подели"
+#: ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Додај нови светски сат"
 
-#: ../src/stopwatch.ui.h:5
-msgid "Total"
-msgstr "Укупно"
-
-#: ../src/world.ui.h:1
-msgid "Select <b>New</b> to add a world clock"
-msgstr "Изаберите <b>Ново</b> да додате светски сат"
-
-#: ../src/world.ui.h:2
+#: ../data/ui/worldlocationdialog.ui.h:2
 msgid "Search for a city:"
 msgstr "Потражи град:"
 
-#: ../src/world.ui.h:3
+#: ../data/ui/world.ui.h:1
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Изаберите <b>Ново</b> да додате светски сат"
+
+#: ../data/ui/world.ui.h:2
 msgid "Sunrise"
 msgstr "Сунце излази у"
 
-#: ../src/world.ui.h:4
+#: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Сунце залази у"

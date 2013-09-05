@@ -68,13 +68,25 @@ private class Item : Object, ContentItem {
 
     public string sunrise_label {
         owned get {
-            return weather_info.get_sunrise ();
+            ulong sunrise;
+            if (!weather_info.get_value_sunrise (out sunrise)) {
+                return "-";
+            }
+            var sunrise_time = new GLib.DateTime.from_unix_local (sunrise);
+            sunrise_time = sunrise_time.to_timezone (time_zone);
+            return Utils.WallClock.get_default ().format_time (sunrise_time);
         }
     }
 
     public string sunset_label {
         owned get {
-            return weather_info.get_sunset ();
+            ulong sunset;
+            if (!weather_info.get_value_sunset (out sunset)) {
+                return "-";
+            }
+            var sunset_time = new GLib.DateTime.from_unix_local (sunset);
+            sunset_time = sunset_time.to_timezone (time_zone);
+            return Utils.WallClock.get_default ().format_time (sunset_time);
         }
     }
 
@@ -146,9 +158,7 @@ private class Item : Object, ContentItem {
     public static Item deserialize (GLib.Variant location_variant) {
         GWeather.Location? location = null;
 
-        // This looks like a constructor for historic reasons
-        // it returns the same instance after the first call
-        var world = new GWeather.Location.world (true);
+        var world = GWeather.Location.get_world ();
 
         foreach (var v in location_variant) {
             var key = v.get_child_value (0).get_string ();

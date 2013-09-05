@@ -1,5 +1,5 @@
-<schemalist>
-  <schema id="org.gnome.clocks" path="/org/gnome/clocks/" gettext-domain="@GETTEXT_PACKAGE@">
+<schemalist gettext-domain="@GETTEXT_PACKAGE@">
+  <schema id="org.gnome.clocks" path="/org/gnome/clocks/">
     <key name="world-clocks" type="aa{sv}">
       <default>[]</default>
       <_summary>Configured world clocks</_summary>
@@ -34,10 +34,10 @@
   <schema id="org.gnome.clocks.state.window" path="/org/gnome/clocks/state/window/">
     <key type="i" name="state">
       <default>0</default>
-      <summary>Window state</summary>
-      <description>
+      <_summary>Window state</_summary>
+      <_description>
         State of the window: i.e. maximized.
-      </description>
+      </_description>
     </key>
     <key type="(ii)" name="size">
       <default>(870, 690)</default>

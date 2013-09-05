@@ -10,6 +10,10 @@ applicationsdir = $(datadir)/applications
 applications_DATA = data/gnome-clocks.desktop
 dist_noinst_DATA = data/gnome-clocks.desktop.in
 
+# appdata file
+appdatadir = $(datadir)/appdata
+appdata_DATA = data/appdata/gnome-clocks.appdata.xml
+
 # gsettings
 gsettings_SCHEMAS = data/org.gnome.clocks.gschema.xml
 @INTLTOOL_XML_NOMERGE_RULE@
@@ -86,6 +90,7 @@ AM_VALAFLAGS = \
 	--vapidir=egg-list-box \
 	--pkg gio-2.0 \
 	--pkg gtk+-3.0 \
+	--pkg gweather-3.0 \
 	--pkg libcanberra \
 	--pkg libnotify \
 	--pkg gio-2.0 \
@@ -122,7 +127,6 @@ gnome_clocks_SOURCES = \
 	$(BUILT_SOURCES) \
 	$(VALA_SOURCES) \
 	src/cutils.c \
-	src/gweather-3.0.vapi \
 	src/gnome-desktop-3.0.vapi \
 	src/config.vapi
 
@@ -142,8 +146,9 @@ EXTRA_DIST = \
 	$(hcicon_files) \
 	$(images_DATA) \
 	$(resource_files) \
+	data/appdata/gnome-clocks.appdata.xml \
 	data/gnome-clocks.gresource.xml \
-	data/org.gnome.clocks.gschema.xml.in
+	data/org.gnome.clocks.gschema.xml.in.in
 
 CLEANFILES = \
 	$(applications_DATA)

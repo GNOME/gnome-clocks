@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-30 21:49+0200\n"
-"PO-Revision-Date: 2013-07-30 21:50+0200\n"
+"POT-Creation-Date: 2013-09-04 13:17+0200\n"
+"PO-Revision-Date: 2013-09-04 13:17+0200\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Gtranslator 2.91.6\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:179
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:164
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Orologi"
@@ -36,51 +36,59 @@ msgstr "Orologi per i fusi orari nel mondo, sveglie, cronometro e un timer"
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "ora;orario;tempo;orologio;cronometro;fuso orario;sveglia;allarme;"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
 msgid "Configured world clocks"
 msgstr "Orologi mondiali configurati"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
 msgid "List of world clocks to show."
 msgstr "Elenco di orologi mondiali da mostrare."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
 msgid "Configured alarms"
 msgstr "Sveglie configurate"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
 msgid "List of alarms set."
 msgstr "Elenco di sveglie configurate."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:50
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:105
 msgid "Timer"
 msgstr "Timer"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
 msgid "Configured timer duration in seconds."
 msgstr "Durata del timer in secondi."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:7
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Window state"
+msgstr "Stato della finestra"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "State of the window: i.e. maximized."
+msgstr "Lo stato della finestra, per esempio massimizzata."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
 msgid "Window width and height"
 msgstr "Altezza e larghezza della finestra"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:8
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
 msgid "Width and height of the window."
 msgstr "Larghezza e altezza della finestra."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:9
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
 msgid "Panel state"
 msgstr "Stato del pannello"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:10
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
 msgid "Current clock panel."
 msgstr "Pannello attualle dell'orologio."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:321 ../src/alarm.vala:472
+#: ../src/alarm.vala:105 ../src/alarm.vala:326 ../src/alarm.vala:477
 msgid "Alarm"
 msgstr "Sveglia"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:122 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Interrompi"
 
@@ -88,17 +96,17 @@ msgstr "Interrompi"
 msgid "Snooze"
 msgstr "Ripeti"
 
-#: ../src/alarm.vala:276
+#: ../src/alarm.vala:278
 msgid "Edit Alarm"
 msgstr "Modifica sveglia"
 
-#: ../src/alarm.vala:276
+#: ../src/alarm.vala:278
 msgid "New Alarm"
 msgstr "Nuova sveglia"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:478 ../src/world.vala:261
+#: ../src/alarm.vala:483 ../src/world.vala:271
 msgid "New"
 msgstr "Nuovo"
 
@@ -106,37 +114,37 @@ msgstr "Nuovo"
 msgid "Print version information and exit"
 msgstr "Stampa informazioni di versione ed esce"
 
-#: ../src/stopwatch.vala:51
+#: ../src/stopwatch.vala:129
 msgid "Stopwatch"
 msgstr "Cronometro"
 
-#: ../src/stopwatch.vala:125 ../data/ui/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:190
 msgid "Lap"
 msgstr "Giro"
 
-#: ../src/stopwatch.vala:132 ../src/timer.vala:89
+#: ../src/stopwatch.vala:197 ../src/timer.vala:156
 msgid "Continue"
 msgstr "Continua"
 
-#: ../src/stopwatch.vala:136 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Azzera"
 
-#: ../src/stopwatch.vala:144 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Avvia"
 
-#: ../src/timer.vala:54
+#: ../src/timer.vala:113
 msgid "Time is up!"
 msgstr "Tempo scaduto"
 
-#: ../src/timer.vala:54
+#: ../src/timer.vala:113
 msgid "Timer countdown finished"
 msgstr "Conto alla rovescia finito"
 
-#: ../src/timer.vala:94 ../src/timer.vala:104 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Pausa"
 
@@ -180,55 +188,51 @@ msgstr "Giorni lavorativi"
 msgid "Weekends"
 msgstr "Giorni non lavorativi"
 
-#: ../src/widgets.vala:375
+#: ../src/widgets.vala:374
 msgid "Cancel"
 msgstr "Annulla"
 
-#: ../src/widgets.vala:389 ../src/widgets.vala:443
+#: ../src/widgets.vala:386 ../src/widgets.vala:439
 msgid "Click on items to select them"
 msgstr "Fare clic sugli elementi per selezionarli"
 
-#: ../src/widgets.vala:445
+#: ../src/widgets.vala:441
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d selezionato"
 msgstr[1] "%d selezionati"
 
-#: ../src/widgets.vala:480
+#: ../src/widgets.vala:483
 msgid "Delete"
 msgstr "Elimina"
 
-#: ../src/window.vala:182
+#: ../src/window.vala:167
 msgid "Utilities to help you with the time."
 msgstr "Strumenti per controllare l'ora."
 
-#: ../src/window.vala:187
+#: ../src/window.vala:172
 msgid "translator-credits"
 msgstr ""
 "Milo Casagrande (milo@ubuntu.com)\n"
 "Paolo Borelli (pborelli@gnome.org)"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:93 ../src/world.vala:96
+#: ../src/world.vala:105 ../src/world.vala:108
 msgid "Tomorrow"
 msgstr "Domani"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:93 ../src/world.vala:96
+#: ../src/world.vala:105 ../src/world.vala:108
 msgid "Yesterday"
 msgstr "Ieri"
 
-#: ../src/world.vala:252
+#: ../src/world.vala:262
 msgid "World"
 msgstr "Fusi orari"
 
 #. namespace World
 #. namespace Clocks
-#: ../data/ui/alarm.ui.h:1
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Scegliere <b>Nuovo</b> per aggiungere una sveglia"
-
 #: ../data/ui/alarmsetupdialog.ui.h:1
 msgid "_Done"
 msgstr "_Fatto"
@@ -246,33 +250,33 @@ msgstr "Ripetere ogni"
 msgid "Active"
 msgstr "Attivata"
 
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Scegliere <b>Nuovo</b> per aggiungere una sveglia"
+
 #: ../data/ui/menu.ui.h:1
 msgid "_New"
 msgstr "_Nuovo"
 
 #: ../data/ui/menu.ui.h:2
+msgid "_Help"
+msgstr "A_iuto"
+
+#: ../data/ui/menu.ui.h:3
 msgid "_About"
 msgstr "I_nformazioni"
 
-#: ../data/ui/menu.ui.h:3
+#: ../data/ui/menu.ui.h:4
 msgid "_Quit"
 msgstr "_Esci"
 
-#: ../data/ui/menu.ui.h:4
+#: ../data/ui/menu.ui.h:5
 msgid "Select All"
 msgstr "Seleziona tutto"
 
-#: ../data/ui/menu.ui.h:5
+#: ../data/ui/menu.ui.h:6
 msgid "Select None"
 msgstr "Annulla selezione"
-
-#: ../data/ui/stopwatch.ui.h:4
-msgid "Split"
-msgstr "Parziale"
-
-#: ../data/ui/stopwatch.ui.h:5
-msgid "Total"
-msgstr "Totale"
 
 #: ../data/ui/worldlocationdialog.ui.h:1
 msgid "Add a New World Clock"
@@ -294,6 +298,3 @@ msgstr "Alba"
 #: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Tramonto"
-
-msgid "0"
-msgstr "0"

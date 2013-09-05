@@ -1,7 +1,7 @@
 AC_PREREQ(2.63)
 
 AC_INIT([gnome-clocks],
-        [3.9.90],
+        [3.9.91],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-clocks],
         [gnome-clocks])
 
@@ -53,7 +53,7 @@ PKG_CHECK_MODULES(CLOCKS, [
     glib-2.0 >= 2.36
     gtk+-3.0 >= 3.9.11
     libcanberra >= 0.30
-    gweather-3.0 >= 3.9.3
+    gweather-3.0 >= 3.9.91
     gnome-desktop-3.0 >= 3.7.90
     libnotify >= 0.7.0
     libsoup-2.4 >= 2.43.90
@@ -62,6 +62,7 @@ PKG_CHECK_MODULES(CLOCKS, [
 
 AC_CONFIG_FILES([
     Makefile
+    data/org.gnome.clocks.gschema.xml.in
     po/Makefile.in
 ])
 
