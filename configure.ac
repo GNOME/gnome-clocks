@@ -57,6 +57,7 @@ PKG_CHECK_MODULES(CLOCKS, [
     gnome-desktop-3.0 >= 3.7.90
     libnotify >= 0.7.0
     geocode-glib-1.0
+    geoclue-2.0
 ])
 
 AC_CONFIG_FILES([
