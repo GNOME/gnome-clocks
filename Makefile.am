@@ -94,9 +94,6 @@ AM_VALAFLAGS = \
 	--pkg libcanberra \
 	--pkg libnotify \
 	--pkg gio-2.0 \
-	--pkg libsoup-2.4 \
-	--pkg json-glib-1.0 \
-	--thread \
 	--gresources  $(top_srcdir)/data/gnome-clocks.gresource.xml
 
 bin_PROGRAMS = gnome-clocks
@@ -118,9 +115,7 @@ VALA_SOURCES = \
 	src/timer.vala \
 	src/utils.vala \
 	src/widgets.vala \
-	src/geolocation-monitor.vala \
-	src/geolocation-info.vala \
-	src/geolocation-utils.vala \
+	src/geoclue.vala \
 	src/main.vala
 
 gnome_clocks_SOURCES = \
@@ -128,6 +123,7 @@ gnome_clocks_SOURCES = \
 	$(VALA_SOURCES) \
 	src/cutils.c \
 	src/gnome-desktop-3.0.vapi \
+	src/geocode-glib-1.0.vapi \
 	src/config.vapi
 
 AM_CFLAGS = \

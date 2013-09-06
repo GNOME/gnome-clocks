@@ -56,8 +56,7 @@ PKG_CHECK_MODULES(CLOCKS, [
     gweather-3.0 >= 3.9.91
     gnome-desktop-3.0 >= 3.7.90
     libnotify >= 0.7.0
-    libsoup-2.4 >= 2.43.90
-    json-glib-1.0 >= 0.16.1
+    geocode-glib-1.0
 ])
 
 AC_CONFIG_FILES([

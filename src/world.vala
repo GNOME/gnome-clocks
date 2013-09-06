@@ -362,36 +362,32 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     }
 
     private async void use_geolocation () {
-        GeoInfo.LocationInfo? geo_location = null;
-        GWeather.Location? found_location = null;
+        GClue.GeoInfo geo_info = new GClue.GeoInfo ();
+        
+        geo_info.location_changed.connect ((found_location) => {
+            if (found_location != null) {
+                bool not_included = true;
+            
+                stdout.printf ("name : %s\n", found_location.get_name());
 
-        GeoInfo.LocationMonitor monitor = new GeoInfo.LocationMonitor ();
+                foreach (Item i in locations) {
+                    stdout.printf ("name : %s\n", i.location.get_name());
+                    if (i.location == found_location) {
+                        not_included = false;
+                    }
+                }
 
-        try {
-            geo_location = yield monitor.search ();
-
-            found_location = GeoInfo.Utils.search_locations (geo_location);
-        } catch (IOError e) {
-            warning ("obtaining geolocation: %s", e.message);
-        }
-
-        if (found_location != null) {
-            bool not_included = true;
-
-            foreach (Item i in locations) {
-                if (i.location == found_location) {
-                    not_included = false;
+                if (not_included) {
+                    var item = new Item (found_location);
+                    
+                    item.automatic = true;
+                    locations.append (item);
+                    content_view.add_first (item);
                 }
             }
+        });
 
-            if (not_included) {
-                var item = new Item (found_location);
-
-                item.automatic = true;
-                locations.append (item);
-                content_view.add_first (item);
-            }
-        }
+        yield geo_info.seek ();
     }
 
     public void activate_new () {
