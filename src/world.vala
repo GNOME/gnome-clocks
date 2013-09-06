@@ -363,28 +363,19 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
 
     private async void use_geolocation () {
         GClue.GeoInfo geo_info = new GClue.GeoInfo ();
-        
+
         geo_info.location_changed.connect ((found_location) => {
-            if (found_location != null) {
-                bool not_included = true;
-            
-                stdout.printf ("name : %s\n", found_location.get_name());
-
-                foreach (Item i in locations) {
-                    stdout.printf ("name : %s\n", i.location.get_name());
-                    if (i.location == found_location) {
-                        not_included = false;
-                    }
-                }
-
-                if (not_included) {
-                    var item = new Item (found_location);
-                    
-                    item.automatic = true;
-                    locations.append (item);
-                    content_view.add_first (item);
+            foreach (Item i in locations) {
+                if (geo_info.is_location_similar (i.location)) {
+                    return;
                 }
             }
+
+            var item = new Item (found_location);
+
+            item.automatic = true;
+            locations.append (item);
+            content_view.add_first (item);
         });
 
         yield geo_info.seek ();

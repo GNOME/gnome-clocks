@@ -27,10 +27,12 @@ public interface Location : Object {
 public class GeoInfo : Object {
     public signal void location_changed (GWeather.Location location);
     public GClue.Location? geo_location { get; private set; default = null; }
+    private GWeather.Location? found_location;
     private string? country_code;
 
     public GeoInfo () {
         country_code = null;
+        found_location = null;
     }
 
     public async void seek () {
@@ -94,7 +96,11 @@ public class GeoInfo : Object {
 
         yield seek_country_code ();
 
-        location_changed (search_locations ());
+        this.found_location = search_locations ();
+
+        if (found_location != null) {
+            location_changed (found_location);
+        }
     }
 
     private async void seek_country_code () {
@@ -168,6 +174,18 @@ public class GeoInfo : Object {
         search_locations_helper (locations, ref minimal_distance, ref found_location);
 
         return found_location;
+    }
+
+    public bool is_location_similar (GWeather.Location location) {
+        if (this.found_location != null) {
+            string? city_name = location.get_city_name ();
+            string? found_city_name = found_location.get_city_name ();
+            if (city_name == found_city_name) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
 
