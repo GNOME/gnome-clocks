@@ -29,6 +29,8 @@ public class GeoInfo : Object {
     public GClue.Location? geo_location { get; private set; default = null; }
     private GWeather.Location? found_location;
     private string? country_code;
+    private GClue.Manager manager;
+    private GClue.Client client;
 
     public GeoInfo () {
         country_code = null;
@@ -36,9 +38,6 @@ public class GeoInfo : Object {
     }
 
     public async void seek () {
-        GClue.Manager manager;
-        GClue.Client client;
-
         string? client_path = null;
 
         try {
