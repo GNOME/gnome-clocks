@@ -12,7 +12,8 @@ private interface Client : Object {
     public abstract string location { owned get; }
     public abstract uint distance_threshold { get; set; }
     public abstract async void start () throws IOError;
-    public abstract async void stop () throws IOError;
+    // This function belongs to the Geoclue interface, however it is not used here
+    // public abstract async void stop () throws IOError;
     public signal void location_updated (string old_path, string new_path);
 }
 
@@ -27,14 +28,17 @@ public interface Location : Object {
 public class GeoInfo : Object {
     public signal void location_changed (GWeather.Location location);
     public GClue.Location? geo_location { get; private set; default = null; }
+
     private GWeather.Location? found_location;
     private string? country_code;
     private GClue.Manager manager;
     private GClue.Client client;
+    private double minimal_distance;
 
     public GeoInfo () {
         country_code = null;
         found_location = null;
+        minimal_distance = 1000.0d;
     }
 
     public async void seek () {
@@ -81,21 +85,18 @@ public class GeoInfo : Object {
     }
 
     public async void on_location_updated (string old_path, string new_path) {
-        GClue.Location location;
         try {
-            location = yield Bus.get_proxy (GLib.BusType.SYSTEM,
-                                            "org.freedesktop.GeoClue2",
-                                            new_path);
+            geo_location = yield Bus.get_proxy (GLib.BusType.SYSTEM,
+                                                "org.freedesktop.GeoClue2",
+                                                new_path);
         } catch (IOError e) {
             warning ("Failed to connect to GeoClue2 Location service: %s", e.message);
             return;
         }
 
-        this.geo_location = location;
-
         yield seek_country_code ();
 
-        this.found_location = search_locations ();
+        yield search_locations ();
 
         if (found_location != null) {
             location_changed (found_location);
@@ -133,7 +134,7 @@ public class GeoInfo : Object {
         return Math.acos (Math.cos (lat1) * Math.cos (lat2) * Math.cos (lon1 - lon2) + Math.sin (lat1) * Math.sin (lat2)) * radius;
     }
 
-    private void search_locations_helper (GWeather.Location location, ref double minimal_distance,  ref GWeather.Location? found_location) {
+    private async void search_locations_helper (GWeather.Location location) {
         if (this.country_code != null) {
             string? loc_country_code = location.get_country ();
             if (loc_country_code != null) {
@@ -160,19 +161,15 @@ public class GeoInfo : Object {
                     }
                 }
 
-                search_locations_helper (locations[i], ref minimal_distance, ref found_location);
+                yield search_locations_helper (locations[i]);
             }
         }
     }
 
-    private GWeather.Location? search_locations () {
+    private async void search_locations () {
         GWeather.Location locations = GWeather.Location.get_world ();
-        GWeather.Location? found_location = null;
-        double minimal_distance = 1000.0d;
 
-        search_locations_helper (locations, ref minimal_distance, ref found_location);
-
-        return found_location;
+        yield search_locations_helper (locations);
     }
 
     public bool is_location_similar (GWeather.Location location) {
