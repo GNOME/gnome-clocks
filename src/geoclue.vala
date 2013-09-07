@@ -96,7 +96,7 @@ public class GeoInfo : Object {
 
         yield seek_country_code ();
 
-        yield search_locations ();
+        yield search_locations (GWeather.Location.get_world ());
 
         if (found_location != null) {
             location_changed (found_location);
@@ -134,7 +134,7 @@ public class GeoInfo : Object {
         return Math.acos (Math.cos (lat1) * Math.cos (lat2) * Math.cos (lon1 - lon2) + Math.sin (lat1) * Math.sin (lat2)) * radius;
     }
 
-    private async void search_locations_helper (GWeather.Location location) {
+    private async void search_locations (GWeather.Location location) {
         if (this.country_code != null) {
             string? loc_country_code = location.get_country ();
             if (loc_country_code != null) {
@@ -161,15 +161,9 @@ public class GeoInfo : Object {
                     }
                 }
 
-                yield search_locations_helper (locations[i]);
+                yield search_locations (locations[i]);
             }
         }
-    }
-
-    private async void search_locations () {
-        GWeather.Location locations = GWeather.Location.get_world ();
-
-        yield search_locations_helper (locations);
     }
 
     public bool is_location_similar (GWeather.Location location) {
