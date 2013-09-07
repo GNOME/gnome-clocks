@@ -60,9 +60,12 @@ PKG_CHECK_MODULES(CLOCKS, [
     geoclue-2.0 >= 1.99.3
 ])
 
+YELP_HELP_INIT
+
 AC_CONFIG_FILES([
     Makefile
     data/org.gnome.clocks.gschema.xml.in
+    help/Makefile
     po/Makefile.in
 ])
 

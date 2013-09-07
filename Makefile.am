@@ -1,6 +1,6 @@
 ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
-SUBDIRS = po
+SUBDIRS = help po
 
 # desktop file
 # (we can't use INTLTOOL_DESKTOP_RULE here due to lp#605826)
