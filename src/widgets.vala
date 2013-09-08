@@ -56,6 +56,73 @@ public class HeaderBar : Gtk.HeaderBar {
     }
 }
 
+private class TitleRenderer : Gtk.CellRendererText {
+    private int ICON_XOFF;
+    private int ICON_YOFF;
+    private int ICON_SIZE;
+
+    public string title {
+        get {
+            return _title;
+        }
+        set {
+            markup = _title = value;
+        }
+    }
+
+    public string title_icon { get; set; default = null; }
+
+    private string _title;
+
+    public TitleRenderer () {
+        ICON_YOFF = 5;
+        ICON_XOFF = 25;
+        ICON_SIZE = 18;
+    }
+
+    public override void render (Cairo.Context cr, Gtk.Widget widget, Gdk.Rectangle background_area, Gdk.Rectangle cell_area, Gtk.CellRendererState flags) {
+        base.render (cr, widget, cell_area, cell_area, flags);
+
+        if (title_icon != null) {
+            var context = widget.get_style_context ();
+            context.save ();
+
+            cr.save ();
+            Gdk.cairo_rectangle (cr, cell_area);
+            cr.clip ();
+
+            cr.translate (cell_area.x, cell_area.y);
+
+            // create the layouts so that we can measure them
+            var layout = widget.create_pango_layout ("");
+            layout.set_markup (title, -1);
+            layout.set_alignment (Pango.Alignment.CENTER);
+            int text_w, text_h;
+            layout.get_pixel_size (out text_w, out text_h);
+
+            int x = (cell_area.width - text_w) / 2 - ICON_XOFF, y = ICON_YOFF;
+
+            if (widget.get_direction () == Gtk.TextDirection.RTL) {
+                x = (cell_area.width + text_w) / 2 + ICON_XOFF - ICON_SIZE;
+            }
+
+            Gtk.IconTheme icon_theme = Gtk.IconTheme.get_for_screen (Gdk.Screen.get_default ());
+            try {
+                Gtk.IconInfo? icon_info = icon_theme.lookup_icon (title_icon, ICON_SIZE, 0);
+                assert (icon_info != null);
+
+                Gdk.Pixbuf pixbuf = icon_info.load_icon ();
+                context.render_icon (cr, pixbuf, x, y);
+            } catch (Error e) {
+                warning (e.message);
+            }
+
+            context.restore ();
+            cr.restore ();
+        }
+    }
+}
+
 private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
     public const int TILE_SIZE = 256;
     public const int CHECK_ICON_SIZE = 40;
@@ -175,6 +242,8 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
 
 public interface ContentItem : GLib.Object {
     public abstract string name { get; set; }
+    public abstract string title_icon { get; set; default = null; }
+
     public abstract void get_thumb_properties (out string text, out string subtext, out Gdk.Pixbuf? pixbuf, out string css_class);
 }
 
@@ -244,18 +313,19 @@ private class IconView : Gtk.IconView {
             renderer.css_class = css_class;
         });
 
-        var text_renderer = new Gtk.CellRendererText ();
-        text_renderer.set_alignment (0.5f, 0.5f);
-        text_renderer.set_fixed_size (tile_width, -1);
-        text_renderer.alignment = Pango.Alignment.CENTER;
-        text_renderer.wrap_width = 220;
-        text_renderer.wrap_mode = Pango.WrapMode.WORD_CHAR;
-        pack_start (text_renderer, true);
-        set_cell_data_func (text_renderer, (column, cell, model, iter) => {
+        var title_renderer = new TitleRenderer ();
+        title_renderer.set_alignment (0.5f, 0.5f);
+        title_renderer.set_fixed_size (tile_width, -1);
+        title_renderer.alignment = Pango.Alignment.CENTER;
+        title_renderer.wrap_width = 220;
+        title_renderer.wrap_mode = Pango.WrapMode.WORD_CHAR;
+        pack_start (title_renderer, true);
+        set_cell_data_func (title_renderer, (column, cell, model, iter) => {
             ContentItem item;
             model.get (iter, IconView.Column.ITEM, out item);
-            var renderer = (Gtk.CellRendererText) cell;
-            renderer.markup = GLib.Markup.escape_text (item.name);
+            var renderer = (TitleRenderer) cell;
+            renderer.title = GLib.Markup.escape_text (item.name);
+            renderer.title_icon = item.title_icon;
         });
     }
 
@@ -288,6 +358,13 @@ private class IconView : Gtk.IconView {
         var store = (Gtk.ListStore) model;
         Gtk.TreeIter i;
         store.append (out i);
+        store.set (i, Column.SELECTED, false, Column.ITEM, item);
+    }
+
+    public void prepend (Object item) {
+        var store = (Gtk.ListStore) model;
+        Gtk.TreeIter i;
+        store.insert (out i, 0);
         store.set (i, Column.SELECTED, false, Column.ITEM, item);
     }
 
@@ -520,6 +597,10 @@ public class ContentView : Gtk.Bin {
 
     public void add_item (ContentItem item) {
         icon_view.add_item (item);
+    }
+
+    public void prepend (ContentItem item) {
+        icon_view.prepend (item);
     }
 
     // Note: this is not efficient: we first walk the model to collect
