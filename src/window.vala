@@ -23,6 +23,7 @@ public class Window : Gtk.ApplicationWindow {
     private const GLib.ActionEntry[] action_entries = {
         // app menu
         { "new", on_new_activate },
+        { "help", on_help_activate },
         { "about", on_about_activate },
 
         // selection menu
@@ -136,6 +137,14 @@ public class Window : Gtk.ApplicationWindow {
     protected override bool window_state_event (Gdk.EventWindowState event) {
         settings.set_int ("state", event.new_window_state);
         return base.window_state_event (event);
+    }
+
+    private void on_help_activate () {
+        try {
+            Gtk.show_uri (get_screen (), "help:gnome-clocks", Gtk.get_current_event_time ());
+        } catch (Error e) {
+            warning (_("Failed to show help: %s"), e.message);
+        }
     }
 
     private void on_about_activate () {
