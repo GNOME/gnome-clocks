@@ -24,6 +24,11 @@ private class Item : Object, ContentItem {
     private static Gdk.Pixbuf? night_pixbuf = Utils.load_image ("night.png");
 
     public GWeather.Location location { get; set; }
+
+    public bool automatic { get; set; default = false; }
+
+    public string title_icon { get; set; default = null; }
+
     public string name {
         get {
             // We store it in a _name member even if we overwrite it every time
@@ -314,6 +319,10 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
 
         load ();
 
+        use_geolocation.begin ((obj, res) => {
+            use_geolocation.end (res);
+        });
+
         notify["visible-child"].connect (() => {
             if (visible_child == content_view) {
                 header_bar.mode = HeaderBar.Mode.NORMAL;
@@ -349,9 +358,32 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     private void save () {
         var builder = new GLib.VariantBuilder (new VariantType ("aa{sv}"));
         foreach (Item i in locations) {
-            i.serialize (builder);
+            if (!i.automatic) {
+                i.serialize (builder);
+            }
         }
         settings.set_value ("world-clocks", builder.end ());
+    }
+
+    private async void use_geolocation () {
+        Geo.Info geo_info = new Geo.Info ();
+
+        geo_info.location_changed.connect ((found_location) => {
+            foreach (Item i in locations) {
+                if (geo_info.is_location_similar (i.location)) {
+                    return;
+                }
+            }
+
+            var item = new Item (found_location);
+
+            item.automatic = true;
+            item.title_icon = "find-location-symbolic";
+            locations.append (item);
+            content_view.prepend (item);
+        });
+
+        yield geo_info.seek ();
     }
 
     public void activate_new () {

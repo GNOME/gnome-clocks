@@ -31,6 +31,8 @@ private class Item : Object, ContentItem {
         SNOOZING
     }
 
+    public string title_icon { get; set; default = null; }
+
     public string name {
         get {
             return _name;
