@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-29 21:49+0800\n"
-"PO-Revision-Date: 2013-08-29 21:49+0800\n"
+"POT-Creation-Date: 2013-09-08 21:39+0800\n"
+"PO-Revision-Date: 2013-09-08 21:39+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "Language: zh_TW\n"
@@ -105,7 +105,7 @@ msgstr "新增鬧鐘"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:483 ../src/world.vala:261
+#: ../src/alarm.vala:483 ../src/world.vala:271
 msgid "New"
 msgstr "新增"
 
@@ -191,17 +191,17 @@ msgstr "週末"
 msgid "Cancel"
 msgstr "取消"
 
-#: ../src/widgets.vala:387 ../src/widgets.vala:440
+#: ../src/widgets.vala:386 ../src/widgets.vala:439
 msgid "Click on items to select them"
 msgstr "點按項目來選取它們"
 
-#: ../src/widgets.vala:442
+#: ../src/widgets.vala:441
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "已選擇 %d 個"
 
-#: ../src/widgets.vala:484
+#: ../src/widgets.vala:483
 msgid "Delete"
 msgstr "刪除"
 
@@ -214,16 +214,16 @@ msgid "translator-credits"
 msgstr "Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>, 2012"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:93 ../src/world.vala:96
+#: ../src/world.vala:105 ../src/world.vala:108
 msgid "Tomorrow"
 msgstr "明天"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:93 ../src/world.vala:96
+#: ../src/world.vala:105 ../src/world.vala:108
 msgid "Yesterday"
 msgstr "昨天"
 
-#: ../src/world.vala:252
+#: ../src/world.vala:262
 msgid "World"
 msgstr "世界"
 
@@ -254,18 +254,22 @@ msgid "_New"
 msgstr "新增(_N)"
 
 #: ../data/ui/menu.ui.h:2
+msgid "_Help"
+msgstr "求助(_H)"
+
+#: ../data/ui/menu.ui.h:3
 msgid "_About"
 msgstr "關於(_A)"
 
-#: ../data/ui/menu.ui.h:3
+#: ../data/ui/menu.ui.h:4
 msgid "_Quit"
 msgstr "離開(_Q)"
 
-#: ../data/ui/menu.ui.h:4
+#: ../data/ui/menu.ui.h:5
 msgid "Select All"
 msgstr "全選"
 
-#: ../data/ui/menu.ui.h:5
+#: ../data/ui/menu.ui.h:6
 msgid "Select None"
 msgstr "取消全選"
 
