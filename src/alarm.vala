@@ -33,6 +33,8 @@ private class Item : Object, ContentItem {
 
     public string title_icon { get; set; default = null; }
 
+    public bool selectable { get; set; default = true; }
+
     public string name {
         get {
             return _name;

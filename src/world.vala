@@ -29,6 +29,8 @@ private class Item : Object, ContentItem {
 
     public string title_icon { get; set; default = null; }
 
+    public bool selectable { get; set; default = true; }
+
     public string name {
         get {
             // We store it in a _name member even if we overwrite it every time
@@ -378,6 +380,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
             var item = new Item (found_location);
 
             item.automatic = true;
+            item.selectable = false;
             item.title_icon = "find-location-symbolic";
             locations.append (item);
             content_view.prepend (item);
