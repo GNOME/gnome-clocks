@@ -134,6 +134,7 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
     public string css_class { get; set; }
     public bool active { get; set; default = false; }
     public bool toggle_visible { get; set; default = false; }
+    public bool selectable { get; set; default = true; }
 
     public DigitalClockRenderer () {
     }
@@ -211,7 +212,7 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
         context.restore ();
 
         // draw the overlayed checkbox
-        if (toggle_visible) {
+        if (selectable && toggle_visible) {
             int xpad, ypad, x_offset;
             get_padding (out xpad, out ypad);
 
@@ -243,6 +244,7 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
 public interface ContentItem : GLib.Object {
     public abstract string name { get; set; }
     public abstract string title_icon { get; set; default = null; }
+    public abstract bool selectable { get; set; default = true; }
 
     public abstract void get_thumb_properties (out string text, out string subtext, out Gdk.Pixbuf? pixbuf, out string css_class);
 }
@@ -307,6 +309,7 @@ private class IconView : Gtk.IconView {
             Gdk.Pixbuf? pixbuf;
             string css_class;
             item.get_thumb_properties (out text, out subtext, out pixbuf, out css_class);
+            renderer.selectable = item.selectable;
             renderer.text = text;
             renderer.subtext = subtext;
             renderer.pixbuf = pixbuf;
@@ -342,9 +345,12 @@ private class IconView : Gtk.IconView {
                 Gtk.TreeIter i;
                 if (store.get_iter (out i, path)) {
                     bool selected;
-                    store.get (i, Column.SELECTED, out selected);
-                    store.set (i, Column.SELECTED, !selected);
-                    selection_changed ();
+                    ContentItem item;
+                    store.get (i, Column.SELECTED, out selected, Column.ITEM, out item);
+                    if (item.selectable) {
+                        store.set (i, Column.SELECTED, !selected);
+                        selection_changed ();
+                    }
                 }
             } else {
                 item_activated (path);
@@ -387,7 +393,11 @@ private class IconView : Gtk.IconView {
     public new void select_all () {
         var model = get_model () as Gtk.ListStore;
         model.foreach ((model, path, iter) => {
-            ((Gtk.ListStore) model).set (iter, Column.SELECTED, true);
+            ContentItem item;
+            ((Gtk.ListStore) model).get (iter, Column.ITEM, out item);
+            if (item.selectable) {
+                ((Gtk.ListStore) model).set (iter, Column.SELECTED, true);
+            }
             return false;
         });
         selection_changed ();
