@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-06 07:27+0000\n"
-"PO-Revision-Date: 2013-03-17 12:13+0200\n"
+"POT-Creation-Date: 2013-09-04 09:17+0000\n"
+"PO-Revision-Date: 2013-09-11 15:53+0300\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -18,9 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.5\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:164
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Pulksteņi"
 
@@ -37,58 +38,77 @@ msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
 "laiks;taimeris;modinātājs;pasaules pulkstenis;hronometrs;laika zona;signāls;"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
 msgid "Configured world clocks"
 msgstr "Konfigurētie pasaules pulksteņi"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
 msgid "List of world clocks to show."
 msgstr "Saraksts ar pasaules pulksteņiem, ko rādīt."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
 msgid "Configured alarms"
 msgstr "Konfigurēt signālu."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
 msgid "List of alarms set."
 msgstr "Nav iestatītu signālu."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:105
 msgid "Timer"
 msgstr "Taimeris"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
 msgid "Configured timer duration in seconds."
 msgstr "Konfigurēts taimera ilgumu sekundēs."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:475
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Window state"
+msgstr "Loga stāvoklis"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "State of the window: i.e. maximized."
+msgstr "Loga stāvoklis: t.i. maksimizēts."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+msgid "Window width and height"
+msgstr "Loga platums un augstums"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+msgid "Width and height of the window."
+msgstr "Loga platums un augstums"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+msgid "Panel state"
+msgstr "Paneļa stāvoklis"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+msgid "Current clock panel."
+msgstr "Pašreizējais pulksteņa panelis."
+
+#: ../src/alarm.vala:105 ../src/alarm.vala:326 ../src/alarm.vala:477
 msgid "Alarm"
 msgstr "Signāls"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../src/alarm.ui.h:2
+#: ../src/alarm.vala:106 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Apturēt"
 
-#: ../src/alarm.vala:109 ../src/alarm.ui.h:3
+#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Iesnaudināt"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:278
 msgid "Edit Alarm"
 msgstr "Rediģēt signālu"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:278
 msgid "New Alarm"
 msgstr "Jauns signāls"
 
-#: ../src/alarm.vala:267
-#| msgid "Done"
-msgid "_Done"
-msgstr "_Darīts"
-
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:616 ../src/world.vala:360
+#: ../src/alarm.vala:483 ../src/world.vala:271
 msgid "New"
 msgstr "Jauns"
 
@@ -96,190 +116,201 @@ msgstr "Jauns"
 msgid "Print version information and exit"
 msgstr "Parādīt informāciju par versiju un iziet"
 
-#: ../src/stopwatch.vala:50
+#: ../src/stopwatch.vala:129
 msgid "Stopwatch"
 msgstr "Hronometrs"
 
-#: ../src/stopwatch.vala:124 ../src/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:190
 msgid "Lap"
 msgstr "Aplis"
 
-#: ../src/stopwatch.vala:131 ../src/timer.vala:88
+#: ../src/stopwatch.vala:197 ../src/timer.vala:156
 msgid "Continue"
 msgstr "Turpināt"
 
-#: ../src/stopwatch.vala:135 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:3
+#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Atstatīt"
 
-#: ../src/stopwatch.vala:143 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:1
+#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Sākt"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:113
 msgid "Time is up!"
 msgstr "Laiks beidzies!"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:113
 msgid "Timer countdown finished"
 msgstr "Taimera laiks iztecējis"
 
-#: ../src/timer.vala:93 ../src/timer.vala:103 ../src/timer.ui.h:2
+#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Pauzēt"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:163
 msgid "Mondays"
 msgstr "Pirmdienas"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:164
 msgid "Tuesdays"
 msgstr "Otrdienas"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:165
 msgid "Wednesdays"
 msgstr "Trešdienas"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:166
 msgid "Thursdays"
 msgstr "Ceturtdienas"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:167
 msgid "Fridays"
 msgstr "Piektdienas"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:168
 msgid "Saturdays"
 msgstr "Sestdienas"
 
-#: ../src/utils.vala:155
+#: ../src/utils.vala:169
 msgid "Sundays"
 msgstr "Svētdienas"
 
-#: ../src/utils.vala:235
-#| msgid "Every day"
+#: ../src/utils.vala:249
 msgid "Every Day"
 msgstr "Katru dienu"
 
-#: ../src/utils.vala:237
+#: ../src/utils.vala:251
 msgid "Weekdays"
 msgstr "Darba dienas"
 
-#: ../src/widgets.vala:417 ../src/widgets.vala:568
+#: ../src/utils.vala:253
+#| msgid "Weekdays"
+msgid "Weekends"
+msgstr "Nedēļas nogales"
+
+#: ../src/widgets.vala:374
+msgid "Cancel"
+msgstr "Atcelt"
+
+#: ../src/widgets.vala:386 ../src/widgets.vala:439
 msgid "Click on items to select them"
 msgstr "Spiediet uz vienumiem, lai tos izvēlētos"
 
-#: ../src/widgets.vala:419
+#: ../src/widgets.vala:441
 #, c-format
-#| msgid "{0} item selected"
-#| msgid_plural "{0} items selected"
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d izvēlēts"
 msgstr[1] "%d izvēlēti"
 msgstr[2] "%d izvēlētu"
 
-#: ../src/widgets.vala:461
+#: ../src/widgets.vala:483
 msgid "Delete"
 msgstr "Dzēst"
 
-#: ../src/widgets.vala:567
-msgid "Done"
-msgstr "Pabeigts"
-
-#: ../src/window.vala:147
-#| msgid "GNOME Clocks"
-msgid "Gnome Clocks"
-msgstr "Gnome pulksteņi"
-
-#: ../src/window.vala:150
+#: ../src/window.vala:167
 msgid "Utilities to help you with the time."
 msgstr "Utilītas, kas palīdz pārvaldīt laiku."
 
-#: ../src/window.vala:155
+#: ../src/window.vala:172
 msgid "translator-credits"
 msgstr "Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:90 ../src/world.vala:93
+#: ../src/world.vala:105 ../src/world.vala:108
 msgid "Tomorrow"
 msgstr "Rīt"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:90 ../src/world.vala:93
+#: ../src/world.vala:105 ../src/world.vala:108
 msgid "Yesterday"
 msgstr "Vakar"
 
-#: ../src/world.vala:160
-msgid "Add a New World Clock"
-msgstr "Pievienot jaunu pasaules pulksteni"
-
-#: ../src/world.vala:256
+#: ../src/world.vala:262
 msgid "World"
 msgstr "Pasaule"
 
 #. namespace World
 #. namespace Clocks
-#: ../src/alarm.ui.h:1
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Izvēlieties <b>Jauns</b>, lai pievienotu signālu"
+#: ../data/ui/alarmsetupdialog.ui.h:1
+msgid "_Done"
+msgstr "_Darīts"
 
-#: ../src/alarm.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:2
 msgid "Name"
 msgstr "Nosaukums"
 
-#: ../src/alarm.ui.h:5
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "Repeat Every"
 msgstr "Atkārtot katras"
 
-#: ../src/alarm.ui.h:6
+#: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "Active"
 msgstr "Aktīvs"
 
-#: ../src/menu.ui.h:1
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Izvēlieties <b>Jauns</b>, lai pievienotu signālu"
+
+#: ../data/ui/menu.ui.h:1
 msgid "_New"
 msgstr "Jau_ns"
 
-#: ../src/menu.ui.h:2
+#: ../data/ui/menu.ui.h:2
+msgid "_Help"
+msgstr "_Palīdzība"
+
+#: ../data/ui/menu.ui.h:3
 msgid "_About"
 msgstr "P_ar"
 
-#: ../src/menu.ui.h:3
-#| msgid "Quit"
+#: ../data/ui/menu.ui.h:4
 msgid "_Quit"
 msgstr "_Iziet"
 
-#: ../src/menu.ui.h:4
+#: ../data/ui/menu.ui.h:5
 msgid "Select All"
 msgstr "Izvēlēties visu"
 
-#: ../src/menu.ui.h:5
+#: ../data/ui/menu.ui.h:6
 msgid "Select None"
 msgstr "Neizvēlēties nevienu"
 
-#: ../src/stopwatch.ui.h:4
-msgid "Split"
-msgstr "Sadalīt"
+#: ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Pievienot jaunu pasaules pulksteni"
 
-#: ../src/stopwatch.ui.h:5
-msgid "Total"
-msgstr "Kopā"
-
-#: ../src/world.ui.h:1
-msgid "Select <b>New</b> to add a world clock"
-msgstr "Izvēlieties <b>Jauns</b>, lai pievienotu pasaules pulksteni"
-
-#: ../src/world.ui.h:2
+#: ../data/ui/worldlocationdialog.ui.h:2
 msgid "Search for a city:"
 msgstr "Meklēt pilsētu:"
 
-#: ../src/world.ui.h:3
+#: ../data/ui/world.ui.h:1
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Izvēlieties <b>Jauns</b>, lai pievienotu pasaules pulksteni"
+
+#: ../data/ui/world.ui.h:2
 msgid "Sunrise"
 msgstr "Saullēkts"
 
-#: ../src/world.ui.h:4
+#: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Saulriets"
+
+#~ msgid "Done"
+#~ msgstr "Pabeigts"
+
+#~| msgid "GNOME Clocks"
+#~ msgid "Gnome Clocks"
+#~ msgstr "Gnome pulksteņi"
+
+#~ msgid "Split"
+#~ msgstr "Sadalīt"
+
+#~ msgid "Total"
+#~ msgstr "Kopā"
 
 #~ msgid "Time"
 #~ msgstr "Laiks"
