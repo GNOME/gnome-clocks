@@ -321,9 +321,11 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
 
         load ();
 
-        use_geolocation.begin ((obj, res) => {
-            use_geolocation.end (res);
-        });
+        if (settings.get_boolean ("geolocation")) {
+            use_geolocation.begin ((obj, res) => {
+                use_geolocation.end (res);
+            });
+        }
 
         notify["visible-child"].connect (() => {
             if (visible_child == content_view) {
