@@ -1,15 +1,15 @@
 # Estonian translation for gnome-clocks.
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-# Mattias Põldaru <mahfiaz@gmail.com>, 2012.
+# Mattias Põldaru <mahfiaz@gmail.com>, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-12-17 13:54+0000\n"
-"PO-Revision-Date: 2012-12-18 18:37+0300\n"
+"POT-Creation-Date: 2013-09-11 19:29+0000\n"
+"PO-Revision-Date: 2013-09-11 22:57+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian <gnome-et-list@gnome.org>\n"
 "Language: et\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
 
 msgid "Clocks"
 msgstr "Kell"
@@ -31,32 +32,44 @@ msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
 "aeg;kell;kuupäev;taimer;alarm;äratus;maailmakell;stopper;ajavöönd;ajatsoon;"
 
-#. Translators: "New" refers to an alarm
+msgid "Configured world clocks"
+msgstr "Seadistatud maailmakellad"
+
+msgid "List of world clocks to show."
+msgstr "Maailmakellade loetelu."
+
+msgid "Configured alarms"
+msgstr "Määratud märguanded"
+
+msgid "List of alarms set."
+msgstr "Märguannete loetelu."
+
+msgid "Timer"
+msgstr "Taimer"
+
+msgid "Configured timer duration in seconds."
+msgstr "Taimeri kestus sekundites."
+
+msgid "Window state"
+msgstr "Akna olek"
+
+msgid "State of the window: i.e. maximized."
+msgstr "Akna olek, nt maximized."
+
+msgid "Window width and height"
+msgstr "Akna laius ja kõrgus"
+
+msgid "Width and height of the window."
+msgstr "Akna laius ja kõrgus."
+
+msgid "Panel state"
+msgstr "Paneeli olek"
+
+msgid "Current clock panel."
+msgstr "Praegune kellapaneel."
+
 msgid "Alarm"
 msgstr "Alarm"
-
-msgid "Every day"
-msgstr "Iga päev"
-
-msgid "Weekdays"
-msgstr "Tööpäeviti"
-
-msgid "Edit Alarm"
-msgstr "Alarmi muutmine"
-
-msgid "New Alarm"
-msgstr "Uus alarm"
-
-#. Translators: "Time" in this context is the time an alarm
-#. is set to go off (days, hours, minutes etc.)
-msgid "Time"
-msgstr "Kell"
-
-msgid "Name"
-msgstr "Nimi"
-
-msgid "Repeat Every"
-msgstr "Korratakse igal"
 
 msgid "Stop"
 msgstr "Peata"
@@ -64,70 +77,43 @@ msgstr "Peata"
 msgid "Snooze"
 msgstr "Lükka edasi"
 
+msgid "Edit Alarm"
+msgstr "Alarmi muutmine"
+
+msgid "New Alarm"
+msgstr "Uus alarm"
+
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
 msgid "New"
 msgstr "Uus"
 
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Alarmi lisamiseks vali <b>uus</b>"
-
-msgid "About Clocks"
-msgstr "Kelladest lähemalt"
-
-msgid "Utilities to help you with the time."
-msgstr "Abivahendid kella paremaks jälgimiseks."
-
-msgid "translator-credits"
-msgstr "Mattias Põldaru <mahfiaz@gmail.com>, 2012."
-
-msgid "Edit"
-msgstr "Muuda"
-
-msgid "Done"
-msgstr "Valmis"
-
-msgid "Click on items to select them"
-msgstr "Klõpsa kirjel selle valimiseks"
-
-msgid "{0} item selected"
-msgid_plural "{0} items selected"
-msgstr[0] "{0} kirje valitud"
-msgstr[1] "{0} kirjet valitud"
-
-msgid "Quit"
-msgstr "Lõpeta"
+msgid "Print version information and exit"
+msgstr "Versiooniandmete printimine ja väljumine"
 
 msgid "Stopwatch"
 msgstr "Stopper"
 
-msgid "Start"
-msgstr "Alusta"
-
-msgid "Reset"
-msgstr "Lähtesta"
-
 msgid "Lap"
 msgstr "Ring"
-
-msgid "Split"
-msgstr "Vaheaeg"
-
-msgid "Total"
-msgstr "Kokku"
 
 msgid "Continue"
 msgstr "Jätka"
 
-msgid "Pause"
-msgstr "Paus"
+msgid "Reset"
+msgstr "Lähtesta"
 
-msgid "Timer"
-msgstr "Taimer"
+msgid "Start"
+msgstr "Alusta"
 
 msgid "Time is up!"
 msgstr "Aeg sai otsa!"
 
 msgid "Timer countdown finished"
 msgstr "Taimer lõpetas"
+
+msgid "Pause"
+msgstr "Paus"
 
 msgid "Mondays"
 msgstr "Esmaspäeviti"
@@ -150,8 +136,81 @@ msgstr "Laupäeviti"
 msgid "Sundays"
 msgstr "Pühapäeviti"
 
+msgid "Every Day"
+msgstr "Iga päev"
+
+msgid "Weekdays"
+msgstr "Tööpäeviti"
+
+msgid "Weekends"
+msgstr "Nädalavahetusel"
+
+msgid "Cancel"
+msgstr "Loobu"
+
+msgid "Click on items to select them"
+msgstr "Klõpsa kirjel selle valimiseks"
+
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d kirje valitud"
+msgstr[1] "%d kirjet valitud"
+
 msgid "Delete"
 msgstr "Kustuta"
+
+msgid "Utilities to help you with the time."
+msgstr "Abivahendid kella paremaks jälgimiseks."
+
+msgid "translator-credits"
+msgstr "Mattias Põldaru <mahfiaz@gmail.com>, 2012, 2013."
+
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+msgid "Tomorrow"
+msgstr "Homme"
+
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+msgid "Yesterday"
+msgstr "Eile"
+
+msgid "World"
+msgstr "Maailm"
+
+#. namespace World
+#. namespace Clocks
+msgid "_Done"
+msgstr "_Valmis"
+
+msgid "Name"
+msgstr "Nimi"
+
+msgid "Repeat Every"
+msgstr "Korratakse igal"
+
+msgid "Active"
+msgstr "Aktiivne"
+
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Alarmi lisamiseks vali <b>uus</b>"
+
+msgid "_New"
+msgstr "_Uus"
+
+msgid "_Help"
+msgstr "A_bi"
+
+msgid "_About"
+msgstr "_Lähemalt"
+
+msgid "_Quit"
+msgstr "_Lõpeta"
+
+msgid "Select All"
+msgstr "Vali kõik"
+
+msgid "Select None"
+msgstr "Tühista valik"
 
 msgid "Add a New World Clock"
 msgstr "Lisa uus maailmakell"
@@ -159,14 +218,33 @@ msgstr "Lisa uus maailmakell"
 msgid "Search for a city:"
 msgstr "Otsi linna järgi:"
 
-msgid "Yesterday"
-msgstr "Eile"
-
-msgid "Tomorrow"
-msgstr "Homme"
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Maailmakella lisamiseks vali <b>uus</b>"
 
 msgid "Sunrise"
 msgstr "Päikesetõus"
 
 msgid "Sunset"
 msgstr "Päikeseloojang"
+
+#~ msgid "Done"
+#~ msgstr "Valmis"
+
+#, fuzzy
+#~ msgid "Gnome Clocks"
+#~ msgstr "GNOME kell"
+
+#~ msgid "Split"
+#~ msgstr "Vaheaeg"
+
+#~ msgid "Total"
+#~ msgstr "Kokku"
+
+#~ msgid "Time"
+#~ msgstr "Kell"
+
+#~ msgid "About Clocks"
+#~ msgstr "Kelladest lähemalt"
+
+#~ msgid "Edit"
+#~ msgstr "Muuda"
