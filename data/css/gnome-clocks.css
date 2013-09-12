@@ -93,13 +93,22 @@
     background-image: none;
 }
 
-.clocks-standalone-label,
 .clocks-ringing-label {
     font-size: 64px;
 }
 
+.clocks-standalone-label {
+    font-size: 64px;
+    font-weight: bold;
+    text-shadow: inset 1px 1px 3px black;
+    color: white;
+}
+
 .clocks-secondary-standalone-label {
-    font-size: 18px;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: inset 1px 1px 3px black;
+    color: white;
 }
 
 .clocks-button {

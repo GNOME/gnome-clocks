@@ -19,10 +19,9 @@
 namespace Clocks {
 namespace World {
 
-private class Item : Object, ContentItem {
-    private static Gdk.Pixbuf? day_pixbuf = Utils.load_image ("day.png");
-    private static Gdk.Pixbuf? night_pixbuf = Utils.load_image ("night.png");
+private static AutomaticImageProvider image_provider;
 
+private class Item : Object, ContentItem {
     public GWeather.Location location { get; set; }
 
     public bool automatic { get; set; default = false; }
@@ -119,19 +118,48 @@ private class Item : Object, ContentItem {
         }
     }
 
+    public Gdk.Pixbuf? day_pixbuf { get; private set; }
+    public Gdk.Pixbuf? night_pixbuf { get; private set; }
+
     private string _name;
     private GLib.TimeZone time_zone;
     private GLib.DateTime local_time;
     private GLib.DateTime date_time;
     private GWeather.Info weather_info;
+    private Gdk.Pixbuf? scaled_day_pixbuf;
+    private Gdk.Pixbuf? scaled_night_pixbuf;
+    private string file_name;
 
     public Item (GWeather.Location location) {
         Object (location: location);
 
         var weather_time_zone = location.get_timezone ();
-        time_zone = new GLib.TimeZone (weather_time_zone.get_tzid());
+        time_zone = new GLib.TimeZone (weather_time_zone.get_tzid ());
+        
+        string old_loc = Intl.setlocale (LocaleCategory.MESSAGES, null);
+        Intl.setlocale (LocaleCategory.MESSAGES, "en_US.UTF-8");
+
+        if (nation_name != null) {
+            file_name = "%s-%s".printf (city_name, nation_name);
+        } else {
+            file_name = city_name;
+        }
+        file_name = file_name.down ();
+        Intl.setlocale (LocaleCategory.MESSAGES, old_loc);
+
+        image_provider.image_updated.connect (update_images);
+
+        update_images ();
 
         tick ();
+    }
+
+    public void update_images () {
+        day_pixbuf = image_provider.get_image (file_name + "-day");
+        scaled_day_pixbuf = day_pixbuf.scale_simple (256, 256, Gdk.InterpType.BILINEAR);
+
+        night_pixbuf = image_provider.get_image (file_name + "-night");
+        scaled_night_pixbuf = night_pixbuf.scale_simple (256, 256, Gdk.InterpType.BILINEAR);
     }
 
     public void tick () {
@@ -147,10 +175,10 @@ private class Item : Object, ContentItem {
         text = time_label;
         subtext = day_label;
         if (is_daytime) {
-            pixbuf = day_pixbuf;
+            pixbuf = scaled_day_pixbuf;
             css_class = "light";
         } else {
-            pixbuf = night_pixbuf;
+            pixbuf = scaled_night_pixbuf;
             css_class = "dark";
         }
     }
@@ -225,6 +253,9 @@ private class StandalonePanel : Gtk.EventBox {
     private Gtk.Label day_label;
     private Gtk.Label sunrise_label;
     private Gtk.Label sunset_label;
+    private Gtk.Image city_image;
+    private Gdk.Pixbuf? day_pixbuf;
+    private Gdk.Pixbuf? night_pixbuf;
 
     public StandalonePanel () {
         get_style_context ().add_class ("view");
@@ -238,7 +269,16 @@ private class StandalonePanel : Gtk.EventBox {
         sunrise_label = builder.get_object ("sunrise_label") as Gtk.Label;
         sunset_label = builder.get_object ("sunset_label") as Gtk.Label;
 
-        add (grid);
+        var overlay = new Gtk.Overlay ();
+        city_image = new Gtk.Image ();
+        city_image.halign = Gtk.Align.FILL;
+        city_image.valign = Gtk.Align.FILL;
+        overlay.add (city_image);
+        overlay.add_overlay (grid);
+
+        city_image.size_allocate.connect (on_size_allocate);
+
+        add (overlay);
     }
 
     public void update () {
@@ -247,6 +287,23 @@ private class StandalonePanel : Gtk.EventBox {
             day_label.label = location.day_label;
             sunrise_label.label = location.sunrise_label;
             sunset_label.label = location.sunset_label;
+
+            if (location.is_daytime) {
+                city_image.set_from_pixbuf (day_pixbuf);
+            } else {
+                city_image.set_from_pixbuf (night_pixbuf);
+            }
+        }
+    }
+
+    public void on_size_allocate (Gtk.Allocation rectangle) {
+        day_pixbuf = location.day_pixbuf.scale_simple (rectangle.width, rectangle.height, Gdk.InterpType.BILINEAR);
+        night_pixbuf = location.night_pixbuf.scale_simple (rectangle.width, rectangle.height, Gdk.InterpType.BILINEAR);
+
+        if (location.is_daytime) {
+            city_image.set_from_pixbuf (day_pixbuf);
+        } else {
+            city_image.set_from_pixbuf (night_pixbuf);
         }
     }
 }
@@ -260,19 +317,16 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     private GLib.Settings settings;
     private Gtk.Button new_button;
     private Gtk.Button back_button;
-    private Gdk.Pixbuf? day_pixbuf;
-    private Gdk.Pixbuf? night_pixbuf;
     private ContentView content_view;
     private StandalonePanel standalone;
 
     public MainPanel (HeaderBar header_bar) {
         Object (label: _("World"), header_bar: header_bar, transition_type: Gtk.StackTransitionType.CROSSFADE, panel_id: PanelId.WORLD);
 
+        image_provider = new AutomaticImageProvider ();
+
         locations = new List<Item> ();
         settings = new GLib.Settings ("org.gnome.clocks");
-
-        day_pixbuf = Utils.load_image ("day.png");
-        night_pixbuf = Utils.load_image ("night.png");
 
         // Translators: "New" refers to a world clock
         new_button = new Gtk.Button.with_label (_("New"));

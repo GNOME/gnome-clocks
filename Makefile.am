@@ -110,6 +110,7 @@ VALA_SOURCES = \
 	src/window.vala \
 	src/clock.vala \
 	src/world.vala \
+	src/providers.vala \
 	src/alarm.vala \
 	src/stopwatch.vala \
 	src/timer.vala \
