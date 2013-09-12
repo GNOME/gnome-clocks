@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-05 01:37+0200\n"
-"PO-Revision-Date: 2013-09-05 01:38+0200\n"
+"POT-Creation-Date: 2013-09-12 19:30+0200\n"
+"PO-Revision-Date: 2013-09-12 19:31+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -65,52 +65,60 @@ msgid "Configured timer duration in seconds."
 msgstr "Skonfigurowany czas trwania minutnika w sekundach."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Geolocation support"
+msgstr "Obsługa geolokalizacji"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr "Włącza lub wyłącza obsługę geolokalizacji."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
 msgid "Window state"
 msgstr "Stan okna"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
 msgid "State of the window: i.e. maximized."
 msgstr "Stan okna, tzn. czy jest zmaksymalizowane."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
 msgid "Window width and height"
 msgstr "Szerokość i wysokość okna"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
 msgid "Width and height of the window."
 msgstr "Szerokość i wysokość okna."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
 msgid "Panel state"
 msgstr "Stan panelu"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
 msgid "Current clock panel."
 msgstr "Bieżący panel zegara."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:326 ../src/alarm.vala:477
+#: ../src/alarm.vala:109 ../src/alarm.vala:330 ../src/alarm.vala:481
 msgid "Alarm"
 msgstr "Budzik"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:110 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Zatrzymaj"
 
-#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:113 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Drzemka"
 
-#: ../src/alarm.vala:278
+#: ../src/alarm.vala:282
 msgid "Edit Alarm"
 msgstr "Modyfikuj budzik"
 
-#: ../src/alarm.vala:278
+#: ../src/alarm.vala:282
 msgid "New Alarm"
 msgstr "Nowy budzik"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:483 ../src/world.vala:271
+#: ../src/alarm.vala:487 ../src/world.vala:278
 msgid "New"
 msgstr "Nowy"
 
@@ -192,15 +200,15 @@ msgstr "Dni robocze"
 msgid "Weekends"
 msgstr "Weekendy"
 
-#: ../src/widgets.vala:374
+#: ../src/widgets.vala:461
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: ../src/widgets.vala:386 ../src/widgets.vala:439
+#: ../src/widgets.vala:473 ../src/widgets.vala:526
 msgid "Click on items to select them"
 msgstr "Kliknięcie elementu zaznacza go"
 
-#: ../src/widgets.vala:441
+#: ../src/widgets.vala:528
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -208,7 +216,7 @@ msgstr[0] "Zaznaczono: %d"
 msgstr[1] "Zaznaczono: %d"
 msgstr[2] "Zaznaczono: %d"
 
-#: ../src/widgets.vala:483
+#: ../src/widgets.vala:570
 msgid "Delete"
 msgstr "Usuń"
 
@@ -223,16 +231,16 @@ msgstr ""
 "Aviary.pl <gnomepl@aviary.pl>, 2012-2013"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:105 ../src/world.vala:108
+#: ../src/world.vala:112 ../src/world.vala:115
 msgid "Tomorrow"
 msgstr "Jutro"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:105 ../src/world.vala:108
+#: ../src/world.vala:112 ../src/world.vala:115
 msgid "Yesterday"
 msgstr "Wczoraj"
 
-#: ../src/world.vala:262
+#: ../src/world.vala:269
 msgid "World"
 msgstr "Świat"
 
