@@ -94,6 +94,9 @@ AM_VALAFLAGS = \
 	--pkg libcanberra \
 	--pkg libnotify \
 	--pkg geocode-glib-1.0 \
+	--pkg libsoup-2.4 \
+	--pkg json-glib-1.0 \
+	--thread \
 	--gresources  $(top_srcdir)/data/gnome-clocks.gresource.xml
 
 bin_PROGRAMS = gnome-clocks

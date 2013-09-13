@@ -19,7 +19,7 @@
 namespace Clocks {
 namespace World {
 
-private static AutomaticImageProvider image_provider;
+private static ImageProvider image_provider;
 
 private class Item : Object, ContentItem {
     public GWeather.Location location { get; set; }
@@ -149,17 +149,20 @@ private class Item : Object, ContentItem {
 
         image_provider.image_updated.connect (update_images);
 
-        update_images ();
+        update_images (file_name);
 
         tick ();
     }
 
-    public void update_images () {
-        day_pixbuf = image_provider.get_image (file_name + "-day");
-        scaled_day_pixbuf = day_pixbuf.scale_simple (256, 256, Gdk.InterpType.BILINEAR);
+    public void update_images (string name) {
+        if (file_name in name) {
+            //stdout.printf (@"YES--file name $file_name and name $name\n");
+            day_pixbuf = image_provider.get_image (file_name + "-day");
+            scaled_day_pixbuf = day_pixbuf.scale_simple (256, 256, Gdk.InterpType.BILINEAR);
 
-        night_pixbuf = image_provider.get_image (file_name + "-night");
-        scaled_night_pixbuf = night_pixbuf.scale_simple (256, 256, Gdk.InterpType.BILINEAR);
+            night_pixbuf = image_provider.get_image (file_name + "-night");
+            scaled_night_pixbuf = night_pixbuf.scale_simple (256, 256, Gdk.InterpType.BILINEAR);
+        }
     }
 
     public void tick () {
@@ -270,10 +273,13 @@ private class StandalonePanel : Gtk.EventBox {
         sunset_label = builder.get_object ("sunset_label") as Gtk.Label;
 
         var overlay = new Gtk.Overlay ();
+        var scrolled_window = new Gtk.ScrolledWindow (null, null);
+        scrolled_window.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.NEVER);
         city_image = new Gtk.Image ();
         city_image.halign = Gtk.Align.FILL;
         city_image.valign = Gtk.Align.FILL;
-        overlay.add (city_image);
+        scrolled_window.add (city_image);
+        overlay.add (scrolled_window);
         overlay.add_overlay (grid);
 
         city_image.size_allocate.connect (on_size_allocate);

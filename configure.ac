@@ -58,6 +58,8 @@ PKG_CHECK_MODULES(CLOCKS, [
     libnotify >= 0.7.0
     geocode-glib-1.0 >= 0.99.3
     geoclue-2.0 >= 1.99.3
+    json-glib-1.0
+    libsoup-2.4
 ])
 
 YELP_HELP_INIT
