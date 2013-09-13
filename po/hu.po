@@ -1,23 +1,23 @@
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Hungarian translation of gnome-clocks
+# Copyright (C) 2012, 2013. Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-clocks package.
 #
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2012, 2013.
 # Balázs Úr <urbalazs at gmail dot com>, 2012, 2013.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-26 16:35+0000\n"
-"PO-Revision-Date: 2013-08-30 19:58+0200\n"
-"Last-Translator: Balázs Úr <urbalazs at gmail dot com>\n"
-"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
+"Project-Id-Version: gnome-clocks master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-13 11:31+0200\n"
+"PO-Revision-Date: 2013-09-13 11:30+0200\n"
+"Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
+"Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:164
 #: ../data/ui/window.ui.h:1
@@ -61,53 +61,60 @@ msgid "Configured timer duration in seconds."
 msgstr "Időzítő beállított hossza másodpercben."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
-#| msgid "Panel state"
+msgid "Geolocation support"
+msgstr "Helymeghatározás támogatása"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr "Helymeghatározás támogatásának be- vagy kikapcsolása."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
 msgid "Window state"
 msgstr "Ablakállapot"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
 msgid "State of the window: i.e. maximized."
 msgstr "Az ablak állapota: azaz maximalizált."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
 msgid "Window width and height"
 msgstr "Ablak szélessége és magassága"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
 msgid "Width and height of the window."
 msgstr "Az ablak szélessége és magassága."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
 msgid "Panel state"
 msgstr "Panel állapota"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
 msgid "Current clock panel."
 msgstr "Jelenlegi órapanel."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:326 ../src/alarm.vala:477
+#: ../src/alarm.vala:109 ../src/alarm.vala:330 ../src/alarm.vala:481
 msgid "Alarm"
 msgstr "Figyelmeztetés"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:110 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Leállítás"
 
-#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:113 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Szundi"
 
-#: ../src/alarm.vala:278
+#: ../src/alarm.vala:282
 msgid "Edit Alarm"
 msgstr "Figyelmeztetés szerkesztése"
 
-#: ../src/alarm.vala:278
+#: ../src/alarm.vala:282
 msgid "New Alarm"
 msgstr "Új figyelmeztetés"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:483 ../src/world.vala:261
+#: ../src/alarm.vala:487 ../src/world.vala:278
 msgid "New"
 msgstr "Új"
 
@@ -189,22 +196,22 @@ msgstr "Hétköznaponként"
 msgid "Weekends"
 msgstr "Hétvégente"
 
-#: ../src/widgets.vala:374
+#: ../src/widgets.vala:461
 msgid "Cancel"
 msgstr "Mégse"
 
-#: ../src/widgets.vala:387 ../src/widgets.vala:440
+#: ../src/widgets.vala:473 ../src/widgets.vala:526
 msgid "Click on items to select them"
 msgstr "Kattintson az elemekre a kiválasztásukhoz"
 
-#: ../src/widgets.vala:442
+#: ../src/widgets.vala:528
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d kiválasztva"
 msgstr[1] "%d kiválasztva"
 
-#: ../src/widgets.vala:477
+#: ../src/widgets.vala:570
 msgid "Delete"
 msgstr "Törlés"
 
@@ -217,16 +224,16 @@ msgid "translator-credits"
 msgstr "Kelemen Gábor <kelemeng at gnome dot hu>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:93 ../src/world.vala:96
+#: ../src/world.vala:112 ../src/world.vala:115
 msgid "Tomorrow"
 msgstr "Holnap"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:93 ../src/world.vala:96
+#: ../src/world.vala:112 ../src/world.vala:115
 msgid "Yesterday"
 msgstr "Tegnap"
 
-#: ../src/world.vala:252
+#: ../src/world.vala:269
 msgid "World"
 msgstr "Világ"
 
@@ -257,18 +264,22 @@ msgid "_New"
 msgstr "Ú_j"
 
 #: ../data/ui/menu.ui.h:2
+msgid "_Help"
+msgstr "_Súgó"
+
+#: ../data/ui/menu.ui.h:3
 msgid "_About"
 msgstr "_Névjegy"
 
-#: ../data/ui/menu.ui.h:3
+#: ../data/ui/menu.ui.h:4
 msgid "_Quit"
 msgstr "_Kilépés"
 
-#: ../data/ui/menu.ui.h:4
+#: ../data/ui/menu.ui.h:5
 msgid "Select All"
 msgstr "Összes kijelölése"
 
-#: ../data/ui/menu.ui.h:5
+#: ../data/ui/menu.ui.h:6
 msgid "Select None"
 msgstr "Kijelölés megszüntetése"
 
