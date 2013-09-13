@@ -10,18 +10,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-04 12:45+0200\n"
-"PO-Revision-Date: 2013-09-04 12:44+0200\n"
-"Last-Translator: Stas Solovey <whats_up@tut.by>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-09-13 02:06+0000\n"
+"PO-Revision-Date: 2013-09-13 11:57+0200\n"
+"Last-Translator: Dmitriy S. Seregin <dseregin@59.ru>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.5.5\n"
 
 #: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:164
 #: ../data/ui/window.ui.h:1
@@ -65,52 +66,60 @@ msgid "Configured timer duration in seconds."
 msgstr "Настроенный в секундах таймер."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Geolocation support"
+msgstr "Поддержка геопозиционирования"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr "Включает и выключает поддержку геопозиционирования."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
 msgid "Window state"
 msgstr "Состояние окна"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
 msgid "State of the window: i.e. maximized."
 msgstr "Состояние окна: например «развернуто»."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
 msgid "Window width and height"
 msgstr "Ширина и высота окна"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
 msgid "Width and height of the window."
 msgstr "Ширина и высота окна."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
 msgid "Panel state"
 msgstr "Состояние панели"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
 msgid "Current clock panel."
 msgstr "Активная панель часов."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:326 ../src/alarm.vala:477
+#: ../src/alarm.vala:109 ../src/alarm.vala:330 ../src/alarm.vala:481
 msgid "Alarm"
 msgstr "Будильник"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:110 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Остановить"
 
-#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:113 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Напомнить"
 
-#: ../src/alarm.vala:278
+#: ../src/alarm.vala:282
 msgid "Edit Alarm"
 msgstr "Настроить будильник"
 
-#: ../src/alarm.vala:278
+#: ../src/alarm.vala:282
 msgid "New Alarm"
 msgstr "Создать будильник"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:483 ../src/world.vala:271
+#: ../src/alarm.vala:487 ../src/world.vala:278
 msgid "New"
 msgstr "Создать"
 
@@ -192,15 +201,15 @@ msgstr "По будням"
 msgid "Weekends"
 msgstr "По выходным"
 
-#: ../src/widgets.vala:374
+#: ../src/widgets.vala:461
 msgid "Cancel"
 msgstr "Отмена"
 
-#: ../src/widgets.vala:386 ../src/widgets.vala:439
+#: ../src/widgets.vala:473 ../src/widgets.vala:526
 msgid "Click on items to select them"
 msgstr "Нажмите на элемент, чтобы выбрать его"
 
-#: ../src/widgets.vala:441
+#: ../src/widgets.vala:528
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -208,7 +217,7 @@ msgstr[0] "Выбран %d элемент"
 msgstr[1] "Выбрано %d элемента"
 msgstr[2] "Выбрано %d элементов"
 
-#: ../src/widgets.vala:483
+#: ../src/widgets.vala:570
 msgid "Delete"
 msgstr "Удалить"
 
@@ -221,16 +230,16 @@ msgid "translator-credits"
 msgstr "Станислав Соловей <whats_up@tut.by>, 2013"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:105 ../src/world.vala:108
+#: ../src/world.vala:112 ../src/world.vala:115
 msgid "Tomorrow"
 msgstr "Завтра"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:105 ../src/world.vala:108
+#: ../src/world.vala:112 ../src/world.vala:115
 msgid "Yesterday"
 msgstr "Вчера"
 
-#: ../src/world.vala:262
+#: ../src/world.vala:269
 msgid "World"
 msgstr "Мировое время"
 
