@@ -6,7 +6,7 @@
   <info>
     <link type="guide" xref="index#world-clock"/>
 
-    <revision pkgversion="3.9" date="2013-09-02" status="review"/>
+    <revision pkgversion="3.10" date="2013-09-15" status="candidate"/>
 
     <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
@@ -15,40 +15,50 @@
       <email its:translate="no">aruna.evam@gmail.com</email>
       <years>2013</years>
     </credit>
+    <credit type="copyright editor">
+      <name>Ekaterina Gerasimova</name>
+      <email its:translate="no">kittykat3756@gmail.com</email>
+      <years>2013</years>
+    </credit>
 
-    <desc>See whether it is day or night in a certain city.</desc>
+    <desc>Add a clock for a new city to your world clocks list.</desc>
   </info>
 
-  <title>Add a new world clock</title>
+  <title>Add a new city clock</title>
 
-  <p>When you add a new city to the world clock, <app>Clocks</app> displays the
-  time in that city. The world clock also tells you if it is day or night in
-  the city.</p>
+  <p>Add a city to your world clocks to see the time of day or night in that
+  city. You will also be able to <link xref="world-check">check the sunrise and
+  sunset times</link> for each of the cities that you have added.</p>
 
   <steps>
     <item>
       <p>Press the <gui style="button">World</gui> button.</p>
     </item>
     <item>
-      <p>Press the <gui style="button">New</gui> button to add a new city to
-      the world clock. Alternatively, you could also press
-      <keyseq><key>Ctrl</key><key>N</key></keyseq>.</p>
+      <p>Press the <gui style="button">New</gui> button or
+      <keyseq><key>Ctrl</key><key>N</key></keyseq> to add a new city.</p>
     </item>
     <item>
-      <p>Type the name of a city of your choice in the field provided.</p>
+      <p>Start typing the name of the city into the search.</p>
     </item>
     <item>
-      <p>Select an appropriate location from the list.</p>
+      <p>Select the correct city or the closest location to you from the
+      list.</p>
     </item>
     <item>
-      <p>Press the <gui style="button">Add</gui> button to finish.</p>
+      <p>Press <gui style="button">Add</gui> to finish adding the city.</p>
     </item>
   </steps>
 
+  <p>If you do not see your city in the list, it is probably not available at
+  this time. You should try adding the closest bigger city or the capital of
+  your country instead.</p>
+
   <note style="info">
-    <p>When you start <app>Clocks</app>, you will see a world clock for your
-    current city if you are connected to the Internet. This clock is
-    automatically replaced when you move to a new city.</p>
+    <p>The clock for your current location will automatically be added to your
+    world clocks when you are connected to the Internet. Not be shown if you
+    disconnect from the Internet and will automatically update if you take
+    your computer to a different city.</p>
   </note>
 
 </page>
