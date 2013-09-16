@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-12 19:30+0200\n"
-"PO-Revision-Date: 2013-09-12 19:31+0200\n"
+"POT-Creation-Date: 2013-09-16 21:03+0200\n"
+"PO-Revision-Date: 2013-09-16 21:04+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -23,7 +23,7 @@ msgstr ""
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: Poland\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:164
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Zegar"
@@ -220,11 +220,16 @@ msgstr[2] "Zaznaczono: %d"
 msgid "Delete"
 msgstr "Usuń"
 
-#: ../src/window.vala:167
+#: ../src/window.vala:146
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Wyświetlenie pomocy się nie powiodło: %s"
+
+#: ../src/window.vala:176
 msgid "Utilities to help you with the time."
 msgstr "Narzędzia pomagające zarządzać czasem."
 
-#: ../src/window.vala:172
+#: ../src/window.vala:181
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2012-2013\n"
