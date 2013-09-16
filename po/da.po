@@ -2,16 +2,16 @@
 # Copyright (C) 2012-2013 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 #
-# Kenneth Nielsen <k.nielsen81@gmail.com>, 2012.
+# Kenneth Nielsen <k.nielsen81@gmail.com>, 2012, 13.
 # Ask Hjorth Larsen <asklarsen@gmail.com>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-17 08:10+0100\n"
-"PO-Revision-Date: 2013-03-16 18:40+0100\n"
-"Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
+"POT-Creation-Date: 2013-09-16 23:11+0200\n"
+"PO-Revision-Date: 2013-09-16 23:08+0200\n"
+"Last-Translator: Kenneth Nielsen <k.nielsen81@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Ure"
 
@@ -35,58 +36,86 @@ msgstr "Verdensur plus alarmer, stopur og en timer"
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "tid;alarm;vækkeur;verdensur;stopur;ur;tidszone;klokken;"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
 msgid "Configured world clocks"
 msgstr "Konfigurerede verdensure"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
 msgid "List of world clocks to show."
 msgstr "Liste af verdensure, der skal vises."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
 msgid "Configured alarms"
 msgstr "Konfigurerede alarmer"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
 msgid "List of alarms set."
 msgstr "Liste af indstillede alarmer."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:105
 msgid "Timer"
 msgstr "Timer"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
 msgid "Configured timer duration in seconds."
 msgstr "Indstillet tidsudløb i sekunder."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:476
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Geolocation support"
+msgstr "Understøttelse for geoplacering"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr "Slå understøttelse for geoplacering til eller fra."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+msgid "Window state"
+msgstr "Vinduestilstand"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+msgid "State of the window: i.e. maximized."
+msgstr "Vinduestilstanden: f.eks. maksimeret."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+msgid "Window width and height"
+msgstr "Vinduesbredde og -højde"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+msgid "Width and height of the window."
+msgstr "Bredde og højde af vinduet."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
+msgid "Panel state"
+msgstr "Paneltilstand"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
+msgid "Current clock panel."
+msgstr "Nuværende urpanel."
+
+#: ../src/alarm.vala:109 ../src/alarm.vala:330 ../src/alarm.vala:481
 msgid "Alarm"
 msgstr "Alarm"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../src/alarm.ui.h:2
+#: ../src/alarm.vala:110 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Stop"
 
-#: ../src/alarm.vala:109 ../src/alarm.ui.h:3
+#: ../src/alarm.vala:113 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Slumr"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:282
 msgid "Edit Alarm"
 msgstr "Redigér alarm"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:282
 msgid "New Alarm"
 msgstr "Ny alarm"
-
-#: ../src/alarm.vala:267
-msgid "_Done"
-msgstr "_Færdig"
 
 # New refererer så vidt jeg kan se til en alarm eller et verdensur, så den kan desværre ikke oversættes strengt korrekt til dansk
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:484 ../src/world.vala:281
+#: ../src/alarm.vala:487 ../src/world.vala:278
 msgid "New"
 msgstr "Ny"
 
@@ -94,103 +123,109 @@ msgstr "Ny"
 msgid "Print version information and exit"
 msgstr "Vis versionsoplysninger og afslut"
 
-#: ../src/stopwatch.vala:50
+#: ../src/stopwatch.vala:129
 msgid "Stopwatch"
 msgstr "Stopur"
 
-#: ../src/stopwatch.vala:124 ../src/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:190
 msgid "Lap"
 msgstr "Omgang"
 
-#: ../src/stopwatch.vala:131 ../src/timer.vala:88
+#: ../src/stopwatch.vala:197 ../src/timer.vala:156
 msgid "Continue"
 msgstr "Fortsæt"
 
-#: ../src/stopwatch.vala:135 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:3
+#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Nulstil"
 
-#: ../src/stopwatch.vala:143 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:1
+#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Start"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:113
 msgid "Time is up!"
 msgstr "Tiden er udløbet!"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:113
 msgid "Timer countdown finished"
 msgstr "Nedtællingen afsluttet"
 
-#: ../src/timer.vala:93 ../src/timer.vala:103 ../src/timer.ui.h:2
+#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Pause"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:163
 msgid "Mondays"
 msgstr "Mandage"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:164
 msgid "Tuesdays"
 msgstr "Tirsdage"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:165
 msgid "Wednesdays"
 msgstr "Onsdage"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:166
 msgid "Thursdays"
 msgstr "Torsdage"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:167
 msgid "Fridays"
 msgstr "Fredage"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:168
 msgid "Saturdays"
 msgstr "Lørdage"
 
-#: ../src/utils.vala:155
+#: ../src/utils.vala:169
 msgid "Sundays"
 msgstr "Søndage"
 
-#: ../src/utils.vala:235
+#: ../src/utils.vala:249
 msgid "Every Day"
 msgstr "Hver dag"
 
-#: ../src/utils.vala:237
+#: ../src/utils.vala:251
 msgid "Weekdays"
 msgstr "Hverdage"
 
-#: ../src/widgets.vala:386
-msgid "Done"
-msgstr "Færdig"
+#: ../src/utils.vala:253
+msgid "Weekends"
+msgstr "Weekender"
 
-#: ../src/widgets.vala:398 ../src/widgets.vala:433
+#: ../src/widgets.vala:461
+msgid "Cancel"
+msgstr "Annullér"
+
+#: ../src/widgets.vala:473 ../src/widgets.vala:526
 msgid "Click on items to select them"
 msgstr "Klik på elementer for at markere dem"
 
-#: ../src/widgets.vala:435
+#: ../src/widgets.vala:528
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d markeret"
 msgstr[1] "%d markeret"
 
-#: ../src/widgets.vala:477
+#: ../src/widgets.vala:570
 msgid "Delete"
 msgstr "Slet"
 
-# yuck
-#: ../src/window.vala:142
-msgid "Gnome Clocks"
-msgstr "Gnome Ure"
+#: ../src/window.vala:146
+#, c-format
+msgid "Failed to show help: %s"
+msgstr ""
 
-#: ../src/window.vala:145
+#: ../src/window.vala:176
 msgid "Utilities to help you with the time."
 msgstr "Værktøjer til at hjælpe dig med tiden."
 
-#: ../src/window.vala:150
+#: ../src/window.vala:181
 msgid "translator-credits"
 msgstr ""
 "Kenneth Nielsen\n"
@@ -200,86 +235,99 @@ msgstr ""
 "Mere info: http://www.dansk-gruppen.dk"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:102 ../src/world.vala:105
+#: ../src/world.vala:112 ../src/world.vala:115
 msgid "Tomorrow"
 msgstr "I morgen"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:102 ../src/world.vala:105
+#: ../src/world.vala:112 ../src/world.vala:115
 msgid "Yesterday"
 msgstr "I går"
 
-#: ../src/world.vala:172
-msgid "Add a New World Clock"
-msgstr "Tilføj et nyt verdensur"
-
-#: ../src/world.vala:270
+#: ../src/world.vala:269
 msgid "World"
 msgstr "Verden"
 
 #. namespace World
 #. namespace Clocks
-#: ../src/alarm.ui.h:1
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Vælg <b>Ny</b> for at tilføje en alarm"
+#: ../data/ui/alarmsetupdialog.ui.h:1
+msgid "_Done"
+msgstr "_Færdig"
 
-#: ../src/alarm.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:2
 msgid "Name"
 msgstr "Navn"
 
 # Strengt taget forkert hvis det f.eks. er hvert minut, men jeg har svært ved at forestille mig hvordan det kan indernationaliseres bedre, så vi må nok nøjes med en lokalisering som ikke er perfekt
-#: ../src/alarm.ui.h:5
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "Repeat Every"
 msgstr "Gentagelsesinterval"
 
-#: ../src/alarm.ui.h:6
+#: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "Active"
 msgstr "Aktiv"
 
-#: ../src/menu.ui.h:1
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Vælg <b>Ny</b> for at tilføje en alarm"
+
+#: ../data/ui/menu.ui.h:1
 msgid "_New"
 msgstr "_Ny"
 
-#: ../src/menu.ui.h:2
+#: ../data/ui/menu.ui.h:2
+msgid "_Help"
+msgstr "_Hjælp"
+
+#: ../data/ui/menu.ui.h:3
 msgid "_About"
 msgstr "_Om"
 
-#: ../src/menu.ui.h:3
+#: ../data/ui/menu.ui.h:4
 msgid "_Quit"
 msgstr "_Afslut"
 
-#: ../src/menu.ui.h:4
+#: ../data/ui/menu.ui.h:5
 msgid "Select All"
 msgstr "Vælg alle"
 
-#: ../src/menu.ui.h:5
+#: ../data/ui/menu.ui.h:6
 msgid "Select None"
 msgstr "Vælg ingen"
 
-# Fryser den viste tid men tæller videre i baggrunden
-#: ../src/stopwatch.ui.h:4
-msgid "Split"
-msgstr "Mellemtid"
+#: ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Tilføj et nyt verdensur"
 
-#: ../src/stopwatch.ui.h:5
-msgid "Total"
-msgstr "Samlet"
-
-#: ../src/world.ui.h:1
-msgid "Select <b>New</b> to add a world clock"
-msgstr "Vælg <b>Ny</b> for at tilføje et verdensur"
-
-#: ../src/world.ui.h:2
+#: ../data/ui/worldlocationdialog.ui.h:2
 msgid "Search for a city:"
 msgstr "Søg efter en by:"
 
-#: ../src/world.ui.h:3
+#: ../data/ui/world.ui.h:1
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Vælg <b>Ny</b> for at tilføje et verdensur"
+
+#: ../data/ui/world.ui.h:2
 msgid "Sunrise"
 msgstr "Solopgang"
 
-#: ../src/world.ui.h:4
+#: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Solnedgang"
+
+#~ msgid "Done"
+#~ msgstr "Færdig"
+
+# yuck
+#~ msgid "Gnome Clocks"
+#~ msgstr "Gnome Ure"
+
+# Fryser den viste tid men tæller videre i baggrunden
+#~ msgid "Split"
+#~ msgstr "Mellemtid"
+
+#~ msgid "Total"
+#~ msgstr "Samlet"
 
 #~ msgid "Time"
 #~ msgstr "Tidspunkt"
