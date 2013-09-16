@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: Tajik Gnome\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-12 15:18+0000\n"
-"PO-Revision-Date: 2013-09-13 13:16+0500\n"
+"POT-Creation-Date: 2013-09-16 17:11+0000\n"
+"PO-Revision-Date: 2013-09-16 23:28+0500\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: \n"
 "Language: Tajik\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-Bookmarks: -1,24,-1,-1,-1,-1,-1,-1,-1,-1\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:164
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Соатҳо"
@@ -217,11 +217,16 @@ msgstr[1] "%d интихоб шудаанд"
 msgid "Delete"
 msgstr "Нест кардан"
 
-#: ../src/window.vala:167
+#: ../src/window.vala:146
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Намоиш додани кӯмак қатъ шудааст: %s"
+
+#: ../src/window.vala:176
 msgid "Utilities to help you with the time."
 msgstr "Барномаҳои хидматӣ барои кор бо вақт."
 
-#: ../src/window.vala:172
+#: ../src/window.vala:181
 msgid "translator-credits"
 msgstr "Victor Ibragimov"
 
