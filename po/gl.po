@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-12 19:24+0200\n"
-"PO-Revision-Date: 2013-09-12 19:24+0200\n"
+"POT-Creation-Date: 2013-09-16 19:37+0200\n"
+"PO-Revision-Date: 2013-09-16 19:38+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -22,7 +22,7 @@ msgstr ""
 "X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:164
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Reloxos"
@@ -220,11 +220,16 @@ msgstr[1] "%d seleccionados"
 msgid "Delete"
 msgstr "Eliminar"
 
-#: ../src/window.vala:167
+#: ../src/window.vala:146
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Produciuse un fallo ao mostrar a axuda: %s"
+
+#: ../src/window.vala:176
 msgid "Utilities to help you with the time."
 msgstr "Utilidades que lle axudan co tempo."
 
-#: ../src/window.vala:172
+#: ../src/window.vala:181
 msgid "translator-credits"
 msgstr ""
 "Leandro Regueiro <leandro.regueiro@gmail.com>, 2012\n"
