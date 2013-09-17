@@ -256,9 +256,11 @@ private class StandalonePanel : Gtk.EventBox {
     private Gtk.Label day_label;
     private Gtk.Label sunrise_label;
     private Gtk.Label sunset_label;
-    private Gtk.Image city_image;
+    private Gtk.DrawingArea drawing_area;
     private Gdk.Pixbuf? day_pixbuf;
     private Gdk.Pixbuf? night_pixbuf;
+    private double window_width;
+    private double window_height;
 
     public StandalonePanel () {
         get_style_context ().add_class ("view");
@@ -273,18 +275,42 @@ private class StandalonePanel : Gtk.EventBox {
         sunset_label = builder.get_object ("sunset_label") as Gtk.Label;
 
         var overlay = new Gtk.Overlay ();
-        var scrolled_window = new Gtk.ScrolledWindow (null, null);
-        scrolled_window.set_policy (Gtk.PolicyType.NEVER, Gtk.PolicyType.NEVER);
-        city_image = new Gtk.Image ();
-        city_image.halign = Gtk.Align.FILL;
-        city_image.valign = Gtk.Align.FILL;
-        scrolled_window.add (city_image);
-        overlay.add (scrolled_window);
+        drawing_area = new Gtk.DrawingArea ();
+        overlay.add (drawing_area);
         overlay.add_overlay (grid);
 
-        city_image.size_allocate.connect (on_size_allocate);
-
         add (overlay);
+
+        drawing_area.configure_event.connect (on_configure_event);
+        drawing_area.draw.connect (on_draw);
+    }
+
+    private bool on_draw (Cairo.Context cr) {
+        if (location.is_daytime) {
+            day_pixbuf = location.day_pixbuf.scale_simple ((int)window_width,
+                                                           (int)window_height,
+                                                           Gdk.InterpType.BILINEAR);
+
+            Gdk.cairo_set_source_pixbuf (cr, day_pixbuf, 0, 0);
+        } else {
+            night_pixbuf = location.night_pixbuf.scale_simple ((int)window_width,
+                                                               (int)window_height,
+                                                               Gdk.InterpType.BILINEAR);
+
+            Gdk.cairo_set_source_pixbuf (cr, night_pixbuf, 0, 0);
+        }
+
+        cr.rectangle (0, 0, window_width, window_height);
+        cr.fill ();
+
+        return true;
+    }
+
+    private bool on_configure_event (Gdk.EventConfigure event) {
+        window_width = event.width;
+        window_height = event.height;
+
+        return false;
     }
 
     public void update () {
@@ -294,22 +320,7 @@ private class StandalonePanel : Gtk.EventBox {
             sunrise_label.label = location.sunrise_label;
             sunset_label.label = location.sunset_label;
 
-            if (location.is_daytime) {
-                city_image.set_from_pixbuf (day_pixbuf);
-            } else {
-                city_image.set_from_pixbuf (night_pixbuf);
-            }
-        }
-    }
-
-    public void on_size_allocate (Gtk.Allocation rectangle) {
-        day_pixbuf = location.day_pixbuf.scale_simple (rectangle.width, rectangle.height, Gdk.InterpType.BILINEAR);
-        night_pixbuf = location.night_pixbuf.scale_simple (rectangle.width, rectangle.height, Gdk.InterpType.BILINEAR);
-
-        if (location.is_daytime) {
-            city_image.set_from_pixbuf (day_pixbuf);
-        } else {
-            city_image.set_from_pixbuf (night_pixbuf);
+            drawing_area.queue_draw ();
         }
     }
 }
