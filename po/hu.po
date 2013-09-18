@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-13 11:31+0200\n"
-"PO-Revision-Date: 2013-09-13 11:30+0200\n"
+"POT-Creation-Date: 2013-09-18 12:50+0200\n"
+"PO-Revision-Date: 2013-09-18 12:54+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:164
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Órák"
@@ -215,11 +215,16 @@ msgstr[1] "%d kiválasztva"
 msgid "Delete"
 msgstr "Törlés"
 
-#: ../src/window.vala:167
+#: ../src/window.vala:146
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "A súgó megjelenítése meghiúsult: %s"
+
+#: ../src/window.vala:176
 msgid "Utilities to help you with the time."
 msgstr "Segédprogramok az idő kezeléséhez."
 
-#: ../src/window.vala:172
+#: ../src/window.vala:181
 msgid "translator-credits"
 msgstr "Kelemen Gábor <kelemeng at gnome dot hu>"
 
