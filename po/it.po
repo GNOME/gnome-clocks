@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-12 18:44+0200\n"
-"PO-Revision-Date: 2013-09-12 18:44+0200\n"
+"POT-Creation-Date: 2013-09-18 10:05+0200\n"
+"PO-Revision-Date: 2013-09-18 10:04+0200\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Gtranslator 2.91.6\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:164
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Orologi"
@@ -215,11 +215,16 @@ msgstr[1] "%d selezionati"
 msgid "Delete"
 msgstr "Elimina"
 
-#: ../src/window.vala:167
+#: ../src/window.vala:146
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Visualizzazione della guida non riuscita: %s"
+
+#: ../src/window.vala:176
 msgid "Utilities to help you with the time."
 msgstr "Strumenti per controllare l'ora."
 
-#: ../src/window.vala:172
+#: ../src/window.vala:181
 msgid "translator-credits"
 msgstr ""
 "Milo Casagrande (milo@ubuntu.com)\n"
