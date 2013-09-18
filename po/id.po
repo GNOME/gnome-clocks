@@ -10,18 +10,18 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-04 09:17+0000\n"
-"PO-Revision-Date: 2013-09-11 17:45+0700\n"
-"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"POT-Creation-Date: 2013-09-17 11:23+0000\n"
+"PO-Revision-Date: 2013-09-17 20:18+0700\n"
+"Last-Translator: Dirgita <dirgitadevina@yahoo.co.id>\n"
 "Language-Team: Indonesian <gnome@i15n.org>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Lokalize 1.5\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:164
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Jam"
@@ -63,52 +63,60 @@ msgid "Configured timer duration in seconds."
 msgstr "Durasi timer yang telah disetel dalam satuan detik."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Geolocation support"
+msgstr "Dukungan geolokasi"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr "Mengaktifkan/mematikan fungsi geolokasi."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
 msgid "Window state"
 msgstr "Keadaan jendela"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
 msgid "State of the window: i.e. maximized."
 msgstr "Keadaan jendela: mis. dimaksimalkan."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
 msgid "Window width and height"
 msgstr "Lebar dan tinggi jendela"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
 msgid "Width and height of the window."
 msgstr "Lebar dan tinggi jendela.."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
 msgid "Panel state"
 msgstr "Keadaan panel"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
 msgid "Current clock panel."
 msgstr "Panel jam saat ini."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:326 ../src/alarm.vala:477
+#: ../src/alarm.vala:109 ../src/alarm.vala:330 ../src/alarm.vala:481
 msgid "Alarm"
 msgstr "Alarm"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:110 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Berhenti"
 
-#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:113 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Jeda"
 
-#: ../src/alarm.vala:278
+#: ../src/alarm.vala:282
 msgid "Edit Alarm"
 msgstr "Sunting Alarm"
 
-#: ../src/alarm.vala:278
+#: ../src/alarm.vala:282
 msgid "New Alarm"
 msgstr "Alarm Baru"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:483 ../src/world.vala:271
+#: ../src/alarm.vala:487 ../src/world.vala:278
 msgid "New"
 msgstr "Baru"
 
@@ -190,29 +198,34 @@ msgstr "Hari kerja"
 msgid "Weekends"
 msgstr "Akhir minggu"
 
-#: ../src/widgets.vala:374
+#: ../src/widgets.vala:461
 msgid "Cancel"
 msgstr "Batal"
 
-#: ../src/widgets.vala:386 ../src/widgets.vala:439
+#: ../src/widgets.vala:473 ../src/widgets.vala:526
 msgid "Click on items to select them"
 msgstr "Klik pada item untuk memilih mereka"
 
-#: ../src/widgets.vala:441
+#: ../src/widgets.vala:528
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d dipilih"
 
-#: ../src/widgets.vala:483
+#: ../src/widgets.vala:570
 msgid "Delete"
 msgstr "Hapus"
 
-#: ../src/window.vala:167
+#: ../src/window.vala:146
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Gagal menampilkan bantuan: %s"
+
+#: ../src/window.vala:176
 msgid "Utilities to help you with the time."
 msgstr "Aplikasi untuk membantu Anda mengenai waktu"
 
-#: ../src/window.vala:172
+#: ../src/window.vala:181
 msgid "translator-credits"
 msgstr ""
 "Dirgita <dirgitadevina@yahoo.co.id>, 2012, 2013.\n"
@@ -220,16 +233,16 @@ msgstr ""
 "Bonaventura Aditya Perdana <bonaditya@about.me>, 2012."
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:105 ../src/world.vala:108
+#: ../src/world.vala:112 ../src/world.vala:115
 msgid "Tomorrow"
 msgstr "Besok"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:105 ../src/world.vala:108
+#: ../src/world.vala:112 ../src/world.vala:115
 msgid "Yesterday"
 msgstr "Kemarin"
 
-#: ../src/world.vala:262
+#: ../src/world.vala:269
 msgid "World"
 msgstr "Dunia"
 
