@@ -56,7 +56,7 @@ PKG_CHECK_MODULES(CLOCKS, [
     gweather-3.0 >= 3.9.91
     gnome-desktop-3.0 >= 3.7.90
     libnotify >= 0.7.0
-    geocode-glib-1.0 >= 0.99.3
+    geocode-glib-1.0 >= 0.99.4
     geoclue-2.0 >= 1.99.3
 ])
 
