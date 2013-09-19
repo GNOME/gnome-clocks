@@ -95,7 +95,11 @@ public class Info : Object {
             return;
         }
 
-        client.location_updated.connect (on_location_updated);
+        client.location_updated.connect ((old_path, new_path) => {
+            on_location_updated.begin (old_path, new_path, (obj, res) => {
+                on_location_updated.end (res);
+            });
+        });
 
         try {
             yield client.start ();
