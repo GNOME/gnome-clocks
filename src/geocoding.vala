@@ -146,7 +146,7 @@ public class Info : Object {
     }
 
     private double get_distance (double latitude1, double longitude1, double latitude2, double longitude2) {
-        const double earth_radius = 6372.795;
+        const double earth_radius = 6372.795d;
 
         double lat1 = deg_to_rad (latitude1);
         double lat2 = deg_to_rad (latitude2);
