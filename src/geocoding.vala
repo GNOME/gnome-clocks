@@ -132,9 +132,6 @@ public class Info : Object {
             Geocode.Place place = yield reverse.resolve_async ();
 
             country_code = place.get_country_code ();
-
-            // Reverse geocoding returns country code which is not uppercased
-            country_code = country_code.up ();
         } catch (Error e) {
             warning ("Failed to obtain country code: %s", e.message);
         }
