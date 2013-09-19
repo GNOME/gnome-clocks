@@ -257,7 +257,7 @@ public class FlickrImageProvider : GLib.Object, ImageProvider {
         } catch (Error e) {
             image = null;
 
-            fetch_image (name, (obj, res) => {
+            fetch_image.begin (name, (obj, res) => {
                 fetch_image.end (res);
             });
         }
