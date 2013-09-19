@@ -265,7 +265,7 @@ public class FlickrImageProvider : GLib.Object, ImageProvider {
         string? image_id = yield flickr_client.seek_image_id (name);
 
         if (image_id == null) {
-            warning (@"Could not get image id for $name.");
+            //warning (@"Could not get image id for $name.");
             return;
         }
 
