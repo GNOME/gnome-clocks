@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-08 21:39+0800\n"
-"PO-Revision-Date: 2013-09-07 14:02+0800\n"
+"POT-Creation-Date: 2013-09-20 13:39+0800\n"
+"PO-Revision-Date: 2013-09-20 10:23+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <chinese-l10n@googlegroups.com>\n"
 "Language: zh_TW\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.5.5\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:164
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "時鐘"
@@ -62,52 +62,60 @@ msgid "Configured timer duration in seconds."
 msgstr "設定的計時器，以秒計時。"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Geolocation support"
+msgstr "地理位置支援"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr "開啟或關閉地理位置支援。"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
 msgid "Window state"
 msgstr "視窗狀態"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
 msgid "State of the window: i.e. maximized."
 msgstr "視窗的狀態：例如為最大化狀態。"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
 msgid "Window width and height"
 msgstr "視窗的寬度與高度"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
 msgid "Width and height of the window."
 msgstr "視窗的寬度與高度。"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
 msgid "Panel state"
 msgstr "面板狀態"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
 msgid "Current clock panel."
 msgstr "目前的時鐘面板"
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:326 ../src/alarm.vala:477
+#: ../src/alarm.vala:109 ../src/alarm.vala:330 ../src/alarm.vala:481
 msgid "Alarm"
 msgstr "鬧鐘"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:110 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "停止"
 
-#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:113 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "延期"
 
-#: ../src/alarm.vala:278
+#: ../src/alarm.vala:282
 msgid "Edit Alarm"
 msgstr "編輯鬧鐘"
 
-#: ../src/alarm.vala:278
+#: ../src/alarm.vala:282
 msgid "New Alarm"
 msgstr "新增鬧鐘"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:483 ../src/world.vala:271
+#: ../src/alarm.vala:487 ../src/world.vala:278
 msgid "New"
 msgstr "新增"
 
@@ -189,43 +197,48 @@ msgstr "工作週"
 msgid "Weekends"
 msgstr "週末"
 
-#: ../src/widgets.vala:374
+#: ../src/widgets.vala:461
 msgid "Cancel"
 msgstr "取消"
 
-#: ../src/widgets.vala:386 ../src/widgets.vala:439
+#: ../src/widgets.vala:473 ../src/widgets.vala:526
 msgid "Click on items to select them"
 msgstr "點按項目來選取它們"
 
-#: ../src/widgets.vala:441
+#: ../src/widgets.vala:528
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "已選擇 %d 個"
 
-#: ../src/widgets.vala:483
+#: ../src/widgets.vala:570
 msgid "Delete"
 msgstr "刪除"
 
-#: ../src/window.vala:167
+#: ../src/window.vala:146
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "無法顯示求助：%s"
+
+#: ../src/window.vala:176
 msgid "Utilities to help you with the time."
 msgstr "協助您時間方面的工具。"
 
-#: ../src/window.vala:172
+#: ../src/window.vala:181
 msgid "translator-credits"
 msgstr "Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>, 2012"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:105 ../src/world.vala:108
+#: ../src/world.vala:112 ../src/world.vala:115
 msgid "Tomorrow"
 msgstr "明天"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:105 ../src/world.vala:108
+#: ../src/world.vala:112 ../src/world.vala:115
 msgid "Yesterday"
 msgstr "昨天"
 
-#: ../src/world.vala:262
+#: ../src/world.vala:269
 msgid "World"
 msgstr "世界"
 
