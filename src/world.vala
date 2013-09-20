@@ -151,6 +151,12 @@ private class Item : Object, ContentItem {
 
         update_images (file_name);
 
+        // We don't need to call update(), we're using only astronomical data
+        // NOTE: The creation of instance without specifying location causes a segmentation
+        // fault, probably because location in not set to NULL in the init function
+        //weather_info = (GWeather.Info) Object.new (typeof (GWeather.Info));
+        weather_info = (GWeather.Info) Object.new (typeof (GWeather.Info), "location", location);
+
         tick ();
     }
 
@@ -170,8 +176,8 @@ private class Item : Object, ContentItem {
         local_time = wallclock.date_time;
         date_time = local_time.to_timezone (time_zone);
 
-        // We don't need to call update(), we're using only astronomical data
-        weather_info = new GWeather.Info (location, GWeather.ForecastType.LIST);
+        // This forces the recalculation of the sunrise and sunset data
+        weather_info.set_location (location);
     }
 
     public void get_thumb_properties (out string text, out string subtext, out Gdk.Pixbuf? pixbuf, out string css_class) {
