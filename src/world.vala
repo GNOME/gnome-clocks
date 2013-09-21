@@ -139,8 +139,11 @@ private class Item : Object, ContentItem {
         local_time = wallclock.date_time;
         date_time = local_time.to_timezone (time_zone);
 
-        // We don't need to call update(), we're using only astronomical data
-        weather_info = new GWeather.Info (location, GWeather.ForecastType.LIST);
+        // We don't use the normal constructor since we only want static data
+        // and we do not want update() to be called.
+        weather_info = (GWeather.Info) Object.new (typeof (GWeather.Info),
+                                                   location: location,
+                                                   enabled_providers: GWeather.Provider.NONE);
     }
 
     public void get_thumb_properties (out string text, out string subtext, out Gdk.Pixbuf? pixbuf, out string css_class) {
