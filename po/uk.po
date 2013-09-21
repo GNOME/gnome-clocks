@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-26 19:10+0200\n"
-"PO-Revision-Date: 2013-03-26 19:35+0300\n"
+"POT-Creation-Date: 2013-09-21 12:53+0300\n"
+"PO-Revision-Date: 2013-09-21 12:58+0300\n"
 "Last-Translator: Daniel Korostil <ted.korostiled@gmail.com>\n"
 "Language-Team: linux.org.ua\n"
 "Language: uk\n"
@@ -19,7 +19,8 @@ msgstr ""
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Virtaal 0.7.1\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Годинники"
 
@@ -35,57 +36,85 @@ msgstr "Годинники для перегляду часу, а також б�
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "час;таймер;будильник;світовий;секундомір;часовий пояс;"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
 msgid "Configured world clocks"
 msgstr "Налаштований світовий час"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
 msgid "List of world clocks to show."
 msgstr "Список світових годинників, які показуються."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
 msgid "Configured alarms"
 msgstr "Налаштований будильник"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
 msgid "List of alarms set."
 msgstr "Список настанов для будильників."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:105
 msgid "Timer"
 msgstr "Таймер"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
 msgid "Configured timer duration in seconds."
 msgstr "Налаштована тривалість таймера в секундах. "
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:476
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Geolocation support"
+msgstr "Підтримування геопозиціонування"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr "Увімкнути/вимкнути підтримування географічного розміщення."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+msgid "Window state"
+msgstr "Стан вікна"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+msgid "State of the window: i.e. maximized."
+msgstr "Стан вікна: наприклад, розгорнуте."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+msgid "Window width and height"
+msgstr "Ширина та висота вікна"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+msgid "Width and height of the window."
+msgstr "Ширина і висота цього вікна."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
+msgid "Panel state"
+msgstr "Стан панелі"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
+msgid "Current clock panel."
+msgstr "Поточна панель годинника."
+
+#: ../src/alarm.vala:109 ../src/alarm.vala:330 ../src/alarm.vala:481
 msgid "Alarm"
 msgstr "Будильник"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:110 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Зупинити"
 
-#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:113 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Нагадати пізніше"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:282
 msgid "Edit Alarm"
 msgstr "Редагувати будильник"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:282
 msgid "New Alarm"
 msgstr "Створити будильник"
 
-#: ../src/alarm.vala:267
-msgid "_Done"
-msgstr "_Завершити"
-
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:484 ../src/world.vala:281
+#: ../src/alarm.vala:487 ../src/world.vala:278
 msgid "New"
 msgstr "Створити"
 
@@ -93,85 +122,89 @@ msgstr "Створити"
 msgid "Print version information and exit"
 msgstr "Вивести інформацію про версію та вийти"
 
-#: ../src/stopwatch.vala:50
+#: ../src/stopwatch.vala:129
 msgid "Stopwatch"
 msgstr "Хронометр"
 
-#: ../src/stopwatch.vala:124 ../data/ui/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:190
 msgid "Lap"
 msgstr "Оберт"
 
-#: ../src/stopwatch.vala:131 ../src/timer.vala:88
+#: ../src/stopwatch.vala:197 ../src/timer.vala:156
 msgid "Continue"
 msgstr "Продовжити"
 
-#: ../src/stopwatch.vala:135 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Скинути"
 
-#: ../src/stopwatch.vala:143 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Запустити"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:113
 msgid "Time is up!"
 msgstr "Час вичерпано!"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:113
 msgid "Timer countdown finished"
 msgstr "Лічбу таймера завершено"
 
-#: ../src/timer.vala:93 ../src/timer.vala:103 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Призупинити"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:163
 msgid "Mondays"
 msgstr "Понеділки"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:164
 msgid "Tuesdays"
 msgstr "Вівторки"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:165
 msgid "Wednesdays"
 msgstr "Середи"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:166
 msgid "Thursdays"
 msgstr "Четверги"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:167
 msgid "Fridays"
 msgstr "П'ятниці"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:168
 msgid "Saturdays"
 msgstr "Суботи"
 
-#: ../src/utils.vala:155
+#: ../src/utils.vala:169
 msgid "Sundays"
 msgstr "Неділі"
 
-#: ../src/utils.vala:235
+#: ../src/utils.vala:249
 msgid "Every Day"
 msgstr "Щодня"
 
-#: ../src/utils.vala:237
+#: ../src/utils.vala:251
 msgid "Weekdays"
 msgstr "Дні тижня"
 
-#: ../src/widgets.vala:386
-msgid "Done"
-msgstr "Завершено"
+#: ../src/utils.vala:253
+msgid "Weekends"
+msgstr "Вихідні"
 
-#: ../src/widgets.vala:398 ../src/widgets.vala:433
+#: ../src/widgets.vala:461
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: ../src/widgets.vala:473 ../src/widgets.vala:526
 msgid "Click on items to select them"
 msgstr "Натисніть на пункти, щоб їх вибрати"
 
-#: ../src/widgets.vala:435
+#: ../src/widgets.vala:528
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -179,101 +212,114 @@ msgstr[0] "%d вибрано"
 msgstr[1] "%d вибрано"
 msgstr[2] "%d вибрано"
 
-#: ../src/widgets.vala:477
+#: ../src/widgets.vala:570
 msgid "Delete"
 msgstr "Вилучити"
 
-#: ../src/window.vala:142
-msgid "Gnome Clocks"
-msgstr "Годинники GNOME"
+#: ../src/window.vala:146
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Не вдалося показати довідку: %s"
 
-#: ../src/window.vala:145
+#: ../src/window.vala:176
 msgid "Utilities to help you with the time."
 msgstr "Засоби, які допомагають з часом."
 
-#: ../src/window.vala:150
+#: ../src/window.vala:181
 msgid "translator-credits"
 msgstr "Daniel Korostil <ted.korostiled@gmail.com>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:102 ../src/world.vala:105
+#: ../src/world.vala:112 ../src/world.vala:115
 msgid "Tomorrow"
 msgstr "Завтра"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:102 ../src/world.vala:105
+#: ../src/world.vala:112 ../src/world.vala:115
 msgid "Yesterday"
 msgstr "Учора"
 
-#: ../src/world.vala:172
-msgid "Add a New World Clock"
-msgstr "Додати новий світовий годинник"
-
-#: ../src/world.vala:270
+#: ../src/world.vala:269
 msgid "World"
 msgstr "Світ"
 
 #. namespace World
 #. namespace Clocks
-#: ../data/ui/alarm.ui.h:1
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Виберіть <b>Створити</b>, щоб додати будильник"
+#: ../data/ui/alarmsetupdialog.ui.h:1
+msgid "_Done"
+msgstr "_Завершити"
 
-#: ../data/ui/alarm.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:2
 msgid "Name"
 msgstr "Назва"
 
-#: ../data/ui/alarm.ui.h:5
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "Repeat Every"
 msgstr "Повторювати кожен"
 
-#: ../data/ui/alarm.ui.h:6
+#: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "Active"
 msgstr "Дійсний"
+
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Виберіть <b>Створити</b>, щоб додати будильник"
 
 #: ../data/ui/menu.ui.h:1
 msgid "_New"
 msgstr "_Створити"
 
 #: ../data/ui/menu.ui.h:2
+msgid "_Help"
+msgstr "_Довідка"
+
+#: ../data/ui/menu.ui.h:3
 msgid "_About"
 msgstr "_Про програму"
 
-#: ../data/ui/menu.ui.h:3
+#: ../data/ui/menu.ui.h:4
 msgid "_Quit"
 msgstr "Ви_йти"
 
-#: ../data/ui/menu.ui.h:4
+#: ../data/ui/menu.ui.h:5
 msgid "Select All"
 msgstr "Вибрати все"
 
-#: ../data/ui/menu.ui.h:5
+#: ../data/ui/menu.ui.h:6
 msgid "Select None"
 msgstr "Зняти вибір"
 
-#: ../data/ui/stopwatch.ui.h:4
-msgid "Split"
-msgstr "Розділити"
+#: ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Додати новий світовий годинник"
 
-#: ../data/ui/stopwatch.ui.h:5
-msgid "Total"
-msgstr "Всього"
+#: ../data/ui/worldlocationdialog.ui.h:2
+msgid "Search for a city:"
+msgstr "Пошук за містом:"
 
 #: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Виберіть <b>Створити</b>, щоб додати світовий годинник"
 
 #: ../data/ui/world.ui.h:2
-msgid "Search for a city:"
-msgstr "Пошук за містом:"
-
-#: ../data/ui/world.ui.h:3
 msgid "Sunrise"
 msgstr "Світанок"
 
-#: ../data/ui/world.ui.h:4
+#: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Захід"
+
+#~ msgid "Done"
+#~ msgstr "Завершено"
+
+#~ msgid "Gnome Clocks"
+#~ msgstr "Годинники GNOME"
+
+#~ msgid "Split"
+#~ msgstr "Розділити"
+
+#~ msgid "Total"
+#~ msgstr "Всього"
 
 #~ msgid "Time"
 #~ msgstr "Час"
