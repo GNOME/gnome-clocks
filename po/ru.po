@@ -10,21 +10,20 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-13 02:06+0000\n"
-"PO-Revision-Date: 2013-09-13 11:57+0200\n"
-"Last-Translator: Dmitriy S. Seregin <dseregin@59.ru>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-09-16 23:28+0000\n"
+"PO-Revision-Date: 2013-09-22 20:41+0300\n"
+"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.5.5\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:164
+#: ../data/gnome-clocks.desktop.in.h:1
+#: ../src/window.vala:173
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Часы"
@@ -57,7 +56,8 @@ msgstr "Настроенные будильники"
 msgid "List of alarms set."
 msgstr "Список настроенных будильников."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:105
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5
+#: ../src/timer.vala:105
 msgid "Timer"
 msgstr "Таймер"
 
@@ -97,15 +97,20 @@ msgstr "Состояние панели"
 msgid "Current clock panel."
 msgstr "Активная панель часов."
 
-#: ../src/alarm.vala:109 ../src/alarm.vala:330 ../src/alarm.vala:481
+#: ../src/alarm.vala:109
+#: ../src/alarm.vala:330
+#: ../src/alarm.vala:481
 msgid "Alarm"
 msgstr "Будильник"
 
-#: ../src/alarm.vala:110 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:110
+#: ../src/stopwatch.vala:187
+#: ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Остановить"
 
-#: ../src/alarm.vala:113 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:113
+#: ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Напомнить"
 
@@ -119,7 +124,8 @@ msgstr "Создать будильник"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:487 ../src/world.vala:278
+#: ../src/alarm.vala:487
+#: ../src/world.vala:278
 msgid "New"
 msgstr "Создать"
 
@@ -135,16 +141,19 @@ msgstr "Секундомер"
 msgid "Lap"
 msgstr "Круг"
 
-#: ../src/stopwatch.vala:197 ../src/timer.vala:156
+#: ../src/stopwatch.vala:197
+#: ../src/timer.vala:156
 msgid "Continue"
 msgstr "Продолжить"
 
-#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:201
+#: ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Сбросить"
 
-#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:209
+#: ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Запустить"
@@ -157,7 +166,9 @@ msgstr "Время истекло!"
 msgid "Timer countdown finished"
 msgstr "Обратный отсчёт таймера завершён"
 
-#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:161
+#: ../src/timer.vala:172
+#: ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Приостановить"
 
@@ -205,7 +216,8 @@ msgstr "По выходным"
 msgid "Cancel"
 msgstr "Отмена"
 
-#: ../src/widgets.vala:473 ../src/widgets.vala:526
+#: ../src/widgets.vala:473
+#: ../src/widgets.vala:526
 msgid "Click on items to select them"
 msgstr "Нажмите на элемент, чтобы выбрать его"
 
@@ -221,21 +233,28 @@ msgstr[2] "Выбрано %d элементов"
 msgid "Delete"
 msgstr "Удалить"
 
-#: ../src/window.vala:167
+#: ../src/window.vala:146
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Не удалось открыть справку: %s"
+
+#: ../src/window.vala:176
 msgid "Utilities to help you with the time."
 msgstr "Утилиты для помощи в организации времени."
 
-#: ../src/window.vala:172
+#: ../src/window.vala:181
 msgid "translator-credits"
 msgstr "Станислав Соловей <whats_up@tut.by>, 2013"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:112 ../src/world.vala:115
+#: ../src/world.vala:112
+#: ../src/world.vala:115
 msgid "Tomorrow"
 msgstr "Завтра"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:112 ../src/world.vala:115
+#: ../src/world.vala:112
+#: ../src/world.vala:115
 msgid "Yesterday"
 msgstr "Вчера"
 
@@ -308,3 +327,4 @@ msgstr "Рассвет"
 #: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Закат"
+
