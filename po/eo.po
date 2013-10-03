@@ -2,237 +2,326 @@
 # Copyright (C) 2012 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-clocks package.
 # Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2012.
+# Ryan Lortie <desrt@desrt.ca>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-12-23 02:48+0000\n"
-"PO-Revision-Date: 2012-12-23 04:59+0100\n"
-"Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
+"POT-Creation-Date: 2013-10-02 22:22-0400\n"
+"PO-Revision-Date: 2013-10-02 22:46-0400\n"
+"Last-Translator: Ryan Lortie <desrt@desrt.ca>\n"
 "Language-Team: Esperanto <gnome-l10n-eo@lists.launchpad.net>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Gtranslator 2.91.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:35
+#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Horloĝoj"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:135
-#: ../gnomeclocks/app.py:144
+#: ../data/gnome-clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "GNOME-horloĝoj"
 
 #: ../data/gnome-clocks.desktop.in.h:3
-#, fuzzy
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Horloĝoj por mondhoroj, plus alarmoj, klikhorloĝoj kaj tempilo"
+msgstr "Horloĝoj por mondaj horoj, plus alarmoj, kronometro kaj tempomezurilo"
 
 #: ../data/gnome-clocks.desktop.in.h:4
-#, fuzzy
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "horo;tempilo;alarmo;mondhorloĝo;klikhorloĝo;horzono;"
+msgstr "horo;tempomezurilo;alarmo;monda horloĝo;kronometro;horzono;"
 
-#. Translators: "New" refers to an alarm
-#: ../gnomeclocks/alarm.py:93 ../gnomeclocks/alarm.py:455
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
+msgid "Configured world clocks"
+msgstr "Agorditaj mondaj horloĝoj"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
+msgid "List of world clocks to show."
+msgstr "Listo de mondaj horloĝoj por montri."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
+msgid "Configured alarms"
+msgstr "Agorditaj alarmoj"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
+msgid "List of alarms set."
+msgstr "Listo de alarmoj agorditaj."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:105
+msgid "Timer"
+msgstr "Tempomezurilo"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "Agordita tempomezurila daŭro, en sekundoj."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Geolocation support"
+msgstr "Geo-pozicitrova subteno"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr "Aktivigi aŭ malaktivigi geo-pozicitrovan subtenon"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+msgid "Window state"
+msgstr "Fenestra stato"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+msgid "State of the window: i.e. maximized."
+msgstr "Stato de la fenestro; ekz. maksimumigita."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+msgid "Window width and height"
+msgstr "Fenestra larĝo kaj alto"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+msgid "Width and height of the window."
+msgstr "Larĝo kaj alto de la fenestro."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
+msgid "Panel state"
+msgstr "Reĝima stato"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
+msgid "Current clock panel."
+msgstr "Aktuala horloĝa reĝimo."
+
+#: ../src/alarm.vala:109 ../src/alarm.vala:330 ../src/alarm.vala:481
 msgid "Alarm"
-msgstr "Alarmo"
+msgstr "Alarmoj"
 
-#: ../gnomeclocks/alarm.py:130
-msgid "Every day"
-msgstr "Ĉiutage"
-
-#: ../gnomeclocks/alarm.py:132
-msgid "Weekdays"
-msgstr "Semajntage"
-
-#: ../gnomeclocks/alarm.py:193
-msgid "Edit Alarm"
-msgstr "Redakti alarmon"
-
-#: ../gnomeclocks/alarm.py:195 ../gnomeclocks/alarm.py:221
-msgid "New Alarm"
-msgstr "Nova alarmo"
-
-#. Translators: "Time" in this context is the time an alarm
-#. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:226
-msgid "Time"
-msgstr "Horo"
-
-#: ../gnomeclocks/alarm.py:269
-msgid "Name"
-msgstr "Nomo"
-
-#: ../gnomeclocks/alarm.py:278
-msgid "Repeat Every"
-msgstr "Ripetu enigon"
-
-#: ../gnomeclocks/alarm.py:348 ../gnomeclocks/stopwatch.py:121
+#: ../src/alarm.vala:110 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Halti"
 
-#: ../gnomeclocks/alarm.py:350
+#: ../src/alarm.vala:113 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Dormeti"
 
-#: ../gnomeclocks/alarm.py:455 ../gnomeclocks/world.py:298
+#: ../src/alarm.vala:282
+msgid "Edit Alarm"
+msgstr "Redakti alarmon"
+
+#: ../src/alarm.vala:282
+msgid "New Alarm"
+msgstr "Nova alarmo"
+
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:487 ../src/world.vala:278
 msgid "New"
 msgstr "Nova"
 
-#: ../gnomeclocks/alarm.py:469
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Elektu na <b>Nova</b> por aldoni alarmon"
+#: ../src/application.vala:24
+msgid "Print version information and exit"
+msgstr "Eligi versian informon kaj ĉesi"
 
-#: ../gnomeclocks/app.py:134 ../gnomeclocks/app.py:418
-msgid "About Clocks"
-msgstr "Pri horloĝoj"
-
-#: ../gnomeclocks/app.py:140
-msgid "Utilities to help you with the time."
-msgstr "Utilaĵoj por helpi vin pri la horo."
-
-#: ../gnomeclocks/app.py:142
-msgid "translator-credits"
-msgstr "Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>"
-
-#: ../gnomeclocks/app.py:294
-msgid "Edit"
-msgstr "Redakti"
-
-#: ../gnomeclocks/app.py:299
-msgid "Done"
-msgstr "Farite"
-
-#: ../gnomeclocks/app.py:378
-msgid "Click on items to select them"
-msgstr "Klaki sur elementoj por elekti ilin"
-
-#: ../gnomeclocks/app.py:380
-msgid "{0} item selected"
-msgid_plural "{0} items selected"
-msgstr[0] "{0} elemento elektita"
-msgstr[1] "{0} elementoj elektitaj"
-
-#: ../gnomeclocks/app.py:421
-msgid "Quit"
-msgstr "Ĉesi"
-
-#: ../gnomeclocks/stopwatch.py:35
+#: ../src/stopwatch.vala:129
 msgid "Stopwatch"
-msgstr "Klikhorloĝo"
+msgstr "Kronometro"
 
-#: ../gnomeclocks/stopwatch.py:67 ../gnomeclocks/stopwatch.py:153
-#: ../gnomeclocks/timer.py:111
-msgid "Start"
-msgstr "Startigi"
-
-#: ../gnomeclocks/stopwatch.py:75 ../gnomeclocks/stopwatch.py:132
-#: ../gnomeclocks/timer.py:53
-msgid "Reset"
-msgstr "Reagordi"
-
-#: ../gnomeclocks/stopwatch.py:87 ../gnomeclocks/stopwatch.py:124
+#: ../src/stopwatch.vala:190
 msgid "Lap"
-msgstr ""
+msgstr "Rondiro"
 
-#: ../gnomeclocks/stopwatch.py:93
-msgid "Split"
-msgstr "Dividi"
-
-#: ../gnomeclocks/stopwatch.py:99
-msgid "Total"
-msgstr "Sumo"
-
-#: ../gnomeclocks/stopwatch.py:128 ../gnomeclocks/timer.py:70
+#: ../src/stopwatch.vala:197 ../src/timer.vala:156
 msgid "Continue"
 msgstr "Daŭrigi"
 
-#: ../gnomeclocks/timer.py:46 ../gnomeclocks/timer.py:64
-#: ../gnomeclocks/timer.py:74
-msgid "Pause"
-msgstr "Paŭzo"
+#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
+msgid "Reset"
+msgstr "Reagordi"
 
-#: ../gnomeclocks/timer.py:156
-#, fuzzy
-msgid "Timer"
-msgstr "Horloĝo"
+#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
+msgid "Start"
+msgstr "Startigi"
 
-#: ../gnomeclocks/timer.py:179
+#: ../src/timer.vala:113
 msgid "Time is up!"
 msgstr "Tempo estas pasinta!"
 
-#: ../gnomeclocks/timer.py:180
+#: ../src/timer.vala:113
 msgid "Timer countdown finished"
-msgstr ""
+msgstr "Tempomezurila ĝisnombrado finita."
 
-#: ../gnomeclocks/utils.py:83
+#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
+msgid "Pause"
+msgstr "Paŭzigi"
+
+#: ../src/utils.vala:163
 msgid "Mondays"
 msgstr "Lunde"
 
-#: ../gnomeclocks/utils.py:84
+#: ../src/utils.vala:164
 msgid "Tuesdays"
 msgstr "Marde"
 
-#: ../gnomeclocks/utils.py:85
+#: ../src/utils.vala:165
 msgid "Wednesdays"
 msgstr "Merkrede"
 
-#: ../gnomeclocks/utils.py:86
+#: ../src/utils.vala:166
 msgid "Thursdays"
 msgstr "Ĵaŭde"
 
-#: ../gnomeclocks/utils.py:87
+#: ../src/utils.vala:167
 msgid "Fridays"
 msgstr "Vendrede"
 
-#: ../gnomeclocks/utils.py:88
+#: ../src/utils.vala:168
 msgid "Saturdays"
 msgstr "Sabate"
 
-#: ../gnomeclocks/utils.py:89
+#: ../src/utils.vala:169
 msgid "Sundays"
 msgstr "Dimanĉe"
 
-#: ../gnomeclocks/widgets.py:299
+#: ../src/utils.vala:249
+msgid "Every Day"
+msgstr "Ĉiutage"
+
+#: ../src/utils.vala:251
+msgid "Weekdays"
+msgstr "Semajntage"
+
+#: ../src/utils.vala:253
+msgid "Weekends"
+msgstr "Semajnfine"
+
+#: ../src/widgets.vala:461
+msgid "Cancel"
+msgstr "Nuligi"
+
+#: ../src/widgets.vala:473 ../src/widgets.vala:526
+msgid "Click on items to select them"
+msgstr "Klaki sur elementoj por elekti ilin"
+
+#: ../src/widgets.vala:528
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d elektita"
+msgstr[1] "%d elektitaj"
+
+#: ../src/widgets.vala:570
 msgid "Delete"
 msgstr "Forigi"
 
-#: ../gnomeclocks/world.py:74
-msgid "Add a New World Clock"
-msgstr "Aldoni novan mondhorloĝon"
+#: ../src/window.vala:146
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Malsukcesis montri helpon: %s"
 
-#: ../gnomeclocks/world.py:83
-msgid "Search for a city:"
-msgstr "Serĉi urbon:"
+#: ../src/window.vala:176
+msgid "Utilities to help you with the time."
+msgstr "Utilaĵoj por helpi vin pri la horo."
 
-#: ../gnomeclocks/world.py:184 ../gnomeclocks/world.py:191
-msgid "Yesterday"
-msgstr "Hieraŭ"
+#: ../src/window.vala:181
+msgid "translator-credits"
+msgstr ""
+"Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
+"Ryan Lortie <desrt@desrt.ca>"
 
-#: ../gnomeclocks/world.py:186 ../gnomeclocks/world.py:189
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:112 ../src/world.vala:115
 msgid "Tomorrow"
 msgstr "Morgaŭ"
 
-#: ../gnomeclocks/world.py:228
-msgid "Sunrise"
-msgstr "Sunleviĝo"
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:112 ../src/world.vala:115
+msgid "Yesterday"
+msgstr "Hieraŭ"
 
-#: ../gnomeclocks/world.py:232
-msgid "Sunset"
-msgstr "Sunsubiro"
-
-#. Translators: "New" refers to a world clock
-#: ../gnomeclocks/world.py:298
+#: ../src/world.vala:269
 msgid "World"
 msgstr "Mondo"
 
-#: ../gnomeclocks/world.py:317
+#. namespace World
+#. namespace Clocks
+#: ../data/ui/alarmsetupdialog.ui.h:1
+msgid "_Done"
+msgstr "_Finita"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2
+msgid "Name"
+msgstr "Nomo"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
+msgid "Repeat Every"
+msgstr "Ripetu enigon"
+
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "Active"
+msgstr "Aktiva"
+
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Elektu na <b>Nova</b> por aldoni alarmon"
+
+#: ../data/ui/menu.ui.h:1
+msgid "_New"
+msgstr "_Nova"
+
+#: ../data/ui/menu.ui.h:2
+msgid "_Help"
+msgstr "_Helpo"
+
+#: ../data/ui/menu.ui.h:3
+msgid "_About"
+msgstr "_Pri"
+
+#: ../data/ui/menu.ui.h:4
+msgid "_Quit"
+msgstr "Ĉ_esi"
+
+#: ../data/ui/menu.ui.h:5
+msgid "Select All"
+msgstr "Elekti ĉiujn"
+
+#: ../data/ui/menu.ui.h:6
+msgid "Select None"
+msgstr "Elekti neniun"
+
+#: ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Aldoni novan mondhorloĝon"
+
+#: ../data/ui/worldlocationdialog.ui.h:2
+msgid "Search for a city:"
+msgstr "Serĉi urbon:"
+
+#: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Elektu na <b>Nova</b> por aldoni novan mondhorloĝon"
+
+#: ../data/ui/world.ui.h:2
+msgid "Sunrise"
+msgstr "Sunleviĝo"
+
+#: ../data/ui/world.ui.h:3
+msgid "Sunset"
+msgstr "Sunsubiro"
+
+#~ msgid "Time"
+#~ msgstr "Horo"
+
+#~ msgid "About Clocks"
+#~ msgstr "Pri horloĝoj"
+
+#~ msgid "Edit"
+#~ msgstr "Redakti"
+
+#~ msgid "Split"
+#~ msgstr "Dividi"
+
+#~ msgid "Total"
+#~ msgstr "Sumo"
