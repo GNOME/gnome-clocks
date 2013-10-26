@@ -100,7 +100,6 @@ AM_VALAFLAGS = \
 	--pkg gtk+-3.0 \
 	--pkg gweather-3.0 \
 	--pkg libcanberra \
-	--pkg libnotify \
 	--pkg geocode-glib-1.0 \
 	--gresources  $(top_srcdir)/data/gnome-clocks.gresource.xml
 
