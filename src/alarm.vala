@@ -35,6 +35,8 @@ private class Item : Object, ContentItem {
 
     public bool selectable { get; set; default = true; }
 
+    public string id { get; construct set; }
+
     public string name {
         get {
             return _name;
@@ -95,11 +97,13 @@ private class Item : Object, ContentItem {
     private Utils.Bell bell;
 
     public Item () {
+        id = GLib.DBus.generate_guid ();
         days = new Utils.Weekdays ();
     }
 
-    public Item.with_data (string name, bool active, int hour, int minute, Utils.Weekdays days) {
-        Object (name: name, active: active, hour: hour, minute: minute, days: days);
+    public Item.with_data (string? id, string name, bool active, int hour, int minute, Utils.Weekdays days) {
+        var _id = id != null ? id : GLib.DBus.generate_guid();
+        Object (id: _id, name: name, active: active, hour: hour, minute: minute, days: days);
 
         setup_bell ();
         reset ();
@@ -220,6 +224,7 @@ private class Item : Object, ContentItem {
     public void serialize (GLib.VariantBuilder builder) {
         builder.open (new GLib.VariantType ("a{sv}"));
         builder.add ("{sv}", "name", new GLib.Variant.string (name));
+        builder.add ("{sv}", "id", new GLib.Variant.string (id));
         builder.add ("{sv}", "active", new GLib.Variant.boolean (active));
         builder.add ("{sv}", "hour", new GLib.Variant.int32 (hour));
         builder.add ("{sv}", "minute", new GLib.Variant.int32 (minute));
@@ -229,6 +234,7 @@ private class Item : Object, ContentItem {
 
     public static Item? deserialize (GLib.Variant alarm_variant) {
         string? name = null;
+        string? id = null;
         bool active = true;
         int hour = -1;
         int minute = -1;
@@ -237,6 +243,8 @@ private class Item : Object, ContentItem {
             var key = v.get_child_value (0).get_string ();
             if (key == "name") {
                 name = v.get_child_value (1).get_child_value (0).get_string ();
+            } else if (key == "id") {
+                id = v.get_child_value (1).get_child_value (0).get_string ();
             } else if (key == "active") {
                 active = v.get_child_value (1).get_child_value (0).get_boolean ();
             } else if (key == "hour") {
@@ -248,7 +256,7 @@ private class Item : Object, ContentItem {
             }
         }
         if (name != null && hour >= 0 && minute >= 0) {
-            return new Item.with_data (name, active, hour, minute, days);
+            return new Item.with_data (id, name, active, hour, minute, days);
         } else {
             warning ("Invalid alarm %s", name != null ? name : "name missing");
         }
