@@ -7,8 +7,16 @@ SUBDIRS = help po
 %.desktop: %.desktop.in
 	$(MKDIR_P) $(dir $@); LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 applicationsdir = $(datadir)/applications
-applications_DATA = data/gnome-clocks.desktop
-dist_noinst_DATA = data/gnome-clocks.desktop.in
+applications_DATA = data/org.gnome.clocks.desktop
+dist_noinst_DATA = data/org.gnome.clocks.desktop.in
+
+# DBus service file
+servicedir = $(datadir)/dbus-1/services
+service_DATA = data/org.gnome.clocks.service
+dist_noinst_DATA = data/org.gnome.clocks.service.in
+
+data/org.gnome.clocks.service: data/org.gnome.clocks.service.in Makefile
+	$(AM_V_GEN) sed -e "s|\@bindir\@|$(bindir)|" $< > $@
 
 # appdata file
 appdatadir = $(datadir)/appdata
