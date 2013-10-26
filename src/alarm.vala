@@ -95,6 +95,7 @@ private class Item : Object, ContentItem {
     private GLib.DateTime snooze_time;
     private GLib.DateTime ring_end_time;
     private Utils.Bell bell;
+    private GLib.Notification notification;
 
     public Item () {
         id = GLib.DBus.generate_guid ();
@@ -110,9 +111,11 @@ private class Item : Object, ContentItem {
     }
 
     private void setup_bell () {
-        bell = new Utils.Bell ("alarm-clock-elapsed", _("Alarm"), name);
-        bell.add_action (_("Stop"), "app.stop-alarm::".concat(id));
-        bell.add_action (_("Snooze"), "app.snooze-alarm::".concat(id));
+        bell = new Utils.Bell ("alarm-clock-elapsed");
+        notification = new GLib.Notification (_("Alarm"));
+        notification.set_body (name);
+        notification.add_button (_("Stop"), "app.stop-alarm::".concat(id));
+        notification.add_button (_("Snooze"), "app.snooze-alarm::".concat(id));
     }
 
     public void reset () {
@@ -154,6 +157,8 @@ private class Item : Object, ContentItem {
     }
 
     public virtual signal void ring () {
+        var app = GLib.Application.get_default ();
+        app.send_notification (null, notification);
         bell.ring ();
     }
 

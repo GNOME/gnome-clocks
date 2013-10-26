@@ -298,9 +298,8 @@ public class Bell : Object {
     private Canberra.Context? canberra;
     private string soundtheme;
     private string sound;
-    private GLib.Notification notification;
 
-    public Bell (string soundid, string title, string msg) {
+    public Bell (string soundid) {
         settings = new GLib.Settings("org.gnome.desktop.sound");
 
         if (Canberra.Context.create (out canberra) < 0) {
@@ -310,9 +309,6 @@ public class Bell : Object {
 
         soundtheme = settings.get_string ("theme-name");
         sound = soundid;
-
-        notification = new GLib.Notification (title);
-        notification.set_body (msg);
     }
 
     private bool keep_ringing () {
@@ -342,9 +338,6 @@ public class Bell : Object {
                 GLib.Idle.add (keep_ringing);
             }
         }
-
-        GLib.Application app = GLib.Application.get_default ();
-        app.send_notification (null, notification);
     }
 
     public void ring_once () {
@@ -359,10 +352,6 @@ public class Bell : Object {
         if (canberra != null) {
             canberra.cancel (1);
         }
-    }
-
-    public void add_action (string label, string action) {
-        notification.add_button (label, action);
     }
 }
 

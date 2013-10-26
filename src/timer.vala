@@ -82,6 +82,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     private double span;
     private GLib.Timer timer;
     private Utils.Bell bell;
+    private GLib.Notification notification;
     [GtkChild]
     private AnalogFrame setup_frame;
     [GtkChild]
@@ -110,7 +111,9 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         span = 0;
         timer = new GLib.Timer ();
 
-        bell = new Utils.Bell ("complete", _("Time is up!"), _("Timer countdown finished"));
+        bell = new Utils.Bell ("complete");
+        notification = new GLib.Notification (_("Time is up!"));
+        notification.set_body (_("Timer countdown finished"));
 
         // Force LTR since we do not want to reverse [hh] : [mm] : [ss]
         grid_spinbuttons.set_direction (Gtk.TextDirection.LTR);
@@ -119,6 +122,8 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     }
 
     public virtual signal void ring () {
+        var app = GLib.Application.get_default ();
+        app.send_notification (null, notification);
         bell.ring_once ();
     }
 
