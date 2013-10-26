@@ -50,12 +50,11 @@ PKG_PROG_PKG_CONFIG([0.22])
 
 PKG_CHECK_MODULES(CLOCKS, [
     gio-2.0 >= 2.36
-    glib-2.0 >= 2.36
+    glib-2.0 >= 2.39
     gtk+-3.0 >= 3.9.11
     libcanberra >= 0.30
     gweather-3.0 >= 3.9.91
     gnome-desktop-3.0 >= 3.7.90
-    libnotify >= 0.7.0
     geocode-glib-1.0 >= 0.99.4
     geoclue-2.0 >= 1.99.3
 ])

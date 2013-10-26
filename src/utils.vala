@@ -298,11 +298,8 @@ public class Bell : Object {
     private Canberra.Context? canberra;
     private string soundtheme;
     private string sound;
-    private Notify.Notification? notification;
 
-    public delegate void ActionCallback ();
-
-    public Bell (string soundid, string title, string msg) {
+    public Bell (string soundid) {
         settings = new GLib.Settings("org.gnome.desktop.sound");
 
         if (Canberra.Context.create (out canberra) < 0) {
@@ -312,14 +309,6 @@ public class Bell : Object {
 
         soundtheme = settings.get_string ("theme-name");
         sound = soundid;
-
-        notification = null;
-        if (Notify.is_initted() || Notify.init ("GNOME Clocks")) {
-            notification = new Notify.Notification (title, msg, "gnome-clocks");
-            notification.set_hint_string ("desktop-entry", "gnome-clocks");
-        } else {
-            warning ("Could not initialize notification");
-        }
     }
 
     private bool keep_ringing () {
@@ -349,14 +338,6 @@ public class Bell : Object {
                 GLib.Idle.add (keep_ringing);
             }
         }
-
-        if (notification != null) {
-            try {
-                notification.show ();
-            } catch (GLib.Error error) {
-                warning (error.message);
-            }
-        }
     }
 
     public void ring_once () {
@@ -370,14 +351,6 @@ public class Bell : Object {
     public void stop () {
         if (canberra != null) {
             canberra.cancel (1);
-        }
-    }
-
-    public void add_action (string action, string label, owned ActionCallback callback) {
-        if (notification != null) {
-            notification.add_action (action, label, (n, a) => {
-                callback ();
-            });
         }
     }
 }

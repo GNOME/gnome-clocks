@@ -26,6 +26,8 @@ public class Application : Gtk.Application {
     };
 
     const GLib.ActionEntry[] action_entries = {
+        { "stop-alarm", null, "s" },
+        { "snooze-alarm", null, "s" },
         { "quit", on_quit_activate }
     };
 

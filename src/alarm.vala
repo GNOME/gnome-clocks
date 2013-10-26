@@ -95,6 +95,7 @@ private class Item : Object, ContentItem {
     private GLib.DateTime snooze_time;
     private GLib.DateTime ring_end_time;
     private Utils.Bell bell;
+    private GLib.Notification notification;
 
     public Item () {
         id = GLib.DBus.generate_guid ();
@@ -110,13 +111,11 @@ private class Item : Object, ContentItem {
     }
 
     private void setup_bell () {
-        bell = new Utils.Bell ("alarm-clock-elapsed", _("Alarm"), name);
-        bell.add_action ("stop", _("Stop"), () => {
-            stop ();
-        });
-        bell.add_action ("snooze", _("Snooze"), () => {
-            snooze ();
-        });
+        bell = new Utils.Bell ("alarm-clock-elapsed");
+        notification = new GLib.Notification (_("Alarm"));
+        notification.set_body (name);
+        notification.add_button (_("Stop"), "app.stop-alarm::".concat(id));
+        notification.add_button (_("Snooze"), "app.snooze-alarm::".concat(id));
     }
 
     public void reset () {
@@ -158,6 +157,8 @@ private class Item : Object, ContentItem {
     }
 
     public virtual signal void ring () {
+        var app = GLib.Application.get_default ();
+        app.send_notification (null, notification);
         bell.ring ();
     }
 
@@ -491,6 +492,23 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         alarms = new List<Item> ();
         settings = new GLib.Settings ("org.gnome.clocks");
 
+        var app = GLib.Application.get_default();
+        var action = app.lookup_action ("stop-alarm");
+        ((GLib.SimpleAction)action).activate.connect ((action, param) => {
+            var item = find_item (param.get_string());
+            if (item != null) {
+                item.stop();
+            }
+        });
+
+        action = app.lookup_action ("snooze-alarm");
+        ((GLib.SimpleAction)action).activate.connect ((action, param) => {
+            var item = find_item (param.get_string());
+            if (item != null) {
+                item.snooze();
+            }
+        });
+
         // Translators: "New" refers to an alarm
         new_button = new Gtk.Button.with_label (_("New"));
         new_button.valign = Gtk.Align.CENTER;
@@ -556,6 +574,15 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     }
 
     public signal void ring ();
+
+    private Item? find_item (string id) {
+        foreach (var i in alarms) {
+            if (i.id == id) {
+                return i;
+            }
+        }
+        return null;
+    }
 
     private void load () {
         foreach (var a in settings.get_value ("alarms")) {
