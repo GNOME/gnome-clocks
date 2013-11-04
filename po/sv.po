@@ -1,121 +1,231 @@
 # Swedish translation for gnome-clocks.
-# Copyright (C) 2012 Free Software Foundation, Inc.
+# Copyright © 2012, 2013 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-clocks package.
 # Daniel Nylander <po@danielnylander.se>, 2012.
+# Göran Uddeborg <goeran@uddeborg.se>, 2013.
 #
+# $Revision: 1.3 $
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-02 11:38+0200\n"
-"PO-Revision-Date: 2012-09-02 11:45+0100\n"
-"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-10-26 23:19+0000\n"
+"PO-Revision-Date: 2013-10-30 21:44+0100\n"
+"Last-Translator: Göran Uddeborg <goeran@uddeborg.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
-"Language: \n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1
-#: ../gnomeclocks/app.py:35
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:173
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Klockor"
 
-#: ../data/gnome-clocks.desktop.in.h:2
-#: ../gnomeclocks/app.py:120
-#: ../gnomeclocks/app.py:129
+#: ../data/org.gnome.clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "GNOME-klockor"
 
-#: ../data/gnome-clocks.desktop.in.h:3
+#: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Klockor för världstid, larm, stoppur och tidtagning"
 
-#: ../gnomeclocks/alarm.py:116
-msgid "Mondays"
-msgstr "Måndagar"
+#: ../data/org.gnome.clocks.desktop.in.h:4
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr "tid;äggklocka;larm;världsklocka;stoppur;tidszon;"
 
-#: ../gnomeclocks/alarm.py:118
-msgid "Tuesdays"
-msgstr "Tisdagar"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
+msgid "Configured world clocks"
+msgstr "Konfigurerade världsklockor"
 
-#: ../gnomeclocks/alarm.py:120
-msgid "Wednesdays"
-msgstr "Onsdagar"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
+msgid "List of world clocks to show."
+msgstr "Lista över världsklockor att visa."
 
-#: ../gnomeclocks/alarm.py:122
-msgid "Thursdays"
-msgstr "Torsdagar"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
+msgid "Configured alarms"
+msgstr "Konfigurerade larm"
 
-#: ../gnomeclocks/alarm.py:124
-msgid "Fridays"
-msgstr "Fredagar"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
+msgid "List of alarms set."
+msgstr "Lista över påslagna larm."
 
-#: ../gnomeclocks/alarm.py:126
-msgid "Saturdays"
-msgstr "Lördagar"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:106
+msgid "Timer"
+msgstr "Äggklocka"
 
-#: ../gnomeclocks/alarm.py:128
-msgid "Sundays"
-msgstr "Söndagar"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "Konfigurerad varaktighet för äggklocka i sekunder."
 
-#: ../gnomeclocks/alarm.py:130
-msgid "Every day"
-msgstr "Varje dag"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Geolocation support"
+msgstr "Stöd för platsbestämning"
 
-#: ../gnomeclocks/alarm.py:132
-msgid "Weekdays"
-msgstr "Veckodagar"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr "Slå av och på stöd för platsbestämning."
 
-#: ../gnomeclocks/alarm.py:161
-msgid "Edit Alarm"
-msgstr "Redigera larm"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+msgid "Window state"
+msgstr "Fönstertillstånd"
 
-#: ../gnomeclocks/alarm.py:163
-#: ../gnomeclocks/alarm.py:195
-msgid "New Alarm"
-msgstr "Nytt larm"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+msgid "State of the window: i.e. maximized."
+msgstr "Tillstånd för fönstret: d.v.s. maximerat."
 
-#: ../gnomeclocks/alarm.py:198
-msgid "Time"
-msgstr "Tid"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+msgid "Window width and height"
+msgstr "Fönsterbredd och -höjd"
 
-#: ../gnomeclocks/alarm.py:237
-msgid "Name"
-msgstr "Namn"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+msgid "Width and height of the window."
+msgstr "Bredd och höjd på fönstret."
 
-#: ../gnomeclocks/alarm.py:246
-msgid "Repeat Every"
-msgstr "Upprepa varje"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
+msgid "Panel state"
+msgstr "Paneltillstånd"
 
-#: ../gnomeclocks/alarm.py:320
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
+msgid "Current clock panel."
+msgstr "Aktuell klockpanel."
+
+#: ../src/alarm.vala:115 ../src/alarm.vala:339 ../src/alarm.vala:490
 msgid "Alarm"
 msgstr "Larm"
 
-#: ../gnomeclocks/alarm.py:332
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Välj <b>Nytt</b> för att lägga till ett larm"
-
-#: ../gnomeclocks/alarm.py:472
-#: ../gnomeclocks/stopwatch.py:79
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Stopp"
 
-#: ../gnomeclocks/alarm.py:474
+#: ../src/alarm.vala:118 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Snooze"
 
-#: ../gnomeclocks/app.py:119
-#: ../gnomeclocks/app.py:414
-msgid "About Clocks"
-msgstr "Om Klockor"
+#: ../src/alarm.vala:291
+msgid "Edit Alarm"
+msgstr "Redigera larm"
 
-#: ../gnomeclocks/app.py:125
+#: ../src/alarm.vala:291
+msgid "New Alarm"
+msgstr "Nytt larm"
+
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:513 ../src/world.vala:281
+msgid "New"
+msgstr "Nytt"
+
+#: ../src/application.vala:24
+msgid "Print version information and exit"
+msgstr "Skriv ut versionsinformation och avsluta"
+
+#: ../src/stopwatch.vala:129
+msgid "Stopwatch"
+msgstr "Stoppur"
+
+#: ../src/stopwatch.vala:190
+msgid "Lap"
+msgstr "Varv"
+
+#: ../src/stopwatch.vala:197 ../src/timer.vala:161
+msgid "Continue"
+msgstr "Fortsätt"
+
+#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
+msgid "Reset"
+msgstr "Nollställ"
+
+#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
+msgid "Start"
+msgstr "Starta"
+
+#: ../src/timer.vala:115
+msgid "Time is up!"
+msgstr "Tiden är slut!"
+
+#: ../src/timer.vala:116
+msgid "Timer countdown finished"
+msgstr "Äggklockans nedräkning klar"
+
+#: ../src/timer.vala:166 ../src/timer.vala:177 ../data/ui/timer.ui.h:2
+msgid "Pause"
+msgstr "Paus"
+
+#: ../src/utils.vala:163
+msgid "Mondays"
+msgstr "Måndagar"
+
+#: ../src/utils.vala:164
+msgid "Tuesdays"
+msgstr "Tisdagar"
+
+#: ../src/utils.vala:165
+msgid "Wednesdays"
+msgstr "Onsdagar"
+
+#: ../src/utils.vala:166
+msgid "Thursdays"
+msgstr "Torsdagar"
+
+#: ../src/utils.vala:167
+msgid "Fridays"
+msgstr "Fredagar"
+
+#: ../src/utils.vala:168
+msgid "Saturdays"
+msgstr "Lördagar"
+
+#: ../src/utils.vala:169
+msgid "Sundays"
+msgstr "Söndagar"
+
+#: ../src/utils.vala:249
+msgid "Every Day"
+msgstr "Varje dag"
+
+#: ../src/utils.vala:251
+msgid "Weekdays"
+msgstr "Veckodagar"
+
+#: ../src/utils.vala:253
+msgid "Weekends"
+msgstr "Veckoslut"
+
+#: ../src/widgets.vala:461
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: ../src/widgets.vala:473 ../src/widgets.vala:526
+msgid "Click on items to select them"
+msgstr "Klicka på objekten för att markera dem"
+
+#: ../src/widgets.vala:528
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d markerat"
+msgstr[1] "%d markerade"
+
+#: ../src/widgets.vala:570
+msgid "Delete"
+msgstr "Ta bort"
+
+#: ../src/window.vala:146
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Misslyckades att visa hjälp: %s"
+
+#: ../src/window.vala:176
 msgid "Utilities to help you with the time."
 msgstr "Verktyg för att hjälpa dig med tiden."
 
-#: ../gnomeclocks/app.py:127
+#: ../src/window.vala:181
 msgid "translator-credits"
 msgstr ""
 "Daniel Nylander <po@danielnylander.se>\n"
@@ -123,88 +233,82 @@ msgstr ""
 "Skicka synpunkter på översättningen\n"
 "till <tp-sv@listor.tp-sv.se>."
 
-#: ../gnomeclocks/app.py:204
-msgid "New"
-msgstr "Nytt"
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:112 ../src/world.vala:115
+msgid "Tomorrow"
+msgstr "Imorgon"
 
-#: ../gnomeclocks/app.py:270
-msgid "Edit"
-msgstr "Redigera"
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:112 ../src/world.vala:115
+msgid "Yesterday"
+msgstr "Igår"
 
-#: ../gnomeclocks/app.py:275
-msgid "Done"
-msgstr "Färdig"
-
-#: ../gnomeclocks/app.py:359
-msgid "Click on items to select them"
-msgstr "Klicka på objekten för att markera dem"
-
-#: ../gnomeclocks/app.py:361
-msgid "{0} item selected"
-msgid_plural "{0} items selected"
-msgstr[0] "{0} objekt markerat"
-msgstr[1] "{0} objekt markerade"
-
-#: ../gnomeclocks/app.py:417
-msgid "Quit"
-msgstr "Avsluta"
-
-#: ../gnomeclocks/stopwatch.py:34
-msgid "Stopwatch"
-msgstr "Stoppur"
-
-#: ../gnomeclocks/stopwatch.py:59
-#: ../gnomeclocks/stopwatch.py:97
-#: ../gnomeclocks/timer.py:107
-msgid "Start"
-msgstr "Starta"
-
-#: ../gnomeclocks/stopwatch.py:67
-#: ../gnomeclocks/stopwatch.py:86
-#: ../gnomeclocks/timer.py:54
-msgid "Reset"
-msgstr "Nollställ"
-
-#: ../gnomeclocks/stopwatch.py:85
-#: ../gnomeclocks/timer.py:71
-msgid "Continue"
-msgstr "Fortsätt"
-
-#: ../gnomeclocks/timer.py:47
-#: ../gnomeclocks/timer.py:65
-#: ../gnomeclocks/timer.py:75
-msgid "Pause"
-msgstr "Paus"
-
-#: ../gnomeclocks/timer.py:149
-msgid "Timer"
-msgstr "Tidtagning"
-
-#: ../gnomeclocks/widgets.py:373
-msgid "Delete"
-msgstr "Ta bort"
-
-#: ../gnomeclocks/world.py:61
-msgid "Add a New World Clock"
-msgstr "Lägg till en ny världsklocka"
-
-#: ../gnomeclocks/world.py:70
-msgid "Search for a city:"
-msgstr "Sök efter en stad:"
-
-#: ../gnomeclocks/world.py:251
+#: ../src/world.vala:272
 msgid "World"
 msgstr "Världen"
 
-#: ../gnomeclocks/world.py:262
+#. namespace World
+#. namespace Clocks
+#: ../data/ui/alarmsetupdialog.ui.h:1
+msgid "_Done"
+msgstr "_Färdig"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2
+msgid "Name"
+msgstr "Namn"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
+msgid "Repeat Every"
+msgstr "Upprepa var"
+
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "Active"
+msgstr "Aktiv"
+
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Välj <b>Nytt</b> för att lägga till ett larm"
+
+#: ../data/ui/menu.ui.h:1
+msgid "_New"
+msgstr "_Ny"
+
+#: ../data/ui/menu.ui.h:2
+msgid "_Help"
+msgstr "_Hjälp"
+
+#: ../data/ui/menu.ui.h:3
+msgid "_About"
+msgstr "_Om"
+
+#: ../data/ui/menu.ui.h:4
+msgid "_Quit"
+msgstr "_Avsluta"
+
+#: ../data/ui/menu.ui.h:5
+msgid "Select All"
+msgstr "Markera allt"
+
+#: ../data/ui/menu.ui.h:6
+msgid "Select None"
+msgstr "Markera inget"
+
+#: ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Lägg till en ny världsklocka"
+
+#: ../data/ui/worldlocationdialog.ui.h:2
+msgid "Search for a city:"
+msgstr "Sök efter en stad:"
+
+#: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Välj <b>Nytt</b> för att lägga till en världsklocka"
 
-#: ../gnomeclocks/world.py:385
+#: ../data/ui/world.ui.h:2
 msgid "Sunrise"
 msgstr "Soluppgång"
 
-#: ../gnomeclocks/world.py:395
+#: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Solnedgång"
-
