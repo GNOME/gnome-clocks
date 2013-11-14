@@ -1,208 +1,321 @@
 # Thai translation for gnome-clocks.
 # Copyright (C) 2012 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-clocks package.
-# Kallaya Songklang <songklang10@gmail.com>, 2012.
+# Kallaya Songklang <songklang10@gmail.com>, 2012-2013.
+# Kittiphong Meesawat <ktphong@elec.kku.ac.th>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-24 02:27+0000\n"
-"PO-Revision-Date: 2012-09-24 09:50+0700\n"
-"Last-Translator: Kallaya Songklang <songklang10@gmail.com>\n"
+"POT-Creation-Date: 2013-10-26 23:19+0000\n"
+"PO-Revision-Date: 2013-11-14 12:53+0700\n"
+"Last-Translator: Kittiphong Meesawat <ktphong@elec.kku.ac.th>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.5.3\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:35
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:173
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "นาฬิกา"
 
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:122
-#: ../gnomeclocks/app.py:131
+#: ../data/org.gnome.clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "นาฬิกา GNOME"
 
-#: ../data/gnome-clocks.desktop.in.h:3
+#: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "นาฬิกาสำหรับเวลาทั่วโลก, พร้อมด้วยการปลุกเตือน, นาฬิกาจับเวลา และการตั้งเวลา"
 
-#: ../gnomeclocks/alarm.py:117
-msgid "Every day"
-msgstr "ทุกวัน"
+#: ../data/org.gnome.clocks.desktop.in.h:4
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr ""
 
-#: ../gnomeclocks/alarm.py:119
-msgid "Weekdays"
-msgstr "วันธรรมดา"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
+msgid "Configured world clocks"
+msgstr ""
 
-#: ../gnomeclocks/alarm.py:138
-msgid "Edit Alarm"
-msgstr "แก้ไขการปลุกเตือน"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
+msgid "List of world clocks to show."
+msgstr ""
 
-#: ../gnomeclocks/alarm.py:140 ../gnomeclocks/alarm.py:172
-msgid "New Alarm"
-msgstr "สร้างการปลุกเตือน"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
+msgid "Configured alarms"
+msgstr "รายการปลุกเตือนที่ตั้งไว้"
 
-#. Translators: "Time" in this context is the time an alarm
-#. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:177
-msgid "Time"
-msgstr "เวลา"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
+msgid "List of alarms set."
+msgstr "รายการปลุกเตือนที่ตั้งไว้"
 
-#: ../gnomeclocks/alarm.py:218
-msgid "Name"
-msgstr "ชื่อ"
-
-#: ../gnomeclocks/alarm.py:227
-msgid "Repeat Every"
-msgstr "ซ้ำทุกๆ"
-
-#: ../gnomeclocks/alarm.py:300
-msgid "Alarm"
-msgstr "การปลุกเตือน"
-
-#: ../gnomeclocks/alarm.py:312
-msgid "Select <b>New</b> to add an alarm"
-msgstr "เลือก <b>สร้าง</b> เพื่อเพิ่มการปลุกเตือน"
-
-#: ../gnomeclocks/alarm.py:457 ../gnomeclocks/stopwatch.py:95
-msgid "Stop"
-msgstr "หยุด"
-
-#: ../gnomeclocks/alarm.py:459
-msgid "Snooze"
-msgstr "ผัดผ่อน"
-
-#: ../gnomeclocks/app.py:121 ../gnomeclocks/app.py:390
-msgid "About Clocks"
-msgstr "เกี่ยวกับนาฬิกา"
-
-#: ../gnomeclocks/app.py:127
-msgid "Utilities to help you with the time."
-msgstr "เครื่องมือสำหรับช่วยเกี่ยวกับเวลา"
-
-#: ../gnomeclocks/app.py:129
-msgid "translator-credits"
-msgstr "Kallaya Songklang <songklang10@gmail.com>"
-
-#. Translators: "New" refers to a world clock or an alarm
-#: ../gnomeclocks/app.py:213
-msgid "New"
-msgstr "สร้าง"
-
-#: ../gnomeclocks/app.py:266
-msgid "Edit"
-msgstr "แก้ไข"
-
-#: ../gnomeclocks/app.py:271
-msgid "Done"
-msgstr "เสร็จสิ้น"
-
-#: ../gnomeclocks/app.py:335
-msgid "Click on items to select them"
-msgstr "คลิกเพื่อเลือกรายการ"
-
-#: ../gnomeclocks/app.py:337
-msgid "{0} item selected"
-msgid_plural "{0} items selected"
-msgstr[0] "เลือก {0} รายการ"
-
-#: ../gnomeclocks/app.py:393
-msgid "Quit"
-msgstr "ออก"
-
-#: ../gnomeclocks/stopwatch.py:34
-msgid "Stopwatch"
-msgstr "นาฬิกาจับเวลา"
-
-#: ../gnomeclocks/stopwatch.py:57 ../gnomeclocks/stopwatch.py:117
-#: ../gnomeclocks/timer.py:110
-msgid "Start"
-msgstr "เริ่ม"
-
-#: ../gnomeclocks/stopwatch.py:65 ../gnomeclocks/stopwatch.py:106
-#: ../gnomeclocks/timer.py:52
-msgid "Reset"
-msgstr "ตั้งค่าใหม่"
-
-#: ../gnomeclocks/stopwatch.py:75
-msgid "Laps"
-msgstr "รอบ"
-
-#: ../gnomeclocks/stopwatch.py:98
-msgid "Lap"
-msgstr "รอบ"
-
-#: ../gnomeclocks/stopwatch.py:102 ../gnomeclocks/timer.py:69
-msgid "Continue"
-msgstr "ต่อไป"
-
-#: ../gnomeclocks/timer.py:45 ../gnomeclocks/timer.py:63
-#: ../gnomeclocks/timer.py:73
-msgid "Pause"
-msgstr "พัก"
-
-#: ../gnomeclocks/timer.py:155
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:106
 msgid "Timer"
 msgstr "ตั้งเวลา"
 
-#: ../gnomeclocks/utils.py:71
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr ""
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Geolocation support"
+msgstr ""
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr ""
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+msgid "Window state"
+msgstr "สถานะหน้าต่าง"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+msgid "State of the window: i.e. maximized."
+msgstr "สถานะหน้าต่าง เช่น ขยายแผ่"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+msgid "Window width and height"
+msgstr "ความกว้างและความสูงของหน้าต่าง"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+msgid "Width and height of the window."
+msgstr "ความกว้างและความสูงของหน้าต่าง"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
+msgid "Panel state"
+msgstr ""
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
+msgid "Current clock panel."
+msgstr ""
+
+#: ../src/alarm.vala:115 ../src/alarm.vala:339 ../src/alarm.vala:490
+msgid "Alarm"
+msgstr "การปลุกเตือน"
+
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+msgid "Stop"
+msgstr "หยุด"
+
+#: ../src/alarm.vala:118 ../data/ui/alarm.ui.h:3
+msgid "Snooze"
+msgstr "ผัดผ่อน"
+
+#: ../src/alarm.vala:291
+msgid "Edit Alarm"
+msgstr "แก้ไขการปลุกเตือน"
+
+#: ../src/alarm.vala:291
+msgid "New Alarm"
+msgstr "สร้างการปลุกเตือน"
+
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:513 ../src/world.vala:281
+msgid "New"
+msgstr "สร้าง"
+
+#: ../src/application.vala:24
+msgid "Print version information and exit"
+msgstr "แสดงข้อมูลรุ่นแล้วจบการทำงาน"
+
+#: ../src/stopwatch.vala:129
+msgid "Stopwatch"
+msgstr "นาฬิกาจับเวลา"
+
+#: ../src/stopwatch.vala:190
+msgid "Lap"
+msgstr "รอบ"
+
+#: ../src/stopwatch.vala:197 ../src/timer.vala:161
+msgid "Continue"
+msgstr "ต่อไป"
+
+#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
+msgid "Reset"
+msgstr "ตั้งค่าใหม่"
+
+#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
+msgid "Start"
+msgstr "เริ่ม"
+
+#: ../src/timer.vala:115
+msgid "Time is up!"
+msgstr "หมดเวลา!"
+
+#: ../src/timer.vala:116
+msgid "Timer countdown finished"
+msgstr "นับเวลาถอยหลังเสร็จสิ้น"
+
+#: ../src/timer.vala:166 ../src/timer.vala:177 ../data/ui/timer.ui.h:2
+msgid "Pause"
+msgstr "พัก"
+
+#: ../src/utils.vala:163
 msgid "Mondays"
 msgstr "วันจันทร์"
 
-#: ../gnomeclocks/utils.py:72
+#: ../src/utils.vala:164
 msgid "Tuesdays"
 msgstr "วันอังคาร"
 
-#: ../gnomeclocks/utils.py:73
+#: ../src/utils.vala:165
 msgid "Wednesdays"
 msgstr "วันพุธ"
 
-#: ../gnomeclocks/utils.py:74
+#: ../src/utils.vala:166
 msgid "Thursdays"
 msgstr "วันพฤหัสบดี"
 
-#: ../gnomeclocks/utils.py:75
+#: ../src/utils.vala:167
 msgid "Fridays"
 msgstr "วันศุกร์"
 
-#: ../gnomeclocks/utils.py:76
+#: ../src/utils.vala:168
 msgid "Saturdays"
 msgstr "วันเสาร์"
 
-#: ../gnomeclocks/utils.py:77
+#: ../src/utils.vala:169
 msgid "Sundays"
 msgstr "วันอาทิตย์"
 
-#: ../gnomeclocks/widgets.py:333
+#: ../src/utils.vala:249
+msgid "Every Day"
+msgstr "ทุกวัน"
+
+#: ../src/utils.vala:251
+msgid "Weekdays"
+msgstr "วันธรรมดา"
+
+#: ../src/utils.vala:253
+msgid "Weekends"
+msgstr "สุดสัปดาห์"
+
+#: ../src/widgets.vala:461
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+#: ../src/widgets.vala:473 ../src/widgets.vala:526
+msgid "Click on items to select them"
+msgstr "คลิกเพื่อเลือกรายการ"
+
+#: ../src/widgets.vala:528
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "เลือก %d รายการ"
+
+#: ../src/widgets.vala:570
 msgid "Delete"
 msgstr "ลบ"
 
-#: ../gnomeclocks/world.py:66
-msgid "Add a New World Clock"
-msgstr "เพิ่มเวลาโลกใหม่"
+#: ../src/window.vala:146
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "ไม่สามารถแสดงคู่มือวิธีใช้: %s"
 
-#: ../gnomeclocks/world.py:75
-msgid "Search for a city:"
-msgstr "ค้นหาเมือง:"
+#: ../src/window.vala:176
+msgid "Utilities to help you with the time."
+msgstr "เครื่องมือสำหรับช่วยเกี่ยวกับเวลา"
 
-#: ../gnomeclocks/world.py:259
+#: ../src/window.vala:181
+msgid "translator-credits"
+msgstr "Kallaya Songklang <songklang10@gmail.com>"
+
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:112 ../src/world.vala:115
+msgid "Tomorrow"
+msgstr "พรุ่งนี้"
+
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:112 ../src/world.vala:115
+msgid "Yesterday"
+msgstr "เมื่อวานนี้"
+
+#: ../src/world.vala:272
 msgid "World"
 msgstr "โลก"
 
-#: ../gnomeclocks/world.py:270
+#. namespace World
+#. namespace Clocks
+#: ../data/ui/alarmsetupdialog.ui.h:1
+msgid "_Done"
+msgstr "เ_สร็จสิ้น"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2
+msgid "Name"
+msgstr "ชื่อ"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
+msgid "Repeat Every"
+msgstr "ซ้ำทุกๆ"
+
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "Active"
+msgstr ""
+
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "เลือก <b>สร้าง</b> เพื่อเพิ่มการปลุกเตือน"
+
+#: ../data/ui/menu.ui.h:1
+msgid "_New"
+msgstr "ใ_หม่"
+
+#: ../data/ui/menu.ui.h:2
+msgid "_Help"
+msgstr "_วิธีใช้"
+
+#: ../data/ui/menu.ui.h:3
+msgid "_About"
+msgstr "เ_กี่ยวกับ"
+
+#: ../data/ui/menu.ui.h:4
+msgid "_Quit"
+msgstr "_ออก"
+
+#: ../data/ui/menu.ui.h:5
+msgid "Select All"
+msgstr "เลือกทั้งหมด"
+
+#: ../data/ui/menu.ui.h:6
+msgid "Select None"
+msgstr "ไม่เลือก"
+
+#: ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "เพิ่มเวลาโลกใหม่"
+
+#: ../data/ui/worldlocationdialog.ui.h:2
+msgid "Search for a city:"
+msgstr "ค้นหาเมือง:"
+
+#: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "เลือก <b>สร้าง</b> เพื่อเพิ่มในเวลาโลก"
 
-#: ../gnomeclocks/world.py:393
+#: ../data/ui/world.ui.h:2
 msgid "Sunrise"
 msgstr "ดวงอาทิตย์ขึ้น"
 
-#: ../gnomeclocks/world.py:403
+#: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "ดวงอาทิตย์ตก"
+
+#~ msgid "Time"
+#~ msgstr "เวลา"
+
+#~ msgid "About Clocks"
+#~ msgstr "เกี่ยวกับนาฬิกา"
+
+#~ msgid "Edit"
+#~ msgstr "แก้ไข"
+
+#~ msgid "Laps"
+#~ msgstr "รอบ"
