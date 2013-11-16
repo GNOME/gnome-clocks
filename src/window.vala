@@ -92,6 +92,7 @@ public class Window : Gtk.ApplicationWindow {
         });
 
         ((Timer.MainPanel)panels[PanelId.TIMER]).ring.connect ((w) => {
+            ((World.MainPanel)panels[PanelId.WORLD]).reset_view ();
             stack.visible_child = w;
         });
 
