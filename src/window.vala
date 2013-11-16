@@ -87,6 +87,7 @@ public class Window : Gtk.ApplicationWindow {
         });
 
         ((Alarm.MainPanel)panels[PanelId.ALARM]).ring.connect ((w) => {
+            ((World.MainPanel)panels[PanelId.WORLD]).reset_view ();
             stack.visible_child = w;
         });
 

@@ -421,6 +421,10 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         return content_view.escape_pressed ();
     }
 
+    public void reset_view () {
+        visible_child = content_view;
+    }
+
     public void update_header_bar () {
         switch (header_bar.mode) {
         case HeaderBar.Mode.NORMAL:
