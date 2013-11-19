@@ -13,7 +13,7 @@ dist_noinst_DATA = data/org.gnome.clocks.desktop.in
 # DBus service file
 servicedir = $(datadir)/dbus-1/services
 service_DATA = data/org.gnome.clocks.service
-dist_noinst_DATA = data/org.gnome.clocks.service.in
+dist_noinst_DATA += data/org.gnome.clocks.service.in
 
 data/org.gnome.clocks.service: data/org.gnome.clocks.service.in Makefile
 	$(AM_V_GEN) sed -e "s|\@bindir\@|$(bindir)|" $< > $@
@@ -153,7 +153,8 @@ EXTRA_DIST = \
 	data/org.gnome.clocks.gschema.xml.in.in
 
 CLEANFILES = \
-	$(applications_DATA)
+	$(applications_DATA) \
+	$(service_DATA)
 
 DISTCLEANFILES = \
 	$(gsettings_SCHEMAS)
