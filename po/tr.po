@@ -9,31 +9,31 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-16 17:11+0000\n"
-"PO-Revision-Date: 2013-09-01 02:13+0300\n"
-"Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
+"POT-Creation-Date: 2013-11-16 15:42+0000\n"
+"PO-Revision-Date: 2013-11-10 15:28+0200\n"
+"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Poedit 1.5.7\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:175
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Saatler"
 
-#: ../data/gnome-clocks.desktop.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "GNOME Saatleri"
 
-#: ../data/gnome-clocks.desktop.in.h:3
+#: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Dünya saatleri, alarmlar, kronometre ve zaman ölçer"
 
-#: ../data/gnome-clocks.desktop.in.h:4
+#: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "saat;zaman;geri sayım;alarm;dünya saatleri;kronometre;saat dilimi;"
 
@@ -53,7 +53,7 @@ msgstr "Yapılandırılmış alarmlar"
 msgid "List of alarms set."
 msgstr "Ayarlanmış alarmların listesi."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:105
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:106
 msgid "Timer"
 msgstr "Geri Sayım"
 
@@ -63,11 +63,11 @@ msgstr "Ayarlanan zamanlayıcı süresinin saniye cinsinden değeri."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
 msgid "Geolocation support"
-msgstr ""
+msgstr "Coğrafi konum desteği"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
 msgid "Turn geolocation support on and off."
-msgstr ""
+msgstr "Coğrafi konum desteğini aç ya da kapat"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
 msgid "Window state"
@@ -93,29 +93,29 @@ msgstr "Panel durumu"
 msgid "Current clock panel."
 msgstr "Geçerli saat paneli."
 
-#: ../src/alarm.vala:109 ../src/alarm.vala:330 ../src/alarm.vala:481
+#: ../src/alarm.vala:115 ../src/alarm.vala:339 ../src/alarm.vala:490
 msgid "Alarm"
 msgstr "Alarm"
 
-#: ../src/alarm.vala:110 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Dur"
 
-#: ../src/alarm.vala:113 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:118 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Ertele"
 
-#: ../src/alarm.vala:282
+#: ../src/alarm.vala:291
 msgid "Edit Alarm"
 msgstr "Alarmı Düzenle"
 
-#: ../src/alarm.vala:282
+#: ../src/alarm.vala:291
 msgid "New Alarm"
 msgstr "Yeni Alarm"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:487 ../src/world.vala:278
+#: ../src/alarm.vala:513 ../src/world.vala:281
 msgid "New"
 msgstr "Yeni"
 
@@ -131,7 +131,7 @@ msgstr "Kronometre"
 msgid "Lap"
 msgstr "Tur"
 
-#: ../src/stopwatch.vala:197 ../src/timer.vala:156
+#: ../src/stopwatch.vala:197 ../src/timer.vala:161
 msgid "Continue"
 msgstr "Devam et"
 
@@ -145,15 +145,15 @@ msgstr "Sıfırla"
 msgid "Start"
 msgstr "Başla"
 
-#: ../src/timer.vala:113
+#: ../src/timer.vala:115
 msgid "Time is up!"
 msgstr "Süre doldu!"
 
-#: ../src/timer.vala:113
+#: ../src/timer.vala:116
 msgid "Timer countdown finished"
 msgstr "Geri sayım tamamlandı"
 
-#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:166 ../src/timer.vala:177 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Durakla"
 
@@ -195,7 +195,7 @@ msgstr "Hafta içi"
 
 #: ../src/utils.vala:253
 msgid "Weekends"
-msgstr "Hafta Sonları"
+msgstr "Hafta sonları"
 
 #: ../src/widgets.vala:461
 msgid "Cancel"
@@ -215,16 +215,16 @@ msgstr[0] "%d adet seçildi"
 msgid "Delete"
 msgstr "Sil"
 
-#: ../src/window.vala:146
+#: ../src/window.vala:148
 #, c-format
 msgid "Failed to show help: %s"
-msgstr ""
+msgstr "Yardım gösterme başarısız: %s"
 
-#: ../src/window.vala:176
+#: ../src/window.vala:178
 msgid "Utilities to help you with the time."
 msgstr "Zaman konusunda yardımcı olacak donatılar"
 
-#: ../src/window.vala:181
+#: ../src/window.vala:183
 msgid "translator-credits"
 msgstr "Osman Karagöz <osmank3@gmail.com>"
 
@@ -238,7 +238,7 @@ msgstr "Yarın"
 msgid "Yesterday"
 msgstr "Dün"
 
-#: ../src/world.vala:269
+#: ../src/world.vala:272
 msgid "World"
 msgstr "Dünya"
 
@@ -270,7 +270,7 @@ msgstr "Ye_ni"
 
 #: ../data/ui/menu.ui.h:2
 msgid "_Help"
-msgstr ""
+msgstr "_Yardım"
 
 #: ../data/ui/menu.ui.h:3
 msgid "_About"
