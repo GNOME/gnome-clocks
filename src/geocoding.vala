@@ -19,6 +19,13 @@
 namespace Clocks {
 namespace Geo {
 
+private enum AccuracyLevel {
+    COUNTRY = 1,
+    CITY = 4,
+    STREET = 6,
+    EXACT = 8,
+}
+
 [DBus (name = "org.freedesktop.GeoClue2.Manager")]
 private interface Manager : Object {
     public abstract async void get_client (out string client_path) throws IOError;
@@ -29,6 +36,7 @@ private interface Client : Object {
     public abstract string location { owned get; }
     public abstract string desktop_id { owned get; set; }
     public abstract uint distance_threshold { get; set; }
+    public abstract uint requested_accuracy_level { get; set; }
 
     public signal void location_updated (string old_path, string new_path);
 
@@ -99,6 +107,7 @@ public class Info : Object {
         }
 
         client.desktop_id = DESKTOP_ID;
+        client.requested_accuracy_level = AccuracyLevel.CITY;
 
         client.location_updated.connect ((old_path, new_path) => {
             on_location_updated.begin (old_path, new_path, (obj, res) => {
