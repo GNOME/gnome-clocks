@@ -27,6 +27,7 @@ private interface Manager : Object {
 [DBus (name = "org.freedesktop.GeoClue2.Client")]
 private interface Client : Object {
     public abstract string location { owned get; }
+    public abstract string desktop_id { owned get; set; }
     public abstract uint distance_threshold { get; set; }
 
     public signal void location_updated (string old_path, string new_path);
@@ -47,6 +48,8 @@ public interface Location : Object {
 
 public class Info : Object {
     public Geo.Location? geo_location { get; private set; default = null; }
+
+    private const string DESKTOP_ID = "gnome-clocks";
 
     private GWeather.Location? found_location;
     private string? country_code;
@@ -94,6 +97,8 @@ public class Info : Object {
             warning ("Failed to connect to GeoClue2 Client service: %s", e.message);
             return;
         }
+
+        client.desktop_id = DESKTOP_ID;
 
         client.location_updated.connect ((old_path, new_path) => {
             on_location_updated.begin (old_path, new_path, (obj, res) => {
