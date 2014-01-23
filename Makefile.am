@@ -20,7 +20,7 @@ data/org.gnome.clocks.service: data/org.gnome.clocks.service.in Makefile
 
 # appdata file
 appdatadir = $(datadir)/appdata
-appdata_DATA = data/appdata/gnome-clocks.appdata.xml
+appdata_DATA = data/appdata/org.gnome.clocks.appdata.xml
 
 # gsettings
 gsettings_SCHEMAS = data/org.gnome.clocks.gschema.xml
@@ -148,7 +148,7 @@ EXTRA_DIST = \
 	$(hcicon_files) \
 	$(images_DATA) \
 	$(resource_files) \
-	data/appdata/gnome-clocks.appdata.xml \
+	data/appdata/org.gnome.clocks.appdata.xml \
 	data/gnome-clocks.gresource.xml \
 	data/org.gnome.clocks.gschema.xml.in.in
 
