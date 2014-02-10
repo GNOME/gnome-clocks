@@ -24,7 +24,7 @@ appdata_DATA = data/appdata/org.gnome.clocks.appdata.xml
 
 # gsettings
 gsettings_SCHEMAS = data/org.gnome.clocks.gschema.xml
-@INTLTOOL_XML_NOMERGE_RULE@
+@INTLTOOL_XML_MERGE_RULE@
 @GSETTINGS_RULES@
 
 # icons
