@@ -180,6 +180,20 @@ private class Item : Object, ContentItem {
         state = State.READY;
     }
 
+    public bool compare_with_item (Item i) {
+        return (this.alarm_time.compare (i.alarm_time) == 0 && this.active && i.active);
+    }
+
+    public bool check_duplicate_alarm (List<Item> alarms_list) {
+        update_alarm_time ();
+        foreach (Item i in alarms_list) {
+            if (compare_with_item (i)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // Update the state and ringing time. Ring or stop
     // depending on the current time.
     // Returns true if the state changed, false otherwise.
@@ -285,10 +299,15 @@ private class SetupDialog : Gtk.Dialog {
     [GtkChild]
     private Gtk.Alignment am_pm_alignment;
     [GtkChild]
+    private Gtk.Revealer label_revealer;
+    [GtkChild]
     private Gtk.SizeGroup am_pm_sizegroup;
+    private unowned List<Item> alarms_list;
 
-    public SetupDialog (Gtk.Window parent, Item? alarm) {
+    public SetupDialog (Gtk.Window parent, Item? alarm, List<Item> alarms) {
         Object (transient_for: parent, title: alarm != null ? _("Edit Alarm") : _("New Alarm"));
+
+        alarms_list = alarms;
 
         // Force LTR since we do not want to reverse [hh] : [mm]
         time_grid.set_direction (Gtk.TextDirection.LTR);
@@ -309,10 +328,15 @@ private class SetupDialog : Gtk.Dialog {
 
         // Create an array with the weekday buttons with
         // day_buttons[0] referencing the button for Monday, and so on.
+        // Also declare toogled signal connection.
         day_buttons = new Gtk.ToggleButton[7];
         for (int i = 0; i < 7; i++) {
             var button = new Gtk.ToggleButton.with_label (Utils.Weekdays.abbreviation ((Utils.Weekdays.Day) i));
             day_buttons[i] = button;
+
+            day_buttons[i].toggled.connect (() => {
+                avert_duplicate_alarm ();
+            });
         }
 
         // Pack the buttons, starting with the first day of the week
@@ -324,6 +348,20 @@ private class SetupDialog : Gtk.Dialog {
         }
 
         set_from_alarm (alarm);
+    }
+
+    [GtkCallback]
+    private void avert_duplicate_alarm () {
+        var alarm = new Item ();
+        apply_to_alarm (alarm);
+
+        if (alarm.check_duplicate_alarm (alarms_list)) {
+            this.set_response_sensitive (1, false);
+            label_revealer.set_reveal_child (true);
+        } else {
+            this.set_response_sensitive (1, true);
+            label_revealer.set_reveal_child (false);
+        }
     }
 
     // Sets up the dialog to show the values of alarm.
@@ -604,7 +642,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     }
 
     private void edit (Item alarm) {
-        var dialog = new SetupDialog ((Gtk.Window) get_toplevel (), alarm);
+        var dialog = new SetupDialog ((Gtk.Window) get_toplevel (), alarm, alarms);
 
         // Disable alarm while editing it and remember the original active state.
         var saved_active = alarm.active;
@@ -630,7 +668,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     }
 
     public void activate_new () {
-        var dialog = new SetupDialog ((Gtk.Window) get_toplevel (), null);
+        var dialog = new SetupDialog ((Gtk.Window) get_toplevel (), null, alarms);
         dialog.response.connect ((dialog, response) => {
             if (response == 1) {
                 var alarm = new Item ();
