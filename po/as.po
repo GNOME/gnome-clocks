@@ -2,14 +2,14 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 #
-# Nilamdyuti Goswami <ngoswami@redhat.com>, 2012, 2013.
+# Nilamdyuti Goswami <ngoswami@redhat.com>, 2012, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-16 19:37+0000\n"
-"PO-Revision-Date: 2013-09-17 16:57+0530\n"
+"POT-Creation-Date: 2014-02-11 12:36+0000\n"
+"PO-Revision-Date: 2014-02-11 19:35+0630\n"
 "Last-Translator: Nilamdyuti Goswami <ngoswami@redhat.com>\n"
 "Language-Team: Assamese <kde-i18n-doc@kde.org>\n"
 "Language: as\n"
@@ -19,20 +19,49 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:1
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"এটা সাধাৰণ আৰু উপযোগী ঘড়ী এপ্লিকেচন। ই বিশ্ব ঘড়ী, এলাৰ্ম, এটা স্টপৱাচ আৰু এটা "
+"টাইমাৰ "
+"অন্তৰ্ভুক্ত কৰে।"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:2
+msgid "Goals:"
+msgstr "লক্ষ্য:"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:3
+msgid "Show the time in different cities around the world"
+msgstr "বিশ্বৰ বিভিন্ন নগৰৰ সময় দেখুৱাওক"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:4
+msgid "Set alarms to wake you up"
+msgstr "আপোনাক সাৰ পোৱাবলৈ এলাৰ্ম সংহতি কৰক"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:5
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "এটা সঠিক স্টপৱাচৰ সৈতে পাৰ হোৱা সময় মাপক"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:6
+msgid "Set timers to properly cook your food"
+msgstr "আপোনাক খাদ্য বনাবলৈ টাইমাৰসমূহ সংহতি কৰক"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:188
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "ঘড়ী"
 
-#: ../data/gnome-clocks.desktop.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "GNOME ঘড়ী"
 
-#: ../data/gnome-clocks.desktop.in.h:3
+#: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "বিশ্বৰ সময়সমূহৰ বাবে ঘড়ী, লগতে এলাৰ্ম, স্টপৱাচ আৰু এটা টাইমাৰ"
 
-#: ../data/gnome-clocks.desktop.in.h:4
+#: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "time;timer;alarm;world clock;stopwatch;time zone;"
 
@@ -52,7 +81,7 @@ msgstr "সংৰূপিত এলাৰ্মসমূহ"
 msgid "List of alarms set."
 msgstr "এলাৰ্মসমূহ সংহতিৰ তালিকা।"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:105
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:107
 msgid "Timer"
 msgstr "টাইমাৰ"
 
@@ -92,29 +121,29 @@ msgstr "পেনেলৰ অৱস্থা"
 msgid "Current clock panel."
 msgstr "বৰ্তমান ঘড়ী পেনেল।"
 
-#: ../src/alarm.vala:109 ../src/alarm.vala:330 ../src/alarm.vala:481
+#: ../src/alarm.vala:115 ../src/alarm.vala:377 ../src/alarm.vala:528
 msgid "Alarm"
 msgstr "এলাৰ্ম"
 
-#: ../src/alarm.vala:110 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:188 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "বন্ধ কৰক"
 
-#: ../src/alarm.vala:113 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:118 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "স্নুজ"
 
-#: ../src/alarm.vala:282
+#: ../src/alarm.vala:308
 msgid "Edit Alarm"
 msgstr "এলাৰ্ম সম্পাদন কৰক"
 
-#: ../src/alarm.vala:282
+#: ../src/alarm.vala:308
 msgid "New Alarm"
 msgstr "নতুন এলাৰ্ম"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:487 ../src/world.vala:278
+#: ../src/alarm.vala:551 ../src/world.vala:281
 msgid "New"
 msgstr "নতুন"
 
@@ -122,37 +151,37 @@ msgstr "নতুন"
 msgid "Print version information and exit"
 msgstr "সংস্কৰণ তথ্য প্ৰিন্ট কৰক আৰু প্ৰস্থান কৰক"
 
-#: ../src/stopwatch.vala:129
+#: ../src/stopwatch.vala:130
 msgid "Stopwatch"
 msgstr "স্টপৱাচ"
 
-#: ../src/stopwatch.vala:190
+#: ../src/stopwatch.vala:191
 msgid "Lap"
 msgstr "লেপ"
 
-#: ../src/stopwatch.vala:197 ../src/timer.vala:156
+#: ../src/stopwatch.vala:198 ../src/timer.vala:162
 msgid "Continue"
 msgstr "চলাই নিয়ক"
 
-#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:202 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "পুনৰসংহতি কৰক"
 
-#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:210 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "আৰম্ভ কৰক"
 
-#: ../src/timer.vala:113
+#: ../src/timer.vala:116
 msgid "Time is up!"
 msgstr "সময় শেষ!"
 
-#: ../src/timer.vala:113
+#: ../src/timer.vala:117
 msgid "Timer countdown finished"
 msgstr "টাইমাৰ কাউন্টডাউন শেষ হল"
 
-#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:167 ../src/timer.vala:178 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "বিৰাম দিয়ক"
 
@@ -215,16 +244,16 @@ msgstr[1] "%d নিৰ্বাচিত"
 msgid "Delete"
 msgstr "মচি পেলাওক"
 
-#: ../src/window.vala:146
+#: ../src/window.vala:161
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "সহায় দেখুৱাবলৈ ব্যৰ্থ: %s"
 
-#: ../src/window.vala:176
+#: ../src/window.vala:191
 msgid "Utilities to help you with the time."
 msgstr "সময়ৰ সৈতে আপোনাক সহযোগ কৰিবলে সঁজুলিসমূহ।"
 
-#: ../src/window.vala:181
+#: ../src/window.vala:196
 msgid "translator-credits"
 msgstr "নীলমদ্যুতি গোস্বামী (ngoswami@redhat.com)"
 
@@ -238,7 +267,7 @@ msgstr "অহাকালি"
 msgid "Yesterday"
 msgstr "যোৱাকালি"
 
-#: ../src/world.vala:269
+#: ../src/world.vala:272
 msgid "World"
 msgstr "বিশ্ব"
 
@@ -249,14 +278,18 @@ msgid "_Done"
 msgstr "কৰা হল (_D)"
 
 #: ../data/ui/alarmsetupdialog.ui.h:2
+msgid "You already have an alarm for this time."
+msgstr "এই সময়ৰ বাবে আপোনাৰ এটা এলাৰ্ম ইতিমধ্যে আছে।"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "Name"
 msgstr "নাম"
 
-#: ../data/ui/alarmsetupdialog.ui.h:3
+#: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "Repeat Every"
 msgstr "পুনৰাবৃত্তি প্ৰতি"
 
-#: ../data/ui/alarmsetupdialog.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:5
 msgid "Active"
 msgstr "সক্ৰিয়"
 
@@ -265,26 +298,22 @@ msgid "Select <b>New</b> to add an alarm"
 msgstr "এটা এলাৰ্ম যোগ কৰিবলে <b>নতুন</b> বাছক"
 
 #: ../data/ui/menu.ui.h:1
-msgid "_New"
-msgstr "নতুন (_N)"
-
-#: ../data/ui/menu.ui.h:2
 msgid "_Help"
 msgstr "সহায় (_H)"
 
-#: ../data/ui/menu.ui.h:3
+#: ../data/ui/menu.ui.h:2
 msgid "_About"
 msgstr "বিষয়ে (_A)"
 
-#: ../data/ui/menu.ui.h:4
+#: ../data/ui/menu.ui.h:3
 msgid "_Quit"
 msgstr "প্ৰস্থান কৰক (_Q)"
 
-#: ../data/ui/menu.ui.h:5
+#: ../data/ui/menu.ui.h:4
 msgid "Select All"
 msgstr "সকলো বাছক"
 
-#: ../data/ui/menu.ui.h:6
+#: ../data/ui/menu.ui.h:5
 msgid "Select None"
 msgstr "কোনোটো নাবাছিব"
 
@@ -307,6 +336,9 @@ msgstr "সুৰ্যোদয়"
 #: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "সূৰ্যাস্ত"
+
+#~ msgid "_New"
+#~ msgstr "নতুন (_N)"
 
 #~ msgid "Done"
 #~ msgstr "কৰা হল"
