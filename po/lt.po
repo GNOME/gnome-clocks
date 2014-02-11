@@ -2,15 +2,15 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Žygimantas Beručka <zygis@gnome.org>, 2012.
-# Aurimas Černius <aurisc4@gmail.com>, 2012, 2013.
+# Aurimas Černius <aurisc4@gmail.com>, 2012, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-16 19:37+0000\n"
-"PO-Revision-Date: 2013-09-20 21:26+0300\n"
+"POT-Creation-Date: 2014-02-11 19:14+0000\n"
+"PO-Revision-Date: 2014-02-11 22:50+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -22,21 +22,49 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.6\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:1
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"Paprasta ir elegantiškai laikrodžių programa. Ji turi pasaulio laikrodžius, "
+"žadintuvus, chronometrą ir laikmatį."
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:2
+msgid "Goals:"
+msgstr "Tikslai:"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:3
+msgid "Show the time in different cities around the world"
+msgstr "Rodyti įvairių pasaulio miestų laiką"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:4
+msgid "Set alarms to wake you up"
+msgstr "Nustatyti žadintuvus"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:5
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "Matuoti praėjusį laiką tiksliu chronometru"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:6
+msgid "Set timers to properly cook your food"
+msgstr "Tvarkingai nustatyti laikmačius maisto ruošimui"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:188
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Laikrodžiai"
 
-#: ../data/gnome-clocks.desktop.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "GNOME laikrodžiai"
 
-#: ../data/gnome-clocks.desktop.in.h:3
+#: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr ""
 "Pasaulio laikų laikrodžiai, taip pat žadintuvai, chronometras ir laikmatis"
 
-#: ../data/gnome-clocks.desktop.in.h:4
+#: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
 "laikas;laikmatis;žadintuvas;pasaulio laikrodis;chronometras;laiko juosta;"
@@ -57,7 +85,7 @@ msgstr "Nustatyti žadintuvai"
 msgid "List of alarms set."
 msgstr "Nustatytų žadintuvų sąrašas."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:105
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:107
 msgid "Timer"
 msgstr "Laikmatis"
 
@@ -97,29 +125,29 @@ msgstr "Skydelio būsena"
 msgid "Current clock panel."
 msgstr "Dabartinis laikrodžio skydelis."
 
-#: ../src/alarm.vala:109 ../src/alarm.vala:330 ../src/alarm.vala:481
+#: ../src/alarm.vala:115 ../src/alarm.vala:377 ../src/alarm.vala:528
 msgid "Alarm"
 msgstr "Žadintuvas"
 
-#: ../src/alarm.vala:110 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:188 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Sustabdyti"
 
-#: ../src/alarm.vala:113 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:118 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Atidėti"
 
-#: ../src/alarm.vala:282
+#: ../src/alarm.vala:308
 msgid "Edit Alarm"
 msgstr "Redaguoti žadintuvą"
 
-#: ../src/alarm.vala:282
+#: ../src/alarm.vala:308
 msgid "New Alarm"
 msgstr "Naujas žadintuvas"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:487 ../src/world.vala:278
+#: ../src/alarm.vala:551 ../src/world.vala:281
 msgid "New"
 msgstr "Naujas"
 
@@ -127,37 +155,37 @@ msgstr "Naujas"
 msgid "Print version information and exit"
 msgstr "Atspausdinti versijos informaciją ir išeiti"
 
-#: ../src/stopwatch.vala:129
+#: ../src/stopwatch.vala:130
 msgid "Stopwatch"
 msgstr "Chronometras"
 
-#: ../src/stopwatch.vala:190
+#: ../src/stopwatch.vala:191
 msgid "Lap"
 msgstr "Ratas"
 
-#: ../src/stopwatch.vala:197 ../src/timer.vala:156
+#: ../src/stopwatch.vala:198 ../src/timer.vala:162
 msgid "Continue"
 msgstr "Tęsti"
 
-#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:202 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Atstatyti"
 
-#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:210 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Paleisti"
 
-#: ../src/timer.vala:113
+#: ../src/timer.vala:116
 msgid "Time is up!"
 msgstr "Laikas!"
 
-#: ../src/timer.vala:113
+#: ../src/timer.vala:117
 msgid "Timer countdown finished"
 msgstr "Laikmačio skaičiavimas baigėsi"
 
-#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:167 ../src/timer.vala:178 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Pauzė"
 
@@ -221,16 +249,16 @@ msgstr[2] "Pažymėta %d elementų"
 msgid "Delete"
 msgstr "Ištrinti"
 
-#: ../src/window.vala:146
+#: ../src/window.vala:161
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Nepavyko atverti žinyno: %s"
 
-#: ../src/window.vala:176
+#: ../src/window.vala:191
 msgid "Utilities to help you with the time."
 msgstr "Pagalbiniai laiko įrankiai."
 
-#: ../src/window.vala:181
+#: ../src/window.vala:196
 msgid "translator-credits"
 msgstr ""
 "išvertė:\n"
@@ -246,7 +274,7 @@ msgstr "Rytoj"
 msgid "Yesterday"
 msgstr "Vakar"
 
-#: ../src/world.vala:269
+#: ../src/world.vala:272
 msgid "World"
 msgstr "Pasaulis"
 
@@ -257,14 +285,18 @@ msgid "_Done"
 msgstr "_Atlikta"
 
 #: ../data/ui/alarmsetupdialog.ui.h:2
+msgid "You already have an alarm for this time."
+msgstr "Jau turite žadintuvą šiam laikui."
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "Name"
 msgstr "Pavadinimas"
 
-#: ../data/ui/alarmsetupdialog.ui.h:3
+#: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "Repeat Every"
 msgstr "Kartoti kas"
 
-#: ../data/ui/alarmsetupdialog.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:5
 msgid "Active"
 msgstr "Aktyvus"
 
@@ -273,26 +305,22 @@ msgid "Select <b>New</b> to add an alarm"
 msgstr "Pasirinkite <b>Naujas</b> žadintuvui pridėti"
 
 #: ../data/ui/menu.ui.h:1
-msgid "_New"
-msgstr "_Naujas"
-
-#: ../data/ui/menu.ui.h:2
 msgid "_Help"
 msgstr "_Žinynas"
 
-#: ../data/ui/menu.ui.h:3
+#: ../data/ui/menu.ui.h:2
 msgid "_About"
 msgstr "_Apie"
 
-#: ../data/ui/menu.ui.h:4
+#: ../data/ui/menu.ui.h:3
 msgid "_Quit"
 msgstr "_Išeiti"
 
-#: ../data/ui/menu.ui.h:5
+#: ../data/ui/menu.ui.h:4
 msgid "Select All"
 msgstr "Žymėti visus"
 
-#: ../data/ui/menu.ui.h:6
+#: ../data/ui/menu.ui.h:5
 msgid "Select None"
 msgstr "Nežymėti nieko"
 
@@ -315,3 +343,4 @@ msgstr "Saulėtekis"
 #: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Saulėlydis"
+
