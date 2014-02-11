@@ -2,15 +2,15 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Israel Campoy <churritzu@yahoo.com>, 2012.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2012, 2013.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2012, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-16 19:37+0000\n"
-"PO-Revision-Date: 2013-09-17 11:09+0200\n"
+"POT-Creation-Date: 2014-02-11 07:15+0000\n"
+"PO-Revision-Date: 2014-02-11 10:19+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -18,23 +18,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 2.91.5\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:188
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Relojes"
 
-#: ../data/gnome-clocks.desktop.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "Relojes de GNOME"
 
-#: ../data/gnome-clocks.desktop.in.h:3
+#: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr ""
 "Relojes de horas mundiales, además de alarmas, cronómetro y un temporizador"
 
-#: ../data/gnome-clocks.desktop.in.h:4
+#: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "Hora;Temporizador;Alarma;Hora mundial;Cronómetro;Zona horaria;"
 
@@ -54,7 +54,7 @@ msgstr "Alarmas configuradas"
 msgid "List of alarms set."
 msgstr "Lista de alarmas establecidas."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:105
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:107
 msgid "Timer"
 msgstr "Temporizador"
 
@@ -94,29 +94,29 @@ msgstr "Panel de estado"
 msgid "Current clock panel."
 msgstr "Panel del reloj actual."
 
-#: ../src/alarm.vala:109 ../src/alarm.vala:330 ../src/alarm.vala:481
+#: ../src/alarm.vala:115 ../src/alarm.vala:377 ../src/alarm.vala:528
 msgid "Alarm"
 msgstr "Alarma"
 
-#: ../src/alarm.vala:110 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:188 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Detener"
 
-#: ../src/alarm.vala:113 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:118 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Posponer"
 
-#: ../src/alarm.vala:282
+#: ../src/alarm.vala:308
 msgid "Edit Alarm"
 msgstr "Editar alarma"
 
-#: ../src/alarm.vala:282
+#: ../src/alarm.vala:308
 msgid "New Alarm"
 msgstr "Alarma nueva"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:487 ../src/world.vala:278
+#: ../src/alarm.vala:551 ../src/world.vala:281
 msgid "New"
 msgstr "Nuevo"
 
@@ -124,37 +124,37 @@ msgstr "Nuevo"
 msgid "Print version information and exit"
 msgstr "Mostrar información de la versión y salir"
 
-#: ../src/stopwatch.vala:129
+#: ../src/stopwatch.vala:130
 msgid "Stopwatch"
 msgstr "Cronómetro"
 
-#: ../src/stopwatch.vala:190
+#: ../src/stopwatch.vala:191
 msgid "Lap"
 msgstr "Vuelta"
 
-#: ../src/stopwatch.vala:197 ../src/timer.vala:156
+#: ../src/stopwatch.vala:198 ../src/timer.vala:162
 msgid "Continue"
 msgstr "Continuar"
 
-#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:202 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:210 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Iniciar"
 
-#: ../src/timer.vala:113
+#: ../src/timer.vala:116
 msgid "Time is up!"
 msgstr "¡Se acabó el tiempo!"
 
-#: ../src/timer.vala:113
+#: ../src/timer.vala:117
 msgid "Timer countdown finished"
 msgstr "La cuenta atrás ha terminado"
 
-#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:167 ../src/timer.vala:178 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Pausar"
 
@@ -217,16 +217,16 @@ msgstr[1] "%d seleccionados"
 msgid "Delete"
 msgstr "Eliminar"
 
-#: ../src/window.vala:146
+#: ../src/window.vala:161
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Falló al mostrar la ayuda: %s"
 
-#: ../src/window.vala:176
+#: ../src/window.vala:191
 msgid "Utilities to help you with the time."
 msgstr "Utilidades para ayudarle con la hora."
 
-#: ../src/window.vala:181
+#: ../src/window.vala:196
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles, <daniel.mustieles@gmail.com>, 2012\n"
@@ -242,7 +242,7 @@ msgstr "Mañana"
 msgid "Yesterday"
 msgstr "Ayer"
 
-#: ../src/world.vala:269
+#: ../src/world.vala:272
 msgid "World"
 msgstr "Mundo"
 
@@ -253,14 +253,18 @@ msgid "_Done"
 msgstr "_Hecho"
 
 #: ../data/ui/alarmsetupdialog.ui.h:2
+msgid "You already have an alarm for this time."
+msgstr "Ya tiene una alarma para esta hora."
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "Name"
 msgstr "Nombre"
 
-#: ../data/ui/alarmsetupdialog.ui.h:3
+#: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "Repeat Every"
 msgstr "Repetir cada"
 
-#: ../data/ui/alarmsetupdialog.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:5
 msgid "Active"
 msgstr "Activar"
 
@@ -269,26 +273,22 @@ msgid "Select <b>New</b> to add an alarm"
 msgstr "Seleccione <b>Nuevo</b> para añadir una alarma"
 
 #: ../data/ui/menu.ui.h:1
-msgid "_New"
-msgstr "_Nuevo"
-
-#: ../data/ui/menu.ui.h:2
 msgid "_Help"
 msgstr "_Ayuda"
 
-#: ../data/ui/menu.ui.h:3
+#: ../data/ui/menu.ui.h:2
 msgid "_About"
 msgstr "A_cerca de"
 
-#: ../data/ui/menu.ui.h:4
+#: ../data/ui/menu.ui.h:3
 msgid "_Quit"
 msgstr "_Salir"
 
-#: ../data/ui/menu.ui.h:5
+#: ../data/ui/menu.ui.h:4
 msgid "Select All"
 msgstr "Seleccionar todo"
 
-#: ../data/ui/menu.ui.h:6
+#: ../data/ui/menu.ui.h:5
 msgid "Select None"
 msgstr "No seleccionar ninguno"
 
@@ -311,6 +311,9 @@ msgstr "Amanecer"
 #: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Atardecer"
+
+#~ msgid "_New"
+#~ msgstr "_Nuevo"
 
 #~ msgid "0"
 #~ msgstr "0"
