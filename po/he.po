@@ -2,15 +2,15 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# Yosef Or Boczko <yoseforb@gmail.com>, 2013.
+# Yosef Or Boczko <yoseforb@gnome.org>, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks 3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-16 22:30+0300\n"
-"PO-Revision-Date: 2013-09-16 22:35+0300\n"
-"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
+"POT-Creation-Date: 2014-02-11 15:18+0200\n"
+"PO-Revision-Date: 2014-02-11 15:22+0200\n"
+"Last-Translator: Yosef Or Boczko <yoseforb@gnome.org>\n"
 "Language-Team: עברית <>\n"
 "Language: he_IL\n"
 "MIME-Version: 1.0\n"
@@ -20,20 +20,47 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Gtranslator 2.91.6\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:1
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"יישום שעונים פשוט ומהודר. הוא כולל שעונים בעולם, התרעות, שעון עצר וקוצב זמן."
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:2
+msgid "Goals:"
+msgstr "מרטות:"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:3
+msgid "Show the time in different cities around the world"
+msgstr "הצגת השעה בערים שונות מסביב לעולם"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:4
+msgid "Set alarms to wake you up"
+msgstr "הגדרת התרעה כדי להעיר אותך"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:5
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "מדידת זמן שחלף עם שעון עצר מדויק"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:6
+msgid "Set timers to properly cook your food"
+msgstr "הגדרת קוצב זמן כדי לבשל את האוכל שלך כמו שצריך"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:188
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "שעונים"
 
-#: ../data/gnome-clocks.desktop.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "שעונים מבית GNOME"
 
-#: ../data/gnome-clocks.desktop.in.h:3
+#: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "שעונים לזמנים שונים ברחבי העולם לרבות התרעות, שעון עצר וקוצב זמן"
 
-#: ../data/gnome-clocks.desktop.in.h:4
+#: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "זמן;שעה;טיימר;קוצב זמן;שעון עולמי;שעון עצר;סטופר;אזור זמן;שעון;"
 
@@ -53,7 +80,7 @@ msgstr "Configured alarms"
 msgid "List of alarms set."
 msgstr "List of alarms set."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:105
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:107
 msgid "Timer"
 msgstr "קוצב זמן"
 
@@ -93,29 +120,29 @@ msgstr "Panel state"
 msgid "Current clock panel."
 msgstr "Current clock panel."
 
-#: ../src/alarm.vala:109 ../src/alarm.vala:330 ../src/alarm.vala:481
+#: ../src/alarm.vala:115 ../src/alarm.vala:377 ../src/alarm.vala:528
 msgid "Alarm"
 msgstr "התרעה"
 
-#: ../src/alarm.vala:110 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:188 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "עצירה"
 
-#: ../src/alarm.vala:113 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:118 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "נודניק"
 
-#: ../src/alarm.vala:282
+#: ../src/alarm.vala:308
 msgid "Edit Alarm"
 msgstr "עריכת התרעה"
 
-#: ../src/alarm.vala:282
+#: ../src/alarm.vala:308
 msgid "New Alarm"
 msgstr "התרעה חדשה"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:487 ../src/world.vala:278
+#: ../src/alarm.vala:551 ../src/world.vala:281
 msgid "New"
 msgstr "חדש"
 
@@ -123,37 +150,37 @@ msgstr "חדש"
 msgid "Print version information and exit"
 msgstr "Print version information and exit"
 
-#: ../src/stopwatch.vala:129
+#: ../src/stopwatch.vala:130
 msgid "Stopwatch"
 msgstr "שעון עצר"
 
-#: ../src/stopwatch.vala:190
+#: ../src/stopwatch.vala:191
 msgid "Lap"
 msgstr "הקפה"
 
-#: ../src/stopwatch.vala:197 ../src/timer.vala:156
+#: ../src/stopwatch.vala:198 ../src/timer.vala:162
 msgid "Continue"
 msgstr "המשך"
 
-#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:202 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "איפוס"
 
-#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:210 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "התחלה"
 
-#: ../src/timer.vala:113
+#: ../src/timer.vala:116
 msgid "Time is up!"
 msgstr "נגמר הזמן!"
 
-#: ../src/timer.vala:113
+#: ../src/timer.vala:117
 msgid "Timer countdown finished"
 msgstr "הספירה לאחור הסתיימה"
 
-#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:167 ../src/timer.vala:178 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "השהייה"
 
@@ -216,20 +243,20 @@ msgstr[1] "%d נבחרו"
 msgid "Delete"
 msgstr "מחיקה"
 
-#: ../src/window.vala:146
+#: ../src/window.vala:161
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "נכשלה הצגת עזרה: %s"
 
-#: ../src/window.vala:176
+#: ../src/window.vala:191
 msgid "Utilities to help you with the time."
 msgstr "עזרים כדי לסייע לך בניהול זמנים."
 
-#: ../src/window.vala:181
+#: ../src/window.vala:196
 msgid "translator-credits"
 msgstr ""
 "ירון שהרבני <sh.yaron@gmail.com>\n"
-"יוסף אור בוצ׳קו <yoseforb@gmail.com>"
+"יוסף אור בוצ׳קו <yoseforb@gnome.org>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
 #: ../src/world.vala:112 ../src/world.vala:115
@@ -241,7 +268,7 @@ msgstr "מחר"
 msgid "Yesterday"
 msgstr "אתמול"
 
-#: ../src/world.vala:269
+#: ../src/world.vala:272
 msgid "World"
 msgstr "עולם"
 
@@ -252,14 +279,18 @@ msgid "_Done"
 msgstr "_בוצע"
 
 #: ../data/ui/alarmsetupdialog.ui.h:2
+msgid "You already have an alarm for this time."
+msgstr "כבר יש לך התרעה לזמן זה."
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "Name"
 msgstr "שם"
 
-#: ../data/ui/alarmsetupdialog.ui.h:3
+#: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "Repeat Every"
 msgstr "חזרה בכול"
 
-#: ../data/ui/alarmsetupdialog.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:5
 msgid "Active"
 msgstr "פעיל"
 
@@ -268,26 +299,22 @@ msgid "Select <b>New</b> to add an alarm"
 msgstr "יש לבחור ב<b>חדש</b> כדי להוסיף התרעה"
 
 #: ../data/ui/menu.ui.h:1
-msgid "_New"
-msgstr "_חדש"
-
-#: ../data/ui/menu.ui.h:2
 msgid "_Help"
 msgstr "_עזרה"
 
-#: ../data/ui/menu.ui.h:3
+#: ../data/ui/menu.ui.h:2
 msgid "_About"
 msgstr "על _אודות"
 
-#: ../data/ui/menu.ui.h:4
+#: ../data/ui/menu.ui.h:3
 msgid "_Quit"
 msgstr "י_ציאה"
 
-#: ../data/ui/menu.ui.h:5
+#: ../data/ui/menu.ui.h:4
 msgid "Select All"
 msgstr "בחירת הכול"
 
-#: ../data/ui/menu.ui.h:6
+#: ../data/ui/menu.ui.h:5
 msgid "Select None"
 msgstr "ביטול הבחירה"
 
@@ -310,6 +337,9 @@ msgstr "זריחה"
 #: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "שקיעה"
+
+#~ msgid "_New"
+#~ msgstr "_חדש"
 
 #~ msgid "Split"
 #~ msgstr "פיצול"
