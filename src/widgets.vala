@@ -436,9 +436,7 @@ public class ContentView : Gtk.Bin {
     private GLib.MenuModel selection_menu;
     private Gtk.MenuButton selection_menubutton;
     private Gtk.Label selection_menubutton_label;
-    private Gtk.Frame selection_toolbar;
     private Gtk.Grid grid;
-    private Gtk.Revealer revealer;
     private Gtk.Button delete_button;
 
     public ContentView (Gtk.Widget e, HeaderBar b) {
@@ -492,12 +490,22 @@ public class ContentView : Gtk.Bin {
         grid = new Gtk.Grid ();
         grid.attach (scrolled_window, 0, 0, 1, 1);
 
-        selection_toolbar = create_selection_toolbar ();
-        revealer = new Gtk.Revealer ();
-        revealer.hexpand = true;
-        revealer.halign = Gtk.Align.FILL;
-        revealer.add (selection_toolbar);
-        grid.attach (revealer, 0, 1, 1, 1);
+        var action_bar = new Gtk.ActionBar ();
+        action_bar.no_show_all = true;
+        grid.attach (action_bar, 0, 1, 1, 1);
+
+        delete_button = new Gtk.Button ();
+        delete_button.label = _("Delete");
+        delete_button.visible = true;
+        delete_button.sensitive = false;
+        delete_button.halign = Gtk.Align.END;
+        delete_button.hexpand = true;
+        delete_button.clicked.connect (() => {
+            delete_selected ();
+            icon_view.mode = IconView.Mode.NORMAL;
+        });
+
+        action_bar.pack_end (delete_button);
 
         var model = icon_view.get_model ();
         model.row_inserted.connect(() => {
@@ -510,10 +518,10 @@ public class ContentView : Gtk.Bin {
         icon_view.notify["mode"].connect (() => {
             if (icon_view.mode == IconView.Mode.SELECTION) {
                 header_bar.mode = HeaderBar.Mode.SELECTION;
-                revealer.reveal_child = true;
+                action_bar.show ();
             } else if (icon_view.mode == IconView.Mode.NORMAL) {
                 header_bar.mode = HeaderBar.Mode.NORMAL;
-                revealer.reveal_child = false;
+                action_bar.hide ();
             }
         });
 
@@ -560,29 +568,6 @@ public class ContentView : Gtk.Bin {
 
     public virtual signal void delete_selected () {
         icon_view.remove_selected ();
-    }
-
-    private Gtk.Frame create_selection_toolbar () {
-        var frame = new Gtk.Frame (null);
-        frame.get_style_context ().add_class ("clocks-selection-bar");
-
-        delete_button = new Gtk.Button ();
-        delete_button.label = _("Delete");
-        delete_button.sensitive = false;
-        delete_button.halign = Gtk.Align.END;
-        delete_button.hexpand = true;
-        delete_button.clicked.connect (() => {
-            delete_selected ();
-            icon_view.mode = IconView.Mode.NORMAL;
-        });
-
-        var grid = new Gtk.Grid ();
-        grid.attach (delete_button, 0, 0, 1, 1);
-
-        frame.add (grid);
-        frame.show_all ();
-
-        return frame;
     }
 
     private void update_empty_view (Gtk.TreeModel model) {
