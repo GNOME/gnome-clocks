@@ -180,7 +180,7 @@ private class Item : Object, ContentItem {
         state = State.READY;
     }
 
-    public bool compare_with_item (Item i) {
+    private bool compare_with_item (Item i) {
         return (this.alarm_time.compare (i.alarm_time) == 0 && this.active && i.active);
     }
 
@@ -335,7 +335,7 @@ private class SetupDialog : Gtk.Dialog {
             day_buttons[i] = button;
 
             day_buttons[i].toggled.connect (() => {
-                avert_duplicate_alarm ();
+                avoid_duplicate_alarm ();
             });
         }
 
@@ -347,21 +347,11 @@ private class SetupDialog : Gtk.Dialog {
             day_buttons_box.pack_start (day_buttons[day_number]);
         }
 
+        active_switch.notify["active"].connect (() => {
+            avoid_duplicate_alarm ();
+        });
+
         set_from_alarm (alarm);
-    }
-
-    [GtkCallback]
-    private void avert_duplicate_alarm () {
-        var alarm = new Item ();
-        apply_to_alarm (alarm);
-
-        if (alarm.check_duplicate_alarm (alarms_list)) {
-            this.set_response_sensitive (1, false);
-            label_revealer.set_reveal_child (true);
-        } else {
-            this.set_response_sensitive (1, true);
-            label_revealer.set_reveal_child (false);
-        }
     }
 
     // Sets up the dialog to show the values of alarm.
@@ -440,6 +430,24 @@ private class SetupDialog : Gtk.Dialog {
         for (int i = 0; i < 7; i++) {
             alarm.days.set ((Utils.Weekdays.Day) i, day_buttons[i].active);
         }
+    }
+
+    private void avoid_duplicate_alarm () {
+        var alarm = new Item ();
+        apply_to_alarm (alarm);
+
+        if (alarm.check_duplicate_alarm (alarms_list)) {
+            this.set_response_sensitive (1, false);
+            label_revealer.set_reveal_child (true);
+        } else {
+            this.set_response_sensitive (1, true);
+            label_revealer.set_reveal_child (false);
+        }
+    }
+
+    [GtkCallback]
+    private void spinbuttons_changed (Gtk.SpinButton spin_button) {
+        avoid_duplicate_alarm ();
     }
 
     [GtkCallback]

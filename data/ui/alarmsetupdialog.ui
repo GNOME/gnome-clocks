@@ -134,8 +134,8 @@
                     <property name="adjustment">m_adjustment</property>
                     <property name="numeric">True</property>
                     <property name="wrap">True</property>
+                    <signal name="value-changed" handler="spinbuttons_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
                     <signal name="output" handler="show_leading_zeros" object="ClocksAlarmSetupDialog" swapped="no"/>
-                    <signal name="value-changed" handler="avert_duplicate_alarm" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">3</property>
@@ -180,8 +180,8 @@
                     <property name="adjustment">h_adjustment</property>
                     <property name="numeric">True</property>
                     <property name="wrap">True</property>
+                    <signal name="value-changed" handler="spinbuttons_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
                     <signal name="output" handler="show_leading_zeros" object="ClocksAlarmSetupDialog" swapped="no"/>
-                    <signal name="value-changed" handler="avert_duplicate_alarm" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -316,7 +316,6 @@
                     <property name="can_focus">True</property>
                     <property name="halign">start</property>
                     <property name="valign">center</property>
-                    <signal name="state-flags-changed" handler="avert_duplicate_alarm" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
