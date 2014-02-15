@@ -59,6 +59,7 @@ public class Application : Gtk.Application {
         var app_menu = builder.get_object ("appmenu") as MenuModel;
         set_app_menu (app_menu);
 
+        add_accelerator ("<Primary>n", "win.new", null);
         add_accelerator ("<Primary>a", "win.select-all", null);
     }
 
