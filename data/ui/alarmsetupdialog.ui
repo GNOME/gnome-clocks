@@ -316,6 +316,7 @@
                     <property name="can_focus">True</property>
                     <property name="halign">start</property>
                     <property name="valign">center</property>
+                    <signal name="notify::active" handler="active_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>

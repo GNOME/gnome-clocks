@@ -347,10 +347,6 @@ private class SetupDialog : Gtk.Dialog {
             day_buttons_box.pack_start (day_buttons[day_number]);
         }
 
-        active_switch.notify["active"].connect (() => {
-            avoid_duplicate_alarm ();
-        });
-
         set_from_alarm (alarm);
     }
 
@@ -447,6 +443,11 @@ private class SetupDialog : Gtk.Dialog {
 
     [GtkCallback]
     private void spinbuttons_changed (Gtk.SpinButton spin_button) {
+        avoid_duplicate_alarm ();
+    }
+
+    [GtkCallback]
+    private void active_changed () {
         avoid_duplicate_alarm ();
     }
 
