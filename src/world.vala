@@ -185,7 +185,7 @@ private class LocationDialog : Gtk.Dialog {
     private GWeather.LocationEntry location_entry;
 
     public LocationDialog (Gtk.Window parent) {
-        Object (transient_for: parent);
+        Object (transient_for: parent, use_header_bar: 1);
     }
 
     [GtkCallback]
