@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks 3.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-11 15:18+0200\n"
-"PO-Revision-Date: 2014-02-11 15:22+0200\n"
-"Last-Translator: Yosef Or Boczko <yoseforb@gnome.org>\n"
+"POT-Creation-Date: 2014-02-17 20:01+0200\n"
+"PO-Revision-Date: 2014-02-17 20:01+0200\n"
+"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
 "Language-Team: עברית <>\n"
 "Language: he_IL\n"
 "MIME-Version: 1.0\n"
@@ -120,7 +120,7 @@ msgstr "Panel state"
 msgid "Current clock panel."
 msgstr "Current clock panel."
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:377 ../src/alarm.vala:528
+#: ../src/alarm.vala:115 ../src/alarm.vala:368 ../src/alarm.vala:542
 msgid "Alarm"
 msgstr "התרעה"
 
@@ -142,11 +142,11 @@ msgstr "התרעה חדשה"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:551 ../src/world.vala:281
+#: ../src/alarm.vala:565 ../src/world.vala:281
 msgid "New"
 msgstr "חדש"
 
-#: ../src/application.vala:24
+#: ../src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Print version information and exit"
 
@@ -224,24 +224,24 @@ msgstr "בימי השבוע"
 msgid "Weekends"
 msgstr "סופי שבוע"
 
-#: ../src/widgets.vala:461
+#: ../src/widgets.vala:459
 msgid "Cancel"
 msgstr "ביטול"
 
-#: ../src/widgets.vala:473 ../src/widgets.vala:526
+#: ../src/widgets.vala:471 ../src/widgets.vala:534
 msgid "Click on items to select them"
 msgstr "יש ללחוץ על פריטים כדי לבחור בהם"
 
-#: ../src/widgets.vala:528
+#: ../src/widgets.vala:498
+msgid "Delete"
+msgstr "מחיקה"
+
+#: ../src/widgets.vala:536
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "נבחר פריט אחד"
 msgstr[1] "%d נבחרו"
-
-#: ../src/widgets.vala:570
-msgid "Delete"
-msgstr "מחיקה"
 
 #: ../src/window.vala:161
 #, c-format
@@ -274,23 +274,31 @@ msgstr "עולם"
 
 #. namespace World
 #. namespace Clocks
-#: ../data/ui/alarmsetupdialog.ui.h:1
+#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "הוספת שעון עולמי חדש"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
+msgid "_Cancel"
+msgstr "_ביטול"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "_Done"
 msgstr "_בוצע"
 
-#: ../data/ui/alarmsetupdialog.ui.h:2
+#: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "You already have an alarm for this time."
 msgstr "כבר יש לך התרעה לזמן זה."
 
-#: ../data/ui/alarmsetupdialog.ui.h:3
+#: ../data/ui/alarmsetupdialog.ui.h:5
 msgid "Name"
 msgstr "שם"
 
-#: ../data/ui/alarmsetupdialog.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:6
 msgid "Repeat Every"
 msgstr "חזרה בכול"
 
-#: ../data/ui/alarmsetupdialog.ui.h:5
+#: ../data/ui/alarmsetupdialog.ui.h:7
 msgid "Active"
 msgstr "פעיל"
 
@@ -318,11 +326,11 @@ msgstr "בחירת הכול"
 msgid "Select None"
 msgstr "ביטול הבחירה"
 
-#: ../data/ui/worldlocationdialog.ui.h:1
-msgid "Add a New World Clock"
-msgstr "הוספת שעון עולמי חדש"
+#: ../data/ui/worldlocationdialog.ui.h:3
+msgid "_Add"
+msgstr "_הוספה"
 
-#: ../data/ui/worldlocationdialog.ui.h:2
+#: ../data/ui/worldlocationdialog.ui.h:4
 msgid "Search for a city:"
 msgstr "חיפוש אחר עיר:"
 
