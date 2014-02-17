@@ -305,7 +305,7 @@ private class SetupDialog : Gtk.Dialog {
     private List<Item> alarms_list;
 
     public SetupDialog (Gtk.Window parent, Item? alarm, List<Item> alarms) {
-        Object (transient_for: parent, title: alarm != null ? _("Edit Alarm") : _("New Alarm"));
+        Object (transient_for: parent, title: alarm != null ? _("Edit Alarm") : _("New Alarm"), use_header_bar: 1);
 
         alarms_list = new List<Item> ();
         foreach (unowned Item i in alarms) {
