@@ -48,6 +48,10 @@ public class Window : Gtk.ApplicationWindow {
         settings = new Settings ("org.gnome.clocks.state.window");
         settings.delay ();
 
+        destroy.connect(() => {
+            settings.apply ();
+        });
+
         // Setup window geometry saving
         Gdk.WindowState window_state = (Gdk.WindowState)settings.get_int ("state");
         if (Gdk.WindowState.MAXIMIZED in window_state) {
@@ -114,10 +118,6 @@ public class Window : Gtk.ApplicationWindow {
         update_header_bar ();
 
         show_all ();
-    }
-
-    ~Window () {
-        settings.apply ();
     }
 
     private void on_new_activate () {
