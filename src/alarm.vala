@@ -302,12 +302,17 @@ private class SetupDialog : Gtk.Dialog {
     private Gtk.Revealer label_revealer;
     [GtkChild]
     private Gtk.SizeGroup am_pm_sizegroup;
-    private unowned List<Item> alarms_list;
+    private List<Item> alarms_list;
 
     public SetupDialog (Gtk.Window parent, Item? alarm, List<Item> alarms) {
         Object (transient_for: parent, title: alarm != null ? _("Edit Alarm") : _("New Alarm"));
 
-        alarms_list = alarms;
+        alarms_list = new List<Item> ();
+        foreach (unowned Item i in alarms) {
+            if (i != alarm) {
+                alarms_list.prepend (i);
+            }
+        }
 
         // Force LTR since we do not want to reverse [hh] : [mm]
         time_grid.set_direction (Gtk.TextDirection.LTR);
