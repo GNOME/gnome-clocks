@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-02-11 12:36+0000\n"
-"PO-Revision-Date: 2014-02-11 18:06-0300\n"
-"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
+"POT-Creation-Date: 2014-02-21 07:12+0000\n"
+"PO-Revision-Date: 2014-02-21 08:45-0300\n"
+"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.6.3\n"
+"X-Generator: Poedit 1.6.4\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/appdata/org.gnome.clocks.appdata.xml.h:1
@@ -125,7 +125,7 @@ msgstr "Estado do painel"
 msgid "Current clock panel."
 msgstr "Painel do relógio atual."
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:377 ../src/alarm.vala:528
+#: ../src/alarm.vala:115 ../src/alarm.vala:368 ../src/alarm.vala:542
 msgid "Alarm"
 msgstr "Alarme"
 
@@ -147,11 +147,11 @@ msgstr "Novo alarme"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:551 ../src/world.vala:281
+#: ../src/alarm.vala:565 ../src/world.vala:281
 msgid "New"
 msgstr "Novo"
 
-#: ../src/application.vala:24
+#: ../src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Exibir informações da versão e sair"
 
@@ -229,24 +229,24 @@ msgstr "Dias da semana"
 msgid "Weekends"
 msgstr "Finais de semana"
 
-#: ../src/widgets.vala:461
+#: ../src/widgets.vala:459
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../src/widgets.vala:473 ../src/widgets.vala:526
+#: ../src/widgets.vala:471 ../src/widgets.vala:534
 msgid "Click on items to select them"
 msgstr "Clique sobre os itens para selecioná-los"
 
-#: ../src/widgets.vala:528
+#: ../src/widgets.vala:498
+msgid "Delete"
+msgstr "Excluir"
+
+#: ../src/widgets.vala:536
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d selecionado"
 msgstr[1] "%d selecionados"
-
-#: ../src/widgets.vala:570
-msgid "Delete"
-msgstr "Excluir"
 
 #: ../src/window.vala:161
 #, c-format
@@ -280,23 +280,32 @@ msgstr "Mundial"
 
 #. namespace World
 #. namespace Clocks
-#: ../data/ui/alarmsetupdialog.ui.h:1
+#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Adicionar um novo relógio mundial"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
+#| msgid "Cancel"
+msgid "_Cancel"
+msgstr "_Cancelar"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "_Done"
 msgstr "_Concluído"
 
-#: ../data/ui/alarmsetupdialog.ui.h:2
+#: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "You already have an alarm for this time."
 msgstr "Você já possui um alarme para este horário."
 
-#: ../data/ui/alarmsetupdialog.ui.h:3
+#: ../data/ui/alarmsetupdialog.ui.h:5
 msgid "Name"
 msgstr "Nome"
 
-#: ../data/ui/alarmsetupdialog.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:6
 msgid "Repeat Every"
 msgstr "Repetir a cada"
 
-#: ../data/ui/alarmsetupdialog.ui.h:5
+#: ../data/ui/alarmsetupdialog.ui.h:7
 msgid "Active"
 msgstr "Ativo"
 
@@ -324,11 +333,11 @@ msgstr "Selecionar tudo"
 msgid "Select None"
 msgstr "Desmarcar tudo"
 
-#: ../data/ui/worldlocationdialog.ui.h:1
-msgid "Add a New World Clock"
-msgstr "Adicionar um novo relógio mundial"
+#: ../data/ui/worldlocationdialog.ui.h:3
+msgid "_Add"
+msgstr "_Adicionar"
 
-#: ../data/ui/worldlocationdialog.ui.h:2
+#: ../data/ui/worldlocationdialog.ui.h:4
 msgid "Search for a city:"
 msgstr "Pesquisar por uma cidade:"
 
