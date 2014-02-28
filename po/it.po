@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-02-16 07:13+0000\n"
-"PO-Revision-Date: 2014-02-16 12:44+0100\n"
-"Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
+"POT-Creation-Date: 2014-02-28 07:12+0000\n"
+"PO-Revision-Date: 2014-02-28 18:22+0100\n"
+"Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -121,7 +121,7 @@ msgstr "Stato del pannello"
 msgid "Current clock panel."
 msgstr "Pannello attualle dell'orologio."
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:367 ../src/alarm.vala:536
+#: ../src/alarm.vala:115 ../src/alarm.vala:368 ../src/alarm.vala:542
 msgid "Alarm"
 msgstr "Sveglia"
 
@@ -143,11 +143,11 @@ msgstr "Nuova sveglia"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:559 ../src/world.vala:281
+#: ../src/alarm.vala:565 ../src/world.vala:281
 msgid "New"
 msgstr "Nuovo"
 
-#: ../src/application.vala:24
+#: ../src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Stampa informazioni di versione ed esce"
 
@@ -275,24 +275,33 @@ msgstr "Fusi orari"
 
 #. namespace World
 #. namespace Clocks
-#: ../data/ui/alarmsetupdialog.ui.h:1
+#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Aggiungi un nuovo orologio"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
+#| msgid "Cancel"
+msgid "_Cancel"
+msgstr "A_nnulla"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "_Done"
 msgstr "_Fatto"
 
-#: ../data/ui/alarmsetupdialog.ui.h:2
+#: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "You already have an alarm for this time."
 msgstr "Una sveglia per quest'ora è già stata impostata."
 
-#: ../data/ui/alarmsetupdialog.ui.h:3
+#: ../data/ui/alarmsetupdialog.ui.h:5
 msgid "Name"
 msgstr "Nome"
 
-#: ../data/ui/alarmsetupdialog.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:6
 msgid "Repeat Every"
 msgstr "Ripetere ogni"
 
 # (ndt) switch on/off per, in teoria, una sveglia
-#: ../data/ui/alarmsetupdialog.ui.h:5
+#: ../data/ui/alarmsetupdialog.ui.h:7
 msgid "Active"
 msgstr "Attivata"
 
@@ -320,11 +329,11 @@ msgstr "Seleziona tutto"
 msgid "Select None"
 msgstr "Annulla selezione"
 
-#: ../data/ui/worldlocationdialog.ui.h:1
-msgid "Add a New World Clock"
-msgstr "Aggiungi un nuovo orologio"
+#: ../data/ui/worldlocationdialog.ui.h:3
+msgid "_Add"
+msgstr "_Aggiungi"
 
-#: ../data/ui/worldlocationdialog.ui.h:2
+#: ../data/ui/worldlocationdialog.ui.h:4
 msgid "Search for a city:"
 msgstr "Cerca una città:"
 
