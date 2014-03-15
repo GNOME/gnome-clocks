@@ -57,7 +57,7 @@ public interface Location : Object {
 public class Info : Object {
     public Geo.Location? geo_location { get; private set; default = null; }
 
-    private const string DESKTOP_ID = "gnome-clocks";
+    private const string DESKTOP_ID = "org.gnome.clocks";
 
     private GWeather.Location? found_location;
     private string? country_code;
