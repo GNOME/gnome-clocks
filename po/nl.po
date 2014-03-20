@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the gnome-clocks package.
 #
 # Wouter Bolsterlee <wbolster@gnome.org>, 2013
-# Erwin Poeze <donnut@outlook.com>, 2013
+# Erwin Poeze <donnut@outlook.com>, 2013, 2014
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-25 21:08+0000\n"
-"PO-Revision-Date: 2013-09-26 21:53+0100\n"
+"POT-Creation-Date: 2014-03-19 07:13+0000\n"
+"PO-Revision-Date: 2014-03-19 15:37+0100\n"
 "Last-Translator: Erwin Poeze <donnut@outlook.com>\n"
 "Language-Team: Dutch <gnome-nl-list@gnome.org>\n"
 "Language: nl\n"
@@ -21,24 +21,52 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"Een eenvoudige en elegante kloktoepassing met daarin wereldklokken, wekkers, "
+"een stopwatch en een timer."
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+msgid "Goals:"
+msgstr "Doelen:"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+msgid "Show the time in different cities around the world"
+msgstr "Toon de tijd in verschillende wereldsteden"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+msgid "Set alarms to wake you up"
+msgstr "Stel wekkers in om te ontwaken"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "Meet de verlopen tijd met een nauwkeurige stopwatch"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+msgid "Set timers to properly cook your food"
+msgstr "Stel timers in om de kooktijd bij te houden"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:188
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Klok"
 
-#: ../data/gnome-clocks.desktop.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:2
 msgid "GNOME Clocks"
-msgstr "Gnome klok"
+msgstr "Gnome Klok"
 
-#: ../data/gnome-clocks.desktop.in.h:3
+#: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Wereldklok, wekker, stopwatch en timer"
 
-#: ../data/gnome-clocks.desktop.in.h:4
+#: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
-"time;timer;alarm;world clock;stopwatch;time zone;klok;tijd;wekker;"
-"wereldtijd;wereldklok;tijdzone;"
+"time;timer;alarm;world clock;stopwatch;time zone;klok;tijd;wekker;wereldtijd;"
+"wereldklok;tijdzone;"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
 msgid "Configured world clocks"
@@ -56,7 +84,7 @@ msgstr "Ingestelde wekkers"
 msgid "List of alarms set."
 msgstr "Lijst van ingestelde wekkers."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:105
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:107
 msgid "Timer"
 msgstr "Timer"
 
@@ -96,67 +124,67 @@ msgstr "Paneelstaat"
 msgid "Current clock panel."
 msgstr "Huidige klokpaneel"
 
-#: ../src/alarm.vala:109 ../src/alarm.vala:330 ../src/alarm.vala:481
+#: ../src/alarm.vala:115 ../src/alarm.vala:368 ../src/alarm.vala:542
 msgid "Alarm"
 msgstr "Wekker"
 
-#: ../src/alarm.vala:110 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:188 ../data/ui/alarm.ui.h:2
 msgid "Stop"
 msgstr "Uitzetten"
 
-#: ../src/alarm.vala:113 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:118 ../data/ui/alarm.ui.h:3
 msgid "Snooze"
 msgstr "Uitstellen"
 
-#: ../src/alarm.vala:282
+#: ../src/alarm.vala:308
 msgid "Edit Alarm"
 msgstr "Wekker bewerken"
 
-#: ../src/alarm.vala:282
+#: ../src/alarm.vala:308
 msgid "New Alarm"
 msgstr "Nieuwe wekker"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:487 ../src/world.vala:278
+#: ../src/alarm.vala:565 ../src/world.vala:281
 msgid "New"
 msgstr "Nieuw"
 
-#: ../src/application.vala:24
+#: ../src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Versieinformatie tonen en afsluiten"
 
-#: ../src/stopwatch.vala:129
+#: ../src/stopwatch.vala:130
 msgid "Stopwatch"
 msgstr "Stopwatch"
 
-#: ../src/stopwatch.vala:190
+#: ../src/stopwatch.vala:191
 msgid "Lap"
 msgstr "Rondetijd"
 
-#: ../src/stopwatch.vala:197 ../src/timer.vala:156
+#: ../src/stopwatch.vala:198 ../src/timer.vala:162
 msgid "Continue"
 msgstr "Doorgaan"
 
-#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:202 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Opnieuw"
 
-#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:210 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Starten"
 
-#: ../src/timer.vala:113
+#: ../src/timer.vala:116
 msgid "Time is up!"
 msgstr "Tijd is om!"
 
-#: ../src/timer.vala:113
+#: ../src/timer.vala:117
 msgid "Timer countdown finished"
 msgstr "Klaar met aftellen"
 
-#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:167 ../src/timer.vala:178 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Pauze"
 
@@ -200,35 +228,35 @@ msgstr "Weekdagen"
 msgid "Weekends"
 msgstr "Weekeinden"
 
-#: ../src/widgets.vala:461
+#: ../src/widgets.vala:459
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: ../src/widgets.vala:473 ../src/widgets.vala:526
+#: ../src/widgets.vala:471 ../src/widgets.vala:534
 msgid "Click on items to select them"
 msgstr "Klik op een item om te selecteren"
 
-#: ../src/widgets.vala:528
+#: ../src/widgets.vala:498
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: ../src/widgets.vala:536
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d geselecteerd"
 msgstr[1] "%d geselecteerd"
 
-#: ../src/widgets.vala:570
-msgid "Delete"
-msgstr "Verwijderen"
-
-#: ../src/window.vala:146
+#: ../src/window.vala:161
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Tonen hulptekst over ‘%s’ is mislukt"
 
-#: ../src/window.vala:176
+#: ../src/window.vala:191
 msgid "Utilities to help you with the time."
 msgstr "Hulpmiddelen om bij de tijd te blijven"
 
-#: ../src/window.vala:181
+#: ../src/window.vala:196
 msgid "translator-credits"
 msgstr ""
 "Gnome-NL\n"
@@ -246,25 +274,37 @@ msgstr "Morgen"
 msgid "Yesterday"
 msgstr "Gisteren"
 
-#: ../src/world.vala:269
+#: ../src/world.vala:272
 msgid "World"
 msgstr "Wereld"
 
 #. namespace World
 #. namespace Clocks
-#: ../data/ui/alarmsetupdialog.ui.h:1
+#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Wereldklok toevoegen"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
+msgid "_Cancel"
+msgstr "_Annuleren"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "_Done"
 msgstr "_Klaar"
 
-#: ../data/ui/alarmsetupdialog.ui.h:2
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "You already have an alarm for this time."
+msgstr "U heeft al een wekker op deze tijd staan."
+
+#: ../data/ui/alarmsetupdialog.ui.h:5
 msgid "Name"
 msgstr "Naam"
 
-#: ../data/ui/alarmsetupdialog.ui.h:3
+#: ../data/ui/alarmsetupdialog.ui.h:6
 msgid "Repeat Every"
 msgstr "Herhaal iedere"
 
-#: ../data/ui/alarmsetupdialog.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:7
 msgid "Active"
 msgstr "Actief"
 
@@ -273,34 +313,30 @@ msgid "Select <b>New</b> to add an alarm"
 msgstr "Kies <b>Nieuw</b> om een wekker toe te voegen"
 
 #: ../data/ui/menu.ui.h:1
-msgid "_New"
-msgstr "_Nieuw"
-
-#: ../data/ui/menu.ui.h:2
 msgid "_Help"
 msgstr "_Hulp"
 
-#: ../data/ui/menu.ui.h:3
+#: ../data/ui/menu.ui.h:2
 msgid "_About"
 msgstr "_Info"
 
-#: ../data/ui/menu.ui.h:4
+#: ../data/ui/menu.ui.h:3
 msgid "_Quit"
 msgstr "_Afsluiten"
 
-#: ../data/ui/menu.ui.h:5
+#: ../data/ui/menu.ui.h:4
 msgid "Select All"
 msgstr "Alles selecteren"
 
-#: ../data/ui/menu.ui.h:6
+#: ../data/ui/menu.ui.h:5
 msgid "Select None"
 msgstr "Niets selecteren"
 
-#: ../data/ui/worldlocationdialog.ui.h:1
-msgid "Add a New World Clock"
-msgstr "Wereldklok toevoegen"
+#: ../data/ui/worldlocationdialog.ui.h:3
+msgid "_Add"
+msgstr "_Toevoegen"
 
-#: ../data/ui/worldlocationdialog.ui.h:2
+#: ../data/ui/worldlocationdialog.ui.h:4
 msgid "Search for a city:"
 msgstr "Stad zoeken:"
 
@@ -315,6 +351,9 @@ msgstr "Zonsopgang"
 #: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Zonsondergang"
+
+#~ msgid "_New"
+#~ msgstr "_Nieuw"
 
 #~ msgid "Time"
 #~ msgstr "Tijd"
