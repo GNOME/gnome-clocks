@@ -1,7 +1,7 @@
 AC_PREREQ(2.63)
 
 AC_INIT([gnome-clocks],
-        [3.11.92],
+        [3.12.0],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-clocks],
         [gnome-clocks])
 
