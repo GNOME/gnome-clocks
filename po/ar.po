@@ -2,13 +2,15 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Khaled Hosny <khaledhosny@eglug.org>, 2012, 2013, 2014.
+# Ibrahim Saed <ibraheem5000@gmail.com>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-01 00:00+0200\n"
-"PO-Revision-Date: 2014-03-01 00:01+0200\n"
-"Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-04-04 18:31+0000\n"
+"PO-Revision-Date: 2014-04-04 20:50+0200\n"
+"Last-Translator: Ibrahim Saed <ibraheem5000@gmail.com>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
@@ -16,33 +18,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Virtaal 1.0.0-beta1\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.h:1
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
 msgstr ""
+"تطبيق ساعة بسيط وأنيق. يتضمن ساعات العالم، ومنبهات، وساعة إيقاف، ومؤقت."
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.h:2
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
 msgid "Goals:"
-msgstr ""
+msgstr "الأهداف:"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.h:3
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
 msgid "Show the time in different cities around the world"
-msgstr ""
+msgstr "عرض الوقت في مدن مختلفة حول العالم"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.h:4
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
 msgid "Set alarms to wake you up"
-msgstr ""
+msgstr "ضبط منبهات لإيقاظك"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.h:5
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
 msgid "Measure elapsed time with an accurate stopwatch"
-msgstr ""
+msgstr "قياس الوقت المنقضي باستخدام ساعة إيقاف دقيقة"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.h:6
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
 msgid "Set timers to properly cook your food"
-msgstr ""
+msgstr "ضبط مؤقتات لتطهو طعامك بشكل سليم :)"
 
 #: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:188
 #: ../data/ui/window.ui.h:1
@@ -87,35 +91,35 @@ msgstr "وقت المؤقت المضبوط بالثواني."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
 msgid "Geolocation support"
-msgstr ""
+msgstr "دعم تحديد الموقع الجيوغرافي"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
 msgid "Turn geolocation support on and off."
-msgstr ""
+msgstr "تشغيل وإيقاف دعم تحديد الموقع الجيوغرافي."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
 msgid "Window state"
-msgstr ""
+msgstr "حالة النافذة"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
 msgid "State of the window: i.e. maximized."
-msgstr ""
+msgstr "حالة النافذة: مُكبّرة مثلا."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
 msgid "Window width and height"
-msgstr ""
+msgstr "عرض وارتفاع النافذة"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
 msgid "Width and height of the window."
-msgstr ""
+msgstr "عرض وارتفاع النافذة."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
 msgid "Panel state"
-msgstr ""
+msgstr "حالة اللوحة"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
 msgid "Current clock panel."
-msgstr ""
+msgstr "لوحة الساعة الحالية."
 
 #: ../src/alarm.vala:115 ../src/alarm.vala:368 ../src/alarm.vala:542
 msgid "Alarm"
