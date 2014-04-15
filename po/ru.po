@@ -1,563 +1,357 @@
 # Russian translation for gnome-clocks.
-# Copyright (C) 2013 gnome-clocks's COPYRIGHT HOLDER
+# Copyright (C) 2012, 2013 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-# ilmner <d.vaganov92@yandex.ru>, 2013.
-# Stas Solovey <whats_up@tut.by>, 2014.
+#
+# Yuri Kozlov <yuray@komyakino.ru>, 2012.
+# Evgeny Bobkin <evgen.ibqn@gmail.com, 2013.
+# Yuri Myasoedov <omerta13@yandex.ru>, 2012, 2013.
+# Stas Solovey <whats_up@tut.by>, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"POT-Creation-Date: 2014-04-15 06:54+0000\n"
-"PO-Revision-Date: 2014-04-15 16:59+0300\n"
-"Last-Translator: Stas Solovey <whats_up@tut.by>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-03-10 07:15+0000\n"
+"PO-Revision-Date: 2014-03-10 22:25+0300\n"
+"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
-msgctxt "_"
-msgid "translator-credits"
-msgstr "Dmitri Vaganov <d.vaganov92@yandex.ru>, 2014"
-
-#. (itstool) path: credit/name
-#: C/alarm-add.page:14 C/alarm-edit.page:14 C/alarm-remove.page:15
-#: C/alarm-snooze-stop.page:14 C/stopwatch.page:14 C/timer.page:14
-#: C/world-add.page:14 C/world-check.page:14 C/world-remove.page:14
-#: C/index.page:12
-msgid "Aruna Sankaranarayanan"
-msgstr "Аруна Санкаранараянан (Aruna Sankaranarayanan)"
-
-#. (itstool) path: credit/years
-#: C/alarm-add.page:16 C/alarm-add.page:21 C/alarm-edit.page:16
-#: C/alarm-edit.page:21 C/alarm-remove.page:17 C/alarm-remove.page:22
-#: C/alarm-snooze-stop.page:16 C/alarm-snooze-stop.page:21 C/stopwatch.page:16
-#: C/stopwatch.page:21 C/timer.page:16 C/timer.page:21 C/world-add.page:16
-#: C/world-add.page:21 C/world-check.page:16 C/world-check.page:21
-#: C/world-remove.page:16 C/world-remove.page:21 C/index.page:14
-#: C/index.page:19
-msgid "2013"
-msgstr "2013"
-
-#. (itstool) path: credit/name
-#: C/alarm-add.page:19 C/alarm-edit.page:19 C/alarm-remove.page:20
-#: C/alarm-snooze-stop.page:19 C/stopwatch.page:19 C/timer.page:19
-#: C/world-add.page:19 C/world-check.page:19 C/world-remove.page:19
-#: C/index.page:17
-msgid "Ekaterina Gerasimova"
-msgstr "Екатерина Герасимова (Ekaterina Gerasimova)"
-
-#. (itstool) path: info/desc
-#: C/alarm-add.page:24
-msgid "Use an alarm to set reminder for yourself."
-msgstr "Используйте будильник, чтобы установить напоминание для себя."
-
-#. (itstool) path: page/title
-#: C/alarm-add.page:27
-msgid "Add an alarm"
-msgstr "Создать будильник"
-
-#. (itstool) path: page/p
-#: C/alarm-add.page:29
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:1
 msgid ""
-"You can add an alarm for specific days of the week. It will go off "
-"regardless of whether <app>Clocks</app> is open or not."
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
 msgstr ""
-"Можно добавить будильник на определённые дни недели. Он сработает вне "
-"зависимости от того, открыто приложение <app>Часы</app> или нет."
-
-#. (itstool) path: item/p
-#: C/alarm-add.page:34
-msgid "Press <gui style=\"button\">Alarm</gui>."
-msgstr "Нажмите <gui style=\"button\">Будильник</gui>."
-
-#. (itstool) path: item/p
-#: C/alarm-add.page:37
-msgid "Press <gui style=\"button\">New</gui>."
-msgstr "Нажмите <gui style=\"button\">Создать</gui>."
-
-#. (itstool) path: item/p
-#: C/alarm-add.page:40
-msgid "Set the time when you want the alarm to go off."
-msgstr "Установите время, когда будильник должен сработать."
-
-#. (itstool) path: item/p
-#: C/alarm-add.page:43
-msgid "You can give your new alarm a name so that it is easier to identify."
-msgstr "Можно дать название будильнику, чтобы его было легче распознать."
-
-#. (itstool) path: item/p
-#: C/alarm-add.page:47
-msgid ""
-"Select the days on which you want the alarm to be repeated at the set time."
-msgstr ""
-"Выберите дни недели, в которые будильник будет срабатывать в установленное "
-"время."
-
-#. (itstool) path: item/p
-#: C/alarm-add.page:51
-msgid "Press <gui style=\"button\">Done</gui> to finish adding the alarm."
-msgstr "Нажмите <gui style=\"button\">Готово</gui>, чтобы добавить будильник."
-
-#. (itstool) path: page/p
-#: C/alarm-add.page:55
-msgid ""
-"You can <link xref=\"alarm-edit\">temporarily disable your alarm</link> if "
-"you do not want to use it for a while."
-msgstr ""
-"Можно <link xref=\"alarm-edit\">временно отключить будильник</link>, если он "
-"не нужен некоторое время."
-
-#. (itstool) path: page/p
-#: C/alarm-add.page:58
-msgid "Your alarm will not go off if your computer is switched off."
-msgstr "Если компьютер выключен, будильник не сработает."
-
-#. (itstool) path: info/desc
-#: C/alarm-edit.page:24
-msgid "Update your alarm or temporarily disable it."
-msgstr "Обновите настройки будильника или временно отключите его."
-
-#. (itstool) path: page/title
-#: C/alarm-edit.page:27
-msgid "Edit an alarm"
-msgstr "Настроить будильник"
-
-#. (itstool) path: page/p
-#: C/alarm-edit.page:29
-msgid ""
-"Edit your alarm to change when it goes off, rename it or to deactivate it."
-msgstr ""
-"Используйте настройки будильника, чтобы изменить время срабатывания, "
-"переименовать его или отключить."
-
-#. (itstool) path: item/p
-#: C/alarm-edit.page:34 C/alarm-remove.page:34
-msgid "Press the <gui style=\"button\">Alarm</gui> button."
-msgstr "Нажмите на кнопку <gui style=\"button\">Будильник</gui>."
-
-#. (itstool) path: item/p
-#: C/alarm-edit.page:37
-msgid "Press the alarm which you want to edit."
-msgstr "Нажмите на будильник, который нужно настроить."
-
-#. (itstool) path: item/p
-#: C/alarm-edit.page:40
-msgid ""
-"Update the alarm and press <gui style=\"button\">Done</gui> to finish "
-"editing it."
-msgstr ""
-"Обновите настройки будильника и нажмите кнопку <gui style=\"button\">Готово</"
-"gui>, чтобы закончить настройку."
-
-#. (itstool) path: info/desc
-#: C/alarm-remove.page:25
-msgid "Delete an alarm which you no longer need."
-msgstr "Удалите будильник, который больше не нужен."
-
-#. (itstool) path: page/title
-#: C/alarm-remove.page:28
-msgid "Remove an alarm"
-msgstr "Убрать будильник"
-
-#. (itstool) path: page/p
-#: C/alarm-remove.page:30
-msgid "You can delete alarms which you no longer need."
-msgstr "Можете удалять будильники, которые больше не нужны."
-
-#. (itstool) path: item/p
-#: C/alarm-remove.page:37
-msgid ""
-"Right click on the alarm. You can press the button with the tick mark in the "
-"top right corner and select the alarm which you want to delete."
-msgstr ""
-"Нажмите правой кнопкой мыши на будильник, либо нажмите кнопку с галочкой в "
-"верхнем правом углу приложения, и отметьте будильник, который нужно удалить."
-
-#. (itstool) path: item/p
-#: C/alarm-remove.page:42 C/world-remove.page:41
-msgid "Press the <gui style=\"button\">Delete</gui> button."
-msgstr "Нажмите на кнопку <gui style=\"button\">Удалить</gui>."
-
-#. (itstool) path: page/p
-#: C/alarm-remove.page:46
-msgid "You can select more than one alarm at a time for deletion."
-msgstr "Можно выбрать сразу несколько будильников для удаления."
-
-#. (itstool) path: info/desc
-#: C/alarm-snooze-stop.page:24
-msgid "Stop the alarm or set it to go off nine minutes later."
-msgstr "Остановите будильник или отложите его на несколько минут."
-
-#. (itstool) path: page/title
-#: C/alarm-snooze-stop.page:27
-msgid "Stop or snooze your alarm"
-msgstr "Остановить или отложить будильник"
-
-#. (itstool) path: page/p
-#: C/alarm-snooze-stop.page:29
-msgid ""
-"When your alarm goes off, you can either stop the alarm or snooze it. When "
-"you snooze the alarm, the alarm is reset to go off nine minutes later."
-msgstr ""
-"Когда будильник сработает, можно остановить его или отложить. Если отложить "
-"будильник, то он повторно сработает через девять минут."
-
-#. (itstool) path: page/p
-#: C/alarm-snooze-stop.page:32
-msgid ""
-"When your alarm goes off, a notification will pop up from your notification "
-"tray. If you have <app>Clocks</app> open, you will also see the alarm there."
-msgstr ""
-"Когда будильник сработает, появится уведомление в панели уведомлений. Если "
-"открыто приложение <app>Часы</app>, то сработавший будильник будет виден и "
-"там."
-
-#. (itstool) path: info/desc
-#: C/stopwatch.page:24
-msgid "Use the stopwatch to measure the time that you take to finish a task."
-msgstr ""
-"Используйте секундомер для измерения времени, которое вы тратите на "
-"завершение различных задач."
-
-#. (itstool) path: page/title
-#: C/stopwatch.page:28
-msgid "Clock your best times"
-msgstr "Отметить своё лучшее время"
-
-#. (itstool) path: page/p
-#: C/stopwatch.page:30
-msgid ""
-"Use the stopwatch to measure the time that it takes to complete different "
-"parts of a task while also keeping track of the total time that it takes to "
-"finish the whole task. It is often used by athletes to measure the time "
-"taken to run each lap and the time taken to cover the entire distance. By "
-"timing each lap, they are able to tell if their speed changes from lap to "
-"lap."
-msgstr ""
-"Используйте секундомер для измерения занимаемого времени различными частями "
-"одной задачи, не теряя отсчёт для задачи в целом. Обычно секундомер "
-"используется атлетами при беге для измерения времени, занимаемого одним "
-"кругом и всей дистанцией. Замеряя каждый круг, они могут контролировать "
-"изменение своей скорости от круга к кругу."
-
-#. (itstool) path: item/p
-#: C/stopwatch.page:38
-msgid "Press the <gui style=\"button\">Stopwatch</gui> button."
-msgstr "Нажмите на кнопку <gui style=\"button\">Секундомер</gui>."
-
-#. (itstool) path: item/p
-#: C/stopwatch.page:41
-msgid "Press <gui style=\"button\">Start</gui> to start the stopwatch."
-msgstr ""
-"Нажмите <gui style=\"button\">Запустить</gui>, чтобы запустить секундомер."
-
-#. (itstool) path: item/p
-#: C/stopwatch.page:44
-msgid "After completing one phase of the task:"
-msgstr "После завершения одной стадии задачи:"
-
-#. (itstool) path: item/p
-#: C/stopwatch.page:47
-msgid ""
-"Press <gui style=\"button\">Lap</gui> to record the end of the first phase "
-"and to start timing the next phase."
-msgstr ""
-"Нажмите <gui style=\"button\">Круг</gui>, чтобы записать конец первой стадии "
-"и начать отсчёт следующей."
-
-#. (itstool) path: item/p
-#: C/stopwatch.page:51
-msgid ""
-"Press <gui style=\"button\">Stop</gui> to pause the stopwatch and <gui style="
-"\"button\">Continue</gui> when you are ready to resume timing the task."
-msgstr ""
-"Нажмите <gui style=\"button\">Остановить</gui>, чтобы поставить на паузу "
-"секундомер, и <gui style=\"button\">Продолжить</gui>, когда нужно "
-"возобновить отсчёт."
-
-#. (itstool) path: page/p
-#: C/stopwatch.page:59
-msgid ""
-"You can use the <gui style=\"button\">Reset</gui> button to reset the "
-"stopwatch when it is stopped."
-msgstr ""
-"Можно использовать кнопку <gui style=\"button\">Сбросить</gui>, чтобы "
-"сбросить значение секундомера, когда он остановлен."
-
-#. (itstool) path: note/p
-#: C/stopwatch.page:63
-msgid ""
-"Your lap times and total time will be lost when you reset the stopwatch or "
-"restart <app>Clocks</app>."
-msgstr ""
-"Значения времени кругов и общего времени будут потеряны, когда сделаете "
-"сброс значений секундомера или перезапустите <app>Часы</app>."
-
-#. (itstool) path: info/desc
-#: C/timer.page:24
-msgid "Use a countdown to be notified when a time period has elapsed."
-msgstr ""
-"Используйте обратный отсчёт, чтобы получить уведомление, когда пройдёт "
-"определённый временной отрезок."
-
-#. (itstool) path: page/title
-#: C/timer.page:27
-msgid "Set the timer"
-msgstr "Установить таймер"
-
-#. (itstool) path: page/p
-#: C/timer.page:29
-msgid ""
-"Set the time for a second by second countdown to zero. You will be notified "
-"when the countdown has finished."
-msgstr ""
-"Установите время для посекундного отсчёта до нуля. Появится уведомление, "
-"когда обратный отсчёт завершится."
-
-#. (itstool) path: item/p
-#: C/timer.page:34
-msgid "Press the <gui style=\"button\">Timer</gui> button."
-msgstr "Нажмите на кнопку <gui style=\"button\">Таймер</gui>."
-
-#. (itstool) path: item/p
-#: C/timer.page:37
-msgid "Set your time for the countdown."
-msgstr "Установите время для обратного отсчёта."
-
-#. (itstool) path: item/p
-#: C/timer.page:40
-msgid "Press <gui style=\"button\">Start</gui> to commence the countdown."
-msgstr ""
-"Нажмите <gui style=\"button\">Запустить</gui>, чтобы начать обратный отсчёт."
-
-#. (itstool) path: page/p
-#: C/timer.page:44
-msgid "You will be notified when the countdown reaches zero."
-msgstr "Появится уведомление, когда обратный отсчёт достигнет нуля."
-
-#. (itstool) path: note/p
-#: C/timer.page:47
-msgid ""
-"Once the timer has started its countdown, you can press the <gui style="
-"\"button\">Pause</gui> button to pause the timer. To reset the timer, press "
-"the <gui style=\"button\">Reset</gui> button."
-msgstr ""
-"Когда таймер запустил обратный отсчёт, можно нажать кнопку <gui style="
-"\"button\">Приостановить</gui>, чтобы поставить таймер на паузу. Чтобы "
-"сбросить время, нажмите кнопку <gui style=\"button\">Сбросить</gui>."
-
-#. (itstool) path: info/desc
-#: C/world-add.page:24
-msgid "Add a clock for a new city to your world clocks list."
-msgstr "Добавьте часы для нового города к списку ваших мировых часов."
-
-#. (itstool) path: page/title
-#: C/world-add.page:27
-msgid "Add a new city clock"
-msgstr "Добавить часы нового города"
-
-#. (itstool) path: page/p
-#: C/world-add.page:29
-msgid ""
-"Add a city to your world clocks to see the time of day or night in that "
-"city. You will also be able to <link xref=\"world-check\">check the sunrise "
-"and sunset times</link> for each of the cities that you have added."
-msgstr ""
-"Добавьте город к мировым часам, чтобы видеть время в этом городе. Также "
-"можно <link xref=\"world-check\">посмотреть время рассвета и заката</link> "
-"для каждого добавленного города."
-
-#. (itstool) path: item/p
-#: C/world-add.page:35 C/world-check.page:35 C/world-remove.page:33
-msgid "Press the <gui style=\"button\">World</gui> button."
-msgstr "Нажмите кнопку <gui style=\"button\">Мировое время</gui>."
-
-#. (itstool) path: item/p
-#: C/world-add.page:38
-msgid ""
-"Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
-"key><key>N</key></keyseq> to add a new city."
-msgstr ""
-"Нажмите кнопку <gui style=\"button\">Создать</gui> или <keyseq><key>Ctrl</"
-"key><key>N</key></keyseq>, чтобы добавить новый город."
-
-#. (itstool) path: item/p
-#: C/world-add.page:42
-msgid "Start typing the name of the city into the search."
-msgstr "В строке поиска начните печатать название города."
-
-#. (itstool) path: item/p
-#: C/world-add.page:45
-msgid "Select the correct city or the closest location to you from the list."
-msgstr "Выберите нужный город или самое близкое место к желаемому из списка."
-
-#. (itstool) path: item/p
-#: C/world-add.page:49
-msgid "Press <gui style=\"button\">Add</gui> to finish adding the city."
-msgstr ""
-"Нажмите <gui style=\"button\">Добавить</gui>, чтобы завершить добавление "
-"города."
-
-#. (itstool) path: page/p
-#: C/world-add.page:53
-msgid ""
-"If you do not see your city in the list, it is probably not available at "
-"this time. You should try adding the closest bigger city or the capital of "
-"your country instead."
-msgstr ""
-"Если вы не видите свой город в списке, возможно, информация о нём пока не "
-"доступна. Вместо этого можно добавить ближайший крупный город или столицу "
-"страны."
-
-#. (itstool) path: note/p
-#: C/world-add.page:58
-msgid ""
-"The clock for your current location will automatically be added to your "
-"world clocks when you are connected to the Internet. Not be shown if you "
-"disconnect from the Internet and will automatically update if you take your "
-"computer to a different city."
-msgstr ""
-"При подключении к Интернету в списке мировых часов появятся часы вашего "
-"текущего местоположения, но они исчезнут при отключении от сети. Также эти "
-"часы автоматически обновятся, если вы переместите компьютер в другой город."
-
-#. (itstool) path: info/desc
-#: C/world-check.page:24
-msgid "Check the sunrise and sunset times for a city."
-msgstr "Посмотрите время рассвета и заката для любого города."
-
-#. (itstool) path: page/title
-#: C/world-check.page:27
-msgid "What else do world clocks show?"
-msgstr "Что ещё показывают мировые часы?"
-
-#. (itstool) path: page/p
-#: C/world-check.page:29
-msgid ""
-"Apart from checking the time, you can also view the sunrise and sunset times "
-"for today. You will also see if the city is a day behind or ahead of you."
-msgstr ""
-"Кроме просмотра времени, можно посмотреть сегодняшнее время рассвета и "
-"заката. Также можно увидеть находится ли город на день впереди или позади "
-"относительно вас."
-
-#. (itstool) path: item/p
-#: C/world-check.page:38
-msgid "Select a city to view more information about it."
-msgstr "Выберите город, чтобы увидеть больше информации о нём."
-
-#. (itstool) path: info/desc
-#: C/world-remove.page:24
-msgid "Delete a world clock which you no longer need."
-msgstr "Удалите мировые часы, которые больше не нужны."
-
-#. (itstool) path: page/title
-#: C/world-remove.page:27
-msgid "Remove a world clock"
-msgstr "Удалить мировые часы"
-
-#. (itstool) path: page/p
-#: C/world-remove.page:29
-msgid "You can delete clocks which you no longer need."
-msgstr "Можно удалить часы, которые больше не нужны."
-
-#. (itstool) path: item/p
-#: C/world-remove.page:36
-msgid ""
-"Right click on the world clock. You can press the button with the tick mark "
-"in the top right corner and select the clock which you want to delete."
-msgstr ""
-"Нажмите правой кнопкой мыши на мировые часы, которые нужно удалить. Либо "
-"можно нажать кнопку с галочкой в верхнем правом углу и выбрать эти часы."
-
-#. (itstool) path: page/p
-#: C/world-remove.page:45
-msgid "You can select more than one clock at a time for deletion."
-msgstr "Вы можете выбрать несколько часов для удаления."
-
-#. (itstool) path: info/desc
-#: C/index.page:22
-msgid ""
-"Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
-"the time in different cities around the world."
-msgstr ""
-"Используйте <app>Часы</app> как секундомер, таймер, будильник и как мировые "
-"часы, чтобы смотреть время в разных городах по всему миру."
-
-#. (itstool) path: page/title
-#: C/index.page:26
-msgid "<_:media-1/>Clocks"
-msgstr "<_:media-1/>Часы"
-
-#. (itstool) path: page/p
-#: C/index.page:28
-msgid ""
-"Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
-"the time in different cities."
-msgstr ""
-"Используйте <app>Часы</app> как секундомер, таймер, будильник и как мировые "
-"часы, чтобы смотреть время в разных городах."
-
-#. (itstool) path: section/title
-#: C/index.page:32
-msgid "World clocks"
-msgstr "Мировые часы"
-
-#. (itstool) path: section/p
-#: C/index.page:34
-msgid ""
-"View the time in cities around the world on the same screen. You can also "
-"check if it is still the same day in those cities, and the sunrise and "
-"sunset times."
-msgstr ""
-"Смотрите на одном экране время в разных городах по всему миру. Также вы "
-"можете посмотреть, тот же ли день в этих городах, время рассвета и заката."
-
-#. (itstool) path: section/title
-#: C/index.page:41
-msgid "Alarm clocks"
-msgstr "Будильники"
-
-#. (itstool) path: section/p
-#: C/index.page:43
-msgid "Set customisable alarms to go off on specific days every week."
-msgstr ""
-"Настройте различные будильники так, чтобы они срабатывали в определённые дни "
-"недели."
-
-#. (itstool) path: section/title
-#: C/index.page:48
-msgid "Stopwatch"
-msgstr "Секундомер"
-
-#. (itstool) path: section/p
-#: C/index.page:50
-msgid "Use the stopwatch to time how long something takes."
-msgstr ""
-"Используйте секундомер, чтобы измерить сколько времени уходит на "
-"определённое действие."
-
-#. (itstool) path: section/title
-#: C/index.page:55
+"Простое и элегантное приложение-часы. Включает в себя мировые часы, "
+"будильники, секундомер и таймер."
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:2
+msgid "Goals:"
+msgstr "Цели:"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:3
+msgid "Show the time in different cities around the world"
+msgstr "Показывать время в различных городах мира"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:4
+msgid "Set alarms to wake you up"
+msgstr "Устанавливать будильники для подъёма"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:5
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "Замерять время с помощью точного секундомера"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.h:6
+msgid "Set timers to properly cook your food"
+msgstr "Устанавливать таймеры для приготовления еды"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:188
+#: ../data/ui/window.ui.h:1
+msgid "Clocks"
+msgstr "Часы"
+
+#: ../data/org.gnome.clocks.desktop.in.h:2
+msgid "GNOME Clocks"
+msgstr "Часы GNOME"
+
+#: ../data/org.gnome.clocks.desktop.in.h:3
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "Часы мирового времени, а также будильник, секундомер и таймер"
+
+#: ../data/org.gnome.clocks.desktop.in.h:4
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr "время;таймер;будильник;мировое время;часовой пояс;"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
+msgid "Configured world clocks"
+msgstr "Настроенные мировые часы"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
+msgid "List of world clocks to show."
+msgstr "Список мировых часов."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
+msgid "Configured alarms"
+msgstr "Настроенные будильники"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
+msgid "List of alarms set."
+msgstr "Список настроенных будильников."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:107
 msgid "Timer"
 msgstr "Таймер"
 
-#. (itstool) path: section/p
-#: C/index.page:57
-msgid "Set a countdown in seconds, minutes or hours."
-msgstr "Установите обратный отсчёт в секундах, минутах или часах."
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "Настроенный в секундах таймер."
 
-#. (itstool) path: p/link
-#: C/legal.xml:4
-msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
-msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Geolocation support"
+msgstr "Поддержка геопозиционирования"
 
-#. (itstool) path: license/p
-#: C/legal.xml:3
-msgid "This work is licensed under a <_:link-1/>."
-msgstr "Данная работа находится под лицензией <_:link-1/>."
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr "Включает и выключает поддержку геопозиционирования."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+msgid "Window state"
+msgstr "Состояние окна"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+msgid "State of the window: i.e. maximized."
+msgstr "Состояние окна: например «развернуто»."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+msgid "Window width and height"
+msgstr "Ширина и высота окна"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+msgid "Width and height of the window."
+msgstr "Ширина и высота окна."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
+msgid "Panel state"
+msgstr "Состояние панели"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
+msgid "Current clock panel."
+msgstr "Активная панель часов."
+
+#: ../src/alarm.vala:115 ../src/alarm.vala:368 ../src/alarm.vala:542
+msgid "Alarm"
+msgstr "Будильник"
+
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:188 ../data/ui/alarm.ui.h:2
+msgid "Stop"
+msgstr "Остановить"
+
+#: ../src/alarm.vala:118 ../data/ui/alarm.ui.h:3
+msgid "Snooze"
+msgstr "Напомнить"
+
+#: ../src/alarm.vala:308
+msgid "Edit Alarm"
+msgstr "Настроить будильник"
+
+#: ../src/alarm.vala:308
+msgid "New Alarm"
+msgstr "Создать будильник"
+
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:565 ../src/world.vala:281
+msgid "New"
+msgstr "Создать"
+
+#: ../src/application.vala:23
+msgid "Print version information and exit"
+msgstr "Показать информацию о версии и выйти"
+
+#: ../src/stopwatch.vala:130
+msgid "Stopwatch"
+msgstr "Секундомер"
+
+#: ../src/stopwatch.vala:191
+msgid "Lap"
+msgstr "Круг"
+
+#: ../src/stopwatch.vala:198 ../src/timer.vala:162
+msgid "Continue"
+msgstr "Продолжить"
+
+#: ../src/stopwatch.vala:202 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
+msgid "Reset"
+msgstr "Сбросить"
+
+#: ../src/stopwatch.vala:210 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
+msgid "Start"
+msgstr "Запустить"
+
+#: ../src/timer.vala:116
+msgid "Time is up!"
+msgstr "Время истекло!"
+
+#: ../src/timer.vala:117
+msgid "Timer countdown finished"
+msgstr "Обратный отсчёт таймера завершён"
+
+#: ../src/timer.vala:167 ../src/timer.vala:178 ../data/ui/timer.ui.h:2
+msgid "Pause"
+msgstr "Приостановить"
+
+#: ../src/utils.vala:163
+msgid "Mondays"
+msgstr "По понедельникам"
+
+#: ../src/utils.vala:164
+msgid "Tuesdays"
+msgstr "По вторникам"
+
+#: ../src/utils.vala:165
+msgid "Wednesdays"
+msgstr "По средам"
+
+#: ../src/utils.vala:166
+msgid "Thursdays"
+msgstr "По четвергам"
+
+#: ../src/utils.vala:167
+msgid "Fridays"
+msgstr "По пятницам"
+
+#: ../src/utils.vala:168
+msgid "Saturdays"
+msgstr "По субботам"
+
+#: ../src/utils.vala:169
+msgid "Sundays"
+msgstr "По воскресеньям"
+
+#: ../src/utils.vala:249
+msgid "Every Day"
+msgstr "Ежедневно"
+
+#: ../src/utils.vala:251
+msgid "Weekdays"
+msgstr "По будням"
+
+#: ../src/utils.vala:253
+msgid "Weekends"
+msgstr "По выходным"
+
+#: ../src/widgets.vala:459
+msgid "Cancel"
+msgstr "Отмена"
+
+#: ../src/widgets.vala:471 ../src/widgets.vala:534
+msgid "Click on items to select them"
+msgstr "Нажмите на элемент, чтобы выбрать его"
+
+#: ../src/widgets.vala:498
+msgid "Delete"
+msgstr "Удалить"
+
+#: ../src/widgets.vala:536
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "Выбран %d элемент"
+msgstr[1] "Выбрано %d элемента"
+msgstr[2] "Выбрано %d элементов"
+
+#: ../src/window.vala:161
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Не удалось открыть справку: %s"
+
+#: ../src/window.vala:191
+msgid "Utilities to help you with the time."
+msgstr "Утилиты для помощи в организации времени."
+
+#: ../src/window.vala:196
+msgid "translator-credits"
+msgstr ""
+"Станислав Соловей <whats_up@tut.by>, 2013Юрий Мясоедов <ymyasoedov@yandex."
+"ru>, 2014"
+
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:112 ../src/world.vala:115
+msgid "Tomorrow"
+msgstr "Завтра"
+
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:112 ../src/world.vala:115
+msgid "Yesterday"
+msgstr "Вчера"
+
+#: ../src/world.vala:272
+msgid "World"
+msgstr "Мировое время"
+
+#. namespace World
+#. namespace Clocks
+#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Добавить новые мировые часы"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
+#| msgid "Cancel"
+msgid "_Cancel"
+msgstr "_Отмена"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
+msgid "_Done"
+msgstr "_Готово"
+
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "You already have an alarm for this time."
+msgstr "На это время уже назначен будильник."
+
+#: ../data/ui/alarmsetupdialog.ui.h:5
+msgid "Name"
+msgstr "Имя"
+
+#: ../data/ui/alarmsetupdialog.ui.h:6
+msgid "Repeat Every"
+msgstr "Повторять каждые"
+
+#: ../data/ui/alarmsetupdialog.ui.h:7
+msgid "Active"
+msgstr "Включено"
+
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Нажмите <b>Создать</b>, чтобы добавить будильник"
+
+#: ../data/ui/menu.ui.h:1
+msgid "_Help"
+msgstr "_Справка"
+
+#: ../data/ui/menu.ui.h:2
+msgid "_About"
+msgstr "_О программе"
+
+#: ../data/ui/menu.ui.h:3
+msgid "_Quit"
+msgstr "_Закончить"
+
+#: ../data/ui/menu.ui.h:4
+msgid "Select All"
+msgstr "Выбрать все"
+
+#: ../data/ui/menu.ui.h:5
+msgid "Select None"
+msgstr "Отменить выбор"
+
+#: ../data/ui/worldlocationdialog.ui.h:3
+msgid "_Add"
+msgstr "_Добавить"
+
+#: ../data/ui/worldlocationdialog.ui.h:4
+msgid "Search for a city:"
+msgstr "Поиск по городу:"
+
+#: ../data/ui/world.ui.h:1
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Нажмите <b>Создать</b>, чтобы добавить мировые часы"
+
+#: ../data/ui/world.ui.h:2
+msgid "Sunrise"
+msgstr "Рассвет"
+
+#: ../data/ui/world.ui.h:3
+msgid "Sunset"
+msgstr "Закат"
+
+#~ msgid "_New"
+#~ msgstr "_Создать"
