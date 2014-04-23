@@ -1,0 +1,347 @@
+# Romanian translation for gnome-clocks.
+# Copyright (C) 2014 gnome-clocks's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-clocks package.
+# Bogdan Mințoi <mintoi.bogdan@gmail.com>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-clocks master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-03-11 14:44+0000\n"
+"PO-Revision-Date: 2014-01-09 11:53+0200\n"
+"Last-Translator: Bogdan Mințoi <mintoi.bogdan@gmail.com>\n"
+"Language-Team: Română <>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2);\n"
+"X-Generator: Gtranslator 2.91.6\n"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+msgid "Goals:"
+msgstr ""
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+msgid "Show the time in different cities around the world"
+msgstr ""
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+msgid "Set alarms to wake you up"
+msgstr ""
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr ""
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+msgid "Set timers to properly cook your food"
+msgstr ""
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:188
+#: ../data/ui/window.ui.h:1
+msgid "Clocks"
+msgstr "Clocks"
+
+#: ../data/org.gnome.clocks.desktop.in.h:2
+msgid "GNOME Clocks"
+msgstr "GNOME Clocks"
+
+#: ../data/org.gnome.clocks.desktop.in.h:3
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "Ora în lume, alarme, cronometru și temporizator"
+
+#: ../data/org.gnome.clocks.desktop.in.h:4
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr "timp;temporizator;fus orar;cronometru;alarmă;"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
+msgid "Configured world clocks"
+msgstr "Fusuri orare configurate"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
+msgid "List of world clocks to show."
+msgstr "Lista fusurilor orare de afișat."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
+msgid "Configured alarms"
+msgstr "Alarme configurate"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
+msgid "List of alarms set."
+msgstr "Listă de alarme setate."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:107
+msgid "Timer"
+msgstr "Temporizator"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "Durata configurată a temporizatorului, în secunde."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Geolocation support"
+msgstr "Suport pentru geolocalizare"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr "Activează sau dezactivează suportul pentru geolocalizare."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+msgid "Window state"
+msgstr "Stare fereastră"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+msgid "State of the window: i.e. maximized."
+msgstr "Starea ferestrei: ex. maximizată."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+msgid "Window width and height"
+msgstr "Înălțime și lățime fereastră"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+msgid "Width and height of the window."
+msgstr "Înălțimea și lățimea ferestrei."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
+msgid "Panel state"
+msgstr "Stare panou"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
+msgid "Current clock panel."
+msgstr "Panou ceas actual."
+
+#: ../src/alarm.vala:115 ../src/alarm.vala:368 ../src/alarm.vala:542
+msgid "Alarm"
+msgstr "Alarmă"
+
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:188 ../data/ui/alarm.ui.h:2
+msgid "Stop"
+msgstr "Stop"
+
+#: ../src/alarm.vala:118 ../data/ui/alarm.ui.h:3
+msgid "Snooze"
+msgstr "Ațipire"
+
+#: ../src/alarm.vala:308
+msgid "Edit Alarm"
+msgstr "Editare alarmă"
+
+#: ../src/alarm.vala:308
+msgid "New Alarm"
+msgstr "Alarmă nouă"
+
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:565 ../src/world.vala:281
+msgid "New"
+msgstr "Nou"
+
+#: ../src/application.vala:23
+msgid "Print version information and exit"
+msgstr "Afișează informații despre versiune și iese"
+
+#: ../src/stopwatch.vala:130
+msgid "Stopwatch"
+msgstr "Cronometru"
+
+#: ../src/stopwatch.vala:191
+msgid "Lap"
+msgstr "Tură"
+
+#: ../src/stopwatch.vala:198 ../src/timer.vala:162
+msgid "Continue"
+msgstr "Continuă"
+
+#: ../src/stopwatch.vala:202 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
+msgid "Reset"
+msgstr "Resetare"
+
+#: ../src/stopwatch.vala:210 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
+msgid "Start"
+msgstr "Start"
+
+#: ../src/timer.vala:116
+msgid "Time is up!"
+msgstr "Timpul a expirat!"
+
+#: ../src/timer.vala:117
+msgid "Timer countdown finished"
+msgstr "Timpul alocat s-a scurs"
+
+#: ../src/timer.vala:167 ../src/timer.vala:178 ../data/ui/timer.ui.h:2
+msgid "Pause"
+msgstr "Pauză"
+
+#: ../src/utils.vala:163
+msgid "Mondays"
+msgstr "Zilele de Luni"
+
+#: ../src/utils.vala:164
+msgid "Tuesdays"
+msgstr "Zilele de Marți"
+
+#: ../src/utils.vala:165
+msgid "Wednesdays"
+msgstr "Zilele de Miercuri"
+
+#: ../src/utils.vala:166
+msgid "Thursdays"
+msgstr "Zilele de Joi"
+
+#: ../src/utils.vala:167
+msgid "Fridays"
+msgstr "Zilele de Vineri"
+
+#: ../src/utils.vala:168
+msgid "Saturdays"
+msgstr "Zilele de Sâmbătă"
+
+#: ../src/utils.vala:169
+msgid "Sundays"
+msgstr "Zilele de Duminică"
+
+#: ../src/utils.vala:249
+msgid "Every Day"
+msgstr "În fiecare zi"
+
+#: ../src/utils.vala:251
+msgid "Weekdays"
+msgstr "Zilele lucrătoare"
+
+#: ../src/utils.vala:253
+msgid "Weekends"
+msgstr "Sfârșiturile de săptămână"
+
+#: ../src/widgets.vala:459
+msgid "Cancel"
+msgstr "Anulează"
+
+#: ../src/widgets.vala:471 ../src/widgets.vala:534
+msgid "Click on items to select them"
+msgstr "Clic pe elemente pentru a le selecta"
+
+#: ../src/widgets.vala:498
+msgid "Delete"
+msgstr "Șterge"
+
+#: ../src/widgets.vala:536
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d selectat"
+msgstr[1] "%d selectate"
+msgstr[2] "%d selectate"
+
+#: ../src/window.vala:161
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Nu se poate afișa fișierul de ajutor: %s"
+
+#: ../src/window.vala:191
+msgid "Utilities to help you with the time."
+msgstr "Instrumente pentru timp."
+
+#: ../src/window.vala:196
+msgid "translator-credits"
+msgstr "Bogdan Mințoi"
+
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:112 ../src/world.vala:115
+msgid "Tomorrow"
+msgstr "Mâine"
+
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:112 ../src/world.vala:115
+msgid "Yesterday"
+msgstr "Ieri"
+
+#: ../src/world.vala:272
+msgid "World"
+msgstr "Global"
+
+#. namespace World
+#. namespace Clocks
+#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Adaugă un fus orar nou"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
+#, fuzzy
+#| msgid "Cancel"
+msgid "_Cancel"
+msgstr "Anulează"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
+msgid "_Done"
+msgstr "_Efectuat"
+
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "You already have an alarm for this time."
+msgstr ""
+
+#: ../data/ui/alarmsetupdialog.ui.h:5
+msgid "Name"
+msgstr "Nume"
+
+#: ../data/ui/alarmsetupdialog.ui.h:6
+msgid "Repeat Every"
+msgstr "Repetă în fiecare"
+
+#: ../data/ui/alarmsetupdialog.ui.h:7
+msgid "Active"
+msgstr "Activ"
+
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Selectează <b>Nou</b> pentru a adăuga o alarmă"
+
+#: ../data/ui/menu.ui.h:1
+msgid "_Help"
+msgstr "_Ajutor"
+
+#: ../data/ui/menu.ui.h:2
+msgid "_About"
+msgstr "_Despre"
+
+#: ../data/ui/menu.ui.h:3
+msgid "_Quit"
+msgstr "_Ieșire"
+
+#: ../data/ui/menu.ui.h:4
+msgid "Select All"
+msgstr "Selectează tot"
+
+#: ../data/ui/menu.ui.h:5
+msgid "Select None"
+msgstr "Deselectează tot"
+
+#: ../data/ui/worldlocationdialog.ui.h:3
+msgid "_Add"
+msgstr ""
+
+#: ../data/ui/worldlocationdialog.ui.h:4
+msgid "Search for a city:"
+msgstr "Caută un oraș:"
+
+#: ../data/ui/world.ui.h:1
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Selectează <b>Nou</b> pentru a adăuga un fus orar nou"
+
+#: ../data/ui/world.ui.h:2
+msgid "Sunrise"
+msgstr "Soarele răsare la:"
+
+#: ../data/ui/world.ui.h:3
+msgid "Sunset"
+msgstr "Soarele apune la:"
