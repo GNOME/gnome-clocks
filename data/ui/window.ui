@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.8 -->
-  <template class="ClocksWindow" parent="Gtk.ApplicationWindow">
+  <template class="ClocksWindow" parent="GtkApplicationWindow">
     <property name="title" translatable="yes">Clocks</property>
     <child type="titlebar">
       <object class="ClocksHeaderBar" id="header_bar">
