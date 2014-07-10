@@ -51,7 +51,7 @@
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center bottom, 1.0,
-                                    from(@warning_bg_color), to(shade(@warning_bg_color,0.9)));
+                                    from(@warning_color), to(shade(@warning_color,0.9)));
     color: white;
 }
 
@@ -60,7 +60,7 @@
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center bottom, 1.0,
-                                    from(shade(@warning_bg_color,1.1)), to(shade(@warning_bg_color,0.99)));
+                                    from(shade(@warning_color,1.1)), to(shade(@warning_color,0.99)));
     text-shadow: 0 2px 2px rgba(0,0,0,0.5)
 }
 
@@ -120,15 +120,15 @@
 }
 
 .clocks-analog-frame.trough {
-    color: @scrollbar_trough;
+    color: mix(@theme_fg_color, @theme_bg_color, 0.9);
 }
 
 .clocks-analog-frame.progress {
-    color: @scrollbar_slider_prelight;
+    color: mix(@theme_fg_color, @theme_bg_color, 0.5);
 }
 
 .clocks-analog-frame.progress-fast {
-    color: @theme_text_color;
+    color: @theme_fg_color;
 }
 
 .clocks-laps-panel {
