@@ -248,11 +248,9 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     private bool count () {
         var e = timer.elapsed ();
         if (e >= span) {
-            ring ();
-            state = State.STOPPED;
-            remove_tick ();
             update_countdown_label (0, 0, 0);
-            visible_child = setup_frame;
+            ring ();
+            reset ();
             return false;
         }
 
