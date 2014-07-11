@@ -242,7 +242,7 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         Utils.time_to_hms (split, out split_h, out split_m, out split_s, out r);
         int split_cs = (int) (r * 100);
 
-        var n_label = "%d".printf (current_lap);
+        var n_label = "#%d".printf (current_lap);
 
         // Note that the format uses unicode RATIO character
         // We also prepend the LTR mark to make sure text is always in this direction
@@ -262,6 +262,12 @@ public class MainPanel : Gtk.Box, Clocks.Clock {
         }
 
         var row = new LapsRow (n_label, split_label, tot_label);
+
+        // FIXME: we can remove this if ListBox gains support for :first-child
+        if (current_lap == 1) {
+            row.get_style_context ().add_class ("first-lap-row");
+        }
+
         laps_list.prepend (row);
         row.slide_in ();
         laps_scrollwin.vadjustment.value = laps_scrollwin.vadjustment.lower;

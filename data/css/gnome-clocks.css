@@ -149,27 +149,50 @@ ClocksWindow > .frame:backdrop {
     border: 0;
 }
 
-.clocks-stopwatch-laps-row {
+.clocks-laps-panel > .frame {
+    border-image: linear-gradient(to bottom,
+                                  mix(@borders,@theme_bg_color,0.5))
+                  0 0 0 1 / 20px 0px 20px 1px stretch;
+}
+
+.clocks-laps-panel .list,
+.clocks-laps-panel .list-row {
+    background-color: transparent;
+}
+
+.clocks-laps-panel .list-row {
+    padding-left: 20px;
+    padding-right: 20px;
     font-size: 14px;
-    border-width: 0 0 1px 0;
-    border-style: solid;
-    border-color: #d3d7cf;
+    border-image: linear-gradient(to bottom,
+                                  mix(@borders,@theme_bg_color,0.5))
+                  0 0 1 0 / 0 20px 1px 20px stretch;
+}
+
+.clocks-laps-panel .first-lap-row {
+    border-image: none;
+    border-color: transparent;
+}
+
+.clocks-laps-panel .lap-time {
+    font-weight: bold;
+    padding-right: 20px;
 }
 
 /* disguise insensitive spinbuttons as normal labels */
 .spinbutton.clocks-timer-label,
 .spinbutton.clocks-timer-label .button {
-  border-color: transparent;
-  background-image: none;
-  box-shadow: none;
+    border-color: transparent;
+    background-image: none;
+    box-shadow: none;
 }
 
 .spinbutton.clocks-timer-label {
-  color: @theme_fg_color;
+    color: @theme_fg_color;
 }
 
 .spinbutton.clocks-timer-label .button {
-  color: transparent;
+    color: transparent;
 }
 
 @keyframes clocks-blink {
