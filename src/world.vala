@@ -230,9 +230,6 @@ private class StandalonePanel : Gtk.EventBox {
     private Gtk.Label sunset_label;
 
     public StandalonePanel () {
-        get_style_context ().add_class ("view");
-        get_style_context ().add_class ("content-view");
-
         var builder = Utils.load_ui ("world.ui");
 
         var grid = builder.get_object ("standalone_content") as Gtk.Grid;

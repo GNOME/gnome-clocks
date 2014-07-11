@@ -492,9 +492,6 @@ private class RingingPanel : Gtk.EventBox {
     private Gtk.Button snooze_button;
 
     public RingingPanel () {
-        get_style_context ().add_class ("view");
-        get_style_context ().add_class ("content-view");
-
         var builder = Utils.load_ui ("alarm.ui");
         var grid = builder.get_object ("ringing_panel") as Gtk.Grid;
         time_label = builder.get_object ("time_label") as Gtk.Label;
