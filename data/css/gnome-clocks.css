@@ -142,12 +142,28 @@
     border-color: #d3d7cf;
 }
 
+/* disguise insensitive spinbuttons as normal labels */
+.spinbutton.clocks-timer-label,
+.spinbutton.clocks-timer-label .button {
+  border-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
+.spinbutton.clocks-timer-label {
+  color: @theme_fg_color;
+}
+
+.spinbutton.clocks-timer-label .button {
+  color: transparent;
+}
+
 @keyframes clocks-blink {
     0% { color: @theme_fg_color; }
     100% { color: @insensitive_fg_color; }
 }
 
-.clocks-blink {
+.clocks-paused .clocks-timer-label {
     animation-name: clocks-blink;
     animation-iteration-count: infinite;  
     animation-timing-function: cubic-bezier(1.0,0,0,1.0);

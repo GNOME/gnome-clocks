@@ -99,7 +99,14 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     [GtkChild]
     private CountdownFrame countdown_frame;
     [GtkChild]
-    private Gtk.Label countdown_label;
+    // We cheat and use spibuttons also when displaying the time
+    // making them insensitive and hiding the +/- via css
+    // this is needed to ensure the text does not move in the transition
+    private Gtk.SpinButton h_label;
+    [GtkChild]
+    private Gtk.SpinButton m_label;
+    [GtkChild]
+    private Gtk.SpinButton s_label;
     [GtkChild]
     private Gtk.Button left_button;
 
@@ -163,7 +170,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
             left_button.get_style_context ().add_class ("suggested-action");
             break;
         case State.PAUSED:
-            restart ();
+            start ();
             left_button.set_label (_("Pause"));
             left_button.get_style_context ().remove_class("suggested-action");
             break;
@@ -187,47 +194,40 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         m_spinbutton.value = (int) span / 60;
         s_spinbutton.value = span % 60;
         left_button.get_style_context ().remove_class("clocks-go");
-        countdown_label.get_style_context ().remove_class ("clocks-blink");
+        countdown_frame.get_style_context ().remove_class ("clocks-paused");
         start_button.set_sensitive (span > 0);
         countdown_frame.reset ();
         visible_child = setup_frame;
     }
 
     private void start () {
+        countdown_frame.get_style_context ().remove_class ("clocks-paused");
+
         if (state == State.STOPPED && tick_id == 0) {
             var h = h_spinbutton.get_value_as_int ();
             var m = m_spinbutton.get_value_as_int ();
             var s = s_spinbutton.get_value_as_int ();
 
-            state = State.RUNNING;
             span = h * 3600 + m * 60 + s;
-
             settings.set_uint ("timer", (uint) span);
-
-            timer.start ();
-
             countdown_frame.span = span;
             visible_child = countdown_frame;
 
             update_countdown_label (h, m, s);
-            add_tick ();
         }
-    }
 
-    private void restart () {
         state = State.RUNNING;
         timer.start ();
         add_tick ();
-        countdown_label.get_style_context ().remove_class ("clocks-blink");
     }
 
     private void pause () {
         state = State.PAUSED;
         timer.stop ();
         span -= timer.elapsed ();
+        countdown_frame.get_style_context ().add_class ("clocks-paused");
         countdown_frame.pause ();
         remove_tick ();
-        countdown_label.get_style_context ().add_class ("clocks-blink");
     }
 
     private void add_tick () {
@@ -261,7 +261,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     }
 
     private void update_countdown (double elapsed) {
-        if (countdown_label.get_mapped ()) {
+        if (h_label.get_mapped ()) {
             // Math.ceil() because we count backwards:
             // with 0.3 seconds we want to show 1 second remaining,
             // with 59.2 seconds we want to show 1 minute, etc
@@ -277,9 +277,9 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     }
 
     private void update_countdown_label (int h, int m, int s) {
-        // Note that the format uses unicode RATIO character
-        // We also prepend the LTR mark to make sure text is always in this direction
-        countdown_label.set_text ("%02i\xE2\x80\x8E∶%02i\xE2\x80\x8E∶%02i".printf (h, m, s));
+        h_label.set_value (h);
+        m_label.set_value (m);
+        s_label.set_value (s);
     }
 
     public override void grab_focus () {
