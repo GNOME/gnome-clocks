@@ -282,13 +282,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         header_bar.pack_start (new_button);
 
         back_button = new Gtk.Button ();
-        var back_button_image = new Gtk.Image ();
-        back_button_image.icon_size = Gtk.IconSize.MENU;
-        if (get_direction () == Gtk.TextDirection.LTR) {
-            back_button_image.icon_name = "go-previous-symbolic";
-        } else {
-            back_button_image.icon_name = "go-previous-rtl-symbolic";
-        }
+        var back_button_image = new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.MENU);
         back_button.valign = Gtk.Align.CENTER;
         back_button.set_image (back_button_image);
         back_button.no_show_all = true;
