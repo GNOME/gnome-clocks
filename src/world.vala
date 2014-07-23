@@ -294,6 +294,15 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         var builder = Utils.load_ui ("world.ui");
         var empty_view = builder.get_object ("empty_panel") as Gtk.Widget;
         content_view = new ContentView (empty_view, header_bar);
+        content_view.set_sorting(Gtk.SortType.ASCENDING, (item1, item2) => {
+            var offset1 = ((Item) item1).location.get_timezone().get_offset();
+            var offset2 = ((Item) item2).location.get_timezone().get_offset();
+            if (offset1 < offset2)
+                return -1;
+            if (offset1 > offset2)
+                return 1;
+            return 0;
+        });
         add (content_view);
 
         content_view.item_activated.connect ((item) => {

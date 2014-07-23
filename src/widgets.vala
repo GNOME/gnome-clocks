@@ -647,6 +647,22 @@ public class ContentView : Gtk.Bin {
             break;
         }
     }
+
+    public delegate int SortFunc(ContentItem item1, ContentItem item2);
+
+    public void set_sorting(Gtk.SortType sort_type, SortFunc sort_func) {
+        var sortable = icon_view.get_model () as Gtk.TreeSortable;
+        sortable.set_sort_column_id (1, sort_type);
+        sortable.set_sort_func (1, (model, iter1, iter2) => {
+            ContentItem item1;
+            ContentItem item2;
+
+            model.get (iter1, IconView.Column.ITEM, out item1);
+            model.get (iter2, IconView.Column.ITEM, out item2);
+
+            return sort_func (item1, item2);
+        });
+    }
 }
 
 public class AmPmToggleButton : Gtk.Button {
