@@ -464,9 +464,8 @@ public class ContentView : Gtk.Bin {
         });
         header_bar.pack_end (cancel_button);
 
-        var builder = Utils.load_ui ("menu.ui");
-        selection_menu = builder.get_object ("selection-menu") as GLib.MenuModel;
-
+        var app = (Gtk.Application) GLib.Application.get_default ();
+        selection_menu = app.get_menu_by_id ("selection-menu");
         selection_menubutton = new Gtk.MenuButton ();
         selection_menubutton_label = new Gtk.Label (_("Click on items to select them"));
         Gtk.Arrow selection_menubutton_arrow = new Gtk.Arrow (Gtk.ArrowType.DOWN, Gtk.ShadowType.NONE);

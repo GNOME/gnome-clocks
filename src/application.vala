@@ -55,10 +55,6 @@ public class Application : Gtk.Application {
                                                   css_provider,
                                                   Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-        var builder = Utils.load_ui ("menu.ui");
-        var app_menu = builder.get_object ("appmenu") as MenuModel;
-        set_app_menu (app_menu);
-
         add_accelerator ("<Primary>n", "win.new", null);
         add_accelerator ("<Primary>a", "win.select-all", null);
     }
