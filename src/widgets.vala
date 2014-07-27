@@ -232,6 +232,8 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
                 context.set_state (Gtk.StateFlags.ACTIVE);
             }
 
+            context.render_background (cr, check_x, check_y, CHECK_ICON_SIZE, CHECK_ICON_SIZE);
+            context.render_frame (cr, check_x, check_y, CHECK_ICON_SIZE, CHECK_ICON_SIZE);
             context.render_check (cr, check_x, check_y, CHECK_ICON_SIZE, CHECK_ICON_SIZE);
 
             context.restore ();
