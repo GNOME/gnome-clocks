@@ -463,7 +463,8 @@ private class SetupDialog : Gtk.Dialog {
     }
 }
 
-private class RingingPanel : Gtk.EventBox {
+[GtkTemplate (ui = "/org/gnome/clocks/ui/alarmringing.ui")]
+private class RingingPanel : Gtk.Grid {
     public Item alarm {
         get {
             return _alarm;
@@ -487,26 +488,17 @@ private class RingingPanel : Gtk.EventBox {
 
     private Item? _alarm;
     private ulong alarm_state_handler;
+    [GtkChild]
     private Gtk.Label time_label;
-    private Gtk.Button stop_button;
-    private Gtk.Button snooze_button;
 
-    public RingingPanel () {
-        var builder = Utils.load_ui ("alarm.ui");
-        var grid = builder.get_object ("ringing_panel") as Gtk.Grid;
-        time_label = builder.get_object ("time_label") as Gtk.Label;
-        stop_button = builder.get_object ("stop_button") as Gtk.Button;
-        snooze_button = builder.get_object ("snooze_button") as Gtk.Button;
+    [GtkCallback]
+    private void stop_clicked () {
+        alarm.stop ();
+    }
 
-        stop_button.clicked.connect (() => {
-            alarm.stop ();
-        });
-
-        snooze_button.clicked.connect (() => {
-            alarm.snooze ();
-        });
-
-        add (grid);
+    [GtkCallback]
+    private void snooze_clicked () {
+        alarm.snooze ();
     }
 
     public virtual signal void dismiss () {
@@ -524,6 +516,7 @@ private class RingingPanel : Gtk.EventBox {
     }
 }
 
+[GtkTemplate (ui = "/org/gnome/clocks/ui/alarm.ui")]
 public class MainPanel : Gtk.Stack, Clocks.Clock {
     public string label { get; construct set; }
     public HeaderBar header_bar { get; construct set; }
@@ -533,6 +526,9 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     private GLib.Settings settings;
     private Gtk.Button new_button;
     private ContentView content_view;
+    [GtkChild]
+    private Gtk.Widget empty_view;
+    [GtkChild]
     private RingingPanel ringing_panel;
 
     public MainPanel (HeaderBar header_bar) {
@@ -565,8 +561,6 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         new_button.action_name = "win.new";
         header_bar.pack_start (new_button);
 
-        var builder = Utils.load_ui ("alarm.ui");
-        var empty_view = builder.get_object ("empty_panel") as Gtk.Widget;
         content_view = new ContentView (empty_view, header_bar);
         add (content_view);
 
@@ -586,22 +580,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
             save ();
         });
 
-        ringing_panel = new RingingPanel ();
-        add (ringing_panel);
-
-        ringing_panel.dismiss.connect (() => {
-            visible_child = content_view;
-        });
-
         load ();
-
-        notify["visible-child"].connect (() => {
-            if (visible_child == content_view) {
-                header_bar.mode = HeaderBar.Mode.NORMAL;
-            } else if (visible_child == ringing_panel) {
-                header_bar.mode = HeaderBar.Mode.STANDALONE;
-            }
-        });
 
         visible_child = content_view;
         show_all ();
@@ -623,6 +602,20 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     }
 
     public signal void ring ();
+
+    [GtkCallback]
+    private void dismiss_ringing_panel () {
+        visible_child = content_view;
+    }
+
+    [GtkCallback]
+    private void visible_child_changed () {
+        if (visible_child == content_view) {
+            header_bar.mode = HeaderBar.Mode.NORMAL;
+        } else if (visible_child == ringing_panel) {
+            header_bar.mode = HeaderBar.Mode.STANDALONE;
+        }
+    }
 
     private Item? find_item (string id) {
         foreach (var i in alarms) {

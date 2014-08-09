@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
-  <object class="GtkGrid" id="empty_panel">
+  <object class="GtkGrid" id="empty_view">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="halign">center</property>
@@ -40,152 +40,13 @@
       </packing>
     </child>
   </object>
-  <object class="GtkGrid" id="standalone_content">
+  <template class="ClocksWorldMainPanel" parent="GtkStack">
     <property name="visible">True</property>
-    <property name="can_focus">False</property>
+    <signal name="notify::visible-child" handler="visible_child_changed" swapped="no"/>
     <child>
-      <object class="GtkGrid" id="grid2">
+      <object class="ClocksWorldStandalonePanel" id="standalone">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="halign">center</property>
-        <property name="valign">center</property>
-        <property name="margin_start">34</property>
-        <property name="margin_end">34</property>
-        <property name="margin_bottom">12</property>
-        <property name="hexpand">True</property>
-        <property name="vexpand">True</property>
-        <child>
-          <object class="GtkLabel" id="dummy_label">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label">  </property>
-          </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">1</property>
-            <property name="width">1</property>
-            <property name="height">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="time_label">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <style>
-              <class name="clocks-standalone-label"/>
-            </style>
-          </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">0</property>
-            <property name="width">1</property>
-            <property name="height">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="day_label">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <style>
-              <class name="clocks-secondary-standalone-label"/>
-            </style>
-          </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">2</property>
-            <property name="width">1</property>
-            <property name="height">1</property>
-          </packing>
-        </child>
       </object>
-      <packing>
-        <property name="left_attach">0</property>
-        <property name="top_attach">0</property>
-        <property name="width">1</property>
-        <property name="height">1</property>
-      </packing>
     </child>
-    <child>
-      <object class="GtkGrid" id="grid3">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="halign">center</property>
-        <property name="margin_bottom">24</property>
-        <property name="column_spacing">12</property>
-        <style>
-          <class name="clocks-secondary-standalone-label"/>
-        </style>
-        <child>
-          <object class="GtkLabel" id="label3">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Sunrise</property>
-            <style>
-              <class name="dim-label"/>
-            </style>
-          </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">0</property>
-            <property name="width">1</property>
-            <property name="height">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="label4">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Sunset</property>
-            <style>
-              <class name="dim-label"/>
-            </style>
-          </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">1</property>
-            <property name="width">1</property>
-            <property name="height">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="sunrise_label">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label">label</property>
-          </object>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="top_attach">0</property>
-            <property name="width">1</property>
-            <property name="height">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="sunset_label">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-          </object>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="top_attach">1</property>
-            <property name="width">1</property>
-            <property name="height">1</property>
-          </packing>
-        </child>
-      </object>
-      <packing>
-        <property name="left_attach">0</property>
-        <property name="top_attach">1</property>
-        <property name="width">1</property>
-        <property name="height">1</property>
-      </packing>
-    </child>
-  </object>
-  <object class="GtkSizeGroup" id="sizegroup1">
-    <property name="mode">vertical</property>
-    <widgets>
-      <widget name="dummy_label"/>
-      <widget name="day_label"/>
-    </widgets>
-  </object>
+  </template>
 </interface>

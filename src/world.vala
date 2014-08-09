@@ -221,25 +221,18 @@ private class LocationDialog : Gtk.Dialog {
     }
 }
 
-private class StandalonePanel : Gtk.EventBox {
+[GtkTemplate (ui = "/org/gnome/clocks/ui/worldstandalone.ui")]
+private class StandalonePanel : Gtk.Grid {
     public Item location { get; set; }
 
+    [GtkChild]
     private Gtk.Label time_label;
+    [GtkChild]
     private Gtk.Label day_label;
+    [GtkChild]
     private Gtk.Label sunrise_label;
+    [GtkChild]
     private Gtk.Label sunset_label;
-
-    public StandalonePanel () {
-        var builder = Utils.load_ui ("world.ui");
-
-        var grid = builder.get_object ("standalone_content") as Gtk.Grid;
-        time_label = builder.get_object ("time_label") as Gtk.Label;
-        day_label = builder.get_object ("day_label") as Gtk.Label;
-        sunrise_label = builder.get_object ("sunrise_label") as Gtk.Label;
-        sunset_label = builder.get_object ("sunset_label") as Gtk.Label;
-
-        add (grid);
-    }
 
     public void update () {
         if (location != null) {
@@ -251,6 +244,7 @@ private class StandalonePanel : Gtk.EventBox {
     }
 }
 
+[GtkTemplate (ui = "/org/gnome/clocks/ui/world.ui")]
 public class MainPanel : Gtk.Stack, Clocks.Clock {
     public string label { get; construct set; }
     public HeaderBar header_bar { get; construct set; }
@@ -263,6 +257,9 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     private Gdk.Pixbuf? day_pixbuf;
     private Gdk.Pixbuf? night_pixbuf;
     private ContentView content_view;
+    [GtkChild]
+    private Gtk.Widget empty_view;
+    [GtkChild]
     private StandalonePanel standalone;
 
     public MainPanel (HeaderBar header_bar) {
@@ -291,8 +288,6 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         });
         header_bar.pack_start (back_button);
 
-        var builder = Utils.load_ui ("world.ui");
-        var empty_view = builder.get_object ("empty_panel") as Gtk.Widget;
         content_view = new ContentView (empty_view, header_bar);
         content_view.set_sorting(Gtk.SortType.ASCENDING, (item1, item2) => {
             var offset1 = ((Item) item1).location.get_timezone().get_offset();
@@ -319,9 +314,6 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
             save ();
         });
 
-        standalone = new StandalonePanel ();
-        add (standalone);
-
         load ();
 
         if (settings.get_boolean ("geolocation")) {
@@ -329,14 +321,6 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
                 use_geolocation.end (res);
             });
         }
-
-        notify["visible-child"].connect (() => {
-            if (visible_child == content_view) {
-                header_bar.mode = HeaderBar.Mode.NORMAL;
-            } else if (visible_child == standalone) {
-                header_bar.mode = HeaderBar.Mode.STANDALONE;
-            }
-        });
 
         visible_child = content_view;
         show_all ();
@@ -349,6 +333,15 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
             content_view.queue_draw ();
             standalone.update ();
         });
+    }
+
+    [GtkCallback]
+    private void visible_child_changed () {
+        if (visible_child == content_view) {
+            header_bar.mode = HeaderBar.Mode.NORMAL;
+        } else if (visible_child == standalone) {
+            header_bar.mode = HeaderBar.Mode.STANDALONE;
+        }
     }
 
     private void load () {

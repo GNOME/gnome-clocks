@@ -32,16 +32,6 @@ public Gtk.CssProvider load_css (string css) {
     return provider;
 }
 
-public Gtk.Builder load_ui (string ui) {
-    var builder = new Gtk.Builder ();
-    try {
-        builder.add_from_resource ("/org/gnome/clocks/ui/".concat (ui, null));
-    } catch (Error e) {
-        error ("loading main builder file: %s", e.message);
-    }
-    return builder;
-}
-
 public Gdk.Pixbuf? load_image (string image) {
     try {
         var path = Path.build_filename (Config.DATADIR, "gnome-clocks", "images", image);
