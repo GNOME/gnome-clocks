@@ -19,7 +19,7 @@
 namespace Clocks {
 namespace World {
 
-private class Item : Object, ContentItem {
+public class Item : Object, ContentItem {
     private static Gdk.Pixbuf? day_pixbuf = Utils.load_image ("day.png");
     private static Gdk.Pixbuf? night_pixbuf = Utils.load_image ("night.png");
 
@@ -176,6 +176,17 @@ private class Item : Object, ContentItem {
             }
         }
         return location != null ? new Item (location) : null;
+    }
+
+    // assumes terms have been normalized and casefolded by the caller
+    public bool matches_search (List<string> normalized_terms) {
+        string normalized_name = name.normalize ().casefold ();
+        foreach (string t in normalized_terms) {
+            if (!normalized_name.contains (t)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 

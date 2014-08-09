@@ -30,19 +30,49 @@ public class Application : Gtk.Application {
         { "quit", on_quit_activate }
     };
 
+    private SearchProvider search_provider;
+    private uint search_provider_id = 0;
     private Window window;
+
+    private void ensure_window () {
+        if (window == null) {
+            window = new Window (this);
+        }
+    }
 
     public Application () {
         Object (application_id: "org.gnome.clocks");
 
         add_main_option_entries (option_entries);
         add_action_entries (action_entries, this);
+
+        search_provider = new SearchProvider ();
+        search_provider.activate.connect ((timestamp) => {
+            ensure_window ();
+            window.show_world ();
+            window.present_with_time (timestamp);
+        });
+    }
+
+    public override bool dbus_register (DBusConnection connection, string object_path) {
+        try {
+            search_provider_id = connection.register_object (object_path + "/SearchProvider", search_provider);
+        } catch (IOError error) {
+            printerr ("Could not register search provider service: %s\n", error.message);
+        }
+
+        return true;
+    }
+
+    public override void dbus_unregister (DBusConnection connection, string object_path) {
+        if (search_provider_id != 0) {
+            connection.unregister_object (search_provider_id);
+            search_provider_id = 0;
+        }
     }
 
     protected override void activate () {
-        if (window == null) {
-            window = new Window (this);
-        }
+        ensure_window ();
         window.present ();
     }
 

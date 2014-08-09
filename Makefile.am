@@ -23,6 +23,10 @@ appdatadir = $(datadir)/appdata
 appdata_DATA = $(appdata_in_files:.xml.in=.xml)
 appdata_in_files = data/appdata/org.gnome.clocks.appdata.xml.in
 
+# gnome-shell search provider
+searchproviderdir = $(datadir)/gnome-shell/search-providers
+searchprovider_DATA = data/org.gnome.clocks.search-provider.ini
+
 # gsettings
 gsettings_SCHEMAS = data/org.gnome.clocks.gschema.xml
 @INTLTOOL_XML_RULE@
@@ -124,6 +128,7 @@ VALA_SOURCES = \
 	src/utils.vala \
 	src/widgets.vala \
 	src/geocoding.vala \
+	src/search-provider.vala \
 	src/main.vala
 
 gnome_clocks_SOURCES = \
@@ -146,6 +151,7 @@ gnome_clocks_LDADD = \
 
 EXTRA_DIST = \
 	$(appdata_in_files) \
+	$(searchprovider_DATA) \
 	$(icon_files) \
 	$(hcicon_files) \
 	$(images_DATA) \

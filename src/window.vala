@@ -132,6 +132,11 @@ public class Window : Gtk.ApplicationWindow {
         ((Clock) stack.visible_child).activate_select_none ();
     }
 
+    public void show_world () {
+        ((World.MainPanel) panels[PanelId.WORLD]).reset_view ();
+        stack.visible_child = panels[PanelId.WORLD];;
+    }
+
     public override bool key_press_event (Gdk.EventKey event) {
         uint keyval;
         if (((Gdk.Event*)(&event))->get_keyval (out keyval) && keyval == Gdk.Key.Escape) {
