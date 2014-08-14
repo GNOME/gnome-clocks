@@ -21,6 +21,7 @@ namespace Clocks {
 [DBus (name = "org.gnome.Shell.SearchProvider2")]
 public class SearchProvider : Object {
 
+    [DBus (visible = false)]
     public signal void activate (uint32 timestamp);
 
     private HashTable<string, World.Item> locations;
