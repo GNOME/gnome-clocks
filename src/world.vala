@@ -215,29 +215,6 @@ private class LocationDialog : Gtk.Dialog {
     }
 }
 
-[GtkTemplate (ui = "/org/gnome/clocks/ui/worldstandalone.ui")]
-private class StandalonePanel : Gtk.Grid {
-    public Item location { get; set; }
-
-    [GtkChild]
-    private Gtk.Label time_label;
-    [GtkChild]
-    private Gtk.Label day_label;
-    [GtkChild]
-    private Gtk.Label sunrise_label;
-    [GtkChild]
-    private Gtk.Label sunset_label;
-
-    public void update () {
-        if (location != null) {
-            time_label.label = location.time_label;
-            day_label.label = location.day_label;
-            sunrise_label.label = location.sunrise_label;
-            sunset_label.label = location.sunset_label;
-        }
-    }
-}
-
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world.ui")]
 public class MainPanel : Gtk.Stack, Clocks.Clock {
     public string label { get; construct set; }
@@ -251,10 +228,19 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     private Gdk.Pixbuf? day_pixbuf;
     private Gdk.Pixbuf? night_pixbuf;
     private ContentView content_view;
+    private Item standalone_location;
     [GtkChild]
     private Gtk.Widget empty_view;
     [GtkChild]
-    private StandalonePanel standalone;
+    private Gtk.Widget standalone;
+    [GtkChild]
+    private Gtk.Label standalone_time_label;
+    [GtkChild]
+    private Gtk.Label standalone_day_label;
+    [GtkChild]
+    private Gtk.Label standalone_sunrise_label;
+    [GtkChild]
+    private Gtk.Label standalone_sunset_label;
 
     public MainPanel (HeaderBar header_bar) {
         Object (label: _("World"), header_bar: header_bar, transition_type: Gtk.StackTransitionType.CROSSFADE, panel_id: PanelId.WORLD);
@@ -295,10 +281,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         add (content_view);
 
         content_view.item_activated.connect ((item) => {
-            Item location = (Item) item;
-            standalone.location = location;
-            standalone.update ();
-            visible_child = standalone;
+            show_standalone ((Item) item);
         });
 
         content_view.delete_selected.connect (() => {
@@ -325,7 +308,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
                 l.tick();
             }
             content_view.queue_draw ();
-            standalone.update ();
+            update_standalone ();
         });
     }
 
@@ -336,6 +319,21 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         } else if (visible_child == standalone) {
             header_bar.mode = HeaderBar.Mode.STANDALONE;
         }
+    }
+
+    private void update_standalone () {
+        if (standalone_location != null) {
+            standalone_time_label.label = standalone_location.time_label;
+            standalone_day_label.label = standalone_location.day_label;
+            standalone_sunrise_label.label = standalone_location.sunrise_label;
+            standalone_sunset_label.label = standalone_location.sunset_label;
+        }
+    }
+
+    private void show_standalone (Item location) {
+        standalone_location = location;
+        update_standalone ();
+        visible_child = standalone;
     }
 
     private void load () {
@@ -422,8 +420,8 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
             content_view.update_header_bar ();
             break;
         case HeaderBar.Mode.STANDALONE:
-            header_bar.title = GLib.Markup.escape_text (standalone.location.city_name);
-            header_bar.subtitle = GLib.Markup.escape_text (standalone.location.contry_name);
+            header_bar.title = GLib.Markup.escape_text (standalone_location.city_name);
+            header_bar.subtitle = GLib.Markup.escape_text (standalone_location.contry_name);
             back_button.show ();
             break;
         default:
