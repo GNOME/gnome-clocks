@@ -51,6 +51,16 @@ public void time_to_hms (double t, out int h, out int m, out int s, out double r
     remainder = t - s;
 }
 
+public string? get_country_name (GWeather.Location location) {
+    var country = location;
+
+    while (country != null && country.get_level () != GWeather.LocationLevel.COUNTRY) {
+        country = country.get_parent ();
+    }
+
+    return country != null ? country.get_name () : null;
+}
+
 // TODO: For now we are wrapping Gnome's clock, but we should probably
 // implement our own class, maybe using gnome-datetime-source
 // Especially if we want to try to use CLOCK_REALTIME_ALARM

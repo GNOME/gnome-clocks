@@ -35,8 +35,8 @@ public class Item : Object, ContentItem {
         get {
             // We store it in a _name member even if we overwrite it every time
             // since the abstract name property does not return an owned string
-            if (nation_name != null) {
-                _name = "%s, %s".printf (city_name, nation_name);
+            if (contry_name != null) {
+                _name = "%s, %s".printf (city_name, contry_name);
             } else {
                 _name = city_name;
             }
@@ -54,15 +54,9 @@ public class Item : Object, ContentItem {
         }
     }
 
-    public string? nation_name {
+    public string? contry_name {
         owned get {
-            var nation = location;
-
-            while (nation != null && nation.get_level () != GWeather.LocationLevel.COUNTRY) {
-                nation = nation.get_parent ();
-            }
-
-            return nation != null ? nation.get_name () : null;
+            return Utils.get_country_name (location);
         }
     }
 
@@ -440,7 +434,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
             break;
         case HeaderBar.Mode.STANDALONE:
             header_bar.title = GLib.Markup.escape_text (standalone.location.city_name);
-            header_bar.subtitle = GLib.Markup.escape_text (standalone.location.nation_name);
+            header_bar.subtitle = GLib.Markup.escape_text (standalone.location.contry_name);
             back_button.show ();
             break;
         default:
