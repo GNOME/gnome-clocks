@@ -24,55 +24,74 @@ public class SearchProvider : Object {
     [DBus (visible = false)]
     public signal void activate (uint32 timestamp);
 
-    private HashTable<string, World.Item> locations;
+    private HashTable<string, GWeather.Location> matches;
+    private int count; // Used to make up id strings
 
-    private void load () {
-        // FIXME: for now we just reread the list from settings every time a
-        // search is started. This is not very efficient and it also duplicates
-        // some code from World... Ideally we should just share the data
-        // with the World panel, but that requires refactoring since the
-        // window may have not been created yet.
-        locations = new HashTable<string, World.Item> (str_hash, str_equal);;
-        var settings = new GLib.Settings ("org.gnome.clocks");
-        int count = 0;
-        foreach (var l in settings.get_value ("world-clocks")) {
-            World.Item? location = World.Item.deserialize (l);
-            if (location != null) {
-                locations.insert (count.to_string (), location);
+    private string[] normalize_terms (string[] terms) {
+        var normalized_terms = new GenericArray<string> ();
+        foreach (string t in terms) {
+            normalized_terms.add (t.normalize ().casefold ());
+        }
+
+        return normalized_terms.data;
+    }
+
+    private bool location_matches (GWeather.Location location, string[] normalized_terms) {
+        string city = location.get_city_name ();
+        string country = Utils.get_country_name (location);
+        if (city == null || country == null) {
+            return false;
+        }
+
+        foreach (string t in normalized_terms) {
+            if (!city.normalize ().casefold ().contains (t) &&
+                !country.normalize ().casefold ().contains (t)) {
+                return false;
             }
-            count++;
+        }
+
+        return true;
+    }
+
+    private async void search_locations (GWeather.Location location, string[] normalized_terms) {
+        GWeather.Location? []locations = location.get_children ();
+        if (locations != null) {
+            for (int i = 0; i < locations.length; i++) {
+                if (locations[i].get_level () == GWeather.LocationLevel.CITY) {
+                    if (location_matches(locations[i], normalized_terms)) {
+                        matches.insert (count.to_string (), locations[i]);
+                        count++;
+                    }
+                }
+
+                yield search_locations (locations[i], normalized_terms);
+            }
         }
     }
 
-    public string[] get_initial_result_set (string[] terms) {
-        load ();
+    public async string[] get_initial_result_set (string[] terms) {
+        // clear the cache
+        matches = new HashTable<string, GWeather.Location> (str_hash, str_equal);
+        count = 0;
 
-        List<string> normalized_terms = new List<string> ();
-        foreach (string t in terms) {
-            normalized_terms.prepend (t.normalize ().casefold ());
-        }
+        yield search_locations (GWeather.Location.get_world (), normalize_terms (terms));
 
         var result = new GenericArray<string> ();
-        locations.foreach ((id, item) => {
-            if (item.matches_search (normalized_terms)) {
-                result.add (id);
-            }
+        matches.foreach ((id, location) => {
+            result.add (id);
         });
 
         return result.data;
     }
 
     public string[] get_subsearch_result_set (string[] previous_results, string[] terms) {
-        List<string> normalized_terms = new List<string> ();
-        foreach (string t in terms) {
-            normalized_terms.prepend (t.normalize ().casefold ());
-        }
+        var normalized_terms = normalize_terms (terms);
 
         var result = new GenericArray<string> ();
-        foreach (var r in previous_results) {
-            var item = locations.get (r);
-            if (item != null && item.matches_search (normalized_terms)) {
-                result.add (r);
+        foreach (var id in previous_results) {
+            var location = matches.get (id);
+            if (location != null && location_matches (location, normalized_terms)) {
+                result.add (id);
             }
         }
 
@@ -81,16 +100,17 @@ public class SearchProvider : Object {
 
     public HashTable<string, Variant>[] get_result_metas (string[] results) {
         var result = new GenericArray<HashTable<string, Variant>> ();
-        foreach (var r in results) {
+        foreach (var id in results) {
             var meta = new HashTable<string, Variant> (str_hash, str_equal);;
-            var item = locations.get (r);
-            if (item != null) {
+            var location = matches.get (id);
+            if (location != null) {
+                var item = new World.Item (location);
                 string time_label = item.time_label;
                 string day =  item.day_label;
                 if (day != null) {
                     time_label += " " + day;
                 }
-                meta.insert ("id", r);
+                meta.insert ("id", id);
                 meta.insert ("name", time_label);
                 meta.insert ("description", item.name);
             }

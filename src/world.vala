@@ -171,17 +171,6 @@ public class Item : Object, ContentItem {
         }
         return location != null ? new Item (location) : null;
     }
-
-    // assumes terms have been normalized and casefolded by the caller
-    public bool matches_search (List<string> normalized_terms) {
-        string normalized_name = name.normalize ().casefold ();
-        foreach (string t in normalized_terms) {
-            if (!normalized_name.contains (t)) {
-                return false;
-            }
-        }
-        return true;
-    }
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/worldlocationdialog.ui")]
