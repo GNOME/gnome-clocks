@@ -595,7 +595,7 @@ public class ContentView : Gtk.Bin {
         header_bar = bar;
 
         select_button = new Gtk.Button ();
-        Gtk.Image select_button_image = new Gtk.Image.from_icon_name ("object-select-symbolic", Gtk.IconSize.MENU);
+        var select_button_image = new Gtk.Image.from_icon_name ("object-select-symbolic", Gtk.IconSize.MENU);
         select_button.set_image (select_button_image);
         select_button.valign = Gtk.Align.CENTER;
         select_button.no_show_all = true;
@@ -617,8 +617,8 @@ public class ContentView : Gtk.Bin {
         selection_menu = app.get_menu_by_id ("selection-menu");
         selection_menubutton = new Gtk.MenuButton ();
         selection_menubutton_label = new Gtk.Label (_("Click on items to select them"));
-        Gtk.Arrow selection_menubutton_arrow = new Gtk.Arrow (Gtk.ArrowType.DOWN, Gtk.ShadowType.NONE);
-        Gtk.Grid selection_menubutton_grid = new Gtk.Grid ();
+        var selection_menubutton_arrow = new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.BUTTON);
+        var selection_menubutton_grid = new Gtk.Grid ();
         selection_menubutton_grid.set_column_spacing (6);
         selection_menubutton_grid.attach (selection_menubutton_label, 0, 0, 1, 1);
         selection_menubutton_grid.attach (selection_menubutton_arrow, 1, 0, 1, 1);
