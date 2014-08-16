@@ -227,8 +227,9 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     private Gtk.Button back_button;
     private Gdk.Pixbuf? day_pixbuf;
     private Gdk.Pixbuf? night_pixbuf;
-    private ContentView content_view;
     private Item standalone_location;
+    [GtkChild]
+    private ContentView content_view;
     [GtkChild]
     private Gtk.Widget empty_view;
     [GtkChild]
@@ -264,11 +265,11 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         back_button.set_image (back_button_image);
         back_button.no_show_all = true;
         back_button.clicked.connect (() => {
-            visible_child = content_view;
+            reset_view ();
         });
         header_bar.pack_start (back_button);
 
-        content_view = new ContentView (empty_view, header_bar);
+        content_view.set_header_bar (header_bar);
         content_view.set_sorting(Gtk.SortType.ASCENDING, (item1, item2) => {
             var offset1 = ((Item) item1).location.get_timezone().get_offset();
             var offset2 = ((Item) item2).location.get_timezone().get_offset();
@@ -277,18 +278,6 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
             if (offset1 > offset2)
                 return 1;
             return 0;
-        });
-        add (content_view);
-
-        content_view.item_activated.connect ((item) => {
-            show_standalone ((Item) item);
-        });
-
-        content_view.delete_selected.connect (() => {
-            foreach (Object i in content_view.get_selected_items ()) {
-                locations.remove ((Item) i);
-            }
-            save ();
         });
 
         load ();
@@ -299,7 +288,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
             });
         }
 
-        visible_child = content_view;
+        reset_view ();
         show_all ();
 
         // Start ticking...
@@ -313,8 +302,26 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     }
 
     [GtkCallback]
+    private void item_activated (ContentItem item) {
+        show_standalone ((Item) item);
+    }
+
+    [GtkCallback]
+    private void delete_selected () {
+        foreach (var i in content_view.get_selected_items ()) {
+            locations.remove ((Item) i);
+        }
+        save ();
+    }
+
+    [GtkCallback]
+    private void empty_changed () {
+        reset_view ();
+    }
+
+    [GtkCallback]
     private void visible_child_changed () {
-        if (visible_child == content_view) {
+        if (visible_child == empty_view || visible_child == content_view) {
             header_bar.mode = HeaderBar.Mode.NORMAL;
         } else if (visible_child == standalone) {
             header_bar.mode = HeaderBar.Mode.STANDALONE;
@@ -407,7 +414,8 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     }
 
     public void reset_view () {
-        visible_child = content_view;
+        standalone_location = null;
+        visible_child = content_view.empty ? empty_view : content_view;
     }
 
     public void update_header_bar () {

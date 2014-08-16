@@ -1,48 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.6 -->
-  <object class="GtkGrid" id="empty_view">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="halign">center</property>
-    <property name="valign">center</property>
-    <property name="row_spacing">6</property>
-    <child>
-      <object class="GtkImage" id="image1">
-        <property name="visible">True</property>
-        <property name="sensitive">False</property>
-        <property name="can_focus">False</property>
-        <property name="icon_name">alarm-symbolic</property>
-        <property name="icon_size">6</property>
-      </object>
-      <packing>
-        <property name="left_attach">0</property>
-        <property name="top_attach">0</property>
-        <property name="width">1</property>
-        <property name="height">1</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkLabel" id="label1">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Select &lt;b&gt;New&lt;/b&gt; to add an alarm</property>
-        <property name="use_markup">True</property>
-        <style>
-          <class name="dim-label"/>
-        </style>
-      </object>
-      <packing>
-        <property name="left_attach">0</property>
-        <property name="top_attach">1</property>
-        <property name="width">1</property>
-        <property name="height">1</property>
-      </packing>
-    </child>
-  </object>
   <template class="ClocksAlarmMainPanel" parent="GtkStack">
     <property name="visible">True</property>
     <signal name="notify::visible-child" handler="visible_child_changed" swapped="no"/>
+    <child>
+      <object class="GtkGrid" id="empty_view">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <property name="row_spacing">6</property>
+        <child>
+          <object class="GtkImage" id="image1">
+            <property name="visible">True</property>
+            <property name="sensitive">False</property>
+            <property name="can_focus">False</property>
+            <property name="icon_name">alarm-symbolic</property>
+            <property name="icon_size">6</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">0</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Select &lt;b&gt;New&lt;/b&gt; to add an alarm</property>
+            <property name="use_markup">True</property>
+            <style>
+              <class name="dim-label"/>
+            </style>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">1</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="ClocksContentView" id="content_view">
+        <property name="visible">True</property>
+        <signal name="item-activated" handler="item_activated" swapped="no"/>
+        <signal name="delete-selected" handler="delete_selected" swapped="no"/>
+        <signal name="notify::empty" handler="empty_changed" swapped="no"/>
+      </object>
+    </child>
     <child>
       <object class="ClocksAlarmRingingPanel" id="ringing_panel">
         <property name="visible">True</property>

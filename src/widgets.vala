@@ -430,9 +430,7 @@ private class IconView : Gtk.IconView {
 public class ContentView : Gtk.Bin {
     public bool empty { get; private set; default = true; }
 
-    private Gtk.Widget empty_page;
     private IconView icon_view;
-    private HeaderBar header_bar;
     private Gtk.Button select_button;
     private Gtk.Button cancel_button;
     private GLib.MenuModel selection_menu;
@@ -440,46 +438,10 @@ public class ContentView : Gtk.Bin {
     private Gtk.Label selection_menubutton_label;
     private Gtk.Grid grid;
     private Gtk.Button delete_button;
+    private HeaderBar? header_bar;
 
-    public ContentView (Gtk.Widget e, HeaderBar b) {
-        empty_page = e;
-        header_bar = b;
-
+    construct {
         icon_view = new IconView ();
-
-        select_button = new Gtk.Button ();
-        Gtk.Image select_button_image = new Gtk.Image.from_icon_name ("object-select-symbolic", Gtk.IconSize.MENU);
-        select_button.set_image (select_button_image);
-        select_button.valign = Gtk.Align.CENTER;
-        select_button.no_show_all = true;
-        bind_property ("empty", select_button, "visible", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
-        select_button.clicked.connect (() => {
-            icon_view.mode = IconView.Mode.SELECTION;
-        });
-        header_bar.pack_end (select_button);
-
-        cancel_button = new Gtk.Button.with_label (_("Cancel"));
-        cancel_button.no_show_all = true;
-        cancel_button.valign = Gtk.Align.CENTER;
-        cancel_button.clicked.connect (() => {
-            icon_view.mode = IconView.Mode.NORMAL;
-        });
-        header_bar.pack_end (cancel_button);
-
-        var app = (Gtk.Application) GLib.Application.get_default ();
-        selection_menu = app.get_menu_by_id ("selection-menu");
-        selection_menubutton = new Gtk.MenuButton ();
-        selection_menubutton_label = new Gtk.Label (_("Click on items to select them"));
-        Gtk.Arrow selection_menubutton_arrow = new Gtk.Arrow (Gtk.ArrowType.DOWN, Gtk.ShadowType.NONE);
-        Gtk.Grid selection_menubutton_grid = new Gtk.Grid ();
-        selection_menubutton_grid.set_column_spacing (6);
-        selection_menubutton_grid.attach (selection_menubutton_label, 0, 0, 1, 1);
-        selection_menubutton_grid.attach (selection_menubutton_arrow, 1, 0, 1, 1);
-        selection_menubutton.add (selection_menubutton_grid);
-        selection_menubutton.show_all();
-        selection_menubutton.valign = Gtk.Align.CENTER;
-        selection_menubutton.menu_model = selection_menu;
-        selection_menubutton.get_style_context ().add_class ("selection-menu");
 
         var scrolled_window = new Gtk.ScrolledWindow (null, null);
         scrolled_window.add (icon_view);
@@ -510,18 +472,16 @@ public class ContentView : Gtk.Bin {
 
         var model = icon_view.get_model ();
         model.row_inserted.connect(() => {
-            update_empty_view (model);
+            update_empty (model);
         });
         model.row_deleted.connect(() => {
-            update_empty_view (model);
+            update_empty (model);
         });
 
         icon_view.notify["mode"].connect (() => {
             if (icon_view.mode == IconView.Mode.SELECTION) {
-                header_bar.mode = HeaderBar.Mode.SELECTION;
                 action_bar.show ();
             } else if (icon_view.mode == IconView.Mode.NORMAL) {
-                header_bar.mode = HeaderBar.Mode.NORMAL;
                 action_bar.hide ();
             }
         });
@@ -557,38 +517,33 @@ public class ContentView : Gtk.Bin {
                 } else {
                     Object item;
                     store.get (i, IconView.Column.ITEM, out item);
-                    item_activated (item);
+                    item_activated ((ContentItem) item);
                 }
             }
         });
 
-        add (empty_page);
+        add (grid);
+        grid.show_all ();
     }
 
-    public signal void item_activated (Object item);
+    public signal void item_activated (ContentItem item);
 
     public virtual signal void delete_selected () {
         icon_view.remove_selected ();
     }
 
-    private void update_empty_view (Gtk.TreeModel model) {
+    private void update_empty (Gtk.TreeModel model) {
         Gtk.TreeIter i;
 
-        var child = get_child ();
         if (model.get_iter_first (out i)) {
-            if (child != grid) {
-                remove (child);
-                add (grid);
+            if (empty) {
                 empty = false;
             }
         } else {
-            if (child != empty_page) {
-                remove (child);
-                add (empty_page);
+            if (!empty) {
                 empty = true;
             }
         }
-        show_all ();
     }
 
     public void add_item (ContentItem item) {
@@ -634,6 +589,52 @@ public class ContentView : Gtk.Bin {
             return true;
         }
         return false;
+    }
+
+    public void set_header_bar (HeaderBar bar) {
+        header_bar = bar;
+
+        select_button = new Gtk.Button ();
+        Gtk.Image select_button_image = new Gtk.Image.from_icon_name ("object-select-symbolic", Gtk.IconSize.MENU);
+        select_button.set_image (select_button_image);
+        select_button.valign = Gtk.Align.CENTER;
+        select_button.no_show_all = true;
+        bind_property ("empty", select_button, "visible", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
+        select_button.clicked.connect (() => {
+            icon_view.mode = IconView.Mode.SELECTION;
+        });
+        header_bar.pack_end (select_button);
+
+        cancel_button = new Gtk.Button.with_label (_("Cancel"));
+        cancel_button.no_show_all = true;
+        cancel_button.valign = Gtk.Align.CENTER;
+        cancel_button.clicked.connect (() => {
+            icon_view.mode = IconView.Mode.NORMAL;
+        });
+        header_bar.pack_end (cancel_button);
+
+        var app = (Gtk.Application) GLib.Application.get_default ();
+        selection_menu = app.get_menu_by_id ("selection-menu");
+        selection_menubutton = new Gtk.MenuButton ();
+        selection_menubutton_label = new Gtk.Label (_("Click on items to select them"));
+        Gtk.Arrow selection_menubutton_arrow = new Gtk.Arrow (Gtk.ArrowType.DOWN, Gtk.ShadowType.NONE);
+        Gtk.Grid selection_menubutton_grid = new Gtk.Grid ();
+        selection_menubutton_grid.set_column_spacing (6);
+        selection_menubutton_grid.attach (selection_menubutton_label, 0, 0, 1, 1);
+        selection_menubutton_grid.attach (selection_menubutton_arrow, 1, 0, 1, 1);
+        selection_menubutton.add (selection_menubutton_grid);
+        selection_menubutton.show_all();
+        selection_menubutton.valign = Gtk.Align.CENTER;
+        selection_menubutton.menu_model = selection_menu;
+        selection_menubutton.get_style_context ().add_class ("selection-menu");
+
+        icon_view.notify["mode"].connect (() => {
+            if (icon_view.mode == IconView.Mode.SELECTION) {
+                header_bar.mode = HeaderBar.Mode.SELECTION;
+            } else if (icon_view.mode == IconView.Mode.NORMAL) {
+                header_bar.mode = HeaderBar.Mode.NORMAL;
+            }
+        });
     }
 
     public void update_header_bar () {

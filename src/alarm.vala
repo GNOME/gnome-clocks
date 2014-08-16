@@ -525,6 +525,7 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     private List<Item> alarms;
     private GLib.Settings settings;
     private Gtk.Button new_button;
+    [GtkChild]
     private ContentView content_view;
     [GtkChild]
     private Gtk.Widget empty_view;
@@ -561,28 +562,10 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         new_button.action_name = "win.new";
         header_bar.pack_start (new_button);
 
-        content_view = new ContentView (empty_view, header_bar);
-        add (content_view);
-
-        content_view.item_activated.connect ((item) => {
-            Item alarm = (Item) item;
-            if (alarm.state == Item.State.SNOOZING) {
-                show_ringing_panel (alarm);
-            } else {
-                edit (alarm);
-            }
-        });
-
-        content_view.delete_selected.connect (() => {
-            foreach (Object i in content_view.get_selected_items ()) {
-                alarms.remove ((Item) i);
-            }
-            save ();
-        });
+        content_view.set_header_bar (header_bar);
 
         load ();
-
-        visible_child = content_view;
+        reset_view ();
         show_all ();
 
         // Start ticking...
@@ -604,13 +587,36 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     public signal void ring ();
 
     [GtkCallback]
+    private void item_activated (ContentItem item) {
+        Item alarm = (Item) item;
+        if (alarm.state == Item.State.SNOOZING) {
+            show_ringing_panel (alarm);
+        } else {
+            edit (alarm);
+        }
+    }
+
+    [GtkCallback]
+    private void delete_selected () {
+        foreach (var i in content_view.get_selected_items ()) {
+            alarms.remove ((Item) i);
+        }
+        save ();
+    }
+
+    [GtkCallback]
+    private void empty_changed () {
+        reset_view ();
+    }
+
+    [GtkCallback]
     private void dismiss_ringing_panel () {
-        visible_child = content_view;
+       reset_view ();
     }
 
     [GtkCallback]
     private void visible_child_changed () {
-        if (visible_child == content_view) {
+        if (visible_child == empty_view || visible_child == content_view) {
             header_bar.mode = HeaderBar.Mode.NORMAL;
         } else if (visible_child == ringing_panel) {
             header_bar.mode = HeaderBar.Mode.STANDALONE;
@@ -669,6 +675,10 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
         ringing_panel.alarm = alarm;
         ringing_panel.update ();
         visible_child = ringing_panel;
+    }
+
+    private void reset_view () {
+        visible_child = content_view.empty ? empty_view : content_view;
     }
 
     public void activate_new () {
