@@ -132,7 +132,7 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
     public string text { get; set; }
     public string subtext { get; set; }
     public string css_class { get; set; }
-    public bool active { get; set; default = false; }
+    public bool checked { get; set; default = false; }
     public bool toggle_visible { get; set; default = false; }
     public bool selectable { get; set; default = true; }
 
@@ -228,8 +228,8 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
             context.save ();
             context.add_class (Gtk.STYLE_CLASS_CHECK);
 
-            if (active) {
-                context.set_state (Gtk.StateFlags.ACTIVE);
+            if (checked) {
+                context.set_state (Gtk.StateFlags.CHECKED);
             }
 
             context.render_background (cr, check_x, check_y, CHECK_ICON_SIZE, CHECK_ICON_SIZE);
@@ -301,7 +301,7 @@ private class IconView : Gtk.IconView {
         thumb_renderer.set_alignment (0.5f, 0.5f);
         thumb_renderer.set_fixed_size (tile_width, tile_height);
         pack_start (thumb_renderer, false);
-        add_attribute (thumb_renderer, "active", Column.SELECTED);
+        add_attribute (thumb_renderer, "checked", Column.SELECTED);
         set_cell_data_func (thumb_renderer, (column, cell, model, iter) => {
             ContentItem item;
             model.get (iter, IconView.Column.ITEM, out item);
