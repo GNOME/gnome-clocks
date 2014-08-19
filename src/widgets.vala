@@ -430,6 +430,24 @@ private class IconView : Gtk.IconView {
 public class ContentView : Gtk.Bin {
     public bool empty { get; private set; default = true; }
 
+    private bool can_select {
+        get {
+            return _can_select;
+        }
+
+        private set {
+            if (_can_select != value) {
+                _can_select = value;
+
+                // show the select button only if we are mapped,
+                // since we do not want to show it when the geolocation
+                // query ends, but we are on another page
+                select_button.visible = _can_select && get_mapped ();
+            }
+        }
+    }
+
+    private bool _can_select;
     private IconView icon_view;
     private Gtk.Button select_button;
     private Gtk.Button cancel_button;
@@ -469,14 +487,6 @@ public class ContentView : Gtk.Bin {
         });
 
         action_bar.pack_end (delete_button);
-
-        var model = icon_view.get_model ();
-        model.row_inserted.connect(() => {
-            update_empty (model);
-        });
-        model.row_deleted.connect(() => {
-            update_empty (model);
-        });
 
         icon_view.notify["mode"].connect (() => {
             if (icon_view.mode == IconView.Mode.SELECTION) {
@@ -530,28 +540,60 @@ public class ContentView : Gtk.Bin {
 
     public virtual signal void delete_selected () {
         icon_view.remove_selected ();
-    }
-
-    private void update_empty (Gtk.TreeModel model) {
-        Gtk.TreeIter i;
-
-        if (model.get_iter_first (out i)) {
-            if (empty) {
-                empty = false;
-            }
-        } else {
-            if (!empty) {
-                empty = true;
-            }
-        }
+        update_props_on_remove ();
     }
 
     public void add_item (ContentItem item) {
         icon_view.add_item (item);
+        update_props_on_insert (item);
     }
 
     public void prepend (ContentItem item) {
         icon_view.prepend (item);
+        update_props_on_insert (item);
+    }
+
+    private void update_props_on_remove () {
+        Gtk.TreeIter iter;
+
+        var local_empty = true;
+        var local_can_select = false;
+        if (icon_view.model.get_iter_first (out iter)) {
+            local_empty = false;
+
+            // Looping is not efficient in theory, but in practice the only
+            // cases we have are:
+            //  - only the geolocation item
+            //  - at least one other item
+            // so we always break out of the loop at the first or second item
+            do {
+                ContentItem item;
+                icon_view.model.get (iter, IconView.Column.ITEM, out item);
+                if (item.selectable) {
+                   local_can_select = true;
+                   break;
+                }
+            } while (icon_view.model.iter_next (ref iter));
+        }
+
+        if (local_empty != empty) {
+            empty = local_empty;
+        }
+
+        if (local_can_select != can_select) {
+            can_select = local_can_select;
+        }
+    }
+
+    // We cannot connect to the row-inserted signal because the row is
+    // still empty so we cannot check item.selectable
+    private void update_props_on_insert (ContentItem item) {
+        if (empty) {
+            empty = false;
+        }
+        if (!can_select && item.selectable) {
+            can_select = true;
+        }
     }
 
     // Note: this is not efficient: we first walk the model to collect
@@ -599,7 +641,6 @@ public class ContentView : Gtk.Bin {
         select_button.set_image (select_button_image);
         select_button.valign = Gtk.Align.CENTER;
         select_button.no_show_all = true;
-        bind_property ("empty", select_button, "visible", BindingFlags.SYNC_CREATE | BindingFlags.INVERT_BOOLEAN);
         select_button.clicked.connect (() => {
             icon_view.mode = IconView.Mode.SELECTION;
         });
@@ -644,7 +685,7 @@ public class ContentView : Gtk.Bin {
             cancel_button.show ();
             break;
         case HeaderBar.Mode.NORMAL:
-            select_button.visible = !empty;
+            select_button.visible = can_select;
             break;
         }
     }
