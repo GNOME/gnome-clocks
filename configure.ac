@@ -53,7 +53,7 @@ PKG_CHECK_MODULES(CLOCKS, [
     glib-2.0 >= 2.39
     gtk+-3.0 >= 3.9.11
     libcanberra >= 0.30
-    gweather-3.0 >= 3.9.91
+    gweather-3.0 >= 3.13.91
     gnome-desktop-3.0 >= 3.7.90
     geocode-glib-1.0 >= 0.99.4
     geoclue-2.0 >= 1.99.3

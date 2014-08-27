@@ -38,7 +38,7 @@ public class SearchProvider : Object {
 
     private bool location_matches (GWeather.Location location, string[] normalized_terms) {
         string city = location.get_city_name ();
-        string country = Utils.get_country_name (location);
+        string country = location.get_country_name ();
         if (city == null || country == null) {
             return false;
         }

@@ -56,7 +56,7 @@ public class Item : Object, ContentItem {
 
     public string? contry_name {
         owned get {
-            return Utils.get_country_name (location);
+            return location.get_country_name ();
         }
     }
 
