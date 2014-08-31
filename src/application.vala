@@ -37,6 +37,9 @@ public class Application : Gtk.Application {
     private void ensure_window () {
         if (window == null) {
             window = new Window (this);
+            window.destroy.connect (() => {
+                window = null;
+            });
         }
     }
 
