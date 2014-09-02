@@ -64,15 +64,15 @@ public class Window : Gtk.ApplicationWindow {
 
         panels = new Gtk.Widget[N_PANELS];
 
-        panels[PanelId.WORLD] = new World.MainPanel (header_bar);
-        panels[PanelId.ALARM] =  new Alarm.MainPanel (header_bar);
-        panels[PanelId.STOPWATCH] = new Stopwatch.MainPanel (header_bar);
-        panels[PanelId.TIMER] = new Timer.MainPanel (header_bar);
+        panels[PanelId.WORLD] = new World.Face (header_bar);
+        panels[PanelId.ALARM] =  new Alarm.Face (header_bar);
+        panels[PanelId.STOPWATCH] = new Stopwatch.Face (header_bar);
+        panels[PanelId.TIMER] = new Timer.Face (header_bar);
 
-        var world = (World.MainPanel)panels[PanelId.WORLD];
-        var alarm = (Alarm.MainPanel)panels[PanelId.ALARM];
-        var stopwatch = (Stopwatch.MainPanel)panels[PanelId.STOPWATCH];
-        var timer = (Timer.MainPanel)panels[PanelId.TIMER];
+        var world = (World.Face)panels[PanelId.WORLD];
+        var alarm = (Alarm.Face)panels[PanelId.ALARM];
+        var stopwatch = (Stopwatch.Face)panels[PanelId.STOPWATCH];
+        var timer = (Timer.Face)panels[PanelId.TIMER];
 
         foreach (var clock in panels) {
             stack.add_titled (clock, ((Clock)clock).label, ((Clock)clock).label);
@@ -101,7 +101,7 @@ public class Window : Gtk.ApplicationWindow {
         });
 
         stopwatch.notify["state"].connect ((w) => {
-            stack.child_set_property (stopwatch, "needs-attention", stopwatch.state == Stopwatch.MainPanel.State.RUNNING);
+            stack.child_set_property (stopwatch, "needs-attention", stopwatch.state == Stopwatch.Face.State.RUNNING);
         });
 
         timer.ring.connect ((w) => {
@@ -110,7 +110,7 @@ public class Window : Gtk.ApplicationWindow {
         });
 
         timer.notify["state"].connect ((w) => {
-            stack.child_set_property (timer, "needs-attention", timer.state == Timer.MainPanel.State.RUNNING);
+            stack.child_set_property (timer, "needs-attention", timer.state == Timer.Face.State.RUNNING);
         });
 
         stack.visible_child = panels[settings.get_enum ("panel-id")];
@@ -133,7 +133,7 @@ public class Window : Gtk.ApplicationWindow {
     }
 
     public void show_world () {
-        ((World.MainPanel) panels[PanelId.WORLD]).reset_view ();
+        ((World.Face) panels[PanelId.WORLD]).reset_view ();
         stack.visible_child = panels[PanelId.WORLD];;
     }
 

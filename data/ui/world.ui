@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
-  <template class="ClocksWorldMainPanel" parent="GtkStack">
+  <template class="ClocksWorldFace" parent="GtkStack">
     <property name="visible">True</property>
     <signal name="notify::visible-child" handler="visible_child_changed" swapped="no"/>
     <child>

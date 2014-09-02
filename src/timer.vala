@@ -65,7 +65,7 @@ public class CountdownFrame : AnalogFrame {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/timer.ui")]
-public class MainPanel : Gtk.Stack, Clocks.Clock {
+public class Face : Gtk.Stack, Clocks.Clock {
     public enum State {
         STOPPED,
         RUNNING,
@@ -110,8 +110,11 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     [GtkChild]
     private Gtk.Button left_button;
 
-    public MainPanel (HeaderBar header_bar) {
-        Object (label: _("Timer"), header_bar: header_bar, transition_type: Gtk.StackTransitionType.CROSSFADE, panel_id: PanelId.TIMER);
+    public Face (HeaderBar header_bar) {
+        Object (label: _("Timer"),
+                header_bar: header_bar,
+                panel_id: PanelId.TIMER,
+                transition_type: Gtk.StackTransitionType.CROSSFADE);
 
         settings = new GLib.Settings ("org.gnome.clocks");
 

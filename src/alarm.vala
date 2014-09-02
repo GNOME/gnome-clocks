@@ -517,7 +517,7 @@ private class RingingPanel : Gtk.Grid {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm.ui")]
-public class MainPanel : Gtk.Stack, Clocks.Clock {
+public class Face : Gtk.Stack, Clocks.Clock {
     public string label { get; construct set; }
     public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
@@ -532,8 +532,10 @@ public class MainPanel : Gtk.Stack, Clocks.Clock {
     [GtkChild]
     private RingingPanel ringing_panel;
 
-    public MainPanel (HeaderBar header_bar) {
-        Object (label: _("Alarm"), header_bar: header_bar, panel_id: PanelId.ALARM);
+    public Face (HeaderBar header_bar) {
+        Object (label: _("Alarm"),
+                header_bar: header_bar,
+                panel_id: PanelId.ALARM);
 
         alarms = new List<Item> ();
         settings = new GLib.Settings ("org.gnome.clocks");
