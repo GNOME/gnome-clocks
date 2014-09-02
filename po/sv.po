@@ -1,65 +1,93 @@
-# Swedish translation for gnome-clocks.
-# Copyright © 2012, 2013 Free Software Foundation, Inc.
-# This file is distributed under the same license as the gnome-clocks package.
-# Daniel Nylander <po@danielnylander.se>, 2012.
-# Göran Uddeborg <goeran@uddeborg.se>, 2013.
+# Swedish translation file for gnome-clocks.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Fredrik Söderström <tirithen@gmail.com>, 2014.
 #
-# $Revision: 1.3 $
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-clocks\n"
+"Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-26 23:19+0000\n"
-"PO-Revision-Date: 2013-10-30 21:44+0100\n"
-"Last-Translator: Göran Uddeborg <goeran@uddeborg.se>\n"
+"POT-Creation-Date: 2014-08-27 19:59+0000\n"
+"PO-Revision-Date: 2014-09-01 13:50+0100\n"
+"Last-Translator: Mattias Eriksson <snaggen@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:173
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"Ett enkel och elegant klockprogram. Det inkluderar världsklocka, alarm, ett "
+"stoppur och en timer."
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+msgid "Goals:"
+msgstr "Mål:"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+msgid "Show the time in different cities around the world"
+msgstr "Visa tiden i olika städer runt om i världen"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+msgid "Set alarms to wake you up"
+msgstr "Sätta alarm för att väcka dig"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "Mäta tid med ett exakt stoppur"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+msgid "Set timers to properly cook your food"
+msgstr "Sätta timer för att underlätta din matlagning"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:193
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Klockor"
 
 #: ../data/org.gnome.clocks.desktop.in.h:2
 msgid "GNOME Clocks"
-msgstr "GNOME-klockor"
+msgstr "GNOME Klockor"
 
 #: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Klockor för världstid, larm, stoppur och tidtagning"
+msgstr "Klockor för världstider, alarm, stoppur och en timer"
 
 #: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "tid;äggklocka;larm;världsklocka;stoppur;tidszon;"
+msgstr "tid;timer;alarm:världsklocka;världsur;stoppur;tidszon;"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
 msgid "Configured world clocks"
-msgstr "Konfigurerade världsklockor"
+msgstr "Konfigurerade världsur"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
 msgid "List of world clocks to show."
-msgstr "Lista över världsklockor att visa."
+msgstr "Lista över vilka världsur som ska visas."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
 msgid "Configured alarms"
-msgstr "Konfigurerade larm"
+msgstr "Konfigurerade alarm"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
 msgid "List of alarms set."
-msgstr "Lista över påslagna larm."
+msgstr "Lista över satta alarm."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:106
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:114
 msgid "Timer"
-msgstr "Äggklocka"
+msgstr "Timer"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
 msgid "Configured timer duration in seconds."
-msgstr "Konfigurerad varaktighet för äggklocka i sekunder."
+msgstr "Konfigurerad timer i sekunder."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
 msgid "Geolocation support"
@@ -71,239 +99,248 @@ msgstr "Slå av och på stöd för platsbestämning."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
 msgid "Window state"
-msgstr "Fönstertillstånd"
+msgstr "Fönsterläge"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
 msgid "State of the window: i.e. maximized."
-msgstr "Tillstånd för fönstret: d.v.s. maximerat."
+msgstr "Fönsterläge: tex. maximerat."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
 msgid "Window width and height"
-msgstr "Fönsterbredd och -höjd"
+msgstr "Fönsterbredd och fönsterhöjd"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
 msgid "Width and height of the window."
-msgstr "Bredd och höjd på fönstret."
+msgstr "Bredd och höjd av fönstret."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
 msgid "Panel state"
-msgstr "Paneltillstånd"
+msgstr "Panelläge"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
 msgid "Current clock panel."
 msgstr "Aktuell klockpanel."
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:339 ../src/alarm.vala:490
+#: ../src/alarm.vala:115 ../src/alarm.vala:368 ../src/alarm.vala:536
 msgid "Alarm"
-msgstr "Larm"
+msgstr "Alarm"
 
-#: ../src/alarm.vala:117 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:188
+#: ../data/ui/alarmringing.ui.h:1
 msgid "Stop"
 msgstr "Stopp"
 
-#: ../src/alarm.vala:118 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
 msgid "Snooze"
-msgstr "Snooze"
+msgstr "Snooza"
 
-#: ../src/alarm.vala:291
+#: ../src/alarm.vala:308
 msgid "Edit Alarm"
-msgstr "Redigera larm"
+msgstr "Redigera alarm"
 
-#: ../src/alarm.vala:291
+#: ../src/alarm.vala:308
 msgid "New Alarm"
-msgstr "Nytt larm"
+msgstr "Nytt alarm"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:513 ../src/world.vala:281
+#: ../src/alarm.vala:559 ../src/world.vala:256
 msgid "New"
-msgstr "Nytt"
+msgstr "Ny"
 
-#: ../src/application.vala:24
+#: ../src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Skriv ut versionsinformation och avsluta"
 
-#: ../src/stopwatch.vala:129
+#: ../src/stopwatch.vala:130
 msgid "Stopwatch"
 msgstr "Stoppur"
 
-#: ../src/stopwatch.vala:190
+#: ../src/stopwatch.vala:191
 msgid "Lap"
 msgstr "Varv"
 
-#: ../src/stopwatch.vala:197 ../src/timer.vala:161
+#: ../src/stopwatch.vala:198 ../src/timer.vala:169
 msgid "Continue"
 msgstr "Fortsätt"
 
-#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:202 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
-msgstr "Nollställ"
+msgstr "Återställ"
 
-#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:210 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Starta"
 
-#: ../src/timer.vala:115
+#: ../src/timer.vala:123
 msgid "Time is up!"
 msgstr "Tiden är slut!"
 
-#: ../src/timer.vala:116
+#: ../src/timer.vala:124
 msgid "Timer countdown finished"
-msgstr "Äggklockans nedräkning klar"
+msgstr "Nedräkning av timer är färdig"
 
-#: ../src/timer.vala:166 ../src/timer.vala:177 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:174 ../src/timer.vala:185 ../data/ui/timer.ui.h:2
 msgid "Pause"
-msgstr "Paus"
+msgstr "Pause"
 
-#: ../src/utils.vala:163
+#: ../src/utils.vala:153
 msgid "Mondays"
 msgstr "Måndagar"
 
-#: ../src/utils.vala:164
+#: ../src/utils.vala:154
 msgid "Tuesdays"
 msgstr "Tisdagar"
 
-#: ../src/utils.vala:165
+#: ../src/utils.vala:155
 msgid "Wednesdays"
 msgstr "Onsdagar"
 
-#: ../src/utils.vala:166
+#: ../src/utils.vala:156
 msgid "Thursdays"
 msgstr "Torsdagar"
 
-#: ../src/utils.vala:167
+#: ../src/utils.vala:157
 msgid "Fridays"
 msgstr "Fredagar"
 
-#: ../src/utils.vala:168
+#: ../src/utils.vala:158
 msgid "Saturdays"
 msgstr "Lördagar"
 
-#: ../src/utils.vala:169
+#: ../src/utils.vala:159
 msgid "Sundays"
 msgstr "Söndagar"
 
-#: ../src/utils.vala:249
+#: ../src/utils.vala:239
 msgid "Every Day"
 msgstr "Varje dag"
 
-#: ../src/utils.vala:251
+#: ../src/utils.vala:241
 msgid "Weekdays"
 msgstr "Veckodagar"
 
-#: ../src/utils.vala:253
+#: ../src/utils.vala:243
 msgid "Weekends"
-msgstr "Veckoslut"
+msgstr "Helger"
 
-#: ../src/widgets.vala:461
-msgid "Cancel"
-msgstr "Avbryt"
-
-#: ../src/widgets.vala:473 ../src/widgets.vala:526
-msgid "Click on items to select them"
-msgstr "Klicka på objekten för att markera dem"
-
-#: ../src/widgets.vala:528
-#, c-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "%d markerat"
-msgstr[1] "%d markerade"
-
-#: ../src/widgets.vala:570
+#: ../src/widgets.vala:479
 msgid "Delete"
 msgstr "Ta bort"
 
-#: ../src/window.vala:146
+#: ../src/widgets.vala:505 ../src/widgets.vala:660
+msgid "Click on items to select them"
+msgstr "Klicka på objekt för att välja dem"
+
+#: ../src/widgets.vala:507
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d vald"
+msgstr[1] "%d valda"
+
+#: ../src/widgets.vala:649
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: ../src/window.vala:166
 #, c-format
 msgid "Failed to show help: %s"
-msgstr "Misslyckades att visa hjälp: %s"
+msgstr "Misslyckades med att visa hjälp: %s"
 
-#: ../src/window.vala:176
+#: ../src/window.vala:196
 msgid "Utilities to help you with the time."
 msgstr "Verktyg för att hjälpa dig med tiden."
 
-#: ../src/window.vala:181
+#: ../src/window.vala:201
 msgid "translator-credits"
 msgstr ""
 "Daniel Nylander <po@danielnylander.se>\n"
 "\n"
-"Skicka synpunkter på översättningen\n"
-"till <tp-sv@listor.tp-sv.se>."
+"Skicka synpunkter på översättningen till\n"
+"<tp-sv@listor.tp-sv.se>."
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:112 ../src/world.vala:115
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Tomorrow"
 msgstr "Imorgon"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:112 ../src/world.vala:115
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Yesterday"
 msgstr "Igår"
 
-#: ../src/world.vala:272
+#: ../src/world.vala:247
 msgid "World"
 msgstr "Världen"
 
 #. namespace World
 #. namespace Clocks
-#: ../data/ui/alarmsetupdialog.ui.h:1
+#: ../data/gtk/menus.ui.h:1
+msgid "_Help"
+msgstr "_Hjälp"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "_Om"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "_Avsluta"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "Select All"
+msgstr "Markera allt"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Select None"
+msgstr "Markera inget"
+
+#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Lägg till nytt världsur"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
+msgid "_Cancel"
+msgstr "_Avbryt"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "_Done"
 msgstr "_Färdig"
 
-#: ../data/ui/alarmsetupdialog.ui.h:2
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "You already have an alarm for this time."
+msgstr "Du har redan ett alarm för den här tiden."
+
+#: ../data/ui/alarmsetupdialog.ui.h:5
 msgid "Name"
 msgstr "Namn"
 
-#: ../data/ui/alarmsetupdialog.ui.h:3
+#: ../data/ui/alarmsetupdialog.ui.h:6
 msgid "Repeat Every"
 msgstr "Upprepa var"
 
-#: ../data/ui/alarmsetupdialog.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:7
 msgid "Active"
 msgstr "Aktiv"
 
 #: ../data/ui/alarm.ui.h:1
 msgid "Select <b>New</b> to add an alarm"
-msgstr "Välj <b>Nytt</b> för att lägga till ett larm"
+msgstr "Välj <b>Ny</b> för att lägga till ett alarm"
 
-#: ../data/ui/menu.ui.h:1
-msgid "_New"
-msgstr "_Ny"
+#: ../data/ui/worldlocationdialog.ui.h:3
+msgid "_Add"
+msgstr "_Lägg till"
 
-#: ../data/ui/menu.ui.h:2
-msgid "_Help"
-msgstr "_Hjälp"
-
-#: ../data/ui/menu.ui.h:3
-msgid "_About"
-msgstr "_Om"
-
-#: ../data/ui/menu.ui.h:4
-msgid "_Quit"
-msgstr "_Avsluta"
-
-#: ../data/ui/menu.ui.h:5
-msgid "Select All"
-msgstr "Markera allt"
-
-#: ../data/ui/menu.ui.h:6
-msgid "Select None"
-msgstr "Markera inget"
-
-#: ../data/ui/worldlocationdialog.ui.h:1
-msgid "Add a New World Clock"
-msgstr "Lägg till en ny världsklocka"
-
-#: ../data/ui/worldlocationdialog.ui.h:2
+#: ../data/ui/worldlocationdialog.ui.h:4
 msgid "Search for a city:"
 msgstr "Sök efter en stad:"
 
 #: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
-msgstr "Välj <b>Nytt</b> för att lägga till en världsklocka"
+msgstr "Välj <b>Ny</b> för att lägga till ett världsur"
 
 #: ../data/ui/world.ui.h:2
 msgid "Sunrise"
