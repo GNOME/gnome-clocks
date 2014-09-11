@@ -317,20 +317,6 @@ private class SetupDialog : Gtk.Dialog {
         // Force LTR since we do not want to reverse [hh] : [mm]
         time_grid.set_direction (Gtk.TextDirection.LTR);
 
-        format  = Utils.WallClock.get_default ().format;
-        am_pm_button = new AmPmToggleButton ();
-
-        if (format == Utils.WallClock.Format.TWENTYFOUR)
-            // 24h format
-            h_spinbutton.set_range (0, 23);
-        else {
-            // 12h format
-            h_spinbutton.set_range (1, 12);
-            am_pm_sizegroup.add_widget (am_pm_button);
-            am_pm_alignment.remove (am_pm_alignment.get_child ());
-            am_pm_alignment.add (am_pm_button);
-        }
-
         // Create an array with the weekday buttons with
         // day_buttons[0] referencing the button for Monday, and so on.
         // Also declare toogled signal connection.
@@ -350,6 +336,18 @@ private class SetupDialog : Gtk.Dialog {
         for (int i = 0; i < 7; i++) {
             var day_number = (first_weekday + i) % 7;
             day_buttons_box.pack_start (day_buttons[day_number]);
+        }
+
+        format  = Utils.WallClock.get_default ().format;
+        am_pm_button = new AmPmToggleButton ();
+
+        if (format == Utils.WallClock.Format.TWENTYFOUR) {
+            h_spinbutton.set_range (0, 23);
+        } else {
+            h_spinbutton.set_range (1, 12);
+            am_pm_sizegroup.add_widget (am_pm_button);
+            am_pm_alignment.remove (am_pm_alignment.get_child ());
+            am_pm_alignment.add (am_pm_button);
         }
 
         set_from_alarm (alarm);
