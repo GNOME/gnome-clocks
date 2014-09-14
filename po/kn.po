@@ -1,289 +1,360 @@
-# Shankar Prasad <svenkate@redhat.com>, 2013.
+# Shankar Prasad <svenkate@redhat.com>, 2013, 2014.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-06 14:46+0530\n"
-"PO-Revision-Date: 2013-10-28 05:45-0400\n"
-"Last-Translator: Shankar Prasad <svenkate@redhat.com>\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-09-02 06:16+0000\n"
+"PO-Revision-Date: 2014-09-14 15:59+0530\n"
+"Last-Translator: Shankar Prasad <svenkate AT redhat Dot com>\n"
 "Language-Team: Kannada <kde-i18n-doc@kde.org>\n"
+"Language: kn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: kn\n"
 "Plural-Forms: nplurals=2; plural=(n!=1)\n"
-"X-Generator: Zanata 3.2.3\n"
+"X-Generator: Lokalize 1.5\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1
-#: ../src/window.vala:44
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"ಒಂದು ಸರಳವಾದ ಮತ್ತು ಸುಂದರವಾದ ಗಡಿಯಾರದ ಅನ್ವಯ. ಇದು ಪ್ರಪಂಚದ ಗಡಿಯಾರಗಳನ್ನು, "
+"ಅಲಾರಂಗಳನ್ನು, ಒಂದು ಸ್ಟಾಪ್‌ವಾಚ್‌ ಮತ್ತು ಒಂದು ಟೈಮರ್‌ ಅನ್ನು ಹೊಂದಿರುತ್ತದೆ."
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+msgid "Goals:"
+msgstr "ಗುರಿಗಳು:"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+msgid "Show the time in different cities around the world"
+msgstr "ಜಗತ್ತಿನ ವಿವಿಧ ಊರುಗಳಲ್ಲಿನ ಸಮಯವನ್ನು ತೋರಿಸು"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+msgid "Set alarms to wake you up"
+msgstr "ನಿಮ್ಮನ್ನು ಎಚ್ಚರವಾಗಿಸಲು ಅಲಾರಂ ಅನ್ನು ಇರಿಸಿ"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "ಒಂದು ನಿಖರವಾದ ಸ್ಟಾಪ್‌ವಾಚ್‌ನೊಂದಿಗೆ ಕಳೆದ ಸಮಯವನ್ನು ಅಳೆಯಿರಿ"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+msgid "Set timers to properly cook your food"
+msgstr "ನಿಮ್ಮ ಅಡುಗೆಯನ್ನು ಸರಿಯಾಗಿ ತಯಾರಿಸಲು ಟೈಮರ್‌ ಅನ್ನು ಬಳಸಿ"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:193
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "ಗಡಿಯಾರಗಳು"
 
-#: ../data/gnome-clocks.desktop.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "GNOME ಕ್ಲಾಕ್ಸ್"
 
-#: ../data/gnome-clocks.desktop.in.h:3
+#: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr ""
 "ಪ್ರಪಂಚದ ಸಮಯಕ್ಕಾಗಿನ, ಜೊತೆಗೆ ಅಲಾರಂಗಳಿಗಾಗಿನ, ಸ್ಟಾಪ್‌ವಾಚ್‌ಗಾಗಿನ ಮತ್ತು ಟೈಮರಿಗಾಗಿನ "
 "ಗಡಿಯಾರಗಳು"
 
-#: ../data/gnome-clocks.desktop.in.h:4
+#: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "ಸಮಯ;ಟೈಮರ್;ಅಲಾರಂ;ಪ್ರಪಂಚದ ಗಡಿಯಾರ;ಸ್ಟಾಪ್‌ವಾಚ್;ಕಾಲ ವಲಯ;"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
 msgid "Configured world clocks"
 msgstr "ಸಂರಚಿತ ಪ್ರಪಂಚದ ಗಡಿಯಾರಗಳು"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
 msgid "List of world clocks to show."
 msgstr "ತೋರಿಸಬೇಕಿರುವ ಪ್ರಪಂಚದ ಗಡಿಯಾರಗಳು"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
 msgid "Configured alarms"
 msgstr "ಸಂರಚಿತ ಅಲಾರಂಗಳು"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
 msgid "List of alarms set."
 msgstr "ಹೊಂದಿಸಲಾದ ಅಲಾರಂಗಳ ಪಟ್ಟಿ."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5
-#: ../src/timer.vala:49
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:114
 msgid "Timer"
 msgstr "ಟೈಮರ್"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
 msgid "Configured timer duration in seconds."
 msgstr "ಟೈಮರ್ ಕಾಲಾವಧಿಯನ್ನು ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಸಂರಚಿಸಲಾಗಿದೆ."
 
-#: ../src/alarm.vala:105
-#: ../src/alarm.vala:327
-#: ../src/alarm.vala:476
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Geolocation support"
+msgstr "ಭೂಸ್ಥಳದ ಬೆಂಬಲ"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr "ಭೂಸ್ಥಳದ ಬೆಂಬಲವನ್ನು ಆನ್ ಮತ್ತು ಆಫ್ ಮಾಡಿ."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+msgid "Window state"
+msgstr "ಕಿಟಕಿಯ ಸ್ಥಿತಿ"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+msgid "State of the window: i.e. maximized."
+msgstr "ಕಿಟಕಿಯ ಸ್ಥಿತಿ: ಅಂದರೆ, ಗರಿಷ್ಟಗೊಳಿಸಲಾಗಿದೆ."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+msgid "Window width and height"
+msgstr "ಕಿಟಕಿಯ ಅಗಲ ಹಾಗು ಎತ್ತರ"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+msgid "Width and height of the window."
+msgstr "ಕಿಟಕಿಯ ಅಗಲ ಹಾಗು ಎತ್ತರ."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
+msgid "Panel state"
+msgstr "ಪ್ಯಾನೆಲ್‌ನ ಸ್ಥಿತಿ"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
+msgid "Current clock panel."
+msgstr "ಪ್ರಸಕ್ತ ಗಡಿಯಾರದ ಪ್ಯಾನಲ್‌."
+
+#: ../src/alarm.vala:115 ../src/alarm.vala:368 ../src/alarm.vala:536
 msgid "Alarm"
 msgstr "ಅಲಾರಂ"
 
-#: ../src/alarm.vala:106
-#: ../src/stopwatch.vala:121
-#: ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:188
+#: ../data/ui/alarmringing.ui.h:1
 msgid "Stop"
 msgstr "ನಿಲ್ಲಿಸು"
 
-#: ../src/alarm.vala:109
-#: ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
 msgid "Snooze"
 msgstr "ಕಿರುನಿದ್ದೆ"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:308
 msgid "Edit Alarm"
 msgstr "ಅಲಾರಂ ಅನ್ನು ಸಂಪಾದಿಸು"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:308
 msgid "New Alarm"
 msgstr "ಹೊಸ ಅಲಾರಂ"
 
-#: ../src/alarm.vala:267
-msgid "_Done"
-msgstr "ಆಯಿತು (_D)"
-
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:484
-#: ../src/world.vala:289
+#: ../src/alarm.vala:559 ../src/world.vala:256
 msgid "New"
 msgstr "ಹೊಸ"
 
-#: ../src/application.vala:24
+#: ../src/application.vala:23
 msgid "Print version information and exit"
 msgstr "ಆವೃತ್ತಿಯ ಮಾಹಿತಿಯನ್ನು ಮುದ್ರಿಸಿ ನಿರ್ಗಮಿಸು"
 
-#: ../src/stopwatch.vala:50
+#: ../src/stopwatch.vala:130
 msgid "Stopwatch"
 msgstr "ಸ್ಟಾಪ್‌ವಾಚ್"
 
-#: ../src/stopwatch.vala:124
-#: ../data/ui/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:191
 msgid "Lap"
 msgstr "ಸುತ್ತು"
 
-#: ../src/stopwatch.vala:131
-#: ../src/timer.vala:88
+#: ../src/stopwatch.vala:198 ../src/timer.vala:169
 msgid "Continue"
 msgstr "ಮುಂದುವರೆ"
 
-#: ../src/stopwatch.vala:135
-#: ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:202 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "ಮರುಹೊಂದಿಸು"
 
-#: ../src/stopwatch.vala:143
-#: ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:210 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "ಆರಂಭ"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:123
 msgid "Time is up!"
 msgstr "ಸಮಯ ಮುಗಿಯಿತು!"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:124
 msgid "Timer countdown finished"
 msgstr "ಟೈಮರ್ ಇಳಿಯೆಣಿಕೆ ಪೂರ್ಣಗೊಂಡಿದೆ"
 
-#: ../src/timer.vala:93
-#: ../src/timer.vala:103
-#: ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:174 ../src/timer.vala:185 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "ವಿರಮಿಸು"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:153
 msgid "Mondays"
 msgstr "ಸೋಮವಾರಗಳು"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:154
 msgid "Tuesdays"
 msgstr "ಮಂಗಳವಾರಗಳು"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:155
 msgid "Wednesdays"
 msgstr "ಬುಧವಾರಗಳು"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:156
 msgid "Thursdays"
 msgstr "ಗುರುವಾರಗಳು"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:157
 msgid "Fridays"
 msgstr "ಶುಕ್ರವಾರಗಳು"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:158
 msgid "Saturdays"
 msgstr "ಶನಿವಾರಗಳು"
 
-#: ../src/utils.vala:155
+#: ../src/utils.vala:159
 msgid "Sundays"
 msgstr "ಭಾನುವಾರಗಳು"
 
-#: ../src/utils.vala:235
+#: ../src/utils.vala:239
 msgid "Every Day"
 msgstr "ಪ್ರತಿ ದಿನ"
 
-#: ../src/utils.vala:237
+#: ../src/utils.vala:241
 msgid "Weekdays"
 msgstr "ವಾರದ ದಿನಗಳು"
 
-#: ../src/widgets.vala:386
-msgid "Done"
-msgstr "ಆಯಿತು"
+#: ../src/utils.vala:243
+#| msgid "Weekdays"
+msgid "Weekends"
+msgstr "ವಾರಾಂತ್ಯಗಳು"
 
-#: ../src/widgets.vala:398
-#: ../src/widgets.vala:433
+#: ../src/widgets.vala:479
+msgid "Delete"
+msgstr "ಅಳಿಸು"
+
+#: ../src/widgets.vala:505 ../src/widgets.vala:660
 msgid "Click on items to select them"
 msgstr "ಅಂಶಗಳನ್ನು ಆಯ್ಕೆ ಮಾಡಲು ಅವುಗಳ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ"
 
-#: ../src/widgets.vala:435
+#: ../src/widgets.vala:507
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "ಆರಿಸಲಾದ %d"
 msgstr[1] "ಆರಿಸಲಾದ %d"
 
-#: ../src/widgets.vala:477
-msgid "Delete"
-msgstr "ಅಳಿಸು"
+#: ../src/widgets.vala:649
+msgid "Cancel"
+msgstr "ರದ್ದುಗೊಳಿಸು"
 
-#: ../src/window.vala:142
-msgid "Gnome Clocks"
-msgstr "Gnome ಕ್ಲಾಕ್ಸ್"
+#: ../src/window.vala:166
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "ನೆರವನ್ನು ತೋರಿಸುವಲ್ಲಿ ವಿಫಲಗೊಂಡಿದೆ: %s"
 
-#: ../src/window.vala:145
+#: ../src/window.vala:196
 msgid "Utilities to help you with the time."
 msgstr "ಸಮಯಕ್ಕೆ ಸಂಬಂಧಿಸಿದಂತೆ ನಿಮಗೆ ನೆರವಾಗುವ ಸೌಲಭ್ಯಗಳು."
 
-#: ../src/window.vala:150
+#: ../src/window.vala:201
 msgid "translator-credits"
 msgstr "ಶಂಕರ್ ಪ್ರಸಾದ್ <svenkate@redhat.com>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:102
-#: ../src/world.vala:105
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Tomorrow"
 msgstr "ನಾಳೆ"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:102
-#: ../src/world.vala:105
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Yesterday"
 msgstr "ನಿನ್ನೆ"
 
-#: ../src/world.vala:172
-msgid "Add a New World Clock"
-msgstr "ಹೊಸ ಪ್ರಪಂಚದ ಗಡಿಯಾರವನ್ನು ಸೇರಿಸು"
-
-#: ../src/world.vala:278
+#: ../src/world.vala:247
 msgid "World"
 msgstr "ಪ್ರಪಂಚ"
 
 #. namespace World
 #. namespace Clocks
+#: ../data/gtk/menus.ui.h:1
+msgid "_Help"
+msgstr "ನೆರವು (_H)"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "ಇದರ ಬಗ್ಗೆ (_A)"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "ನಿರ್ಗಮಿಸು (_Q)"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "Select All"
+msgstr "ಎಲ್ಲವನ್ನೂ ಆರಿಸು"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Select None"
+msgstr "ಏನನ್ನೂ ಆರಿಸಬೇಡ"
+
+#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "ಹೊಸ ಪ್ರಪಂಚದ ಗಡಿಯಾರವನ್ನು ಸೇರಿಸು"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
+msgid "_Cancel"
+msgstr "ರದ್ದುಗೊಳಿಸು (_C)"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
+msgid "_Done"
+msgstr "ಆಯಿತು (_D)"
+
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "You already have an alarm for this time."
+msgstr "ನೀವು ಈ ಸಮಯಕ್ಕೆ ಒಂದು ಅಲಾರಂ ಅನ್ನು ಹೊಂದಿಸಿದ್ದೀರಿ."
+
+#: ../data/ui/alarmsetupdialog.ui.h:5
+msgid "Name"
+msgstr "ಹೆಸರು"
+
+#: ../data/ui/alarmsetupdialog.ui.h:6
+msgid "Repeat Every"
+msgstr "ಈ ಸಮಯದಲ್ಲಿ ಮರುಕಳಿಸು"
+
+#: ../data/ui/alarmsetupdialog.ui.h:7
+msgid "Active"
+msgstr "ಸಕ್ರಿಯ"
+
 #: ../data/ui/alarm.ui.h:1
 msgid "Select <b>New</b> to add an alarm"
 msgstr "ಒಂದು ಅಲಾರಂ ಅನ್ನು ಸೇರಿಸಲು <b>ಹೊಸ</b>ತನ್ನು ಆಯ್ಕೆ ಮಾಡಿ"
 
-#: ../data/ui/alarm.ui.h:4
-msgid "Name"
-msgstr "ಹೆಸರು"
+#: ../data/ui/worldlocationdialog.ui.h:3
+msgid "_Add"
+msgstr "ಸೇರಿಸು (_A)"
 
-#: ../data/ui/alarm.ui.h:5
-msgid "Repeat Every"
-msgstr "ಈ ಸಮಯದಲ್ಲಿ ಮರುಕಳಿಸು"
-
-#: ../data/ui/alarm.ui.h:6
-msgid "Active"
-msgstr "ಸಕ್ರಿಯ"
-
-#: ../data/ui/menu.ui.h:1
-msgid "_New"
-msgstr "ಹೊಸ (_N)"
-
-#: ../data/ui/menu.ui.h:2
-msgid "_About"
-msgstr "ಇದರ ಬಗ್ಗೆ (_A)"
-
-#: ../data/ui/menu.ui.h:3
-msgid "_Quit"
-msgstr "ನಿರ್ಗಮಿಸು (_Q)"
-
-#: ../data/ui/menu.ui.h:4
-msgid "Select All"
-msgstr "ಎಲ್ಲವನ್ನೂ ಆರಿಸು"
-
-#: ../data/ui/menu.ui.h:5
-msgid "Select None"
-msgstr "ಏನನ್ನೂ ಆರಿಸಬೇಡ"
-
-#: ../data/ui/stopwatch.ui.h:4
-msgid "Split"
-msgstr "ವಿಭಜಿಸು"
-
-#: ../data/ui/stopwatch.ui.h:5
-msgid "Total"
-msgstr "ಒಟ್ಟಾರೆ"
+#: ../data/ui/worldlocationdialog.ui.h:4
+msgid "Search for a city:"
+msgstr "ಒಂದು ಊರಿಗಾಗಿ ಹುಡುಕು:"
 
 #: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "ಪ್ರಪಂಚದ ಗಡಿಯಾರವನ್ನು ಸೇರಿಸಲು <b>ಹೊಸ</b>ತನ್ನು ಆರಿಸಿ"
 
 #: ../data/ui/world.ui.h:2
-msgid "Search for a city:"
-msgstr "ಒಂದು ಊರಿಗಾಗಿ ಹುಡುಕು:"
-
-#: ../data/ui/world.ui.h:3
 msgid "Sunrise"
 msgstr "ಸೂರ್ಯೋದಯ"
 
-#: ../data/ui/world.ui.h:4
+#: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "ಸೂರ್ಯಾಸ್ಥ"
+
+#~ msgid "Done"
+#~ msgstr "ಆಯಿತು"
+
+#~ msgid "Gnome Clocks"
+#~ msgstr "Gnome ಕ್ಲಾಕ್ಸ್"
+
+#~ msgid "_New"
+#~ msgstr "ಹೊಸ (_N)"
+
+#~ msgid "Split"
+#~ msgstr "ವಿಭಜಿಸು"
+
+#~ msgid "Total"
+#~ msgstr "ಒಟ್ಟಾರೆ"
