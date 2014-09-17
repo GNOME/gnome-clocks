@@ -303,19 +303,21 @@ private class IconView : Gtk.IconView {
         pack_start (thumb_renderer, false);
         add_attribute (thumb_renderer, "checked", Column.SELECTED);
         set_cell_data_func (thumb_renderer, (column, cell, model, iter) => {
-            ContentItem item;
+            ContentItem? item;
             model.get (iter, IconView.Column.ITEM, out item);
-            var renderer = (DigitalClockRenderer) cell;
-            string text;
-            string subtext;
-            Gdk.Pixbuf? pixbuf;
-            string css_class;
-            item.get_thumb_properties (out text, out subtext, out pixbuf, out css_class);
-            renderer.selectable = item.selectable;
-            renderer.text = text;
-            renderer.subtext = subtext;
-            renderer.pixbuf = pixbuf;
-            renderer.css_class = css_class;
+            if (item != null) {
+                var renderer = (DigitalClockRenderer) cell;
+                string text;
+                string subtext;
+                Gdk.Pixbuf? pixbuf;
+                string css_class;
+                item.get_thumb_properties (out text, out subtext, out pixbuf, out css_class);
+                renderer.selectable = item.selectable;
+                renderer.text = text;
+                renderer.subtext = subtext;
+                renderer.pixbuf = pixbuf;
+                renderer.css_class = css_class;
+            }
         });
 
         var title_renderer = new TitleRenderer ();
@@ -326,11 +328,13 @@ private class IconView : Gtk.IconView {
         title_renderer.wrap_mode = Pango.WrapMode.WORD_CHAR;
         pack_start (title_renderer, true);
         set_cell_data_func (title_renderer, (column, cell, model, iter) => {
-            ContentItem item;
+            ContentItem? item;
             model.get (iter, IconView.Column.ITEM, out item);
-            var renderer = (TitleRenderer) cell;
-            renderer.title = GLib.Markup.escape_text (item.name);
-            renderer.title_icon = item.title_icon;
+            if (item != null) {
+                var renderer = (TitleRenderer) cell;
+                renderer.title = GLib.Markup.escape_text (item.name);
+                renderer.title_icon = item.title_icon;
+            }
         });
     }
 
@@ -395,9 +399,9 @@ private class IconView : Gtk.IconView {
     public new void select_all () {
         var model = get_model () as Gtk.ListStore;
         model.foreach ((model, path, iter) => {
-            ContentItem item;
+            ContentItem? item;
             ((Gtk.ListStore) model).get (iter, Column.ITEM, out item);
-            if (item.selectable) {
+            if (item != null && item.selectable) {
                 ((Gtk.ListStore) model).set (iter, Column.SELECTED, true);
             }
             return false;
