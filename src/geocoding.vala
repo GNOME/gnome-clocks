@@ -31,27 +31,27 @@ private interface Manager : Object {
     public abstract async void get_client (out string client_path) throws IOError;
 }
 
-[DBus (name = "org.freedesktop.GeoClue2.Client")]
-private interface Client : Object {
-    public abstract string location { owned get; }
-    public abstract string desktop_id { owned get; set; }
-    public abstract uint distance_threshold { get; set; }
-    public abstract uint requested_accuracy_level { get; set; }
-
-    public signal void location_updated (string old_path, string new_path);
-
-    public abstract async void start () throws IOError;
-
-    // This function belongs to the Geoclue interface, however it is not used here
-    // public abstract async void stop () throws IOError;
-}
-
 [DBus (name = "org.freedesktop.GeoClue2.Location")]
 public interface Location : Object {
     public abstract double latitude { get; }
     public abstract double longitude { get; }
     public abstract double accuracy { get; }
     public abstract string description { owned get; }
+}
+
+[DBus (name = "org.freedesktop.GeoClue2.Client")]
+private interface Client : Object {
+    public abstract ObjectPath location { owned get; }
+    public abstract string desktop_id { owned get; set; }
+    public abstract uint distance_threshold { get; set; }
+    public abstract uint requested_accuracy_level { get; set; }
+
+    public signal void location_updated (ObjectPath old_path, ObjectPath new_path);
+
+    public abstract async void start () throws IOError;
+
+    // This function belongs to the Geoclue interface, however it is not used here
+    // public abstract async void stop () throws IOError;
 }
 
 public class Info : Object {
@@ -123,7 +123,7 @@ public class Info : Object {
         }
     }
 
-    public async void on_location_updated (string old_path, string new_path) {
+    public async void on_location_updated (ObjectPath old_path, ObjectPath new_path) {
         try {
             geo_location = yield Bus.get_proxy (GLib.BusType.SYSTEM,
                                                 "org.freedesktop.GeoClue2",
