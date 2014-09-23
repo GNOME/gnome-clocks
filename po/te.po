@@ -1,206 +1,378 @@
 # Telugu translation for gnome-clocks.
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-# tuxnani <nani1only@gmail.com>, 2012.
 #
+# tuxnani <nani1only@gmail.com>, 2012.
+# Praveen Illa <mail2ipn@gmail.com>, 2012, 2013.
+# Krishnababu Krothapalli <kkrothap@redhat.com>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-12 15:08+0000\n"
-"PO-Revision-Date: 2012-09-13 01:35+0530\n"
-"Last-Translator: Rahmanuddin <nani1only@gmail.com>\n"
-"Language-Team: Telugu <indlinux-telugu@lists.sourceforge.net>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-09-23 06:15+0000\n"
+"PO-Revision-Date: 2014-09-23 18:58+0530\n"
+"Last-Translator: Krishnababu Krothapalli <kkrothap@redhat.com>\n"
+"Language-Team: Telugu <kde-i18n-doc@kde.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1
-#: ../gnomeclocks/app.py:35
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"సాధారణ మరియు సొగసైన గడియారపు అనువర్తనం. ఇది ప్రపంచ గడియారాలు, అలారమ్లు, "
+"స్టాప్‌వాచ్ మరియు టైమర్ కలిగివుంది."
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+msgid "Goals:"
+msgstr "లక్ష్యాలు:"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+msgid "Show the time in different cities around the world"
+msgstr "ప్రంపంచం నందలి విభిన్న పట్టణాల సమయం చూపును"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+msgid "Set alarms to wake you up"
+msgstr "మిమ్ముల్ని మేల్కొలపడానికి అలారమ్ అమర్చును"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "ఖచ్చితమైన స్టాప్‌వాచ్‌తో గడిచినకాలాన్ని లెక్కగడుతుంది"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+msgid "Set timers to properly cook your food"
+msgstr "మీ ఆహారం వండటానికి సరైన సమయం అమర్చుతుంది"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:193
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
-msgstr "గడియారములు"
+msgstr "గడియారాలు"
 
-#: ../data/gnome-clocks.desktop.in.h:2
-#: ../gnomeclocks/app.py:122
-#: ../gnomeclocks/app.py:131
+#: ../data/org.gnome.clocks.desktop.in.h:2
 msgid "GNOME Clocks"
-msgstr "గ్నోం గడియారములు"
+msgstr "గ్నోమ్ గడియారాలు"
 
-#: ../data/gnome-clocks.desktop.in.h:3
+#: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "ప్రపంచ సమయములకు, ప్లస్ అలారములకు, స్టాప్‍వాచ్ ఇంకా టైమర్ కు గడియారములు "
+msgstr "ప్రపంచ సమయాలకు,అలారాలకు, స్టాప్‍వాచ్ ఇంకా సమయకానికి ఉపయోగపడే గడియారాలు"
 
-#: ../gnomeclocks/alarm.py:117
-msgid "Every day"
-msgstr "ప్రతిదినం"
+#: ../data/org.gnome.clocks.desktop.in.h:4
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr "సమయం;సమయకం;అలారం;ప్రపంచ గడియారం;స్టాప్‌వాచ్;సమయక్షేత్రం;"
 
-#: ../gnomeclocks/alarm.py:119
-msgid "Weekdays"
-msgstr "వారపురోజులు "
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
+msgid "Configured world clocks"
+msgstr "స్వరూపించబడిన ప్రపంచ గడియారాలు"
 
-#: ../gnomeclocks/alarm.py:138
-msgid "Edit Alarm"
-msgstr "అలారమును దిద్దు"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
+msgid "List of world clocks to show."
+msgstr "చూపించవలసిన ప్రపంచ గడియారాల జాబితా."
 
-#: ../gnomeclocks/alarm.py:140
-#: ../gnomeclocks/alarm.py:172
-msgid "New Alarm"
-msgstr "కొత్త అలారము "
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
+msgid "Configured alarms"
+msgstr "స్వరూపించబడిన ఆలారములు"
 
-#: ../gnomeclocks/alarm.py:175
-msgid "Time"
-msgstr "సమయము "
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
+msgid "List of alarms set."
+msgstr "అమర్చబడిన అలారముల జాబితా."
 
-#: ../gnomeclocks/alarm.py:216
-msgid "Name"
-msgstr "పేరు"
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:114
+msgid "Timer"
+msgstr "సమయకం"
 
-#: ../gnomeclocks/alarm.py:225
-msgid "Repeat Every"
-msgstr "ఒకసారి తిరిగి చేయి "
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "స్వరూపించబడిన సమయకం నిడివి సెకన్లలో."
 
-#: ../gnomeclocks/alarm.py:301
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Geolocation support"
+msgstr "భౌగోళికస్థానం తోడ్పాటు"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr "భౌగోళికస్థానం తోడ్పాటు ఆఫ్ మరియు అన్ చేయగల సౌలభ్యం."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+msgid "Window state"
+msgstr "విండో స్థితి"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+msgid "State of the window: i.e. maximized."
+msgstr "విండో స్థితి: అనగా పెద్దదిగావుంది."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+msgid "Window width and height"
+msgstr "విండో వెడల్పు మరియు ఎత్తు"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+msgid "Width and height of the window."
+msgstr "విండో యొక్క వెడల్పు మరియు ఎత్తు."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
+msgid "Panel state"
+msgstr "పానల్ స్థితి"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
+msgid "Current clock panel."
+msgstr "ప్రస్తుత గడియారం పానల్."
+
+#: ../src/alarm.vala:115 ../src/alarm.vala:366 ../src/alarm.vala:534
 msgid "Alarm"
 msgstr "అలారము"
 
-#: ../gnomeclocks/alarm.py:313
-msgid "Select <b>New</b> to add an alarm"
-msgstr "అలారమును కలుపుటకు <b>కొత్త</b>ను ఎంచుకో"
-
-#: ../gnomeclocks/alarm.py:453
-#: ../gnomeclocks/stopwatch.py:79
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:190
+#: ../data/ui/alarmringing.ui.h:1
 msgid "Stop"
-msgstr "ఆపు"
+msgstr "ఆపివేయి"
 
-#: ../gnomeclocks/alarm.py:455
+#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
 msgid "Snooze"
 msgstr "స్వల్పవ్యవధి"
 
-#: ../gnomeclocks/app.py:121
-#: ../gnomeclocks/app.py:416
-msgid "About Clocks"
-msgstr "గడియారముల గురించి"
+#: ../src/alarm.vala:308
+msgid "Edit Alarm"
+msgstr "అలారమును దిద్దు"
 
-#: ../gnomeclocks/app.py:127
-msgid "Utilities to help you with the time."
-msgstr "సమయాన్ని అర్ధం చేసుకునేందుకు సహాయపడే ప్రయోజకాలు"
+#: ../src/alarm.vala:308
+msgid "New Alarm"
+msgstr "కొత్త అలారము "
 
-#: ../gnomeclocks/app.py:129
-msgid "translator-credits"
-msgstr "అనువాద-పరపతులు"
-
-#: ../gnomeclocks/app.py:203
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:559 ../src/world.vala:259
 msgid "New"
-msgstr "కొత్త"
+msgstr "కొత్తది"
 
-#: ../gnomeclocks/app.py:269
-msgid "Edit"
-msgstr "సవరణ"
+#: ../src/application.vala:23
+msgid "Print version information and exit"
+msgstr "రూపాంతర సమాచారాన్ని ముద్రించి, నిష్క్రమించు"
 
-#: ../gnomeclocks/app.py:274
-msgid "Done"
-msgstr "అయినది"
-
-#: ../gnomeclocks/app.py:361
-msgid "Click on items to select them"
-msgstr "అంశాలను ఎంపిక చేసేందుకు వాటిపై క్లిక్ ‍చేయండి"
-
-#: ../gnomeclocks/app.py:363
-msgid "{0} item selected"
-msgid_plural "{0} items selected"
-msgstr[0] "{0} అంశం ఎంచుకున్నారు"
-msgstr[1] "{0} అంశాలను ఎంచుకున్నారు"
-
-#: ../gnomeclocks/app.py:419
-msgid "Quit"
-msgstr "నిష్క్రమించు"
-
-#: ../gnomeclocks/stopwatch.py:34
+#: ../src/stopwatch.vala:130
 msgid "Stopwatch"
 msgstr "స్టాప్‍వాచీ"
 
-#: ../gnomeclocks/stopwatch.py:59
-#: ../gnomeclocks/stopwatch.py:97
-#: ../gnomeclocks/timer.py:111
-msgid "Start"
-msgstr "మొదలు"
+#: ../src/stopwatch.vala:193
+msgid "Lap"
+msgstr "చుట్టు"
 
-#: ../gnomeclocks/stopwatch.py:67
-#: ../gnomeclocks/stopwatch.py:86
-#: ../gnomeclocks/timer.py:54
-msgid "Reset"
-msgstr "తిరిగిసున్నా చేయి"
-
-#: ../gnomeclocks/stopwatch.py:85
-#: ../gnomeclocks/timer.py:71
+#: ../src/stopwatch.vala:200 ../src/timer.vala:172
 msgid "Continue"
 msgstr "కొనసాగు"
 
-#: ../gnomeclocks/timer.py:47
-#: ../gnomeclocks/timer.py:65
-#: ../gnomeclocks/timer.py:75
+#: ../src/stopwatch.vala:204 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
+msgid "Reset"
+msgstr "మునుపటివలె"
+
+#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
+msgid "Start"
+msgstr "ప్రారంభించు"
+
+#: ../src/timer.vala:126
+msgid "Time is up!"
+msgstr "సమయం అయిపోయింది!"
+
+#: ../src/timer.vala:127
+msgid "Timer countdown finished"
+msgstr "సమయకం కౌంట్‌డౌన్ ముగిసినది"
+
+#: ../src/timer.vala:177 ../src/timer.vala:188 ../data/ui/timer.ui.h:2
 msgid "Pause"
-msgstr "ఆపు"
+msgstr "నిలిపివేయి"
 
-#: ../gnomeclocks/timer.py:156
-msgid "Timer"
-msgstr "టైమరు"
-
-#: ../gnomeclocks/utils.py:71
+#: ../src/utils.vala:153
 msgid "Mondays"
 msgstr "సోమవారాలు"
 
-#: ../gnomeclocks/utils.py:72
+#: ../src/utils.vala:154
 msgid "Tuesdays"
 msgstr "మంగళవారాలు"
 
-#: ../gnomeclocks/utils.py:73
+#: ../src/utils.vala:155
 msgid "Wednesdays"
 msgstr "బుధవారాలు"
 
-#: ../gnomeclocks/utils.py:74
+#: ../src/utils.vala:156
 msgid "Thursdays"
 msgstr "గురువారాలు"
 
-#: ../gnomeclocks/utils.py:75
+#: ../src/utils.vala:157
 msgid "Fridays"
 msgstr "శుక్రవారాలు"
 
-#: ../gnomeclocks/utils.py:76
+#: ../src/utils.vala:158
 msgid "Saturdays"
 msgstr "శనివారాలు"
 
-#: ../gnomeclocks/utils.py:77
+#: ../src/utils.vala:159
 msgid "Sundays"
 msgstr "ఆదివారాలు"
 
-#: ../gnomeclocks/widgets.py:333
+#: ../src/utils.vala:239
+msgid "Every Day"
+msgstr "ప్రతిదినం"
+
+#: ../src/utils.vala:241
+msgid "Weekdays"
+msgstr "వారపురోజులు "
+
+#: ../src/utils.vala:243
+#| msgid "Weekdays"
+msgid "Weekends"
+msgstr "వారాంతాలు"
+
+#: ../src/widgets.vala:483
 msgid "Delete"
 msgstr "తొలగించు"
 
-#: ../gnomeclocks/world.py:62
-msgid "Add a New World Clock"
-msgstr "కొత్త ప్రపంచ గడియారాన్ని చేర్చు"
+#: ../src/widgets.vala:509 ../src/widgets.vala:664
+msgid "Click on items to select them"
+msgstr "అంశాలను ఎంపిక చేసేందుకు వాటిపై నొక్కండి"
 
-#: ../gnomeclocks/world.py:71
-msgid "Search for a city:"
-msgstr "నగరానికై వెతుకు:"
+#: ../src/widgets.vala:511
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d ఎంచుకోబడింది"
+msgstr[1] "%d ఎంచుకోబడ్డాయి"
 
-#: ../gnomeclocks/world.py:246
+#: ../src/widgets.vala:653
+msgid "Cancel"
+msgstr "రద్దుచేయి"
+
+#: ../src/window.vala:166
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "సహాయం చూపుటకు విఫలమైంది: %s"
+
+#: ../src/window.vala:196
+msgid "Utilities to help you with the time."
+msgstr "సమయాన్ని అర్థం చేసుకునేందుకు సహాయపడే ప్రయోజకాలు"
+
+#: ../src/window.vala:201
+msgid "translator-credits"
+msgstr ""
+"tuxnani <nani1only@gmail.com>, 2012\n"
+"Praveen Illa <mail2ipn@gmail.com>, 2012-13"
+
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:106 ../src/world.vala:109
+msgid "Tomorrow"
+msgstr "రేపు"
+
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:106 ../src/world.vala:109
+msgid "Yesterday"
+msgstr "నిన్న"
+
+#: ../src/world.vala:247
 msgid "World"
 msgstr "ప్రపంచం"
 
-#: ../gnomeclocks/world.py:257
-msgid "Select <b>New</b> to add a world clock"
-msgstr "ప్రపంచ గడియారాన్ని కలుపుటకు<b>కొత్త</b>ను ఎంచుకో"
+#. namespace World
+#. namespace Clocks
+#: ../data/gtk/menus.ui.h:1
+msgid "_Help"
+msgstr "సహాయం (_H)"
 
-#: ../gnomeclocks/world.py:386
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "గురించి (_A)"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "నిష్క్రమించు (_Q)"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "Select All"
+msgstr "అన్నీ ఎంపికచేయి"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Select None"
+msgstr "ఏదీ ఎంపికచేయవద్దు"
+
+#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "కొత్త ప్రపంచ గడియారాన్ని జతచేయి"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
+msgid "_Cancel"
+msgstr "రద్దుచేయి (_C)"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
+msgid "_Done"
+msgstr "అయినది (_D)"
+
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "You already have an alarm for this time."
+msgstr "మీరు ఇప్పటికే ఈ సమయానికి అలారమ్ కలిగివున్నారు."
+
+#: ../data/ui/alarmsetupdialog.ui.h:5
+msgid "Name"
+msgstr "పేరు"
+
+#: ../data/ui/alarmsetupdialog.ui.h:6
+msgid "Repeat Every"
+msgstr "పునరావృతం"
+
+#: ../data/ui/alarmsetupdialog.ui.h:7
+msgid "Active"
+msgstr "క్రియాశీలం"
+
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "అలారాన్ని జతచేయుటకు <b>కొత్తది</b> ఎంచుకోండి"
+
+#: ../data/ui/worldlocationdialog.ui.h:3
+msgid "_Add"
+msgstr "జతచేయి (_A)"
+
+#: ../data/ui/worldlocationdialog.ui.h:4
+msgid "Search for a city:"
+msgstr "నగరానికై వెతుకు:"
+
+#: ../data/ui/world.ui.h:1
+msgid "Select <b>New</b> to add a world clock"
+msgstr "ప్రపంచ గడియారాన్ని జతచేయుటకు <b>కొత్తది</b> ఎంచుకోండి"
+
+#: ../data/ui/world.ui.h:2
 msgid "Sunrise"
 msgstr "సూర్యోదయం"
 
-#: ../gnomeclocks/world.py:396
+#: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "సూర్యాస్తమయం"
 
+#~ msgid "Done"
+#~ msgstr "అయినది"
+
+#~ msgid "Gnome Clocks"
+#~ msgstr "గ్నోమ్ గడియారాలు"
+
+#~ msgid "_New"
+#~ msgstr "కొత్తది (_N)"
+
+#~ msgid "Split"
+#~ msgstr "వేరుచేయి"
+
+#~ msgid "Total"
+#~ msgstr "మొత్తం"
+
+#~ msgid "Time"
+#~ msgstr "సమయము "
+
+#~ msgid "About Clocks"
+#~ msgstr "గడియారముల గురించి"
+
+#~ msgid "Edit"
+#~ msgstr "సవరణ"
+
+#~ msgid "Laps"
+#~ msgstr "చుట్టులు"
