@@ -1,310 +1,381 @@
-# sray <sray@redhat.com>, 2013. #zanata
+# sray <sray@redhat.com>, 2013, 2014. #zanata.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-06 14:46+0530\n"
-"PO-Revision-Date: 2013-10-29 06:12-0400\n"
-"Last-Translator: sray <sray@redhat.com>\n"
-"Language-Team: Bengali (India)\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-09-22 18:19+0000\n"
+"PO-Revision-Date: 2014-09-23 11:15+0000\n"
+"Last-Translator: \n"
+"Language-Team: American English <kde-i18n-doc@kde.org>\n"
+"Language: bn-IN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bn-IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Zanata 3.1.2\n"
+"X-Generator: Lokalize 1.5\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1
-#: ../src/window.vala:44
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"একটি সহজ এবং সুন্দর ঘড়ি অ্যাপ্লিকেশন। এটিতে বিশ্বঘড়ি, অ্যালার্ম, একটি "
+"স্টপওয়াচ এবং একটি টাইমার অন্তর্ভুক্ত।"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+msgid "Goals:"
+msgstr "লক্ষ্য:"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+msgid "Show the time in different cities around the world"
+msgstr "বিশ্বজুড়ে বিভিন্ন শহরের সময় দেখান"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+msgid "Set alarms to wake you up"
+msgstr "নিজের ঘুম ভাঙাতে অ্যালার্ম সেট করুন"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "একটি নির্ভুল স্টপওয়াচ দিয়ে অতিবাহিত সময় পরিমাপ করুন"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+msgid "Set timers to properly cook your food"
+msgstr "অাপনার খাবার ভালো করে সেদ্ধ করতে তার জন্য টাইমার সেট করুন"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:193
+#: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "ঘড়ি"
 
-#: ../data/gnome-clocks.desktop.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "GNOME ঘড়ি"
 
-#: ../data/gnome-clocks.desktop.in.h:3
+#: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "বিশ্বঘড়ি, প্লাস অ্যালার্ম, স্টপওয়াচ এবং টাইমারের জন্য ঘড়ি"
 
-#: ../data/gnome-clocks.desktop.in.h:4
+#: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "সময়;টাইমার;অ্যালার্ম;বিশ্বঘড়ি;স্টপওয়াচ;সময় জোন;"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
 msgid "Configured world clocks"
 msgstr "কনফিগার করা বিশ্বঘড়িগুলি"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
 msgid "List of world clocks to show."
 msgstr "দেখানোর জন্য বিশ্বঘড়িগুলির তালিকা।"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
 msgid "Configured alarms"
 msgstr "কনফিগার করা অ্যালার্মগুলি"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
 msgid "List of alarms set."
 msgstr "সেট করা অ্যালার্মগুলির তালিকা"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5
-#: ../src/timer.vala:49
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:114
 msgid "Timer"
 msgstr "টাইমার"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
 msgid "Configured timer duration in seconds."
 msgstr "কনফিগার করা টাইমার সময়কাল, সেকেন্ডে।"
 
-#: ../src/alarm.vala:105
-#: ../src/alarm.vala:327
-#: ../src/alarm.vala:476
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+msgid "Geolocation support"
+msgstr "ভৌগোলিক সহায়তা"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr "ভৌগোলিক সহায়তা চালু এবং বন্ধ করুন।"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+msgid "Window state"
+msgstr "উইন্ডো স্থিতি"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
+msgid "State of the window: i.e. maximized."
+msgstr "উইন্ডোর স্থিতি: যেমন, বড় করা।"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+msgid "Window width and height"
+msgstr "উইন্ডোর প্রস্থ এবং উচ্চতা"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+msgid "Width and height of the window."
+msgstr "উইন্ডোর প্রস্থ এবং উচ্চতা।"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
+msgid "Panel state"
+msgstr "প্যানেল স্থিতি"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
+msgid "Current clock panel."
+msgstr "বর্তমান ঘড়ি প্যানেল।"
+
+#: ../src/alarm.vala:115 ../src/alarm.vala:366 ../src/alarm.vala:534
 msgid "Alarm"
 msgstr "অ্যালার্ম"
 
-#: ../src/alarm.vala:106
-#: ../src/stopwatch.vala:121
-#: ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:190
+#: ../data/ui/alarmringing.ui.h:1
 msgid "Stop"
 msgstr "বন্ধ করুন"
 
-#: ../src/alarm.vala:109
-#: ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
 msgid "Snooze"
 msgstr "তন্দ্রা"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:308
 msgid "Edit Alarm"
 msgstr "অ্যালার্ম সম্পাদনা করুন"
 
-#: ../src/alarm.vala:265
+#: ../src/alarm.vala:308
 msgid "New Alarm"
 msgstr "নতুন অ্যালার্ম"
-
-#: ../src/alarm.vala:267
-msgid "_Done"
-msgstr "সম্পন্ন (_D)"
 
 # auto translated by TM merge from project: virt-manager, version: 0.9.0, DocId: virt-manager
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:484
-#: ../src/world.vala:289
+#: ../src/alarm.vala:559 ../src/world.vala:259
 msgid "New"
 msgstr "নতুন"
 
 # auto translated by TM merge from project: baobab, version: 3.8.2, DocId: baobab
-#: ../src/application.vala:24
+#: ../src/application.vala:23
 msgid "Print version information and exit"
 msgstr "সংস্করণ সংক্রান্ত তথ্য প্রিন্ট করে প্রস্থান করুন"
 
-#: ../src/stopwatch.vala:50
+#: ../src/stopwatch.vala:130
 msgid "Stopwatch"
 msgstr "স্টপওয়াচ"
 
-#: ../src/stopwatch.vala:124
-#: ../data/ui/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:193
 msgid "Lap"
 msgstr "ল্যাপ"
 
 # auto translated by TM merge from project: gnome-keyring, version: 3.8.2, DocId: gnome-keyring
-#: ../src/stopwatch.vala:131
-#: ../src/timer.vala:88
+#: ../src/stopwatch.vala:200 ../src/timer.vala:172
 msgid "Continue"
 msgstr "চালিয়ে যান"
 
 # auto translated by TM merge from project: system-config-printer, version: 1.1.16-23, DocId: system-config-printer
-#: ../src/stopwatch.vala:135
-#: ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:204 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "পুনরায় নির্ধারণ"
 
 # auto translated by TM merge from project: evolution, version: el6, DocId: evolution-2.32
-#: ../src/stopwatch.vala:143
-#: ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "আরম্ভ"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:126
 msgid "Time is up!"
 msgstr "সময় শেষ হয়ে গেছে!"
 
-#: ../src/timer.vala:53
+#: ../src/timer.vala:127
 msgid "Timer countdown finished"
 msgstr "টাইমার কাউন্টডাউন শেষ"
 
 # auto translated by TM merge from project: virt-manager, version: 0.9.0, DocId: virt-manager
-#: ../src/timer.vala:93
-#: ../src/timer.vala:103
-#: ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:177 ../src/timer.vala:188 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "স্থগিত"
 
-#: ../src/utils.vala:149
+#: ../src/utils.vala:153
 msgid "Mondays"
 msgstr "সোমবার"
 
-#: ../src/utils.vala:150
+#: ../src/utils.vala:154
 msgid "Tuesdays"
 msgstr "মঙ্গলবার"
 
-#: ../src/utils.vala:151
+#: ../src/utils.vala:155
 msgid "Wednesdays"
 msgstr "বুধবার"
 
-#: ../src/utils.vala:152
+#: ../src/utils.vala:156
 msgid "Thursdays"
 msgstr "বৃহস্পতিবার"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:157
 msgid "Fridays"
 msgstr "শুক্রবার"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:158
 msgid "Saturdays"
 msgstr "শনিবার"
 
-#: ../src/utils.vala:155
+#: ../src/utils.vala:159
 msgid "Sundays"
 msgstr "রবিবার"
 
-#: ../src/utils.vala:235
+#: ../src/utils.vala:239
 msgid "Every Day"
 msgstr "প্রত্যেকদিন"
 
-#: ../src/utils.vala:237
+#: ../src/utils.vala:241
 msgid "Weekdays"
 msgstr "সপ্তাহের দিনগুলি"
 
-# auto translated by TM merge from project: evolution, version: el6, DocId: evolution-2.32
-#: ../src/widgets.vala:386
-msgid "Done"
-msgstr "সম্পন্ন"
+#: ../src/utils.vala:243
+#| msgid "Weekdays"
+msgid "Weekends"
+msgstr "সপ্তাহান্ত"
+
+# auto translated by TM merge from project: rhsm-web, version: 0.0, DocId: management
+#: ../src/widgets.vala:483
+msgid "Delete"
+msgstr "মুছে ফেলুন"
 
 # auto translated by TM merge from project: gnome-documents, version: 3.8.3.1, DocId: gnome-documents
-#: ../src/widgets.vala:398
-#: ../src/widgets.vala:433
+#: ../src/widgets.vala:509 ../src/widgets.vala:664
 msgid "Click on items to select them"
 msgstr "কোনও আইটেম নির্বাচন করতে সেটিকে ক্লিক করুন"
 
 # auto translated by TM merge from project: gnome-documents, version: 3.8.3.1, DocId: gnome-documents
-#: ../src/widgets.vala:435
+#: ../src/widgets.vala:511
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d নির্বাচিত"
 msgstr[1] "%d নির্বাচিত"
 
-# auto translated by TM merge from project: rhsm-web, version: 0.0, DocId: management
-#: ../src/widgets.vala:477
-msgid "Delete"
-msgstr "মুছে ফেলুন"
+#: ../src/widgets.vala:653
+msgid "Cancel"
+msgstr "বাতিল করুন"
 
-#: ../src/window.vala:142
-msgid "Gnome Clocks"
-msgstr "GNOME ঘড়ি"
+#: ../src/window.vala:166
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "সহায়তা দেখাতে ব্যর্থ: %s"
 
-#: ../src/window.vala:145
+#: ../src/window.vala:196
 msgid "Utilities to help you with the time."
 msgstr "সময়ের বিষয়ে অাপনাকে সাহায্য করার সরঞ্জাম।"
 
 # auto translated by TM merge from project: Support Insider, version: 2011, DocId: support-insider
-#: ../src/window.vala:150
+#: ../src/window.vala:201
 msgid "translator-credits"
 msgstr "প্রযোজ্য নয়"
 
 # auto translated by TM merge from project: evolution, version: el6, DocId: evolution-2.32
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:102
-#: ../src/world.vala:105
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Tomorrow"
 msgstr "আগামীকাল"
 
 # auto translated by TM merge from project: evolution, version: el6, DocId: evolution-2.32
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:102
-#: ../src/world.vala:105
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Yesterday"
 msgstr "গতকাল"
 
-#: ../src/world.vala:172
-msgid "Add a New World Clock"
-msgstr "একটি নতুন বিশ্বঘড়ি যোগ করুন"
-
-#: ../src/world.vala:278
+#: ../src/world.vala:247
 msgid "World"
 msgstr "বিশ্ব"
 
 #. namespace World
 #. namespace Clocks
-#: ../data/ui/alarm.ui.h:1
-msgid "Select <b>New</b> to add an alarm"
-msgstr "একটি অ্যালার্ম যোগ করতে <b>নতুন</b> নির্বাচন করুন"
-
-# auto translated by TM merge from project: rhsm-web, version: 0.0, DocId: management
-#: ../data/ui/alarm.ui.h:4
-msgid "Name"
-msgstr "নাম"
-
-#: ../data/ui/alarm.ui.h:5
-msgid "Repeat Every"
-msgstr "প্রতি এততে পুনরাবৃত্তি"
-
-# auto translated by TM merge from project: rhsm-web, version: 0.0, DocId: management
-#: ../data/ui/alarm.ui.h:6
-msgid "Active"
-msgstr "সক্রিয়"
-
-# auto translated by TM merge from project: system-config-printer, version: 1.1.16-23, DocId: system-config-printer
-#: ../data/ui/menu.ui.h:1
-msgid "_New"
-msgstr "নতুন (_N)"
+#: ../data/gtk/menus.ui.h:1
+msgid "_Help"
+msgstr "সহায়তা (_H)"
 
 # auto translated by TM merge from project: baobab, version: 3.8.2, DocId: baobab
-#: ../data/ui/menu.ui.h:2
+#: ../data/gtk/menus.ui.h:2
 msgid "_About"
 msgstr "সম্পর্কে(_A)"
 
 # auto translated by TM merge from project: baobab, version: 3.8.2, DocId: baobab
-#: ../data/ui/menu.ui.h:3
+#: ../data/gtk/menus.ui.h:3
 msgid "_Quit"
 msgstr "প্রস্থান (_Q)"
 
 # auto translated by TM merge from project: evolution, version: el6, DocId: evolution-2.32
-#: ../data/ui/menu.ui.h:4
+#: ../data/gtk/menus.ui.h:4
 msgid "Select All"
 msgstr "সমস্ত নির্বাচন করুন"
 
 # auto translated by TM merge from project: gnome-documents, version: 3.8.3.1, DocId: gnome-documents
-#: ../data/ui/menu.ui.h:5
+#: ../data/gtk/menus.ui.h:5
 msgid "Select None"
 msgstr "কিছুই নির্বাচিত করবেন না"
 
-# auto translated by TM merge from project: brasero, version: 3.8.0, DocId: brasero
-#: ../data/ui/stopwatch.ui.h:4
-msgid "Split"
-msgstr "বিভাজন"
+#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "একটি নতুন বিশ্বঘড়ি যোগ করুন"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
+msgid "_Cancel"
+msgstr "বাতিল (_C)"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
+msgid "_Done"
+msgstr "সম্পন্ন (_D)"
+
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "You already have an alarm for this time."
+msgstr "এই সময়ের জন্য অাপনি ইতিমধ্যেই একটি অ্যালার্ম সেট করে রেখেছেন।"
 
 # auto translated by TM merge from project: rhsm-web, version: 0.0, DocId: management
-#: ../data/ui/stopwatch.ui.h:5
-msgid "Total"
-msgstr "সর্বমোট"
+#: ../data/ui/alarmsetupdialog.ui.h:5
+msgid "Name"
+msgstr "নাম"
+
+#: ../data/ui/alarmsetupdialog.ui.h:6
+msgid "Repeat Every"
+msgstr "প্রতি এততে পুনরাবৃত্তি"
+
+# auto translated by TM merge from project: rhsm-web, version: 0.0, DocId: management
+#: ../data/ui/alarmsetupdialog.ui.h:7
+msgid "Active"
+msgstr "সক্রিয়"
+
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "একটি অ্যালার্ম যোগ করতে <b>নতুন</b> নির্বাচন করুন"
+
+#: ../data/ui/worldlocationdialog.ui.h:3
+msgid "_Add"
+msgstr "যোগ করুন (_A)"
+
+#: ../data/ui/worldlocationdialog.ui.h:4
+msgid "Search for a city:"
+msgstr "একটি শহর অনুসন্ধান করুন:"
 
 #: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
 msgstr "একটি বিশ্বঘড়ি যোগ করতে <b>নতুন</b> নির্বাচন করুন"
 
 #: ../data/ui/world.ui.h:2
-msgid "Search for a city:"
-msgstr "একটি শহর অনুসন্ধান করুন:"
-
-#: ../data/ui/world.ui.h:3
 msgid "Sunrise"
 msgstr "সূর্যোদয়"
 
 # auto translated by TM merge from project: gnome-backgrounds, version: 3.8.1, DocId: gnome-backgrounds
-#: ../data/ui/world.ui.h:4
+#: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "সূর্যাস্ত"
+
+# auto translated by TM merge from project: evolution, version: el6, DocId: evolution-2.32
+#~ msgid "Done"
+#~ msgstr "সম্পন্ন"
+
+#~ msgid "Gnome Clocks"
+#~ msgstr "GNOME ঘড়ি"
+
+# auto translated by TM merge from project: system-config-printer, version: 1.1.16-23, DocId: system-config-printer
+#~ msgid "_New"
+#~ msgstr "নতুন (_N)"
+
+# auto translated by TM merge from project: brasero, version: 3.8.0, DocId: brasero
+#~ msgid "Split"
+#~ msgstr "বিভাজন"
+
+# auto translated by TM merge from project: rhsm-web, version: 0.0, DocId: management
+#~ msgid "Total"
+#~ msgstr "সর্বমোট"
