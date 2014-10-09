@@ -1,14 +1,15 @@
 # Persian translation for gnome-clocks.
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-# Arash Mousavi <mousavi.arash@gmail.com> 2012, 2013.
+# Arash Mousavi <mousavi.arash@gmail.com> 2012, 2013, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-09-16 19:37+0000\n"
-"PO-Revision-Date: 2013-10-07 18:23+0330\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-10-06 18:18+0000\n"
+"PO-Revision-Date: 2014-10-10 01:27+0330\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
@@ -16,22 +17,50 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.9\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:173
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"یک برنامه‌ی ساعت ساده و کارا. شامل ساعت‌های جهانی، زنگ‌های هشدار، یک کرنومتر و "
+"زمانسج است."
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+msgid "Goals:"
+msgstr "اهداف:"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+msgid "Show the time in different cities around the world"
+msgstr "نمایش زمان برای شهرهای مختلف در گوشه کنار دنیا"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+msgid "Set alarms to wake you up"
+msgstr "زنگ هشدار را برای بیدار شدن خود تنظیم کنید"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "زمان سپری شده را باید کرنومتر دقیق اندازه بگیرید"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+msgid "Set timers to properly cook your food"
+msgstr "زمانسج رو برای درست کردن غذا تنظیم کنید"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:193
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "ساعت‌ها"
 
-#: ../data/gnome-clocks.desktop.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "ساعت‌های گنوم"
 
-#: ../data/gnome-clocks.desktop.in.h:3
+#: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "ساعت‌هایی برای زمان‌ها در دنیا، با اضافه‌ی زنگ هشدار، کرنومتر و زمان‌سنج"
 
-#: ../data/gnome-clocks.desktop.in.h:4
+#: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "زمان;زمانسنج;زنگ;ساعت جهانی;stopwatch;منطقه زمانی;"
 
@@ -49,9 +78,9 @@ msgstr "پیکربندی زنگ‌ها"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
 msgid "List of alarms set."
-msgstr "فهرست تنظیم زنگ‌ها."
+msgstr "فهرست تنظیم زنگ‌های هشدار."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:105
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:114
 msgid "Timer"
 msgstr "زمانسنج"
 
@@ -91,172 +120,204 @@ msgstr "وضعیت تابلو"
 msgid "Current clock panel."
 msgstr "تابلو ساعت فعلی"
 
-#: ../src/alarm.vala:109 ../src/alarm.vala:330 ../src/alarm.vala:481
+#: ../src/alarm.vala:115 ../src/alarm.vala:366 ../src/alarm.vala:534
 msgid "Alarm"
 msgstr "زنگ هشدار"
 
-#: ../src/alarm.vala:110 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:190
+#: ../data/ui/alarmringing.ui.h:1
 msgid "Stop"
 msgstr "توقف"
 
-#: ../src/alarm.vala:113 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
 msgid "Snooze"
 msgstr "خواب کوتاه"
 
-#: ../src/alarm.vala:282
+#: ../src/alarm.vala:308
 msgid "Edit Alarm"
 msgstr "ویرایش زنگ هشدار"
 
-#: ../src/alarm.vala:282
+#: ../src/alarm.vala:308
 msgid "New Alarm"
 msgstr "زنگ هشدار جدید"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:487 ../src/world.vala:278
+#: ../src/alarm.vala:559 ../src/world.vala:259
 msgid "New"
 msgstr "جدید"
 
-#: ../src/application.vala:24
+#: ../src/application.vala:23
 msgid "Print version information and exit"
 msgstr "چاپ اطلاعات نسخه و خروج"
 
-#: ../src/stopwatch.vala:129
+#: ../src/stopwatch.vala:130
 msgid "Stopwatch"
 msgstr "کرنومتر"
 
-#: ../src/stopwatch.vala:190
+#: ../src/stopwatch.vala:193
 msgid "Lap"
 msgstr "دور"
 
-#: ../src/stopwatch.vala:197 ../src/timer.vala:156
+#: ../src/stopwatch.vala:200 ../src/timer.vala:172
 msgid "Continue"
 msgstr "ادامه"
 
-#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:204 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "تنظیم مجدد"
 
-#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "شروع"
 
-#: ../src/timer.vala:113
+#: ../src/timer.vala:126
 msgid "Time is up!"
 msgstr "زمان تمام شد!"
 
-#: ../src/timer.vala:113
+#: ../src/timer.vala:127
 msgid "Timer countdown finished"
 msgstr "شمارش معکوس زمانسنج پایان یافت"
 
-#: ../src/timer.vala:161 ../src/timer.vala:172 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:177 ../src/timer.vala:188 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "مکث"
 
-#: ../src/utils.vala:163
+#: ../src/utils.vala:153
 msgid "Mondays"
 msgstr "دوشنبه‌ها"
 
-#: ../src/utils.vala:164
+#: ../src/utils.vala:154
 msgid "Tuesdays"
 msgstr "سه‌شنبه‌ها"
 
-#: ../src/utils.vala:165
+#: ../src/utils.vala:155
 msgid "Wednesdays"
 msgstr "چهارشنبه‌ها"
 
-#: ../src/utils.vala:166
+#: ../src/utils.vala:156
 msgid "Thursdays"
 msgstr "پنج‌شنبه‌ها"
 
-#: ../src/utils.vala:167
+#: ../src/utils.vala:157
 msgid "Fridays"
 msgstr "جمعه‌ها"
 
-#: ../src/utils.vala:168
+#: ../src/utils.vala:158
 msgid "Saturdays"
 msgstr "شنبه‌ها"
 
-#: ../src/utils.vala:169
+#: ../src/utils.vala:159
 msgid "Sundays"
 msgstr "یک‌شنبه‌ها"
 
-#: ../src/utils.vala:249
+#: ../src/utils.vala:239
 msgid "Every Day"
 msgstr "هر روز"
 
-#: ../src/utils.vala:251
+#: ../src/utils.vala:241
 msgid "Weekdays"
 msgstr "روزهای هفته"
 
-#: ../src/utils.vala:253
-#| msgid "Weekdays"
+#: ../src/utils.vala:243
 msgid "Weekends"
 msgstr "پایان‌هفته"
 
-#: ../src/widgets.vala:461
-msgid "Cancel"
-msgstr "لغو"
+#: ../src/widgets.vala:483
+msgid "Delete"
+msgstr "حذف"
 
-#: ../src/widgets.vala:473 ../src/widgets.vala:526
+#: ../src/widgets.vala:509 ../src/widgets.vala:664
 msgid "Click on items to select them"
 msgstr "بر روی موارد کلیک کنید تا انتخاب شوند"
 
-#: ../src/widgets.vala:528
+#: ../src/widgets.vala:511
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%Id انتخاب شد"
 msgstr[1] "%Id انتخاب شدند"
 
-#: ../src/widgets.vala:570
-msgid "Delete"
-msgstr "حذف"
+#: ../src/widgets.vala:653
+msgid "Cancel"
+msgstr "لغو"
 
-#: ../src/window.vala:146
+#: ../src/window.vala:166
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "نمایش راهنما شکست خورد: %s"
 
-#: ../src/window.vala:176
+#: ../src/window.vala:196
 msgid "Utilities to help you with the time."
 msgstr "ابزارهایی برای کمک به شما درباره زمان."
 
-#: ../src/window.vala:181
+#: ../src/window.vala:201
 msgid "translator-credits"
 msgstr "آرش موسوی <mousavi.arash@gmail.com>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:112 ../src/world.vala:115
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Tomorrow"
 msgstr "فردا"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:112 ../src/world.vala:115
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Yesterday"
 msgstr "دیروز"
 
-#: ../src/world.vala:269
+#: ../src/world.vala:247
 msgid "World"
 msgstr "جهان"
 
 #. namespace World
 #. namespace Clocks
-#: ../data/ui/alarmsetupdialog.ui.h:1
+#: ../data/gtk/menus.ui.h:1
+msgid "_Help"
+msgstr "_راهنما"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "_درباره"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "_خروج"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "Select All"
+msgstr "انتخاب همه"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Select None"
+msgstr "انتخاب هیچکدام"
+
+#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "اضافه کردن یک ساعت جهانی دیگر"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
+msgid "_Cancel"
+msgstr "_لغو"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "_Done"
 msgstr "_انجام شد"
 
-#: ../data/ui/alarmsetupdialog.ui.h:2
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "You already have an alarm for this time."
+msgstr "شما از قبل برای این زمان یک زنگ هشدار دارید"
+
+#: ../data/ui/alarmsetupdialog.ui.h:5
 msgid "Name"
 msgstr "نام"
 
-#: ../data/ui/alarmsetupdialog.ui.h:3
+#: ../data/ui/alarmsetupdialog.ui.h:6
 msgid "Repeat Every"
 msgstr "تکرار هر"
 
-#: ../data/ui/alarmsetupdialog.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:7
 msgid "Active"
 msgstr "فعال"
 
@@ -264,35 +325,11 @@ msgstr "فعال"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "برای اضافه کردن یک زنگ هشدار «جدید» را انتخاب کنید"
 
-#: ../data/ui/menu.ui.h:1
-msgid "_New"
-msgstr "_جدید"
+#: ../data/ui/worldlocationdialog.ui.h:3
+msgid "_Add"
+msgstr "_اضافه کردن"
 
-#: ../data/ui/menu.ui.h:2
-msgid "_Help"
-msgstr "_راهنما"
-
-#: ../data/ui/menu.ui.h:3
-msgid "_About"
-msgstr "_درباره"
-
-#: ../data/ui/menu.ui.h:4
-msgid "_Quit"
-msgstr "_خروج"
-
-#: ../data/ui/menu.ui.h:5
-msgid "Select All"
-msgstr "انتخاب همه"
-
-#: ../data/ui/menu.ui.h:6
-msgid "Select None"
-msgstr "انتخاب هیچکدام"
-
-#: ../data/ui/worldlocationdialog.ui.h:1
-msgid "Add a New World Clock"
-msgstr "اضافه کردن یک ساعت جهانی دیگر"
-
-#: ../data/ui/worldlocationdialog.ui.h:2
+#: ../data/ui/worldlocationdialog.ui.h:4
 msgid "Search for a city:"
 msgstr "جست‌وجو برای یک شهر"
 
@@ -308,10 +345,13 @@ msgstr "طلوع"
 msgid "Sunset"
 msgstr "غروب"
 
+#~ msgid "_New"
+#~ msgstr "_جدید"
+
 #~ msgid "Done"
 #~ msgstr "پایان"
-#~| msgid "GNOME Clocks"
 
+#~| msgid "GNOME Clocks"
 #~ msgid "Gnome Clocks"
 #~ msgstr "ساعت‌های گنوم"
 
