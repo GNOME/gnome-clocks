@@ -84,14 +84,27 @@ public class SearchProvider : Object {
         return result.data;
     }
 
-    public string[] get_subsearch_result_set (string[] previous_results, string[] terms) {
-        var normalized_terms = normalize_terms (terms);
-
+    public async string[] get_subsearch_result_set (string[] previous_results, string[] terms) {
         var result = new GenericArray<string> ();
-        foreach (var id in previous_results) {
-            var location = matches.get (id);
-            if (location != null && location_matches (location, normalized_terms)) {
+
+        // It looks like the shell sometimes calls get_subsearch directly
+        // without calling get_initial first... not sure whether this is a
+        // gnome-shell bug or if it is by design in some condition that
+        // eludes me. Either way, if that happens, let's just fall back to
+        // a full initial search
+        if (matches == null) {
+            yield get_initial_result_set (terms);
+            matches.foreach ((id, location) => {
                 result.add (id);
+            });
+        } else {
+            var normalized_terms = normalize_terms (terms);
+
+            foreach (var id in previous_results) {
+                var location = matches.get (id);
+                if (location != null && location_matches (location, normalized_terms)) {
+                    result.add (id);
+                }
             }
         }
 
