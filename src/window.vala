@@ -137,6 +137,10 @@ public class Window : Gtk.ApplicationWindow {
         stack.visible_child = panels[PanelId.WORLD];;
     }
 
+    public void add_world_location (GWeather.Location location) {
+        ((World.Face) panels[PanelId.WORLD]).add_location (location);
+    }
+
     public override bool key_press_event (Gdk.EventKey event) {
         uint keyval;
         if (((Gdk.Event*)(&event))->get_keyval (out keyval) && keyval == Gdk.Key.Escape) {

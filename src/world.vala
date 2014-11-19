@@ -389,15 +389,23 @@ public class Face : Gtk.Stack, Clocks.Clock {
         yield geo_info.seek ();
     }
 
+    private void add_location_item (Item item) {
+        locations.append (item);
+        content_view.add_item (item);
+        save ();
+    }
+
+    public void add_location (GWeather.Location location) {
+        add_location_item (new Item (location));
+    }
+
     public void activate_new () {
         var dialog = new LocationDialog ((Gtk.Window) get_toplevel ());
 
         dialog.response.connect ((dialog, response) => {
             if (response == 1) {
                 var location = ((LocationDialog) dialog).get_location ();
-                locations.append (location);
-                content_view.add_item (location);
-                save ();
+                add_location_item (location);
             }
             dialog.destroy ();
         });

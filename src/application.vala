@@ -27,7 +27,8 @@ public class Application : Gtk.Application {
     const GLib.ActionEntry[] action_entries = {
         { "stop-alarm", null, "s" },
         { "snooze-alarm", null, "s" },
-        { "quit", on_quit_activate }
+        { "quit", on_quit_activate },
+        { "add-location", on_add_location_activate, "v" }
     };
 
     private SearchProvider search_provider;
@@ -99,6 +100,22 @@ public class Application : Gtk.Application {
         }
 
         return -1;
+    }
+
+    public void on_add_location_activate (GLib.SimpleAction action, GLib.Variant? parameter) {
+        if (parameter == null) {
+            return;
+        }
+
+        ensure_window ();
+        window.show_world ();
+        window.present ();
+
+        var world = GWeather.Location.get_world ();
+        var location = world.deserialize (parameter.get_child_value(0));
+        if (location != null) {
+            window.add_world_location (location);
+        }
     }
 
     void on_quit_activate () {
