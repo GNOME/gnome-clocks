@@ -177,9 +177,12 @@ public class Item : Object, ContentItem {
 private class LocationDialog : Gtk.Dialog {
     [GtkChild]
     private GWeather.LocationEntry location_entry;
+    private Face world;
 
-    public LocationDialog (Gtk.Window parent) {
+    public LocationDialog (Gtk.Window parent, Face world_face) {
         Object (transient_for: parent, use_header_bar: 1);
+
+        world = world_face;
     }
 
     [GtkCallback]
@@ -197,7 +200,7 @@ private class LocationDialog : Gtk.Dialog {
         if (location_entry.get_text () != "") {
             l = location_entry.get_location ();
 
-            if (l != null) {
+            if (l != null && !world.location_exists (l)) {
                 t = l.get_timezone ();
 
                 if (t == null) {
@@ -395,12 +398,26 @@ public class Face : Gtk.Stack, Clocks.Clock {
         save ();
     }
 
+    public bool location_exists (GWeather.Location location) {
+        var exists = false;
+
+        foreach (Item i in locations) {
+            if (i.location.equal(location)) {
+                exists = true;
+                break;
+            }
+        }
+        return exists;
+    }
+
     public void add_location (GWeather.Location location) {
-        add_location_item (new Item (location));
+        if (!location_exists (location)) {
+            add_location_item (new Item (location));
+        }
     }
 
     public void activate_new () {
-        var dialog = new LocationDialog ((Gtk.Window) get_toplevel ());
+        var dialog = new LocationDialog ((Gtk.Window) get_toplevel (), this);
 
         dialog.response.connect ((dialog, response) => {
             if (response == 1) {
