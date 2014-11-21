@@ -285,63 +285,54 @@ public class Weekdays {
 
 public class Bell : Object {
     private GLib.Settings settings;
-    private Canberra.Context? canberra;
+    private GSound.Context? gsound;
+    private GLib.Cancellable cancellable;
     private string soundtheme;
     private string sound;
 
     public Bell (string soundid) {
         settings = new GLib.Settings("org.gnome.desktop.sound");
 
-        if (Canberra.Context.create (out canberra) < 0) {
-            warning ("Sound will not be available");
-            canberra = null;
+        try {
+            gsound = new GSound.Context();
+        } catch (GLib.Error e) {
+            warning ("Sound could not be initialized, error: %s", e.message);
         }
 
         soundtheme = settings.get_string ("theme-name");
         sound = soundid;
+        cancellable = new GLib.Cancellable();
     }
 
-    private bool keep_ringing () {
-        Canberra.Proplist pl;
-        Canberra.Proplist.create (out pl);
-        pl.sets (Canberra.PROP_EVENT_ID, sound);
-        pl.sets (Canberra.PROP_CANBERRA_XDG_THEME_NAME, soundtheme);
-        pl.sets (Canberra.PROP_MEDIA_ROLE, "alarm");
+    private async void ring_real (bool repeat) {
+        if (gsound == null) {
+            return;
+        }
 
-        canberra.play_full (1, pl, (c, id, code) => {
-            if (code == Canberra.SUCCESS) {
-                GLib.Idle.add (keep_ringing);
-            }
-        });
-
-        return false;
-    }
-
-    private void ring_real (bool once) {
-        if (canberra != null) {
-            if (once) {
-                canberra.play (1,
-                               Canberra.PROP_EVENT_ID, sound,
-                               Canberra.PROP_CANBERRA_XDG_THEME_NAME, soundtheme,
-                               Canberra.PROP_MEDIA_ROLE, "alarm");
-            } else {
-                GLib.Idle.add (keep_ringing);
-            }
+        try {
+            do {
+                yield gsound.play_full (cancellable,
+                                        GSound.Attribute.EVENT_ID, sound,
+                                        GSound.Attribute.CANBERRA_XDG_THEME_NAME, soundtheme,
+                                        GSound.Attribute.MEDIA_ROLE, "alarm");
+            } while (repeat);
+        } catch (GLib.IOError.CANCELLED e) {
+            // ignore
+        } catch (GLib.Error e) {
+            warning ("Error playing sound: %s", e.message);
         }
     }
 
     public void ring_once () {
-        ring_real (true);
+        ring_real.begin (false);
     }
 
     public void ring () {
-        ring_real (false);
+        ring_real.begin (true);
     }
 
     public void stop () {
-        if (canberra != null) {
-            canberra.cancel (1);
-        }
+        cancellable.cancel();
     }
 }
 

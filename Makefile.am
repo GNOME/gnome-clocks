@@ -104,7 +104,7 @@ AM_VALAFLAGS = \
 	--pkg gio-2.0 \
 	--pkg gtk+-3.0 \
 	--pkg gweather-3.0 \
-	--pkg libcanberra \
+	--pkg gsound \
 	--pkg geocode-glib-1.0 \
 	--gresources  $(top_srcdir)/data/gnome-clocks.gresource.xml
 
