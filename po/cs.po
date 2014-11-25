@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-02-21 07:12+0000\n"
+"POT-Creation-Date: 2014-11-25 07:05+0000\n"
 "PO-Revision-Date: 2014-02-21 10:57+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Gtranslator 2.91.6\n"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.h:1
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
@@ -28,27 +28,27 @@ msgstr ""
 "Jednoduché a elegantní hodiny včetně světového času, budíku, stopek a "
 "časového odpočtu."
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.h:2
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
 msgid "Goals:"
 msgstr "Má sloužit k:"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.h:3
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
 msgid "Show the time in different cities around the world"
 msgstr "Zobrazení času v různých městech celého světa"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.h:4
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
 msgid "Set alarms to wake you up"
 msgstr "Nastavení buzení v daný čas"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.h:5
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Měření uplynulého času na přesných stopkách"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.h:6
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
 msgid "Set timers to properly cook your food"
 msgstr "Nastavení odpočtu času při vaření (tzv. kuchyňská minutka)"
 
-#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:188
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:197
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Hodiny"
@@ -81,7 +81,7 @@ msgstr "Nastavená buzení"
 msgid "List of alarms set."
 msgstr "Seznam nastavených buzení."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:107
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:114
 msgid "Timer"
 msgstr "Odpočet"
 
@@ -102,8 +102,8 @@ msgid "Window state"
 msgstr "Stav okna"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
-msgid "State of the window: i.e. maximized."
-msgstr "Stav okna, tj. maximalizace."
+msgid "State of the window, e.g. maximized."
+msgstr "Stav okna, např. maximalizace."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
 msgid "Window width and height"
@@ -121,15 +121,16 @@ msgstr "Stav panelu"
 msgid "Current clock panel."
 msgstr "Aktuální panel s hodinami."
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:368 ../src/alarm.vala:542
+#: ../src/alarm.vala:115 ../src/alarm.vala:366 ../src/alarm.vala:534
 msgid "Alarm"
 msgstr "Budík"
 
-#: ../src/alarm.vala:117 ../src/stopwatch.vala:188 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:190
+#: ../data/ui/alarmringing.ui.h:1
 msgid "Stop"
 msgstr "Stop"
 
-#: ../src/alarm.vala:118 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
 msgid "Snooze"
 msgstr "Spát"
 
@@ -143,7 +144,7 @@ msgstr "Nové buzení"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:565 ../src/world.vala:281
+#: ../src/alarm.vala:559 ../src/world.vala:262
 msgid "New"
 msgstr "Nový"
 
@@ -155,89 +156,85 @@ msgstr "Vypsat informace o verzi a skončit"
 msgid "Stopwatch"
 msgstr "Stopky"
 
-#: ../src/stopwatch.vala:191
+#: ../src/stopwatch.vala:193
 msgid "Lap"
 msgstr "Mezičas"
 
-#: ../src/stopwatch.vala:198 ../src/timer.vala:162
+#: ../src/stopwatch.vala:200 ../src/timer.vala:172
 msgid "Continue"
 msgstr "Pokračovat"
 
-#: ../src/stopwatch.vala:202 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:204 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Vynulovat"
 
-#: ../src/stopwatch.vala:210 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Start"
 
-#: ../src/timer.vala:116
+#: ../src/timer.vala:126
 msgid "Time is up!"
 msgstr "Čas vypršel!"
 
-#: ../src/timer.vala:117
+#: ../src/timer.vala:127
 msgid "Timer countdown finished"
 msgstr "Doběhl časový odpočet"
 
-#: ../src/timer.vala:167 ../src/timer.vala:178 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:177 ../src/timer.vala:188 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Pozastavit"
 
-#: ../src/utils.vala:163
+#: ../src/utils.vala:153
 msgid "Mondays"
 msgstr "Pondělky"
 
-#: ../src/utils.vala:164
+#: ../src/utils.vala:154
 msgid "Tuesdays"
 msgstr "Úterky"
 
-#: ../src/utils.vala:165
+#: ../src/utils.vala:155
 msgid "Wednesdays"
 msgstr "Středy"
 
-#: ../src/utils.vala:166
+#: ../src/utils.vala:156
 msgid "Thursdays"
 msgstr "Čtvrtky"
 
-#: ../src/utils.vala:167
+#: ../src/utils.vala:157
 msgid "Fridays"
 msgstr "Pátky"
 
-#: ../src/utils.vala:168
+#: ../src/utils.vala:158
 msgid "Saturdays"
 msgstr "Soboty"
 
-#: ../src/utils.vala:169
+#: ../src/utils.vala:159
 msgid "Sundays"
 msgstr "Neděle"
 
-#: ../src/utils.vala:249
+#: ../src/utils.vala:239
 msgid "Every Day"
 msgstr "Všechny dny"
 
-#: ../src/utils.vala:251
+#: ../src/utils.vala:241
 msgid "Weekdays"
 msgstr "Pracovní dny"
 
-#: ../src/utils.vala:253
+#: ../src/utils.vala:243
 msgid "Weekends"
 msgstr "Víkendy"
 
-#: ../src/widgets.vala:459
-msgid "Cancel"
-msgstr "Zrušit"
-
-#: ../src/widgets.vala:471 ../src/widgets.vala:534
-msgid "Click on items to select them"
-msgstr "Kliknutím se položky vyberou"
-
-#: ../src/widgets.vala:498
+#: ../src/widgets.vala:483
 msgid "Delete"
 msgstr "Smazat"
 
-#: ../src/widgets.vala:536
+#: ../src/widgets.vala:509 ../src/widgets.vala:664
+msgid "Click on items to select them"
+msgstr "Kliknutím se položky vyberou"
+
+#: ../src/widgets.vala:511
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -245,35 +242,59 @@ msgstr[0] "%d vybraná"
 msgstr[1] "%d vybrané"
 msgstr[2] "%d vybraných"
 
-#: ../src/window.vala:161
+#: ../src/widgets.vala:653
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: ../src/window.vala:170
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Selhalo zobrazení nápovědy: %s"
 
-#: ../src/window.vala:191
+#: ../src/window.vala:200
 msgid "Utilities to help you with the time."
 msgstr "Užitečné programy, které vám pomohu s časem."
 
-#: ../src/window.vala:196
+#: ../src/window.vala:205
 msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:112 ../src/world.vala:115
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Tomorrow"
 msgstr "Zítra"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:112 ../src/world.vala:115
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Yesterday"
 msgstr "Včera"
 
-#: ../src/world.vala:272
+#: ../src/world.vala:250
 msgid "World"
 msgstr "Svět"
 
 #. namespace World
 #. namespace Clocks
+#: ../data/gtk/menus.ui.h:1
+msgid "_Help"
+msgstr "Nápo_věda"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "O _aplikaci"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "U_končit"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "Select All"
+msgstr "Vybrat vše"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Select None"
+msgstr "Zrušit výběr"
+
 #: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
 msgid "Add a New World Clock"
 msgstr "Přidání nového světového času"
@@ -305,26 +326,6 @@ msgstr "Zapnutý"
 #: ../data/ui/alarm.ui.h:1
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Zvolením <b>Nový</b> přidáte nový čas buzení"
-
-#: ../data/ui/menu.ui.h:1
-msgid "_Help"
-msgstr "Nápo_věda"
-
-#: ../data/ui/menu.ui.h:2
-msgid "_About"
-msgstr "O _aplikaci"
-
-#: ../data/ui/menu.ui.h:3
-msgid "_Quit"
-msgstr "U_končit"
-
-#: ../data/ui/menu.ui.h:4
-msgid "Select All"
-msgstr "Vybrat vše"
-
-#: ../data/ui/menu.ui.h:5
-msgid "Select None"
-msgstr "Zrušit výběr"
 
 #: ../data/ui/worldlocationdialog.ui.h:3
 msgid "_Add"
