@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-07-27 18:17+0000\n"
-"PO-Revision-Date: 2014-07-27 22:24+0300\n"
+"POT-Creation-Date: 2014-11-27 07:04+0000\n"
+"PO-Revision-Date: 2014-11-27 18:24+0200\n"
 "Last-Translator: Bogdan Mințoi <mintoi.bogdan@gmail.com>\n"
 "Language-Team: Română <>\n"
 "Language: ro\n"
@@ -30,7 +30,7 @@ msgstr ""
 
 #: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
 msgid "Goals:"
-msgstr "Țeluri:"
+msgstr "Obiective:"
 
 #: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
 msgid "Show the time in different cities around the world"
@@ -48,14 +48,14 @@ msgstr "Măsoară timpul scurs cu un cronometru precis"
 msgid "Set timers to properly cook your food"
 msgstr "Setați temporizatoare care să vă ajute să gătiți"
 
-#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:188
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:197
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Ceasuri"
 
 #: ../data/org.gnome.clocks.desktop.in.h:2
 msgid "GNOME Clocks"
-msgstr "GNOME Clocks"
+msgstr "Ceasuri GNOME"
 
 #: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
@@ -63,7 +63,8 @@ msgstr "Ora în lume, alarme, cronometru și temporizator"
 
 #: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "timp;temporizator;fus orar;cronometru;alarmă;time;timer;alarm;world clock;"
+msgstr ""
+"timp;temporizator;fus orar;cronometru;alarmă;time;timer;alarm;world clock;"
 "stopwatch;time zone;"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
@@ -103,8 +104,8 @@ msgid "Window state"
 msgstr "Stare fereastră"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
-msgid "State of the window: i.e. maximized."
-msgstr "Starea ferestrei: ex. maximizată."
+msgid "State of the window, e.g. maximized."
+msgstr "Starea ferestrei, ex. maximizată."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
 msgid "Window width and height"
@@ -122,15 +123,16 @@ msgstr "Stare panou"
 msgid "Current clock panel."
 msgstr "Panou ceas actual."
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:368 ../src/alarm.vala:539
+#: ../src/alarm.vala:115 ../src/alarm.vala:366 ../src/alarm.vala:534
 msgid "Alarm"
 msgstr "Alarmă"
 
-#: ../src/alarm.vala:117 ../src/stopwatch.vala:188 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:190
+#: ../data/ui/alarmringing.ui.h:1
 msgid "Stop"
 msgstr "Stop"
 
-#: ../src/alarm.vala:118 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
 msgid "Snooze"
 msgstr "Ațipire"
 
@@ -144,7 +146,7 @@ msgstr "Alarmă nouă"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:562 ../src/world.vala:278
+#: ../src/alarm.vala:559 ../src/world.vala:262
 msgid "New"
 msgstr "Nou"
 
@@ -156,89 +158,85 @@ msgstr "Afișează informații despre versiune și iese"
 msgid "Stopwatch"
 msgstr "Cronometru"
 
-#: ../src/stopwatch.vala:191
+#: ../src/stopwatch.vala:193
 msgid "Lap"
 msgstr "Tură"
 
-#: ../src/stopwatch.vala:198 ../src/timer.vala:169
+#: ../src/stopwatch.vala:200 ../src/timer.vala:172
 msgid "Continue"
 msgstr "Continuă"
 
-#: ../src/stopwatch.vala:202 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:204 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Resetare"
 
-#: ../src/stopwatch.vala:210 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Start"
 
-#: ../src/timer.vala:123
+#: ../src/timer.vala:126
 msgid "Time is up!"
 msgstr "Timpul a expirat!"
 
-#: ../src/timer.vala:124
+#: ../src/timer.vala:127
 msgid "Timer countdown finished"
 msgstr "Timpul alocat s-a scurs"
 
-#: ../src/timer.vala:174 ../src/timer.vala:185 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:177 ../src/timer.vala:188 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Pauză"
 
-#: ../src/utils.vala:163
+#: ../src/utils.vala:153
 msgid "Mondays"
 msgstr "Zilele de Luni"
 
-#: ../src/utils.vala:164
+#: ../src/utils.vala:154
 msgid "Tuesdays"
 msgstr "Zilele de Marți"
 
-#: ../src/utils.vala:165
+#: ../src/utils.vala:155
 msgid "Wednesdays"
 msgstr "Zilele de Miercuri"
 
-#: ../src/utils.vala:166
+#: ../src/utils.vala:156
 msgid "Thursdays"
 msgstr "Zilele de Joi"
 
-#: ../src/utils.vala:167
+#: ../src/utils.vala:157
 msgid "Fridays"
 msgstr "Zilele de Vineri"
 
-#: ../src/utils.vala:168
+#: ../src/utils.vala:158
 msgid "Saturdays"
 msgstr "Zilele de Sâmbătă"
 
-#: ../src/utils.vala:169
+#: ../src/utils.vala:159
 msgid "Sundays"
 msgstr "Zilele de Duminică"
 
-#: ../src/utils.vala:249
+#: ../src/utils.vala:239
 msgid "Every Day"
 msgstr "În fiecare zi"
 
-#: ../src/utils.vala:251
+#: ../src/utils.vala:241
 msgid "Weekdays"
 msgstr "Zilele lucrătoare"
 
-#: ../src/utils.vala:253
+#: ../src/utils.vala:243
 msgid "Weekends"
 msgstr "Sfârșiturile de săptămână"
 
-#: ../src/widgets.vala:461
-msgid "Cancel"
-msgstr "Anulează"
-
-#: ../src/widgets.vala:472 ../src/widgets.vala:535
-msgid "Click on items to select them"
-msgstr "Clic pe elemente pentru a le selecta"
-
-#: ../src/widgets.vala:499
+#: ../src/widgets.vala:483
 msgid "Delete"
 msgstr "Șterge"
 
-#: ../src/widgets.vala:537
+#: ../src/widgets.vala:509 ../src/widgets.vala:664
+msgid "Click on items to select them"
+msgstr "Clic pe elemente pentru a le selecta"
+
+#: ../src/widgets.vala:511
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -246,30 +244,34 @@ msgstr[0] "%d selectat"
 msgstr[1] "%d selectate"
 msgstr[2] "%d selectate"
 
-#: ../src/window.vala:161
+#: ../src/widgets.vala:653
+msgid "Cancel"
+msgstr "Anulează"
+
+#: ../src/window.vala:170
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Nu se poate afișa fișierul de ajutor: %s"
 
-#: ../src/window.vala:191
+#: ../src/window.vala:200
 msgid "Utilities to help you with the time."
 msgstr "Instrumente pentru timp."
 
-#: ../src/window.vala:196
+#: ../src/window.vala:205
 msgid "translator-credits"
 msgstr "Bogdan Mințoi <mintoi.bogdan@gmail.com> 2014"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:112 ../src/world.vala:115
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Tomorrow"
 msgstr "Mâine"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:112 ../src/world.vala:115
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Yesterday"
 msgstr "Ieri"
 
-#: ../src/world.vala:269
+#: ../src/world.vala:250
 msgid "World"
 msgstr "Global"
 
