@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the gnome-clocks package.
 # Kallaya Songklang <songklang10@gmail.com>, 2012-2013.
 # Kittiphong Meesawat <ktphong@elec.kku.ac.th>, 2013.
+# Akom Chotiphantawanon <knight2000@gmail.com>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-10-26 23:19+0000\n"
-"PO-Revision-Date: 2013-11-14 12:53+0700\n"
-"Last-Translator: Kittiphong Meesawat <ktphong@elec.kku.ac.th>\n"
+"POT-Creation-Date: 2014-11-22 09:11+0000\n"
+"PO-Revision-Date: 2014-12-04 15:25+0700\n"
+"Last-Translator: Akom Chotiphantawanon <knight2000@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +21,35 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Gtranslator 2.91.6\n"
 
-#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:173
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"โปรแกรมนาฬิกาที่เรียบง่ายและสวยงาม ซึ่งรวมถึงนาฬิกาทั่วโลก, นาฬิกาปลุก, นาฬิกาจับเวลา "
+"และนาฬิกานับถอยหลัง"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+msgid "Goals:"
+msgstr "เป้าหมาย:"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+msgid "Show the time in different cities around the world"
+msgstr "แสดงเวลาของเมืองอื่นๆ ทั่วโลก"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+msgid "Set alarms to wake you up"
+msgstr "ตั้งนาฬิกาปลุกเพื่อปลุกคุณ"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "จับเวลาที่ผ่านไปด้วยนาฬิกาจับเวลาที่แม่นยำ"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+msgid "Set timers to properly cook your food"
+msgstr "ตั้งเวลานับถอยหลังเพื่อทำอาหารของคุณอย่างเหมาะสม"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:197
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "นาฬิกา"
@@ -31,50 +60,50 @@ msgstr "นาฬิกา GNOME"
 
 #: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "นาฬิกาสำหรับเวลาทั่วโลก, พร้อมด้วยการปลุกเตือน, นาฬิกาจับเวลา และการตั้งเวลา"
+msgstr "นาฬิกาสำหรับเวลาทั่วโลก, พร้อมด้วยนาฬิกาปลุก, นาฬิกาจับเวลา และนาฬิกานับถอยหลัง"
 
 #: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr ""
+msgstr "เวลา;นาฬิกานับถอยหลัง;นาฬิกาปลุก;นาฬิกาทั่วโลก;นาฬิกาจับเวลา;เขตเวลา;"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
 msgid "Configured world clocks"
-msgstr ""
+msgstr "นาฬิกาทั่วโลกที่กำหนดไว้"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
 msgid "List of world clocks to show."
-msgstr ""
+msgstr "รายการนาฬิกาทั่วโลกที่แสดง"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
 msgid "Configured alarms"
-msgstr "รายการปลุกเตือนที่ตั้งไว้"
+msgstr "นาฬิกาปลุกที่ตั้งไว้"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
 msgid "List of alarms set."
 msgstr "รายการปลุกเตือนที่ตั้งไว้"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:106
+#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:114
 msgid "Timer"
-msgstr "ตั้งเวลา"
+msgstr "เวลานับถอยหลัง"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
 msgid "Configured timer duration in seconds."
-msgstr ""
+msgstr "เวลานับถอยหลังที่ตั้งไว้ เป็นวินาที"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
 msgid "Geolocation support"
-msgstr ""
+msgstr "การรองรับตำแหน่งภูมิศาสตร์"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
 msgid "Turn geolocation support on and off."
-msgstr ""
+msgstr "เปิด-ปิดการรองรับตำแหน่งภูมิศาสตร์"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
 msgid "Window state"
 msgstr "สถานะหน้าต่าง"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
-msgid "State of the window: i.e. maximized."
+msgid "State of the window, e.g. maximized."
 msgstr "สถานะหน้าต่าง เช่น ขยายแผ่"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
@@ -87,218 +116,227 @@ msgstr "ความกว้างและความสูงของหน
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
 msgid "Panel state"
-msgstr ""
+msgstr "สถานะพาเนล"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
 msgid "Current clock panel."
-msgstr ""
+msgstr "พาเนลปัจจุบันของนาฬิกา"
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:339 ../src/alarm.vala:490
+#: ../src/alarm.vala:115 ../src/alarm.vala:366 ../src/alarm.vala:534
 msgid "Alarm"
-msgstr "การปลุกเตือน"
+msgstr "นาฬิกาปลุก"
 
-#: ../src/alarm.vala:117 ../src/stopwatch.vala:187 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:190
+#: ../data/ui/alarmringing.ui.h:1
 msgid "Stop"
 msgstr "หยุด"
 
-#: ../src/alarm.vala:118 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
 msgid "Snooze"
 msgstr "ผัดผ่อน"
 
-#: ../src/alarm.vala:291
+#: ../src/alarm.vala:308
 msgid "Edit Alarm"
 msgstr "แก้ไขการปลุกเตือน"
 
-#: ../src/alarm.vala:291
+#: ../src/alarm.vala:308
 msgid "New Alarm"
 msgstr "สร้างการปลุกเตือน"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:513 ../src/world.vala:281
+#: ../src/alarm.vala:559 ../src/world.vala:262
 msgid "New"
 msgstr "สร้าง"
 
-#: ../src/application.vala:24
+#: ../src/application.vala:23
 msgid "Print version information and exit"
 msgstr "แสดงข้อมูลรุ่นแล้วจบการทำงาน"
 
-#: ../src/stopwatch.vala:129
+#: ../src/stopwatch.vala:130
 msgid "Stopwatch"
 msgstr "นาฬิกาจับเวลา"
 
-#: ../src/stopwatch.vala:190
+#: ../src/stopwatch.vala:193
 msgid "Lap"
 msgstr "รอบ"
 
-#: ../src/stopwatch.vala:197 ../src/timer.vala:161
+#: ../src/stopwatch.vala:200 ../src/timer.vala:172
 msgid "Continue"
 msgstr "ต่อไป"
 
-#: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:204 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "ตั้งค่าใหม่"
 
-#: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "เริ่ม"
 
-#: ../src/timer.vala:115
+#: ../src/timer.vala:126
 msgid "Time is up!"
 msgstr "หมดเวลา!"
 
-#: ../src/timer.vala:116
+#: ../src/timer.vala:127
 msgid "Timer countdown finished"
 msgstr "นับเวลาถอยหลังเสร็จสิ้น"
 
-#: ../src/timer.vala:166 ../src/timer.vala:177 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:177 ../src/timer.vala:188 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "พัก"
 
-#: ../src/utils.vala:163
+#: ../src/utils.vala:153
 msgid "Mondays"
 msgstr "วันจันทร์"
 
-#: ../src/utils.vala:164
+#: ../src/utils.vala:154
 msgid "Tuesdays"
 msgstr "วันอังคาร"
 
-#: ../src/utils.vala:165
+#: ../src/utils.vala:155
 msgid "Wednesdays"
 msgstr "วันพุธ"
 
-#: ../src/utils.vala:166
+#: ../src/utils.vala:156
 msgid "Thursdays"
 msgstr "วันพฤหัสบดี"
 
-#: ../src/utils.vala:167
+#: ../src/utils.vala:157
 msgid "Fridays"
 msgstr "วันศุกร์"
 
-#: ../src/utils.vala:168
+#: ../src/utils.vala:158
 msgid "Saturdays"
 msgstr "วันเสาร์"
 
-#: ../src/utils.vala:169
+#: ../src/utils.vala:159
 msgid "Sundays"
 msgstr "วันอาทิตย์"
 
-#: ../src/utils.vala:249
+#: ../src/utils.vala:239
 msgid "Every Day"
 msgstr "ทุกวัน"
 
-#: ../src/utils.vala:251
+#: ../src/utils.vala:241
 msgid "Weekdays"
 msgstr "วันธรรมดา"
 
-#: ../src/utils.vala:253
+#: ../src/utils.vala:243
 msgid "Weekends"
 msgstr "สุดสัปดาห์"
 
-#: ../src/widgets.vala:461
-msgid "Cancel"
-msgstr "ยกเลิก"
+#: ../src/widgets.vala:483
+msgid "Delete"
+msgstr "ลบ"
 
-#: ../src/widgets.vala:473 ../src/widgets.vala:526
+#: ../src/widgets.vala:509 ../src/widgets.vala:664
 msgid "Click on items to select them"
 msgstr "คลิกเพื่อเลือกรายการ"
 
-#: ../src/widgets.vala:528
+#: ../src/widgets.vala:511
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "เลือก %d รายการ"
 
-#: ../src/widgets.vala:570
-msgid "Delete"
-msgstr "ลบ"
+#: ../src/widgets.vala:653
+msgid "Cancel"
+msgstr "ยกเลิก"
 
-#: ../src/window.vala:146
+#: ../src/window.vala:170
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "ไม่สามารถแสดงคู่มือวิธีใช้: %s"
 
-#: ../src/window.vala:176
+#: ../src/window.vala:200
 msgid "Utilities to help you with the time."
 msgstr "เครื่องมือสำหรับช่วยเกี่ยวกับเวลา"
 
-#: ../src/window.vala:181
+#: ../src/window.vala:205
 msgid "translator-credits"
 msgstr "Kallaya Songklang <songklang10@gmail.com>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:112 ../src/world.vala:115
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Tomorrow"
 msgstr "พรุ่งนี้"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:112 ../src/world.vala:115
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Yesterday"
 msgstr "เมื่อวานนี้"
 
-#: ../src/world.vala:272
+#: ../src/world.vala:250
 msgid "World"
 msgstr "โลก"
 
 #. namespace World
 #. namespace Clocks
-#: ../data/ui/alarmsetupdialog.ui.h:1
+#: ../data/gtk/menus.ui.h:1
+msgid "_Help"
+msgstr "_วิธีใช้"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "เ_กี่ยวกับ"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "_ออก"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "Select All"
+msgstr "เลือกทั้งหมด"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Select None"
+msgstr "ไม่เลือก"
+
+#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "เพิ่มเวลาทั่วโลกใหม่"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
+msgid "_Cancel"
+msgstr "_ยกเลิก"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "_Done"
 msgstr "เ_สร็จสิ้น"
 
-#: ../data/ui/alarmsetupdialog.ui.h:2
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "You already have an alarm for this time."
+msgstr "คุณมีการปลุกเตือน ณ เวลานี้อยู่ก่อนแล้ว"
+
+#: ../data/ui/alarmsetupdialog.ui.h:5
 msgid "Name"
 msgstr "ชื่อ"
 
-#: ../data/ui/alarmsetupdialog.ui.h:3
+#: ../data/ui/alarmsetupdialog.ui.h:6
 msgid "Repeat Every"
 msgstr "ซ้ำทุกๆ"
 
-#: ../data/ui/alarmsetupdialog.ui.h:4
+#: ../data/ui/alarmsetupdialog.ui.h:7
 msgid "Active"
-msgstr ""
+msgstr "ทำงาน"
 
 #: ../data/ui/alarm.ui.h:1
 msgid "Select <b>New</b> to add an alarm"
 msgstr "เลือก <b>สร้าง</b> เพื่อเพิ่มการปลุกเตือน"
 
-#: ../data/ui/menu.ui.h:1
-msgid "_New"
-msgstr "ใ_หม่"
+#: ../data/ui/worldlocationdialog.ui.h:3
+msgid "_Add"
+msgstr "เ_พิ่ม"
 
-#: ../data/ui/menu.ui.h:2
-msgid "_Help"
-msgstr "_วิธีใช้"
-
-#: ../data/ui/menu.ui.h:3
-msgid "_About"
-msgstr "เ_กี่ยวกับ"
-
-#: ../data/ui/menu.ui.h:4
-msgid "_Quit"
-msgstr "_ออก"
-
-#: ../data/ui/menu.ui.h:5
-msgid "Select All"
-msgstr "เลือกทั้งหมด"
-
-#: ../data/ui/menu.ui.h:6
-msgid "Select None"
-msgstr "ไม่เลือก"
-
-#: ../data/ui/worldlocationdialog.ui.h:1
-msgid "Add a New World Clock"
-msgstr "เพิ่มเวลาโลกใหม่"
-
-#: ../data/ui/worldlocationdialog.ui.h:2
+#: ../data/ui/worldlocationdialog.ui.h:4
 msgid "Search for a city:"
 msgstr "ค้นหาเมือง:"
 
 #: ../data/ui/world.ui.h:1
 msgid "Select <b>New</b> to add a world clock"
-msgstr "เลือก <b>สร้าง</b> เพื่อเพิ่มในเวลาโลก"
+msgstr "เลือก <b>สร้าง</b> เพื่อเพิ่มในนาฬิกาทั่วโลก"
 
 #: ../data/ui/world.ui.h:2
 msgid "Sunrise"
@@ -307,6 +345,9 @@ msgstr "ดวงอาทิตย์ขึ้น"
 #: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "ดวงอาทิตย์ตก"
+
+#~ msgid "_New"
+#~ msgstr "ใ_หม่"
 
 #~ msgid "Time"
 #~ msgstr "เวลา"
