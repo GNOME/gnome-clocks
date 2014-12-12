@@ -104,11 +104,13 @@ public class Item : Object, ContentItem {
             var t = local_time.get_day_of_year ();
 
             if (d < t) {
-                // If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-                return d == 1 ? _("Tomorrow") : _("Yesterday");
+                // If it is Jan 1st there, and not Jan 2nd here, then it must be
+                // Dec 31st here, so return "tomorrow"
+                return (d == 1 && t != 2) ? _("Tomorrow") : _("Yesterday");
             } else if (d > t) {
-                // If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-                return t == 1 ? _("Yesterday") : _("Tomorrow");
+                // If it is Jan 1st here, and not Jan 2nd there, then it must be
+                // Dec 31st there, so return "yesterday"
+                return (t == 1 && d != 2) ? _("Yesterday") : _("Tomorrow");
             } else {
                 return null;
             }
