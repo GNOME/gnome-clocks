@@ -29,7 +29,6 @@ searchprovider_DATA = data/org.gnome.clocks.search-provider.ini
 
 # gsettings
 gsettings_SCHEMAS = data/org.gnome.clocks.gschema.xml
-@INTLTOOL_XML_RULE@
 @GSETTINGS_RULES@
 
 # icons
@@ -157,16 +156,12 @@ EXTRA_DIST = \
 	$(images_DATA) \
 	$(resource_files) \
 	data/appdata/org.gnome.clocks.appdata.xml \
-	data/gnome-clocks.gresource.xml \
-	data/org.gnome.clocks.gschema.xml.in.in
+	data/gnome-clocks.gresource.xml
 
 CLEANFILES = \
 	$(appdata_DATA) \
 	$(applications_DATA) \
 	$(service_DATA)
-
-DISTCLEANFILES = \
-	$(gsettings_SCHEMAS)
 
 MAINTAINERCLEANFILES = \
 	ABOUT-NLS \
@@ -179,7 +174,6 @@ MAINTAINERCLEANFILES = \
 	install-sh \
 	ltmain.sh \
 	missing \
-	$(gsettings_SCHEMAS:.xml=.valid) \
 	$(VALA_SOURCES:.vala=.c) \
 	*.stamp
 

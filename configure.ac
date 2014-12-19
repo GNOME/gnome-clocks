@@ -16,7 +16,7 @@ AC_CONFIG_SRCDIR(src/main.vala)
 AM_INIT_AUTOMAKE([1.11 tar-ustar dist-xz no-dist-gzip foreign])
 m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
 
-IT_PROG_INTLTOOL(0.40)
+IT_PROG_INTLTOOL([0.50.1])
 AM_GNU_GETTEXT([external])
 AM_GNU_GETTEXT_VERSION([0.17])
 GETTEXT_PACKAGE=AC_PACKAGE_NAME
@@ -63,7 +63,7 @@ YELP_HELP_INIT
 
 AC_CONFIG_FILES([
     Makefile
-    data/org.gnome.clocks.gschema.xml.in
+    data/org.gnome.clocks.gschema.xml
     help/Makefile
     po/Makefile.in
 ])

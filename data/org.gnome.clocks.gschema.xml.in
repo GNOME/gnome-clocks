@@ -2,31 +2,31 @@
   <schema id="org.gnome.clocks" path="/org/gnome/clocks/">
     <key name="world-clocks" type="aa{sv}">
       <default>[]</default>
-      <_summary>Configured world clocks</_summary>
-      <_description>
+      <summary>Configured world clocks</summary>
+      <description>
         List of world clocks to show.
-      </_description>
+      </description>
     </key>
     <key name="alarms" type="aa{sv}">
       <default>[]</default>
-      <_summary>Configured alarms</_summary>
-      <_description>
+      <summary>Configured alarms</summary>
+      <description>
         List of alarms set.
-      </_description>
+      </description>
     </key>
     <key name="timer" type="u">
       <default>300</default>
-      <_summary>Timer</_summary>
-      <_description>
+      <summary>Timer</summary>
+      <description>
         Configured timer duration in seconds.
-      </_description>
+      </description>
     </key>
     <key name="geolocation" type="b">
       <default>true</default>
-      <_summary>Geolocation support</_summary>
-      <_description>
+      <summary>Geolocation support</summary>
+      <description>
         Turn geolocation support on and off.
-      </_description>
+      </description>
     </key>
   </schema>
   <enum id="org.gnome.clocks.panelid">
@@ -41,24 +41,24 @@
   <schema id="org.gnome.clocks.state.window" path="/org/gnome/clocks/state/window/">
     <key type="i" name="state">
       <default>0</default>
-      <_summary>Window state</_summary>
-      <_description>
+      <summary>Window state</summary>
+      <description>
         State of the window, e.g. maximized.
-      </_description>
+      </description>
     </key>
     <key type="(ii)" name="size">
       <default>(870, 690)</default>
-      <_summary>Window width and height</_summary>
-      <_description>
+      <summary>Window width and height</summary>
+      <description>
         Width and height of the window.
-      </_description>
+      </description>
     </key>
     <key enum="org.gnome.clocks.panelid" name="panel-id">
       <default>"world"</default>
-      <_summary>Panel state</_summary>
-      <_description>
+      <summary>Panel state</summary>
+      <description>
         Current clock panel.
-      </_description>
+      </description>
     </key>
   </schema>
 </schemalist>
