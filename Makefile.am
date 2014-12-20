@@ -22,6 +22,7 @@ data/org.gnome.clocks.service: data/org.gnome.clocks.service.in Makefile
 appdatadir = $(datadir)/appdata
 appdata_DATA = $(appdata_in_files:.xml.in=.xml)
 appdata_in_files = data/appdata/org.gnome.clocks.appdata.xml.in
+@INTLTOOL_XML_RULE@
 
 # gnome-shell search provider
 searchproviderdir = $(datadir)/gnome-shell/search-providers
