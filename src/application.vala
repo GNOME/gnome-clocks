@@ -76,6 +76,8 @@ public class Application : Gtk.Application {
     }
 
     protected override void activate () {
+        base.activate ();
+
         ensure_window ();
         window.present ();
     }
