@@ -2,15 +2,15 @@
 # Copyright (C) 2014 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # jorgtum <jorgtum@gmail.com>, 2014.
-# Daniel Martinez <entaltoaragon@gmail.com>, 2014.
+# Daniel Martinez <entaltoaragon@gmail.com>, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-11-10 07:01+0000\n"
-"PO-Revision-Date: 2014-11-10 11:19+0100\n"
+"POT-Creation-Date: 2015-01-22 19:06+0000\n"
+"PO-Revision-Date: 2015-01-22 20:22+0100\n"
 "Last-Translator: Daniel Martinez <entaltoaragon@gmail.com>\n"
 "Language-Team: Aragonés <softaragones@googlegroups.com>\n"
 "Language: an\n"
@@ -48,7 +48,7 @@ msgstr "Medir o tiempo con precisión fendo servir un cronómetro"
 msgid "Set timers to properly cook your food"
 msgstr "Configurar temporizadors ta cocinar adequadament"
 
-#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:193
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:197
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Reloches"
@@ -66,59 +66,60 @@ msgstr ""
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "Hora;Temporizador;Alarma;Hora mundial;Cronometro;Zona horaria;"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
 msgid "Configured world clocks"
 msgstr "Reloches d'o mundo configuraus"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
 msgid "List of world clocks to show."
 msgstr "Lista de reloches d'o mundo que amostrar"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
 msgid "Configured alarms"
 msgstr "Alarmas configuradas"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
 msgid "List of alarms set."
 msgstr "Lista d'alarmas establidas."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:114
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:114
 msgid "Timer"
 msgstr "Temporizador"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
+#: ../data/org.gnome.clocks.gschema.xml.in.h:6
 msgid "Configured timer duration in seconds."
 msgstr "Durada d'o temporizador configurau, en segundos."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+#: ../data/org.gnome.clocks.gschema.xml.in.h:7
 msgid "Geolocation support"
 msgstr "Suporte ta cheolocalización"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+#: ../data/org.gnome.clocks.gschema.xml.in.h:8
 msgid "Turn geolocation support on and off."
 msgstr "Enchegar u desenchegar o suporte de cheolocalización."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+#: ../data/org.gnome.clocks.gschema.xml.in.h:9
 msgid "Window state"
 msgstr "Estau d'a finestra"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
-msgid "State of the window: i.e. maximized."
-msgstr "Estau d'a finestra: eix. maximizada."
+#: ../data/org.gnome.clocks.gschema.xml.in.h:10
+#| msgid "State of the window: i.e. maximized."
+msgid "State of the window, e.g. maximized."
+msgstr "Estau d'a finestra, eix. maximizada."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+#: ../data/org.gnome.clocks.gschema.xml.in.h:11
 msgid "Window width and height"
 msgstr "Amplaria y altura d'a finestra"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+#: ../data/org.gnome.clocks.gschema.xml.in.h:12
 msgid "Width and height of the window."
 msgstr "Amplaria y altura t'a finestra."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
+#: ../data/org.gnome.clocks.gschema.xml.in.h:13
 msgid "Panel state"
 msgstr "Estau d'o panel"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
+#: ../data/org.gnome.clocks.gschema.xml.in.h:14
 msgid "Current clock panel."
 msgstr "Panel d'o reloch actual"
 
@@ -145,7 +146,7 @@ msgstr "Nueva alarma"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:559 ../src/world.vala:259
+#: ../src/alarm.vala:559 ../src/world.vala:262
 msgid "New"
 msgstr "Nuevo"
 
@@ -246,18 +247,20 @@ msgstr[1] "%d seleccionaus"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../src/window.vala:166
+#: ../src/window.vala:170
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "S'ha produciu un fallo en amostrar l'aduya: %s"
 
-#: ../src/window.vala:196
+#: ../src/window.vala:200
 msgid "Utilities to help you with the time."
 msgstr "Utilidatz ta aduyar-te con a hora."
 
-#: ../src/window.vala:201
+#: ../src/window.vala:205
 msgid "translator-credits"
-msgstr "Jorge Pérez Pérez <jorgtum@gmail.com>, 2014"
+msgstr ""
+"Jorge Pérez Pérez <jorgtum@gmail.com>, 2014\n"
+"Daniel Martinez Cucalón <dmartinez@src.gnome.org>, 2015"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
 #: ../src/world.vala:106 ../src/world.vala:109
@@ -269,7 +272,7 @@ msgstr "Maitín"
 msgid "Yesterday"
 msgstr "Ayere"
 
-#: ../src/world.vala:247
+#: ../src/world.vala:250
 msgid "World"
 msgstr "Mundo"
 
@@ -300,7 +303,6 @@ msgid "Add a New World Clock"
 msgstr "Adhibir un nuevo reloch mundial"
 
 #: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
-#, fuzzy
 #| msgid "Cancel"
 msgid "_Cancel"
 msgstr "_Cancelar"
@@ -310,7 +312,6 @@ msgid "_Done"
 msgstr "_Feito"
 
 #: ../data/ui/alarmsetupdialog.ui.h:4
-#, fuzzy
 msgid "You already have an alarm for this time."
 msgstr "Ya tiene una alarma ta ista hora."
 
@@ -331,7 +332,6 @@ msgid "Select <b>New</b> to add an alarm"
 msgstr "Selecciona <b>Nuevo</b> ta adhibir una alarma"
 
 #: ../data/ui/worldlocationdialog.ui.h:3
-#, fuzzy
 msgid "_Add"
 msgstr "_Adhibir"
 
