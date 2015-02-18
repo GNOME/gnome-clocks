@@ -291,6 +291,7 @@ private class IconView : Gtk.IconView {
         model = new Gtk.ListStore (Column.COLUMNS, typeof (bool), typeof (ContentItem));
 
         get_style_context ().add_class ("clocks-tiles-view");
+        get_style_context ().add_class ("content-view");
         set_item_padding (0);
         set_margin (12);
 
