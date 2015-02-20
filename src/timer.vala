@@ -145,6 +145,44 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     [GtkCallback]
+    private int input_minutes (Gtk.SpinButton spin_button, out double new_value) {
+        int entered_value = int.parse (spin_button.get_text ());
+
+        // if input entered is not within bounds then it will carry the
+        // extra portion to hours field
+        if (entered_value > 59) {
+            int current_hours = h_spinbutton.get_value_as_int ();
+            if (current_hours < 99) {
+                h_spinbutton.set_value (current_hours + entered_value / 60);
+                m_spinbutton.set_value (entered_value % 60);
+            }
+        }
+        return 0;
+    }
+
+    [GtkCallback]
+    private int input_seconds (Gtk.SpinButton spin_button, out double new_value) {
+        int entered_value = int.parse (spin_button.get_text ());
+
+        // if input entered is not within bounds then it will carry the
+        // extra portion to minutes field and hours field accordingly
+        if (entered_value > 59) {
+            int current_minutes = m_spinbutton.get_value_as_int ();
+            int new_minutes = current_minutes + entered_value / 60;
+            if (new_minutes > 59) {
+                int current_hours = h_spinbutton.get_value_as_int ();
+                if (current_hours < 99) {
+                    h_spinbutton.set_value (current_hours + new_minutes / 60);
+                    new_minutes = new_minutes % 60;
+                }
+            }
+            m_spinbutton.set_value (new_minutes);
+            s_spinbutton.set_value (entered_value % 60);
+        }
+        return 0;
+    }
+
+    [GtkCallback]
     private void update_start_button () {
         var h = h_spinbutton.get_value_as_int ();
         var m = m_spinbutton.get_value_as_int ();

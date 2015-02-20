@@ -112,6 +112,7 @@
                     <property name="wrap">True</property>
                     <signal name="output" handler="show_leading_zeros" swapped="no"/>
                     <signal name="changed" handler="update_start_button" swapped="no"/>
+                    <signal name="input" handler="input_minutes" swapped="no"/>
                     <style>
                       <class name="clocks-spinbutton"/>
                     </style>
@@ -154,6 +155,7 @@
                     <property name="wrap">True</property>
                     <signal name="output" handler="show_leading_zeros" swapped="no"/>
                     <signal name="changed" handler="update_start_button" swapped="no"/>
+                    <signal name="input" handler="input_seconds" swapped="no"/>
                     <style>
                       <class name="clocks-spinbutton"/>
                     </style>
