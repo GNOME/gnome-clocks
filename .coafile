@@ -1,0 +1,15 @@
+Default.enabled = false
+ValaCheck.enabled = true
+
+[Default]
+files = src/*.vala
+
+[ValaCheck]
+bears = SpaceConsistencyBear, LineLengthBear
+use_spaces = True
+max_line_length = 120
+
+[TODOS]
+bears = KeywordBear
+ci_keywords = TODO, FIXME
+cs_keywords =
