@@ -80,7 +80,11 @@ private class TitleRenderer : Gtk.CellRendererText {
         ICON_SIZE = 18;
     }
 
-    public override void render (Cairo.Context cr, Gtk.Widget widget, Gdk.Rectangle background_area, Gdk.Rectangle cell_area, Gtk.CellRendererState flags) {
+    public override void render (Cairo.Context cr,
+                                 Gtk.Widget widget,
+                                 Gdk.Rectangle background_area,
+                                 Gdk.Rectangle cell_area,
+                                 Gtk.CellRendererState flags) {
         base.render (cr, widget, cell_area, cell_area, flags);
 
         if (title_icon != null) {
@@ -139,7 +143,11 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
     public DigitalClockRenderer () {
     }
 
-    public override void render (Cairo.Context cr, Gtk.Widget widget, Gdk.Rectangle background_area, Gdk.Rectangle cell_area, Gtk.CellRendererState flags) {
+    public override void render (Cairo.Context cr,
+                                 Gtk.Widget widget,
+                                 Gdk.Rectangle background_area,
+                                 Gdk.Rectangle cell_area,
+                                 Gtk.CellRendererState flags) {
         var context = widget.get_style_context ();
 
         context.save ();
@@ -248,7 +256,10 @@ public interface ContentItem : GLib.Object {
     public abstract string title_icon { get; set; default = null; }
     public abstract bool selectable { get; set; default = true; }
 
-    public abstract void get_thumb_properties (out string text, out string subtext, out Gdk.Pixbuf? pixbuf, out string css_class);
+    public abstract void get_thumb_properties (out string text,
+                                               out string subtext,
+                                               out Gdk.Pixbuf? pixbuf,
+                                               out string css_class);
 }
 
 private class IconView : Gtk.IconView {
@@ -296,7 +307,9 @@ private class IconView : Gtk.IconView {
         set_margin (12);
 
         var tile_width = DigitalClockRenderer.TILE_SIZE + 2 * DigitalClockRenderer.TILE_MARGIN;
-        var tile_height = DigitalClockRenderer.TILE_SIZE + DigitalClockRenderer.TILE_MARGIN + DigitalClockRenderer.TILE_MARGIN_BOTTOM;
+        var tile_height = DigitalClockRenderer.TILE_SIZE +
+                          DigitalClockRenderer.TILE_MARGIN +
+                          DigitalClockRenderer.TILE_MARGIN_BOTTOM;
 
         thumb_renderer = new DigitalClockRenderer ();
         thumb_renderer.set_alignment (0.5f, 0.5f);

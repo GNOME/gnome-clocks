@@ -223,7 +223,10 @@ private class Item : Object, ContentItem {
         return state != last_state;
     }
 
-    public void get_thumb_properties (out string text, out string subtext, out Gdk.Pixbuf? pixbuf, out string css_class) {
+    public void get_thumb_properties (out string text,
+                                      out string subtext,
+                                      out Gdk.Pixbuf? pixbuf,
+                                      out string css_class) {
         if (state == State.SNOOZING) {
             text = snooze_time_label;
             subtext = "(%s)".printf(time_label);

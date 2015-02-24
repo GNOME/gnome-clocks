@@ -167,7 +167,8 @@ public class Info : Object {
         double lon1 = deg_to_rad (longitude1);
         double lon2 = deg_to_rad (longitude2);
 
-        return Math.acos (Math.cos (lat1) * Math.cos (lat2) * Math.cos (lon1 - lon2) + Math.sin (lat1) * Math.sin (lat2)) * earth_radius;
+        return Math.acos (Math.cos (lat1) * Math.cos (lat2) * Math.cos (lon1 - lon2) +
+                          Math.sin (lat1) * Math.sin (lat2)) * earth_radius;
     }
 
     private async void search_locations (GWeather.Location location) {

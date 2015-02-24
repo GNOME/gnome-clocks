@@ -140,7 +140,10 @@ public class Item : Object, ContentItem {
                                                    enabled_providers: GWeather.Provider.NONE);
     }
 
-    public void get_thumb_properties (out string text, out string subtext, out Gdk.Pixbuf? pixbuf, out string css_class) {
+    public void get_thumb_properties (out string text,
+                                      out string subtext,
+                                      out Gdk.Pixbuf? pixbuf,
+                                      out string css_class) {
         text = time_label;
         subtext = day_label;
         if (is_daytime) {
@@ -204,7 +207,8 @@ private class LocationDialog : Gtk.Dialog {
                 t = l.get_timezone ();
 
                 if (t == null) {
-                    GLib.warning ("Timezone not defined for %s. This is a bug in libgweather database", l.get_city_name ());
+                    GLib.warning ("Timezone not defined for %s. This is a bug in libgweather database",
+                                  l.get_city_name ());
                 }
             }
         }

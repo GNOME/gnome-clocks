@@ -44,7 +44,11 @@ public class Frame : AnalogFrame {
         var color = context.get_color (Gtk.StateFlags.NORMAL);
         var progress = ((double) seconds + millisecs) / 60;
         if (progress > 0) {
-            cr.arc (center_x, center_y, radius - LINE_WIDTH / 2, 1.5  * Math.PI, (1.5 + progress * 2 ) * Math.PI);
+            cr.arc (center_x,
+                    center_y,
+                    radius - LINE_WIDTH / 2,
+                    1.5  * Math.PI,
+                    (1.5 + progress * 2 ) * Math.PI);
             Gdk.cairo_set_source_rgba (cr, color);
             cr.stroke ();
         }
@@ -58,7 +62,11 @@ public class Frame : AnalogFrame {
         color = context.get_color (Gtk.StateFlags.NORMAL);
         progress = millisecs;
         if (progress > 0) {
-            cr.arc (center_x, center_y, radius - LINE_WIDTH / 2, (1.5 + progress * 2 ) * Math.PI - 0.1, (1.5 + progress * 2 ) * Math.PI + 0.1);
+            cr.arc (center_x,
+                    center_y,
+                    radius - LINE_WIDTH / 2,
+                    (1.5 + progress * 2 ) * Math.PI - 0.1,
+                    (1.5 + progress * 2 ) * Math.PI + 0.1);
             Gdk.cairo_set_source_rgba (cr, color);
             cr.stroke ();
         }
