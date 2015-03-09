@@ -152,12 +152,10 @@ public class Face : Gtk.Stack, Clocks.Clock {
         // extra portion to hours field
         if (entered_value > 59) {
             int current_hours = h_spinbutton.get_value_as_int ();
-            if (current_hours < 99) {
-                h_spinbutton.set_value (current_hours + entered_value / 60);
-                m_spinbutton.set_value (entered_value % 60);
-            }
+            h_spinbutton.set_value (double.min (99, current_hours + entered_value / 60));
         }
-        return 0;
+        new_value = entered_value % 60;
+        return 1;
     }
 
     [GtkCallback]
@@ -171,15 +169,13 @@ public class Face : Gtk.Stack, Clocks.Clock {
             int new_minutes = current_minutes + entered_value / 60;
             if (new_minutes > 59) {
                 int current_hours = h_spinbutton.get_value_as_int ();
-                if (current_hours < 99) {
-                    h_spinbutton.set_value (current_hours + new_minutes / 60);
-                    new_minutes = new_minutes % 60;
-                }
+                h_spinbutton.set_value (double.min (99, current_hours + new_minutes / 60));
+                new_minutes = new_minutes % 60;
             }
             m_spinbutton.set_value (new_minutes);
-            s_spinbutton.set_value (entered_value % 60);
         }
-        return 0;
+        new_value = entered_value % 60;
+        return 1;
     }
 
     [GtkCallback]
