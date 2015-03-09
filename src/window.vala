@@ -143,8 +143,14 @@ public class Window : Gtk.ApplicationWindow {
 
     public override bool key_press_event (Gdk.EventKey event) {
         uint keyval;
-        if (((Gdk.Event*)(&event))->get_keyval (out keyval) && keyval == Gdk.Key.Escape) {
-            return ((Clock) stack.visible_child).escape_pressed ();
+        bool handled = false;
+
+        if (((Gdk.Event)(event)).get_keyval (out keyval) && keyval == Gdk.Key.Escape) {
+            handled = ((Clock) stack.visible_child).escape_pressed ();
+        }
+
+        if (handled) {
+            return true;
         }
 
         return base.key_press_event (event);

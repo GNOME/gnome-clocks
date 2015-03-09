@@ -438,6 +438,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     public bool escape_pressed () {
+        if (visible_child == standalone) {
+            reset_view ();
+            return true;
+        }
+
         return content_view.escape_pressed ();
     }
 
