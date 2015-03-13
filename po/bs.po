@@ -1,0 +1,352 @@
+# Bosnian translation for bosnianuniversetranslation
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# This file is distributed under the same license as the bosnianuniversetranslation package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bosnianuniversetranslation\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-02-27 07:13+0000\n"
+"PO-Revision-Date: 2015-02-28 14:16+0100\n"
+"Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Launchpad (build 17341)\n"
+"X-Launchpad-Export-Date: 2015-02-15 06:19+0000\n"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"Jednostavan i elegantan sat aplikacije. To uključuje i svjetske satove, "
+"alarmi, štopericu i tajmer."
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+msgid "Goals:"
+msgstr "Ciljevi:"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+msgid "Show the time in different cities around the world"
+msgstr "Pokaži vrijeme u različitim gradovima širom svijeta"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+msgid "Set alarms to wake you up"
+msgstr "Postavite alarmi da vas probudi"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "Mjeri proteklo vrijeme uz preciznu štopericu"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+msgid "Set timers to properly cook your food"
+msgstr "Postavljanje tajmeraza  pravilno kuhanje hrane"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:197
+#: ../data/ui/window.ui.h:1
+msgid "Clocks"
+msgstr "Satovi"
+
+#: ../data/org.gnome.clocks.desktop.in.h:2
+msgid "GNOME Clocks"
+msgstr "GNOME satovi"
+
+#: ../data/org.gnome.clocks.desktop.in.h:3
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "Satovi za svjetsko vrijeme, plus alarmi, štoperica i tajmer"
+
+#: ../data/org.gnome.clocks.desktop.in.h:4
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr "vrijeme;tajmer;alarm;svjetski sat;štoperica;vremenska zona;"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+msgid "Configured world clocks"
+msgstr "Podesi svjetski sat"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+msgid "List of world clocks to show."
+msgstr "Prikaži listu svjetskih satova."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+msgid "Configured alarms"
+msgstr "Podešeni alarmi"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+msgid "List of alarms set."
+msgstr "Lista podešenih alarma."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:114
+msgid "Timer"
+msgstr "Tajmer"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "Podešeni tajmeri u sekundama."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:7
+msgid "Geolocation support"
+msgstr "Podrška geolokacije"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr "Isključi ili uključi geolokaciju."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:9
+msgid "Window state"
+msgstr "Stanje prozora"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:10
+msgid "State of the window, e.g. maximized."
+msgstr "Stanje prozora: npr. maksimiziran."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:11
+msgid "Window width and height"
+msgstr "Širina prozora i visina"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:12
+msgid "Width and height of the window."
+msgstr "Širina i visina prozora."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:13
+msgid "Panel state"
+msgstr "Stanje ploče"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:14
+msgid "Current clock panel."
+msgstr "Trenutno stanje sata."
+
+#: ../src/alarm.vala:115 ../src/alarm.vala:366 ../src/alarm.vala:534
+msgid "Alarm"
+msgstr "Alarm"
+
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:190
+#: ../data/ui/alarmringing.ui.h:1
+msgid "Stop"
+msgstr "Zaustavljen"
+
+#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
+msgid "Snooze"
+msgstr "Drijemati"
+
+#: ../src/alarm.vala:308
+msgid "Edit Alarm"
+msgstr "Izmijeni alarm"
+
+#: ../src/alarm.vala:308
+msgid "New Alarm"
+msgstr "Novi alarm"
+
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:559 ../src/world.vala:262
+msgid "New"
+msgstr "Novi"
+
+#: ../src/application.vala:23
+msgid "Print version information and exit"
+msgstr "Ispiši podatke o izdanju i izađi"
+
+#: ../src/stopwatch.vala:130
+msgid "Stopwatch"
+msgstr "Štoperica"
+
+#: ../src/stopwatch.vala:193
+msgid "Lap"
+msgstr "Krug"
+
+#: ../src/stopwatch.vala:200 ../src/timer.vala:210
+msgid "Continue"
+msgstr "Nastavi"
+
+#: ../src/stopwatch.vala:204 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3
+msgid "Reset"
+msgstr "Ponovo pokreni"
+
+#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:1
+#: ../data/ui/timer.ui.h:1
+msgid "Start"
+msgstr "Pokreni"
+
+#: ../src/timer.vala:126
+msgid "Time is up!"
+msgstr "Vrijeme je isteklo!"
+
+#: ../src/timer.vala:127
+msgid "Timer countdown finished"
+msgstr "Odbrojavanje tajmera je završeno"
+
+#: ../src/timer.vala:215 ../src/timer.vala:226 ../data/ui/timer.ui.h:2
+msgid "Pause"
+msgstr "Pauza"
+
+#: ../src/utils.vala:153
+msgid "Mondays"
+msgstr "Ponedjeljkom"
+
+#: ../src/utils.vala:154
+msgid "Tuesdays"
+msgstr "Utorkom"
+
+#: ../src/utils.vala:155
+msgid "Wednesdays"
+msgstr "Srijedom"
+
+#: ../src/utils.vala:156
+msgid "Thursdays"
+msgstr "Četvrtkom"
+
+#: ../src/utils.vala:157
+msgid "Fridays"
+msgstr "Petkom"
+
+#: ../src/utils.vala:158
+msgid "Saturdays"
+msgstr "Subotom"
+
+#: ../src/utils.vala:159
+msgid "Sundays"
+msgstr "Nedjeljom"
+
+#: ../src/utils.vala:239
+msgid "Every Day"
+msgstr "Svaki dan"
+
+#: ../src/utils.vala:241
+msgid "Weekdays"
+msgstr "Radnim danima"
+
+#: ../src/utils.vala:243
+msgid "Weekends"
+msgstr "Vikendom"
+
+#: ../src/widgets.vala:484
+msgid "Delete"
+msgstr "Obriši"
+
+#: ../src/widgets.vala:510 ../src/widgets.vala:665
+msgid "Click on items to select them"
+msgstr "Kliknite na stavke da ih označite"
+
+#: ../src/widgets.vala:512
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d odabran"
+msgstr[1] "%d odabrana"
+msgstr[2] "%d odabrano"
+
+#: ../src/widgets.vala:654
+msgid "Cancel"
+msgstr "Otkaži"
+
+#: ../src/window.vala:170
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Nisam uspio prikazati pomoć: %s"
+
+#: ../src/window.vala:200
+msgid "Utilities to help you with the time."
+msgstr "Korisni programi da Vam pomognu sa vremenom."
+
+#: ../src/window.vala:205
+msgid "translator-credits"
+msgstr ""
+"   Dijelila Halać https://launchpad.net/~delila94\n"
+"  Dženana https://launchpad.net/~dkapetanov1\n"
+"  Samir Ribić https://launchpad.net/~megaribi"
+
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:106 ../src/world.vala:109
+msgid "Tomorrow"
+msgstr "Sutra"
+
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:106 ../src/world.vala:109
+msgid "Yesterday"
+msgstr "Juče"
+
+#: ../src/world.vala:250
+msgid "World"
+msgstr "Svijet"
+
+#. namespace World
+#. namespace Clocks
+#: ../data/gtk/menus.ui.h:1
+msgid "_Help"
+msgstr "_Pomoć"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "_O programu"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "_Izlaz"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "Select All"
+msgstr "Izaberi sve"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Select None"
+msgstr "Nemoj ništa izabrati"
+
+#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Dodaj Novi svjetski sat"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
+msgid "_Cancel"
+msgstr "_Otkaži"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
+msgid "_Done"
+msgstr "_Učinjeno"
+
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "You already have an alarm for this time."
+msgstr "Vi već imate alarm za to vrijeme."
+
+#: ../data/ui/alarmsetupdialog.ui.h:5
+msgid "Name"
+msgstr "Ime"
+
+#: ../data/ui/alarmsetupdialog.ui.h:6
+msgid "Repeat Every"
+msgstr "Ponavljaj svakih"
+
+#: ../data/ui/alarmsetupdialog.ui.h:7
+msgid "Active"
+msgstr "Aktivno"
+
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Označi <b>Novi</b> da dodaš alarm"
+
+#: ../data/ui/worldlocationdialog.ui.h:3
+msgid "_Add"
+msgstr "_Dodaj"
+
+#: ../data/ui/worldlocationdialog.ui.h:4
+msgid "Search for a city:"
+msgstr "Traži grad:"
+
+#: ../data/ui/world.ui.h:1
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Označi <b>Novi</b> da dodaš novi svjetski sat"
+
+#: ../data/ui/world.ui.h:2
+msgid "Sunrise"
+msgstr "Izlazak sunca"
+
+#: ../data/ui/world.ui.h:3
+msgid "Sunset"
+msgstr "Zalazak sunca"
