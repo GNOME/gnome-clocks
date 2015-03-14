@@ -297,11 +297,9 @@ private class SetupDialog : Gtk.Dialog {
     [GtkChild]
     private Gtk.Box day_buttons_box;
     [GtkChild]
-    private Gtk.Alignment am_pm_alignment;
+    private Gtk.Stack am_pm_stack;
     [GtkChild]
     private Gtk.Revealer label_revealer;
-    [GtkChild]
-    private Gtk.SizeGroup am_pm_sizegroup;
     private List<Item> alarms_list;
 
     public SetupDialog (Gtk.Window parent, Item? alarm, List<Item> alarms) {
@@ -345,9 +343,12 @@ private class SetupDialog : Gtk.Dialog {
             h_spinbutton.set_range (0, 23);
         } else {
             h_spinbutton.set_range (1, 12);
-            am_pm_sizegroup.add_widget (am_pm_button);
-            am_pm_alignment.remove (am_pm_alignment.get_child ());
-            am_pm_alignment.add (am_pm_button);
+            am_pm_button.hexpand = false;
+            am_pm_button.vexpand = false;
+            am_pm_button.halign = Gtk.Align.CENTER;
+            am_pm_button.valign = Gtk.Align.CENTER;
+            am_pm_stack.add (am_pm_button);
+            am_pm_stack.visible_child = am_pm_button;
         }
 
         set_from_alarm (alarm);
