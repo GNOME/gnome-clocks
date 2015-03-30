@@ -43,35 +43,19 @@ icon48dir = $(datadir)/icons/hicolor/48x48/apps
 icon48_DATA = data/icons/hicolor/48x48/apps/gnome-clocks.png
 icon256dir = $(datadir)/icons/hicolor/256x256/apps
 icon256_DATA = data/icons/hicolor/256x256/apps/gnome-clocks.png
+iconsymbolicdir = $(datadir)/icons/hicolor/symbolic/apps
+iconsymbolic_DATA = data/icons/hicolor/symbolic/apps/gnome-clocks-symbolic.svg
 icon_files = \
 	$(icon16_DATA) \
 	$(icon22_DATA) \
 	$(icon32_DATA) \
 	$(icon48_DATA) \
 	$(icon256_DATA) \
+	$(iconsymbolic_DATA) \
 	data/icons/hicolor/gnome-clocks.svg
 
-hcicon16dir = $(datadir)/icons/HighContrast/16x16/apps
-hcicon16_DATA = data/icons/HighContrast/16x16/apps/gnome-clocks.png
-hcicon22dir = $(datadir)/icons/HighContrast/22x22/apps
-hcicon22_DATA = data/icons/HighContrast/22x22/apps/gnome-clocks.png
-hcicon24dir = $(datadir)/icons/HighContrast/24x24/apps
-hcicon24_DATA = data/icons/HighContrast/24x24/apps/gnome-clocks.png
-hcicon32dir = $(datadir)/icons/HighContrast/32x32/apps
-hcicon32_DATA = data/icons/HighContrast/32x32/apps/gnome-clocks.png
-hcicon48dir = $(datadir)/icons/HighContrast/48x48/apps
-hcicon48_DATA = data/icons/HighContrast/48x48/apps/gnome-clocks.png
-hcicon256dir = $(datadir)/icons/HighContrast/256x256/apps
-hcicon256_DATA = data/icons/HighContrast/256x256/apps/gnome-clocks.png
-hcicon_files = \
-	$(hcicon16_DATA) \
-	$(hcicon22_DATA) \
-	$(hcicon24_DATA) \
-	$(hcicon32_DATA) \
-	$(hcicon48_DATA) \
-	$(hcicon256_DATA)
 
-gtk_update_icon_cache = gtk-update-icon-cache -f -t $(datadir)/icons/hicolor; gtk-update-icon-cache -f -t $(datadir)/icons/HighContrast
+gtk_update_icon_cache = gtk-update-icon-cache -f -t $(datadir)/icons/hicolor
 
 install-data-hook: update-icon-cache
 uninstall-hook: update-icon-cache
@@ -153,7 +137,6 @@ EXTRA_DIST = \
 	$(appdata_in_files) \
 	$(searchprovider_DATA) \
 	$(icon_files) \
-	$(hcicon_files) \
 	$(images_DATA) \
 	$(resource_files) \
 	data/appdata/org.gnome.clocks.appdata.xml \
