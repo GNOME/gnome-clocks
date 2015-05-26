@@ -112,11 +112,11 @@ private class TitleRenderer : Gtk.CellRendererText {
 
             Gtk.IconTheme icon_theme = Gtk.IconTheme.get_for_screen (Gdk.Screen.get_default ());
             try {
-                Gtk.IconInfo? icon_info = icon_theme.lookup_icon (title_icon, ICON_SIZE, 0);
+                Gtk.IconInfo? icon_info = icon_theme.lookup_icon_for_scale (title_icon, ICON_SIZE, widget.scale_factor, 0);
                 assert (icon_info != null);
 
-                Gdk.Pixbuf pixbuf = icon_info.load_icon ();
-                context.render_icon (cr, pixbuf, x, y);
+                Cairo.Surface surface = icon_info.load_surface (widget.get_window ());
+                Gtk.render_icon_surface (context, cr, surface, x, y);
             } catch (Error e) {
                 warning (e.message);
             }
