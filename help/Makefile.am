@@ -18,6 +18,6 @@ HELP_FILES = \
 	index.page \
 	legal.xml
 
-HELP_LINGUAS = cs de el es fi fr gl hu id pt_BR ru
+HELP_LINGUAS = ca cs de el es fi fr gl hu id pt_BR ru
 
 -include $(top_srcdir)/git.mk
