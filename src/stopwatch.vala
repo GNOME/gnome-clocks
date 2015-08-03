@@ -26,6 +26,7 @@ public class Frame : AnalogFrame {
     public void update (int s, double ms) {
         seconds = s;
         millisecs = ms;
+        queue_draw ();
     }
 
     public void reset () {
