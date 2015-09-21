@@ -75,7 +75,6 @@ images_DATA = \
 	data/images/night.png
 
 AM_CPPFLAGS = \
-	-I$(top_srcdir)/egg-list-box \
 	-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE \
 	-DGNOME_DESKTOP_USE_UNSTABLE_API \
 	-DGETTEXT_PACKAGE=\""$(GETTEXT_PACKAGE)"\" \
@@ -84,7 +83,6 @@ AM_CPPFLAGS = \
 
 AM_VALAFLAGS = \
 	--target-glib=2.38 \
-	--vapidir=egg-list-box \
 	--pkg gio-2.0 \
 	--pkg gtk+-3.0 \
 	--pkg gweather-3.0 \
