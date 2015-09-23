@@ -1,14 +1,14 @@
 # Irish translations for gnome-clocks package.
 # Copyright (C) 2013 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-clocks package.
-# Seán de Búrca <leftmostcat@gmail.com>, 2013.
+# Seán de Búrca <leftmostcat@gmail.com>, 2013-2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-06 08:02-0600\n"
-"PO-Revision-Date: 2013-08-06 08:30-0600\n"
+"POT-Creation-Date: 2015-09-23 15:13-0600\n"
+"PO-Revision-Date: 2015-09-23 15:19-0600\n"
 "Last-Translator: Seán de Búrca <leftmostcat@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
 "Language: ga\n"
@@ -18,20 +18,46 @@ msgstr ""
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : "
 "4;\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:179
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+msgid "Goals:"
+msgstr ""
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+msgid "Show the time in different cities around the world"
+msgstr ""
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+msgid "Set alarms to wake you up"
+msgstr ""
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr ""
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+msgid "Set timers to properly cook your food"
+msgstr ""
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:203
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Cloig"
 
-#: ../data/gnome-clocks.desktop.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "Cloig GNOME"
 
-#: ../data/gnome-clocks.desktop.in.h:3
+#: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr ""
 
-#: ../data/gnome-clocks.desktop.in.h:4
+#: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
 
@@ -51,7 +77,7 @@ msgstr ""
 msgid "List of alarms set."
 msgstr ""
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:50
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:114
 msgid "Timer"
 msgstr "Amadóir"
 
@@ -60,134 +86,151 @@ msgid "Configured timer duration in seconds."
 msgstr ""
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:7
-msgid "Window width and height"
+msgid "Geolocation support"
 msgstr ""
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:8
-msgid "Width and height of the window."
+msgid "Turn geolocation support on and off."
 msgstr ""
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:9
-msgid "Panel state"
+msgid "Window state"
 msgstr ""
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:10
+msgid "State of the window, e.g. maximized."
+msgstr ""
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:11
+msgid "Window width and height"
+msgstr ""
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:12
+msgid "Width and height of the window."
+msgstr ""
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:13
+msgid "Panel state"
+msgstr ""
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:14
 msgid "Current clock panel."
 msgstr ""
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:321 ../src/alarm.vala:472
+#: ../src/alarm.vala:115 ../src/alarm.vala:370 ../src/alarm.vala:538
 msgid "Alarm"
 msgstr "Aláram"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:122 ../data/ui/alarm.ui.h:2
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:199
+#: ../data/ui/alarmringing.ui.h:1
 msgid "Stop"
 msgstr "Stad"
 
-#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
+#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
 msgid "Snooze"
 msgstr "Cnaipe Suain"
 
-#: ../src/alarm.vala:276
+#: ../src/alarm.vala:309
 msgid "Edit Alarm"
 msgstr "Cuir Aláram in Eagar"
 
-#: ../src/alarm.vala:276
+#: ../src/alarm.vala:309
 msgid "New Alarm"
 msgstr "Aláram Nua"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:478 ../src/world.vala:261
+#: ../src/alarm.vala:563 ../src/world.vala:266
 msgid "New"
 msgstr "Nua"
 
-#: ../src/application.vala:24
+#: ../src/application.vala:23
 msgid "Print version information and exit"
 msgstr ""
 
-#: ../src/stopwatch.vala:51
+#: ../src/stopwatch.vala:139
 msgid "Stopwatch"
 msgstr "Staduaireadóir"
 
-#: ../src/stopwatch.vala:125 ../data/ui/stopwatch.ui.h:3
+#: ../src/stopwatch.vala:202
 msgid "Lap"
 msgstr "Cuairt"
 
-#: ../src/stopwatch.vala:132 ../src/timer.vala:89
+#: ../src/stopwatch.vala:209 ../src/timer.vala:206
 msgid "Continue"
 msgstr "Ar Aghaidh"
 
-#: ../src/stopwatch.vala:136 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:213 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Athshocraigh"
 
-#: ../src/stopwatch.vala:144 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:221 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Tosaigh"
 
-#: ../src/timer.vala:54
+#: ../src/timer.vala:126
 msgid "Time is up!"
-msgstr ""
+msgstr "Am istigh!"
 
-#: ../src/timer.vala:54
+#: ../src/timer.vala:127
 msgid "Timer countdown finished"
 msgstr ""
 
-#: ../src/timer.vala:94 ../src/timer.vala:104 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:211 ../src/timer.vala:222 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Sos"
 
-#: ../src/utils.vala:163
+#: ../src/utils.vala:153
 msgid "Mondays"
 msgstr ""
 
-#: ../src/utils.vala:164
+#: ../src/utils.vala:154
 msgid "Tuesdays"
 msgstr ""
 
-#: ../src/utils.vala:165
+#: ../src/utils.vala:155
 msgid "Wednesdays"
 msgstr ""
 
-#: ../src/utils.vala:166
+#: ../src/utils.vala:156
 msgid "Thursdays"
 msgstr ""
 
-#: ../src/utils.vala:167
+#: ../src/utils.vala:157
 msgid "Fridays"
 msgstr ""
 
-#: ../src/utils.vala:168
+#: ../src/utils.vala:158
 msgid "Saturdays"
 msgstr ""
 
-#: ../src/utils.vala:169
+#: ../src/utils.vala:159
 msgid "Sundays"
 msgstr ""
 
-#: ../src/utils.vala:249
+#: ../src/utils.vala:239
 msgid "Every Day"
 msgstr "Gach Lá"
 
-#: ../src/utils.vala:251
+#: ../src/utils.vala:241
 msgid "Weekdays"
 msgstr ""
 
-#: ../src/utils.vala:253
+#: ../src/utils.vala:243
 msgid "Weekends"
 msgstr ""
 
-#: ../src/widgets.vala:375
-msgid "Cancel"
-msgstr "Cealaigh"
+#: ../src/widgets.vala:497
+msgid "Delete"
+msgstr "Scrios"
 
-#: ../src/widgets.vala:389 ../src/widgets.vala:443
+#: ../src/widgets.vala:523 ../src/widgets.vala:678
 msgid "Click on items to select them"
 msgstr "Cliceáil ar mhíreanna chun iad a roghnú"
 
-#: ../src/widgets.vala:445
+#: ../src/widgets.vala:525
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -197,87 +240,96 @@ msgstr[2] "%d roghnaithe"
 msgstr[3] "%d roghnaithe"
 msgstr[4] "%d roghnaithe"
 
-#: ../src/widgets.vala:480
-msgid "Delete"
-msgstr "Scrios"
+#: ../src/widgets.vala:667
+msgid "Cancel"
+msgstr "Cealaigh"
 
-#: ../src/window.vala:182
+#: ../src/window.vala:176
+#, c-format
+msgid "Failed to show help: %s"
+msgstr ""
+
+#: ../src/window.vala:206
 msgid "Utilities to help you with the time."
 msgstr ""
 
-#: ../src/window.vala:187
+#: ../src/window.vala:211
 msgid "translator-credits"
 msgstr "Seán de Búrca <leftmostcat@gmail.com>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:93 ../src/world.vala:96
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Tomorrow"
 msgstr "Amárach"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:93 ../src/world.vala:96
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Yesterday"
 msgstr "Inné"
 
-#: ../src/world.vala:252
+#: ../src/world.vala:254
 msgid "World"
 msgstr "Domhan"
 
 #. namespace World
 #. namespace Clocks
+#: ../data/gtk/menus.ui.h:1
+msgid "_Help"
+msgstr "Cab_hair"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_About"
+msgstr "_Maidir Leis Seo"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_Quit"
+msgstr "_Scoir"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "Select All"
+msgstr "Roghnaigh Uile"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Select None"
+msgstr "Ná Roghnaigh"
+
+#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Cuir Clog an Domhain Nua Leis"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
+msgid "_Cancel"
+msgstr "_Cealaigh"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
+msgid "_Done"
+msgstr "_Críochnaithe"
+
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "You already have an alarm for this time."
+msgstr "Tá aláram ann don am seo cheana."
+
+#: ../data/ui/alarmsetupdialog.ui.h:5
+msgid "Name"
+msgstr "Ainm"
+
+#: ../data/ui/alarmsetupdialog.ui.h:6
+msgid "Repeat Every"
+msgstr "Athdhéan Gach"
+
+#: ../data/ui/alarmsetupdialog.ui.h:7
+msgid "Active"
+msgstr "Gníomhach"
+
 #: ../data/ui/alarm.ui.h:1
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Roghnaigh <b>Nua</b> chun aláram nua a chur leis"
 
-#: ../data/ui/alarmsetupdialog.ui.h:1
-msgid "_Done"
-msgstr "_Críochnaithe"
+#: ../data/ui/worldlocationdialog.ui.h:3
+msgid "_Add"
+msgstr "Cuir _Leis"
 
-#: ../data/ui/alarmsetupdialog.ui.h:2
-msgid "Name"
-msgstr "Ainm"
-
-#: ../data/ui/alarmsetupdialog.ui.h:3
-msgid "Repeat Every"
-msgstr "Athdhéan Gach"
-
-#: ../data/ui/alarmsetupdialog.ui.h:4
-msgid "Active"
-msgstr "Gníomhach"
-
-#: ../data/ui/menu.ui.h:1
-msgid "_New"
-msgstr "_Nua"
-
-#: ../data/ui/menu.ui.h:2
-msgid "_About"
-msgstr "_Maidir Leis Seo"
-
-#: ../data/ui/menu.ui.h:3
-msgid "_Quit"
-msgstr "_Scoir"
-
-#: ../data/ui/menu.ui.h:4
-msgid "Select All"
-msgstr "Roghnaigh Uile"
-
-#: ../data/ui/menu.ui.h:5
-msgid "Select None"
-msgstr "Ná Roghnaigh"
-
-#: ../data/ui/stopwatch.ui.h:4
-msgid "Split"
-msgstr "Scoilte"
-
-#: ../data/ui/stopwatch.ui.h:5
-msgid "Total"
-msgstr "Iomlán"
-
-#: ../data/ui/worldlocationdialog.ui.h:1
-msgid "Add a New World Clock"
-msgstr "Cuir Clog an Domhain Nua Leis"
-
-#: ../data/ui/worldlocationdialog.ui.h:2
+#: ../data/ui/worldlocationdialog.ui.h:4
 msgid "Search for a city:"
 msgstr "Déan cuardach ar chathair:"
 
