@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-01-31 07:08+0000\n"
-"PO-Revision-Date: 2015-01-31 16:00+0100\n"
+"POT-Creation-Date: 2015-09-27 06:51+0000\n"
+"PO-Revision-Date: 2015-09-27 11:05+0200\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Generator: Poedit 1.7.3\n"
+"X-Generator: Poedit 1.8.4\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
@@ -48,7 +48,7 @@ msgstr "Odmeria uplynutý čas s presnými stopkami"
 msgid "Set timers to properly cook your food"
 msgstr "Nastavenie hodnôt časovača pri varení obeda"
 
-#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:197
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:203
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Hodiny"
@@ -134,11 +134,11 @@ msgstr "Stav panela"
 msgid "Current clock panel."
 msgstr "Aktuálny panel s hodinami."
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:366 ../src/alarm.vala:534
+#: ../src/alarm.vala:115 ../src/alarm.vala:370 ../src/alarm.vala:538
 msgid "Alarm"
 msgstr "Budík"
 
-#: ../src/alarm.vala:117 ../src/stopwatch.vala:190
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:199
 #: ../data/ui/alarmringing.ui.h:1
 msgid "Stop"
 msgstr "Zastaviť"
@@ -147,17 +147,17 @@ msgstr "Zastaviť"
 msgid "Snooze"
 msgstr "Odložiť"
 
-#: ../src/alarm.vala:308
+#: ../src/alarm.vala:309
 msgid "Edit Alarm"
 msgstr "Upraviť budík"
 
-#: ../src/alarm.vala:308
+#: ../src/alarm.vala:309
 msgid "New Alarm"
 msgstr "Nový budík"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:559 ../src/world.vala:262
+#: ../src/alarm.vala:563 ../src/world.vala:266
 msgid "New"
 msgstr "Pridať"
 
@@ -166,24 +166,24 @@ msgstr "Pridať"
 msgid "Print version information and exit"
 msgstr "Zobrazí informácie o verzii a skončí"
 
-#: ../src/stopwatch.vala:130
+#: ../src/stopwatch.vala:139
 msgid "Stopwatch"
 msgstr "Stopky"
 
-#: ../src/stopwatch.vala:193
+#: ../src/stopwatch.vala:202
 msgid "Lap"
 msgstr "Okruh"
 
-#: ../src/stopwatch.vala:200 ../src/timer.vala:172
+#: ../src/stopwatch.vala:209 ../src/timer.vala:206
 msgid "Continue"
 msgstr "Pokračovať"
 
-#: ../src/stopwatch.vala:204 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:213 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Vynulovať"
 
-#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:221 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Spustiť"
@@ -196,7 +196,7 @@ msgstr "Čas vypršal!"
 msgid "Timer countdown finished"
 msgstr "Odpočítavanie časovača je dokončené"
 
-#: ../src/timer.vala:177 ../src/timer.vala:188 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:211 ../src/timer.vala:222 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Pozastaviť"
 
@@ -240,36 +240,36 @@ msgstr "Pracovné dni"
 msgid "Weekends"
 msgstr "Víkendy"
 
-#: ../src/widgets.vala:483
+#: ../src/widgets.vala:497
 msgid "Delete"
 msgstr "Odstrániť"
 
-#: ../src/widgets.vala:509 ../src/widgets.vala:664
+#: ../src/widgets.vala:523 ../src/widgets.vala:678
 msgid "Click on items to select them"
 msgstr "Kliknutím na položky ich vyberiete"
 
-#: ../src/widgets.vala:511
+#: ../src/widgets.vala:525
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
-msgstr[0] "%d vybraných položiek"
-msgstr[1] "%d vybraná položka"
-msgstr[2] "%d vybrané položky"
+msgstr[0] "%d vybratých položiek"
+msgstr[1] "%d vybratá položka"
+msgstr[2] "%d vybraté položky"
 
-#: ../src/widgets.vala:653
+#: ../src/widgets.vala:667
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: ../src/window.vala:170
+#: ../src/window.vala:176
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Zlyhalo zobrazenie pomocníka: %s"
 
-#: ../src/window.vala:200
+#: ../src/window.vala:206
 msgid "Utilities to help you with the time."
 msgstr "Nástroje na pomoc s časom."
 
-#: ../src/window.vala:205
+#: ../src/window.vala:211
 msgid "translator-credits"
 msgstr "Dušan Kazik <prescott66@gmail.com>"
 
@@ -283,7 +283,7 @@ msgstr "Zajtra"
 msgid "Yesterday"
 msgstr "Včera"
 
-#: ../src/world.vala:250
+#: ../src/world.vala:254
 msgid "World"
 msgstr "Svet"
 
@@ -311,7 +311,7 @@ msgstr "Zrušiť výber"
 
 #: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
 msgid "Add a New World Clock"
-msgstr "Pridať nové svetové hodiny"
+msgstr "Pridanie nových svetových hodín"
 
 #: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
 msgid "_Cancel"
