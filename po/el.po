@@ -10,16 +10,17 @@ msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-13 19:49+0000\n"
-"PO-Revision-Date: 2015-02-13 23:41+0200\n"
+"POT-Creation-Date: 2015-10-06 06:50+0000\n"
+"PO-Revision-Date: 2015-10-06 11:13+0300\n"
 "Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
-"Language-Team: Greek, Modern (1453-) <opensuse-translation-el@opensuse.org>\n"
+"Language-Team: Greek, Modern (1453-) <opensuse-translation-el@opensuse."
+"org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Poedit 1.8.5\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
@@ -50,7 +51,7 @@ msgstr "Μετρήστε μια περιόδο χρόνου με ένα χρον
 msgid "Set timers to properly cook your food"
 msgstr "Ρυθμίστε χρονοδιακόπτες για να μαγειρέψετε κατάλληλα το φαγητό σας"
 
-#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:197
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:203
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Ρολόγια"
@@ -127,30 +128,30 @@ msgstr "Κατάσταση πίνακα"
 msgid "Current clock panel."
 msgstr "Τρέχουσα κατάσταση πίνακα."
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:366 ../src/alarm.vala:534
+#: ../src/alarm.vala:115 ../src/alarm.vala:370 ../src/alarm.vala:538
 msgid "Alarm"
 msgstr "Ειδοποίηση"
 
-#: ../src/alarm.vala:117 ../src/stopwatch.vala:190
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:199
 #: ../data/ui/alarmringing.ui.h:1
 msgid "Stop"
 msgstr "Διακοπή"
 
 #: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
 msgid "Snooze"
-msgstr "Μετάθεση ειδοποίησης"
+msgstr "Αναβολή"
 
-#: ../src/alarm.vala:308
+#: ../src/alarm.vala:309
 msgid "Edit Alarm"
 msgstr "Επεξεργασία ειδοποίησης"
 
-#: ../src/alarm.vala:308
+#: ../src/alarm.vala:309
 msgid "New Alarm"
 msgstr "Νέα ειδοποίηση"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:559 ../src/world.vala:262
+#: ../src/alarm.vala:563 ../src/world.vala:266
 msgid "New"
 msgstr "Νέο"
 
@@ -158,24 +159,24 @@ msgstr "Νέο"
 msgid "Print version information and exit"
 msgstr "Προβολή πληροφοριών έκδοσης και έξοδος"
 
-#: ../src/stopwatch.vala:130
+#: ../src/stopwatch.vala:139
 msgid "Stopwatch"
 msgstr "Χρονόμετρο"
 
-#: ../src/stopwatch.vala:193
+#: ../src/stopwatch.vala:202
 msgid "Lap"
 msgstr "Γύρος"
 
-#: ../src/stopwatch.vala:200 ../src/timer.vala:172
+#: ../src/stopwatch.vala:209 ../src/timer.vala:206
 msgid "Continue"
 msgstr "Συνέχεια"
 
-#: ../src/stopwatch.vala:204 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:213 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Επαναφορά"
 
-#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:221 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Έναρξη"
@@ -188,7 +189,7 @@ msgstr "Τέλος χρόνου!"
 msgid "Timer countdown finished"
 msgstr "Η αντίστροφη μέτρηση τελείωσε"
 
-#: ../src/timer.vala:177 ../src/timer.vala:188 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:211 ../src/timer.vala:222 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "Παύση"
 
@@ -232,35 +233,35 @@ msgstr "Εργάσιμες"
 msgid "Weekends"
 msgstr "Σαββατοκύριακα"
 
-#: ../src/widgets.vala:483
+#: ../src/widgets.vala:497
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: ../src/widgets.vala:509 ../src/widgets.vala:664
+#: ../src/widgets.vala:523 ../src/widgets.vala:678
 msgid "Click on items to select them"
 msgstr "Κάντε κλικ στα αντικείμενα για να τα επιλέξετε"
 
-#: ../src/widgets.vala:511
+#: ../src/widgets.vala:525
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "Επιλέχθηκε %d"
 msgstr[1] "Επιλέχθηκαν %d"
 
-#: ../src/widgets.vala:653
+#: ../src/widgets.vala:667
 msgid "Cancel"
 msgstr "Aκύρωση"
 
-#: ../src/window.vala:170
+#: ../src/window.vala:176
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Αποτυχία προβολής βοήθειας: %s"
 
-#: ../src/window.vala:200
+#: ../src/window.vala:206
 msgid "Utilities to help you with the time."
 msgstr "Εργαλεία για να βοηθηθείτε με το χρόνο."
 
-#: ../src/window.vala:205
+#: ../src/window.vala:211
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
@@ -268,7 +269,9 @@ msgstr ""
 " Θάνος Τρυφωνίδης <tomtryf@gmail.com>\n"
 " Ευστάθιος Ιωσηφίδης <iosifidis@opensuse.org>\n"
 " Εύα Φωτοπούλου <eva_fotopoulou@hotmail.com>\n"
-"Για περισσότερα δείτε http://www.gnome.gr/."
+"\n"
+"Για περισσότερες πληροφορίες, επισκεφθείτε τη σελίδα\n"
+"http://gnome.gr/"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
 #: ../src/world.vala:106 ../src/world.vala:109
@@ -278,9 +281,9 @@ msgstr "Αύριο"
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
 #: ../src/world.vala:106 ../src/world.vala:109
 msgid "Yesterday"
-msgstr "Χθες"
+msgstr "Χθές"
 
-#: ../src/world.vala:250
+#: ../src/world.vala:254
 msgid "World"
 msgstr "Κόσμος"
 
