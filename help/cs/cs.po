@@ -1,21 +1,22 @@
 # Czech translation for gnome-clocks.
 # Copyright (C) 2014 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-# Marek Černocký <marek@manet.cz>, 2014.
+#
+# Marek Černocký <marek@manet.cz>, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"POT-Creation-Date: 2014-02-23 10:03+0000\n"
-"PO-Revision-Date: 2014-03-17 08:30+0100\n"
+"POT-Creation-Date: 2015-10-11 18:52+0000\n"
+"PO-Revision-Date: 2015-10-11 22:29+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -343,18 +344,23 @@ msgstr ""
 "\">Pozastavit</gui> dočasně zastavit. Tlačítkem <gui style=\"button"
 "\">Vynulovat</gui> vrátíte odpočet znovu na začátek."
 
-#. (itstool) path: info/desc
+#. (itstool) path: credit/name
 #: C/world-add.page:24
+msgid "Michael Hill"
+msgstr "Michael Hill"
+
+#. (itstool) path: info/desc
+#: C/world-add.page:28
 msgid "Add a clock for a new city to your world clocks list."
 msgstr "Přidejte nové město do svého seznamu světových časů."
 
 #. (itstool) path: page/title
-#: C/world-add.page:27
+#: C/world-add.page:31
 msgid "Add a new city clock"
 msgstr "Přidání nového města"
 
 #. (itstool) path: page/p
-#: C/world-add.page:29
+#: C/world-add.page:33
 msgid ""
 "Add a city to your world clocks to see the time of day or night in that "
 "city. You will also be able to <link xref=\"world-check\">check the sunrise "
@@ -365,12 +371,12 @@ msgstr ""
 "\"world-check\">zjistit čas východu a západu slunce</link>."
 
 #. (itstool) path: item/p
-#: C/world-add.page:35 C/world-check.page:35 C/world-remove.page:33
+#: C/world-add.page:39 C/world-check.page:35 C/world-remove.page:33
 msgid "Press the <gui style=\"button\">World</gui> button."
 msgstr "Zmáčkněte tlačítko <gui style=\"button\">Svět</gui>."
 
 #. (itstool) path: item/p
-#: C/world-add.page:38
+#: C/world-add.page:42
 msgid ""
 "Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> to add a new city."
@@ -379,22 +385,22 @@ msgstr ""
 "nebo <keyseq><key>Ctrl</key><key>N</key></keyseq>."
 
 #. (itstool) path: item/p
-#: C/world-add.page:42
+#: C/world-add.page:46
 msgid "Start typing the name of the city into the search."
 msgstr "Do hledání začněte psát název města."
 
 #. (itstool) path: item/p
-#: C/world-add.page:45
+#: C/world-add.page:49
 msgid "Select the correct city or the closest location to you from the list."
 msgstr "V seznamu vyberte správné město nebo nejbližší místo."
 
 #. (itstool) path: item/p
-#: C/world-add.page:49
+#: C/world-add.page:53
 msgid "Press <gui style=\"button\">Add</gui> to finish adding the city."
 msgstr "Zmáčknutím <gui style=\"button\">Přidat</gui> přidání města dokončíte."
 
 #. (itstool) path: page/p
-#: C/world-add.page:53
+#: C/world-add.page:57
 msgid ""
 "If you do not see your city in the list, it is probably not available at "
 "this time. You should try adding the closest bigger city or the capital of "
@@ -405,12 +411,12 @@ msgstr ""
 "své země."
 
 #. (itstool) path: note/p
-#: C/world-add.page:58
+#: C/world-add.page:62
 msgid ""
 "The clock for your current location will automatically be added to your "
-"world clocks when you are connected to the Internet. Not be shown if you "
-"disconnect from the Internet and will automatically update if you take your "
-"computer to a different city."
+"world clocks when you are connected to the Internet. It will not be shown if "
+"you disconnect from the Internet and it will automatically update if you "
+"take your computer to a different city."
 msgstr ""
 "Když se připojíte k Internetu, přidá se automaticky světový čas pro místo, "
 "na kterém se nacházíte. Když jste od Internetu odpojeni, tak se nezobrazuje. "
