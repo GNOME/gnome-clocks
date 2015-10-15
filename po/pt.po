@@ -3,12 +3,14 @@
 # This file is distributed under the same license as the gnome-clocks package.
 # Duarte Loreto <happyguy_pt@hotmail.com>, 2012, 2013.
 # António Lima <amrlima@gmail.com>, 2013.
+# Pedro Albuquerque <palbuquerque73@gmail.com.com>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: 3.8\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-22 23:08+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-09-29 06:47+0000\n"
 "PO-Revision-Date: 2013-09-22 18:43-0100\n"
 "Last-Translator: António Lima <amrlima@gmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
@@ -42,7 +44,7 @@ msgstr "Relógios mundiais configurados"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
 msgid "List of world clocks to show."
-msgstr "Lista de relógios mundiais a apresentar."
+msgstr "Lista de relógios mundiais a mostrar."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
 msgid "Configured alarms"
@@ -62,11 +64,11 @@ msgstr "Duração em segundos do temporizador configurado."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
 msgid "Geolocation support"
-msgstr "Suporte de geolocalização"
+msgstr "Suporte de localização geográfica"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
 msgid "Turn geolocation support on and off."
-msgstr "Activa e desactiva suporte a geolocalização"
+msgstr "Ativa e desativa suporte a localização geográfica"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
 msgid "Window state"
@@ -106,15 +108,15 @@ msgstr "Adiar"
 
 #: ../src/alarm.vala:282
 msgid "Edit Alarm"
-msgstr "Editar Alarme"
+msgstr "Editar alarme"
 
 #: ../src/alarm.vala:282
 msgid "New Alarm"
-msgstr "Novo Alarme"
+msgstr "Novo alarme"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:487 ../src/world.vala:278
+#: ../src/alarm.vala:487 ../src/world.vala:281
 msgid "New"
 msgstr "Novo"
 
@@ -132,12 +134,12 @@ msgstr "Volta"
 
 #: ../src/stopwatch.vala:197 ../src/timer.vala:156
 msgid "Continue"
-msgstr "Prosseguir"
+msgstr "Continuar"
 
 #: ../src/stopwatch.vala:201 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
-msgstr "Reiniciar"
+msgstr "Repor"
 
 #: ../src/stopwatch.vala:209 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
@@ -158,23 +160,23 @@ msgstr "Pausar"
 
 #: ../src/utils.vala:163
 msgid "Mondays"
-msgstr "Segundas-Feiras"
+msgstr "Segundas-feiras"
 
 #: ../src/utils.vala:164
 msgid "Tuesdays"
-msgstr "Terças-Feiras"
+msgstr "Terças-feiras"
 
 #: ../src/utils.vala:165
 msgid "Wednesdays"
-msgstr "Quartas-Feiras"
+msgstr "Quartas-feiras"
 
 #: ../src/utils.vala:166
 msgid "Thursdays"
-msgstr "Quintas-Feiras"
+msgstr "Quintas-feiras"
 
 #: ../src/utils.vala:167
 msgid "Fridays"
-msgstr "Sextas-Feiras"
+msgstr "Sextas-feiras"
 
 #: ../src/utils.vala:168
 msgid "Saturdays"
@@ -186,11 +188,11 @@ msgstr "Domingos"
 
 #: ../src/utils.vala:249
 msgid "Every Day"
-msgstr "Todos os Dias"
+msgstr "Todos os dias"
 
 #: ../src/utils.vala:251
 msgid "Weekdays"
-msgstr "Dias da Semana"
+msgstr "Dias da semana"
 
 #: ../src/utils.vala:253
 msgid "Weekends"
@@ -213,12 +215,12 @@ msgstr[1] "%d selecionados"
 
 #: ../src/widgets.vala:570
 msgid "Delete"
-msgstr "Apagar"
+msgstr "Eliminar"
 
 #: ../src/window.vala:146
 #, c-format
 msgid "Failed to show help: %s"
-msgstr "Falha ao apresentar a ajuda: %s"
+msgstr "Falha ao mostrar a ajuda: %s"
 
 #: ../src/window.vala:176
 msgid "Utilities to help you with the time."
@@ -226,7 +228,9 @@ msgstr "Utilitários para o ajudar com o tempo."
 
 #: ../src/window.vala:181
 msgid "translator-credits"
-msgstr "Duarte Loreto <happyguy_pt@hotmail.com>"
+msgstr ""
+"Duarte Loreto <happyguy_pt@hotmail.com>\n"
+"Pedro Albuquerque <palbuquerque73@gmail.com>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
 #: ../src/world.vala:112 ../src/world.vala:115
@@ -238,7 +242,7 @@ msgstr "Amanhã"
 msgid "Yesterday"
 msgstr "Ontem"
 
-#: ../src/world.vala:269
+#: ../src/world.vala:272
 msgid "World"
 msgstr "Mundo"
 
@@ -254,7 +258,7 @@ msgstr "Nome"
 
 #: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "Repeat Every"
-msgstr "Repetir a Cada"
+msgstr "Repetir a cada"
 
 #: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "Active"
@@ -270,7 +274,7 @@ msgstr "_Novo"
 
 #: ../data/ui/menu.ui.h:2
 msgid "_Help"
-msgstr "_Ajuda"
+msgstr "A_Juda"
 
 #: ../data/ui/menu.ui.h:3
 msgid "_About"
@@ -282,15 +286,15 @@ msgstr "_Sair"
 
 #: ../data/ui/menu.ui.h:5
 msgid "Select All"
-msgstr "Selecionar Todos"
+msgstr "Selecionar tudo"
 
 #: ../data/ui/menu.ui.h:6
 msgid "Select None"
-msgstr "Não Selecionar Nenhum"
+msgstr "Não selecionar nada"
 
 #: ../data/ui/worldlocationdialog.ui.h:1
 msgid "Add a New World Clock"
-msgstr "Adicionar um Novo Relógio do Mundo"
+msgstr "Adicionar um novo relógio do mundo"
 
 #: ../data/ui/worldlocationdialog.ui.h:2
 msgid "Search for a city:"
