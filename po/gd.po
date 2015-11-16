@@ -1,14 +1,14 @@
 # Scottish Gaelic translation for gnome-clocks.
 # Copyright (C) 2014 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-# GunChleoc <fios@foramnagaidhlig.net>, 2014.
+# GunChleoc <fios@foramnagaidhlig.net>, 2014, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks"
 "&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-09-23 06:35+0000\n"
-"PO-Revision-Date: 2014-09-23 12:26+0100\n"
+"POT-Creation-Date: 2015-11-16 08:12+0000\n"
+"PO-Revision-Date: 2015-11-16 16:09+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig\n"
 "Language: gd\n"
@@ -48,7 +48,7 @@ msgstr "Tomhais àm a chaidh seachad le stad-uaireadair pongail"
 msgid "Set timers to properly cook your food"
 msgstr "Suidhich tìmear ach an dèan thu còcaireachd mar bu chòir"
 
-#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:193
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:203
 #: ../data/ui/window.ui.h:1
 msgid "Clocks"
 msgstr "Uaireadairean"
@@ -69,67 +69,68 @@ msgstr ""
 "time;timer;alarm;world clock;stopwatch;time zone;àm;ùine;tìmear;uaireadair "
 "an t-saoghail;uaireadair;saoghal;cleoc;gleoc;stad-uaireadair;roinn-tìde;"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:1
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
 msgid "Configured world clocks"
 msgstr "Uaireadairean an t-saoghail air an rèiteachadh"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:2
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
 msgid "List of world clocks to show."
 msgstr "Liosta de uaireadairean an t-saoghail ri an sealltainn."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:3
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
 msgid "Configured alarms"
 msgstr "Caismeachdan air an rèiteachadh"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:4
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
 msgid "List of alarms set."
 msgstr "Liosta dhe na caismeachdan a chaidh a shuidheachadh."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:5 ../src/timer.vala:114
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:114
 msgid "Timer"
 msgstr "Tìmear"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:6
+#: ../data/org.gnome.clocks.gschema.xml.in.h:6
 msgid "Configured timer duration in seconds."
 msgstr "Faide an tìmeir a chaidh a rèiteachadh ann an diogan."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:7
+#: ../data/org.gnome.clocks.gschema.xml.in.h:7
 msgid "Geolocation support"
 msgstr "Taic ri geo-lorgadh"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:8
+#: ../data/org.gnome.clocks.gschema.xml.in.h:8
 msgid "Turn geolocation support on and off."
 msgstr "Cuir geo-lorgadh air no dheth."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:9
+#: ../data/org.gnome.clocks.gschema.xml.in.h:9
 msgid "Window state"
 msgstr "Staid na h-uinneige"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:10
-msgid "State of the window: i.e. maximized."
+#: ../data/org.gnome.clocks.gschema.xml.in.h:10
+#| msgid "State of the window: i.e. maximized."
+msgid "State of the window, e.g. maximized."
 msgstr "Staid na h-uinneige, m.e. làn-mheud."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:11
+#: ../data/org.gnome.clocks.gschema.xml.in.h:11
 msgid "Window width and height"
 msgstr "Leud 's àirde na h-uinneige"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:12
+#: ../data/org.gnome.clocks.gschema.xml.in.h:12
 msgid "Width and height of the window."
 msgstr "Leud 's àirde na h-uinneige."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:13
+#: ../data/org.gnome.clocks.gschema.xml.in.h:13
 msgid "Panel state"
 msgstr "Staid a' phanail"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.in.h:14
+#: ../data/org.gnome.clocks.gschema.xml.in.h:14
 msgid "Current clock panel."
 msgstr "Panail làithreach an uaireadair."
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:366 ../src/alarm.vala:534
+#: ../src/alarm.vala:115 ../src/alarm.vala:370 ../src/alarm.vala:538
 msgid "Alarm"
 msgstr "Caismeachd"
 
-#: ../src/alarm.vala:117 ../src/stopwatch.vala:190
+#: ../src/alarm.vala:117 ../src/stopwatch.vala:199
 #: ../data/ui/alarmringing.ui.h:1
 msgid "Stop"
 msgstr "Stad"
@@ -138,17 +139,17 @@ msgstr "Stad"
 msgid "Snooze"
 msgstr "Dèan dùsal"
 
-#: ../src/alarm.vala:308
+#: ../src/alarm.vala:309
 msgid "Edit Alarm"
 msgstr "Deasaich a' chaismeachd"
 
-#: ../src/alarm.vala:308
+#: ../src/alarm.vala:309
 msgid "New Alarm"
 msgstr "Caismeachd ùr"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:559 ../src/world.vala:259
+#: ../src/alarm.vala:563 ../src/world.vala:266
 msgid "New"
 msgstr "Ùr"
 
@@ -156,24 +157,24 @@ msgstr "Ùr"
 msgid "Print version information and exit"
 msgstr "Seall fiosrachadh an tionndaidh is fàg an-seo"
 
-#: ../src/stopwatch.vala:130
+#: ../src/stopwatch.vala:139
 msgid "Stopwatch"
 msgstr "Stad-uaireadair"
 
-#: ../src/stopwatch.vala:193
+#: ../src/stopwatch.vala:202
 msgid "Lap"
 msgstr "Cuairt"
 
-#: ../src/stopwatch.vala:200 ../src/timer.vala:172
+#: ../src/stopwatch.vala:209 ../src/timer.vala:206
 msgid "Continue"
 msgstr "Air adhart"
 
-#: ../src/stopwatch.vala:204 ../data/ui/stopwatch.ui.h:2
+#: ../src/stopwatch.vala:213 ../data/ui/stopwatch.ui.h:2
 #: ../data/ui/timer.ui.h:3
 msgid "Reset"
 msgstr "Ath-shuidhich"
 
-#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:1
+#: ../src/stopwatch.vala:221 ../data/ui/stopwatch.ui.h:1
 #: ../data/ui/timer.ui.h:1
 msgid "Start"
 msgstr "Tòisich"
@@ -186,7 +187,7 @@ msgstr "Tha an ùine seachad!"
 msgid "Timer countdown finished"
 msgstr "Chrìochnaich cunntadh sìos an tìmeir"
 
-#: ../src/timer.vala:177 ../src/timer.vala:188 ../data/ui/timer.ui.h:2
+#: ../src/timer.vala:211 ../src/timer.vala:222 ../data/ui/timer.ui.h:2
 msgid "Pause"
 msgstr "'Na stad"
 
@@ -230,15 +231,15 @@ msgstr "Gach latha obrach"
 msgid "Weekends"
 msgstr "Gach latha deiridh-sheachdaine"
 
-#: ../src/widgets.vala:483
+#: ../src/widgets.vala:497
 msgid "Delete"
 msgstr "Sguab às"
 
-#: ../src/widgets.vala:509 ../src/widgets.vala:664
+#: ../src/widgets.vala:523 ../src/widgets.vala:678
 msgid "Click on items to select them"
 msgstr "Briog air nithean gus an taghadh"
 
-#: ../src/widgets.vala:511
+#: ../src/widgets.vala:525
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -247,20 +248,20 @@ msgstr[1] "%d air an taghadh"
 msgstr[2] "%d air an taghadh"
 msgstr[3] "%d air an taghadh"
 
-#: ../src/widgets.vala:653
+#: ../src/widgets.vala:667
 msgid "Cancel"
 msgstr "Sguir dheth"
 
-#: ../src/window.vala:166
+#: ../src/window.vala:176
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Cha deach leinn a' chobhair a shealltainn: %s"
 
-#: ../src/window.vala:196
+#: ../src/window.vala:206
 msgid "Utilities to help you with the time."
 msgstr "Goireasan a chuidicheas thu leis an àm."
 
-#: ../src/window.vala:201
+#: ../src/window.vala:211
 msgid "translator-credits"
 msgstr "GunChleoc fios@foramnagaidhlig.net"
 
@@ -274,7 +275,7 @@ msgstr "A-màireach"
 msgid "Yesterday"
 msgstr "An-dè"
 
-#: ../src/world.vala:247
+#: ../src/world.vala:254
 msgid "World"
 msgstr "An saoghal"
 
