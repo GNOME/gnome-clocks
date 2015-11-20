@@ -47,6 +47,8 @@ public class Application : Gtk.Application {
     public Application () {
         Object (application_id: "org.gnome.clocks");
 
+        Gtk.Window.set_default_icon_name ("org.gnome.clocks");
+
         add_main_option_entries (option_entries);
         add_action_entries (action_entries, this);
 
