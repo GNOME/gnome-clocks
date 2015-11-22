@@ -56,7 +56,7 @@ PKG_CHECK_MODULES(CLOCKS, [
     gweather-3.0 >= 3.13.91
     gnome-desktop-3.0 >= 3.7.90
     geocode-glib-1.0 >= 0.99.4
-    libgeoclue-2.0 >= 2.3.1
+    geoclue-2.0 >= 1.99.3
 ])
 
 YELP_HELP_INIT

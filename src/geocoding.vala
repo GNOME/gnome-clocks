@@ -19,14 +19,50 @@
 namespace Clocks {
 namespace Geo {
 
+private enum AccuracyLevel {
+    COUNTRY = 1,
+    CITY = 4,
+    STREET = 6,
+    EXACT = 8,
+}
+
+[DBus (name = "org.freedesktop.GeoClue2.Manager")]
+private interface Manager : Object {
+    public abstract async void get_client (out string client_path) throws IOError;
+}
+
+[DBus (name = "org.freedesktop.GeoClue2.Location")]
+public interface Location : Object {
+    public abstract double latitude { get; }
+    public abstract double longitude { get; }
+    public abstract double accuracy { get; }
+    public abstract string description { owned get; }
+}
+
+[DBus (name = "org.freedesktop.GeoClue2.Client")]
+private interface Client : Object {
+    public abstract ObjectPath location { owned get; }
+    public abstract string desktop_id { owned get; set; }
+    public abstract uint distance_threshold { get; set; }
+    public abstract uint requested_accuracy_level { get; set; }
+
+    public signal void location_updated (ObjectPath old_path, ObjectPath new_path);
+
+    public abstract async void start () throws IOError;
+
+    // This function belongs to the Geoclue interface, however it is not used here
+    // public abstract async void stop () throws IOError;
+}
+
 public class Info : Object {
-    public GClue.Location? geo_location { get; private set; default = null; }
+    public Geo.Location? geo_location { get; private set; default = null; }
 
     private const string DESKTOP_ID = "org.gnome.clocks";
 
     private GWeather.Location? found_location;
     private string? country_code;
-    private GClue.Simple simple;
+    private Geo.Manager manager;
+    private Geo.Client client;
     private double minimal_distance;
 
     public signal void location_changed (GWeather.Location location);
@@ -38,22 +74,64 @@ public class Info : Object {
     }
 
     public async void seek () {
+        string? client_path = null;
+
         try {
-            simple = yield new GClue.Simple (DESKTOP_ID, GClue.AccuracyLevel.CITY, null);
-        } catch (Error e) {
-            warning ("Failed to connect to GeoClue2 service: %s", e.message);
+            manager = yield Bus.get_proxy (GLib.BusType.SYSTEM,
+                                           "org.freedesktop.GeoClue2",
+                                           "/org/freedesktop/GeoClue2/Manager");
+        } catch (IOError e) {
+            warning ("Failed to connect to GeoClue2 Manager service: %s", e.message);
             return;
         }
 
-        simple.notify["location"].connect (() => {
-            on_location_updated.begin ();
+        try {
+            yield manager.get_client (out client_path);
+        } catch (IOError e) {
+            warning ("Failed to connect to GeoClue2 Manager service: %s", e.message);
+            return;
+        }
+
+        if (client_path == null) {
+            warning ("The client path is not set");
+            return;
+        }
+
+        try {
+            client = yield Bus.get_proxy (GLib.BusType.SYSTEM,
+                                          "org.freedesktop.GeoClue2",
+                                          client_path);
+        } catch (IOError e) {
+            warning ("Failed to connect to GeoClue2 Client service: %s", e.message);
+            return;
+        }
+
+        client.desktop_id = DESKTOP_ID;
+        client.requested_accuracy_level = AccuracyLevel.CITY;
+
+        client.location_updated.connect ((old_path, new_path) => {
+            on_location_updated.begin (old_path, new_path, (obj, res) => {
+                on_location_updated.end (res);
+            });
         });
 
-        on_location_updated.begin ();
+        try {
+            yield client.start ();
+        } catch (IOError e) {
+            warning ("Failed to start client: %s", e.message);
+            return;
+        }
     }
 
-    public async void on_location_updated () {
-        geo_location = simple.get_location ();
+    public async void on_location_updated (ObjectPath old_path, ObjectPath new_path) {
+        try {
+            geo_location = yield Bus.get_proxy (GLib.BusType.SYSTEM,
+                                                "org.freedesktop.GeoClue2",
+                                                new_path);
+        } catch (IOError e) {
+            warning ("Failed to connect to GeoClue2 Location service: %s", e.message);
+            return;
+        }
 
         yield seek_country_code ();
 
