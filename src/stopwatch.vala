@@ -273,12 +273,6 @@ public class Face : Gtk.Box, Clocks.Clock {
         }
 
         var row = new LapsRow (n_label, split_label, tot_label);
-
-        // FIXME: we can remove this if ListBox gains support for :first-child
-        if (current_lap == 1) {
-            row.get_style_context ().add_class ("first-lap-row");
-        }
-
         laps_list.prepend (row);
         row.slide_in ();
         laps_scrollwin.vadjustment.value = laps_scrollwin.vadjustment.lower;

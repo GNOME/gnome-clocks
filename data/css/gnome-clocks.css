@@ -1,9 +1,9 @@
-ClocksWindow > .frame {
+ClocksWindow > frame {
     background-color: mix(@theme_fg_color, @theme_bg_color, 0.95);
     box-shadow: inset 0 5px 2px -6px black;
 }
 
-ClocksWindow > .frame:backdrop {
+ClocksWindow > frame:backdrop {
     background-color: mix(@theme_unfocused_fg_color, @theme_unfocused_bg_color, 0.95);
     box-shadow: none;
 }
@@ -149,24 +149,24 @@ ClocksWindow > .frame:backdrop {
     border: 0;
 }
 
-.clocks-laps-panel > .frame:dir(ltr) {
+.clocks-laps-panel > frame:dir(ltr) {
     border-image: linear-gradient(to bottom,
                                   mix(@borders,@theme_bg_color,0.5))
                   0 0 0 1 / 20px 0px 20px 1px stretch;
 }
 
-.clocks-laps-panel > .frame:dir(rtl) {
+.clocks-laps-panel > frame:dir(rtl) {
     border-image: linear-gradient(to bottom,
                                   mix(@borders,@theme_bg_color,0.5))
                   0 1 0 0 / 20px 1px 20px 0px stretch;
 }
 
-.clocks-laps-panel .list,
-.clocks-laps-panel .list-row {
+.clocks-laps-panel list,
+.clocks-laps-panel row {
     background-color: transparent;
 }
 
-.clocks-laps-panel .list-row {
+.clocks-laps-panel row {
     padding-left: 20px;
     padding-right: 20px;
     font-size: 14px;
@@ -175,7 +175,7 @@ ClocksWindow > .frame:backdrop {
                   0 0 1 0 / 0 20px 1px 20px stretch;
 }
 
-.clocks-laps-panel .first-lap-row {
+.clocks-laps-panel row:first-child {
     border-image: none;
     border-color: transparent;
 }
@@ -186,18 +186,18 @@ ClocksWindow > .frame:backdrop {
 }
 
 /* disguise insensitive spinbuttons as normal labels */
-.spinbutton.clocks-timer-label,
-.spinbutton.clocks-timer-label .button {
+spinbutton.clocks-timer-label,
+spinbutton.clocks-timer-label button {
     border-color: transparent;
     background-image: none;
     box-shadow: none;
 }
 
-.spinbutton.clocks-timer-label {
+spinbutton.clocks-timer-label {
     color: @theme_fg_color;
 }
 
-.spinbutton.clocks-timer-label .button {
+spinbutton.clocks-timer-label button {
     color: transparent;
 }
 
