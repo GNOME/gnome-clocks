@@ -45,19 +45,18 @@ public class CountdownFrame : AnalogFrame {
     }
 
     public override void draw_progress (Cairo.Context cr, int center_x, int center_y, int radius) {
+        var progress = get_progress ();
         var context = get_style_context ();
 
         context.save ();
         context.add_class ("progress");
 
-        cr.set_line_width (LINE_WIDTH);
-        cr.set_line_cap  (Cairo.LineCap.ROUND);
+        var color = context.get_color (context.get_state ());
 
-        var color = context.get_color (Gtk.StateFlags.NORMAL);
-
-        var progress = get_progress ();
         cr.arc (center_x, center_y, radius - LINE_WIDTH / 2, 1.5  * Math.PI, (1.5 + (1 - progress) * 2 ) * Math.PI);
         Gdk.cairo_set_source_rgba (cr, color);
+        cr.set_line_width (LINE_WIDTH);
+        cr.set_line_cap  (Cairo.LineCap.ROUND);
         cr.stroke ();
 
         context.restore ();

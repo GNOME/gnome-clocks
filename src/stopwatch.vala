@@ -42,7 +42,7 @@ public class Frame : AnalogFrame {
         cr.set_line_width (LINE_WIDTH);
         cr.set_line_cap  (Cairo.LineCap.ROUND);
 
-        var color = context.get_color (Gtk.StateFlags.NORMAL);
+        var color = context.get_color (context.get_state ());
         var progress = ((double) seconds + millisecs) / 60;
         if (progress > 0) {
             cr.arc (center_x,
@@ -60,7 +60,7 @@ public class Frame : AnalogFrame {
         context.add_class ("progress-fast");
 
         cr.set_line_width (LINE_WIDTH - 2);
-        color = context.get_color (Gtk.StateFlags.NORMAL);
+        color = context.get_color (context.get_state ());
         progress = millisecs;
         if (progress > 0) {
             cr.arc (center_x,

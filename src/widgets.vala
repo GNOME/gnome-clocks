@@ -838,7 +838,7 @@ public class AnalogFrame : Gtk.Frame {
         context.save ();
         context.add_class (Gtk.STYLE_CLASS_TROUGH);
 
-        var color = context.get_color (Gtk.StateFlags.NORMAL);
+        var color = context.get_color (context.get_state ());
 
         cr.set_line_width (LINE_WIDTH);
         Gdk.cairo_set_source_rgba (cr, color);
