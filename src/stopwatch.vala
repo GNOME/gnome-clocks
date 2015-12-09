@@ -320,6 +320,23 @@ public class Face : Gtk.Box, Clocks.Clock {
     public override void grab_focus () {
         left_button.grab_focus ();
     }
+
+    public bool escape_pressed () {
+        switch (state) {
+        case State.RESET:
+            return false;
+        case State.STOPPED:
+            reset ();
+            break;
+        case State.RUNNING:
+            stop ();
+            break;
+        default:
+            assert_not_reached ();
+        }
+
+        return true;
+    }
 }
 
 } // namespace Stopwatch

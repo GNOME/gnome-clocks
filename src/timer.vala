@@ -321,6 +321,16 @@ public class Face : Gtk.Stack, Clocks.Clock {
             start_button.grab_focus ();
         }
     }
+
+    public bool escape_pressed () {
+        if (state == State.STOPPED) {
+            return false;
+        }
+
+        reset ();
+
+        return true;
+    }
 }
 
 } // namespace Timer
