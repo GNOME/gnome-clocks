@@ -113,11 +113,38 @@ public class Window : Gtk.ApplicationWindow {
             stack.child_set_property (timer, "needs-attention", timer.state == Timer.Face.State.RUNNING);
         });
 
+        unowned Gtk.BindingSet binding_set = Gtk.BindingSet.by_class (get_class ());
+
+        // plain ctrl+page_up/down is easten by the scrolled window...
+        Gtk.BindingEntry.add_signal (binding_set,
+                                     Gdk.Key.Page_Up,
+                                     Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.MOD1_MASK,
+                                     "change-page", 1,
+                                     typeof(int), -1);
+        Gtk.BindingEntry.add_signal (binding_set,
+                                     Gdk.Key.Page_Down,
+                                     Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.MOD1_MASK,
+                                     "change-page", 1,
+                                     typeof(int), 1);
+
         stack.visible_child = panels[settings.get_enum ("panel-id")];
 
         update_header_bar ();
 
         show_all ();
+    }
+
+    [Signal(action = true)]
+    public virtual signal void change_page (int offset) {
+        int page;
+
+        stack.child_get (stack.visible_child, "position", out page);
+        page += offset;
+        if (page >= 0 && page < panels.length) {
+            stack.visible_child = panels[page];
+        } else {
+            stack.error_bell ();
+        }
     }
 
     private void on_new_activate () {
