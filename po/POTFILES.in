@@ -1,6 +1,17 @@
 data/appdata/org.gnome.clocks.appdata.xml.in
+[type: gettext/glade]data/gtk/help-overlay.ui
+[type: gettext/glade]data/gtk/menus.ui
 data/org.gnome.clocks.desktop.in
 [type: gettext/gsettings]data/org.gnome.clocks.gschema.xml.in
+[type: gettext/glade]data/ui/alarmringing.ui
+[type: gettext/glade]data/ui/alarmsetupdialog.ui
+[type: gettext/glade]data/ui/alarm.ui
+[type: gettext/glade]data/ui/stopwatchlapsrow.ui
+[type: gettext/glade]data/ui/stopwatch.ui
+[type: gettext/glade]data/ui/timer.ui
+[type: gettext/glade]data/ui/window.ui
+[type: gettext/glade]data/ui/worldlocationdialog.ui
+[type: gettext/glade]data/ui/world.ui
 src/alarm.vala
 src/application.vala
 src/clock.vala
@@ -11,13 +22,3 @@ src/utils.vala
 src/widgets.vala
 src/window.vala
 src/world.vala
-[type: gettext/glade]data/gtk/menus.ui
-[type: gettext/glade]data/ui/alarmringing.ui
-[type: gettext/glade]data/ui/alarmsetupdialog.ui
-[type: gettext/glade]data/ui/alarm.ui
-[type: gettext/glade]data/ui/stopwatchlapsrow.ui
-[type: gettext/glade]data/ui/stopwatch.ui
-[type: gettext/glade]data/ui/timer.ui
-[type: gettext/glade]data/ui/window.ui
-[type: gettext/glade]data/ui/worldlocationdialog.ui
-[type: gettext/glade]data/ui/world.ui
