@@ -81,6 +81,8 @@ public class Window : Gtk.ApplicationWindow {
         stack_switcher.set_stack (stack);
 
         var stack_id = stack.notify["visible-child"].connect (() => {
+            var help_overlay = get_help_overlay ();
+            help_overlay.view_name = Type.from_instance(stack.visible_child).name();
             update_header_bar ();
         });
 
