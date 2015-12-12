@@ -279,7 +279,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         night_pixbuf = Utils.load_image ("night.png");
 
         // Translators: "New" refers to a world clock
-        new_button = new Gtk.Button.with_label (_("New"));
+        new_button = new Gtk.Button.with_label (C_("World clock", "New"));
         new_button.valign = Gtk.Align.CENTER;
         new_button.no_show_all = true;
         new_button.action_name = "win.new";
