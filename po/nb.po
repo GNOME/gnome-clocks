@@ -1,16 +1,15 @@
 # Norwegian bokmål translation of gnome-clocks.
 # Copyright (C) 1998-2004, 2005 Free Software Foundation, Inc.
-# Kjartan Maraas <kmaraas@gnome.org>, 1998-2014.
+# Kjartan Maraas <kmaraas@gnome.org>, 1998-2016.
 # Terance Edward Sola <terance@lyse.net>, 2005.
 # Torstein Adolf Winterseth <kvikende@fsfe.org>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-clocks 3.11.x\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2014-12-19 23:56+0000\n"
-"PO-Revision-Date: 2014-11-23 11:34+0100\n"
+"Project-Id-Version: gnome-clocks 3.19.x\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-10 19:46+0100\n"
+"PO-Revision-Date: 2016-01-10 19:47+0100\n"
 "Last-Translator: Åka Sikrom <a4@hush.com>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -48,8 +47,91 @@ msgstr "Mål medgått tid med en nøyaktig stoppeklokke"
 msgid "Set timers to properly cook your food"
 msgstr "Still inn nedtellere for å tilberede maten din skikkelig"
 
-#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:197
-#: ../data/ui/window.ui.h:1
+#: ../data/gtk/help-overlay.ui.h:1
+msgid "General"
+msgstr "Generelt"
+
+#: ../data/gtk/help-overlay.ui.h:2
+msgid "Go to the next section"
+msgstr "Gå til neste del"
+
+#: ../data/gtk/help-overlay.ui.h:3
+msgid "Go to the previous section"
+msgstr "Gå til forrige del"
+
+#: ../data/gtk/help-overlay.ui.h:4
+msgid "Quit"
+msgstr "Avslutt"
+
+#: ../data/gtk/help-overlay.ui.h:5
+msgid "World Clocks"
+msgstr "Verdensklokker"
+
+#: ../data/gtk/help-overlay.ui.h:6
+msgid "Add a world clock"
+msgstr "Legg til en verdensklokke"
+
+#: ../data/gtk/help-overlay.ui.h:7
+msgid "Select all world clocks"
+msgstr "Velg alle verdensklokker"
+
+#: ../data/gtk/help-overlay.ui.h:8 ../src/alarm.vala:115 ../src/alarm.vala:370
+#: ../src/alarm.vala:538
+msgid "Alarm"
+msgstr "Alarm"
+
+#: ../data/gtk/help-overlay.ui.h:9
+msgid "Add an alarm"
+msgstr "Legg til en alarm"
+
+#: ../data/gtk/help-overlay.ui.h:10
+msgid "Select all alarms"
+msgstr "Velg alle alarmer"
+
+#: ../data/gtk/help-overlay.ui.h:11 ../src/stopwatch.vala:139
+msgid "Stopwatch"
+msgstr "Stoppeklokke"
+
+#: ../data/gtk/help-overlay.ui.h:12
+msgid "Stop / Reset"
+msgstr "Stopp / nullstill"
+
+#: ../data/gtk/help-overlay.ui.h:13 ../data/org.gnome.clocks.gschema.xml.in.h:5
+#: ../src/timer.vala:113
+msgid "Timer"
+msgstr "Nedtelling"
+
+#: ../data/gtk/help-overlay.ui.h:14 ../data/ui/stopwatch.ui.h:2
+#: ../data/ui/timer.ui.h:3 ../src/stopwatch.vala:213
+msgid "Reset"
+msgstr "Nullstill"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "_Keyboard Shortcuts"
+msgstr "_Tastatursnarveier"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_Help"
+msgstr "_Hjelp"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "_Om"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "A_vslutt"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Select All"
+msgstr "Velg alle"
+
+#: ../data/gtk/menus.ui.h:6
+msgid "Select None"
+msgstr "Tøm utvalg"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../data/ui/window.ui.h:1
+#: ../src/window.vala:232
 msgid "Clocks"
 msgstr "Klokker"
 
@@ -80,10 +162,6 @@ msgstr "Oppsatte alarmer"
 #: ../data/org.gnome.clocks.gschema.xml.in.h:4
 msgid "List of alarms set."
 msgstr "Liste over gjeldende alarmer."
-
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:114
-msgid "Timer"
-msgstr "Nedtelling"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:6
 msgid "Configured timer duration in seconds."
@@ -121,30 +199,87 @@ msgstr "Tilstand for panel"
 msgid "Current clock panel."
 msgstr "Gjeldende klokkepanel."
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:366 ../src/alarm.vala:534
-msgid "Alarm"
-msgstr "Alarm"
-
-#: ../src/alarm.vala:117 ../src/stopwatch.vala:190
-#: ../data/ui/alarmringing.ui.h:1
+#: ../data/ui/alarmringing.ui.h:1 ../src/alarm.vala:117
+#: ../src/stopwatch.vala:199
 msgid "Stop"
 msgstr "Stopp"
 
-#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
+#: ../data/ui/alarmringing.ui.h:2 ../src/alarm.vala:118
 msgid "Snooze"
 msgstr "Pause"
 
-#: ../src/alarm.vala:308
+#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Legg til en verdensklokke"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
+msgid "_Cancel"
+msgstr "A_vbryt"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
+msgid "_Done"
+msgstr "Fer_dig"
+
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "You already have an alarm for this time."
+msgstr "Du har allerede satt opp en alarm ved dette klokkeslettet."
+
+#: ../data/ui/alarmsetupdialog.ui.h:5
+msgid "Name"
+msgstr "Navn"
+
+#: ../data/ui/alarmsetupdialog.ui.h:6
+msgid "Repeat Every"
+msgstr "Gjenta hver"
+
+#: ../data/ui/alarmsetupdialog.ui.h:7
+msgid "Active"
+msgstr "Aktiv"
+
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Velg <b>Ny</b> for å legge til en alarm"
+
+#: ../data/ui/stopwatch.ui.h:1 ../data/ui/timer.ui.h:1
+#: ../src/stopwatch.vala:221
+msgid "Start"
+msgstr "Start"
+
+#: ../data/ui/timer.ui.h:2 ../src/timer.vala:210 ../src/timer.vala:221
+msgid "Pause"
+msgstr "Pause"
+
+#: ../data/ui/worldlocationdialog.ui.h:3
+msgid "_Add"
+msgstr "_Legg til"
+
+#: ../data/ui/worldlocationdialog.ui.h:4
+msgid "Search for a city:"
+msgstr "Søk etter en by:"
+
+#: ../data/ui/world.ui.h:1
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Velg <b>Ny</b> for å legge til en verdensklokke"
+
+#: ../data/ui/world.ui.h:2
+msgid "Sunrise"
+msgstr "Soloppgang"
+
+#: ../data/ui/world.ui.h:3
+msgid "Sunset"
+msgstr "Solnedgang"
+
+#: ../src/alarm.vala:309
 msgid "Edit Alarm"
 msgstr "Rediger alarm"
 
-#: ../src/alarm.vala:308
+#: ../src/alarm.vala:309
 msgid "New Alarm"
 msgstr "Ny alarm"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:559 ../src/world.vala:262
+#: ../src/alarm.vala:563 ../src/world.vala:266
 msgid "New"
 msgstr "Ny"
 
@@ -152,39 +287,21 @@ msgstr "Ny"
 msgid "Print version information and exit"
 msgstr "Skriv ut versjonsinformasjon og avslutt"
 
-#: ../src/stopwatch.vala:130
-msgid "Stopwatch"
-msgstr "Stoppeklokke"
-
-#: ../src/stopwatch.vala:193
+#: ../src/stopwatch.vala:202
 msgid "Lap"
 msgstr "Runde"
 
-#: ../src/stopwatch.vala:200 ../src/timer.vala:172
+#: ../src/stopwatch.vala:209 ../src/timer.vala:205
 msgid "Continue"
 msgstr "Fortsett"
 
-#: ../src/stopwatch.vala:204 ../data/ui/stopwatch.ui.h:2
-#: ../data/ui/timer.ui.h:3
-msgid "Reset"
-msgstr "Nullstill"
-
-#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:1
-#: ../data/ui/timer.ui.h:1
-msgid "Start"
-msgstr "Start"
-
-#: ../src/timer.vala:126
+#: ../src/timer.vala:125
 msgid "Time is up!"
 msgstr "Tiden er ute!"
 
-#: ../src/timer.vala:127
+#: ../src/timer.vala:126
 msgid "Timer countdown finished"
 msgstr "Nedtelling fullført"
-
-#: ../src/timer.vala:177 ../src/timer.vala:188 ../data/ui/timer.ui.h:2
-msgid "Pause"
-msgstr "Pause"
 
 #: ../src/utils.vala:153
 msgid "Mondays"
@@ -226,35 +343,35 @@ msgstr "Ukedager"
 msgid "Weekends"
 msgstr "Helger"
 
-#: ../src/widgets.vala:483
+#: ../src/widgets.vala:497
 msgid "Delete"
 msgstr "Slett"
 
-#: ../src/widgets.vala:509 ../src/widgets.vala:664
+#: ../src/widgets.vala:523 ../src/widgets.vala:678
 msgid "Click on items to select them"
 msgstr "Klikk på oppføringer for å velge dem"
 
-#: ../src/widgets.vala:511
+#: ../src/widgets.vala:525
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d valgt"
 msgstr[1] "%d valgt"
 
-#: ../src/widgets.vala:653
+#: ../src/widgets.vala:667
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: ../src/window.vala:170
+#: ../src/window.vala:205
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Klarte ikke å vise hjelp. %s"
 
-#: ../src/window.vala:200
+#: ../src/window.vala:235
 msgid "Utilities to help you with the time."
 msgstr "Verktøy som hjelper deg å holde orden på tiden."
 
-#: ../src/window.vala:205
+#: ../src/window.vala:240
 msgid "translator-credits"
 msgstr ""
 "Kjartan Maraas <kmaraas@gnome.org>\n"
@@ -271,80 +388,6 @@ msgstr "I morgen"
 msgid "Yesterday"
 msgstr "I går"
 
-#: ../src/world.vala:250
+#: ../src/world.vala:254
 msgid "World"
 msgstr "Verden"
-
-#. namespace World
-#. namespace Clocks
-#: ../data/gtk/menus.ui.h:1
-msgid "_Help"
-msgstr "_Hjelp"
-
-#: ../data/gtk/menus.ui.h:2
-msgid "_About"
-msgstr "_Om"
-
-#: ../data/gtk/menus.ui.h:3
-msgid "_Quit"
-msgstr "A_vslutt"
-
-#: ../data/gtk/menus.ui.h:4
-msgid "Select All"
-msgstr "Velg alle"
-
-#: ../data/gtk/menus.ui.h:5
-msgid "Select None"
-msgstr "Tøm utvalg"
-
-#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
-msgid "Add a New World Clock"
-msgstr "Legg til en verdensklokke"
-
-#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
-msgid "_Cancel"
-msgstr "A_vbryt"
-
-#: ../data/ui/alarmsetupdialog.ui.h:3
-msgid "_Done"
-msgstr "Fer_dig"
-
-#: ../data/ui/alarmsetupdialog.ui.h:4
-msgid "You already have an alarm for this time."
-msgstr "Du har allerede satt opp en alarm ved dette klokkeslettet."
-
-#: ../data/ui/alarmsetupdialog.ui.h:5
-msgid "Name"
-msgstr "Navn"
-
-#: ../data/ui/alarmsetupdialog.ui.h:6
-msgid "Repeat Every"
-msgstr "Gjenta hver"
-
-#: ../data/ui/alarmsetupdialog.ui.h:7
-msgid "Active"
-msgstr "Aktiv"
-
-#: ../data/ui/alarm.ui.h:1
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Velg <b>Ny</b> for å legge til en alarm"
-
-#: ../data/ui/worldlocationdialog.ui.h:3
-msgid "_Add"
-msgstr "_Legg til"
-
-#: ../data/ui/worldlocationdialog.ui.h:4
-msgid "Search for a city:"
-msgstr "Søk etter en by:"
-
-#: ../data/ui/world.ui.h:1
-msgid "Select <b>New</b> to add a world clock"
-msgstr "Velg <b>Ny</b> for å legge til en verdensklokke"
-
-#: ../data/ui/world.ui.h:2
-msgid "Sunrise"
-msgstr "Soloppgang"
-
-#: ../data/ui/world.ui.h:3
-msgid "Sunset"
-msgstr "Solnedgang"
