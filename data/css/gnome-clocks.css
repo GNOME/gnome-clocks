@@ -27,7 +27,7 @@ ClocksWindow > frame:backdrop {
     color: black;
 }
 
-.clocks-digital-renderer.light.stripe:prelight {
+.clocks-digital-renderer.light.stripe:hover {
     background-color: rgba(255, 255, 255, 0.6);
 }
 
@@ -36,7 +36,7 @@ ClocksWindow > frame:backdrop {
     color: white;
 }
 
-.clocks-digital-renderer.dark.stripe:prelight {
+.clocks-digital-renderer.dark.stripe:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -51,7 +51,7 @@ ClocksWindow > frame:backdrop {
     color: white;
 }
 
-.clocks-digital-renderer.active:prelight {
+.clocks-digital-renderer.active:hover {
     background-color: transparent;
     background-image: -gtk-gradient(radial,
                                     center center, 0,
@@ -69,7 +69,7 @@ ClocksWindow > frame:backdrop {
     color: white;
 }
 
-.clocks-digital-renderer.snoozing:prelight {
+.clocks-digital-renderer.snoozing:hover {
     background-color: transparent;
     background-image: -gtk-gradient(radial,
                                     center center, 0,
@@ -87,7 +87,7 @@ ClocksWindow > frame:backdrop {
     color: shade(@insensitive_fg_color,0.9);
 }
 
-.clocks-digital-renderer.inactive:prelight {
+.clocks-digital-renderer.inactive:hover {
     background-color: transparent;
     background-image: -gtk-gradient(radial,
                                     center center, 0,
