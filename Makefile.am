@@ -34,17 +34,17 @@ gsettings_SCHEMAS = data/org.gnome.clocks.gschema.xml
 
 # icons
 icon16dir = $(datadir)/icons/hicolor/16x16/apps
-icon16_DATA = data/icons/hicolor/16x16/apps/gnome-clocks.png
+icon16_DATA = data/icons/hicolor/16x16/apps/org.gnome.clocks.png
 icon22dir = $(datadir)/icons/hicolor/22x22/apps
-icon22_DATA = data/icons/hicolor/22x22/apps/gnome-clocks.png
+icon22_DATA = data/icons/hicolor/22x22/apps/org.gnome.clocks.png
 icon32dir = $(datadir)/icons/hicolor/32x32/apps
-icon32_DATA = data/icons/hicolor/32x32/apps/gnome-clocks.png
+icon32_DATA = data/icons/hicolor/32x32/apps/org.gnome.clocks.png
 icon48dir = $(datadir)/icons/hicolor/48x48/apps
-icon48_DATA = data/icons/hicolor/48x48/apps/gnome-clocks.png
+icon48_DATA = data/icons/hicolor/48x48/apps/org.gnome.clocks.png
 icon256dir = $(datadir)/icons/hicolor/256x256/apps
-icon256_DATA = data/icons/hicolor/256x256/apps/gnome-clocks.png
+icon256_DATA = data/icons/hicolor/256x256/apps/org.gnome.clocks.png
 iconsymbolicdir = $(datadir)/icons/hicolor/symbolic/apps
-iconsymbolic_DATA = data/icons/hicolor/symbolic/apps/gnome-clocks-symbolic.svg
+iconsymbolic_DATA = data/icons/hicolor/symbolic/apps/org.gnome.clocks-symbolic.svg
 icon_files = \
 	$(icon16_DATA) \
 	$(icon22_DATA) \
@@ -52,7 +52,7 @@ icon_files = \
 	$(icon48_DATA) \
 	$(icon256_DATA) \
 	$(iconsymbolic_DATA) \
-	data/icons/hicolor/gnome-clocks.svg
+	data/icons/hicolor/org.gnome.clocks.svg
 
 
 gtk_update_icon_cache = gtk-update-icon-cache -f -t $(datadir)/icons/hicolor
