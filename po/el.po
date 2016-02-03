@@ -10,10 +10,11 @@ msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-12-29 08:12+0000\n"
-"PO-Revision-Date: 2015-12-29 13:33+0200\n"
+"POT-Creation-Date: 2016-02-03 08:15+0000\n"
+"PO-Revision-Date: 2016-02-03 15:15+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
-"Language-Team: Greek, Modern (1453-) <opensuse-translation-el@opensuse.org>\n"
+"Language-Team: Greek, Modern (1453-) <opensuse-translation-el@opensuse."
+"org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,6 +24,18 @@ msgstr ""
 "X-Project-Style: gnome\n"
 
 #: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+#: ../data/org.gnome.clocks.desktop.in.h:2
+msgid "GNOME Clocks"
+msgstr "Ρολόγια GNOME"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:3
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr ""
+"Ρολόγια για παγκόσμιες ώρες, για ειδοποιήσεις, με χρονόμετρο και αντίστροφη "
+"μέτρηση"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
@@ -30,82 +43,93 @@ msgstr ""
 "Μια απλή και κομψή εφαρμογή ρολογιού. Περιλαμβάνει παγκόσμια ρολόγια, "
 "ξυπνητήρια, ένα χρονόμετρο κι έναν χρονοδιακόπτη."
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
 msgid "Goals:"
 msgstr "Στόχοι:"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
 msgid "Show the time in different cities around the world"
 msgstr "Δείτε τις ώρες διαφόρων πόλεων ανά τον κόσμο"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
 msgid "Set alarms to wake you up"
 msgstr "Ρυθμίστε ειδοποιήσεις για αφύπνιση"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:7
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Μετρήστε μια περιόδο χρόνου με ένα χρονόμετρο ακριβείας"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:8
 msgid "Set timers to properly cook your food"
 msgstr "Ρυθμίστε χρονοδιακόπτες για να μαγειρέψετε κατάλληλα το φαγητό σας"
 
 #: ../data/gtk/help-overlay.ui.h:1
+msgctxt "shortcut window"
 msgid "General"
 msgstr "Γενικά"
 
 #: ../data/gtk/help-overlay.ui.h:2
+msgctxt "shortcut window"
 msgid "Go to the next section"
 msgstr "Μετάβαση στην επόμενη περιοχή"
 
 #: ../data/gtk/help-overlay.ui.h:3
+msgctxt "shortcut window"
 msgid "Go to the previous section"
 msgstr "Μετάβαση στην προηγούμενη περιοχή"
 
 #: ../data/gtk/help-overlay.ui.h:4
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Έξοδος"
 
 #: ../data/gtk/help-overlay.ui.h:5
+msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Παγκόσμια ρολόγια"
 
 #: ../data/gtk/help-overlay.ui.h:6
+msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Προσθήκη παγκόσμιου ρολογιού"
 
 #: ../data/gtk/help-overlay.ui.h:7
+msgctxt "shortcut window"
 msgid "Select all world clocks"
 msgstr "Επιλογή όλων των παγκόσμιων ρολογιών"
 
-#: ../data/gtk/help-overlay.ui.h:8 ../src/alarm.vala:115 ../src/alarm.vala:370
-#: ../src/alarm.vala:538
+#: ../data/gtk/help-overlay.ui.h:8
+msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Ειδοποίηση"
 
 #: ../data/gtk/help-overlay.ui.h:9
+msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Προσθήκη ειδοποίησης"
 
 #: ../data/gtk/help-overlay.ui.h:10
+msgctxt "shortcut window"
 msgid "Select all alarms"
 msgstr "Επιλογή όλων των ειδοποιήσεων"
 
-#: ../data/gtk/help-overlay.ui.h:11 ../src/stopwatch.vala:139
+#: ../data/gtk/help-overlay.ui.h:11
+msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Χρονόμετρο"
 
 #: ../data/gtk/help-overlay.ui.h:12
+msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Διακοπή / Επαναφορά"
 
-#: ../data/gtk/help-overlay.ui.h:13 ../data/org.gnome.clocks.gschema.xml.in.h:5
-#: ../src/timer.vala:113
+#: ../data/gtk/help-overlay.ui.h:13
+msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Αντίστροφη μέτρηση"
 
-#: ../data/gtk/help-overlay.ui.h:14 ../data/ui/stopwatch.ui.h:2
-#: ../data/ui/timer.ui.h:3 ../src/stopwatch.vala:213
+#: ../data/gtk/help-overlay.ui.h:14
+msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Επαναφορά"
 
@@ -138,16 +162,6 @@ msgstr "Καμία επιλογή"
 msgid "Clocks"
 msgstr "Ρολόγια"
 
-#: ../data/org.gnome.clocks.desktop.in.h:2
-msgid "GNOME Clocks"
-msgstr "Ρολόγια GNOME"
-
-#: ../data/org.gnome.clocks.desktop.in.h:3
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr ""
-"Ρολόγια για παγκόσμιες ώρες, για ειδοποιήσεις, με χρονόμετρο και αντίστροφη "
-"μέτρηση"
-
 #: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
@@ -169,6 +183,10 @@ msgstr "Ρυθμισμένες ειδοποιήσεις"
 #: ../data/org.gnome.clocks.gschema.xml.in.h:4
 msgid "List of alarms set."
 msgstr "Λίστα του συνόλου ειδοποιήσεων."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:113
+msgid "Timer"
+msgstr "Αντίστροφη μέτρηση"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:6
 msgid "Configured timer duration in seconds."
@@ -252,6 +270,11 @@ msgstr "Επιλέξτε <b>Νέο</b> για να προσθέσετε μια �
 msgid "Start"
 msgstr "Έναρξη"
 
+#: ../data/ui/stopwatch.ui.h:2 ../data/ui/timer.ui.h:3
+#: ../src/stopwatch.vala:213
+msgid "Reset"
+msgstr "Επαναφορά"
+
 #: ../data/ui/timer.ui.h:2 ../src/timer.vala:210 ../src/timer.vala:221
 msgid "Pause"
 msgstr "Παύση"
@@ -276,6 +299,10 @@ msgstr "Ανατολή"
 msgid "Sunset"
 msgstr "Δύση"
 
+#: ../src/alarm.vala:115 ../src/alarm.vala:370 ../src/alarm.vala:538
+msgid "Alarm"
+msgstr "Ειδοποίηση"
+
 #: ../src/alarm.vala:309
 msgid "Edit Alarm"
 msgstr "Επεξεργασία ειδοποίησης"
@@ -293,6 +320,10 @@ msgstr "Νέο"
 #: ../src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Προβολή πληροφοριών έκδοσης και έξοδος"
+
+#: ../src/stopwatch.vala:139
+msgid "Stopwatch"
+msgstr "Χρονόμετρο"
 
 #: ../src/stopwatch.vala:202
 msgid "Lap"
@@ -383,7 +414,7 @@ msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
 " Δημήτρης Σπίγγος <dmtrs32@gmail.com>\n"
-" Θάνος Τρυφωνίδης <tomtryf@gnome.com>\n"
+" Θάνος Τρυφωνίδης <tomtryf@gnome.org>\n"
 " Ευστάθιος Ιωσηφίδης <iosifidis@opensuse.org>\n"
 " Εύα Φωτοπούλου <eva_fotopoulou@hotmail.com>\n"
 "\n"
