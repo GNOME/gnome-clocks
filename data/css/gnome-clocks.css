@@ -1,9 +1,9 @@
-ClocksWindow > frame {
+window > frame {
     background-color: mix(@theme_fg_color, @theme_bg_color, 0.95);
     box-shadow: inset 0 5px 2px -6px black;
 }
 
-ClocksWindow > frame:backdrop {
+window > frame:backdrop {
     background-color: mix(@theme_unfocused_fg_color, @theme_unfocused_bg_color, 0.95);
     box-shadow: none;
 }
@@ -145,17 +145,13 @@ ClocksWindow > frame:backdrop {
     color: @theme_fg_color;
 }
 
-.clocks-laps-panel {
-    border: 0;
-}
-
-.clocks-laps-panel > frame:dir(ltr) {
+.clocks-laps-panel:dir(ltr) {
     border-image: linear-gradient(to bottom,
                                   mix(@borders,@theme_bg_color,0.5))
                   0 0 0 1 / 20px 0px 20px 1px stretch;
 }
 
-.clocks-laps-panel > frame:dir(rtl) {
+.clocks-laps-panel:dir(rtl) {
     border-image: linear-gradient(to bottom,
                                   mix(@borders,@theme_bg_color,0.5))
                   0 1 0 0 / 20px 1px 20px 0px stretch;
