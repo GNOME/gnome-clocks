@@ -19,18 +19,11 @@
       </object>
     </child>
     <child>
-      <object class="GtkFrame" id="frame1">
+      <object class="GtkStack" id="stack">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="shadow_type">none</property>
         <property name="vexpand">True</property>
         <property name="hexpand">True</property>
-        <child>
-          <object class="GtkStack" id="stack">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-          </object>
-        </child>
       </object>
     </child>
   </template>
