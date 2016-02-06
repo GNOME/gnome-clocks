@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-12-11 08:14+0000\n"
-"PO-Revision-Date: 2015-12-11 20:00+0100\n"
+"POT-Creation-Date: 2016-02-06 08:14+0000\n"
+"PO-Revision-Date: 2016-02-06 10:11+0100\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -21,6 +21,16 @@ msgstr ""
 "X-Project-Style: gnome\n"
 
 #: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+#: ../data/org.gnome.clocks.desktop.in.h:2
+msgid "GNOME Clocks"
+msgstr "Hodiny prostredia GNOME"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:3
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "Hodiny svetového času, budík, stopky a časovač"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
@@ -28,86 +38,97 @@ msgstr ""
 "Jednoduchá a elegantná aplikácia s hodinami. Obsahuje svetový čas, budík, "
 "stopky a časovač."
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
 msgid "Goals:"
 msgstr "Ciele:"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
 msgid "Show the time in different cities around the world"
 msgstr "Zobrazí čas v rôznych svetových mestách"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
 msgid "Set alarms to wake you up"
 msgstr "Umožňuje nastaviť rôzne časy zobudenia"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:7
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Odmeria uplynutý čas s presnými stopkami"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:8
 msgid "Set timers to properly cook your food"
 msgstr "Nastavenie hodnôt časovača pri varení obeda"
 
 #: ../data/gtk/help-overlay.ui.h:1
+msgctxt "shortcut window"
 msgid "General"
 msgstr "Všeobecné"
 
 #: ../data/gtk/help-overlay.ui.h:2
+msgctxt "shortcut window"
 msgid "Go to the next section"
 msgstr "Prejdenie na nasledujúcu sekciu"
 
 #: ../data/gtk/help-overlay.ui.h:3
+msgctxt "shortcut window"
 msgid "Go to the previous section"
 msgstr "Prejdenie na predchádzajúcu sekciu"
 
 #: ../data/gtk/help-overlay.ui.h:4
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Ukončenie"
 
 #: ../data/gtk/help-overlay.ui.h:5
+msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Svetové hodiny"
 
 #: ../data/gtk/help-overlay.ui.h:6
+msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Pridanie svetových hodín"
 
 # https://bugzilla.gnome.org/show_bug.cgi?id=685659
 # https://bugzilla.gnome.org/show_bug.cgi?id=684472
 #: ../data/gtk/help-overlay.ui.h:7
+msgctxt "shortcut window"
 msgid "Select all world clocks"
 msgstr "Výber všetkých svetových hodín"
 
-#: ../data/gtk/help-overlay.ui.h:8 ../src/alarm.vala:115 ../src/alarm.vala:370
-#: ../src/alarm.vala:538
+#: ../data/gtk/help-overlay.ui.h:8
+msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Budík"
 
 #: ../data/gtk/help-overlay.ui.h:9
+msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Pridanie budíku"
 
 #: ../data/gtk/help-overlay.ui.h:10
+msgctxt "shortcut window"
 msgid "Select all alarms"
 msgstr "Výber všetkých budíkov"
 
-#: ../data/gtk/help-overlay.ui.h:11 ../src/stopwatch.vala:139
+#: ../data/gtk/help-overlay.ui.h:11
+msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Stopky"
 
 #: ../data/gtk/help-overlay.ui.h:12
+msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Zastavenie alebo vynulovanie"
 
-#: ../data/gtk/help-overlay.ui.h:13 ../data/org.gnome.clocks.gschema.xml.in.h:5
-#: ../src/timer.vala:113
+#: ../data/gtk/help-overlay.ui.h:13
+msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Časovač"
 
-#: ../data/gtk/help-overlay.ui.h:14 ../data/ui/stopwatch.ui.h:2
-#: ../data/ui/timer.ui.h:3 ../src/stopwatch.vala:213
+#: ../data/gtk/help-overlay.ui.h:14
+msgctxt "shortcut window"
 msgid "Reset"
-msgstr "Vynulovať"
+msgstr "Vynulovanie"
 
 #: ../data/gtk/menus.ui.h:1
 msgid "_Keyboard Shortcuts"
@@ -138,14 +159,6 @@ msgstr "Zrušiť výber"
 msgid "Clocks"
 msgstr "Hodiny"
 
-#: ../data/org.gnome.clocks.desktop.in.h:2
-msgid "GNOME Clocks"
-msgstr "Hodiny prostredia GNOME"
-
-#: ../data/org.gnome.clocks.desktop.in.h:3
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Hodiny svetového času, budík, stopky a časovač"
-
 #: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "čas;časovač;budík;svetový čas;stopky;časová zóna;"
@@ -169,6 +182,10 @@ msgstr "Nastavené budíky"
 #: ../data/org.gnome.clocks.gschema.xml.in.h:4
 msgid "List of alarms set."
 msgstr "Zoznam nastavených budíkov."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:113
+msgid "Timer"
+msgstr "Časovač"
 
 # desc
 #: ../data/org.gnome.clocks.gschema.xml.in.h:6
@@ -265,6 +282,11 @@ msgstr "Zvoľte <b>Pridať</b> na pridanie budíka"
 msgid "Start"
 msgstr "Spustiť"
 
+#: ../data/ui/stopwatch.ui.h:2 ../data/ui/timer.ui.h:3
+#: ../src/stopwatch.vala:213
+msgid "Reset"
+msgstr "Vynulovať"
+
 #: ../data/ui/timer.ui.h:2 ../src/timer.vala:210 ../src/timer.vala:221
 msgid "Pause"
 msgstr "Pozastaviť"
@@ -291,6 +313,10 @@ msgstr "Východ slnka"
 msgid "Sunset"
 msgstr "Západ slnka"
 
+#: ../src/alarm.vala:115 ../src/alarm.vala:370 ../src/alarm.vala:538
+msgid "Alarm"
+msgstr "Budík"
+
 #: ../src/alarm.vala:309
 msgid "Edit Alarm"
 msgstr "Upraviť budík"
@@ -309,6 +335,10 @@ msgstr "Pridať"
 #: ../src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Zobrazí informácie o verzii a skončí"
+
+#: ../src/stopwatch.vala:139
+msgid "Stopwatch"
+msgstr "Stopky"
 
 #: ../src/stopwatch.vala:202
 msgid "Lap"
