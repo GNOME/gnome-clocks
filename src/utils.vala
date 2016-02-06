@@ -21,15 +21,30 @@ extern int clocks_cutils_get_week_start ();
 namespace Clocks {
 namespace Utils {
 
-public Gtk.CssProvider load_css (string css) {
+private void load_css (string css, bool required) {
     var provider = new Gtk.CssProvider ();
     try {
-        var file = File.new_for_uri("resource:///org/gnome/clocks/css/" + css);
+        var file = File.new_for_uri("resource:///org/gnome/clocks/css/" + css + ".css");
         provider.load_from_file (file);
     } catch (Error e) {
-        warning ("loading css: %s", e.message);
+        if (required) {
+            warning ("loading css: %s", e.message);
+        }
+
+        return;
     }
-    return provider;
+
+    Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default(),
+                                              provider,
+                                              Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+}
+
+public void load_main_css () {
+    load_css ("gnome-clocks", true);
+}
+
+public void load_theme_css (string theme_name) {
+    load_css ("gnome-clocks." + theme_name.down (), false);
 }
 
 public Gdk.Pixbuf? load_image (string image) {

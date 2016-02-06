@@ -1,0 +1,73 @@
+window > stack {
+    background-color: @theme_bg_color;
+    box-shadow: none;
+}
+
+window > stack:backdrop {
+    background-color: @theme_unfocused_bg_color;
+    box-shadow: none;
+}
+
+.clocks-digital-renderer {
+    border: 2px solid rgb(141, 141, 141);
+}
+
+.clocks-digital-renderer.stripe {
+    background-color: transparent;
+    border: none;
+}
+
+/* world */
+
+.clocks-digital-renderer.light.stripe,
+.clocks-digital-renderer.light.stripe:hover {
+    background-color: white;
+    color: black;
+}
+
+.clocks-digital-renderer.dark.stripe,
+.clocks-digital-renderer.dark.stripe:hover {
+    background-color: black;
+    color: white;
+}
+
+.check.clocks-digital-renderer-check.light {
+    color: black;
+}
+
+.check.clocks-digital-renderer-check.dark {
+    color: white;
+}
+
+/* alarms */
+
+.clocks-digital-renderer.active,
+.clocks-digital-renderer.active:hover {
+    background-image: none;
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+}
+
+.clocks-digital-renderer.snoozing,
+.clocks-digital-renderer.snoozing:hover {
+    background-image: none;
+    background-color: @warning_color;
+    color: @theme_fg_color;
+    text-shadow: none;
+}
+
+.clocks-digital-renderer.inactive,
+.clocks-digital-renderer.inactive:hover {
+    background-image: none;
+    background-color: @theme_bg_color;
+    color: @theme_fg_color;
+}
+
+.check.clocks-digital-renderer-check.active {
+    color: @theme_selected_fg_color;
+}
+
+.check.clocks-digital-renderer-check.inactive,
+.check.clocks-digital-renderer-check.snoozing {
+    color: @theme_fg_color;
+}

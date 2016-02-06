@@ -84,14 +84,23 @@ public class Application : Gtk.Application {
         window.present ();
     }
 
+    private void update_theme (Gtk.Settings settings) {
+        string theme_name;
+
+        settings.get("gtk-theme-name", out theme_name);
+        Utils.load_theme_css (theme_name);
+    }
+
     protected override void startup () {
         base.startup ();
 
-        // FIXME: move the css in gnome-theme-extras
-        var css_provider = Utils.load_css ("gnome-clocks.css");
-        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default(),
-                                                  css_provider,
-                                                  Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        Utils.load_main_css ();
+
+        var settings = Gtk.Settings.get_default ();
+        settings.notify["gtk-theme-name"].connect(() => {
+            update_theme (settings);
+        });
+        update_theme (settings);
 
         add_accelerator ("<Primary>n", "win.new", null);
         add_accelerator ("<Primary>a", "win.select-all", null);

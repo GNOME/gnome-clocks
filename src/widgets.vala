@@ -168,11 +168,12 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
             Gdk.Rectangle area = {margin, margin, TILE_SIZE, TILE_SIZE};
             base.render (cr, widget, area, area, flags);
         } else {
-            context.render_frame (cr, margin, margin, TILE_SIZE, TILE_SIZE);
             context.render_background (cr, margin, margin, TILE_SIZE, TILE_SIZE);
         }
+        context.render_frame (cr, margin, margin, TILE_SIZE, TILE_SIZE);
 
-        int w = cell_area.width - 2 * margin;
+        var border = context.get_border(context.get_state ());
+        int w = cell_area.width - 2 * margin - border.left - border.right;
 
         // create the layouts so that we can measure them
         var layout = widget.create_pango_layout ("");
@@ -202,7 +203,7 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
 
         // draw the stripe background
         int stripe_h = 128;
-        int x = margin;
+        int x = margin + border.left;
         int y = (cell_area.height - stripe_h) / 2;
 
         context.add_class ("stripe");
@@ -235,6 +236,8 @@ private class DigitalClockRenderer : Gtk.CellRendererPixbuf {
 
             context.save ();
             context.add_class (Gtk.STYLE_CLASS_CHECK);
+            context.add_class ("clocks-digital-renderer-check");
+            context.add_class (css_class);
 
             if (checked) {
                 context.set_state (Gtk.StateFlags.CHECKED);
