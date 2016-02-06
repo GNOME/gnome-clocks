@@ -45,6 +45,7 @@ AC_PATH_PROG(GLIB_COMPILE_RESOURCES, glib-compile-resources)
 GLIB_GSETTINGS
 
 LT_INIT([disable-static])
+LT_LIB_M
 
 PKG_PROG_PKG_CONFIG([0.22])
 

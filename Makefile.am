@@ -130,7 +130,7 @@ AM_CFLAGS = \
 gnome_clocks_LDFLAGS = -export-dynamic
 gnome_clocks_LDADD = \
 	$(CLOCKS_LIBS) \
-	-lm
+	$(LIBM)
 
 EXTRA_DIST = \
 	$(appdata_in_files) \
