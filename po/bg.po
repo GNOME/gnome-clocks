@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-15 06:11+0200\n"
-"PO-Revision-Date: 2013-01-15 06:10+0200\n"
+"POT-Creation-Date: 2016-02-06 22:03+0200\n"
+"PO-Revision-Date: 2016-02-06 10:12+0200\n"
 "Last-Translator: Krasimir Chonov <mk2616@abv.bg>\n"
 "Language-Team: Bulgarian <dict-notifications@fsa-bg.org>\n"
 "Language: bg\n"
@@ -18,101 +18,394 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../gnomeclocks/app.py:33
-msgid "Clocks"
-msgstr "Часовници"
-
-#: ../data/gnome-clocks.desktop.in.h:2 ../gnomeclocks/app.py:106
-#: ../gnomeclocks/app.py:115
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+#: ../data/org.gnome.clocks.desktop.in.h:2
 msgid "GNOME Clocks"
 msgstr "Часовници"
 
-#: ../data/gnome-clocks.desktop.in.h:3
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:3
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Часовници за различни градове, напомняния, хронометър и отброяване"
+msgstr "Часовници за различни градове, аларми, хронометър и отброяване"
 
-#: ../data/gnome-clocks.desktop.in.h:4
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"Предоставя напомняния и аларми, часовници, хронометри и обратно отброяване."
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+msgid "Goals:"
+msgstr "Цели:"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+msgid "Show the time in different cities around the world"
+msgstr "Извеждане на часа в различните градове по света"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+msgid "Set alarms to wake you up"
+msgstr "Задаване на аларма за събуждане"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:7
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "Измерване на времето с точен хронометър"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:8
+msgid "Set timers to properly cook your food"
+msgstr "Обратно отброяване за правилно сготвена храна"
+
+#: ../data/gtk/help-overlay.ui.h:1
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Общи"
+
+#: ../data/gtk/help-overlay.ui.h:2
+msgctxt "shortcut window"
+msgid "Go to the next section"
+msgstr "Следващ раздел"
+
+#: ../data/gtk/help-overlay.ui.h:3
+msgctxt "shortcut window"
+msgid "Go to the previous section"
+msgstr "Предишен раздел"
+
+#: ../data/gtk/help-overlay.ui.h:4
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Спиране на програмата"
+
+#: ../data/gtk/help-overlay.ui.h:5
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr "Часовник"
+
+#: ../data/gtk/help-overlay.ui.h:6
+msgctxt "shortcut window"
+msgid "Add a world clock"
+msgstr "Нов часовник"
+
+#: ../data/gtk/help-overlay.ui.h:7
+msgctxt "shortcut window"
+msgid "Select all world clocks"
+msgstr "Избиране на всички часовници"
+
+#: ../data/gtk/help-overlay.ui.h:8
+msgctxt "shortcut window"
+msgid "Alarm"
+msgstr "Аларма"
+
+#: ../data/gtk/help-overlay.ui.h:9
+msgctxt "shortcut window"
+msgid "Add an alarm"
+msgstr "Добавяне на аларма"
+
+#: ../data/gtk/help-overlay.ui.h:10
+msgctxt "shortcut window"
+msgid "Select all alarms"
+msgstr "Избиране на всички аларми"
+
+#: ../data/gtk/help-overlay.ui.h:11
+msgctxt "shortcut window"
+msgid "Stopwatch"
+msgstr "Хронометър"
+
+#: ../data/gtk/help-overlay.ui.h:12
+msgctxt "shortcut window"
+msgid "Stop / Reset"
+msgstr "Спиране/зануляване"
+
+#: ../data/gtk/help-overlay.ui.h:13
+msgctxt "shortcut window"
+msgid "Timer"
+msgstr "Отброяване"
+
+#: ../data/gtk/help-overlay.ui.h:14
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr "Изчистване"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "_Keyboard Shortcuts"
+msgstr "_Клавишни комбинации"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_Help"
+msgstr "Помо_щ"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "_Относно"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "_Спиране на програмата"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Select All"
+msgstr "Избиране на всички"
+
+#: ../data/gtk/menus.ui.h:6
+msgid "Select None"
+msgstr "Отмяна на избора"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../data/ui/window.ui.h:1
+#: ../src/window.vala:232
+msgid "Clocks"
+msgstr "Часовници"
+
+#: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
-"време;отброяване;напомняне;часовник;секундомер;пояс;хронометър;time;timer;"
-"alarm;world clock;stopwatch;time zone;"
+"време;обратно;отброяване;напомняне;аларма;часовник;секундомер;пояс;"
+"хронометър;time;timer;alarm;world clock;stopwatch;time zone;"
 
-#: ../gnomeclocks/alarm.py:93 ../gnomeclocks/alarm.py:455
-msgid "Alarm"
-msgstr "Напомняне"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+msgid "Configured world clocks"
+msgstr "Настроени часовници"
 
-#: ../gnomeclocks/alarm.py:130
-msgid "Every day"
-msgstr "Всеки ден"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+msgid "List of world clocks to show."
+msgstr "Списък с показваните часовници."
 
-#: ../gnomeclocks/alarm.py:132
-msgid "Weekdays"
-msgstr "Делнични дни"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+msgid "Configured alarms"
+msgstr "Въведени аларми"
 
-#: ../gnomeclocks/alarm.py:194
-msgid "Edit Alarm"
-msgstr "Промяна"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+msgid "List of alarms set."
+msgstr "Списък с алармите."
 
-#: ../gnomeclocks/alarm.py:196 ../gnomeclocks/alarm.py:222
-msgid "New Alarm"
-msgstr "Ново напомняне"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:113
+msgid "Timer"
+msgstr "Отброяване"
 
-#. Translators: "Time" in this context is the time an alarm
-#. is set to go off (days, hours, minutes etc.)
-#: ../gnomeclocks/alarm.py:227
-msgid "Time"
-msgstr "Час"
+#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+msgid "Configured timer duration in seconds."
+msgstr "Отброяването е в секунди."
 
-#: ../gnomeclocks/alarm.py:270
+#: ../data/org.gnome.clocks.gschema.xml.in.h:7
+msgid "Geolocation support"
+msgstr "Поддръжка на местоположение"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:8
+msgid "Turn geolocation support on and off."
+msgstr "Включване/изключване на поддръжката на местоположението."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:9
+msgid "Window state"
+msgstr "Състояние на прозореца"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:10
+msgid "State of the window, e.g. maximized."
+msgstr "Състояние на прозореца, напр. максимизирано."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:11
+msgid "Window width and height"
+msgstr "Широчина и височина на прозореца"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:12
+msgid "Width and height of the window."
+msgstr "Широчина и височина на прозореца."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:13
+msgid "Panel state"
+msgstr "Състояние на панела"
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:14
+msgid "Current clock panel."
+msgstr "Панел на текущия часовник."
+
+#: ../data/ui/alarmringing.ui.h:1 ../src/alarm.vala:117
+#: ../src/stopwatch.vala:199
+msgid "Stop"
+msgstr "Спиране"
+
+#: ../data/ui/alarmringing.ui.h:2 ../src/alarm.vala:118
+msgid "Snooze"
+msgstr "Дрямка"
+
+#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
+msgid "Add a New World Clock"
+msgstr "Нов часовник"
+
+#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
+msgid "_Cancel"
+msgstr "_Отмяна"
+
+#: ../data/ui/alarmsetupdialog.ui.h:3
+msgid "_Done"
+msgstr "_Готово"
+
+#: ../data/ui/alarmsetupdialog.ui.h:4
+msgid "You already have an alarm for this time."
+msgstr "Вече е зададена аларма за този момент."
+
+#: ../data/ui/alarmsetupdialog.ui.h:5
 msgid "Name"
 msgstr "Име"
 
-#: ../gnomeclocks/alarm.py:279
+#: ../data/ui/alarmsetupdialog.ui.h:6
 msgid "Repeat Every"
 msgstr "Повтаряне"
 
-#: ../gnomeclocks/alarm.py:349 ../gnomeclocks/stopwatch.py:124
-msgid "Stop"
-msgstr "Стоп"
+#: ../data/ui/alarmsetupdialog.ui.h:7
+msgid "Active"
+msgstr "В сила"
 
-#: ../gnomeclocks/alarm.py:351
-msgid "Snooze"
-msgstr "Подрямване"
+#: ../data/ui/alarm.ui.h:1
+msgid "Select <b>New</b> to add an alarm"
+msgstr "Натиснете бутона „<b>Нов</b>“, за да добавите напомняне"
+
+#: ../data/ui/stopwatch.ui.h:1 ../data/ui/timer.ui.h:1
+#: ../src/stopwatch.vala:221
+msgid "Start"
+msgstr "Старт"
+
+#: ../data/ui/stopwatch.ui.h:2 ../data/ui/timer.ui.h:3
+#: ../src/stopwatch.vala:213
+msgid "Reset"
+msgstr "Изчистване"
+
+#: ../data/ui/timer.ui.h:2 ../src/timer.vala:210 ../src/timer.vala:221
+msgid "Pause"
+msgstr "Пауза"
+
+#: ../data/ui/worldlocationdialog.ui.h:3
+msgid "_Add"
+msgstr "_Добавяне"
+
+#: ../data/ui/worldlocationdialog.ui.h:4
+msgid "Search for a city:"
+msgstr "Търсене на град:"
+
+#: ../data/ui/world.ui.h:1
+msgid "Select <b>New</b> to add a world clock"
+msgstr "Натиснете бутона „<b>Нов</b>“, за да добавите часовник"
+
+#: ../data/ui/world.ui.h:2
+msgid "Sunrise"
+msgstr "Изгрев"
+
+#: ../data/ui/world.ui.h:3
+msgid "Sunset"
+msgstr "Залез"
+
+#: ../src/alarm.vala:115 ../src/alarm.vala:370 ../src/alarm.vala:538
+msgid "Alarm"
+msgstr "Аларма"
+
+#: ../src/alarm.vala:309
+msgid "Edit Alarm"
+msgstr "Промяна"
+
+#: ../src/alarm.vala:309
+msgid "New Alarm"
+msgstr "Нова аларма"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../gnomeclocks/alarm.py:458 ../gnomeclocks/world.py:301
+#: ../src/alarm.vala:563 ../src/world.vala:266
 msgid "New"
 msgstr "Нов"
 
-#: ../gnomeclocks/alarm.py:464 ../gnomeclocks/world.py:307
-msgid "Done"
-msgstr "Готово"
+#: ../src/application.vala:23
+msgid "Print version information and exit"
+msgstr "Извеждане на информация за версията и изход"
 
-#: ../gnomeclocks/alarm.py:471
-msgid "Edit"
-msgstr "Промяна"
+#: ../src/stopwatch.vala:139
+msgid "Stopwatch"
+msgstr "Секундомер"
 
-#: ../gnomeclocks/alarm.py:474 ../gnomeclocks/world.py:314
+#: ../src/stopwatch.vala:202
+msgid "Lap"
+msgstr "Засичане"
+
+#: ../src/stopwatch.vala:209 ../src/timer.vala:205
+msgid "Continue"
+msgstr "Продължаване"
+
+#: ../src/timer.vala:125
+msgid "Time is up!"
+msgstr "Времето изтече!"
+
+#: ../src/timer.vala:126
+msgid "Timer countdown finished"
+msgstr "Отброяването завърши"
+
+#: ../src/utils.vala:168
+msgid "Mondays"
+msgstr "Понеделник"
+
+#: ../src/utils.vala:169
+msgid "Tuesdays"
+msgstr "Вторник"
+
+#: ../src/utils.vala:170
+msgid "Wednesdays"
+msgstr "Сряда"
+
+#: ../src/utils.vala:171
+msgid "Thursdays"
+msgstr "Четвъртък"
+
+#: ../src/utils.vala:172
+msgid "Fridays"
+msgstr "Петък"
+
+#: ../src/utils.vala:173
+msgid "Saturdays"
+msgstr "Събота"
+
+#: ../src/utils.vala:174
+msgid "Sundays"
+msgstr "Неделя"
+
+#: ../src/utils.vala:254
+msgid "Every Day"
+msgstr "Всеки ден"
+
+#: ../src/utils.vala:256
+msgid "Weekdays"
+msgstr "Делнични дни"
+
+#: ../src/utils.vala:258
+msgid "Weekends"
+msgstr "Почивни дни"
+
+#: ../src/widgets.vala:500
 msgid "Delete"
 msgstr "Изтриване"
 
-#: ../gnomeclocks/alarm.py:484
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Натиснете бутона <b>Нов</b>, за да добавите напомняне"
+#: ../src/widgets.vala:526 ../src/widgets.vala:681
+msgid "Click on items to select them"
+msgstr "Натиснете върху елемент"
 
-#: ../gnomeclocks/app.py:105 ../gnomeclocks/app.py:147
-msgid "About Clocks"
-msgstr "Относно"
+#: ../src/widgets.vala:528
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d избран елемент"
+msgstr[1] "%d избрани елемента"
 
-#: ../gnomeclocks/app.py:111
+#: ../src/widgets.vala:670
+msgid "Cancel"
+msgstr "Отмяна"
+
+#: ../src/window.vala:205
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Неуспешно извеждане на помощта: %s"
+
+#: ../src/window.vala:235
 msgid "Utilities to help you with the time."
 msgstr "Приспособления за работа с време."
 
-#: ../gnomeclocks/app.py:113
+#: ../src/window.vala:240
 msgid "translator-credits"
 msgstr ""
 "Красимир Чонов <mk2616@abv.bg>\n"
+"Александър Шопов <ash@kambanaria.org>\n"
 "\n"
 "Проектът за превод на GNOME има нужда от подкрепа.\n"
 "Научете повече за нас на <a href=\"http://gnome.cult.bg\">http://gnome.cult."
@@ -120,123 +413,16 @@ msgstr ""
 "Докладвайте за грешки на <a href=\"http://gnome.cult.bg/bugs\">http://gnome."
 "cult.bg/bugs</a>"
 
-#: ../gnomeclocks/app.py:150
-msgid "Quit"
-msgstr "Спиране на програмата"
-
-#: ../gnomeclocks/stopwatch.py:39
-msgid "Stopwatch"
-msgstr "Секундомер"
-
-#: ../gnomeclocks/stopwatch.py:70 ../gnomeclocks/stopwatch.py:156
-#: ../gnomeclocks/timer.py:111
-msgid "Start"
-msgstr "Старт"
-
-#: ../gnomeclocks/stopwatch.py:78 ../gnomeclocks/stopwatch.py:135
-#: ../gnomeclocks/timer.py:53
-msgid "Reset"
-msgstr "Изчистване"
-
-#: ../gnomeclocks/stopwatch.py:90 ../gnomeclocks/stopwatch.py:127
-msgid "Lap"
-msgstr "Засичане"
-
-#: ../gnomeclocks/stopwatch.py:96
-msgid "Split"
-msgstr "Време"
-
-#: ../gnomeclocks/stopwatch.py:102
-msgid "Total"
-msgstr "Общо"
-
-#: ../gnomeclocks/stopwatch.py:131 ../gnomeclocks/timer.py:70
-msgid "Continue"
-msgstr "Продължаване"
-
-#: ../gnomeclocks/timer.py:46 ../gnomeclocks/timer.py:64
-#: ../gnomeclocks/timer.py:74
-msgid "Pause"
-msgstr "Пауза"
-
-#: ../gnomeclocks/timer.py:160
-msgid "Timer"
-msgstr "Отброяване"
-
-#: ../gnomeclocks/timer.py:178
-msgid "Time is up!"
-msgstr "Времето изтече!"
-
-#: ../gnomeclocks/timer.py:179
-msgid "Timer countdown finished"
-msgstr "Отброяването е завършено"
-
-#: ../gnomeclocks/utils.py:83
-msgid "Mondays"
-msgstr "Понеделник"
-
-#: ../gnomeclocks/utils.py:84
-msgid "Tuesdays"
-msgstr "Вторник"
-
-#: ../gnomeclocks/utils.py:85
-msgid "Wednesdays"
-msgstr "Сряда"
-
-#: ../gnomeclocks/utils.py:86
-msgid "Thursdays"
-msgstr "Четвъртък"
-
-#: ../gnomeclocks/utils.py:87
-msgid "Fridays"
-msgstr "Петък"
-
-#: ../gnomeclocks/utils.py:88
-msgid "Saturdays"
-msgstr "Събота"
-
-#: ../gnomeclocks/utils.py:89
-msgid "Sundays"
-msgstr "Неделя"
-
-#: ../gnomeclocks/widgets.py:171
-msgid "Click on items to select them"
-msgstr "Натиснете върху елемент"
-
-#: ../gnomeclocks/widgets.py:173
-msgid "{0} item selected"
-msgid_plural "{0} items selected"
-msgstr[0] "{0} отбелязан елемент"
-msgstr[1] "{0} отбелязани елемента"
-
-#: ../gnomeclocks/world.py:74
-msgid "Add a New World Clock"
-msgstr "Нов световен часовник"
-
-#: ../gnomeclocks/world.py:83
-msgid "Search for a city:"
-msgstr "Търсене на град:"
-
-#: ../gnomeclocks/world.py:184 ../gnomeclocks/world.py:191
-msgid "Yesterday"
-msgstr "Вчера"
-
-#: ../gnomeclocks/world.py:186 ../gnomeclocks/world.py:189
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:106 ../src/world.vala:109
 msgid "Tomorrow"
 msgstr "Утре"
 
-#: ../gnomeclocks/world.py:228
-msgid "Sunrise"
-msgstr "Изгрев"
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:106 ../src/world.vala:109
+msgid "Yesterday"
+msgstr "Вчера"
 
-#: ../gnomeclocks/world.py:232
-msgid "Sunset"
-msgstr "Залез"
-
-#: ../gnomeclocks/world.py:298
+#: ../src/world.vala:254
 msgid "World"
-msgstr "Световен"
-
-#: ../gnomeclocks/world.py:329
-msgid "Select <b>New</b> to add a world clock"
-msgstr "Натиснете бутона <b>Нов</b>, за да добавите часовник"
+msgstr "Часовник"
