@@ -254,7 +254,7 @@ private class Item : Object, ContentItem {
         builder.close ();
     }
 
-    public static Item? deserialize (GLib.Variant alarm_variant) {
+    public static ContentItem? deserialize (GLib.Variant alarm_variant) {
         string? name = null;
         string? id = null;
         bool active = true;
@@ -523,7 +523,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
 
-    private ListStore alarms;
+    private ContentStore alarms;
     private GLib.Settings settings;
     private Gtk.Button new_button;
     [GtkChild]
@@ -538,23 +538,27 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 header_bar: header_bar,
                 panel_id: PanelId.ALARM);
 
-        alarms = new ListStore (typeof (Item));
+        alarms = new ContentStore ();
         settings = new GLib.Settings ("org.gnome.clocks");
 
         var app = GLib.Application.get_default();
         var action = app.lookup_action ("stop-alarm");
         ((GLib.SimpleAction)action).activate.connect ((action, param) => {
-            var item = find_item (param.get_string());
-            if (item != null) {
-                item.stop();
+            var a = (Item)alarms.find ((a) => {
+                return ((Item)a).id == param.get_string();
+            });
+            if (a != null) {
+                a.stop();
             }
         });
 
         action = app.lookup_action ("snooze-alarm");
         ((GLib.SimpleAction)action).activate.connect ((action, param) => {
-            var item = find_item (param.get_string());
-            if (item != null) {
-                item.snooze();
+            var a = (Item)alarms.find ((a) => {
+                return ((Item)a).id == param.get_string();
+            });
+            if (a != null) {
+                a.snooze();
             }
         });
 
@@ -573,10 +577,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         // Start ticking...
         Utils.WallClock.get_default ().tick.connect (() => {
-            var n = alarms.get_n_items ();
-            for (int i = 0; i < n; i++) {
-                var a = alarms.get_object (i) as Item;
-                // a.tick() returns true if the state changed
+            alarms.foreach ((i) => {
+                var a = (Item)i;
                 if (a.tick()) {
                     if (a.state == Item.State.RINGING) {
                         show_ringing_panel (a);
@@ -585,7 +587,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
                         ringing_panel.update ();
                     }
                 }
-            }
+            });
         });
     }
 
@@ -603,16 +605,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     [GtkCallback]
     private void delete_selected () {
-        Object[] not_selected = {};
-        var n = alarms.get_n_items ();
-        for (int i = 0; i < n; i++) {
-            var o = alarms.get_object (i);
-            if (!((Item)o).selected) {
-                not_selected += o;
-            }
-        }
-        // remove everything and readd the ones not selected
-        alarms.splice(0, n, not_selected);
+        alarms.delete_selected ();
         save ();
     }
 
@@ -635,35 +628,15 @@ public class Face : Gtk.Stack, Clocks.Clock {
         }
     }
 
-    private Item? find_item (string id) {
-        var n = alarms.get_n_items ();
-        for (int i = 0; i < n; i++) {
-            var item = alarms.get_object (i) as Item;
-            if (item.id == id) {
-                return item;
-            }
-        }
-        return null;
-    }
-
     private void load () {
-        foreach (var a in settings.get_value ("alarms")) {
-            Item? alarm = Item.deserialize (a);
-            if (alarm != null) {
-                alarms.append (alarm);
-                content_view.add_item (alarm);
-            }
-        }
+        alarms.deserialize (settings.get_value ("alarms"), Item.deserialize);
+        alarms.foreach ((item) => {
+            content_view.add_item (item);
+        });
     }
 
     private void save () {
-        var builder = new GLib.VariantBuilder (new VariantType ("aa{sv}"));
-        var n = alarms.get_n_items ();
-        for (int i = 0; i < n; i++) {
-            var a = alarms.get_object (i) as Item;
-            a.serialize (builder);
-        }
-        settings.set_value ("alarms", builder.end ());
+        settings.set_value ("alarms", alarms.serialize ());
     }
 
     private void edit (Item alarm) {

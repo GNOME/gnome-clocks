@@ -264,6 +264,93 @@ public interface ContentItem : GLib.Object {
                                                out string subtext,
                                                out Gdk.Pixbuf? pixbuf,
                                                out string css_class);
+
+    public abstract void serialize (GLib.VariantBuilder builder);
+}
+
+public class ContentStore : GLib.Object, GLib.ListModel {
+    private ListStore store;
+
+    public ContentStore () {
+        store = new ListStore (typeof (ContentItem));
+        store.items_changed.connect ((position, removed, added) => {
+            items_changed (position, removed, added);
+        });
+    }
+
+    public Type get_item_type () {
+        return store.get_item_type ();
+    }
+
+    public uint get_n_items () {
+        return store.get_n_items ();
+    }
+
+    public Object? get_item (uint position) {
+        return store.get_item (position);
+    }
+
+    public void append (ContentItem *item) {
+        store.append (item);
+    }
+
+    public delegate void ForeachFunc(ContentItem item);
+
+    public void foreach(ForeachFunc func) {
+        var n = store.get_n_items ();
+        for (int i = 0; i < n; i++) {
+            func(store.get_object (i) as ContentItem);
+        }
+    }
+
+    public delegate bool FindFunc(ContentItem item);
+
+    public ContentItem? find(FindFunc func) {
+        var n = store.get_n_items ();
+        for (int i = 0; i < n; i++) {
+            var item = store.get_object (i) as ContentItem;
+            if (func (item)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public void delete_selected () {
+        Object[] not_selected = {};
+        var n = store.get_n_items ();
+        for (int i = 0; i < n; i++) {
+            var o = store.get_object (i);
+            if (!((ContentItem)o).selected) {
+                not_selected += o;
+            }
+        }
+
+        // remove everything and readd the ones not selected
+        store.splice(0, n, not_selected);
+    }
+
+    public Variant serialize () {
+        var builder = new GLib.VariantBuilder (new VariantType ("aa{sv}"));
+        var n = store.get_n_items ();
+        for (int i = 0; i < n; i++) {
+            var item = store.get_object (i) as ContentItem;
+            item.serialize (builder);
+        }
+        return builder.end ();
+    }
+
+    public delegate ContentItem? DeserializeItemFunc(Variant v);
+
+    public void deserialize (Variant variant, DeserializeItemFunc deserialize_item) {
+        foreach (var v in variant) {
+            ContentItem? i = deserialize_item (v);
+            if (i != null) {
+                store.append (i);
+            }
+        }
+    }
+
 }
 
 private class IconView : Gtk.IconView {

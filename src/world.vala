@@ -158,12 +158,14 @@ public class Item : Object, ContentItem {
     }
 
     public void serialize (GLib.VariantBuilder builder) {
-        builder.open (new GLib.VariantType ("a{sv}"));
-        builder.add ("{sv}", "location", location.serialize ());
-        builder.close ();
+        if (!automatic) {
+            builder.open (new GLib.VariantType ("a{sv}"));
+            builder.add ("{sv}", "location", location.serialize ());
+            builder.close ();
+        }
     }
 
-    public static Item deserialize (GLib.Variant location_variant) {
+    public static ContentItem? deserialize (GLib.Variant location_variant) {
         GWeather.Location? location = null;
 
         var world = GWeather.Location.get_world ();
@@ -230,7 +232,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
 
-    private ListStore locations;
+    private ContentStore locations;
     private GLib.Settings settings;
     private Gtk.Button new_button;
     private Gtk.Button back_button;
@@ -258,7 +260,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 panel_id: PanelId.WORLD,
                 transition_type: Gtk.StackTransitionType.CROSSFADE);
 
-        locations = new ListStore (typeof (Item));
+        locations = new ContentStore ();
         settings = new GLib.Settings ("org.gnome.clocks");
 
         day_pixbuf = Utils.load_image ("day.png");
@@ -305,11 +307,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         // Start ticking...
         Utils.WallClock.get_default ().tick.connect (() => {
-            var n = locations.get_n_items ();
-            for (int i = 0; i < n; i++) {
-                var l = locations.get_object (i) as Item;
-                l.tick();
-            }
+            locations.foreach ((l) => {
+                ((Item)l).tick();
+            });
             content_view.queue_draw ();
             update_standalone ();
         });
@@ -322,16 +322,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     [GtkCallback]
     private void delete_selected () {
-        Object[] not_selected = {};
-        var n = locations.get_n_items ();
-        for (int i = 0; i < n; i++) {
-            var o = locations.get_object (i);
-            if (!((Item)o).selected) {
-                not_selected += o;
-            }
-        }
-        // remove everything and readd the ones not selected
-        locations.splice(0, n, not_selected);
+        locations.delete_selected ();
         save ();
     }
 
@@ -365,41 +356,29 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     private void load () {
-        foreach (var l in settings.get_value ("world-clocks")) {
-            Item? location = Item.deserialize (l);
-            if (location != null) {
-                locations.append (location);
-                content_view.add_item (location);
-            }
-        }
+        locations.deserialize (settings.get_value ("world-clocks"), Item.deserialize);
+        locations.foreach ((item) => {
+            content_view.add_item (item);
+        });
     }
 
     private void save () {
-        var builder = new GLib.VariantBuilder (new VariantType ("aa{sv}"));
-        var n = locations.get_n_items ();
-        for (int i = 0; i < n; i++) {
-            var l = locations.get_object (i) as Item;
-            if (!l.automatic) {
-                l.serialize (builder);
-            }
-        }
-        settings.set_value ("world-clocks", builder.end ());
+        settings.set_value ("world-clocks", locations.serialize ());
     }
 
     private async void use_geolocation () {
         Geo.Info geo_info = new Geo.Info ();
 
         geo_info.location_changed.connect ((found_location) => {
-            var n = locations.get_n_items ();
-            for (int i = 0; i < n; i++) {
-                var l = locations.get_object (i) as Item;
-                if (geo_info.is_location_similar (l.location)) {
-                    return;
-                }
+            var item = (Item)locations.find ((l) => {
+                return geo_info.is_location_similar (((Item)l).location);
+            });
+
+            if (item != null) {
+                return;
             }
 
-            var item = new Item (found_location);
-
+            item = new Item (found_location);
             item.automatic = true;
             item.selectable = false;
             item.title_icon = "find-location-symbolic";
