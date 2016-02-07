@@ -2,15 +2,15 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Israel Campoy <churritzu@yahoo.com>, 2012.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2012, 2013, 2014, 2015.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2012, 2013, 2014, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-12-14 08:12+0000\n"
-"PO-Revision-Date: 2015-12-14 16:32+0100\n"
+"POT-Creation-Date: 2016-02-03 08:15+0000\n"
+"PO-Revision-Date: 2016-02-03 13:29+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -21,6 +21,17 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+#: ../data/org.gnome.clocks.desktop.in.h:2
+msgid "GNOME Clocks"
+msgstr "Relojes de GNOME"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:3
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr ""
+"Relojes de horas mundiales, además de alarmas, cronómetro y un temporizador"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
@@ -28,87 +39,107 @@ msgstr ""
 "Una sencilla y elegante aplicación de relojes. Incluye relojes del mundo, "
 "alarmas, un cronómetro y un temporizador."
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
 msgid "Goals:"
 msgstr "Objetivos:"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
 msgid "Show the time in different cities around the world"
 msgstr "Mostrar la hora en diferentes ciudades de todo el mundo"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
 msgid "Set alarms to wake you up"
 msgstr "Configurar alarmas para despertarse"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:7
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Medir el tiempo con precisión usando un cronómetro"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:8
 msgid "Set timers to properly cook your food"
 msgstr "Configurar temporizadores para cocinar adecuadamente"
 
 #: ../data/gtk/help-overlay.ui.h:1
+#| msgid "General"
+msgctxt "shortcut window"
 msgid "General"
 msgstr "General"
 
 #: ../data/gtk/help-overlay.ui.h:2
+#| msgid "Go to the next section"
+msgctxt "shortcut window"
 msgid "Go to the next section"
 msgstr "Ir a la siguiente sección"
 
 #: ../data/gtk/help-overlay.ui.h:3
+#| msgid "Go to the previous section"
+msgctxt "shortcut window"
 msgid "Go to the previous section"
 msgstr "Ir a la sección anterior"
 
 #: ../data/gtk/help-overlay.ui.h:4
-#| msgid "_Quit"
+#| msgid "Quit"
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Salir"
 
 #: ../data/gtk/help-overlay.ui.h:5
-#| msgid "Add a New World Clock"
+#| msgid "World Clocks"
+msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Reloj mundiales"
 
 #: ../data/gtk/help-overlay.ui.h:6
-#| msgid "Add a New World Clock"
+#| msgid "Add a world clock"
+msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Añadir un reloj mundial"
 
 #: ../data/gtk/help-overlay.ui.h:7
-#| msgid "Select <b>New</b> to add a world clock"
+#| msgid "Select all world clocks"
+msgctxt "shortcut window"
 msgid "Select all world clocks"
 msgstr "Seleccionar todos los relojes mundiales"
 
-#: ../data/gtk/help-overlay.ui.h:8 ../src/alarm.vala:115 ../src/alarm.vala:370
-#: ../src/alarm.vala:538
+#: ../data/gtk/help-overlay.ui.h:8
+#| msgid "Alarm"
+msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Alarma"
 
 #: ../data/gtk/help-overlay.ui.h:9
+#| msgid "Add an alarm"
+msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Añadir una alarma"
 
 #: ../data/gtk/help-overlay.ui.h:10
-#| msgid "Select All"
+#| msgid "Select all alarms"
+msgctxt "shortcut window"
 msgid "Select all alarms"
 msgstr "Seleccionar todas las alarmas"
 
-#: ../data/gtk/help-overlay.ui.h:11 ../src/stopwatch.vala:139
+#: ../data/gtk/help-overlay.ui.h:11
+#| msgid "Stopwatch"
+msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Cronómetro"
 
 #: ../data/gtk/help-overlay.ui.h:12
+#| msgid "Stop / Reset"
+msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Parar / reiniciar"
 
 #: ../data/gtk/help-overlay.ui.h:13
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:113
+#| msgid "Timer"
+msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Temporizador"
 
-#: ../data/gtk/help-overlay.ui.h:14 ../data/ui/stopwatch.ui.h:2
-#: ../data/ui/timer.ui.h:3 ../src/stopwatch.vala:213
+#: ../data/gtk/help-overlay.ui.h:14
+#| msgid "Reset"
+msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Reiniciar"
 
@@ -141,15 +172,6 @@ msgstr "No seleccionar ninguno"
 msgid "Clocks"
 msgstr "Relojes"
 
-#: ../data/org.gnome.clocks.desktop.in.h:2
-msgid "GNOME Clocks"
-msgstr "Relojes de GNOME"
-
-#: ../data/org.gnome.clocks.desktop.in.h:3
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr ""
-"Relojes de horas mundiales, además de alarmas, cronómetro y un temporizador"
-
 #: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "Hora;Temporizador;Alarma;Hora mundial;Cronómetro;Zona horaria;"
@@ -169,6 +191,10 @@ msgstr "Alarmas configuradas"
 #: ../data/org.gnome.clocks.gschema.xml.in.h:4
 msgid "List of alarms set."
 msgstr "Lista de alarmas establecidas."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:113
+msgid "Timer"
+msgstr "Temporizador"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:6
 msgid "Configured timer duration in seconds."
@@ -252,6 +278,11 @@ msgstr "Seleccione <b>Nuevo</b> para añadir una alarma"
 msgid "Start"
 msgstr "Iniciar"
 
+#: ../data/ui/stopwatch.ui.h:2 ../data/ui/timer.ui.h:3
+#: ../src/stopwatch.vala:213
+msgid "Reset"
+msgstr "Reiniciar"
+
 #: ../data/ui/timer.ui.h:2 ../src/timer.vala:210 ../src/timer.vala:221
 msgid "Pause"
 msgstr "Pausar"
@@ -276,6 +307,10 @@ msgstr "Amanecer"
 msgid "Sunset"
 msgstr "Atardecer"
 
+#: ../src/alarm.vala:115 ../src/alarm.vala:370 ../src/alarm.vala:538
+msgid "Alarm"
+msgstr "Alarma"
+
 #: ../src/alarm.vala:309
 msgid "Edit Alarm"
 msgstr "Editar alarma"
@@ -293,6 +328,10 @@ msgstr "Nuevo"
 #: ../src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Mostrar información de la versión y salir"
+
+#: ../src/stopwatch.vala:139
+msgid "Stopwatch"
+msgstr "Cronómetro"
 
 #: ../src/stopwatch.vala:202
 msgid "Lap"
