@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-24 20:15+0000\n"
-"PO-Revision-Date: 2016-01-25 01:53+0100\n"
-"Last-Translator: Gabor Kelemen <kelemeng at ubuntu dot com>\n"
+"POT-Creation-Date: 2016-02-06 08:14+0000\n"
+"PO-Revision-Date: 2016-02-06 09:45+0100\n"
+"Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Poedit 1.8.5\n"
 
 #: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
 #: ../data/org.gnome.clocks.desktop.in.h:2
@@ -59,61 +59,72 @@ msgid "Set timers to properly cook your food"
 msgstr "Időzítők beállítása az étel megfelelő főzéséhez"
 
 #: ../data/gtk/help-overlay.ui.h:1
+msgctxt "shortcut window"
 msgid "General"
 msgstr "Általános"
 
 #: ../data/gtk/help-overlay.ui.h:2
+msgctxt "shortcut window"
 msgid "Go to the next section"
 msgstr "Ugrás a következő szakaszhoz"
 
 #: ../data/gtk/help-overlay.ui.h:3
+msgctxt "shortcut window"
 msgid "Go to the previous section"
 msgstr "Ugrás az előző szakaszhoz"
 
 #: ../data/gtk/help-overlay.ui.h:4
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Kilépés"
 
 #: ../data/gtk/help-overlay.ui.h:5
+msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Világórák"
 
 #: ../data/gtk/help-overlay.ui.h:6
+msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Világóra hozzáadása"
 
 #: ../data/gtk/help-overlay.ui.h:7
+msgctxt "shortcut window"
 msgid "Select all world clocks"
 msgstr "Az összes világóra kiválasztása"
 
-#: ../data/gtk/help-overlay.ui.h:8 ../src/alarm.vala:115 ../src/alarm.vala:370
-#: ../src/alarm.vala:538
+#: ../data/gtk/help-overlay.ui.h:8
+msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Figyelmeztetés"
 
 #: ../data/gtk/help-overlay.ui.h:9
+msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Figyelmeztetés hozzáadása"
 
 #: ../data/gtk/help-overlay.ui.h:10
+msgctxt "shortcut window"
 msgid "Select all alarms"
 msgstr "Összes figyelmeztetés kijelölése"
 
-#: ../data/gtk/help-overlay.ui.h:11 ../src/stopwatch.vala:139
+#: ../data/gtk/help-overlay.ui.h:11
+msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Stopper"
 
 #: ../data/gtk/help-overlay.ui.h:12
+msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Leállítás / Visszaállítás"
 
-#: ../data/gtk/help-overlay.ui.h:13 ../data/org.gnome.clocks.gschema.xml.in.h:5
-#: ../src/timer.vala:113
+#: ../data/gtk/help-overlay.ui.h:13
+msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Időzítő"
 
-#: ../data/gtk/help-overlay.ui.h:14 ../data/ui/stopwatch.ui.h:2
-#: ../data/ui/timer.ui.h:3 ../src/stopwatch.vala:213
+#: ../data/gtk/help-overlay.ui.h:14
+msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Visszaállítás"
 
@@ -165,6 +176,10 @@ msgstr "Beállított figyelmeztetések"
 #: ../data/org.gnome.clocks.gschema.xml.in.h:4
 msgid "List of alarms set."
 msgstr "A beállított figyelmeztetések listája."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:113
+msgid "Timer"
+msgstr "Időzítő"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:6
 msgid "Configured timer duration in seconds."
@@ -248,6 +263,11 @@ msgstr "Válassza az <b>Új</b> lehetőséget figyelmeztetés hozzáadásához"
 msgid "Start"
 msgstr "Indítás"
 
+#: ../data/ui/stopwatch.ui.h:2 ../data/ui/timer.ui.h:3
+#: ../src/stopwatch.vala:213
+msgid "Reset"
+msgstr "Visszaállítás"
+
 #: ../data/ui/timer.ui.h:2 ../src/timer.vala:210 ../src/timer.vala:221
 msgid "Pause"
 msgstr "Szünet"
@@ -272,6 +292,10 @@ msgstr "Napkelte"
 msgid "Sunset"
 msgstr "Napnyugta"
 
+#: ../src/alarm.vala:115 ../src/alarm.vala:370 ../src/alarm.vala:538
+msgid "Alarm"
+msgstr "Figyelmeztetés"
+
 #: ../src/alarm.vala:309
 msgid "Edit Alarm"
 msgstr "Figyelmeztetés szerkesztése"
@@ -289,6 +313,10 @@ msgstr "Új"
 #: ../src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Verzióinformációk kiírása és kilépés"
+
+#: ../src/stopwatch.vala:139
+msgid "Stopwatch"
+msgstr "Stopper"
 
 #: ../src/stopwatch.vala:202
 msgid "Lap"
