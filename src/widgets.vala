@@ -359,12 +359,6 @@ private class IconView : Gtk.IconView {
         SELECTION
     }
 
-    public enum Column {
-        SELECTED,
-        ITEM,
-        COLUMNS
-    }
-
     public Mode mode {
         get {
             return _mode;
@@ -390,7 +384,7 @@ private class IconView : Gtk.IconView {
     public IconView () {
         Object (selection_mode: Gtk.SelectionMode.NONE, mode: Mode.NORMAL);
 
-        model = new Gtk.ListStore (Column.COLUMNS, typeof (bool), typeof (ContentItem));
+        model = new Gtk.ListStore (1, typeof (ContentItem));
 
         get_style_context ().add_class ("clocks-tiles-view");
         get_style_context ().add_class ("content-view");
@@ -406,10 +400,9 @@ private class IconView : Gtk.IconView {
         thumb_renderer.set_alignment (0.5f, 0.5f);
         thumb_renderer.set_fixed_size (tile_width, tile_height);
         pack_start (thumb_renderer, false);
-        add_attribute (thumb_renderer, "checked", Column.SELECTED);
         set_cell_data_func (thumb_renderer, (column, cell, model, iter) => {
             ContentItem? item;
-            model.get (iter, IconView.Column.ITEM, out item);
+            model.get (iter, 0, out item);
             if (item != null) {
                 var renderer = (DigitalClockRenderer) cell;
                 string text;
@@ -418,6 +411,7 @@ private class IconView : Gtk.IconView {
                 string css_class;
                 item.get_thumb_properties (out text, out subtext, out pixbuf, out css_class);
                 renderer.selectable = item.selectable;
+                renderer.checked = item.selected;
                 renderer.text = text;
                 renderer.subtext = subtext;
                 renderer.pixbuf = pixbuf;
@@ -434,7 +428,7 @@ private class IconView : Gtk.IconView {
         pack_start (title_renderer, true);
         set_cell_data_func (title_renderer, (column, cell, model, iter) => {
             ContentItem? item;
-            model.get (iter, IconView.Column.ITEM, out item);
+            model.get (iter, 0, out item);
             if (item != null) {
                 var renderer = (TitleRenderer) cell;
                 renderer.title = GLib.Markup.escape_text (item.name);
@@ -455,12 +449,10 @@ private class IconView : Gtk.IconView {
                 var store = (Gtk.ListStore) model;
                 Gtk.TreeIter i;
                 if (store.get_iter (out i, path)) {
-                    bool selected;
                     ContentItem item;
-                    store.get (i, Column.SELECTED, out selected, Column.ITEM, out item);
-                    if (item.selectable) {
+                    store.get (i, 0, out item);
+                    if (item != null && item.selectable) {
                         item.selected = true;
-                        store.set (i, Column.SELECTED, !selected);
                         selection_changed ();
                     }
                 }
@@ -476,12 +468,11 @@ private class IconView : Gtk.IconView {
         var store = (Gtk.ListStore) model;
         Gtk.TreeIter i;
         store.append (out i);
-        store.set (i, Column.SELECTED, false, Column.ITEM, item);
+        store.set (i, 0, item);
     }
 
     public new void clear () {
-        var model = get_model () as Gtk.ListStore;
-        model.clear ();
+        ((Gtk.ListStore) model).clear ();
     }
 
     // Redefine selection handling methods since we handle selection manually
@@ -489,9 +480,9 @@ private class IconView : Gtk.IconView {
     public new List<Gtk.TreePath> get_selected_items () {
         var items = new List<Gtk.TreePath> ();
         model.foreach ((model, path, iter) => {
-            bool selected;
-            ((Gtk.ListStore) model).get (iter, Column.SELECTED, out selected);
-            if (selected) {
+            ContentItem? item;
+            ((Gtk.ListStore) model).get (iter, 0, out item);
+            if (item != null && item.selected) {
                 items.prepend (path);
             }
             return false;
@@ -500,27 +491,25 @@ private class IconView : Gtk.IconView {
         return (owned) items;
     }
 
-    public new void select_all () {
+    private void select_unselect_all (bool select) {
         var model = get_model () as Gtk.ListStore;
         model.foreach ((model, path, iter) => {
             ContentItem? item;
-            ((Gtk.ListStore) model).get (iter, Column.ITEM, out item);
+            ((Gtk.ListStore) model).get (iter, 0, out item);
             if (item != null && item.selectable) {
-                item.selected = true;
-                ((Gtk.ListStore) model).set (iter, Column.SELECTED, true);
+                item.selected = select;
             }
             return false;
         });
         selection_changed ();
     }
 
+    public new void select_all () {
+        select_unselect_all (true);
+    }
+
     public new void unselect_all () {
-        var model = get_model () as Gtk.ListStore;
-        model.foreach ((model, path, iter) => {
-            ((Gtk.ListStore) model).set (iter, Column.SELECTED, false);
-            return false;
-        });
-        selection_changed ();
+        select_unselect_all (false);
     }
 }
 
@@ -615,17 +604,16 @@ public class ContentView : Gtk.Bin {
 
         icon_view.item_activated.connect ((path) => {
             var store = (Gtk.ListStore) icon_view.model;
-            Gtk.TreeIter i;
-            if (store.get_iter (out i, path)) {
-                if (icon_view.mode == IconView.Mode.SELECTION) {
-                    bool selected;
-                    store.get (i, IconView.Column.SELECTED, out selected);
-                    store.set (i, IconView.Column.SELECTED, !selected);
-                    icon_view.selection_changed ();
-                } else {
-                    Object item;
-                    store.get (i, IconView.Column.ITEM, out item);
-                    item_activated ((ContentItem) item);
+            Gtk.TreeIter iter;
+            if (store.get_iter (out iter, path)) {
+                ContentItem? item;
+                store.get (iter, 0, out item);
+                if (item != null) {
+                    if (icon_view.mode == IconView.Mode.SELECTION) {
+                        item.selected = !item.selected;
+                    } else {
+                        item_activated (item);
+                    }
                 }
             }
         });
@@ -736,13 +724,13 @@ public class ContentView : Gtk.Bin {
 
     public void set_sorting(Gtk.SortType sort_type, SortFunc sort_func) {
         var sortable = icon_view.get_model () as Gtk.TreeSortable;
-        sortable.set_sort_column_id (1, sort_type);
-        sortable.set_sort_func (1, (model, iter1, iter2) => {
+        sortable.set_sort_column_id (0, sort_type);
+        sortable.set_sort_func (0, (model, iter1, iter2) => {
             ContentItem item1;
             ContentItem item2;
 
-            model.get (iter1, IconView.Column.ITEM, out item1);
-            model.get (iter2, IconView.Column.ITEM, out item2);
+            model.get (iter1, 0, out item1);
+            model.get (iter2, 0, out item2);
 
             return sort_func (item1, item2);
         });
