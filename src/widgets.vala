@@ -421,24 +421,24 @@ private class IconView : Gtk.IconView {
     public override bool button_press_event (Gdk.EventButton event) {
         var path = get_path_at_pos ((int) event.x, (int) event.y);
         if (path != null) {
-            // On right click, swicth to selection mode automatically
-            if (event.button == Gdk.BUTTON_SECONDARY) {
-                mode = Mode.SELECTION;
-            }
+            var store = (Gtk.ListStore) model;
+            Gtk.TreeIter i;
+            if (store.get_iter (out i, path)) {
+                ContentItem item;
+                store.get (i, 0, out item);
+                if (item != null) {
+                    // On right click, swicth to selection mode automatically
+                    if (item.selectable && event.button == Gdk.BUTTON_SECONDARY) {
+                        mode = Mode.SELECTION;
+                    }
 
-            if (mode == Mode.SELECTION) {
-                var store = (Gtk.ListStore) model;
-                Gtk.TreeIter i;
-                if (store.get_iter (out i, path)) {
-                    ContentItem item;
-                    store.get (i, 0, out item);
-                    if (item != null && item.selectable) {
-                        item.selected = true;
+                    if (item.selectable && mode == Mode.SELECTION) {
+                        item.selected = !item.selected;
                         selection_changed ();
+                    } else if (event.button == Gdk.BUTTON_PRIMARY) {
+                        item_activated (path);
                     }
                 }
-            } else {
-                item_activated (path);
             }
         }
 
@@ -590,11 +590,7 @@ public class ContentView : Gtk.Bin {
                 ContentItem? item;
                 store.get (iter, 0, out item);
                 if (item != null) {
-                    if (icon_view.mode == IconView.Mode.SELECTION) {
-                        item.selected = !item.selected;
-                    } else {
-                        item_activated (item);
-                    }
+                    item_activated (item);
                 }
             }
         });
