@@ -31,6 +31,8 @@ public class Item : Object, ContentItem {
 
     public bool selectable { get; set; default = true; }
 
+    public bool selected { get; set; default = false; }
+
     public string name {
         get {
             // We store it in a _name member even if we overwrite it every time
@@ -228,7 +230,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
 
-    private List<Item> locations;
+    private ListStore locations;
     private GLib.Settings settings;
     private Gtk.Button new_button;
     private Gtk.Button back_button;
@@ -256,7 +258,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 panel_id: PanelId.WORLD,
                 transition_type: Gtk.StackTransitionType.CROSSFADE);
 
-        locations = new List<Item> ();
+        locations = new ListStore (typeof (Item));
         settings = new GLib.Settings ("org.gnome.clocks");
 
         day_pixbuf = Utils.load_image ("day.png");
@@ -303,7 +305,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         // Start ticking...
         Utils.WallClock.get_default ().tick.connect (() => {
-            foreach (var l in locations) {
+            var n = locations.get_n_items ();
+            for (int i = 0; i < n; i++) {
+                var l = locations.get_object (i) as Item;
                 l.tick();
             }
             content_view.queue_draw ();
@@ -318,9 +322,16 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     [GtkCallback]
     private void delete_selected () {
-        foreach (var i in content_view.get_selected_items ()) {
-            locations.remove ((Item) i);
+        Object[] not_selected = {};
+        var n = locations.get_n_items ();
+        for (int i = 0; i < n; i++) {
+            var o = locations.get_object (i);
+            if (!((Item)o).selected) {
+                not_selected += o;
+            }
         }
+        // remove everything and readd the ones not selected
+        locations.splice(0, n, not_selected);
         save ();
     }
 
@@ -357,18 +368,19 @@ public class Face : Gtk.Stack, Clocks.Clock {
         foreach (var l in settings.get_value ("world-clocks")) {
             Item? location = Item.deserialize (l);
             if (location != null) {
-                locations.prepend (location);
+                locations.append (location);
                 content_view.add_item (location);
             }
         }
-        locations.reverse ();
     }
 
     private void save () {
         var builder = new GLib.VariantBuilder (new VariantType ("aa{sv}"));
-        foreach (Item i in locations) {
-            if (!i.automatic) {
-                i.serialize (builder);
+        var n = locations.get_n_items ();
+        for (int i = 0; i < n; i++) {
+            var l = locations.get_object (i) as Item;
+            if (!l.automatic) {
+                l.serialize (builder);
             }
         }
         settings.set_value ("world-clocks", builder.end ());
@@ -378,8 +390,10 @@ public class Face : Gtk.Stack, Clocks.Clock {
         Geo.Info geo_info = new Geo.Info ();
 
         geo_info.location_changed.connect ((found_location) => {
-            foreach (Item i in locations) {
-                if (geo_info.is_location_similar (i.location)) {
+            var n = locations.get_n_items ();
+            for (int i = 0; i < n; i++) {
+                var l = locations.get_object (i) as Item;
+                if (geo_info.is_location_similar (l.location)) {
                     return;
                 }
             }
@@ -404,13 +418,15 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     public bool location_exists (GWeather.Location location) {
         var exists = false;
-
-        foreach (Item i in locations) {
-            if (i.location.equal(location)) {
+        var n = locations.get_n_items ();
+        for (int i = 0; i < n; i++) {
+            var l = locations.get_object (i) as Item;
+            if (l.location.equal (location)) {
                 exists = true;
                 break;
             }
         }
+
         return exists;
     }
 

@@ -258,6 +258,7 @@ public interface ContentItem : GLib.Object {
     public abstract string name { get; set; }
     public abstract string title_icon { get; set; default = null; }
     public abstract bool selectable { get; set; default = true; }
+    public abstract bool selected { get; set; default = false; }
 
     public abstract void get_thumb_properties (out string text,
                                                out string subtext,
@@ -371,6 +372,7 @@ private class IconView : Gtk.IconView {
                     ContentItem item;
                     store.get (i, Column.SELECTED, out selected, Column.ITEM, out item);
                     if (item.selectable) {
+                        item.selected = true;
                         store.set (i, Column.SELECTED, !selected);
                         selection_changed ();
                     }
@@ -419,6 +421,7 @@ private class IconView : Gtk.IconView {
             ContentItem? item;
             ((Gtk.ListStore) model).get (iter, Column.ITEM, out item);
             if (item != null && item.selectable) {
+                item.selected = true;
                 ((Gtk.ListStore) model).set (iter, Column.SELECTED, true);
             }
             return false;

@@ -35,6 +35,8 @@ private class Item : Object, ContentItem {
 
     public bool selectable { get; set; default = true; }
 
+    public bool selected { get; set; default = false; }
+
     public string id { get; construct set; }
 
     public string name {
@@ -184,10 +186,12 @@ private class Item : Object, ContentItem {
         return (this.alarm_time.compare (i.alarm_time) == 0 && this.active && i.active);
     }
 
-    public bool check_duplicate_alarm (List<Item> alarms_list) {
+    public bool check_duplicate_alarm (ListModel alarms) {
         update_alarm_time ();
-        foreach (Item i in alarms_list) {
-            if (compare_with_item (i)) {
+
+        var n = alarms.get_n_items ();
+        for (int i = 0; i < n; i++) {
+            if (compare_with_item (alarms.get_object (i) as Item)) {
                 return true;
             }
         }
@@ -303,17 +307,12 @@ private class SetupDialog : Gtk.Dialog {
     private Gtk.Stack am_pm_stack;
     [GtkChild]
     private Gtk.Revealer label_revealer;
-    private List<Item> alarms_list;
+    private ListModel alarms;
 
-    public SetupDialog (Gtk.Window parent, Item? alarm, List<Item> alarms) {
+    public SetupDialog (Gtk.Window parent, Item? alarm, ListModel all_alarms) {
         Object (transient_for: parent, title: alarm != null ? _("Edit Alarm") : _("New Alarm"), use_header_bar: 1);
 
-        alarms_list = new List<Item> ();
-        foreach (unowned Item i in alarms) {
-            if (i != alarm) {
-                alarms_list.prepend (i);
-            }
-        }
+        alarms = all_alarms;
 
         // Force LTR since we do not want to reverse [hh] : [mm]
         time_grid.set_direction (Gtk.TextDirection.LTR);
@@ -439,7 +438,7 @@ private class SetupDialog : Gtk.Dialog {
         var alarm = new Item ();
         apply_to_alarm (alarm);
 
-        if (alarm.check_duplicate_alarm (alarms_list)) {
+        if (alarm.check_duplicate_alarm (alarms)) {
             this.set_response_sensitive (1, false);
             label_revealer.set_reveal_child (true);
         } else {
@@ -524,7 +523,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
 
-    private List<Item> alarms;
+    private ListStore alarms;
     private GLib.Settings settings;
     private Gtk.Button new_button;
     [GtkChild]
@@ -539,7 +538,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 header_bar: header_bar,
                 panel_id: PanelId.ALARM);
 
-        alarms = new List<Item> ();
+        alarms = new ListStore (typeof (Item));
         settings = new GLib.Settings ("org.gnome.clocks");
 
         var app = GLib.Application.get_default();
@@ -574,7 +573,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         // Start ticking...
         Utils.WallClock.get_default ().tick.connect (() => {
-            foreach (var a in alarms) {
+            var n = alarms.get_n_items ();
+            for (int i = 0; i < n; i++) {
+                var a = alarms.get_object (i) as Item;
                 // a.tick() returns true if the state changed
                 if (a.tick()) {
                     if (a.state == Item.State.RINGING) {
@@ -602,9 +603,16 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     [GtkCallback]
     private void delete_selected () {
-        foreach (var i in content_view.get_selected_items ()) {
-            alarms.remove ((Item) i);
+        Object[] not_selected = {};
+        var n = alarms.get_n_items ();
+        for (int i = 0; i < n; i++) {
+            var o = alarms.get_object (i);
+            if (!((Item)o).selected) {
+                not_selected += o;
+            }
         }
+        // remove everything and readd the ones not selected
+        alarms.splice(0, n, not_selected);
         save ();
     }
 
@@ -628,9 +636,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     private Item? find_item (string id) {
-        foreach (var i in alarms) {
-            if (i.id == id) {
-                return i;
+        var n = alarms.get_n_items ();
+        for (int i = 0; i < n; i++) {
+            var item = alarms.get_object (i) as Item;
+            if (item.id == id) {
+                return item;
             }
         }
         return null;
@@ -640,17 +650,18 @@ public class Face : Gtk.Stack, Clocks.Clock {
         foreach (var a in settings.get_value ("alarms")) {
             Item? alarm = Item.deserialize (a);
             if (alarm != null) {
-                alarms.prepend (alarm);
+                alarms.append (alarm);
                 content_view.add_item (alarm);
             }
         }
-        alarms.reverse ();
     }
 
     private void save () {
         var builder = new GLib.VariantBuilder (new VariantType ("aa{sv}"));
-        foreach (Item i in alarms) {
-            i.serialize (builder);
+        var n = alarms.get_n_items ();
+        for (int i = 0; i < n; i++) {
+            var a = alarms.get_object (i) as Item;
+            a.serialize (builder);
         }
         settings.set_value ("alarms", builder.end ());
     }
