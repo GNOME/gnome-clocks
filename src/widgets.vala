@@ -479,11 +479,9 @@ private class IconView : Gtk.IconView {
         store.set (i, Column.SELECTED, false, Column.ITEM, item);
     }
 
-    public void prepend (Object item) {
-        var store = (Gtk.ListStore) model;
-        Gtk.TreeIter i;
-        store.insert (out i, 0);
-        store.set (i, Column.SELECTED, false, Column.ITEM, item);
+    public new void clear () {
+        var model = get_model () as Gtk.ListStore;
+        model.clear ();
     }
 
     // Redefine selection handling methods since we handle selection manually
@@ -524,18 +522,6 @@ private class IconView : Gtk.IconView {
         });
         selection_changed ();
     }
-
-    public void remove_selected () {
-        var paths =  get_selected_items ();
-        paths.reverse ();
-        foreach (Gtk.TreePath path in paths) {
-            Gtk.TreeIter i;
-            if (((Gtk.ListStore) model).get_iter (out i, path)) {
-                ((Gtk.ListStore) model).remove (i);
-            }
-        }
-        selection_changed ();
-    }
 }
 
 public class ContentView : Gtk.Bin {
@@ -559,6 +545,7 @@ public class ContentView : Gtk.Bin {
     }
 
     private bool _can_select;
+    private ContentStore model;
     private IconView icon_view;
     private Gtk.Button select_button;
     private Gtk.Button cancel_button;
@@ -648,83 +635,27 @@ public class ContentView : Gtk.Bin {
     }
 
     public signal void item_activated (ContentItem item);
+    public signal void delete_selected ();
 
-    public virtual signal void delete_selected () {
-        icon_view.remove_selected ();
-        update_props_on_remove ();
-    }
+    public void bind_model (ContentStore store) {
+        model = store;
+        model.items_changed.connect ((position, removed, added) => {
+            empty = model.get_n_items () == 0;
 
-    public void add_item (ContentItem item) {
-        icon_view.add_item (item);
-        update_props_on_insert (item);
-    }
+            var first_selectable = model.find ((i) => {
+                return i.selectable;
+            });
 
-    public void prepend (ContentItem item) {
-        icon_view.prepend (item);
-        update_props_on_insert (item);
-    }
+            can_select = first_selectable != null;
 
-    private void update_props_on_remove () {
-        Gtk.TreeIter iter;
-
-        var local_empty = true;
-        var local_can_select = false;
-        if (icon_view.model.get_iter_first (out iter)) {
-            local_empty = false;
-
-            // Looping is not efficient in theory, but in practice the only
-            // cases we have are:
-            //  - only the geolocation item
-            //  - at least one other item
-            // so we always break out of the loop at the first or second item
-            do {
-                ContentItem item;
-                icon_view.model.get (iter, IconView.Column.ITEM, out item);
-                if (item.selectable) {
-                   local_can_select = true;
-                   break;
-                }
-            } while (icon_view.model.iter_next (ref iter));
-        }
-
-        if (local_empty != empty) {
-            empty = local_empty;
-        }
-
-        if (local_can_select != can_select) {
-            can_select = local_can_select;
-        }
-    }
-
-    // We cannot connect to the row-inserted signal because the row is
-    // still empty so we cannot check item.selectable
-    private void update_props_on_insert (ContentItem item) {
-        if (empty) {
-            empty = false;
-        }
-        if (!can_select && item.selectable) {
-            can_select = true;
-        }
-    }
-
-    // Note: this is not efficient: we first walk the model to collect
-    // a list then the caller has to walk this list and then it has to
-    // delete the items from the view, which walks the model again...
-    // Our models are small enough that it does not matter and hopefully
-    // we will get rid of GtkListStore/GtkIconView soon.
-    public List<Object>? get_selected_items () {
-        var items = new List<Object> ();
-        var store = (Gtk.ListStore) icon_view.model;
-        foreach (Gtk.TreePath path in icon_view.get_selected_items ()) {
-            Gtk.TreeIter i;
-            if (store.get_iter (out i, path)) {
-                Object item;
-                store.get (i, IconView.Column.ITEM, out item);
-                items.prepend (item);
-            }
-        }
-        items.reverse ();
-        return (owned) items;
+            // Just clear and repopulate the GtkTreeModel...
+            // it sucks, but there is no easy way to sync to a GListMode
+            // and we always have few items.
+            icon_view.clear ();
+            model.foreach ((item) => {
+                icon_view.add_item (item);
+            });
+        });
     }
 
     public void select_all () {

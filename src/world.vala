@@ -283,6 +283,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         });
         header_bar.pack_start (back_button);
 
+        content_view.bind_model (locations);
         content_view.set_header_bar (header_bar);
         content_view.set_sorting(Gtk.SortType.ASCENDING, (item1, item2) => {
             var offset1 = ((Item) item1).location.get_timezone().get_offset();
@@ -357,9 +358,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     private void load () {
         locations.deserialize (settings.get_value ("world-clocks"), Item.deserialize);
-        locations.foreach ((item) => {
-            content_view.add_item (item);
-        });
     }
 
     private void save () {
@@ -383,7 +381,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
             item.selectable = false;
             item.title_icon = "find-location-symbolic";
             locations.append (item);
-            content_view.prepend (item);
         });
 
         yield geo_info.seek ();
@@ -391,7 +388,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     private void add_location_item (Item item) {
         locations.append (item);
-        content_view.add_item (item);
         save ();
     }
 

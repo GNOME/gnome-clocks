@@ -569,6 +569,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         new_button.action_name = "win.new";
         header_bar.pack_start (new_button);
 
+        content_view.bind_model (alarms);
         content_view.set_header_bar (header_bar);
 
         load ();
@@ -630,9 +631,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     private void load () {
         alarms.deserialize (settings.get_value ("alarms"), Item.deserialize);
-        alarms.foreach ((item) => {
-            content_view.add_item (item);
-        });
     }
 
     private void save () {
@@ -676,7 +674,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 var alarm = new Item ();
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
                 alarms.append (alarm);
-                content_view.add_item (alarm);
                 alarm.reset();
                 save ();
             }
