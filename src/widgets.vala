@@ -359,27 +359,7 @@ private class IconView : Gtk.IconView {
         SELECTION
     }
 
-    public Mode mode {
-        get {
-            return _mode;
-        }
-
-        set {
-            if (_mode != value) {
-                _mode = value;
-                // clear selection
-                if (_mode != Mode.SELECTION) {
-                    unselect_all ();
-                }
-
-                thumb_renderer.toggle_visible = (_mode == Mode.SELECTION);
-                queue_draw ();
-            }
-        }
-    }
-
-    private Mode _mode;
-    private DigitalClockRenderer thumb_renderer;
+    public Mode mode { get; set; }
 
     public IconView () {
         Object (selection_mode: Gtk.SelectionMode.NONE, mode: Mode.NORMAL);
@@ -396,7 +376,7 @@ private class IconView : Gtk.IconView {
                           DigitalClockRenderer.TILE_MARGIN +
                           DigitalClockRenderer.TILE_MARGIN_BOTTOM;
 
-        thumb_renderer = new DigitalClockRenderer ();
+        var thumb_renderer = new DigitalClockRenderer ();
         thumb_renderer.set_alignment (0.5f, 0.5f);
         thumb_renderer.set_fixed_size (tile_width, tile_height);
         pack_start (thumb_renderer, false);
@@ -411,6 +391,7 @@ private class IconView : Gtk.IconView {
                 string css_class;
                 item.get_thumb_properties (out text, out subtext, out pixbuf, out css_class);
                 renderer.selectable = item.selectable;
+                renderer.toggle_visible = (mode == Mode.SELECTION);
                 renderer.checked = item.selected;
                 renderer.text = text;
                 renderer.subtext = subtext;
@@ -703,6 +684,8 @@ public class ContentView : Gtk.Bin {
             if (icon_view.mode == IconView.Mode.SELECTION) {
                 header_bar.mode = HeaderBar.Mode.SELECTION;
             } else if (icon_view.mode == IconView.Mode.NORMAL) {
+                // clear current selection
+                icon_view.unselect_all ();
                 header_bar.mode = HeaderBar.Mode.NORMAL;
             }
         });
