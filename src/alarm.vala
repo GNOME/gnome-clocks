@@ -576,6 +576,10 @@ public class Face : Gtk.Stack, Clocks.Clock {
         reset_view ();
         show_all ();
 
+        alarms.items_changed.connect ((position, removed, added) => {
+            save ();
+        });
+
         // Start ticking...
         Utils.WallClock.get_default ().tick.connect (() => {
             alarms.foreach ((i) => {
@@ -602,12 +606,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
         } else {
             edit (alarm);
         }
-    }
-
-    [GtkCallback]
-    private void delete_selected () {
-        alarms.delete_selected ();
-        save ();
     }
 
     [GtkCallback]

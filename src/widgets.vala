@@ -550,7 +550,7 @@ public class ContentView : Gtk.Bin {
         delete_button.halign = Gtk.Align.END;
         delete_button.hexpand = true;
         delete_button.clicked.connect (() => {
-            delete_selected ();
+            model.delete_selected ();
             icon_view.mode = IconView.Mode.NORMAL;
         });
 
@@ -600,7 +600,6 @@ public class ContentView : Gtk.Bin {
     }
 
     public signal void item_activated (ContentItem item);
-    public signal void delete_selected ();
 
     public void bind_model (ContentStore store) {
         model = store;

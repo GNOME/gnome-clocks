@@ -304,6 +304,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
         }
 
         reset_view ();
+
+        locations.items_changed.connect ((position, removed, added) => {
+            save ();
+        });
+
         show_all ();
 
         // Start ticking...
@@ -319,12 +324,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
     [GtkCallback]
     private void item_activated (ContentItem item) {
         show_standalone ((Item) item);
-    }
-
-    [GtkCallback]
-    private void delete_selected () {
-        locations.delete_selected ();
-        save ();
     }
 
     [GtkCallback]
