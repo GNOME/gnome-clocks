@@ -270,6 +270,7 @@ public interface ContentItem : GLib.Object {
 
 public class ContentStore : GLib.Object, GLib.ListModel {
     private ListStore store;
+    private CompareDataFunc sort_func;
 
     public ContentStore () {
         store = new ListStore (typeof (ContentItem));
@@ -290,8 +291,20 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         return store.get_item (position);
     }
 
-    public void append (ContentItem *item) {
-        store.append (item);
+    public void set_sorting(owned CompareDataFunc sort) {
+        sort_func = (owned) sort;
+
+        // TODO: we should re-sort, but for now we only
+        // set this before adding any item
+        assert (store.get_n_items () == 0);
+    }
+
+    public void add (ContentItem *item) {
+        if (sort_func == null) {
+            store.append (item);
+        } else {
+            store.insert_sorted (item, sort_func);
+        }
     }
 
     public delegate void ForeachFunc(ContentItem item);
@@ -346,11 +359,10 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         foreach (var v in variant) {
             ContentItem? i = deserialize_item (v);
             if (i != null) {
-                store.append (i);
+                add (i);
             }
         }
     }
-
 }
 
 private class IconView : Gtk.IconView {
@@ -692,22 +704,6 @@ public class ContentView : Gtk.Bin {
             select_button.visible = can_select;
             break;
         }
-    }
-
-    public delegate int SortFunc(ContentItem item1, ContentItem item2);
-
-    public void set_sorting(Gtk.SortType sort_type, SortFunc sort_func) {
-        var sortable = icon_view.get_model () as Gtk.TreeSortable;
-        sortable.set_sort_column_id (0, sort_type);
-        sortable.set_sort_func (0, (model, iter1, iter2) => {
-            ContentItem item1;
-            ContentItem item2;
-
-            model.get (iter1, 0, out item1);
-            model.get (iter2, 0, out item2);
-
-            return sort_func (item1, item2);
-        });
     }
 }
 

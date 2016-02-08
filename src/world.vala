@@ -263,6 +263,16 @@ public class Face : Gtk.Stack, Clocks.Clock {
         locations = new ContentStore ();
         settings = new GLib.Settings ("org.gnome.clocks");
 
+        locations.set_sorting((item1, item2) => {
+            var offset1 = ((Item) item1).location.get_timezone().get_offset();
+            var offset2 = ((Item) item2).location.get_timezone().get_offset();
+            if (offset1 < offset2)
+                return -1;
+            if (offset1 > offset2)
+                return 1;
+            return 0;
+        });
+
         day_pixbuf = Utils.load_image ("day.png");
         night_pixbuf = Utils.load_image ("night.png");
 
@@ -285,15 +295,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         content_view.bind_model (locations);
         content_view.set_header_bar (header_bar);
-        content_view.set_sorting(Gtk.SortType.ASCENDING, (item1, item2) => {
-            var offset1 = ((Item) item1).location.get_timezone().get_offset();
-            var offset2 = ((Item) item2).location.get_timezone().get_offset();
-            if (offset1 < offset2)
-                return -1;
-            if (offset1 > offset2)
-                return 1;
-            return 0;
-        });
 
         load ();
 
@@ -375,14 +376,14 @@ public class Face : Gtk.Stack, Clocks.Clock {
             item.automatic = true;
             item.selectable = false;
             item.title_icon = "find-location-symbolic";
-            locations.append (item);
+            locations.add (item);
         });
 
         yield geo_info.seek ();
     }
 
     private void add_location_item (Item item) {
-        locations.append (item);
+        locations.add (item);
         save ();
     }
 
