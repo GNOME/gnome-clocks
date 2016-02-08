@@ -307,6 +307,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         locations.items_changed.connect ((position, removed, added) => {
             save ();
+            reset_view ();
         });
 
         show_all ();
@@ -324,11 +325,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
     [GtkCallback]
     private void item_activated (ContentItem item) {
         show_standalone ((Item) item);
-    }
-
-    [GtkCallback]
-    private void empty_changed () {
-        reset_view ();
     }
 
     [GtkCallback]
@@ -442,7 +438,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     public void reset_view () {
         standalone_location = null;
-        visible_child = content_view.empty ? empty_view : content_view;
+        visible_child = locations.get_n_items () == 0 ? empty_view : content_view;
     }
 
     public void update_header_bar () {

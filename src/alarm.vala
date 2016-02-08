@@ -578,6 +578,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         alarms.items_changed.connect ((position, removed, added) => {
             save ();
+            reset_view ();
         });
 
         // Start ticking...
@@ -606,11 +607,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
         } else {
             edit (alarm);
         }
-    }
-
-    [GtkCallback]
-    private void empty_changed () {
-        reset_view ();
     }
 
     [GtkCallback]
@@ -662,7 +658,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     private void reset_view () {
-        visible_child = content_view.empty ? empty_view : content_view;
+        visible_child = alarms.get_n_items () == 0 ? empty_view : content_view;
     }
 
     public void activate_new () {

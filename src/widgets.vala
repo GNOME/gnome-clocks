@@ -495,8 +495,6 @@ private class IconView : Gtk.IconView {
 }
 
 public class ContentView : Gtk.Bin {
-    public bool empty { get; private set; default = true; }
-
     private bool can_select {
         get {
             return _can_select;
@@ -604,8 +602,6 @@ public class ContentView : Gtk.Bin {
     public void bind_model (ContentStore store) {
         model = store;
         model.items_changed.connect ((position, removed, added) => {
-            empty = model.get_n_items () == 0;
-
             var first_selectable = model.find ((i) => {
                 return i.selectable;
             });
