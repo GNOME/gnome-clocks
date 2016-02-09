@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-12-13 20:13+0000\n"
-"PO-Revision-Date: 2015-12-14 09:09+0500\n"
+"POT-Creation-Date: 2016-02-09 08:15+0000\n"
+"PO-Revision-Date: 2016-02-09 15:49+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk@li.org>\n"
 "Language: kk\n"
@@ -20,6 +20,18 @@ msgstr ""
 "X-Generator: Poedit 1.8.6\n"
 
 #: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+#: ../data/org.gnome.clocks.desktop.in.h:2
+msgid "GNOME Clocks"
+msgstr "GNOME Clocks"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:3
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr ""
+"Дүниежүзілік уақыттары үшін сағаттар, құрамында тағы оятқыш, секундтар "
+"өлшегіші және таймері бар"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
@@ -27,82 +39,93 @@ msgstr ""
 "Қарапайым әрі сәнді уақыт қолданбасы. Әлемдік сағаттар, оятқыштар, секундтар "
 "өлшегіші және таймерді қолдайды."
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
 msgid "Goals:"
 msgstr "Мақсаттар:"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
 msgid "Show the time in different cities around the world"
 msgstr "Әлемнің әртүрлі қалалардағы уақытты көрсету"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
 msgid "Set alarms to wake you up"
 msgstr "Өзіңізді оятатын оятқыштарды орнатыңыз"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:7
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Өткен уақытты дәл секундтар өлшегішімен өлшеңіз"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:8
 msgid "Set timers to properly cook your food"
 msgstr "Тамақты дұрыс дайындау үшін таймерлерді орнатыңыз"
 
 #: ../data/gtk/help-overlay.ui.h:1
+msgctxt "shortcut window"
 msgid "General"
 msgstr "Жалпы"
 
 #: ../data/gtk/help-overlay.ui.h:2
+msgctxt "shortcut window"
 msgid "Go to the next section"
 msgstr "Келесі санатқа өту"
 
 #: ../data/gtk/help-overlay.ui.h:3
+msgctxt "shortcut window"
 msgid "Go to the previous section"
 msgstr "Алдыңғы санатқа өту"
 
 #: ../data/gtk/help-overlay.ui.h:4
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Шығу"
 
 #: ../data/gtk/help-overlay.ui.h:5
+msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Дүниежүзілік сағаттар"
 
 #: ../data/gtk/help-overlay.ui.h:6
+msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Дүниежүзілік сағатты қосу"
 
 #: ../data/gtk/help-overlay.ui.h:7
+msgctxt "shortcut window"
 msgid "Select all world clocks"
 msgstr "Барлық дүниежүзілік сағаттарды таңдау"
 
-#: ../data/gtk/help-overlay.ui.h:8 ../src/alarm.vala:115 ../src/alarm.vala:370
-#: ../src/alarm.vala:538
+#: ../data/gtk/help-overlay.ui.h:8
+msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Оятқыш"
 
 #: ../data/gtk/help-overlay.ui.h:9
+msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Оятқышты қосу"
 
 #: ../data/gtk/help-overlay.ui.h:10
+msgctxt "shortcut window"
 msgid "Select all alarms"
 msgstr "Барлық оятқыштарды таңдау"
 
-#: ../data/gtk/help-overlay.ui.h:11 ../src/stopwatch.vala:139
+#: ../data/gtk/help-overlay.ui.h:11
+msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Секундтар өлшегіші"
 
 #: ../data/gtk/help-overlay.ui.h:12
+msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Тоқтату / тастау"
 
-#: ../data/gtk/help-overlay.ui.h:13 ../data/org.gnome.clocks.gschema.xml.in.h:5
-#: ../src/timer.vala:113
+#: ../data/gtk/help-overlay.ui.h:13
+msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Таймер"
 
-#: ../data/gtk/help-overlay.ui.h:14 ../data/ui/stopwatch.ui.h:2
-#: ../data/ui/timer.ui.h:3 ../src/stopwatch.vala:213
+#: ../data/gtk/help-overlay.ui.h:14
+msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Тастау"
 
@@ -135,16 +158,6 @@ msgstr "Ештеңе таңдамау"
 msgid "Clocks"
 msgstr "Сағаттар"
 
-#: ../data/org.gnome.clocks.desktop.in.h:2
-msgid "GNOME Clocks"
-msgstr "GNOME Clocks"
-
-#: ../data/org.gnome.clocks.desktop.in.h:3
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr ""
-"Дүниежүзілік уақыттары үшін сағаттар, құрамында тағы оятқыш, секундтар "
-"өлшегіші және таймері бар"
-
 #: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "уақыт;таймер;оятқыш;дүниежүзі сағаты;секундтар өлшегіші;уақыт белдеуі;"
@@ -164,6 +177,10 @@ msgstr "Бапталған оятқыштар"
 #: ../data/org.gnome.clocks.gschema.xml.in.h:4
 msgid "List of alarms set."
 msgstr "Орнатылған оятқыштар тізімі."
+
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:113
+msgid "Timer"
+msgstr "Таймер"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:6
 msgid "Configured timer duration in seconds."
@@ -201,12 +218,12 @@ msgstr "Панельдің күйі"
 msgid "Current clock panel."
 msgstr "Ағымдағы сағат панелі."
 
-#: ../data/ui/alarmringing.ui.h:1 ../src/alarm.vala:117
+#: ../data/ui/alarmringing.ui.h:1 ../src/alarm.vala:119
 #: ../src/stopwatch.vala:199
 msgid "Stop"
 msgstr "Тоқтату"
 
-#: ../data/ui/alarmringing.ui.h:2 ../src/alarm.vala:118
+#: ../data/ui/alarmringing.ui.h:2 ../src/alarm.vala:120
 msgid "Snooze"
 msgstr "Қоя тұру"
 
@@ -247,6 +264,11 @@ msgstr "Оятқышты қосу үшін <b>Жаңа</b> таңдаңыз"
 msgid "Start"
 msgstr "Бастау"
 
+#: ../data/ui/stopwatch.ui.h:2 ../data/ui/timer.ui.h:3
+#: ../src/stopwatch.vala:213
+msgid "Reset"
+msgstr "Тастау"
+
 #: ../data/ui/timer.ui.h:2 ../src/timer.vala:210 ../src/timer.vala:221
 msgid "Pause"
 msgstr "Аялдату"
@@ -271,23 +293,31 @@ msgstr "Күннің шығуы"
 msgid "Sunset"
 msgstr "Күннің батуы"
 
-#: ../src/alarm.vala:309
+#: ../src/alarm.vala:117 ../src/alarm.vala:369 ../src/alarm.vala:537
+msgid "Alarm"
+msgstr "Оятқыш"
+
+#: ../src/alarm.vala:313
 msgid "Edit Alarm"
 msgstr "Оятқышты түзету"
 
-#: ../src/alarm.vala:309
+#: ../src/alarm.vala:313
 msgid "New Alarm"
 msgstr "Жаңа оятқыш"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:563 ../src/world.vala:266
+#: ../src/alarm.vala:566 ../src/world.vala:280
 msgid "New"
 msgstr "Жаңа"
 
 #: ../src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Нұсқа ақпаратын шығару және шығу"
+
+#: ../src/stopwatch.vala:139
+msgid "Stopwatch"
+msgstr "Секундтар өлшегіші"
 
 #: ../src/stopwatch.vala:202
 msgid "Lap"
@@ -305,61 +335,61 @@ msgstr "Уақыт бітті!"
 msgid "Timer countdown finished"
 msgstr "Таймер санағышы аяқталды"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:168
 msgid "Mondays"
 msgstr "Дүйсенбілер"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:169
 msgid "Tuesdays"
 msgstr "Сейсенбілер"
 
-#: ../src/utils.vala:155
+#: ../src/utils.vala:170
 msgid "Wednesdays"
 msgstr "Сәрсенбілер"
 
-#: ../src/utils.vala:156
+#: ../src/utils.vala:171
 msgid "Thursdays"
 msgstr "Бейсенбілер"
 
-#: ../src/utils.vala:157
+#: ../src/utils.vala:172
 msgid "Fridays"
 msgstr "Жұмалар"
 
-#: ../src/utils.vala:158
+#: ../src/utils.vala:173
 msgid "Saturdays"
 msgstr "Сенбілер"
 
-#: ../src/utils.vala:159
+#: ../src/utils.vala:174
 msgid "Sundays"
 msgstr "Жексенбілер"
 
-#: ../src/utils.vala:239
+#: ../src/utils.vala:254
 msgid "Every Day"
 msgstr "Әр күнде"
 
-#: ../src/utils.vala:241
+#: ../src/utils.vala:256
 msgid "Weekdays"
 msgstr "Апта күндері"
 
-#: ../src/utils.vala:243
+#: ../src/utils.vala:258
 msgid "Weekends"
 msgstr "Демалыс күндері"
 
-#: ../src/widgets.vala:497
+#: ../src/widgets.vala:557
 msgid "Delete"
 msgstr "Өшіру"
 
-#: ../src/widgets.vala:523 ../src/widgets.vala:678
+#: ../src/widgets.vala:583 ../src/widgets.vala:674
 msgid "Click on items to select them"
 msgstr "Бірнәрсені таңдау үшін оның үстіне шертіңіз"
 
-#: ../src/widgets.vala:525
+#: ../src/widgets.vala:585
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d таңдалды"
 
-#: ../src/widgets.vala:667
+#: ../src/widgets.vala:663
 msgid "Cancel"
 msgstr "Бас тарту"
 
@@ -377,16 +407,16 @@ msgid "translator-credits"
 msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:106 ../src/world.vala:109
+#: ../src/world.vala:108 ../src/world.vala:111
 msgid "Tomorrow"
 msgstr "Ертең"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:106 ../src/world.vala:109
+#: ../src/world.vala:108 ../src/world.vala:111
 msgid "Yesterday"
 msgstr "Кеше"
 
-#: ../src/world.vala:254
+#: ../src/world.vala:258
 msgid "World"
 msgstr "Дүниежүзі"
 
