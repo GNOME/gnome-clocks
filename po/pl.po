@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-06 16:24+0100\n"
-"PO-Revision-Date: 2016-02-06 16:25+0100\n"
+"POT-Creation-Date: 2016-02-17 22:40+0100\n"
+"PO-Revision-Date: 2016-02-17 22:41+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -165,6 +165,10 @@ msgstr "Zegar"
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "czas;minutnik;timer;budzik;alarm;zegar światowy;stoper;strefa czasowa;"
 
+#: ../data/org.gnome.clocks.desktop.in.h:5
+msgid "Allows world clocks to be displayed for your time zone."
+msgstr "Umożliwia wyświetlanie zegara dla strefy czasowej użytkownika."
+
 #: ../data/org.gnome.clocks.gschema.xml.in.h:1
 msgid "Configured world clocks"
 msgstr "Skonfigurowane zegary światowe"
@@ -221,12 +225,12 @@ msgstr "Stan panelu"
 msgid "Current clock panel."
 msgstr "Bieżący panel zegara."
 
-#: ../data/ui/alarmringing.ui.h:1 ../src/alarm.vala:117
+#: ../data/ui/alarmringing.ui.h:1 ../src/alarm.vala:119
 #: ../src/stopwatch.vala:199
 msgid "Stop"
 msgstr "Zatrzymaj"
 
-#: ../data/ui/alarmringing.ui.h:2 ../src/alarm.vala:118
+#: ../data/ui/alarmringing.ui.h:2 ../src/alarm.vala:120
 msgid "Snooze"
 msgstr "Drzemka"
 
@@ -296,21 +300,21 @@ msgstr "Wschód słońca"
 msgid "Sunset"
 msgstr "Zachód słońca"
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:370 ../src/alarm.vala:538
+#: ../src/alarm.vala:117 ../src/alarm.vala:369 ../src/alarm.vala:537
 msgid "Alarm"
 msgstr "Budzik"
 
-#: ../src/alarm.vala:309
+#: ../src/alarm.vala:313
 msgid "Edit Alarm"
 msgstr "Modyfikuj budzik"
 
-#: ../src/alarm.vala:309
+#: ../src/alarm.vala:313
 msgid "New Alarm"
 msgstr "Nowy budzik"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:563 ../src/world.vala:266
+#: ../src/alarm.vala:566 ../src/world.vala:280
 msgid "New"
 msgstr "Nowy"
 
@@ -378,15 +382,15 @@ msgstr "Dni robocze"
 msgid "Weekends"
 msgstr "Weekendy"
 
-#: ../src/widgets.vala:500
+#: ../src/widgets.vala:557
 msgid "Delete"
 msgstr "Usuń"
 
-#: ../src/widgets.vala:526 ../src/widgets.vala:681
+#: ../src/widgets.vala:583 ../src/widgets.vala:674
 msgid "Click on items to select them"
 msgstr "Kliknięcie elementu zaznacza go"
 
-#: ../src/widgets.vala:528
+#: ../src/widgets.vala:585
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -394,7 +398,7 @@ msgstr[0] "Zaznaczono: %d"
 msgstr[1] "Zaznaczono: %d"
 msgstr[2] "Zaznaczono: %d"
 
-#: ../src/widgets.vala:670
+#: ../src/widgets.vala:663
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -415,15 +419,15 @@ msgstr ""
 "Aviary.pl <gnomepl@aviary.pl>, 2012-2016"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:106 ../src/world.vala:109
+#: ../src/world.vala:108 ../src/world.vala:111
 msgid "Tomorrow"
 msgstr "Jutro"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:106 ../src/world.vala:109
+#: ../src/world.vala:108 ../src/world.vala:111
 msgid "Yesterday"
 msgstr "Wczoraj"
 
-#: ../src/world.vala:254
+#: ../src/world.vala:258
 msgid "World"
 msgstr "Świat"
