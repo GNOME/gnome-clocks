@@ -506,6 +506,44 @@ private class IconView : Gtk.IconView {
     }
 }
 
+private class SelectionMenuButton : Gtk.MenuButton {
+    public uint n_items {
+        get {
+            return _n_items;
+        }
+        set {
+            if (_n_items != value) {
+                _n_items = value;
+                string label;
+                if (n_items == 0) {
+                    label = _("Click on items to select them");
+                } else {
+                    label = ngettext ("%d selected", "%d selected", n_items).printf (n_items);
+                }
+                menubutton_label.label = label;
+            }
+        }
+    }
+
+    private uint _n_items;
+    private Gtk.Label menubutton_label;
+
+    public SelectionMenuButton () {
+        var app = (Gtk.Application) GLib.Application.get_default ();
+        menu_model = app.get_menu_by_id ("selection-menu");
+        menubutton_label = new Gtk.Label (_("Click on items to select them"));
+        var arrow = new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.BUTTON);
+        var grid = new Gtk.Grid ();
+        grid.set_column_spacing (6);
+        grid.attach (menubutton_label, 0, 0, 1, 1);
+        grid.attach (arrow, 1, 0, 1, 1);
+        add (grid);
+        valign = Gtk.Align.CENTER;
+        get_style_context ().add_class ("selection-menu");
+        show_all ();
+    }
+}
+
 public class ContentView : Gtk.Bin {
     private bool can_select {
         get {
@@ -529,9 +567,7 @@ public class ContentView : Gtk.Bin {
     private IconView icon_view;
     private Gtk.Button select_button;
     private Gtk.Button cancel_button;
-    private GLib.MenuModel selection_menu;
-    private Gtk.MenuButton selection_menubutton;
-    private Gtk.Label selection_menubutton_label;
+    private SelectionMenuButton selection_menubutton;
     private Gtk.Grid grid;
     private Gtk.Button delete_button;
     private HeaderBar? header_bar;
@@ -577,14 +613,7 @@ public class ContentView : Gtk.Bin {
         icon_view.selection_changed.connect (() => {
             var items = icon_view.get_selected_items ();
             var n_items = items.length ();
-
-            string label;
-            if (n_items == 0) {
-                label = _("Click on items to select them");
-            } else {
-                label = ngettext ("%d selected", "%d selected", n_items).printf (n_items);
-            }
-            selection_menubutton_label.label = label;
+            selection_menubutton.n_items = n_items;
 
             if (n_items != 0) {
                 delete_button.sensitive = true;
@@ -668,20 +697,7 @@ public class ContentView : Gtk.Bin {
         });
         header_bar.pack_end (cancel_button);
 
-        var app = (Gtk.Application) GLib.Application.get_default ();
-        selection_menu = app.get_menu_by_id ("selection-menu");
-        selection_menubutton = new Gtk.MenuButton ();
-        selection_menubutton_label = new Gtk.Label (_("Click on items to select them"));
-        var selection_menubutton_arrow = new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.BUTTON);
-        var selection_menubutton_grid = new Gtk.Grid ();
-        selection_menubutton_grid.set_column_spacing (6);
-        selection_menubutton_grid.attach (selection_menubutton_label, 0, 0, 1, 1);
-        selection_menubutton_grid.attach (selection_menubutton_arrow, 1, 0, 1, 1);
-        selection_menubutton.add (selection_menubutton_grid);
-        selection_menubutton.show_all();
-        selection_menubutton.valign = Gtk.Align.CENTER;
-        selection_menubutton.menu_model = selection_menu;
-        selection_menubutton.get_style_context ().add_class ("selection-menu");
+        selection_menubutton = new SelectionMenuButton ();
 
         icon_view.notify["mode"].connect (() => {
             if (icon_view.mode == IconView.Mode.SELECTION) {
