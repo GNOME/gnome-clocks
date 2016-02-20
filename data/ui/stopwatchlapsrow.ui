@@ -3,6 +3,7 @@
   <!-- interface-requires gtk+ 3.0 -->
   <template class="ClocksStopwatchLapsRow" parent="GtkListBoxRow">
     <property name="visible">True</property>
+    <property name="activatable">False</property>
     <child>
       <object class="GtkRevealer" id="slider">
         <property name="visible">True</property>
