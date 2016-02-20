@@ -771,7 +771,7 @@ public class AmPmToggleButton : Gtk.Button {
     }
 }
 
-public class AnalogFrame : Gtk.Frame {
+public class AnalogFrame : Gtk.Bin {
     protected const int LINE_WIDTH = 6;
     protected const int RADIUS_PAD = 48;
 
@@ -801,20 +801,7 @@ public class AnalogFrame : Gtk.Frame {
     }
 
     public override void size_allocate (Gtk.Allocation allocation) {
-        set_allocation (allocation);
-        var child = get_child ();
-        if (child != null && child.visible) {
-            int w, h;
-            child.get_preferred_width (out w, null);
-            child.get_preferred_height (out h, null);
-
-            Gtk.Allocation child_allocation = {};
-            child_allocation.x = allocation.x + (allocation.width - w) / 2;
-            child_allocation.y = allocation.y + (allocation.height - h) / 2;
-            child_allocation.width = w;
-            child_allocation.height =  h;
-            child.size_allocate (child_allocation);
-        }
+        base.size_allocate (allocation);
     }
 
     public override bool draw (Cairo.Context cr) {
