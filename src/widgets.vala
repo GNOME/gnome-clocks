@@ -272,6 +272,8 @@ public class ContentStore : GLib.Object, GLib.ListModel {
     private ListStore store;
     private CompareDataFunc sort_func;
 
+    public signal void selection_changed ();
+
     public ContentStore () {
         store = new ListStore (typeof (ContentItem));
         store.items_changed.connect ((position, removed, added) => {
@@ -299,12 +301,18 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         assert (store.get_n_items () == 0);
     }
 
-    public void add (ContentItem *item) {
+    private void on_item_selection_toggle (Object o, ParamSpec p) {
+        selection_changed ();
+    }
+
+    public void add (ContentItem item) {
         if (sort_func == null) {
             store.append (item);
         } else {
             store.insert_sorted (item, sort_func);
         }
+
+        item.notify["selected"].connect (on_item_selection_toggle);
     }
 
     public delegate void ForeachFunc(ContentItem item);
@@ -329,18 +337,65 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         return null;
     }
 
+    public uint get_n_selected () {
+        uint n_selected = 0;
+        var n = store.get_n_items ();
+        for (int i = 0; i < n; i++) {
+            var item = store.get_object (i) as ContentItem;
+            if (item.selected) {
+                n_selected++;
+            }
+        }
+        return n_selected;
+    }
+
     public void delete_selected () {
+        // remove everything and readd the ones not selected
+        uint n_deleted = 0;
         Object[] not_selected = {};
         var n = store.get_n_items ();
         for (int i = 0; i < n; i++) {
             var o = store.get_object (i);
             if (!((ContentItem)o).selected) {
                 not_selected += o;
+            } else {
+                n_deleted++;
+                SignalHandler.disconnect_by_func (o, (void *)on_item_selection_toggle, (void *)this);
             }
         }
 
-        // remove everything and readd the ones not selected
-        store.splice(0, n, not_selected);
+        if (n_deleted > 0) {
+            store.splice(0, n, not_selected);
+            selection_changed ();
+        }
+    }
+
+    private void select_unselect_all (bool select) {
+        uint n_toggled = 0;
+
+        var n = store.get_n_items ();
+        for (int i = 0; i < n; i++) {
+            var item = store.get_object (i) as ContentItem;
+            var selected = item.selectable && select;
+            if (selected != item.selected) {
+                SignalHandler.block_by_func (item, (void *)on_item_selection_toggle, (void *)this);
+                item.selected = selected;
+                SignalHandler.unblock_by_func (item, (void *)on_item_selection_toggle, (void *)this);
+                n_toggled++;
+            }
+        }
+
+        if (n_toggled > 0) {
+            selection_changed ();
+        }
+    }
+
+    public void select_all () {
+        select_unselect_all (true);
+    }
+
+    public void unselect_all () {
+        select_unselect_all (false);
     }
 
     public Variant serialize () {
@@ -467,43 +522,6 @@ private class IconView : Gtk.IconView {
     public new void clear () {
         ((Gtk.ListStore) model).clear ();
     }
-
-    // Redefine selection handling methods since we handle selection manually
-
-    public new List<Gtk.TreePath> get_selected_items () {
-        var items = new List<Gtk.TreePath> ();
-        model.foreach ((model, path, iter) => {
-            ContentItem? item;
-            ((Gtk.ListStore) model).get (iter, 0, out item);
-            if (item != null && item.selected) {
-                items.prepend (path);
-            }
-            return false;
-        });
-        items.reverse ();
-        return (owned) items;
-    }
-
-    private void select_unselect_all (bool select) {
-        var model = get_model () as Gtk.ListStore;
-        model.foreach ((model, path, iter) => {
-            ContentItem? item;
-            ((Gtk.ListStore) model).get (iter, 0, out item);
-            if (item != null && item.selectable) {
-                item.selected = select;
-            }
-            return false;
-        });
-        selection_changed ();
-    }
-
-    public new void select_all () {
-        select_unselect_all (true);
-    }
-
-    public new void unselect_all () {
-        select_unselect_all (false);
-    }
 }
 
 private class SelectionMenuButton : Gtk.MenuButton {
@@ -610,18 +628,6 @@ public class ContentView : Gtk.Bin {
             }
         });
 
-        icon_view.selection_changed.connect (() => {
-            var items = icon_view.get_selected_items ();
-            var n_items = items.length ();
-            selection_menubutton.n_items = n_items;
-
-            if (n_items != 0) {
-                delete_button.sensitive = true;
-            } else {
-                delete_button.sensitive = false;
-            }
-        });
-
         icon_view.item_activated.connect ((path) => {
             var store = (Gtk.ListStore) icon_view.model;
             Gtk.TreeIter iter;
@@ -657,15 +663,26 @@ public class ContentView : Gtk.Bin {
                 icon_view.add_item (item);
             });
         });
+
+        model.selection_changed.connect (() => {
+            var n_items = model.get_n_selected ();
+            selection_menubutton.n_items = n_items;
+
+            if (n_items != 0) {
+                delete_button.sensitive = true;
+            } else {
+                delete_button.sensitive = false;
+            }
+        });
     }
 
     public void select_all () {
         icon_view.mode = IconView.Mode.SELECTION;
-        icon_view.select_all ();
+        model.select_all ();
     }
 
     public void unselect_all () {
-        icon_view.unselect_all ();
+        model.unselect_all ();
     }
 
     public bool escape_pressed () {
