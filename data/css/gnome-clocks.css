@@ -8,103 +8,118 @@ window > stack:backdrop {
     box-shadow: none;
 }
 
-.clocks-tiles-view {
+/* content view */
+
+.tile {
+    padding: 12px;
     background-color: transparent;
 }
 
-.clocks-digital-renderer {
-    background-color: transparent;
-}
-
-.clocks-digital-renderer.stripe {
+.tile .tile-label {
     font-size: 32pt;
+}
+
+.tile .name-label {
+    padding-top: 0.5em;
+}
+
+.tile .name-icon {
+    padding-top: 0.5em;
+    padding-right: 8px;
 }
 
 /* world */
 
-.clocks-digital-renderer.light.stripe {
-    background-color: rgba(255, 255, 255, 0.4);
+.world-tile .stripe,
+.world-tile .stripe:backdrop {
     color: black;
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
-.clocks-digital-renderer.light.stripe:hover {
+.tile.prelight .world-tile .stripe,
+.tile.prelight .world-tile .stripe:backdrop {
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
     background-color: rgba(255, 255, 255, 0.6);
 }
 
-.clocks-digital-renderer.dark.stripe {
-    background-color: rgba(0, 0, 0, 0.4);
+.night .world-tile .stripe,
+.night .world-tile .stripe:backdrop {
     color: white;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.clocks-digital-renderer.dark.stripe:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+.tile.prelight .night .world-tile .stripe,
+.tile.prelight .night .world-tile .stripe:backdrop {
+    text-shadow: 0 0 0.1em rgba(255, 255, 255, 0.6), 0 0 0.2em rgba(255, 255, 255, 0.6);
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* alarms */
 
-.clocks-digital-renderer.active {
-    background-color: transparent;
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center bottom, 1.0,
-                                    from(shade(@theme_selected_bg_color,1.2)), to(@theme_selected_bg_color));
-    color: white;
-}
-
-.clocks-digital-renderer.active:hover {
-    background-color: transparent;
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center bottom, 1.0,
-                                    from(shade(@theme_selected_bg_color, 1.4)), to(@theme_selected_bg_color));
-    text-shadow: 0 2px 2px rgba(0,0,0,0.5);
-}
-
-.clocks-digital-renderer.snoozing {
-    background-color: transparent;
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center bottom, 1.0,
-                                    from(@warning_color), to(shade(@warning_color,0.9)));
-    color: white;
-}
-
-.clocks-digital-renderer.snoozing:hover {
-    background-color: transparent;
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center bottom, 1.0,
-                                    from(shade(@warning_color,1.1)), to(shade(@warning_color,0.99)));
-    text-shadow: 0 2px 2px rgba(0,0,0,0.5);
-}
-
-.clocks-digital-renderer.inactive {
+.alarm-tile,
+.alarm-tile:backdrop {
+    color: shade(@insensitive_fg_color,0.9);
     background-color: transparent;
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center bottom, 1.0,
                                     from(shade(@insensitive_bg_color,0.9)), to(shade(@insensitive_bg_color,0.85)));
-    color: shade(@insensitive_fg_color,0.9);
 }
 
-.clocks-digital-renderer.inactive:hover {
+.tile.prelight .alarm-tile,
+.tile.prelight .alarm-tile:backdrop {
+    color: @insensitive_fg_color;
     background-color: transparent;
     background-image: -gtk-gradient(radial,
                                     center center, 0,
                                     center bottom, 1.0,
                                     from(shade(@insensitive_bg_color,0.99)), to(shade(@insensitive_bg_color,0.9)));
-    color: @insensitive_fg_color;
+}
+
+.active .alarm-tile,
+.active .alarm-tile:backdrop {
+    color: white;
+    background-color: transparent;
+    background-image: -gtk-gradient(radial,
+                                    center center, 0,
+                                    center bottom, 1.0,
+                                    from(shade(@theme_selected_bg_color,1.2)), to(@theme_selected_bg_color));
+}
+
+.tile.prelight .active .alarm-tile,
+.tile.prelight .active .alarm-tile:backdrop {
+    color: white;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    background-color: transparent;
+    background-image: -gtk-gradient(radial,
+                                    center center, 0,
+                                    center bottom, 1.0,
+                                    from(shade(@theme_selected_bg_color, 1.4)), to(@theme_selected_bg_color));
+}
+
+.snoozing .alarm-tile,
+.snoozing .alarm-tile:backdrop {
+    color: white;
+    background-color: transparent;
+    background-image: -gtk-gradient(radial,
+                                    center center, 0,
+                                    center bottom, 1.0,
+                                    from(@warning_color), to(shade(@warning_color,0.9)));
+}
+
+.tile.prelight .snoozing .alarm-tile,
+.tile.prelight .snoozing .alarm-tile:backdrop {
+    color: white;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    background-color: transparent;
+    background-image: -gtk-gradient(radial,
+                                    center center, 0,
+                                    center bottom, 1.0,
+                                    from(shade(@warning_color,1.1)), to(shade(@warning_color,0.99)));
 }
 
 .clocks-ampm-toggle-button {
     font-size: 18pt;
-}
-
-.clocks-digital-renderer.active.stripe,
-.clocks-digital-renderer.snoozing.stripe,
-.clocks-digital-renderer.inactive.stripe {
-    background-color: transparent;
-    background-image: none;
 }
 
 .clocks-standalone-label,
@@ -213,4 +228,3 @@ spinbutton.clocks-timer-label button {
     animation-timing-function: cubic-bezier(1.0,0,0,1.0);
     animation-duration: 1s; 
 }
-

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="ClocksWorldTile" parent="GtkGrid">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="halign">start</property>
+    <property name="valign">start</property>
+    <child>
+      <object class="GtkOverlay" id="tile_overlay">
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkImage" id="image">
+            <property name="width_request">256</property>
+            <property name="height_request">256</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+        </child>
+        <child type="overlay">
+          <object class="GtkLabel" id="time_label">
+            <property name="width_request">256</property>
+            <property name="height_request">128</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <property name="use-markup">True</property>
+            <property name="justify">center</property>
+            <style>
+              <class name="stripe"/>
+              <class name="tile-label"/>
+            </style>
+          </object>
+        </child>
+        <style>
+          <class name="world-tile"/>
+        </style>
+      </object>
+    </child>
+    <child>
+      <object class="GtkGrid">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="halign">center</property>
+        <child>
+          <object class="GtkImage" id="name_icon">
+            <property name="icon_name">find-location-symbolic</property>
+            <property name="pixel_size">16</property>
+            <property name="visible">False</property>
+            <property name="no_show_all">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <style>
+              <class name="dim-label"/>
+              <class name="name-icon"/>
+            </style>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="name_label">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <style>
+              <class name="name-label"/>
+            </style>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">0</property>
+          </packing>
+        </child>
+      </object>
+      <packing>
+        <property name="left_attach">0</property>
+        <property name="top_attach">1</property>
+      </packing>
+    </child>
+  </template>
+</interface>

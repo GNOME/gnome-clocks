@@ -19,15 +19,10 @@
 namespace Clocks {
 namespace World {
 
-public class Item : Object, ContentItem, ContentThumb {
-    private static Gdk.Pixbuf? day_pixbuf = Utils.load_image ("day.png");
-    private static Gdk.Pixbuf? night_pixbuf = Utils.load_image ("night.png");
-
+public class Item : Object, ContentItem {
     public GWeather.Location location { get; set; }
 
     public bool automatic { get; set; default = false; }
-
-    public string title_icon { get; set; default = null; }
 
     public bool selectable { get; set; default = true; }
 
@@ -150,7 +145,8 @@ public class Item : Object, ContentItem, ContentThumb {
         tick ();
     }
 
-    public void tick () {
+    [Signal (run = "first")]
+    public virtual signal void tick () {
         var wallclock = Utils.WallClock.get_default ();
         local_time = wallclock.date_time;
         date_time = local_time.to_timezone (time_zone);
@@ -183,19 +179,47 @@ public class Item : Object, ContentItem, ContentThumb {
         }
         return location != null ? new Item (location) : null;
     }
+}
 
-    public void get_thumb_properties (out string text,
-                                      out string subtext,
-                                      out Gdk.Pixbuf? pixbuf,
-                                      out string css_class) {
-        text = time_label;
-        subtext = day_label;
-        if (is_daytime) {
-            pixbuf = day_pixbuf;
-            css_class = "light";
+[GtkTemplate (ui = "/org/gnome/clocks/ui/worldtile.ui")]
+private class Tile : Gtk.Grid {
+    private static Gdk.Pixbuf? day_pixbuf = Utils.load_image ("day.png");
+    private static Gdk.Pixbuf? night_pixbuf = Utils.load_image ("night.png");
+
+    public Item location { get; construct set; }
+
+    [GtkChild]
+    private Gtk.Image image;
+    [GtkChild]
+    private Gtk.Label time_label;
+    [GtkChild]
+    private Gtk.Widget name_icon;
+    [GtkChild]
+    private Gtk.Widget name_label;
+
+    public Tile (Item location) {
+        Object (location: location);
+
+        location.bind_property ("automatic", name_icon, "visible", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        location.bind_property ("name", name_label, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        location.tick.connect (update);
+
+        update ();
+    }
+
+    private void update () {
+        if (location.is_daytime) {
+            get_style_context ().remove_class ("night");
+            image.pixbuf = day_pixbuf;
         } else {
-            pixbuf = night_pixbuf;
-            css_class = "dark";
+            get_style_context ().add_class ("night");
+            image.pixbuf = night_pixbuf;
+        }
+
+        if (location.day_label != null && location.day_label != "") {
+            time_label.label = "%s\n<span size='xx-small'>%s</span>".printf (location.time_label, location.day_label);
+        } else {
+            time_label.label = location.time_label;
         }
     }
 }
@@ -308,7 +332,10 @@ public class Face : Gtk.Stack, Clocks.Clock {
         });
         header_bar.pack_start (back_button);
 
-        content_view.bind_model (locations);
+        content_view.bind_model (locations, (item) => {
+            return new Tile ((Item)item);
+        });
+
         content_view.set_header_bar (header_bar);
 
         load ();
@@ -389,7 +416,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
             item = new Item (found_location);
             item.automatic = true;
             item.selectable = false;
-            item.title_icon = "find-location-symbolic";
             locations.add (item);
         });
 
