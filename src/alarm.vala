@@ -527,9 +527,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private GLib.Settings settings;
     private Gtk.Button new_button;
     [GtkChild]
-    private ContentView content_view;
-    [GtkChild]
     private Gtk.Widget empty_view;
+    [GtkChild]
+    private ContentView content_view;
     [GtkChild]
     private RingingPanel ringing_panel;
 
@@ -573,13 +573,14 @@ public class Face : Gtk.Stack, Clocks.Clock {
         content_view.set_header_bar (header_bar);
 
         load ();
-        reset_view ();
         show_all ();
 
         alarms.items_changed.connect ((position, removed, added) => {
             save ();
             reset_view ();
         });
+
+        reset_view ();
 
         // Start ticking...
         Utils.WallClock.get_default ().tick.connect (() => {

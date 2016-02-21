@@ -240,9 +240,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private Gdk.Pixbuf? night_pixbuf;
     private Item standalone_location;
     [GtkChild]
-    private ContentView content_view;
-    [GtkChild]
     private Gtk.Widget empty_view;
+    [GtkChild]
+    private ContentView content_view;
     [GtkChild]
     private Gtk.Widget standalone;
     [GtkChild]
@@ -297,6 +297,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         content_view.set_header_bar (header_bar);
 
         load ();
+        show_all ();
 
         if (settings.get_boolean ("geolocation")) {
             use_geolocation.begin ((obj, res) => {
@@ -304,14 +305,12 @@ public class Face : Gtk.Stack, Clocks.Clock {
             });
         }
 
-        reset_view ();
-
         locations.items_changed.connect ((position, removed, added) => {
             save ();
             reset_view ();
         });
 
-        show_all ();
+        reset_view ();
 
         // Start ticking...
         Utils.WallClock.get_default ().tick.connect (() => {
