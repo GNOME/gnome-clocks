@@ -1,13 +1,13 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Daniel Korostil <ted.korostiled@gmail.com>, 2013, 2014, 2015.
+# Daniel Korostil <ted.korostiled@gmail.com>, 2013, 2014, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-26 01:53+0200\n"
-"PO-Revision-Date: 2015-02-26 01:54+0300\n"
+"POT-Creation-Date: 2016-03-03 16:12+0200\n"
+"PO-Revision-Date: 2016-03-03 16:16+0300\n"
 "Last-Translator: Daniel Korostil <ted.korostiled@gmail.com>\n"
 "Language-Team: linux.org.ua\n"
 "Language: uk\n"
@@ -20,6 +20,16 @@ msgstr ""
 "X-Project-Style: gnome\n"
 
 #: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+#: ../data/org.gnome.clocks.desktop.in.h:2
+msgid "GNOME Clocks"
+msgstr "Годинники GNOME"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:3
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "Годинники для перегляду часу, а також будильники, секундомір і таймер"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
@@ -27,42 +37,132 @@ msgstr ""
 "Проста й симпатична годинникова програма. Вона має світові годинники, "
 "будильники, секундомір і таймер."
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
 msgid "Goals:"
 msgstr "Цілі:"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
 msgid "Show the time in different cities around the world"
 msgstr "Показувати час у різних містах світу"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
 msgid "Set alarms to wake you up"
 msgstr "Встановлювати будильники, щоб вас розбудити"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:7
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Вимірювати час, що минув, з точним секундоміром"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:8
 msgid "Set timers to properly cook your food"
 msgstr "Встановлювати таймер, щоб точно готувати страви"
 
-#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:197
-#: ../data/ui/window.ui.h:1
+#: ../data/gtk/help-overlay.ui.h:1
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Загальне"
+
+#: ../data/gtk/help-overlay.ui.h:2
+msgctxt "shortcut window"
+msgid "Go to the next section"
+msgstr "Перейти до наступної частини"
+
+#: ../data/gtk/help-overlay.ui.h:3
+msgctxt "shortcut window"
+msgid "Go to the previous section"
+msgstr "Перейти до попередньої частини"
+
+#: ../data/gtk/help-overlay.ui.h:4
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Вийти"
+
+#: ../data/gtk/help-overlay.ui.h:5
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr "Світові годинники"
+
+#: ../data/gtk/help-overlay.ui.h:6
+msgctxt "shortcut window"
+msgid "Add a world clock"
+msgstr "Додати світовий годинник"
+
+#: ../data/gtk/help-overlay.ui.h:7
+msgctxt "shortcut window"
+msgid "Select all world clocks"
+msgstr "Вибрати всі світові годинники"
+
+#: ../data/gtk/help-overlay.ui.h:8
+msgctxt "shortcut window"
+msgid "Alarm"
+msgstr "Будильник"
+
+#: ../data/gtk/help-overlay.ui.h:9
+msgctxt "shortcut window"
+msgid "Add an alarm"
+msgstr "Додати будильник"
+
+#: ../data/gtk/help-overlay.ui.h:10
+msgctxt "shortcut window"
+msgid "Select all alarms"
+msgstr "Вибрати всі будильники"
+
+#: ../data/gtk/help-overlay.ui.h:11
+msgctxt "shortcut window"
+msgid "Stopwatch"
+msgstr "Хронометр"
+
+#: ../data/gtk/help-overlay.ui.h:12
+msgctxt "shortcut window"
+msgid "Stop / Reset"
+msgstr "Зупинити / скинути"
+
+#: ../data/gtk/help-overlay.ui.h:13
+msgctxt "shortcut window"
+msgid "Timer"
+msgstr "Таймер"
+
+#: ../data/gtk/help-overlay.ui.h:14
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr "Скинути"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "_Keyboard Shortcuts"
+msgstr "_Клавіатурні скорочення"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_Help"
+msgstr "_Довідка"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "_Про програму"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "Ви_йти"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Select All"
+msgstr "Вибрати все"
+
+#: ../data/gtk/menus.ui.h:6
+msgid "Select None"
+msgstr "Зняти вибір"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../data/ui/window.ui.h:1
+#: ../src/window.vala:232
 msgid "Clocks"
 msgstr "Годинники"
-
-#: ../data/org.gnome.clocks.desktop.in.h:2
-msgid "GNOME Clocks"
-msgstr "Годинники GNOME"
-
-#: ../data/org.gnome.clocks.desktop.in.h:3
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Годинники для перегляду часу, а також будильники, секундомір і таймер"
 
 #: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "час;таймер;будильник;світовий;секундомір;часовий пояс;"
+
+#: ../data/org.gnome.clocks.desktop.in.h:5
+msgid "Allows world clocks to be displayed for your time zone."
+msgstr "Дозволити світовому годиннику показуватись для вашого часового поясу."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:1
 msgid "Configured world clocks"
@@ -80,7 +180,7 @@ msgstr "Налаштований будильник"
 msgid "List of alarms set."
 msgstr "Список настанов для будильників."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:114
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:113
 msgid "Timer"
 msgstr "Таймер"
 
@@ -120,179 +220,14 @@ msgstr "Стан панелі"
 msgid "Current clock panel."
 msgstr "Поточна панель годинника."
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:366 ../src/alarm.vala:534
-msgid "Alarm"
-msgstr "Будильник"
-
-#: ../src/alarm.vala:117 ../src/stopwatch.vala:190
-#: ../data/ui/alarmringing.ui.h:1
+#: ../data/ui/alarmringing.ui.h:1 ../src/alarm.vala:119
+#: ../src/stopwatch.vala:199
 msgid "Stop"
 msgstr "Зупинити"
 
-#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
+#: ../data/ui/alarmringing.ui.h:2 ../src/alarm.vala:120
 msgid "Snooze"
 msgstr "Нагадати пізніше"
-
-#: ../src/alarm.vala:308
-msgid "Edit Alarm"
-msgstr "Редагувати будильник"
-
-#: ../src/alarm.vala:308
-msgid "New Alarm"
-msgstr "Створити будильник"
-
-#. Translators: "New" refers to an alarm
-#. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:559 ../src/world.vala:262
-msgid "New"
-msgstr "Створити"
-
-#: ../src/application.vala:23
-msgid "Print version information and exit"
-msgstr "Вивести інформацію про версію та вийти"
-
-#: ../src/stopwatch.vala:130
-msgid "Stopwatch"
-msgstr "Хронометр"
-
-#: ../src/stopwatch.vala:193
-msgid "Lap"
-msgstr "Оберт"
-
-#: ../src/stopwatch.vala:200 ../src/timer.vala:210
-msgid "Continue"
-msgstr "Продовжити"
-
-#: ../src/stopwatch.vala:204 ../data/ui/stopwatch.ui.h:2
-#: ../data/ui/timer.ui.h:3
-msgid "Reset"
-msgstr "Скинути"
-
-#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:1
-#: ../data/ui/timer.ui.h:1
-msgid "Start"
-msgstr "Запустити"
-
-#: ../src/timer.vala:126
-msgid "Time is up!"
-msgstr "Час вичерпано!"
-
-#: ../src/timer.vala:127
-msgid "Timer countdown finished"
-msgstr "Лічбу таймера завершено"
-
-#: ../src/timer.vala:215 ../src/timer.vala:226 ../data/ui/timer.ui.h:2
-msgid "Pause"
-msgstr "Призупинити"
-
-#: ../src/utils.vala:153
-msgid "Mondays"
-msgstr "Понеділки"
-
-#: ../src/utils.vala:154
-msgid "Tuesdays"
-msgstr "Вівторки"
-
-#: ../src/utils.vala:155
-msgid "Wednesdays"
-msgstr "Середи"
-
-#: ../src/utils.vala:156
-msgid "Thursdays"
-msgstr "Четверги"
-
-#: ../src/utils.vala:157
-msgid "Fridays"
-msgstr "П'ятниці"
-
-#: ../src/utils.vala:158
-msgid "Saturdays"
-msgstr "Суботи"
-
-#: ../src/utils.vala:159
-msgid "Sundays"
-msgstr "Неділі"
-
-#: ../src/utils.vala:239
-msgid "Every Day"
-msgstr "Щодня"
-
-#: ../src/utils.vala:241
-msgid "Weekdays"
-msgstr "Дні тижня"
-
-#: ../src/utils.vala:243
-msgid "Weekends"
-msgstr "Вихідні"
-
-#: ../src/widgets.vala:484
-msgid "Delete"
-msgstr "Вилучити"
-
-#: ../src/widgets.vala:510 ../src/widgets.vala:665
-msgid "Click on items to select them"
-msgstr "Натисніть на пункти, щоб їх вибрати"
-
-#: ../src/widgets.vala:512
-#, c-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "%d вибрано"
-msgstr[1] "%d вибрано"
-msgstr[2] "%d вибрано"
-
-#: ../src/widgets.vala:654
-msgid "Cancel"
-msgstr "Скасувати"
-
-#: ../src/window.vala:170
-#, c-format
-msgid "Failed to show help: %s"
-msgstr "Не вдалося показати довідку: %s"
-
-#: ../src/window.vala:200
-msgid "Utilities to help you with the time."
-msgstr "Засоби, які допомагають з часом."
-
-#: ../src/window.vala:205
-msgid "translator-credits"
-msgstr "Daniel Korostil <ted.korostiled@gmail.com>"
-
-#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:106 ../src/world.vala:109
-msgid "Tomorrow"
-msgstr "Завтра"
-
-#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:106 ../src/world.vala:109
-msgid "Yesterday"
-msgstr "Учора"
-
-#: ../src/world.vala:250
-msgid "World"
-msgstr "Світ"
-
-#. namespace World
-#. namespace Clocks
-#: ../data/gtk/menus.ui.h:1
-msgid "_Help"
-msgstr "_Довідка"
-
-#: ../data/gtk/menus.ui.h:2
-msgid "_About"
-msgstr "_Про програму"
-
-#: ../data/gtk/menus.ui.h:3
-msgid "_Quit"
-msgstr "Ви_йти"
-
-#: ../data/gtk/menus.ui.h:4
-msgid "Select All"
-msgstr "Вибрати все"
-
-#: ../data/gtk/menus.ui.h:5
-msgid "Select None"
-msgstr "Зняти вибір"
 
 #: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
 msgid "Add a New World Clock"
@@ -326,6 +261,20 @@ msgstr "Дійсний"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Виберіть <b>Створити</b>, щоб додати будильник"
 
+#: ../data/ui/stopwatch.ui.h:1 ../data/ui/timer.ui.h:1
+#: ../src/stopwatch.vala:221
+msgid "Start"
+msgstr "Запустити"
+
+#: ../data/ui/stopwatch.ui.h:2 ../data/ui/timer.ui.h:3
+#: ../src/stopwatch.vala:213
+msgid "Reset"
+msgstr "Скинути"
+
+#: ../data/ui/timer.ui.h:2 ../src/timer.vala:210 ../src/timer.vala:221
+msgid "Pause"
+msgstr "Призупинити"
+
 #: ../data/ui/worldlocationdialog.ui.h:3
 msgid "_Add"
 msgstr "_Додати"
@@ -345,6 +294,135 @@ msgstr "Світанок"
 #: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Захід"
+
+#: ../src/alarm.vala:117 ../src/alarm.vala:369 ../src/alarm.vala:537
+msgid "Alarm"
+msgstr "Будильник"
+
+#: ../src/alarm.vala:313
+msgid "Edit Alarm"
+msgstr "Редагувати будильник"
+
+#: ../src/alarm.vala:313
+msgid "New Alarm"
+msgstr "Створити будильник"
+
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:566 ../src/world.vala:280
+msgid "New"
+msgstr "Створити"
+
+#: ../src/application.vala:23
+msgid "Print version information and exit"
+msgstr "Вивести інформацію про версію та вийти"
+
+#: ../src/stopwatch.vala:139
+msgid "Stopwatch"
+msgstr "Хронометр"
+
+#: ../src/stopwatch.vala:202
+msgid "Lap"
+msgstr "Оберт"
+
+#: ../src/stopwatch.vala:209 ../src/timer.vala:205
+msgid "Continue"
+msgstr "Продовжити"
+
+#: ../src/timer.vala:125
+msgid "Time is up!"
+msgstr "Час вичерпано!"
+
+#: ../src/timer.vala:126
+msgid "Timer countdown finished"
+msgstr "Лічбу таймера завершено"
+
+#: ../src/utils.vala:168
+msgid "Mondays"
+msgstr "Понеділки"
+
+#: ../src/utils.vala:169
+msgid "Tuesdays"
+msgstr "Вівторки"
+
+#: ../src/utils.vala:170
+msgid "Wednesdays"
+msgstr "Середи"
+
+#: ../src/utils.vala:171
+msgid "Thursdays"
+msgstr "Четверги"
+
+#: ../src/utils.vala:172
+msgid "Fridays"
+msgstr "П'ятниці"
+
+#: ../src/utils.vala:173
+msgid "Saturdays"
+msgstr "Суботи"
+
+#: ../src/utils.vala:174
+msgid "Sundays"
+msgstr "Неділі"
+
+#: ../src/utils.vala:254
+msgid "Every Day"
+msgstr "Щодня"
+
+#: ../src/utils.vala:256
+msgid "Weekdays"
+msgstr "Дні тижня"
+
+#: ../src/utils.vala:258
+msgid "Weekends"
+msgstr "Вихідні"
+
+#: ../src/widgets.vala:537 ../src/widgets.vala:552
+msgid "Click on items to select them"
+msgstr "Натисніть на пункти, щоб їх вибрати"
+
+#: ../src/widgets.vala:539
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d вибрано"
+msgstr[1] "%d вибрано"
+msgstr[2] "%d вибрано"
+
+#: ../src/widgets.vala:611
+msgid "Delete"
+msgstr "Вилучити"
+
+#: ../src/widgets.vala:709
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: ../src/window.vala:205
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Не вдалося показати довідку: %s"
+
+#: ../src/window.vala:235
+msgid "Utilities to help you with the time."
+msgstr "Засоби, які допомагають з часом."
+
+#: ../src/window.vala:240
+msgid "translator-credits"
+msgstr "Daniel Korostil <ted.korostiled@gmail.com>"
+
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:108 ../src/world.vala:111
+msgid "Tomorrow"
+msgstr "Завтра"
+
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:108 ../src/world.vala:111
+msgid "Yesterday"
+msgstr "Учора"
+
+#: ../src/world.vala:258
+msgid "World"
+msgstr "Світ"
 
 #~ msgid "_New"
 #~ msgstr "_Створити"
