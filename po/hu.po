@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-06 08:14+0000\n"
-"PO-Revision-Date: 2016-02-06 09:45+0100\n"
-"Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
+"POT-Creation-Date: 2016-03-04 08:15+0000\n"
+"PO-Revision-Date: 2016-03-04 20:28+0100\n"
+"Last-Translator: Gabor Kelemen <kelemeng at ubuntu dot com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
 #: ../data/org.gnome.clocks.desktop.in.h:2
@@ -161,6 +161,10 @@ msgstr "Órák"
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "idő;időzítő;riasztás;világóra;stopper;időzóna;"
 
+#: ../data/org.gnome.clocks.desktop.in.h:5
+msgid "Allows world clocks to be displayed for your time zone."
+msgstr "Világórák megjelenítése az időzónájához."
+
 #: ../data/org.gnome.clocks.gschema.xml.in.h:1
 msgid "Configured world clocks"
 msgstr "Beállított világórák"
@@ -217,12 +221,12 @@ msgstr "Panel állapota"
 msgid "Current clock panel."
 msgstr "Jelenlegi órapanel."
 
-#: ../data/ui/alarmringing.ui.h:1 ../src/alarm.vala:117
+#: ../data/ui/alarmringing.ui.h:1 ../src/alarm.vala:119
 #: ../src/stopwatch.vala:199
 msgid "Stop"
 msgstr "Leállítás"
 
-#: ../data/ui/alarmringing.ui.h:2 ../src/alarm.vala:118
+#: ../data/ui/alarmringing.ui.h:2 ../src/alarm.vala:120
 msgid "Snooze"
 msgstr "Szundi"
 
@@ -292,21 +296,21 @@ msgstr "Napkelte"
 msgid "Sunset"
 msgstr "Napnyugta"
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:370 ../src/alarm.vala:538
+#: ../src/alarm.vala:117 ../src/alarm.vala:369 ../src/alarm.vala:537
 msgid "Alarm"
 msgstr "Figyelmeztetés"
 
-#: ../src/alarm.vala:309
+#: ../src/alarm.vala:313
 msgid "Edit Alarm"
 msgstr "Figyelmeztetés szerkesztése"
 
-#: ../src/alarm.vala:309
+#: ../src/alarm.vala:313
 msgid "New Alarm"
 msgstr "Új figyelmeztetés"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:563 ../src/world.vala:266
+#: ../src/alarm.vala:566 ../src/world.vala:280
 msgid "New"
 msgstr "Új"
 
@@ -334,62 +338,62 @@ msgstr "Lejárt az idő!"
 msgid "Timer countdown finished"
 msgstr "Az időzítő visszaszámlálása lejárt"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:168
 msgid "Mondays"
 msgstr "Hétfőnként"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:169
 msgid "Tuesdays"
 msgstr "Keddenként"
 
-#: ../src/utils.vala:155
+#: ../src/utils.vala:170
 msgid "Wednesdays"
 msgstr "Szerdánként"
 
-#: ../src/utils.vala:156
+#: ../src/utils.vala:171
 msgid "Thursdays"
 msgstr "Csütörtökönként"
 
-#: ../src/utils.vala:157
+#: ../src/utils.vala:172
 msgid "Fridays"
 msgstr "Péntekenként"
 
-#: ../src/utils.vala:158
+#: ../src/utils.vala:173
 msgid "Saturdays"
 msgstr "Szombatonként"
 
-#: ../src/utils.vala:159
+#: ../src/utils.vala:174
 msgid "Sundays"
 msgstr "Vasárnaponként"
 
-#: ../src/utils.vala:239
+#: ../src/utils.vala:254
 msgid "Every Day"
 msgstr "Naponta"
 
-#: ../src/utils.vala:241
+#: ../src/utils.vala:256
 msgid "Weekdays"
 msgstr "Hétköznaponként"
 
-#: ../src/utils.vala:243
+#: ../src/utils.vala:258
 msgid "Weekends"
 msgstr "Hétvégente"
 
-#: ../src/widgets.vala:497
-msgid "Delete"
-msgstr "Törlés"
-
-#: ../src/widgets.vala:523 ../src/widgets.vala:678
+#: ../src/widgets.vala:537 ../src/widgets.vala:552
 msgid "Click on items to select them"
 msgstr "Kattintson az elemekre a kiválasztásukhoz"
 
-#: ../src/widgets.vala:525
+#: ../src/widgets.vala:539
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d kiválasztva"
 msgstr[1] "%d kiválasztva"
 
-#: ../src/widgets.vala:667
+#: ../src/widgets.vala:611
+msgid "Delete"
+msgstr "Törlés"
+
+#: ../src/widgets.vala:709
 msgid "Cancel"
 msgstr "Mégse"
 
@@ -407,16 +411,16 @@ msgid "translator-credits"
 msgstr "Kelemen Gábor <kelemeng at gnome dot hu>"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:106 ../src/world.vala:109
+#: ../src/world.vala:108 ../src/world.vala:111
 msgid "Tomorrow"
 msgstr "Holnap"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:106 ../src/world.vala:109
+#: ../src/world.vala:108 ../src/world.vala:111
 msgid "Yesterday"
 msgstr "Tegnap"
 
-#: ../src/world.vala:254
+#: ../src/world.vala:258
 msgid "World"
 msgstr "Világ"
 
