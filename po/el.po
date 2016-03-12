@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the gnome-clocks package.
 # Tom Tryfonidis <tomtryf@gmail.com>, 2012.
 # Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2012, 2013, 2014.
-# Efstathios Iosifidis <iosifidis@opensuse.org>, 2013, 2015.
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2013, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-03 08:15+0000\n"
-"PO-Revision-Date: 2016-02-03 15:15+0200\n"
+"POT-Creation-Date: 2016-03-04 20:17+0000\n"
+"PO-Revision-Date: 2016-03-12 14:42+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: Greek, Modern (1453-) <opensuse-translation-el@opensuse."
 "org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
@@ -168,6 +168,10 @@ msgstr ""
 "χρόνος;χρονόμετρο;ξυπνητήρι;παγκόσμιο ρολόι;χρονόμετρο;ώρα ζώνης;time;timer;"
 "alarm;world clock;stopwatch;time zone;"
 
+#: ../data/org.gnome.clocks.desktop.in.h:5
+msgid "Allows world clocks to be displayed for your time zone."
+msgstr "Επιτρέπει την εμφάνιση των παγκόσμιων ρολογιών για την ζώνη ώρας σας."
+
 #: ../data/org.gnome.clocks.gschema.xml.in.h:1
 msgid "Configured world clocks"
 msgstr "Ρυθμισμένα παγκόσμια ρολόγια"
@@ -224,12 +228,12 @@ msgstr "Κατάσταση πίνακα"
 msgid "Current clock panel."
 msgstr "Τρέχουσα κατάσταση πίνακα."
 
-#: ../data/ui/alarmringing.ui.h:1 ../src/alarm.vala:117
+#: ../data/ui/alarmringing.ui.h:1 ../src/alarm.vala:119
 #: ../src/stopwatch.vala:199
 msgid "Stop"
 msgstr "Διακοπή"
 
-#: ../data/ui/alarmringing.ui.h:2 ../src/alarm.vala:118
+#: ../data/ui/alarmringing.ui.h:2 ../src/alarm.vala:120
 msgid "Snooze"
 msgstr "Αναβολή"
 
@@ -243,7 +247,7 @@ msgstr "Ά_κυρο"
 
 #: ../data/ui/alarmsetupdialog.ui.h:3
 msgid "_Done"
-msgstr "_Ολοκλήρωση"
+msgstr "Έ_τοιμο"
 
 #: ../data/ui/alarmsetupdialog.ui.h:4
 msgid "You already have an alarm for this time."
@@ -299,21 +303,21 @@ msgstr "Ανατολή"
 msgid "Sunset"
 msgstr "Δύση"
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:370 ../src/alarm.vala:538
+#: ../src/alarm.vala:117 ../src/alarm.vala:369 ../src/alarm.vala:537
 msgid "Alarm"
 msgstr "Ειδοποίηση"
 
-#: ../src/alarm.vala:309
+#: ../src/alarm.vala:313
 msgid "Edit Alarm"
 msgstr "Επεξεργασία ειδοποίησης"
 
-#: ../src/alarm.vala:309
+#: ../src/alarm.vala:313
 msgid "New Alarm"
 msgstr "Νέα ειδοποίηση"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:563 ../src/world.vala:266
+#: ../src/alarm.vala:566 ../src/world.vala:280
 msgid "New"
 msgstr "Νέο"
 
@@ -341,62 +345,62 @@ msgstr "Τέλος χρόνου!"
 msgid "Timer countdown finished"
 msgstr "Η αντίστροφη μέτρηση τελείωσε"
 
-#: ../src/utils.vala:153
+#: ../src/utils.vala:168
 msgid "Mondays"
 msgstr "Δευτέρες"
 
-#: ../src/utils.vala:154
+#: ../src/utils.vala:169
 msgid "Tuesdays"
 msgstr "Τρίτες"
 
-#: ../src/utils.vala:155
+#: ../src/utils.vala:170
 msgid "Wednesdays"
 msgstr "Τετάρτες"
 
-#: ../src/utils.vala:156
+#: ../src/utils.vala:171
 msgid "Thursdays"
 msgstr "Πέμπτες"
 
-#: ../src/utils.vala:157
+#: ../src/utils.vala:172
 msgid "Fridays"
 msgstr "Παρασκευές"
 
-#: ../src/utils.vala:158
+#: ../src/utils.vala:173
 msgid "Saturdays"
 msgstr "Σάββατα"
 
-#: ../src/utils.vala:159
+#: ../src/utils.vala:174
 msgid "Sundays"
 msgstr "Κυριακές"
 
-#: ../src/utils.vala:239
+#: ../src/utils.vala:254
 msgid "Every Day"
 msgstr "Καθημερινά"
 
-#: ../src/utils.vala:241
+#: ../src/utils.vala:256
 msgid "Weekdays"
 msgstr "Εργάσιμες"
 
-#: ../src/utils.vala:243
+#: ../src/utils.vala:258
 msgid "Weekends"
 msgstr "Σαββατοκύριακα"
 
-#: ../src/widgets.vala:497
-msgid "Delete"
-msgstr "Διαγραφή"
-
-#: ../src/widgets.vala:523 ../src/widgets.vala:678
+#: ../src/widgets.vala:537 ../src/widgets.vala:552
 msgid "Click on items to select them"
 msgstr "Κάντε κλικ στα αντικείμενα για να τα επιλέξετε"
 
-#: ../src/widgets.vala:525
+#: ../src/widgets.vala:539
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "Επιλέχθηκε %d"
 msgstr[1] "Επιλέχθηκαν %d"
 
-#: ../src/widgets.vala:667
+#: ../src/widgets.vala:611
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: ../src/widgets.vala:709
 msgid "Cancel"
 msgstr "Aκύρωση"
 
@@ -422,16 +426,16 @@ msgstr ""
 "http://gnome.gr/"
 
 #. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:106 ../src/world.vala:109
+#: ../src/world.vala:108 ../src/world.vala:111
 msgid "Tomorrow"
 msgstr "Αύριο"
 
 #. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:106 ../src/world.vala:109
+#: ../src/world.vala:108 ../src/world.vala:111
 msgid "Yesterday"
 msgstr "Χθές"
 
-#: ../src/world.vala:254
+#: ../src/world.vala:258
 msgid "World"
 msgstr "Κόσμος"
 
