@@ -187,7 +187,10 @@ public class Window : Gtk.ApplicationWindow {
 
     protected override bool configure_event (Gdk.EventConfigure event) {
         if (get_realized () && !(Gdk.WindowState.MAXIMIZED in get_window ().get_state ())) {
-            settings.set ("size", "(ii)", event.width, event.height);
+            int width, height;
+
+            get_size (out width, out height);
+            settings.set ("size", "(ii)", width, height);
         }
 
         return base.configure_event (event);
