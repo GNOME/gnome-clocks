@@ -1,68 +1,169 @@
 # Danish translation for gnome-clocks.
-# Copyright (C) 2012-2013, 2015 gnome-clocks's COPYRIGHT HOLDER
+# Copyright (C) 2012-2013, 2016 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-#
 # Kenneth Nielsen <k.nielsen81@gmail.com>, 2012-2014.
 # Ask Hjorth Larsen <asklarsen@gmail.com>, 2013, 2015.
-#
+# scootergrisen 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-15 16:41+0100\n"
-"PO-Revision-Date: 2015-03-14 02:59+0100\n"
-"Last-Translator: Kenneth Nielsen <k.nielsen81@gmail.com>\n"
+"POT-Creation-Date: 2016-03-20 02:31+0100\n"
+"PO-Revision-Date: 2016-03-20 02:30+0100\n"
+"Last-Translator: scootergrisen\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
 
 #: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+#: ../data/org.gnome.clocks.desktop.in.h:2
+msgid "GNOME Clocks"
+msgstr "GNOME Ure"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:3
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "Verdensur plus alarmer, stopur og et minutur"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
 msgstr ""
 "Et simpelt og elegant urprogram. Det inkluderer verdensur, alarmer, stopur "
-"og timer."
+"og minutur."
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
 msgid "Goals:"
 msgstr "Mål:"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
 msgid "Show the time in different cities around the world"
 msgstr "Vise klokken i forskellige byer rundt om i verden"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
 msgid "Set alarms to wake you up"
 msgstr "Indstille alarmer til at vække dig"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:7
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Måle tid der er gået med et præcist stopur"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:8
 msgid "Set timers to properly cook your food"
-msgstr "Indstille en timer for at tilberede din mad rigtigt"
+msgstr "Indstille minutur for at tilberede din mad rigtigt"
 
-#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:203
-#: ../data/ui/window.ui.h:1
+#: ../data/gtk/help-overlay.ui.h:1
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Generelt"
+
+#: ../data/gtk/help-overlay.ui.h:2
+msgctxt "shortcut window"
+msgid "Go to the next section"
+msgstr "Gå til næste afsnit"
+
+#: ../data/gtk/help-overlay.ui.h:3
+msgctxt "shortcut window"
+msgid "Go to the previous section"
+msgstr "Gå til forrige afsnit"
+
+#: ../data/gtk/help-overlay.ui.h:4
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Afslut"
+
+#: ../data/gtk/help-overlay.ui.h:5
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr "Verdensure"
+
+#: ../data/gtk/help-overlay.ui.h:6
+msgctxt "shortcut window"
+msgid "Add a world clock"
+msgstr "Tilføj et verdensur"
+
+#: ../data/gtk/help-overlay.ui.h:7
+msgctxt "shortcut window"
+msgid "Select all world clocks"
+msgstr "Vælg alle verdensure"
+
+#: ../data/gtk/help-overlay.ui.h:8
+msgctxt "shortcut window"
+msgid "Alarm"
+msgstr "Alarm"
+
+#: ../data/gtk/help-overlay.ui.h:9
+msgctxt "shortcut window"
+msgid "Add an alarm"
+msgstr "Tilføj en alarm"
+
+#: ../data/gtk/help-overlay.ui.h:10
+msgctxt "shortcut window"
+msgid "Select all alarms"
+msgstr "Vælg alle alarmer"
+
+#: ../data/gtk/help-overlay.ui.h:11
+msgctxt "shortcut window"
+msgid "Stopwatch"
+msgstr "Stopur"
+
+#: ../data/gtk/help-overlay.ui.h:12
+msgctxt "shortcut window"
+msgid "Stop / Reset"
+msgstr "Stop / nulstil"
+
+#: ../data/gtk/help-overlay.ui.h:13
+msgctxt "shortcut window"
+msgid "Timer"
+msgstr "Minutur"
+
+#: ../data/gtk/help-overlay.ui.h:14
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr "Nulstil"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "_Keyboard Shortcuts"
+msgstr "_Tastaturgenveje"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_Help"
+msgstr "_Hjælp"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "_Om"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "_Afslut"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Select All"
+msgstr "Vælg alle"
+
+#: ../data/gtk/menus.ui.h:6
+msgid "Select None"
+msgstr "Vælg ingen"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../data/ui/window.ui.h:1
+#: ../src/window.vala:235
 msgid "Clocks"
 msgstr "Ure"
 
-#: ../data/org.gnome.clocks.desktop.in.h:2
-msgid "GNOME Clocks"
-msgstr "GNOME Ure"
-
-#: ../data/org.gnome.clocks.desktop.in.h:3
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Verdensur plus alarmer, stopur og en timer"
-
 #: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "tid;alarm;vækkeur;verdensur;stopur;ur;tidszone;klokken;"
+msgstr "tid;timer;minutur;alarm;vækkeur;verdensur;stopur;ur;tidszone;klokken;"
+
+#: ../data/org.gnome.clocks.desktop.in.h:5
+msgid "Allows world clocks to be displayed for your time zone."
+msgstr ""
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:1
 msgid "Configured world clocks"
@@ -80,13 +181,13 @@ msgstr "Konfigurerede alarmer"
 msgid "List of alarms set."
 msgstr "Liste af indstillede alarmer."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:114
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:113
 msgid "Timer"
-msgstr "Timer"
+msgstr "Minutur"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:6
 msgid "Configured timer duration in seconds."
-msgstr "Indstillet tidsudløb i sekunder."
+msgstr "Indstillet minuturs varighed i sekunder."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:7
 msgid "Geolocation support"
@@ -120,184 +221,14 @@ msgstr "Paneltilstand"
 msgid "Current clock panel."
 msgstr "Nuværende urpanel."
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:367 ../src/alarm.vala:535
-msgid "Alarm"
-msgstr "Alarm"
-
-#: ../src/alarm.vala:117 ../src/stopwatch.vala:190
-#: ../data/ui/alarmringing.ui.h:1
+#: ../data/ui/alarmringing.ui.h:1 ../src/alarm.vala:119
+#: ../src/stopwatch.vala:199
 msgid "Stop"
 msgstr "Stop"
 
-#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
+#: ../data/ui/alarmringing.ui.h:2 ../src/alarm.vala:120
 msgid "Snooze"
 msgstr "Slumr"
-
-#: ../src/alarm.vala:306
-msgid "Edit Alarm"
-msgstr "Redigér alarm"
-
-#: ../src/alarm.vala:306
-msgid "New Alarm"
-msgstr "Ny alarm"
-
-# New refererer så vidt jeg kan se til en alarm eller et verdensur, så den kan desværre ikke oversættes strengt korrekt til dansk
-#. Translators: "New" refers to an alarm
-#. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:560 ../src/world.vala:262
-msgid "New"
-msgstr "Ny"
-
-#: ../src/application.vala:23
-msgid "Print version information and exit"
-msgstr "Vis versionsoplysninger og afslut"
-
-#: ../src/stopwatch.vala:130
-msgid "Stopwatch"
-msgstr "Stopur"
-
-#: ../src/stopwatch.vala:193
-msgid "Lap"
-msgstr "Omgang"
-
-#: ../src/stopwatch.vala:200 ../src/timer.vala:206
-msgid "Continue"
-msgstr "Fortsæt"
-
-#: ../src/stopwatch.vala:204 ../data/ui/stopwatch.ui.h:2
-#: ../data/ui/timer.ui.h:3
-msgid "Reset"
-msgstr "Nulstil"
-
-#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:1
-#: ../data/ui/timer.ui.h:1
-msgid "Start"
-msgstr "Start"
-
-#: ../src/timer.vala:126
-msgid "Time is up!"
-msgstr "Tiden er udløbet!"
-
-#: ../src/timer.vala:127
-msgid "Timer countdown finished"
-msgstr "Nedtællingen afsluttet"
-
-#: ../src/timer.vala:211 ../src/timer.vala:222 ../data/ui/timer.ui.h:2
-msgid "Pause"
-msgstr "Pause"
-
-#: ../src/utils.vala:153
-msgid "Mondays"
-msgstr "Mandage"
-
-#: ../src/utils.vala:154
-msgid "Tuesdays"
-msgstr "Tirsdage"
-
-#: ../src/utils.vala:155
-msgid "Wednesdays"
-msgstr "Onsdage"
-
-#: ../src/utils.vala:156
-msgid "Thursdays"
-msgstr "Torsdage"
-
-#: ../src/utils.vala:157
-msgid "Fridays"
-msgstr "Fredage"
-
-#: ../src/utils.vala:158
-msgid "Saturdays"
-msgstr "Lørdage"
-
-#: ../src/utils.vala:159
-msgid "Sundays"
-msgstr "Søndage"
-
-#: ../src/utils.vala:239
-msgid "Every Day"
-msgstr "Hver dag"
-
-#: ../src/utils.vala:241
-msgid "Weekdays"
-msgstr "Hverdage"
-
-#: ../src/utils.vala:243
-msgid "Weekends"
-msgstr "Weekender"
-
-#: ../src/widgets.vala:484
-msgid "Delete"
-msgstr "Slet"
-
-#: ../src/widgets.vala:510 ../src/widgets.vala:665
-msgid "Click on items to select them"
-msgstr "Klik på elementer for at markere dem"
-
-#: ../src/widgets.vala:512
-#, c-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "%d markeret"
-msgstr[1] "%d markeret"
-
-#: ../src/widgets.vala:654
-msgid "Cancel"
-msgstr "Annullér"
-
-#: ../src/window.vala:176
-#, c-format
-msgid "Failed to show help: %s"
-msgstr "Kunne ikke vise hjælp: %s"
-
-#: ../src/window.vala:206
-msgid "Utilities to help you with the time."
-msgstr "Værktøjer til at hjælpe dig med tiden."
-
-#: ../src/window.vala:211
-msgid "translator-credits"
-msgstr ""
-"Kenneth Nielsen\n"
-"Ask Hjorth Larsen\n"
-"\n"
-"Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
-"Mere info: http://www.dansk-gruppen.dk"
-
-#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:106 ../src/world.vala:109
-msgid "Tomorrow"
-msgstr "I morgen"
-
-#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:106 ../src/world.vala:109
-msgid "Yesterday"
-msgstr "I går"
-
-#: ../src/world.vala:250
-msgid "World"
-msgstr "Verden"
-
-#. namespace World
-#. namespace Clocks
-#: ../data/gtk/menus.ui.h:1
-msgid "_Help"
-msgstr "_Hjælp"
-
-#: ../data/gtk/menus.ui.h:2
-msgid "_About"
-msgstr "_Om"
-
-#: ../data/gtk/menus.ui.h:3
-msgid "_Quit"
-msgstr "_Afslut"
-
-#: ../data/gtk/menus.ui.h:4
-msgid "Select All"
-msgstr "Vælg alle"
-
-#: ../data/gtk/menus.ui.h:5
-msgid "Select None"
-msgstr "Vælg ingen"
 
 #: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
 msgid "Add a New World Clock"
@@ -332,6 +263,20 @@ msgstr "Aktiv"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Vælg <b>Ny</b> for at tilføje en alarm"
 
+#: ../data/ui/stopwatch.ui.h:1 ../data/ui/timer.ui.h:1
+#: ../src/stopwatch.vala:221
+msgid "Start"
+msgstr "Start"
+
+#: ../data/ui/stopwatch.ui.h:2 ../data/ui/timer.ui.h:3
+#: ../src/stopwatch.vala:213
+msgid "Reset"
+msgstr "Nulstil"
+
+#: ../data/ui/timer.ui.h:2 ../src/timer.vala:210 ../src/timer.vala:221
+msgid "Pause"
+msgstr "Pause"
+
 #: ../data/ui/worldlocationdialog.ui.h:3
 msgid "_Add"
 msgstr "_Tilføj"
@@ -352,28 +297,137 @@ msgstr "Solopgang"
 msgid "Sunset"
 msgstr "Solnedgang"
 
-#~ msgid "_New"
-#~ msgstr "_Ny"
+#: ../src/alarm.vala:117 ../src/alarm.vala:369 ../src/alarm.vala:537
+msgid "Alarm"
+msgstr "Alarm"
 
-#~ msgid "Done"
-#~ msgstr "Færdig"
+#: ../src/alarm.vala:313
+msgid "Edit Alarm"
+msgstr "Redigér alarm"
 
-# yuck
-#~ msgid "Gnome Clocks"
-#~ msgstr "Gnome Ure"
+#: ../src/alarm.vala:313
+msgid "New Alarm"
+msgstr "Ny alarm"
 
-# Fryser den viste tid men tæller videre i baggrunden
-#~ msgid "Split"
-#~ msgstr "Mellemtid"
+# New refererer så vidt jeg kan se til en alarm eller et verdensur, så den kan desværre ikke oversættes strengt korrekt til dansk
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:566 ../src/world.vala:280
+msgid "New"
+msgstr "Ny"
 
-#~ msgid "Total"
-#~ msgstr "Samlet"
+#: ../src/application.vala:23
+msgid "Print version information and exit"
+msgstr "Vis versionsoplysninger og afslut"
 
-#~ msgid "Time"
-#~ msgstr "Tidspunkt"
+#: ../src/stopwatch.vala:139
+msgid "Stopwatch"
+msgstr "Stopur"
 
-#~ msgid "About Clocks"
-#~ msgstr "Om Ure"
+#: ../src/stopwatch.vala:202
+msgid "Lap"
+msgstr "Omgang"
 
-#~ msgid "Edit"
-#~ msgstr "Redigér"
+#: ../src/stopwatch.vala:209 ../src/timer.vala:205
+msgid "Continue"
+msgstr "Fortsæt"
+
+#: ../src/timer.vala:125
+msgid "Time is up!"
+msgstr "Tiden er udløbet!"
+
+#: ../src/timer.vala:126
+msgid "Timer countdown finished"
+msgstr "Minuturets nedtælling afsluttet"
+
+#: ../src/utils.vala:168
+msgid "Mondays"
+msgstr "Mandage"
+
+#: ../src/utils.vala:169
+msgid "Tuesdays"
+msgstr "Tirsdage"
+
+#: ../src/utils.vala:170
+msgid "Wednesdays"
+msgstr "Onsdage"
+
+#: ../src/utils.vala:171
+msgid "Thursdays"
+msgstr "Torsdage"
+
+#: ../src/utils.vala:172
+msgid "Fridays"
+msgstr "Fredage"
+
+#: ../src/utils.vala:173
+msgid "Saturdays"
+msgstr "Lørdage"
+
+#: ../src/utils.vala:174
+msgid "Sundays"
+msgstr "Søndage"
+
+#: ../src/utils.vala:254
+msgid "Every Day"
+msgstr "Hver dag"
+
+#: ../src/utils.vala:256
+msgid "Weekdays"
+msgstr "Hverdage"
+
+#: ../src/utils.vala:258
+msgid "Weekends"
+msgstr "Weekender"
+
+#: ../src/widgets.vala:537 ../src/widgets.vala:552
+msgid "Click on items to select them"
+msgstr "Klik på elementer for at markere dem"
+
+#: ../src/widgets.vala:539
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d markeret"
+msgstr[1] "%d markeret"
+
+#: ../src/widgets.vala:611
+msgid "Delete"
+msgstr "Slet"
+
+#: ../src/widgets.vala:709
+msgid "Cancel"
+msgstr "Annullér"
+
+#: ../src/window.vala:208
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Kunne ikke vise hjælp: %s"
+
+#: ../src/window.vala:238
+msgid "Utilities to help you with the time."
+msgstr "Redskaber til at hjælpe dig med tiden."
+
+#: ../src/window.vala:243
+msgid "translator-credits"
+msgstr ""
+"Kenneth Nielsen\n"
+"Ask Hjorth Larsen\n"
+"scootergrisen\n"
+"\n"
+"Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
+"Mere info: http://www.dansk-gruppen.dk"
+
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:108 ../src/world.vala:111
+msgid "Tomorrow"
+msgstr "I morgen"
+
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:108 ../src/world.vala:111
+msgid "Yesterday"
+msgstr "I går"
+
+#: ../src/world.vala:258
+msgid "World"
+msgstr "Verden"
