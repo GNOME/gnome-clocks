@@ -2,27 +2,37 @@
 # Copyright (C) 2013 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 #
-# asiersar <asiersar@yahoo.com>, 2013.
-# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2013, 2014, 2015.
-# Edurne Labaka <elabaka@uzei.com>, 2015.
 #
+# asiersar <asiersar@yahoo.com>, 2013.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2013, 2014, 2015, 2016.
+# Edurne Labaka <elabaka@uzei.com>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-02-07 16:29+0100\n"
-"PO-Revision-Date: 2015-02-07 16:30+0100\n"
-"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-20 18:31+0100\n"
+"PO-Revision-Date: 2016-03-20 18:40+0100\n"
+"Last-Translator: dooteo <dooteo@zundan.com>\n"
 "Language-Team: Basque <librezale@librezale.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 2.0\n"
 
 #: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+#: ../data/org.gnome.clocks.desktop.in.h:2
+msgid "GNOME Clocks"
+msgstr "GNOMEren ordulariak"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:3
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr ""
+"Ordulariak munduko orduetarako, gehi alarmak, kronometroa eta tenporizadorea"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
@@ -30,43 +40,132 @@ msgstr ""
 "Ordulariaren aplikazio xume eta dotorea. Munduko ordulariak, alarmak, "
 "kronometro eta tenporizadorea ditu."
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
 msgid "Goals:"
 msgstr "Helburuak:"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
 msgid "Show the time in different cities around the world"
 msgstr "Erakutsi munduko hiri desberdinen ordua"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
 msgid "Set alarms to wake you up"
 msgstr "Ezarri alarma zu esnatzeko"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:7
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Neurtu igarotako denbora kronometro zehatzarekin"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:8
 msgid "Set timers to properly cook your food"
 msgstr "Ezarri tenporizadorea zure janaria egokiro prestatzeko"
 
-#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:197
-#: ../data/ui/window.ui.h:1
+#: ../data/gtk/help-overlay.ui.h:1
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Orokorra"
+
+#: ../data/gtk/help-overlay.ui.h:2
+msgctxt "shortcut window"
+msgid "Go to the next section"
+msgstr "Joan hurrengo atalera"
+
+#: ../data/gtk/help-overlay.ui.h:3
+msgctxt "shortcut window"
+msgid "Go to the previous section"
+msgstr "Joan aurreko atalera"
+
+#: ../data/gtk/help-overlay.ui.h:4
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Irten"
+
+#: ../data/gtk/help-overlay.ui.h:5
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr "Munduko ordulariak"
+
+#: ../data/gtk/help-overlay.ui.h:6
+msgctxt "shortcut window"
+msgid "Add a world clock"
+msgstr "Gehitu munduko ordulari bat"
+
+#: ../data/gtk/help-overlay.ui.h:7
+msgctxt "shortcut window"
+msgid "Select all world clocks"
+msgstr "Hautatu munduko ordulari guztiak"
+
+#: ../data/gtk/help-overlay.ui.h:8
+msgctxt "shortcut window"
+msgid "Alarm"
+msgstr "Alarma"
+
+#: ../data/gtk/help-overlay.ui.h:9
+msgctxt "shortcut window"
+msgid "Add an alarm"
+msgstr "Gehitu alarma"
+
+#: ../data/gtk/help-overlay.ui.h:10
+msgctxt "shortcut window"
+msgid "Select all alarms"
+msgstr "Hautatu alarma guztiak"
+
+#: ../data/gtk/help-overlay.ui.h:11
+msgctxt "shortcut window"
+msgid "Stopwatch"
+msgstr "Kronometroa"
+
+#: ../data/gtk/help-overlay.ui.h:12
+msgctxt "shortcut window"
+msgid "Stop / Reset"
+msgstr "Gelditu / Berrezarri"
+
+#: ../data/gtk/help-overlay.ui.h:13
+msgctxt "shortcut window"
+msgid "Timer"
+msgstr "Tenporizadorea"
+
+#: ../data/gtk/help-overlay.ui.h:14
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr "Berrezarri"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "_Keyboard Shortcuts"
+msgstr "_Laster-teklak"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_Help"
+msgstr "_Laguntza"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "Honi _buruz"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "I_rten"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Select All"
+msgstr "Hautatu denak"
+
+#: ../data/gtk/menus.ui.h:6
+msgid "Select None"
+msgstr "Bat ere ez hautatu"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../data/ui/window.ui.h:1
+#: ../src/window.vala:235
 msgid "Clocks"
 msgstr "Ordulariak"
-
-#: ../data/org.gnome.clocks.desktop.in.h:2
-msgid "GNOME Clocks"
-msgstr "GNOMEren ordulariak"
-
-#: ../data/org.gnome.clocks.desktop.in.h:3
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr ""
-"Ordulariak munduko orduetarako, gehi alarmak, kronometroa eta tenporizadorea"
 
 #: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "ordua;tenporizadorea;alarma;munduko ordulariak;kronometroa;ordu-zona;"
+
+#: ../data/org.gnome.clocks.desktop.in.h:5
+msgid "Allows world clocks to be displayed for your time zone."
+msgstr "Munduko ordulariak zure ordu-zonan bistaratzea baimentzen du."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:1
 msgid "Configured world clocks"
@@ -84,7 +183,7 @@ msgstr "Konfiguratutako alarmak"
 msgid "List of alarms set."
 msgstr "Ezarritako alarmen zerrenda."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:114
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:113
 msgid "Timer"
 msgstr "Tenporizadorea"
 
@@ -124,180 +223,14 @@ msgstr "Panelaren egoera"
 msgid "Current clock panel."
 msgstr "Uneko ordulariaren panela."
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:366 ../src/alarm.vala:534
-msgid "Alarm"
-msgstr "Alarma"
-
-#: ../src/alarm.vala:117 ../src/stopwatch.vala:190
-#: ../data/ui/alarmringing.ui.h:1
+#: ../data/ui/alarmringing.ui.h:1 ../src/alarm.vala:119
+#: ../src/stopwatch.vala:199
 msgid "Stop"
 msgstr "Gelditu"
 
-#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
+#: ../data/ui/alarmringing.ui.h:2 ../src/alarm.vala:120
 msgid "Snooze"
 msgstr "Errepikatu"
-
-#: ../src/alarm.vala:308
-msgid "Edit Alarm"
-msgstr "Editatu alarma"
-
-#: ../src/alarm.vala:308
-msgid "New Alarm"
-msgstr "Alarma berria"
-
-#. Translators: "New" refers to an alarm
-#. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:559 ../src/world.vala:262
-msgid "New"
-msgstr "Berria"
-
-#: ../src/application.vala:23
-msgid "Print version information and exit"
-msgstr "Erakutsi bertsioaren informazioa eta irten"
-
-#: ../src/stopwatch.vala:130
-msgid "Stopwatch"
-msgstr "Kronometroa"
-
-#: ../src/stopwatch.vala:193
-msgid "Lap"
-msgstr "Itzulia"
-
-#: ../src/stopwatch.vala:200 ../src/timer.vala:172
-msgid "Continue"
-msgstr "Jarraitu"
-
-#: ../src/stopwatch.vala:204 ../data/ui/stopwatch.ui.h:2
-#: ../data/ui/timer.ui.h:3
-msgid "Reset"
-msgstr "Berrezarri"
-
-#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:1
-#: ../data/ui/timer.ui.h:1
-msgid "Start"
-msgstr "Hasi"
-
-#: ../src/timer.vala:126
-msgid "Time is up!"
-msgstr "Denbora amaitu da!"
-
-#: ../src/timer.vala:127
-msgid "Timer countdown finished"
-msgstr "Tenporizadorearen atzekoz aurrera zenbatzea amaituta"
-
-#: ../src/timer.vala:177 ../src/timer.vala:188 ../data/ui/timer.ui.h:2
-msgid "Pause"
-msgstr "Pausatu"
-
-#: ../src/utils.vala:153
-msgid "Mondays"
-msgstr "Astelehenero"
-
-#: ../src/utils.vala:154
-msgid "Tuesdays"
-msgstr "Asteartero"
-
-#: ../src/utils.vala:155
-msgid "Wednesdays"
-msgstr "Asteazkenero"
-
-#: ../src/utils.vala:156
-msgid "Thursdays"
-msgstr "Ostegunero"
-
-#: ../src/utils.vala:157
-msgid "Fridays"
-msgstr "Ostiralero"
-
-#: ../src/utils.vala:158
-msgid "Saturdays"
-msgstr "Larunbatero"
-
-#: ../src/utils.vala:159
-msgid "Sundays"
-msgstr "Igandero"
-
-#: ../src/utils.vala:239
-msgid "Every Day"
-msgstr "Egunero"
-
-#: ../src/utils.vala:241
-msgid "Weekdays"
-msgstr "Astegunero"
-
-#: ../src/utils.vala:243
-msgid "Weekends"
-msgstr "Asteburuak"
-
-#: ../src/widgets.vala:483
-msgid "Delete"
-msgstr "Ezabatu"
-
-#: ../src/widgets.vala:509 ../src/widgets.vala:664
-msgid "Click on items to select them"
-msgstr "Egin klik elementuetan haiek hautatzeko"
-
-#: ../src/widgets.vala:511
-#, c-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "%d hautatuta"
-msgstr[1] "%d hautatuta"
-
-#: ../src/widgets.vala:653
-msgid "Cancel"
-msgstr "Utzi"
-
-#: ../src/window.vala:170
-#, c-format
-msgid "Failed to show help: %s"
-msgstr "Huts egin du laguntza erakustean: %s"
-
-#: ../src/window.vala:200
-msgid "Utilities to help you with the time."
-msgstr "Orduarekin lagunduko dizuten tresnak."
-
-#: ../src/window.vala:205
-msgid "translator-credits"
-msgstr ""
-"Asier Sarasua Garmendia <asiersar@yahoo.com>\n"
-"Iñaki Larrañaga Murgoitio <dooteo@zundan.com>"
-
-#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:106 ../src/world.vala:109
-msgid "Tomorrow"
-msgstr "Bihar"
-
-#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:106 ../src/world.vala:109
-msgid "Yesterday"
-msgstr "Atzo"
-
-#: ../src/world.vala:250
-msgid "World"
-msgstr "Mundua"
-
-#. namespace World
-#. namespace Clocks
-#: ../data/gtk/menus.ui.h:1
-msgid "_Help"
-msgstr "_Laguntza"
-
-#: ../data/gtk/menus.ui.h:2
-msgid "_About"
-msgstr "Honi _buruz"
-
-#: ../data/gtk/menus.ui.h:3
-msgid "_Quit"
-msgstr "I_rten"
-
-#: ../data/gtk/menus.ui.h:4
-msgid "Select All"
-msgstr "Hautatu denak"
-
-#: ../data/gtk/menus.ui.h:5
-msgid "Select None"
-msgstr "Bat ere ez hautatu"
 
 #: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
 msgid "Add a New World Clock"
@@ -331,6 +264,20 @@ msgstr "Aktibo"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Hautatu <b>Berria</b> alarma bat gehitzeko"
 
+#: ../data/ui/stopwatch.ui.h:1 ../data/ui/timer.ui.h:1
+#: ../src/stopwatch.vala:221
+msgid "Start"
+msgstr "Hasi"
+
+#: ../data/ui/stopwatch.ui.h:2 ../data/ui/timer.ui.h:3
+#: ../src/stopwatch.vala:213
+msgid "Reset"
+msgstr "Berrezarri"
+
+#: ../data/ui/timer.ui.h:2 ../src/timer.vala:210 ../src/timer.vala:221
+msgid "Pause"
+msgstr "Pausatu"
+
 #: ../data/ui/worldlocationdialog.ui.h:3
 msgid "_Add"
 msgstr "_Gehitu"
@@ -350,6 +297,136 @@ msgstr "Egunsentia"
 #: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Ilunabarra"
+
+#: ../src/alarm.vala:117 ../src/alarm.vala:369 ../src/alarm.vala:537
+msgid "Alarm"
+msgstr "Alarma"
+
+#: ../src/alarm.vala:313
+msgid "Edit Alarm"
+msgstr "Editatu alarma"
+
+#: ../src/alarm.vala:313
+msgid "New Alarm"
+msgstr "Alarma berria"
+
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:566 ../src/world.vala:280
+msgid "New"
+msgstr "Berria"
+
+#: ../src/application.vala:23
+msgid "Print version information and exit"
+msgstr "Erakutsi bertsioaren informazioa eta irten"
+
+#: ../src/stopwatch.vala:139
+msgid "Stopwatch"
+msgstr "Kronometroa"
+
+#: ../src/stopwatch.vala:202
+msgid "Lap"
+msgstr "Itzulia"
+
+#: ../src/stopwatch.vala:209 ../src/timer.vala:205
+msgid "Continue"
+msgstr "Jarraitu"
+
+#: ../src/timer.vala:125
+msgid "Time is up!"
+msgstr "Denbora amaitu da!"
+
+#: ../src/timer.vala:126
+msgid "Timer countdown finished"
+msgstr "Tenporizadorearen atzekoz aurrera zenbatzea amaituta"
+
+#: ../src/utils.vala:168
+msgid "Mondays"
+msgstr "Astelehenero"
+
+#: ../src/utils.vala:169
+msgid "Tuesdays"
+msgstr "Asteartero"
+
+#: ../src/utils.vala:170
+msgid "Wednesdays"
+msgstr "Asteazkenero"
+
+#: ../src/utils.vala:171
+msgid "Thursdays"
+msgstr "Ostegunero"
+
+#: ../src/utils.vala:172
+msgid "Fridays"
+msgstr "Ostiralero"
+
+#: ../src/utils.vala:173
+msgid "Saturdays"
+msgstr "Larunbatero"
+
+#: ../src/utils.vala:174
+msgid "Sundays"
+msgstr "Igandero"
+
+#: ../src/utils.vala:254
+msgid "Every Day"
+msgstr "Egunero"
+
+#: ../src/utils.vala:256
+msgid "Weekdays"
+msgstr "Astegunero"
+
+#: ../src/utils.vala:258
+msgid "Weekends"
+msgstr "Asteburuak"
+
+#: ../src/widgets.vala:537 ../src/widgets.vala:552
+msgid "Click on items to select them"
+msgstr "Egin klik elementuetan haiek hautatzeko"
+
+#: ../src/widgets.vala:539
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d hautatuta"
+msgstr[1] "%d hautatuta"
+
+#: ../src/widgets.vala:611
+msgid "Delete"
+msgstr "Ezabatu"
+
+#: ../src/widgets.vala:709
+msgid "Cancel"
+msgstr "Utzi"
+
+#: ../src/window.vala:208
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Huts egin du laguntza erakustean: %s"
+
+#: ../src/window.vala:238
+msgid "Utilities to help you with the time."
+msgstr "Orduarekin lagunduko dizuten tresnak."
+
+#: ../src/window.vala:243
+msgid "translator-credits"
+msgstr ""
+"Asier Sarasua Garmendia <asiersar@yahoo.com>\n"
+"Iñaki Larrañaga Murgoitio <dooteo@zundan.com>"
+
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:108 ../src/world.vala:111
+msgid "Tomorrow"
+msgstr "Bihar"
+
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:108 ../src/world.vala:111
+msgid "Yesterday"
+msgstr "Atzo"
+
+#: ../src/world.vala:258
+msgid "World"
+msgstr "Mundua"
 
 #~ msgid "_New"
 #~ msgstr "_Berria"
