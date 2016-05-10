@@ -502,6 +502,7 @@ private class IconView : Gtk.IconView {
                     if (item.selectable && mode == Mode.SELECTION) {
                         item.selected = !item.selected;
                         selection_changed ();
+                        queue_draw ();
                     } else if (event.button == Gdk.BUTTON_PRIMARY) {
                         item_activated (path);
                     }
