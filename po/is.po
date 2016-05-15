@@ -1,14 +1,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Sveinn í Felli <sv1@fellsnet.is>, 2015.
+# Sveinn í Felli <sv1@fellsnet.is>, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-25 07:17+0000\n"
-"PO-Revision-Date: 2015-04-09 10:02+0000\n"
+"POT-Creation-Date: 2016-05-08 11:37+0000\n"
+"PO-Revision-Date: 2016-05-15 09:53+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
 "Language: is\n"
@@ -19,6 +19,16 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+#: ../data/org.gnome.clocks.desktop.in.h:2
+msgid "GNOME Clocks"
+msgstr "GNOME Klukkur"
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/org.gnome.clocks.desktop.in.h:3
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "Klukkur á ýmsum stöðum, vekjaraklukkur, skeiðklukka og niðurteljari."
+
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
@@ -26,42 +36,141 @@ msgstr ""
 "Einfalt og glæsilegt klukkuforrit. Það innifelur heimsklukkur, vekjara, "
 "skeiðklukku og niðurteljara."
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
 msgid "Goals:"
 msgstr "Markmið:"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
 msgid "Show the time in different cities around the world"
 msgstr "Sýna tímann á mismunandi stöðum um allan heim"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
 msgid "Set alarms to wake you up"
 msgstr "Setja áminningar til að vekja þig"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:7
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Mæla tíma með nákvæmri skeiðklukku"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:8
 msgid "Set timers to properly cook your food"
 msgstr "Setja af stað niðurtalningu til að geta eldað almennilegan mat"
 
-#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:203
-#: ../data/ui/window.ui.h:1
+#: ../data/gtk/help-overlay.ui.h:1
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Almennt"
+
+#: ../data/gtk/help-overlay.ui.h:2
+msgctxt "shortcut window"
+msgid "Go to the next section"
+msgstr "Fara í næsta hluta"
+
+#: ../data/gtk/help-overlay.ui.h:3
+msgctxt "shortcut window"
+msgid "Go to the previous section"
+msgstr "Fara í fyrri hluta"
+
+#: ../data/gtk/help-overlay.ui.h:4
+#| msgid "_Quit"
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Hætta"
+
+#: ../data/gtk/help-overlay.ui.h:5
+#| msgid "Add a New World Clock"
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr "Heimsklukkur"
+
+#: ../data/gtk/help-overlay.ui.h:6
+#| msgid "Add a New World Clock"
+msgctxt "shortcut window"
+msgid "Add a world clock"
+msgstr "Bæta við heimsklukku"
+
+#: ../data/gtk/help-overlay.ui.h:7
+#| msgid "Select <b>New</b> to add a world clock"
+msgctxt "shortcut window"
+msgid "Select all world clocks"
+msgstr "Velja allar heimsklukkur"
+
+#: ../data/gtk/help-overlay.ui.h:8
+#| msgid "Alarm"
+msgctxt "shortcut window"
+msgid "Alarm"
+msgstr "Áminning"
+
+#: ../data/gtk/help-overlay.ui.h:9
+msgctxt "shortcut window"
+msgid "Add an alarm"
+msgstr "Bæta við áminningu"
+
+#: ../data/gtk/help-overlay.ui.h:10
+#| msgid "Select All"
+msgctxt "shortcut window"
+msgid "Select all alarms"
+msgstr "Velja allar áminningar"
+
+#: ../data/gtk/help-overlay.ui.h:11
+#| msgid "Stopwatch"
+msgctxt "shortcut window"
+msgid "Stopwatch"
+msgstr "Skeiðklukka"
+
+#: ../data/gtk/help-overlay.ui.h:12
+msgctxt "shortcut window"
+msgid "Stop / Reset"
+msgstr "Stöðva / Frumstilla"
+
+#: ../data/gtk/help-overlay.ui.h:13
+#| msgid "Timer"
+msgctxt "shortcut window"
+msgid "Timer"
+msgstr "Niðurtalning"
+
+#: ../data/gtk/help-overlay.ui.h:14
+#| msgid "Reset"
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr "Frumstilla"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "_Keyboard Shortcuts"
+msgstr "Flýtily_klar"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "_Help"
+msgstr "_Hjálp"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "_Um hugbúnaðinn"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "Hæ_tta"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Select All"
+msgstr "Velja allt"
+
+#: ../data/gtk/menus.ui.h:6
+msgid "Select None"
+msgstr "Velja ekkert"
+
+#: ../data/org.gnome.clocks.desktop.in.h:1 ../data/ui/window.ui.h:1
+#: ../src/window.vala:235
 msgid "Clocks"
 msgstr "Klukkur"
-
-#: ../data/org.gnome.clocks.desktop.in.h:2
-msgid "GNOME Clocks"
-msgstr "GNOME Klukkur"
-
-#: ../data/org.gnome.clocks.desktop.in.h:3
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Klukkur á ýmsum stöðum, vekjaraklukkur, skeiðklukka og niðurteljari."
 
 #: ../data/org.gnome.clocks.desktop.in.h:4
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "tími;heimsklukka;vekjari;skeiðklukka;niðurteljari;tímabelti;"
+
+#: ../data/org.gnome.clocks.desktop.in.h:5
+msgid "Allows world clocks to be displayed for your time zone."
+msgstr "Gerir kleift að birta klukku fyrir staðinn þar sem þú ert."
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:1
 msgid "Configured world clocks"
@@ -79,9 +188,9 @@ msgstr "Stilltar áminningar"
 msgid "List of alarms set."
 msgstr "Listi yfir skilgreindar áminningar."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:114
+#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:113
 msgid "Timer"
-msgstr "Niðurteljari"
+msgstr "Niðurtalning"
 
 #: ../data/org.gnome.clocks.gschema.xml.in.h:6
 msgid "Configured timer duration in seconds."
@@ -119,178 +228,14 @@ msgstr "Staða spjalds"
 msgid "Current clock panel."
 msgstr "Núverandi klukkuspjald."
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:367 ../src/alarm.vala:535
-msgid "Alarm"
-msgstr "Áminning"
-
-#: ../src/alarm.vala:117 ../src/stopwatch.vala:190
-#: ../data/ui/alarmringing.ui.h:1
+#: ../data/ui/alarmringing.ui.h:1 ../src/alarm.vala:119
+#: ../src/stopwatch.vala:199
 msgid "Stop"
 msgstr "Stöðva"
 
-#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
+#: ../data/ui/alarmringing.ui.h:2 ../src/alarm.vala:120
 msgid "Snooze"
 msgstr "Blunda"
-
-#: ../src/alarm.vala:306
-msgid "Edit Alarm"
-msgstr "Breyta áminningu"
-
-#: ../src/alarm.vala:306
-msgid "New Alarm"
-msgstr "Ný áminning"
-
-#. Translators: "New" refers to an alarm
-#. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:560 ../src/world.vala:262
-msgid "New"
-msgstr "Nýtt"
-
-#: ../src/application.vala:23
-msgid "Print version information and exit"
-msgstr "Birta upplýsingar um útgáfu og hætta"
-
-#: ../src/stopwatch.vala:130
-msgid "Stopwatch"
-msgstr "Skeiðklukka"
-
-#: ../src/stopwatch.vala:193
-msgid "Lap"
-msgstr "Umferð"
-
-#: ../src/stopwatch.vala:200 ../src/timer.vala:206
-msgid "Continue"
-msgstr "Halda áfram"
-
-#: ../src/stopwatch.vala:204 ../data/ui/stopwatch.ui.h:2
-#: ../data/ui/timer.ui.h:3
-msgid "Reset"
-msgstr "Frumstilla"
-
-#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:1
-#: ../data/ui/timer.ui.h:1
-msgid "Start"
-msgstr "Byrja"
-
-#: ../src/timer.vala:126
-msgid "Time is up!"
-msgstr "Tíminn er búinn!"
-
-#: ../src/timer.vala:127
-msgid "Timer countdown finished"
-msgstr "Niðurtalningu lokið"
-
-#: ../src/timer.vala:211 ../src/timer.vala:222 ../data/ui/timer.ui.h:2
-msgid "Pause"
-msgstr "Hlé"
-
-#: ../src/utils.vala:153
-msgid "Mondays"
-msgstr "Mánudögum"
-
-#: ../src/utils.vala:154
-msgid "Tuesdays"
-msgstr "Þriðjudögum"
-
-#: ../src/utils.vala:155
-msgid "Wednesdays"
-msgstr "Miðvikudögum"
-
-#: ../src/utils.vala:156
-msgid "Thursdays"
-msgstr "Fimmtudögum"
-
-#: ../src/utils.vala:157
-msgid "Fridays"
-msgstr "Föstudögum"
-
-#: ../src/utils.vala:158
-msgid "Saturdays"
-msgstr "Laugardögum"
-
-#: ../src/utils.vala:159
-msgid "Sundays"
-msgstr "Sunnudögum"
-
-#: ../src/utils.vala:239
-msgid "Every Day"
-msgstr "Alla daga"
-
-#: ../src/utils.vala:241
-msgid "Weekdays"
-msgstr "Virka daga"
-
-#: ../src/utils.vala:243
-msgid "Weekends"
-msgstr "Helgar"
-
-#: ../src/widgets.vala:484
-msgid "Delete"
-msgstr "Eyða"
-
-#: ../src/widgets.vala:510 ../src/widgets.vala:665
-msgid "Click on items to select them"
-msgstr "Smelltu á hluti til að velja þá"
-
-#: ../src/widgets.vala:512
-#, c-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "%d valið"
-msgstr[1] "%d valið"
-
-#: ../src/widgets.vala:654
-msgid "Cancel"
-msgstr "Hætta við"
-
-#: ../src/window.vala:176
-#, c-format
-msgid "Failed to show help: %s"
-msgstr "Mistókst að sýna hjálp: %s"
-
-#: ../src/window.vala:206
-msgid "Utilities to help you with the time."
-msgstr "Tól til að hjálpa þér að koma hlutum í verk."
-
-#: ../src/window.vala:211
-msgid "translator-credits"
-msgstr "Sveinn í Felli, sv1@fellsnet.is"
-
-#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:106 ../src/world.vala:109
-msgid "Tomorrow"
-msgstr "Á morgun"
-
-#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:106 ../src/world.vala:109
-msgid "Yesterday"
-msgstr "í gær"
-
-#: ../src/world.vala:250
-msgid "World"
-msgstr "Heimurinn"
-
-#. namespace World
-#. namespace Clocks
-#: ../data/gtk/menus.ui.h:1
-msgid "_Help"
-msgstr "_Hjálp"
-
-#: ../data/gtk/menus.ui.h:2
-msgid "_About"
-msgstr "_Um hugbúnaðinn"
-
-#: ../data/gtk/menus.ui.h:3
-msgid "_Quit"
-msgstr "Hæ_tta"
-
-#: ../data/gtk/menus.ui.h:4
-msgid "Select All"
-msgstr "Velja allt"
-
-#: ../data/gtk/menus.ui.h:5
-msgid "Select None"
-msgstr "Velja ekkert"
 
 #: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
 msgid "Add a New World Clock"
@@ -324,6 +269,20 @@ msgstr "Virkt"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Veldu <b>Nýtt</b> til að bæta við áminningu"
 
+#: ../data/ui/stopwatch.ui.h:1 ../data/ui/timer.ui.h:1
+#: ../src/stopwatch.vala:221
+msgid "Start"
+msgstr "Byrja"
+
+#: ../data/ui/stopwatch.ui.h:2 ../data/ui/timer.ui.h:3
+#: ../src/stopwatch.vala:213
+msgid "Reset"
+msgstr "Frumstilla"
+
+#: ../data/ui/timer.ui.h:2 ../src/timer.vala:210 ../src/timer.vala:221
+msgid "Pause"
+msgstr "Hlé"
+
 #: ../data/ui/worldlocationdialog.ui.h:3
 msgid "_Add"
 msgstr "Bæt_a við"
@@ -343,4 +302,132 @@ msgstr "Sólarupprás"
 #: ../data/ui/world.ui.h:3
 msgid "Sunset"
 msgstr "Sólsetur"
+
+#: ../src/alarm.vala:117 ../src/alarm.vala:369 ../src/alarm.vala:537
+msgid "Alarm"
+msgstr "Áminning"
+
+#: ../src/alarm.vala:313
+msgid "Edit Alarm"
+msgstr "Breyta áminningu"
+
+#: ../src/alarm.vala:313
+msgid "New Alarm"
+msgstr "Ný áminning"
+
+#. Translators: "New" refers to an alarm
+#. Translators: "New" refers to a world clock
+#: ../src/alarm.vala:566 ../src/world.vala:280
+msgid "New"
+msgstr "Nýtt"
+
+#: ../src/application.vala:23
+msgid "Print version information and exit"
+msgstr "Birta upplýsingar um útgáfu og hætta"
+
+#: ../src/stopwatch.vala:139
+msgid "Stopwatch"
+msgstr "Skeiðklukka"
+
+#: ../src/stopwatch.vala:202
+msgid "Lap"
+msgstr "Umferð"
+
+#: ../src/stopwatch.vala:209 ../src/timer.vala:205
+msgid "Continue"
+msgstr "Halda áfram"
+
+#: ../src/timer.vala:125
+msgid "Time is up!"
+msgstr "Tíminn er búinn!"
+
+#: ../src/timer.vala:126
+msgid "Timer countdown finished"
+msgstr "Niðurtalningu lokið"
+
+#: ../src/utils.vala:168
+msgid "Mondays"
+msgstr "Mánudögum"
+
+#: ../src/utils.vala:169
+msgid "Tuesdays"
+msgstr "Þriðjudögum"
+
+#: ../src/utils.vala:170
+msgid "Wednesdays"
+msgstr "Miðvikudögum"
+
+#: ../src/utils.vala:171
+msgid "Thursdays"
+msgstr "Fimmtudögum"
+
+#: ../src/utils.vala:172
+msgid "Fridays"
+msgstr "Föstudögum"
+
+#: ../src/utils.vala:173
+msgid "Saturdays"
+msgstr "Laugardögum"
+
+#: ../src/utils.vala:174
+msgid "Sundays"
+msgstr "Sunnudögum"
+
+#: ../src/utils.vala:254
+msgid "Every Day"
+msgstr "Alla daga"
+
+#: ../src/utils.vala:256
+msgid "Weekdays"
+msgstr "Virka daga"
+
+#: ../src/utils.vala:258
+msgid "Weekends"
+msgstr "Helgar"
+
+#: ../src/widgets.vala:537 ../src/widgets.vala:552
+msgid "Click on items to select them"
+msgstr "Smelltu á hluti til að velja þá"
+
+#: ../src/widgets.vala:539
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d valið"
+msgstr[1] "%d valið"
+
+#: ../src/widgets.vala:611
+msgid "Delete"
+msgstr "Eyða"
+
+#: ../src/widgets.vala:709
+msgid "Cancel"
+msgstr "Hætta við"
+
+#: ../src/window.vala:208
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "Mistókst að sýna hjálp: %s"
+
+#: ../src/window.vala:238
+msgid "Utilities to help you with the time."
+msgstr "Tól til að hjálpa þér að koma hlutum í verk."
+
+#: ../src/window.vala:243
+msgid "translator-credits"
+msgstr "Sveinn í Felli, sv1@fellsnet.is"
+
+#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
+#: ../src/world.vala:108 ../src/world.vala:111
+msgid "Tomorrow"
+msgstr "Á morgun"
+
+#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
+#: ../src/world.vala:108 ../src/world.vala:111
+msgid "Yesterday"
+msgstr "í gær"
+
+#: ../src/world.vala:258
+msgid "World"
+msgstr "Heimurinn"
 
