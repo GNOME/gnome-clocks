@@ -88,6 +88,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
     [GtkChild]
     private Gtk.Grid grid_spinbuttons;
     [GtkChild]
+    private Gtk.Grid grid_labels;
+    [GtkChild]
     private Gtk.SpinButton h_spinbutton;
     [GtkChild]
     private Gtk.SpinButton m_spinbutton;
@@ -127,6 +129,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         // Force LTR since we do not want to reverse [hh] : [mm] : [ss]
         grid_spinbuttons.set_direction (Gtk.TextDirection.LTR);
+        grid_labels.set_direction (Gtk.TextDirection.LTR);
 
         reset ();
     }
