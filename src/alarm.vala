@@ -340,6 +340,9 @@ private class SetupDialog : Gtk.Dialog {
 
         format  = Utils.WallClock.get_default ().format;
         am_pm_button = new AmPmToggleButton ();
+        am_pm_button.clicked.connect (() => {
+          avoid_duplicate_alarm ();
+        });
 
         if (format == Utils.WallClock.Format.TWENTYFOUR) {
             h_spinbutton.set_range (0, 23);
