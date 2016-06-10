@@ -458,7 +458,7 @@ private class SetupDialog : Gtk.Dialog {
     }
 
     [GtkCallback]
-    private void spinbuttons_changed (Gtk.SpinButton spin_button) {
+    private void spinbuttons_changed (Gtk.Editable editable) {
         avoid_duplicate_alarm ();
     }
 

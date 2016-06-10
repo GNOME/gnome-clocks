@@ -126,7 +126,7 @@
                     <property name="adjustment">m_adjustment</property>
                     <property name="numeric">True</property>
                     <property name="wrap">True</property>
-                    <signal name="value-changed" handler="spinbuttons_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
+                    <signal name="changed" handler="spinbuttons_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
                     <signal name="output" handler="show_leading_zeros" object="ClocksAlarmSetupDialog" swapped="no"/>
                   </object>
                   <packing>
@@ -170,7 +170,7 @@
                     <property name="adjustment">h_adjustment</property>
                     <property name="numeric">True</property>
                     <property name="wrap">True</property>
-                    <signal name="value-changed" handler="spinbuttons_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
+                    <signal name="changed" handler="spinbuttons_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
                     <signal name="output" handler="show_leading_zeros" object="ClocksAlarmSetupDialog" swapped="no"/>
                   </object>
                   <packing>
