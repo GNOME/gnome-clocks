@@ -253,6 +253,7 @@
                     <property name="can_focus">True</property>
                     <property name="invisible_char">●</property>
                     <property name="activates_default">True</property>
+                    <signal name="changed" handler="entry_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
