@@ -61,6 +61,7 @@ public class Window : Gtk.ApplicationWindow {
         int width, height;
         settings.get ("size", "(ii)", out width, out height);
         resize (width, height);
+        set_title (_("Clocks"));
 
         panels = new Gtk.Widget[N_PANELS];
 
