@@ -29,7 +29,7 @@ fi
 git submodule update --init --recursive
 
 autopoint --force || exit $?
-AUTOPOINT='intltoolize --automake --copy' autoreconf --force --install --verbose
+autoreconf --force --install --verbose
 
 cd $OLDDIR
 test -n "$NOCONFIGURE" || "$srcdir/configure" "$@"

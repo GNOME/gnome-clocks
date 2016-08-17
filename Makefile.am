@@ -3,9 +3,8 @@ ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 SUBDIRS = help po
 
 # desktop file
-# (we can't use INTLTOOL_DESKTOP_RULE here due to lp#605826)
 %.desktop: %.desktop.in
-	$(MKDIR_P) $(dir $@); LC_ALL=C $(INTLTOOL_MERGE) -d -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
+	$(AM_V_GEN) $(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 applicationsdir = $(datadir)/applications
 applications_DATA = data/org.gnome.clocks.desktop
 dist_noinst_DATA = data/org.gnome.clocks.desktop.in
@@ -20,9 +19,10 @@ data/org.gnome.clocks.service: data/org.gnome.clocks.service.in Makefile
 
 # appdata file
 appdatadir = $(datadir)/appdata
-appdata_DATA = $(appdata_in_files:.xml.in=.xml)
 appdata_in_files = data/appdata/org.gnome.clocks.appdata.xml.in
-@INTLTOOL_XML_RULE@
+appdata_DATA = $(appdata_in_files:.xml.in=.xml)
+$(appdata_DATA): $(appdata_in_files)
+	$(AM_V_GEN) $(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 # gnome-shell search provider
 searchproviderdir = $(datadir)/gnome-shell/search-providers
