@@ -25,7 +25,7 @@ public enum PanelId {
     TIMER,
 }
 
-public static const int N_PANELS = 4;
+public const int N_PANELS = 4;
 
 public interface Clock : GLib.Object {
     public abstract string label { get; protected construct set; }

@@ -20,8 +20,8 @@ namespace Clocks {
 namespace Alarm {
 
 private class Item : Object, ContentItem {
-    static const int SNOOZE_MINUTES = 9;
-    static const int RING_MINUTES = 3;
+    const int SNOOZE_MINUTES = 9;
+    const int RING_MINUTES = 3;
 
     // FIXME: should we add a "MISSED" state where the alarm stopped
     // ringing but we keep showing the ringing panel?
