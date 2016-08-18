@@ -2,9 +2,11 @@ ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
 SUBDIRS = help po
 
+MSGFMT_DESKTOP_OPTIONS = --keyword=X-Geoclue-Reason
+
 # desktop file
 %.desktop: %.desktop.in
-	$(AM_V_GEN) $(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
+	$(AM_V_GEN) $(MSGFMT) $(MSGFMT_DESKTOP_OPTIONS) --desktop --template $< -d $(top_srcdir)/po -o $@
 applicationsdir = $(datadir)/applications
 applications_DATA = data/org.gnome.clocks.desktop
 dist_noinst_DATA = data/org.gnome.clocks.desktop.in
