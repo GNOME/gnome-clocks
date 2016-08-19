@@ -2,7 +2,7 @@ ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
 SUBDIRS = help po
 
-MSGFMT_DESKTOP_OPTIONS = --keyword=X-Geoclue-Reason
+MSGFMT_DESKTOP_OPTIONS = --keyword=X-GNOME-FullName --keyword=X-Geoclue-Reason
 
 # desktop file
 %.desktop: %.desktop.in
