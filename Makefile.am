@@ -2,7 +2,9 @@ ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
 SUBDIRS = help po
 
-MSGFMT_DESKTOP_OPTIONS = --keyword=X-GNOME-FullName --keyword=X-Geoclue-Reason
+# msgfmt --desktop ignores the default keywords if custom keywords are
+# specified, so we list all the keywords
+MSGFMT_DESKTOP_OPTIONS = --keyword=X-GNOME-FullName --keyword=X-Geoclue-Reason --keyword=Name --keyword=GenericName --keyword=Comment --keyword=Icon --keyword=Keywords
 
 # desktop file
 %.desktop: %.desktop.in
