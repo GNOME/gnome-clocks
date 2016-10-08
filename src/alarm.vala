@@ -186,12 +186,11 @@ private class Item : Object, ContentItem {
         return (this.alarm_time.compare (i.alarm_time) == 0 && this.active && i.active);
     }
 
-    public bool check_duplicate_alarm (ListModel alarms) {
+    public bool check_duplicate_alarm (List<Item> alarms) {
         update_alarm_time ();
 
-        var n = alarms.get_n_items ();
-        for (int i = 0; i < n; i++) {
-            if (compare_with_item (alarms.get_object (i) as Item)) {
+        foreach (var item in alarms) {
+            if (this.compare_with_item (item)) {
                 return true;
             }
         }
@@ -307,12 +306,19 @@ private class SetupDialog : Gtk.Dialog {
     private Gtk.Stack am_pm_stack;
     [GtkChild]
     private Gtk.Revealer label_revealer;
-    private ListModel alarms;
+    private List<Item> other_alarms;
 
     public SetupDialog (Gtk.Window parent, Item? alarm, ListModel all_alarms) {
         Object (transient_for: parent, title: alarm != null ? _("Edit Alarm") : _("New Alarm"), use_header_bar: 1);
 
-        alarms = all_alarms;
+        other_alarms = new List<Item> ();
+        var n = all_alarms.get_n_items ();
+        for (int i = 0; i < n; i++) {
+            var item = all_alarms.get_object (i) as Item;
+            if (alarm != item) {
+                other_alarms.prepend (all_alarms.get_object (i) as Item);
+            }
+        }
 
         // Force LTR since we do not want to reverse [hh] : [mm]
         time_grid.set_direction (Gtk.TextDirection.LTR);
@@ -341,7 +347,7 @@ private class SetupDialog : Gtk.Dialog {
         format  = Utils.WallClock.get_default ().format;
         am_pm_button = new AmPmToggleButton ();
         am_pm_button.clicked.connect (() => {
-          avoid_duplicate_alarm ();
+            avoid_duplicate_alarm ();
         });
 
         if (format == Utils.WallClock.Format.TWENTYFOUR) {
@@ -441,13 +447,9 @@ private class SetupDialog : Gtk.Dialog {
         var alarm = new Item ();
         apply_to_alarm (alarm);
 
-        if (alarm.check_duplicate_alarm (alarms)) {
-            this.set_response_sensitive (1, false);
-            label_revealer.set_reveal_child (true);
-        } else {
-            this.set_response_sensitive (1, true);
-            label_revealer.set_reveal_child (false);
-        }
+        var duplicate = alarm.check_duplicate_alarm (other_alarms);
+        this.set_response_sensitive (1, !duplicate);
+        label_revealer.set_reveal_child (duplicate);
     }
 
     [GtkCallback]
