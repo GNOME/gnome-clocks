@@ -45,6 +45,9 @@ public interface Clock : GLib.Object {
         return false;
     }
 
+    public virtual void back () {
+    }
+
     public virtual void update_header_bar () {
     }
 }
