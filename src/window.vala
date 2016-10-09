@@ -186,6 +186,18 @@ public class Window : Gtk.ApplicationWindow {
         return base.key_press_event (event);
     }
 
+    public override bool button_release_event (Gdk.EventButton event) {
+        const uint BUTTON_BACK = 8;
+        uint button;
+
+        if (((Gdk.Event)(event)).get_button (out button) && button == BUTTON_BACK) {
+            ((Clock) stack.visible_child).back ();
+            return true;
+        }
+
+        return base.button_release_event (event);
+    }
+
     protected override bool configure_event (Gdk.EventConfigure event) {
         if (get_realized () && !(Gdk.WindowState.MAXIMIZED in get_window ().get_state ())) {
             int width, height;
