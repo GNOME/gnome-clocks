@@ -709,7 +709,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
             content_view.update_header_bar ();
             break;
         case HeaderBar.Mode.STANDALONE:
-            header_bar.title = GLib.Markup.escape_text (ringing_panel.alarm.name);
+            header_bar.title = ringing_panel.alarm.name;
             break;
         default:
             assert_not_reached ();

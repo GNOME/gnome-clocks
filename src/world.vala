@@ -459,8 +459,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
             content_view.update_header_bar ();
             break;
         case HeaderBar.Mode.STANDALONE:
-            header_bar.title = GLib.Markup.escape_text (standalone_location.city_name);
-            header_bar.subtitle = GLib.Markup.escape_text (standalone_location.contry_name);
+            header_bar.title = standalone_location.city_name;
+            header_bar.subtitle = standalone_location.contry_name;
             back_button.show ();
             break;
         default:
