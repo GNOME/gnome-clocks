@@ -452,6 +452,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public void update_header_bar () {
         switch (header_bar.mode) {
         case HeaderBar.Mode.NORMAL:
+            header_bar.title = _("Clocks");
+            header_bar.subtitle = null;
             new_button.show ();
             content_view.update_header_bar ();
             break;
