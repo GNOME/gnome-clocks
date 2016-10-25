@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-18 16:52+0000\n"
-"PO-Revision-Date: 2016-08-22 22:09+0200\n"
+"POT-Creation-Date: 2016-10-09 08:39+0000\n"
+"PO-Revision-Date: 2016-10-25 22:32+0200\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -20,6 +20,7 @@ msgstr ""
 "X-Generator: Poedit 1.8.8\n"
 
 #: data/appdata/org.gnome.clocks.appdata.xml.in:6
+#: data/org.gnome.clocks.desktop.in:5
 msgid "GNOME Clocks"
 msgstr "Orlois par GNOME"
 
@@ -151,7 +152,7 @@ msgid "Select None"
 msgstr "Anule selezion"
 
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:235
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:236
 msgid "Clocks"
 msgstr "Orlois"
 
@@ -185,7 +186,7 @@ msgstr "Sveis configuradis"
 msgid "List of alarms set."
 msgstr "Liste di sveis configuradis."
 
-#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:113
+#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:115
 msgid "Timer"
 msgstr "Timer"
 
@@ -273,7 +274,7 @@ msgstr "Tache"
 msgid "Reset"
 msgstr "Met a zero"
 
-#: data/ui/timer.ui:397 src/timer.vala:210 src/timer.vala:221
+#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
 msgid "Pause"
 msgstr "Pause"
 
@@ -297,21 +298,21 @@ msgstr "Cricâ dal dì"
 msgid "Sunset"
 msgstr "Amont"
 
-#: src/alarm.vala:117 src/alarm.vala:372 src/alarm.vala:545
+#: src/alarm.vala:117 src/alarm.vala:378 src/alarm.vala:547
 msgid "Alarm"
 msgstr "Svee"
 
-#: src/alarm.vala:313
+#: src/alarm.vala:312
 msgid "Edit Alarm"
 msgstr "Cambie svee"
 
-#: src/alarm.vala:313
+#: src/alarm.vala:312
 msgid "New Alarm"
 msgstr "Gnove svee"
 
 #. Translators: "New" refers to an alarm
-#. Translators: "New" refers to a world clock
-#: src/alarm.vala:574 src/world.vala:280
+#: src/alarm.vala:576
+msgctxt "Alarm"
 msgid "New"
 msgstr "Gnûf"
 
@@ -327,15 +328,15 @@ msgstr "Cronometri"
 msgid "Lap"
 msgstr "Gîr"
 
-#: src/stopwatch.vala:209 src/timer.vala:205
+#: src/stopwatch.vala:209 src/timer.vala:208
 msgid "Continue"
 msgstr "Continue"
 
-#: src/timer.vala:125
+#: src/timer.vala:127
 msgid "Time is up!"
 msgstr "Timp scjadût"
 
-#: src/timer.vala:126
+#: src/timer.vala:128
 msgid "Timer countdown finished"
 msgstr "Conte par ledrôs finide"
 
@@ -398,32 +399,40 @@ msgstr "Elimine "
 msgid "Cancel"
 msgstr "Anule"
 
-#: src/window.vala:208
+#: src/window.vala:209
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Impussibil mostrâ l'aiût: %s"
 
-#: src/window.vala:238
+#: src/window.vala:239
 msgid "Utilities to help you with the time."
 msgstr "Imprescj par controlâ la ore."
 
-#: src/window.vala:243
+#: src/window.vala:244
 msgid "translator-credits"
 msgstr "Fabio Tomat (f.t.public at gmail.com)"
 
-#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: src/world.vala:108 src/world.vala:111
+#. If it is Jan 1st there, and not Jan 2nd here, then it must be
+#. Dec 31st here, so return "tomorrow"
+#: src/world.vala:109 src/world.vala:113
 msgid "Tomorrow"
 msgstr "Doman"
 
-#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: src/world.vala:108 src/world.vala:111
+#. If it is Jan 1st here, and not Jan 2nd there, then it must be
+#. Dec 31st there, so return "yesterday"
+#: src/world.vala:109 src/world.vala:113
 msgid "Yesterday"
 msgstr "Îr"
 
-#: src/world.vala:258
+#: src/world.vala:260
 msgid "World"
 msgstr "Mont"
+
+#. Translators: "New" refers to a world clock
+#: src/world.vala:282
+msgctxt "World clock"
+msgid "New"
+msgstr "Gnûf"
 
 #~ msgid "_New"
 #~ msgstr "_Gnûf"
