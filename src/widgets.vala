@@ -537,7 +537,7 @@ private class SelectionMenuButton : Gtk.MenuButton {
                 if (n_items == 0) {
                     label = _("Click on items to select them");
                 } else {
-                    label = ngettext ("%d selected", "%d selected", n_items).printf (n_items);
+                    label = ngettext ("%u selected", "%u selected", n_items).printf (n_items);
                 }
                 menubutton_label.label = label;
             }
