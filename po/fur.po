@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-10-09 08:39+0000\n"
-"PO-Revision-Date: 2016-10-25 22:32+0200\n"
+"POT-Creation-Date: 2016-11-01 18:50+0000\n"
+"PO-Revision-Date: 2016-11-04 21:04+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -152,7 +152,8 @@ msgid "Select None"
 msgstr "Anule selezion"
 
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:236
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:248
+#: src/world.vala:455
 msgid "Clocks"
 msgstr "Orlois"
 
@@ -386,10 +387,10 @@ msgstr "Fâs clic sui elements par selezionaju"
 
 #: src/widgets.vala:540
 #, c-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "%d selezionât"
-msgstr[1] "%d selezionâts"
+msgid "%u selected"
+msgid_plural "%u selected"
+msgstr[0] "%u selezionât"
+msgstr[1] "%u selezionâts"
 
 #: src/widgets.vala:612
 msgid "Delete"
@@ -399,16 +400,16 @@ msgstr "Elimine "
 msgid "Cancel"
 msgstr "Anule"
 
-#: src/window.vala:209
+#: src/window.vala:221
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Impussibil mostrâ l'aiût: %s"
 
-#: src/window.vala:239
+#: src/window.vala:251
 msgid "Utilities to help you with the time."
 msgstr "Imprescj par controlâ la ore."
 
-#: src/window.vala:244
+#: src/window.vala:256
 msgid "translator-credits"
 msgstr "Fabio Tomat (f.t.public at gmail.com)"
 
