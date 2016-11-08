@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-10-09 08:39+0000\n"
-"PO-Revision-Date: 2016-08-18 21:31+0200\n"
+"POT-Creation-Date: 2016-11-01 18:50+0000\n"
+"PO-Revision-Date: 2016-11-08 12:06+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -152,7 +152,8 @@ msgid "Select None"
 msgstr "Zrušit výběr"
 
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:236
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:248
+#: src/world.vala:455
 msgid "Clocks"
 msgstr "Hodiny"
 
@@ -387,11 +388,11 @@ msgstr "Kliknutím se položky vyberou"
 
 #: src/widgets.vala:540
 #, c-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "%d vybraná"
-msgstr[1] "%d vybrané"
-msgstr[2] "%d vybraných"
+msgid "%u selected"
+msgid_plural "%u selected"
+msgstr[0] "%u vybraná"
+msgstr[1] "%u vybrané"
+msgstr[2] "%u vybraných"
 
 #: src/widgets.vala:612
 msgid "Delete"
@@ -401,16 +402,16 @@ msgstr "Smazat"
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: src/window.vala:209
+#: src/window.vala:221
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Selhalo zobrazení nápovědy: %s"
 
-#: src/window.vala:239
+#: src/window.vala:251
 msgid "Utilities to help you with the time."
 msgstr "Užitečné programy, které vám pomohu s časem."
 
-#: src/window.vala:244
+#: src/window.vala:256
 msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>"
 
