@@ -8,9 +8,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-18 09:35+0000\n"
-"PO-Revision-Date: 2016-08-18 11:40+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-11-01 18:50+0000\n"
+"PO-Revision-Date: 2016-11-16 13:39+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -21,6 +22,7 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 
 #: data/appdata/org.gnome.clocks.appdata.xml.in:6
+#: data/org.gnome.clocks.desktop.in:5
 msgid "GNOME Clocks"
 msgstr "Zegar GNOME"
 
@@ -152,7 +154,8 @@ msgid "Select None"
 msgstr "Odznacz wszystko"
 
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:235
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:248
+#: src/world.vala:455
 msgid "Clocks"
 msgstr "Zegar"
 
@@ -165,6 +168,10 @@ msgstr "czas;minutnik;timer;budzik;alarm;zegar światowy;stoper;strefa czasowa;"
 #: data/org.gnome.clocks.desktop.in:11
 msgid "org.gnome.clocks"
 msgstr "org.gnome.clocks"
+
+#: data/org.gnome.clocks.desktop.in:18
+msgid "Allows world clocks to be displayed for your time zone."
+msgstr "Umożliwia wyświetlanie zegara dla strefy czasowej użytkownika."
 
 #: data/org.gnome.clocks.gschema.xml.in:5
 msgid "Configured world clocks"
@@ -182,7 +189,7 @@ msgstr "Skonfigurowane budziki"
 msgid "List of alarms set."
 msgstr "Lista ustawionych budzików."
 
-#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:113
+#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:115
 msgid "Timer"
 msgstr "Minutnik"
 
@@ -270,7 +277,7 @@ msgstr "Rozpocznij"
 msgid "Reset"
 msgstr "Resetuj"
 
-#: data/ui/timer.ui:397 src/timer.vala:210 src/timer.vala:221
+#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
 msgid "Pause"
 msgstr "Wstrzymaj"
 
@@ -294,21 +301,21 @@ msgstr "Wschód słońca"
 msgid "Sunset"
 msgstr "Zachód słońca"
 
-#: src/alarm.vala:117 src/alarm.vala:372 src/alarm.vala:545
+#: src/alarm.vala:117 src/alarm.vala:378 src/alarm.vala:547
 msgid "Alarm"
 msgstr "Budzik"
 
-#: src/alarm.vala:313
+#: src/alarm.vala:312
 msgid "Edit Alarm"
 msgstr "Modyfikuj budzik"
 
-#: src/alarm.vala:313
+#: src/alarm.vala:312
 msgid "New Alarm"
 msgstr "Nowy budzik"
 
 #. Translators: "New" refers to an alarm
-#. Translators: "New" refers to a world clock
-#: src/alarm.vala:574 src/world.vala:280
+#: src/alarm.vala:576
+msgctxt "Alarm"
 msgid "New"
 msgstr "Nowy"
 
@@ -324,15 +331,15 @@ msgstr "Stoper"
 msgid "Lap"
 msgstr "Okrążenie"
 
-#: src/stopwatch.vala:209 src/timer.vala:205
+#: src/stopwatch.vala:209 src/timer.vala:208
 msgid "Continue"
 msgstr "Kontynuuj"
 
-#: src/timer.vala:125
+#: src/timer.vala:127
 msgid "Time is up!"
 msgstr "Czas minął!"
 
-#: src/timer.vala:126
+#: src/timer.vala:128
 msgid "Timer countdown finished"
 msgstr "Ukończono odliczanie stopera"
 
@@ -382,11 +389,11 @@ msgstr "Kliknięcie elementu zaznacza go"
 
 #: src/widgets.vala:540
 #, c-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "Zaznaczono: %d"
-msgstr[1] "Zaznaczono: %d"
-msgstr[2] "Zaznaczono: %d"
+msgid "%u selected"
+msgid_plural "%u selected"
+msgstr[0] "Zaznaczono: %u"
+msgstr[1] "Zaznaczono: %u"
+msgstr[2] "Zaznaczono: %u"
 
 #: src/widgets.vala:612
 msgid "Delete"
@@ -396,35 +403,40 @@ msgstr "Usuń"
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: src/window.vala:208
+#: src/window.vala:221
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Wyświetlenie pomocy się nie powiodło: %s"
 
-#: src/window.vala:238
+#: src/window.vala:251
 msgid "Utilities to help you with the time."
 msgstr "Narzędzia pomagające zarządzać czasem."
 
-#: src/window.vala:243
+#: src/window.vala:256
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2012-2016\n"
 "Paweł Żołnowski <pawel@zolnowski.name>, 2014\n"
 "Aviary.pl <community-poland@mozilla.org>, 2012-2016"
 
-#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: src/world.vala:108 src/world.vala:111
+#. If it is Jan 1st there, and not Jan 2nd here, then it must be
+#. Dec 31st here, so return "tomorrow"
+#: src/world.vala:109 src/world.vala:113
 msgid "Tomorrow"
 msgstr "Jutro"
 
-#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: src/world.vala:108 src/world.vala:111
+#. If it is Jan 1st here, and not Jan 2nd there, then it must be
+#. Dec 31st there, so return "yesterday"
+#: src/world.vala:109 src/world.vala:113
 msgid "Yesterday"
 msgstr "Wczoraj"
 
-#: src/world.vala:258
+#: src/world.vala:260
 msgid "World"
 msgstr "Świat"
 
-msgid "Allows world clocks to be displayed for your time zone."
-msgstr "Umożliwia wyświetlanie zegara dla strefy czasowej użytkownika."
+#. Translators: "New" refers to a world clock
+#: src/world.vala:282
+msgctxt "World clock"
+msgid "New"
+msgstr "Nowy"
