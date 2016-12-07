@@ -230,7 +230,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         remove_tick ();
         span = settings.get_uint ("timer");
         h_spinbutton.value = (int) span / 3600;
-        m_spinbutton.value = (int) span / 60;
+        m_spinbutton.value = (int) span % 3600 / 60;
         s_spinbutton.value = span % 60;
         left_button.get_style_context ().remove_class("clocks-go");
         countdown_frame.get_style_context ().remove_class ("clocks-paused");
