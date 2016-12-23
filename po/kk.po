@@ -1,15 +1,15 @@
 # Kazakh translation for gnome-clocks.
 # Copyright (C) 2013 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2013-2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-18 16:52+0000\n"
-"PO-Revision-Date: 2016-09-04 09:55+0500\n"
+"POT-Creation-Date: 2016-11-01 18:50+0000\n"
+"PO-Revision-Date: 2016-12-23 08:54+0500\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk@li.org>\n"
 "Language: kk\n"
@@ -17,11 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 1.8.11\n"
 
 #: data/appdata/org.gnome.clocks.appdata.xml.in:6
+#: data/org.gnome.clocks.desktop.in:5
 msgid "GNOME Clocks"
-msgstr "GNOME Clocks"
+msgstr "GNOME сағаттары"
 
 #: data/appdata/org.gnome.clocks.appdata.xml.in:7
 #: data/org.gnome.clocks.desktop.in:6
@@ -153,14 +154,17 @@ msgid "Select None"
 msgstr "Ештеңе таңдамау"
 
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:235
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:248
+#: src/world.vala:455
 msgid "Clocks"
 msgstr "Сағаттар"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "уақыт;таймер;оятқыш;дүниежүзі сағаты;секундтар өлшегіші;уақыт белдеуі;"
+msgstr ""
+"time;timer;alarm;world clock;stopwatch;time zone;уақыт;таймер;оятқыш;"
+"дүниежүзі сағаты;секундтар өлшегіші;уақыт белдеуі;"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/org.gnome.clocks.desktop.in:11
@@ -188,7 +192,7 @@ msgstr "Бапталған оятқыштар"
 msgid "List of alarms set."
 msgstr "Орнатылған оятқыштар тізімі."
 
-#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:113
+#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:115
 msgid "Timer"
 msgstr "Таймер"
 
@@ -276,7 +280,7 @@ msgstr "Бастау"
 msgid "Reset"
 msgstr "Тастау"
 
-#: data/ui/timer.ui:397 src/timer.vala:210 src/timer.vala:221
+#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
 msgid "Pause"
 msgstr "Аялдату"
 
@@ -300,21 +304,21 @@ msgstr "Күннің шығуы"
 msgid "Sunset"
 msgstr "Күннің батуы"
 
-#: src/alarm.vala:117 src/alarm.vala:372 src/alarm.vala:545
+#: src/alarm.vala:117 src/alarm.vala:378 src/alarm.vala:547
 msgid "Alarm"
 msgstr "Оятқыш"
 
-#: src/alarm.vala:313
+#: src/alarm.vala:312
 msgid "Edit Alarm"
 msgstr "Оятқышты түзету"
 
-#: src/alarm.vala:313
+#: src/alarm.vala:312
 msgid "New Alarm"
 msgstr "Жаңа оятқыш"
 
 #. Translators: "New" refers to an alarm
-#. Translators: "New" refers to a world clock
-#: src/alarm.vala:574 src/world.vala:280
+#: src/alarm.vala:576
+msgctxt "Alarm"
 msgid "New"
 msgstr "Жаңа"
 
@@ -330,15 +334,15 @@ msgstr "Секундтар өлшегіші"
 msgid "Lap"
 msgstr "Шеңбер"
 
-#: src/stopwatch.vala:209 src/timer.vala:205
+#: src/stopwatch.vala:209 src/timer.vala:208
 msgid "Continue"
 msgstr "Жалғастыру"
 
-#: src/timer.vala:125
+#: src/timer.vala:127
 msgid "Time is up!"
 msgstr "Уақыт бітті!"
 
-#: src/timer.vala:126
+#: src/timer.vala:128
 msgid "Timer countdown finished"
 msgstr "Таймер санағышы аяқталды"
 
@@ -388,9 +392,9 @@ msgstr "Бірнәрсені таңдау үшін оның үстіне шер�
 
 #: src/widgets.vala:540
 #, c-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "%d таңдалды"
+msgid "%u selected"
+msgid_plural "%u selected"
+msgstr[0] "%u таңдалды"
 
 #: src/widgets.vala:612
 msgid "Delete"
@@ -400,32 +404,40 @@ msgstr "Өшіру"
 msgid "Cancel"
 msgstr "Бас тарту"
 
-#: src/window.vala:208
+#: src/window.vala:221
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Көмекті көрсету сәтсіз аяқталды: %s"
 
-#: src/window.vala:238
+#: src/window.vala:251
 msgid "Utilities to help you with the time."
 msgstr "Уақытпен көмектесуге арналған қолданбалар."
 
-#: src/window.vala:243
+#: src/window.vala:256
 msgid "translator-credits"
 msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com>"
 
-#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: src/world.vala:108 src/world.vala:111
+#. If it is Jan 1st there, and not Jan 2nd here, then it must be
+#. Dec 31st here, so return "tomorrow"
+#: src/world.vala:109 src/world.vala:113
 msgid "Tomorrow"
 msgstr "Ертең"
 
-#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: src/world.vala:108 src/world.vala:111
+#. If it is Jan 1st here, and not Jan 2nd there, then it must be
+#. Dec 31st there, so return "yesterday"
+#: src/world.vala:109 src/world.vala:113
 msgid "Yesterday"
 msgstr "Кеше"
 
-#: src/world.vala:258
+#: src/world.vala:260
 msgid "World"
 msgstr "Дүниежүзі"
+
+#. Translators: "New" refers to a world clock
+#: src/world.vala:282
+msgctxt "World clock"
+msgid "New"
+msgstr "Жаңа"
 
 #~ msgid "_New"
 #~ msgstr "Ж_аңа"
