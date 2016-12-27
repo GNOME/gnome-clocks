@@ -23,7 +23,7 @@ data/org.gnome.clocks.service: data/org.gnome.clocks.service.in Makefile
 
 # appdata file
 appdatadir = $(datadir)/appdata
-appdata_in_files = data/appdata/org.gnome.clocks.appdata.xml.in
+appdata_in_files = data/org.gnome.clocks.appdata.xml.in
 appdata_DATA = $(appdata_in_files:.xml.in=.xml)
 $(appdata_DATA): $(appdata_in_files)
 	$(AM_V_GEN) $(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
@@ -57,7 +57,6 @@ icon_files = \
 	$(icon256_DATA) \
 	$(iconsymbolic_DATA) \
 	data/icons/hicolor/org.gnome.clocks.svg
-
 
 gtk_update_icon_cache = gtk-update-icon-cache -f -t $(datadir)/icons/hicolor
 
