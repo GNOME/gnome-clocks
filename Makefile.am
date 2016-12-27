@@ -92,7 +92,6 @@ AM_VALAFLAGS = \
 	--pkg gweather-3.0 \
 	--pkg gsound \
 	--pkg geocode-glib-1.0 \
-	--pkg Geoclue-2.0 \
 	--gresources  $(top_srcdir)/data/gnome-clocks.gresource.xml
 
 bin_PROGRAMS = gnome-clocks
@@ -122,8 +121,9 @@ gnome_clocks_SOURCES = \
 	$(BUILT_SOURCES) \
 	$(VALA_SOURCES) \
 	src/cutils.c \
+	src/config.vapi \
 	src/gnome-desktop-3.0.vapi \
-	src/config.vapi
+	src/libgeoclue-2.0.vapi
 
 AM_CFLAGS = \
 	$(CLOCKS_CFLAGS) \
