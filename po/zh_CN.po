@@ -11,345 +11,435 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-04-25 11:16+0000\n"
-"PO-Revision-Date: 2015-04-13 11:33+0800\n"
-"Last-Translator: osfans <waxaca@163.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-12-27 16:54+0000\n"
+"PO-Revision-Date: 2017-01-11 20:48+0800\n"
+"Last-Translator: Jeff Bai <jeffbai@aosc.xyz>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.11\n"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+#: data/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "General"
+msgstr "通用"
+
+#: data/gtk/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "Go to the next section"
+msgstr "转到下一区域"
+
+#: data/gtk/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Go to the previous section"
+msgstr "转到上一区域"
+
+#: data/gtk/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "退出"
+
+#: data/gtk/help-overlay.ui:42
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr "世界时钟"
+
+#: data/gtk/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Add a world clock"
+msgstr "添加新的世界时钟"
+
+#: data/gtk/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "Select all world clocks"
+msgstr "选择所有世界时钟"
+
+#: data/gtk/help-overlay.ui:63
+msgctxt "shortcut window"
+msgid "Alarm"
+msgstr "闹钟"
+
+#: data/gtk/help-overlay.ui:68
+msgctxt "shortcut window"
+msgid "Add an alarm"
+msgstr "添加一个闹钟"
+
+#: data/gtk/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Select all alarms"
+msgstr "选择所有闹钟"
+
+#: data/gtk/help-overlay.ui:84
+msgctxt "shortcut window"
+msgid "Stopwatch"
+msgstr "秒表"
+
+#: data/gtk/help-overlay.ui:89
+msgctxt "shortcut window"
+msgid "Stop / Reset"
+msgstr "停止 / 重置"
+
+#: data/gtk/help-overlay.ui:98
+msgctxt "shortcut window"
+msgid "Timer"
+msgstr "定时器"
+
+#: data/gtk/help-overlay.ui:103
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr "重置"
+
+#: data/gtk/menus.ui:7
+msgid "_Keyboard Shortcuts"
+msgstr "键盘快捷键(_K)"
+
+#: data/gtk/menus.ui:12
+msgid "_Help"
+msgstr "帮助(_H)"
+
+#: data/gtk/menus.ui:17
+msgid "_About"
+msgstr "关于(_A)"
+
+#: data/gtk/menus.ui:21
+msgid "_Quit"
+msgstr "退出(_Q)"
+
+#: data/gtk/menus.ui:31
+msgid "Select All"
+msgstr "全选"
+
+#: data/gtk/menus.ui:36
+msgid "Select None"
+msgstr "全不选"
+
+#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
+msgid "GNOME Clocks"
+msgstr "GNOME 时钟"
+
+#: data/org.gnome.clocks.appdata.xml.in:7 data/org.gnome.clocks.desktop.in:6
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "时钟可用来查看世界时间，外加闹钟、秒表和定时器功能"
+
+#: data/org.gnome.clocks.appdata.xml.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
 msgstr "一款简单优雅的时钟应用程序。包括世界时间，闹钟，秒表和定时器功能。"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: data/org.gnome.clocks.appdata.xml.in:13
 msgid "Goals:"
 msgstr "目标："
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+#: data/org.gnome.clocks.appdata.xml.in:15
 msgid "Show the time in different cities around the world"
 msgstr "显示世界各地不同城市的时间"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+#: data/org.gnome.clocks.appdata.xml.in:16
 msgid "Set alarms to wake you up"
 msgstr "设置闹钟叫您起床"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+#: data/org.gnome.clocks.appdata.xml.in:17
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "用精确的秒表计量花费的时间"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+#: data/org.gnome.clocks.appdata.xml.in:18
 msgid "Set timers to properly cook your food"
 msgstr "设置定时器帮您做好饭"
 
-#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:203
-#: ../data/ui/window.ui.h:1
+#: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:248
+#: src/world.vala:455
 msgid "Clocks"
 msgstr "时钟"
 
-#: ../data/org.gnome.clocks.desktop.in.h:2
-msgid "GNOME Clocks"
-msgstr "GNOME 时钟"
-
-#: ../data/org.gnome.clocks.desktop.in.h:3
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "时钟可用来查看世界时间，外加闹钟、秒表和定时器功能"
-
-#: ../data/org.gnome.clocks.desktop.in.h:4
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.clocks.desktop.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
 "time;timer;alarm;world clock;stopwatch;time zone;钟;表;定时;计时;时间;时区;"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.clocks.desktop.in:11
+msgid "org.gnome.clocks"
+msgstr "org.gnome.clocks"
+
+#: data/org.gnome.clocks.desktop.in:18
+msgid "Allows world clocks to be displayed for your time zone."
+msgstr "允许为您的时区显示世界时钟"
+
+#: data/org.gnome.clocks.gschema.xml.in:5
 msgid "Configured world clocks"
 msgstr "已配置的世界时钟"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+#: data/org.gnome.clocks.gschema.xml.in:6
 msgid "List of world clocks to show."
 msgstr "将显示的世界时钟列表。"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+#: data/org.gnome.clocks.gschema.xml.in:12
 msgid "Configured alarms"
 msgstr "已配置的闹钟"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+#: data/org.gnome.clocks.gschema.xml.in:13
 msgid "List of alarms set."
 msgstr "闹钟组列表。"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:114
+#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:115
 msgid "Timer"
 msgstr "定时器"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+#: data/org.gnome.clocks.gschema.xml.in:20
 msgid "Configured timer duration in seconds."
 msgstr "已配置的定时器时长(秒)。"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:7
+#: data/org.gnome.clocks.gschema.xml.in:26
 msgid "Geolocation support"
 msgstr "地理定位支持"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:8
+#: data/org.gnome.clocks.gschema.xml.in:27
 msgid "Turn geolocation support on and off."
 msgstr "开启/关闭地理定位支持。"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:9
+#: data/org.gnome.clocks.gschema.xml.in:44
 msgid "Window state"
 msgstr "窗口状态"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:10
+#: data/org.gnome.clocks.gschema.xml.in:45
 msgid "State of the window, e.g. maximized."
 msgstr "窗口状态：例如“最大化”。"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:11
+#: data/org.gnome.clocks.gschema.xml.in:51
 msgid "Window width and height"
 msgstr "窗口宽度和高度"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:12
+#: data/org.gnome.clocks.gschema.xml.in:52
 msgid "Width and height of the window."
 msgstr "该窗口的宽度及高度。"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:13
+#: data/org.gnome.clocks.gschema.xml.in:58
 msgid "Panel state"
 msgstr "面板状态"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:14
+#: data/org.gnome.clocks.gschema.xml.in:59
 msgid "Current clock panel."
 msgstr "当前时钟面板。"
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:370 ../src/alarm.vala:538
-msgid "Alarm"
-msgstr "闹钟"
-
-#: ../src/alarm.vala:117 ../src/stopwatch.vala:198
-#: ../data/ui/alarmringing.ui.h:1
+#: data/ui/alarmringing.ui:39 src/alarm.vala:119 src/stopwatch.vala:199
 msgid "Stop"
 msgstr "停止"
 
-#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
+#: data/ui/alarmringing.ui:59 src/alarm.vala:120
 msgid "Snooze"
 msgstr "贪睡"
 
-#: ../src/alarm.vala:309
+#: data/ui/alarmsetupdialog.ui:27 data/ui/worldlocationdialog.ui:17
+msgid "Add a New World Clock"
+msgstr "添加新的世界时钟"
+
+#: data/ui/alarmsetupdialog.ui:31 data/ui/worldlocationdialog.ui:21
+msgid "_Cancel"
+msgstr "取消(_C)"
+
+#: data/ui/alarmsetupdialog.ui:47
+msgid "_Done"
+msgstr "完成(_D)"
+
+#: data/ui/alarmsetupdialog.ui:199
+msgid "You already have an alarm for this time."
+msgstr "您在该时间已经设置了闹钟。"
+
+#: data/ui/alarmsetupdialog.ui:227
+msgid "Name"
+msgstr "名称"
+
+#: data/ui/alarmsetupdialog.ui:241
+msgid "Repeat Every"
+msgstr "重复周期"
+
+#: data/ui/alarmsetupdialog.ui:295
+msgid "Active"
+msgstr "活动"
+
+#: data/ui/alarm.ui:31
+msgid "Select <b>New</b> to add an alarm"
+msgstr "选择<b>新建</b>以添加闹钟"
+
+#: data/ui/stopwatch.ui:54 data/ui/timer.ui:194 src/stopwatch.vala:221
+msgid "Start"
+msgstr "开始"
+
+#: data/ui/stopwatch.ui:72 data/ui/timer.ui:415 src/stopwatch.vala:213
+msgid "Reset"
+msgstr "重置"
+
+#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
+msgid "Pause"
+msgstr "暂停"
+
+#: data/ui/worldlocationdialog.ui:37
+msgid "_Add"
+msgstr "填加(_A)"
+
+#: data/ui/worldlocationdialog.ui:76
+msgid "Search for a city:"
+msgstr "搜索城市："
+
+#: data/ui/world.ui:31
+msgid "Select <b>New</b> to add a world clock"
+msgstr "选择<b>新建</b>以添加世界时钟"
+
+#: data/ui/world.ui:122
+msgid "Sunrise"
+msgstr "日出"
+
+#: data/ui/world.ui:136
+msgid "Sunset"
+msgstr "日落"
+
+#: src/alarm.vala:117 src/alarm.vala:378 src/alarm.vala:547
+msgid "Alarm"
+msgstr "闹钟"
+
+#: src/alarm.vala:312
 msgid "Edit Alarm"
 msgstr "编辑闹钟"
 
-#: ../src/alarm.vala:309
+#: src/alarm.vala:312
 msgid "New Alarm"
 msgstr "新建闹钟"
 
 #. Translators: "New" refers to an alarm
-#. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:563 ../src/world.vala:266
+#: src/alarm.vala:576
+msgctxt "Alarm"
 msgid "New"
 msgstr "新建"
 
-#: ../src/application.vala:23
+#: src/application.vala:23
 msgid "Print version information and exit"
 msgstr "打印版本信息并退出"
 
-#: ../src/stopwatch.vala:138
+#: src/stopwatch.vala:139
 msgid "Stopwatch"
 msgstr "秒表"
 
-#: ../src/stopwatch.vala:201
+#: src/stopwatch.vala:202
 msgid "Lap"
 msgstr "记圈"
 
-#: ../src/stopwatch.vala:208 ../src/timer.vala:206
+#: src/stopwatch.vala:209 src/timer.vala:208
 msgid "Continue"
 msgstr "继续"
 
-#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:2
-#: ../data/ui/timer.ui.h:3
-msgid "Reset"
-msgstr "重置"
-
-#: ../src/stopwatch.vala:220 ../data/ui/stopwatch.ui.h:1
-#: ../data/ui/timer.ui.h:1
-msgid "Start"
-msgstr "开始"
-
-#: ../src/timer.vala:126
+#: src/timer.vala:127
 msgid "Time is up!"
 msgstr "时间到！"
 
-#: ../src/timer.vala:127
+#: src/timer.vala:128
 msgid "Timer countdown finished"
 msgstr "倒计时结束"
 
-#: ../src/timer.vala:211 ../src/timer.vala:222 ../data/ui/timer.ui.h:2
-msgid "Pause"
-msgstr "暂停"
-
-#: ../src/utils.vala:153
+#: src/utils.vala:168
 msgid "Mondays"
 msgstr "星期一"
 
-#: ../src/utils.vala:154
+#: src/utils.vala:169
 msgid "Tuesdays"
 msgstr "星期二"
 
-#: ../src/utils.vala:155
+#: src/utils.vala:170
 msgid "Wednesdays"
 msgstr "星期三"
 
-#: ../src/utils.vala:156
+#: src/utils.vala:171
 msgid "Thursdays"
 msgstr "星期四"
 
-#: ../src/utils.vala:157
+#: src/utils.vala:172
 msgid "Fridays"
 msgstr "星期五"
 
-#: ../src/utils.vala:158
+#: src/utils.vala:173
 msgid "Saturdays"
 msgstr "星期六"
 
-#: ../src/utils.vala:159
+#: src/utils.vala:174
 msgid "Sundays"
 msgstr "星期日"
 
-#: ../src/utils.vala:239
+#: src/utils.vala:254
 msgid "Every Day"
 msgstr "每天"
 
-#: ../src/utils.vala:241
+#: src/utils.vala:256
 msgid "Weekdays"
 msgstr "工作日"
 
-#: ../src/utils.vala:243
+#: src/utils.vala:258
 msgid "Weekends"
 msgstr "周末"
 
-#: ../src/widgets.vala:497
-msgid "Delete"
-msgstr "删除"
-
-#: ../src/widgets.vala:523 ../src/widgets.vala:678
+#: src/widgets.vala:538 src/widgets.vala:553
 msgid "Click on items to select them"
 msgstr "点击条目以选中它们"
 
-#: ../src/widgets.vala:525
+#: src/widgets.vala:540
 #, c-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "已选中 %d 个"
+msgid "%u selected"
+msgid_plural "%u selected"
+msgstr[0] "已选中 %u 个"
 
-#: ../src/widgets.vala:667
+#: src/widgets.vala:612
+msgid "Delete"
+msgstr "删除"
+
+#: src/widgets.vala:710
 msgid "Cancel"
 msgstr "取消"
 
-#: ../src/window.vala:176
+#: src/window.vala:221
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "无法显示帮助：%s"
 
-#: ../src/window.vala:206
+#: src/window.vala:251
 msgid "Utilities to help you with the time."
 msgstr "帮助您使用时间的工具。"
 
-#: ../src/window.vala:211
+#: src/window.vala:256
 msgid "translator-credits"
 msgstr ""
 "tuhaihe <1132321739qq@gmail.com>, 2012~2013\n"
 "Aron Xu <aronxu@gnome.org>, 2012\n"
-"YunQiang Su <wzssyqa@gmail.com>, 2012"
+"YunQiang Su <wzssyqa@gmail.com>, 2012\n"
+"Boyuan Yang <073plan@gmail.com>, 2016\n"
+"Jeff Bai <jeffbai@aosc.xyz>, 2017"
 
-#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:106 ../src/world.vala:109
+#. If it is Jan 1st there, and not Jan 2nd here, then it must be
+#. Dec 31st here, so return "tomorrow"
+#: src/world.vala:109 src/world.vala:113
 msgid "Tomorrow"
 msgstr "明天"
 
-#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:106 ../src/world.vala:109
+#. If it is Jan 1st here, and not Jan 2nd there, then it must be
+#. Dec 31st there, so return "yesterday"
+#: src/world.vala:109 src/world.vala:113
 msgid "Yesterday"
 msgstr "昨天"
 
-#: ../src/world.vala:254
+#: src/world.vala:260
 msgid "World"
 msgstr "世界"
 
-#. namespace World
-#. namespace Clocks
-#: ../data/gtk/menus.ui.h:1
-msgid "_Help"
-msgstr "帮助(_H)"
-
-#: ../data/gtk/menus.ui.h:2
-msgid "_About"
-msgstr "关于(_A)"
-
-#: ../data/gtk/menus.ui.h:3
-msgid "_Quit"
-msgstr "退出(_Q)"
-
-#: ../data/gtk/menus.ui.h:4
-msgid "Select All"
-msgstr "全选"
-
-#: ../data/gtk/menus.ui.h:5
-msgid "Select None"
-msgstr "全不选"
-
-#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
-msgid "Add a New World Clock"
-msgstr "添加新的世界时钟"
-
-#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
-msgid "_Cancel"
-msgstr "取消(_C)"
-
-#: ../data/ui/alarmsetupdialog.ui.h:3
-msgid "_Done"
-msgstr "完成(_D)"
-
-#: ../data/ui/alarmsetupdialog.ui.h:4
-msgid "You already have an alarm for this time."
-msgstr "您在该时间已经设置了闹钟。"
-
-#: ../data/ui/alarmsetupdialog.ui.h:5
-msgid "Name"
-msgstr "名称"
-
-#: ../data/ui/alarmsetupdialog.ui.h:6
-msgid "Repeat Every"
-msgstr "重复周期"
-
-#: ../data/ui/alarmsetupdialog.ui.h:7
-msgid "Active"
-msgstr "活动"
-
-#: ../data/ui/alarm.ui.h:1
-msgid "Select <b>New</b> to add an alarm"
-msgstr "选择<b>新建</b>以添加闹钟"
-
-#: ../data/ui/worldlocationdialog.ui.h:3
-msgid "_Add"
-msgstr "填加(_A)"
-
-#: ../data/ui/worldlocationdialog.ui.h:4
-msgid "Search for a city:"
-msgstr "搜索城市："
-
-#: ../data/ui/world.ui.h:1
-msgid "Select <b>New</b> to add a world clock"
-msgstr "选择<b>新建</b>以添加世界时钟"
-
-#: ../data/ui/world.ui.h:2
-msgid "Sunrise"
-msgstr "日出"
-
-#: ../data/ui/world.ui.h:3
-msgid "Sunset"
-msgstr "日落"
+#. Translators: "New" refers to a world clock
+#: src/world.vala:282
+msgctxt "World clock"
+msgid "New"
+msgstr "新建"
 
 #~ msgid "_New"
 #~ msgstr "新建(_N)"
@@ -362,9 +452,6 @@ msgstr "日落"
 
 #~ msgid "Done"
 #~ msgstr "完成"
-
-#~ msgid "Gnome Clocks"
-#~ msgstr "Gnome 时钟"
 
 #~ msgid "Time"
 #~ msgstr "时间"
