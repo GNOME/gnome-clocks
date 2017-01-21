@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-12-27 16:54+0000\n"
-"PO-Revision-Date: 2017-01-11 20:48+0800\n"
+"POT-Creation-Date: 2017-01-21 14:17+0000\n"
+"PO-Revision-Date: 2017-01-21 22:19+0800\n"
 "Last-Translator: Jeff Bai <jeffbai@aosc.xyz>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -23,6 +23,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.8.11\n"
+
+#: data/appdata/org.gnome.clocks.appdata.xml.in:6
+#: data/org.gnome.clocks.desktop.in:5
+msgid "GNOME Clocks"
+msgstr "GNOME 时钟"
+
+#: data/appdata/org.gnome.clocks.appdata.xml.in:7
+#: data/org.gnome.clocks.desktop.in:6
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "时钟可用来查看世界时间，外加闹钟、秒表和定时器功能"
+
+#: data/appdata/org.gnome.clocks.appdata.xml.in:9
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr "一款简单优雅的时钟应用程序。包括世界时间，闹钟，秒表和定时器功能。"
+
+#: data/appdata/org.gnome.clocks.appdata.xml.in:13
+msgid "Goals:"
+msgstr "目标："
+
+#: data/appdata/org.gnome.clocks.appdata.xml.in:15
+msgid "Show the time in different cities around the world"
+msgstr "显示世界各地不同城市的时间"
+
+#: data/appdata/org.gnome.clocks.appdata.xml.in:16
+msgid "Set alarms to wake you up"
+msgstr "设置闹钟叫您起床"
+
+#: data/appdata/org.gnome.clocks.appdata.xml.in:17
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "用精确的秒表计量花费的时间"
+
+#: data/appdata/org.gnome.clocks.appdata.xml.in:18
+msgid "Set timers to properly cook your food"
+msgstr "设置定时器帮您做好饭"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -117,40 +153,6 @@ msgstr "全选"
 #: data/gtk/menus.ui:36
 msgid "Select None"
 msgstr "全不选"
-
-#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
-msgid "GNOME Clocks"
-msgstr "GNOME 时钟"
-
-#: data/org.gnome.clocks.appdata.xml.in:7 data/org.gnome.clocks.desktop.in:6
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "时钟可用来查看世界时间，外加闹钟、秒表和定时器功能"
-
-#: data/org.gnome.clocks.appdata.xml.in:9
-msgid ""
-"A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
-msgstr "一款简单优雅的时钟应用程序。包括世界时间，闹钟，秒表和定时器功能。"
-
-#: data/org.gnome.clocks.appdata.xml.in:13
-msgid "Goals:"
-msgstr "目标："
-
-#: data/org.gnome.clocks.appdata.xml.in:15
-msgid "Show the time in different cities around the world"
-msgstr "显示世界各地不同城市的时间"
-
-#: data/org.gnome.clocks.appdata.xml.in:16
-msgid "Set alarms to wake you up"
-msgstr "设置闹钟叫您起床"
-
-#: data/org.gnome.clocks.appdata.xml.in:17
-msgid "Measure elapsed time with an accurate stopwatch"
-msgstr "用精确的秒表计量花费的时间"
-
-#: data/org.gnome.clocks.appdata.xml.in:18
-msgid "Set timers to properly cook your food"
-msgstr "设置定时器帮您做好饭"
 
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
 #: data/ui/window.ui:5 src/window.vala:64 src/window.vala:248
@@ -314,8 +316,8 @@ msgid "New Alarm"
 msgstr "新建闹钟"
 
 #. Translators: "New" refers to an alarm
-#: src/alarm.vala:576
-msgctxt "Alarm"
+#. Translators: "New" refers to a world clock
+#: src/alarm.vala:576 src/world.vala:282
 msgid "New"
 msgstr "新建"
 
@@ -389,9 +391,9 @@ msgstr "点击条目以选中它们"
 
 #: src/widgets.vala:540
 #, c-format
-msgid "%u selected"
-msgid_plural "%u selected"
-msgstr[0] "已选中 %u 个"
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "已选中 %d 个"
 
 #: src/widgets.vala:612
 msgid "Delete"
@@ -435,11 +437,9 @@ msgstr "昨天"
 msgid "World"
 msgstr "世界"
 
-#. Translators: "New" refers to a world clock
-#: src/world.vala:282
-msgctxt "World clock"
-msgid "New"
-msgstr "新建"
+#~ msgctxt "World clock"
+#~ msgid "New"
+#~ msgstr "新建"
 
 #~ msgid "_New"
 #~ msgstr "新建(_N)"
