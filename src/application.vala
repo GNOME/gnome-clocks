@@ -34,6 +34,7 @@ public class Application : Gtk.Application {
     private SearchProvider search_provider;
     private uint search_provider_id = 0;
     private Window window;
+    private List<string> system_notifications;
 
     private void ensure_window () {
         if (window == null) {
@@ -58,6 +59,8 @@ public class Application : Gtk.Application {
             window.show_world ();
             window.present_with_time (timestamp);
         });
+
+        system_notifications = new List<string> ();
     }
 
     public override bool dbus_register (DBusConnection connection, string object_path) {
@@ -128,6 +131,21 @@ public class Application : Gtk.Application {
         var location = world.deserialize (parameter.get_child_value(0));
         if (location != null) {
             window.add_world_location (location);
+        }
+    }
+
+    public new void send_notification (string notification_id, GLib.Notification notification) {
+        base.send_notification (notification_id, notification);
+
+        system_notifications.append (notification_id);
+    }
+
+    public override void shutdown () {
+        base.shutdown ();
+
+        // Withdraw all system notifications
+        foreach (var notification in system_notifications) {
+            withdraw_notification (notification);
         }
     }
 

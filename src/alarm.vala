@@ -159,8 +159,8 @@ private class Item : Object, ContentItem {
     }
 
     public virtual signal void ring () {
-        var app = GLib.Application.get_default ();
-        app.send_notification (null, notification);
+        var app = GLib.Application.get_default () as Clocks.Application;
+        app.send_notification ("alarm-clock-elapsed", notification);
         bell.ring ();
     }
 

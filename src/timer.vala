@@ -135,8 +135,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     public virtual signal void ring () {
-        var app = GLib.Application.get_default ();
-        app.send_notification (null, notification);
+        var app = GLib.Application.get_default () as Clocks.Application;
+        app.send_notification ("timer-is-up", notification);
         bell.ring_once ();
     }
 
