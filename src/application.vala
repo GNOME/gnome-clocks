@@ -85,6 +85,12 @@ public class Application : Gtk.Application {
 
         ensure_window ();
         window.present ();
+
+        window.focus_in_event.connect (() => {
+            withdraw_notifications ();
+
+            return false;
+        });
     }
 
     private void update_theme (Gtk.Settings settings) {
@@ -140,13 +146,16 @@ public class Application : Gtk.Application {
         system_notifications.append (notification_id);
     }
 
-    public override void shutdown () {
-        base.shutdown ();
-
-        // Withdraw all system notifications
+    private void withdraw_notifications () {
         foreach (var notification in system_notifications) {
             withdraw_notification (notification);
         }
+    }
+
+    public override void shutdown () {
+        base.shutdown ();
+
+        withdraw_notifications ();
     }
 
     void on_quit_activate () {
