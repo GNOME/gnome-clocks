@@ -1,15 +1,15 @@
 # Czech translation for gnome-clocks.
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-# Marek Černocký <marek@manet.cz>, 2012, 2013, 2014, 2015, 2016.
+# Marek Černocký <marek@manet.cz>, 2012, 2013, 2014, 2015, 2016, 2017.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-clocks master\n"
+"Project-Id-Version: gnome-clocks gnome-3.22\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-18 16:52+0000\n"
-"PO-Revision-Date: 2016-08-18 21:31+0200\n"
+"POT-Creation-Date: 2017-02-14 08:52+0000\n"
+"PO-Revision-Date: 2017-02-14 10:02+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -20,6 +20,7 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.7\n"
 
 #: data/appdata/org.gnome.clocks.appdata.xml.in:6
+#: data/org.gnome.clocks.desktop.in:5
 msgid "GNOME Clocks"
 msgstr "Hodiny GNOME"
 
@@ -151,7 +152,8 @@ msgid "Select None"
 msgstr "Zrušit výběr"
 
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:235
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:248
+#: src/world.vala:455
 msgid "Clocks"
 msgstr "Hodiny"
 
@@ -186,7 +188,7 @@ msgstr "Nastavená buzení"
 msgid "List of alarms set."
 msgstr "Seznam nastavených buzení."
 
-#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:113
+#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:115
 msgid "Timer"
 msgstr "Odpočet"
 
@@ -274,7 +276,7 @@ msgstr "Start"
 msgid "Reset"
 msgstr "Vynulovat"
 
-#: data/ui/timer.ui:397 src/timer.vala:210 src/timer.vala:221
+#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
 msgid "Pause"
 msgstr "Pozastavit"
 
@@ -298,21 +300,21 @@ msgstr "Východ slunce"
 msgid "Sunset"
 msgstr "Západ slunce"
 
-#: src/alarm.vala:117 src/alarm.vala:372 src/alarm.vala:545
+#: src/alarm.vala:117 src/alarm.vala:378 src/alarm.vala:547
 msgid "Alarm"
 msgstr "Budík"
 
-#: src/alarm.vala:313
+#: src/alarm.vala:312
 msgid "Edit Alarm"
 msgstr "Upravit buzení"
 
-#: src/alarm.vala:313
+#: src/alarm.vala:312
 msgid "New Alarm"
 msgstr "Nové buzení"
 
 #. Translators: "New" refers to an alarm
 #. Translators: "New" refers to a world clock
-#: src/alarm.vala:574 src/world.vala:280
+#: src/alarm.vala:576 src/world.vala:282
 msgid "New"
 msgstr "Nový"
 
@@ -328,15 +330,15 @@ msgstr "Stopky"
 msgid "Lap"
 msgstr "Mezičas"
 
-#: src/stopwatch.vala:209 src/timer.vala:205
+#: src/stopwatch.vala:209 src/timer.vala:208
 msgid "Continue"
 msgstr "Pokračovat"
 
-#: src/timer.vala:125
+#: src/timer.vala:127
 msgid "Time is up!"
 msgstr "Čas vypršel!"
 
-#: src/timer.vala:126
+#: src/timer.vala:128
 msgid "Timer countdown finished"
 msgstr "Doběhl časový odpočet"
 
@@ -386,11 +388,11 @@ msgstr "Kliknutím se položky vyberou"
 
 #: src/widgets.vala:540
 #, c-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "%d vybraná"
-msgstr[1] "%d vybrané"
-msgstr[2] "%d vybraných"
+msgid "%u selected"
+msgid_plural "%u selected"
+msgstr[0] "%u vybraná"
+msgstr[1] "%u vybrané"
+msgstr[2] "%u vybraných"
 
 #: src/widgets.vala:612
 msgid "Delete"
@@ -400,29 +402,32 @@ msgstr "Smazat"
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: src/window.vala:208
+#: src/window.vala:221
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Selhalo zobrazení nápovědy: %s"
 
-#: src/window.vala:238
+#: src/window.vala:251
 msgid "Utilities to help you with the time."
 msgstr "Užitečné programy, které vám pomohu s časem."
 
-#: src/window.vala:243
+#: src/window.vala:256
 msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>"
 
-#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: src/world.vala:108 src/world.vala:111
+#. If it is Jan 1st there, and not Jan 2nd here, then it must be
+#. Dec 31st here, so return "tomorrow"
+#: src/world.vala:109 src/world.vala:113
 msgid "Tomorrow"
 msgstr "Zítra"
 
-#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: src/world.vala:108 src/world.vala:111
+#. If it is Jan 1st here, and not Jan 2nd there, then it must be
+#. Dec 31st there, so return "yesterday"
+#: src/world.vala:109 src/world.vala:113
 msgid "Yesterday"
 msgstr "Včera"
 
-#: src/world.vala:258
+#: src/world.vala:260
 msgid "World"
 msgstr "Svět"
+
