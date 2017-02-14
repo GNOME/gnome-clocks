@@ -1,15 +1,15 @@
 # Czech translation for gnome-clocks.
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-# Marek Černocký <marek@manet.cz>, 2012, 2013, 2014, 2015, 2016.
+# Marek Černocký <marek@manet.cz>, 2012, 2013, 2014, 2015, 2016, 2017.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-clocks master\n"
+"Project-Id-Version: gnome-clocks gnome-3.22\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-11-01 18:50+0000\n"
-"PO-Revision-Date: 2016-11-08 12:06+0100\n"
+"POT-Creation-Date: 2017-02-14 08:52+0000\n"
+"PO-Revision-Date: 2017-02-14 09:59+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -313,10 +313,10 @@ msgid "New Alarm"
 msgstr "Nové buzení"
 
 #. Translators: "New" refers to an alarm
-#: src/alarm.vala:576
-msgctxt "Alarm"
+#. Translators: "New" refers to a world clock
+#: src/alarm.vala:576 src/world.vala:282
 msgid "New"
-msgstr "Nové"
+msgstr "Nový"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
@@ -430,10 +430,3 @@ msgstr "Včera"
 #: src/world.vala:260
 msgid "World"
 msgstr "Svět"
-
-#. Translators: "New" refers to a world clock
-#: src/world.vala:282
-msgctxt "World clock"
-msgid "New"
-msgstr "Nový"
-
