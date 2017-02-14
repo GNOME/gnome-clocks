@@ -141,7 +141,6 @@ EXTRA_DIST = \
 	$(icon_files) \
 	$(images_DATA) \
 	$(resource_files) \
-	data/appdata/org.gnome.clocks.appdata.xml \
 	data/gnome-clocks.gresource.xml
 
 CLEANFILES = \
