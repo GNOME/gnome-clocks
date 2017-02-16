@@ -7,9 +7,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-09-12 08:12+0000\n"
+"Report-Msgid-Bugs-To: "
+"http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-clocks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-01-18 21:55+0000\n"
 "PO-Revision-Date: 2016-09-08 02:59+0200\n"
 "Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -20,44 +20,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:6
-#: data/org.gnome.clocks.desktop.in:5
-msgid "GNOME Clocks"
-msgstr "GNOME Ure"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:7
-#: data/org.gnome.clocks.desktop.in:6
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Verdensur plus alarmer, stopur og et minutur"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:9
-msgid ""
-"A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
-msgstr ""
-"Et simpelt og elegant urprogram. Det inkluderer verdensur, alarmer, stopur "
-"og minutur."
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:13
-msgid "Goals:"
-msgstr "Mål:"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:15
-msgid "Show the time in different cities around the world"
-msgstr "Vise klokken i forskellige byer rundt om i verden"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:16
-msgid "Set alarms to wake you up"
-msgstr "Indstille alarmer til at vække dig"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:17
-msgid "Measure elapsed time with an accurate stopwatch"
-msgstr "Måle tid der er gået med et præcist stopur"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:18
-msgid "Set timers to properly cook your food"
-msgstr "Indstille minutur for at tilberede din mad rigtigt"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -153,8 +115,45 @@ msgstr "Vælg alle"
 msgid "Select None"
 msgstr "Vælg ingen"
 
+#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
+msgid "GNOME Clocks"
+msgstr "GNOME Ure"
+
+#: data/org.gnome.clocks.appdata.xml.in:7 data/org.gnome.clocks.desktop.in:6
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "Verdensur plus alarmer, stopur og et minutur"
+
+#: data/org.gnome.clocks.appdata.xml.in:9
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"Et simpelt og elegant urprogram. Det inkluderer verdensur, alarmer, stopur "
+"og minutur."
+
+#: data/org.gnome.clocks.appdata.xml.in:13
+msgid "Goals:"
+msgstr "Mål:"
+
+#: data/org.gnome.clocks.appdata.xml.in:15
+msgid "Show the time in different cities around the world"
+msgstr "Vise klokken i forskellige byer rundt om i verden"
+
+#: data/org.gnome.clocks.appdata.xml.in:16
+msgid "Set alarms to wake you up"
+msgstr "Indstille alarmer til at vække dig"
+
+#: data/org.gnome.clocks.appdata.xml.in:17
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "Måle tid der er gået med et præcist stopur"
+
+#: data/org.gnome.clocks.appdata.xml.in:18
+msgid "Set timers to properly cook your food"
+msgstr "Indstille minutur for at tilberede din mad rigtigt"
+
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:235
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:248
+#: src/world.vala:455
 msgid "Clocks"
 msgstr "Ure"
 
@@ -301,22 +300,22 @@ msgstr "Solopgang"
 msgid "Sunset"
 msgstr "Solnedgang"
 
-#: src/alarm.vala:117 src/alarm.vala:372 src/alarm.vala:545
+#: src/alarm.vala:117 src/alarm.vala:378 src/alarm.vala:547
 msgid "Alarm"
 msgstr "Alarm"
 
-#: src/alarm.vala:313
+#: src/alarm.vala:312
 msgid "Edit Alarm"
 msgstr "Redigér alarm"
 
-#: src/alarm.vala:313
+#: src/alarm.vala:312
 msgid "New Alarm"
 msgstr "Ny alarm"
 
 # New refererer så vidt jeg kan se til en alarm eller et verdensur, så den kan desværre ikke oversættes strengt korrekt til dansk
 #. Translators: "New" refers to an alarm
-#. Translators: "New" refers to a world clock
-#: src/alarm.vala:574 src/world.vala:280
+#: src/alarm.vala:576
+msgctxt "Alarm"
 msgid "New"
 msgstr "Ny"
 
@@ -389,9 +388,11 @@ msgid "Click on items to select them"
 msgstr "Klik på elementer for at markere dem"
 
 #: src/widgets.vala:540
-#, c-format
-msgid "%d selected"
-msgid_plural "%d selected"
+#, c-format, fuzzy
+#| msgid "%d selected"
+#| msgid_plural "%d selected"
+msgid "%u selected"
+msgid_plural "%u selected"
 msgstr[0] "%d markeret"
 msgstr[1] "%d markeret"
 
@@ -403,16 +404,16 @@ msgstr "Slet"
 msgid "Cancel"
 msgstr "Annullér"
 
-#: src/window.vala:208
+#: src/window.vala:221
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Kunne ikke vise hjælp: %s"
 
-#: src/window.vala:238
+#: src/window.vala:251
 msgid "Utilities to help you with the time."
 msgstr "Redskaber til at hjælpe dig med tiden."
 
-#: src/window.vala:243
+#: src/window.vala:256
 msgid "translator-credits"
 msgstr ""
 "Kenneth Nielsen\n"
@@ -422,16 +423,26 @@ msgstr ""
 "Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
 "Mere info: http://www.dansk-gruppen.dk"
 
-#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: src/world.vala:108 src/world.vala:111
+#. If it is Jan 1st there, and not Jan 2nd here, then it must be
+#. Dec 31st here, so return "tomorrow"
+#: src/world.vala:109 src/world.vala:113
 msgid "Tomorrow"
 msgstr "I morgen"
 
-#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: src/world.vala:108 src/world.vala:111
+#. If it is Jan 1st here, and not Jan 2nd there, then it must be
+#. Dec 31st there, so return "yesterday"
+#: src/world.vala:109 src/world.vala:113
 msgid "Yesterday"
 msgstr "I går"
 
-#: src/world.vala:258
+#: src/world.vala:260
 msgid "World"
 msgstr "Verden"
+
+# New refererer så vidt jeg kan se til en alarm eller et verdensur, så den kan desværre ikke oversættes strengt korrekt til dansk
+#. Translators: "New" refers to a world clock
+#: src/world.vala:282
+msgctxt "World clock"
+msgid "New"
+msgstr "Ny"
+
