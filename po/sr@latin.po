@@ -1,16 +1,16 @@
 # Serbian translation of gnome-clocks
-# Courtesy of Prevod.org team (http://prevod.org/) -- 2012—2016.
+# Courtesy of Prevod.org team (http://prevod.org/) -- 2012—2017.
 # This file is distributed under the same license as the gnome-clocks package.
-# Miroslav Nikolić <miroslavnikolic@rocketmail.com>, 2012—2016.
+# Miroslav Nikolić <miroslavnikolic@rocketmail.com>, 2012—2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-18 16:52+0000\n"
-"PO-Revision-Date: 2016-08-28 06:49+0200\n"
+"POT-Creation-Date: 2017-01-18 21:55+0000\n"
+"PO-Revision-Date: 2017-02-21 06:38+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
-"Language-Team: srpski <gnome-sr@googlegroups.org>\n"
+"Language-Team: Serbian <(nothing)>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,43 +18,6 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:6
-msgid "GNOME Clocks"
-msgstr "Gnomovi satovi"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:7
-#: data/org.gnome.clocks.desktop.in:6
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Satovi za svetska vremena, budilnici, štoperica i odbrojavač"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:9
-msgid ""
-"A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
-msgstr ""
-"Jednostavan i elegantan primerak sata. Sadrži svetske satove, budilnike, "
-"štopericu i odbrojavač."
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:13
-msgid "Goals:"
-msgstr "Namena:"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:15
-msgid "Show the time in different cities around the world"
-msgstr "Pokazuje vreme u raznim gradovima širom sveta"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:16
-msgid "Set alarms to wake you up"
-msgstr "Podešava budilnike za ustajanje u cik zore"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:17
-msgid "Measure elapsed time with an accurate stopwatch"
-msgstr "Meri proteklo vreme preciznom štopericom"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:18
-msgid "Set timers to properly cook your food"
-msgstr "Podešava odbrojavače da ispravno spreme vašu hranu"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -150,8 +113,45 @@ msgstr "Izaberi sve"
 msgid "Select None"
 msgstr "Poništi izbor"
 
+#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
+msgid "GNOME Clocks"
+msgstr "Gnomovi satovi"
+
+#: data/org.gnome.clocks.appdata.xml.in:7 data/org.gnome.clocks.desktop.in:6
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "Satovi za svetska vremena, budilnici, štoperica i odbrojavač"
+
+#: data/org.gnome.clocks.appdata.xml.in:9
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"Jednostavan i elegantan primerak sata. Sadrži svetske satove, budilnike, "
+"štopericu i odbrojavač."
+
+#: data/org.gnome.clocks.appdata.xml.in:13
+msgid "Goals:"
+msgstr "Namena:"
+
+#: data/org.gnome.clocks.appdata.xml.in:15
+msgid "Show the time in different cities around the world"
+msgstr "Pokazuje vreme u raznim gradovima širom sveta"
+
+#: data/org.gnome.clocks.appdata.xml.in:16
+msgid "Set alarms to wake you up"
+msgstr "Podešava budilnike za ustajanje u cik zore"
+
+#: data/org.gnome.clocks.appdata.xml.in:17
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "Meri proteklo vreme preciznom štopericom"
+
+#: data/org.gnome.clocks.appdata.xml.in:18
+msgid "Set timers to properly cook your food"
+msgstr "Podešava odbrojavače da ispravno spreme vašu hranu"
+
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:235
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:248
+#: src/world.vala:455
 msgid "Clocks"
 msgstr "Satovi"
 
@@ -185,7 +185,7 @@ msgstr "Podešeni budilnici"
 msgid "List of alarms set."
 msgstr "Spisak podešenih budilnika."
 
-#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:113
+#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:115
 msgid "Timer"
 msgstr "Odbrojavač"
 
@@ -273,7 +273,7 @@ msgstr "Pokreni"
 msgid "Reset"
 msgstr "Povrati"
 
-#: data/ui/timer.ui:397 src/timer.vala:210 src/timer.vala:221
+#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
 msgid "Pause"
 msgstr "Pauziraj"
 
@@ -297,23 +297,24 @@ msgstr "Sunce izlazi u"
 msgid "Sunset"
 msgstr "Sunce zalazi u"
 
-#: src/alarm.vala:117 src/alarm.vala:372 src/alarm.vala:545
+#: src/alarm.vala:117 src/alarm.vala:378 src/alarm.vala:547
 msgid "Alarm"
 msgstr "Budilnik"
 
-#: src/alarm.vala:313
+#: src/alarm.vala:312
 msgid "Edit Alarm"
 msgstr "Uredi budilnik"
 
-#: src/alarm.vala:313
+#: src/alarm.vala:312
 msgid "New Alarm"
 msgstr "Novi budilnik"
 
 #. Translators: "New" refers to an alarm
-#. Translators: "New" refers to a world clock
-#: src/alarm.vala:574 src/world.vala:280
+#: src/alarm.vala:576
+#| msgid "New"
+msgctxt "Alarm"
 msgid "New"
-msgstr "Novi"
+msgstr "Nov"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
@@ -327,15 +328,15 @@ msgstr "Štoperica"
 msgid "Lap"
 msgstr "Krug"
 
-#: src/stopwatch.vala:209 src/timer.vala:205
+#: src/stopwatch.vala:209 src/timer.vala:208
 msgid "Continue"
 msgstr "Nastavi"
 
-#: src/timer.vala:125
+#: src/timer.vala:127
 msgid "Time is up!"
 msgstr "Vreme je isteklo!"
 
-#: src/timer.vala:126
+#: src/timer.vala:128
 msgid "Timer countdown finished"
 msgstr "Odbrojavač je završio"
 
@@ -385,11 +386,13 @@ msgstr "Pritisnite na stavke da ih izaberete"
 
 #: src/widgets.vala:540
 #, c-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "Izabrana je %d stavka"
-msgstr[1] "Izabrane su %d stavke"
-msgstr[2] "Izabrano je %d stavki"
+#| msgid "%d selected"
+#| msgid_plural "%d selected"
+msgid "%u selected"
+msgid_plural "%u selected"
+msgstr[0] "Izabrana je %u stavka"
+msgstr[1] "Izabrane su %u stavke"
+msgstr[2] "Izabrano je %u stavki"
 msgstr[3] "Izabrana je jedna stavka"
 
 #: src/widgets.vala:612
@@ -400,35 +403,44 @@ msgstr "Obriši"
 msgid "Cancel"
 msgstr "Otkaži"
 
-#: src/window.vala:208
+#: src/window.vala:221
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Nisam uspeo da prikažem pomoć: %s"
 
-#: src/window.vala:238
+#: src/window.vala:251
 msgid "Utilities to help you with the time."
 msgstr "Alatke koje će vam pomoći sa vremenom."
 
-#: src/window.vala:243
+#: src/window.vala:256
 msgid "translator-credits"
 msgstr ""
 "  Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "\n"
 "http://prevod.org — prevod na srpski jezik"
 
-#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: src/world.vala:108 src/world.vala:111
+#. If it is Jan 1st there, and not Jan 2nd here, then it must be
+#. Dec 31st here, so return "tomorrow"
+#: src/world.vala:109 src/world.vala:113
 msgid "Tomorrow"
 msgstr "Sutra"
 
-#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: src/world.vala:108 src/world.vala:111
+#. If it is Jan 1st here, and not Jan 2nd there, then it must be
+#. Dec 31st there, so return "yesterday"
+#: src/world.vala:109 src/world.vala:113
 msgid "Yesterday"
 msgstr "Juče"
 
-#: src/world.vala:258
+#: src/world.vala:260
 msgid "World"
 msgstr "Svet"
+
+#. Translators: "New" refers to a world clock
+#: src/world.vala:282
+#| msgid "New"
+msgctxt "World clock"
+msgid "New"
+msgstr "Nov"
 
 #~ msgid "_New"
 #~ msgstr "_Novi"
