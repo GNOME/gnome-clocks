@@ -2,363 +2,461 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 #
-# A S Alam <aalam@users.sf.net>, 2012, 2013, 2014, 2015.
+# A S Alam <aalam@users.sf.net>, 2012, 2013, 2014, 2015, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-03-28 07:23+0000\n"
-"PO-Revision-Date: 2015-03-28 19:34-0500\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-c"
+"locks&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-02-27 19:20+0000\n"
+"PO-Revision-Date: 2017-03-11 10:06-0600\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
-"Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>\n"
+"Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:1
+#: data/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "General"
+msgstr "ਆਮ"
+
+#: data/gtk/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "Go to the next section"
+msgstr "ਅਗਲੀ ਚੋਣ ਉੱਤੇ ਜਾਓ"
+
+#: data/gtk/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Go to the previous section"
+msgstr "ਪਿਛਲੀ ਚੋਣ ਉੱਤੇ ਜਾਓ"
+
+#: data/gtk/help-overlay.ui:33
+#| msgid "_Quit"
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "ਬਾਹਰ"
+
+#: data/gtk/help-overlay.ui:42
+#| msgid "Add a New World Clock"
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr "ਸੰਸਾਰ ਘੜੀਆਂ"
+
+#: data/gtk/help-overlay.ui:47
+#| msgid "Add a New World Clock"
+msgctxt "shortcut window"
+msgid "Add a world clock"
+msgstr "ਸੰਸਾਰ ਘੜੀ ਜੋੜੋ"
+
+#: data/gtk/help-overlay.ui:54
+#| msgid "Select <b>New</b> to add a world clock"
+msgctxt "shortcut window"
+msgid "Select all world clocks"
+msgstr "ਸਾਰੀਆਂ ਸੰਸਾਰ ਘੜੀਆਂ ਚੁਣੋ"
+
+#: data/gtk/help-overlay.ui:63
+#| msgid "Alarm"
+msgctxt "shortcut window"
+msgid "Alarm"
+msgstr "ਅਲਾਰਮ"
+
+#: data/gtk/help-overlay.ui:68
+msgctxt "shortcut window"
+msgid "Add an alarm"
+msgstr "ਅਲਾਰਮ ਜੋੜੋ"
+
+#: data/gtk/help-overlay.ui:75
+#| msgid "Select All"
+msgctxt "shortcut window"
+msgid "Select all alarms"
+msgstr "ਸਾਰੇ ਅਲਾਰਮਾਂ ਨੂੰ ਚੁਣੋ"
+
+#: data/gtk/help-overlay.ui:84
+#| msgid "Stopwatch"
+msgctxt "shortcut window"
+msgid "Stopwatch"
+msgstr "ਸਟਾਪਵਾਚ"
+
+#: data/gtk/help-overlay.ui:89
+msgctxt "shortcut window"
+msgid "Stop / Reset"
+msgstr "ਰੋਕੋ / ਮੁੜ-ਸੈੱਟ ਕਰੋ"
+
+#: data/gtk/help-overlay.ui:98
+#| msgid "Timer"
+msgctxt "shortcut window"
+msgid "Timer"
+msgstr "ਟਾਈਮਰ"
+
+#: data/gtk/help-overlay.ui:103
+#| msgid "Reset"
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr "ਮੁੜ-ਸੈੱਟ ਕਰੋ"
+
+#: data/gtk/menus.ui:7
+msgid "_Keyboard Shortcuts"
+msgstr "ਕੀ-ਬੋਰਡ ਸ਼ਾਰਟਕੱਟ(_K)"
+
+#: data/gtk/menus.ui:12
+msgid "_Help"
+msgstr "ਮੱਦਦ(_H)"
+
+#: data/gtk/menus.ui:17
+msgid "_About"
+msgstr "ਇਸ ਬਾਰੇ(_A)"
+
+#: data/gtk/menus.ui:21
+msgid "_Quit"
+msgstr "ਬੰਦ ਕਰੋ(_Q)"
+
+#: data/gtk/menus.ui:31
+msgid "Select All"
+msgstr "ਸਭ ਚੁਣੋ"
+
+#: data/gtk/menus.ui:36
+msgid "Select None"
+msgstr "ਕੋਈ ਨਾ ਚੁਣੋ"
+
+#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
+msgid "GNOME Clocks"
+msgstr "ਗਨੋਮ ਘੜੀ"
+
+#: data/org.gnome.clocks.appdata.xml.in:7 data/org.gnome.clocks.desktop.in:6
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "ਸੰਸਾਰ ਸਮਾਂ, ਅਲਾਰਮ, ਸਟਾਪਵਾਚ ਅਤੇ ਟਾਈਮਰ ਦੇ ਨਾਲ ਘੜੀਆਂ"
+
+#: data/org.gnome.clocks.appdata.xml.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
 msgstr ""
-"ਇੱਕ ਸਧਾਰਨ ਅਤੇ ਸ਼ਾਨਦਾਰ ਘੜੀ ਐਪਲੀਕੇਸ਼ਨ ਹੈ। ਇਸ ਵਿੱਚ ਘੜੀ, ਅਲਾਰਮ, ਸਟਾਪ-ਵਾਚ ਅਤੇ ਟਾਈਮਰ "
-"ਮੌਜੂਦ ਹੈ।"
+"ਇੱਕ ਸਧਾਰਨ ਅਤੇ ਸ਼ਾਨਦਾਰ ਘੜੀ ਐਪਲੀਕੇਸ਼ਨ ਹੈ। ਇਸ ਵਿੱਚ ਘੜੀ, ਅਲਾਰਮ, ਸਟਾਪ-ਵਾਚ ਅਤੇ ਟਾਈਮਰ"
+" ਮੌਜੂਦ ਹੈ।"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:2
+#: data/org.gnome.clocks.appdata.xml.in:13
 msgid "Goals:"
 msgstr "ਟੀਚੇ:"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:3
+#: data/org.gnome.clocks.appdata.xml.in:15
 msgid "Show the time in different cities around the world"
 msgstr "ਸੰਸਾਰ ਦੇ ਵੱਖ-ਵੱਖ ਸ਼ਹਿਰਾਂ ਵਿੱਚ ਸਮਾਂ ਵੇਖਾਓ"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:4
+#: data/org.gnome.clocks.appdata.xml.in:16
 msgid "Set alarms to wake you up"
 msgstr "ਤੁਹਾਨੂੰ ਜਗਾਉਣ ਲਈ ਅਲਾਰਮ ਲਗਾਓ"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:5
+#: data/org.gnome.clocks.appdata.xml.in:17
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "ਠੀਕ ਸਟਾਪ-ਵਾਚ ਨਾਲ ਲੱਗਾ ਸਮਾਂ ਮਾਪੋ"
 
-#: ../data/appdata/org.gnome.clocks.appdata.xml.in.h:6
+#: data/org.gnome.clocks.appdata.xml.in:18
 msgid "Set timers to properly cook your food"
 msgstr "ਆਪਣੇ ਭੋਜਨ ਨੂੰ ਠੀਕ ਤਰ੍ਹਾਂ ਪਕਾਉਣ ਲਈ ਟਾਈਮਰ ਲਗਾਓ"
 
-#: ../data/org.gnome.clocks.desktop.in.h:1 ../src/window.vala:203
-#: ../data/ui/window.ui.h:1
+#: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:248
+#: src/world.vala:455
 msgid "Clocks"
 msgstr "ਘੜੀ"
 
-#: ../data/org.gnome.clocks.desktop.in.h:2
-msgid "GNOME Clocks"
-msgstr "ਗਨੋਮ ਘੜੀ"
-
-#: ../data/org.gnome.clocks.desktop.in.h:3
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "ਸੰਸਾਰ ਸਮਾਂ, ਅਲਾਰਮ, ਸਟਾਪਵਾਚ ਅਤੇ ਟਾਈਮਰ ਦੇ ਨਾਲ ਘੜੀਆਂ"
-
-#: ../data/org.gnome.clocks.desktop.in.h:4
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.clocks.desktop.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
-"ਸਮਾਂ;ਟਾਈਮ;ਟਾਈਮਰ;ਅਲਾਰਮ;ਸੰਸਾਰ ਘੜੀ;ਸਟਾਪਵਾਚ;ਸਮਾਂ ਖੇਤਰ;ਟਾਈਮ "
-"ਜ਼ੋਨ;time;timer;alarm;world "
+"ਸਮਾਂ;ਟਾਈਮ;ਟਾਈਮਰ;ਅਲਾਰਮ;ਸੰਸਾਰ ਘੜੀ;ਸਟਾਪਵਾਚ;ਸਮਾਂ ਖੇਤਰ;ਟਾਈਮ"
+" ਜ਼ੋਨ;time;timer;alarm;world "
 "clock;stopwatch;time zone;"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:1
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.clocks.desktop.in:11
+#| msgid "Gnome Clocks"
+msgid "org.gnome.clocks"
+msgstr "org.gnome.clocks"
+
+#: data/org.gnome.clocks.desktop.in:18
+msgid "Allows world clocks to be displayed for your time zone."
+msgstr "ਤੁਹਾਡੇ ਸਮਾਂ ਖੇਤਰ ਲਈ ਸੰਸਾਰ ਘੜੀਆਂ ਵਿਖਾਉਣ ਦੀ ਇਜਾਜ਼ਤ ਦਿਉ।"
+
+#: data/org.gnome.clocks.gschema.xml.in:5
 msgid "Configured world clocks"
 msgstr "ਸੰਰਚਿਤ ਕੀਤੀਆਂ ਸੰਸਾਰ ਘੜੀਆਂ"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+#: data/org.gnome.clocks.gschema.xml.in:6
 msgid "List of world clocks to show."
 msgstr "ਵੇਖਾਉਣ ਲਈ ਸੰਸਾਰ ਘੜੀਆਂ ਦੀ ਸੂਚੀ ਹੈ।"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+#: data/org.gnome.clocks.gschema.xml.in:12
 msgid "Configured alarms"
 msgstr "ਸੰਰਚਿਤ ਕੀਤੇ ਅਲਾਰਮ"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+#: data/org.gnome.clocks.gschema.xml.in:13
 msgid "List of alarms set."
 msgstr "ਅਲਾਰਮ ਸੈੱਟ ਦੀ ਸੂਚੀ ਹੈ।"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:114
+#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:115
 msgid "Timer"
 msgstr "ਟਾਈਮਰ"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:6
+#: data/org.gnome.clocks.gschema.xml.in:20
 msgid "Configured timer duration in seconds."
 msgstr "ਸਕਿੰਟਾਂ ਵਿੱਚ ਸੰਰਚਿਤ ਸਮਾਂ ਅੰਤਰਾਲ।"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:7
+#: data/org.gnome.clocks.gschema.xml.in:26
 msgid "Geolocation support"
 msgstr "ਭੂਗੋਲਿਕ ਟਿਕਾਣਾ ਸਹਿਯੋਗ"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:8
+#: data/org.gnome.clocks.gschema.xml.in:27
 msgid "Turn geolocation support on and off."
 msgstr "ਭੂਗੋਲਿਕ ਟਿਕਾਣਾ ਸਹਿਯੋਗ ਚਾਲੂ ਤੇ ਬੰਦ ਕਰੋ"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:9
+#: data/org.gnome.clocks.gschema.xml.in:44
 msgid "Window state"
 msgstr "ਵਿੰਡੋ ਹਾਲਤ"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:10
-#| msgid "State of the window: i.e. maximized."
+#: data/org.gnome.clocks.gschema.xml.in:45
 msgid "State of the window, e.g. maximized."
 msgstr "ਵਿੰਡੋ ਦੀ ਸਥਿਤੀ, ਜਿਵੇਂ ਵੱਧੋ-ਵੱਧ।"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:11
+#: data/org.gnome.clocks.gschema.xml.in:51
 msgid "Window width and height"
 msgstr "ਵਿੰਡੋ ਚੌੜਾਈ ਤੇ ਉਚਾਈ"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:12
+#: data/org.gnome.clocks.gschema.xml.in:52
 msgid "Width and height of the window."
 msgstr "ਵਿੰਡੋ ਦੀ ਚੌੜਾਈ ਤੇ ਉਚਾਈ"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:13
+#: data/org.gnome.clocks.gschema.xml.in:58
 msgid "Panel state"
 msgstr "ਪੈਨਲ ਸਥਿਤੀ"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:14
+#: data/org.gnome.clocks.gschema.xml.in:59
 msgid "Current clock panel."
 msgstr "ਮੌਜੂਦਾ ਘੜੀ ਪੈਨਲ ਹੈ।"
 
-#: ../src/alarm.vala:115 ../src/alarm.vala:367 ../src/alarm.vala:535
-msgid "Alarm"
-msgstr "ਅਲਾਰਮ"
-
-#: ../src/alarm.vala:117 ../src/stopwatch.vala:190
-#: ../data/ui/alarmringing.ui.h:1
+#: data/ui/alarmringing.ui:39 src/alarm.vala:119 src/stopwatch.vala:199
 msgid "Stop"
 msgstr "ਰੋਕੋ"
 
-#: ../src/alarm.vala:118 ../data/ui/alarmringing.ui.h:2
+#: data/ui/alarmringing.ui:59 src/alarm.vala:120
 msgid "Snooze"
 msgstr "ਟਾਲੋ"
 
-#: ../src/alarm.vala:306
+#: data/ui/alarmsetupdialog.ui:27 data/ui/worldlocationdialog.ui:17
+msgid "Add a New World Clock"
+msgstr "ਨਵੀਂ ਸੰਸਾਰ ਘੜੀ ਜੋੜੋ"
+
+#: data/ui/alarmsetupdialog.ui:31 data/ui/worldlocationdialog.ui:21
+msgid "_Cancel"
+msgstr "ਰੱਦ ਕਰੋ(_C)"
+
+#: data/ui/alarmsetupdialog.ui:47
+msgid "_Done"
+msgstr "ਮੁਕੰਮਲ(_D)"
+
+#: data/ui/alarmsetupdialog.ui:199
+msgid "You already have an alarm for this time."
+msgstr "ਤੁਹਾਡੇ ਕੋਲ ਇਸ ਸਮੇਂ ਲਈ ਅਲਾਰਮ ਪਹਿਲਾਂ ਹੀ ਹੈ।"
+
+#: data/ui/alarmsetupdialog.ui:227
+msgid "Name"
+msgstr "ਨਾਂ"
+
+#: data/ui/alarmsetupdialog.ui:241
+msgid "Repeat Every"
+msgstr "ਦੁਹਰਾਉ ਹਰੇਕ"
+
+#: data/ui/alarmsetupdialog.ui:295
+msgid "Active"
+msgstr "ਸਰਗਰਮ"
+
+#: data/ui/alarm.ui:31
+msgid "Select <b>New</b> to add an alarm"
+msgstr "ਅਲਾਰਮ ਜੋੜਨ ਲਈ <b>ਨਵਾਂ</b> ਚੁਣੋ"
+
+#: data/ui/stopwatch.ui:54 data/ui/timer.ui:194 src/stopwatch.vala:221
+msgid "Start"
+msgstr "ਸ਼ੁਰੂ"
+
+#: data/ui/stopwatch.ui:72 data/ui/timer.ui:415 src/stopwatch.vala:213
+msgid "Reset"
+msgstr "ਮੁੜ-ਸੈੱਟ"
+
+#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
+msgid "Pause"
+msgstr "ਵਿਰਾਮ"
+
+#: data/ui/worldlocationdialog.ui:37
+msgid "_Add"
+msgstr "ਸ਼ਾਮਲ(_A)"
+
+#: data/ui/worldlocationdialog.ui:76
+msgid "Search for a city:"
+msgstr "ਸ਼ਹਿਰ ਲਈ ਖੋਜ:"
+
+#: data/ui/world.ui:31
+msgid "Select <b>New</b> to add a world clock"
+msgstr "ਸੰਸਾਰ ਘੜੀ ਵਿੱਚ ਜੋੜਨ ਲਈ <b>ਨਵਾਂ</b> ਚੁਣੋ"
+
+#: data/ui/world.ui:122
+msgid "Sunrise"
+msgstr "ਸੂਰਜ ਚੜ੍ਹੇਗੇ"
+
+#: data/ui/world.ui:136
+msgid "Sunset"
+msgstr "ਸੂਰਜ ਡੁੱਬੇਗਾ"
+
+#: src/alarm.vala:117 src/alarm.vala:378 src/alarm.vala:547
+msgid "Alarm"
+msgstr "ਅਲਾਰਮ"
+
+#: src/alarm.vala:312
 msgid "Edit Alarm"
 msgstr "ਅਲਾਰਮ ਸੋਧ"
 
-#: ../src/alarm.vala:306
+#: src/alarm.vala:312
 msgid "New Alarm"
 msgstr "ਨਵਾਂ ਅਲਾਰਮ"
 
 #. Translators: "New" refers to an alarm
-#. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:560 ../src/world.vala:262
+#: src/alarm.vala:576
+#| msgid "New"
+msgctxt "Alarm"
 msgid "New"
 msgstr "ਨਵਾਂ"
 
-#: ../src/application.vala:23
+#: src/application.vala:23
 msgid "Print version information and exit"
 msgstr "ਵਰਜਨ ਜਾਣਕਾਰੀ ਛਾਪੋ ਅਤੇ ਬੰਦ ਕਰੋ"
 
-#: ../src/stopwatch.vala:130
+#: src/stopwatch.vala:139
 msgid "Stopwatch"
 msgstr "ਸਟਾਪਵਾਚ"
 
-#: ../src/stopwatch.vala:193
+#: src/stopwatch.vala:202
 msgid "Lap"
 msgstr "ਲੈਪ"
 
-#: ../src/stopwatch.vala:200 ../src/timer.vala:206
+#: src/stopwatch.vala:209 src/timer.vala:208
 msgid "Continue"
 msgstr "ਜਾਰੀ ਰੱਖੋ"
 
-#: ../src/stopwatch.vala:204 ../data/ui/stopwatch.ui.h:2
-#: ../data/ui/timer.ui.h:3
-msgid "Reset"
-msgstr "ਮੁੜ-ਸੈੱਟ"
-
-#: ../src/stopwatch.vala:212 ../data/ui/stopwatch.ui.h:1
-#: ../data/ui/timer.ui.h:1
-msgid "Start"
-msgstr "ਸ਼ੁਰੂ"
-
-#: ../src/timer.vala:126
+#: src/timer.vala:127
 msgid "Time is up!"
 msgstr "ਸਮਾਂ ਸਮਾਪਤ!"
 
-#: ../src/timer.vala:127
+#: src/timer.vala:128
 msgid "Timer countdown finished"
 msgstr "ਟਾਈਮਰ ਕਾਊਂਟ-ਡਾਊਨ ਪੂਰਾ ਹੋਇਆ"
 
-#: ../src/timer.vala:211 ../src/timer.vala:222 ../data/ui/timer.ui.h:2
-msgid "Pause"
-msgstr "ਵਿਰਾਮ"
-
-#: ../src/utils.vala:153
+#: src/utils.vala:168
 msgid "Mondays"
 msgstr "ਸੋਮਵਾਰ"
 
-#: ../src/utils.vala:154
+#: src/utils.vala:169
 msgid "Tuesdays"
 msgstr "ਮੰਗਲਵਾਰ"
 
-#: ../src/utils.vala:155
+#: src/utils.vala:170
 msgid "Wednesdays"
 msgstr "ਬੁੱਧਵਾਰ"
 
-#: ../src/utils.vala:156
+#: src/utils.vala:171
 msgid "Thursdays"
 msgstr "ਵੀਰਵਾਰ"
 
-#: ../src/utils.vala:157
+#: src/utils.vala:172
 msgid "Fridays"
 msgstr "ਸ਼ੁੱਕਰਵਾਰ"
 
-#: ../src/utils.vala:158
+#: src/utils.vala:173
 msgid "Saturdays"
 msgstr "ਸ਼ਨਿੱਚਰਵਾਰ"
 
-#: ../src/utils.vala:159
+#: src/utils.vala:174
 msgid "Sundays"
 msgstr "ਐਤਵਾਰ"
 
-#: ../src/utils.vala:239
+#: src/utils.vala:254
 msgid "Every Day"
 msgstr "ਹਰ ਰੋਜ਼"
 
-#: ../src/utils.vala:241
+#: src/utils.vala:256
 msgid "Weekdays"
 msgstr "ਹਫ਼ਤੇ ਦੇ ਦਿਨ"
 
-#: ../src/utils.vala:243
+#: src/utils.vala:258
 msgid "Weekends"
 msgstr "ਹਫ਼ਤੇ ਚ ਛੁੱਟੀ ਦੇ ਦਿਨ"
 
-#: ../src/widgets.vala:484
-msgid "Delete"
-msgstr "ਹਟਾਓ"
-
-#: ../src/widgets.vala:510 ../src/widgets.vala:665
+#: src/widgets.vala:538 src/widgets.vala:553
 msgid "Click on items to select them"
 msgstr "ਆਈਟਮਾਂ ਨੂੰ ਚੁਣਨ ਲਈ ਉਹਨਾਂ ਉੱਤੇ ਕਲਿੱਕ ਕਰੋ"
 
-#: ../src/widgets.vala:512
+#: src/widgets.vala:540
 #, c-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "%d ਚੁਣਿਆ"
-msgstr[1] "%d ਚੁਣੇ"
+#| msgid "%d selected"
+#| msgid_plural "%d selected"
+msgid "%u selected"
+msgid_plural "%u selected"
+msgstr[0] "%u ਚੁਣਿਆ"
+msgstr[1] "%u ਚੁਣੇ"
 
-#: ../src/widgets.vala:654
+#: src/widgets.vala:612
+msgid "Delete"
+msgstr "ਹਟਾਓ"
+
+#: src/widgets.vala:710
 msgid "Cancel"
 msgstr "ਰੱਦ ਕਰੋ"
 
-#: ../src/window.vala:176
+#: src/window.vala:221
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "ਮੱਦਦ ਵੇਖਾਉਣ ਲਈ ਫੇਲ੍ਹ ਹੈ: %s"
 
-#: ../src/window.vala:206
+#: src/window.vala:251
 msgid "Utilities to help you with the time."
 msgstr "ਸਮਾਂ ਵਾਸਤੇ ਤੁਹਾਡੀ ਮੱਦਦ ਵਾਸਤੇ ਸਹੂਲਤ ਹੈ।"
 
-#: ../src/window.vala:211
+#: src/window.vala:256
 msgid "translator-credits"
 msgstr ""
 "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ\n"
 "ਪੰਜਾਬੀ ਓਪਨਸੋਰਸ ਟੀਮ (POST)"
 
-#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:106 ../src/world.vala:109
+#. If it is Jan 1st there, and not Jan 2nd here, then it must be
+#. Dec 31st here, so return "tomorrow"
+#: src/world.vala:109 src/world.vala:113
 msgid "Tomorrow"
 msgstr "ਭਲਕੇ"
 
-#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:106 ../src/world.vala:109
+#. If it is Jan 1st here, and not Jan 2nd there, then it must be
+#. Dec 31st there, so return "yesterday"
+#: src/world.vala:109 src/world.vala:113
 msgid "Yesterday"
 msgstr "ਕੱਲ੍ਹ"
 
-#: ../src/world.vala:250
+#: src/world.vala:260
 msgid "World"
 msgstr "ਸੰਸਾਰ"
 
-#. namespace World
-#. namespace Clocks
-#: ../data/gtk/menus.ui.h:1
-msgid "_Help"
-msgstr "ਮੱਦਦ(_H)"
-
-#: ../data/gtk/menus.ui.h:2
-msgid "_About"
-msgstr "ਇਸ ਬਾਰੇ(_A)"
-
-#: ../data/gtk/menus.ui.h:3
-msgid "_Quit"
-msgstr "ਬੰਦ ਕਰੋ(_Q)"
-
-#: ../data/gtk/menus.ui.h:4
-msgid "Select All"
-msgstr "ਸਭ ਚੁਣੋ"
-
-#: ../data/gtk/menus.ui.h:5
-msgid "Select None"
-msgstr "ਕੋਈ ਨਾ ਚੁਣੋ"
-
-#: ../data/ui/alarmsetupdialog.ui.h:1 ../data/ui/worldlocationdialog.ui.h:1
-msgid "Add a New World Clock"
-msgstr "ਨਵੀਂ ਸੰਸਾਰ ਘੜੀ ਜੋੜੋ"
-
-#: ../data/ui/alarmsetupdialog.ui.h:2 ../data/ui/worldlocationdialog.ui.h:2
-msgid "_Cancel"
-msgstr "ਰੱਦ ਕਰੋ(_C)"
-
-#: ../data/ui/alarmsetupdialog.ui.h:3
-msgid "_Done"
-msgstr "ਮੁਕੰਮਲ(_D)"
-
-#: ../data/ui/alarmsetupdialog.ui.h:4
-msgid "You already have an alarm for this time."
-msgstr "ਤੁਹਾਡੇ ਕੋਲ ਇਸ ਸਮੇਂ ਲਈ ਅਲਾਰਮ ਪਹਿਲਾਂ ਹੀ ਹੈ।"
-
-#: ../data/ui/alarmsetupdialog.ui.h:5
-msgid "Name"
-msgstr "ਨਾਂ"
-
-#: ../data/ui/alarmsetupdialog.ui.h:6
-msgid "Repeat Every"
-msgstr "ਦੁਹਰਾਉ ਹਰੇਕ"
-
-#: ../data/ui/alarmsetupdialog.ui.h:7
-msgid "Active"
-msgstr "ਸਰਗਰਮ"
-
-#: ../data/ui/alarm.ui.h:1
-msgid "Select <b>New</b> to add an alarm"
-msgstr "ਅਲਾਰਮ ਜੋੜਨ ਲਈ <b>ਨਵਾਂ</b> ਚੁਣੋ"
-
-#: ../data/ui/worldlocationdialog.ui.h:3
-msgid "_Add"
-msgstr "ਸ਼ਾਮਲ(_A)"
-
-#: ../data/ui/worldlocationdialog.ui.h:4
-msgid "Search for a city:"
-msgstr "ਸ਼ਹਿਰ ਲਈ ਖੋਜ:"
-
-#: ../data/ui/world.ui.h:1
-msgid "Select <b>New</b> to add a world clock"
-msgstr "ਸੰਸਾਰ ਘੜੀ ਵਿੱਚ ਜੋੜਨ ਲਈ <b>ਨਵਾਂ</b> ਚੁਣੋ"
-
-#: ../data/ui/world.ui.h:2
-msgid "Sunrise"
-msgstr "ਸੂਰਜ ਚੜ੍ਹੇਗੇ"
-
-#: ../data/ui/world.ui.h:3
-msgid "Sunset"
-msgstr "ਸੂਰਜ ਡੁੱਬੇਗਾ"
+#. Translators: "New" refers to a world clock
+#: src/world.vala:282
+#| msgid "New"
+msgctxt "World clock"
+msgid "New"
+msgstr "ਨਵਾਂ"
 
 #~ msgid "_New"
 #~ msgstr "ਨਵਾਂ(_N)"
 
 #~ msgid "Done"
 #~ msgstr "ਮੁਕੰਮਲ"
-
-#~ msgid "Gnome Clocks"
-#~ msgstr "ਗਨੋਮ ਘੜੀ"
 
 #~ msgid "Split"
 #~ msgstr "ਵੰਡੋ"
