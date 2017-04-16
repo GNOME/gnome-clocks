@@ -37,8 +37,8 @@ public class Item : Object, ContentItem {
         get {
             // We store it in a _name member even if we overwrite it every time
             // since the abstract name property does not return an owned string
-            if (contry_name != null) {
-                _name = "%s, %s".printf (city_name, contry_name);
+            if (country_name != null) {
+                _name = "%s, %s".printf (city_name, country_name);
             } else {
                 _name = city_name;
             }
@@ -56,7 +56,7 @@ public class Item : Object, ContentItem {
         }
     }
 
-    public string? contry_name {
+    public string? country_name {
         owned get {
             return location.get_country_name ();
         }
@@ -462,7 +462,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
             break;
         case HeaderBar.Mode.STANDALONE:
             header_bar.title = standalone_location.city_name;
-            header_bar.subtitle = standalone_location.contry_name;
+            header_bar.subtitle = standalone_location.country_name;
             back_button.show ();
             break;
         default:
