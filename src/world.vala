@@ -38,7 +38,11 @@ public class Item : Object, ContentItem {
             // We store it in a _name member even if we overwrite it every time
             // since the abstract name property does not return an owned string
             if (country_name != null) {
-                _name = "%s, %s".printf (city_name, country_name);
+                if (state_name != null) {
+                    _name = "%s, %s, %s".printf (city_name, state_name, country_name);
+                } else {
+                    _name = "%s, %s".printf (city_name, country_name);
+                }
             } else {
                 _name = city_name;
             }
@@ -53,6 +57,20 @@ public class Item : Object, ContentItem {
     public string city_name {
         owned get {
             return location.get_city_name ();
+        }
+    }
+
+    public string? state_name {
+        owned get {
+            GWeather.Location? parent = location.get_parent();
+
+            if (parent != null) {
+                if (parent.get_level() == GWeather.LocationLevel.ADM1) {
+                    return parent.get_name();
+                }
+            }
+
+            return null;
         }
     }
 
@@ -461,7 +479,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
             content_view.update_header_bar ();
             break;
         case HeaderBar.Mode.STANDALONE:
-            header_bar.title = standalone_location.city_name;
+            if (standalone_location.state_name != null) {
+                header_bar.title = "%s, %s".printf(standalone_location.city_name, standalone_location.state_name);
+            } else {
+                header_bar.title = standalone_location.city_name;
+            }
             header_bar.subtitle = standalone_location.country_name;
             back_button.show ();
             break;
