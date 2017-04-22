@@ -46,9 +46,9 @@ endif
 configure_file(output: 'config.h', configuration: conf)
 config_h_dir = include_directories('.')
 
-meson.add_install_script('mesonscripts/post_install.py')
+meson.add_install_script(join_paths('mesonscripts', 'post_install.py'))
 
-run_target('release', command: ['mesonscripts/release.sh', meson.project_name(), meson.project_version()])
+run_target('release', command: [join_paths('mesonscripts', 'release.sh'), meson.project_name(), meson.project_version()])
 
 subdir('data')
 subdir('help')
