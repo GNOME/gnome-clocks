@@ -1,7 +1,7 @@
 project('gnome-clocks', ['vala', 'c'],
-    version: '3.24.0',
-    license: 'GPL2+',
-    meson_version: '>= 0.37',
+  version: '3.24.0',
+  license: 'GPL2+',
+  meson_version: '>= 0.37',
 )
 
 gnome = import('gnome')
@@ -23,10 +23,10 @@ math = cc.find_library('m', required: false)
 have_first_weekday = cc.compiles('''
 #include <langinfo.h>
 int main() {
-    nl_langinfo(_NL_TIME_FIRST_WEEKDAY);
+  nl_langinfo(_NL_TIME_FIRST_WEEKDAY);
 }
 ''',
-    name: '_NL_TIME_FIRST_WEEKDAY check program'
+  name: '_NL_TIME_FIRST_WEEKDAY check program'
 )
 
 msgfmt = find_program('msgfmt')
@@ -41,7 +41,7 @@ conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 conf.set_quoted('DATADIR', join_paths(get_option('prefix'), get_option('datadir')))
 conf.set_quoted('GNOMELOCALEDIR', join_paths(get_option('prefix'), get_option('datadir'), '/locale'))
 if have_first_weekday
-    conf.set('HAVE__NL_TIME_FIRST_WEEKDAY', '1')
+  conf.set('HAVE__NL_TIME_FIRST_WEEKDAY', '1')
 endif
 configure_file(output: 'config.h', configuration: conf)
 config_h_dir = include_directories('.')
