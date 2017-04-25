@@ -227,7 +227,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private void reset () {
         state = State.STOPPED;
         timer.reset ();
-        remove_tick ();
+        stop_ticking ();
         span = settings.get_uint ("timer");
         h_spinbutton.value = (int) span / 3600;
         m_spinbutton.value = (int) span % 3600 / 60;
@@ -257,19 +257,19 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         state = State.RUNNING;
         timer.start ();
-        add_tick ();
+        start_ticking ();
     }
 
     private void pause () {
         state = State.PAUSED;
         timer.stop ();
+        stop_ticking ();
         span -= timer.elapsed ();
         countdown_frame.get_style_context ().add_class ("clocks-paused");
         countdown_frame.pause ();
-        remove_tick ();
     }
 
-    private void add_tick () {
+    private void start_ticking () {
         if (tick_id == 0) {
             tick_id = add_tick_callback ((c) => {
                 return count ();
@@ -277,7 +277,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         }
     }
 
-    private void remove_tick () {
+    private void stop_ticking () {
         if (tick_id != 0) {
             remove_tick_callback (tick_id);
             tick_id = 0;
