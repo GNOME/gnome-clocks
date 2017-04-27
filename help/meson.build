@@ -35,7 +35,7 @@ help_linguas = [
   'sv'
 ]
 
-gnome.yelp(meson.project_version(),
+gnome.yelp(meson.project_name(),
   sources: help_files,
   media: help_media,
   languages: help_linguas,
