@@ -39,4 +39,5 @@ gnome.yelp(meson.project_name(),
   sources: help_files,
   media: help_media,
   languages: help_linguas,
+  symlink_media: true,
 )
