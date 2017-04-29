@@ -117,8 +117,8 @@ private class Item : Object, ContentItem, ContentThumb {
         bell = new Utils.Bell ("alarm-clock-elapsed");
         notification = new GLib.Notification (_("Alarm"));
         notification.set_body (name);
-        notification.add_button (_("Stop"), "app.stop-alarm::".concat(id));
-        notification.add_button (_("Snooze"), "app.snooze-alarm::".concat(id));
+        notification.add_button (_("Stop"), "app.stop-alarm::".concat (id));
+        notification.add_button (_("Snooze"), "app.snooze-alarm::".concat (id));
     }
 
     public void reset () {
@@ -130,13 +130,13 @@ private class Item : Object, ContentItem, ContentThumb {
     private void update_alarm_time () {
         var wallclock = Utils.WallClock.get_default ();
         var now = wallclock.date_time;
-        var dt = new GLib.DateTime(wallclock.timezone,
-                                   now.get_year (),
-                                   now.get_month (),
-                                   now.get_day_of_month (),
-                                   time.hour,
-                                   time.minute,
-                                   0);
+        var dt = new GLib.DateTime (wallclock.timezone,
+                                    now.get_year (),
+                                    now.get_month (),
+                                    now.get_day_of_month (),
+                                    time.hour,
+                                    time.minute,
+                                    0);
 
         if (days.empty) {
             // Alarm without days.
@@ -378,8 +378,8 @@ private class SetupDialog : Gtk.Dialog {
         if (alarm == null) {
             var wc = Utils.WallClock.get_default ();
             name = _("Alarm");
-            hour = wc.date_time.get_hour();
-            minute = wc.date_time.get_minute();
+            hour = wc.date_time.get_hour ();
+            minute = wc.date_time.get_minute ();
             days = null;
             active = true;
         } else {
@@ -422,7 +422,7 @@ private class SetupDialog : Gtk.Dialog {
 
     // Sets alarm according to the current dialog settings.
     public void apply_to_alarm (Item alarm) {
-        var name = name_entry.get_text();
+        var name = name_entry.get_text ();
         var active = active_switch.active;
         var hour = h_spinbutton.get_value_as_int ();
         var minute = m_spinbutton.get_value_as_int ();
@@ -554,24 +554,24 @@ public class Face : Gtk.Stack, Clocks.Clock {
         alarms = new ContentStore ();
         settings = new GLib.Settings ("org.gnome.clocks");
 
-        var app = GLib.Application.get_default();
+        var app = GLib.Application.get_default ();
         var action = app.lookup_action ("stop-alarm");
         ((GLib.SimpleAction)action).activate.connect ((action, param) => {
             var a = (Item)alarms.find ((a) => {
-                return ((Item)a).id == param.get_string();
+                return ((Item)a).id == param.get_string ();
             });
             if (a != null) {
-                a.stop();
+                a.stop ();
             }
         });
 
         action = app.lookup_action ("snooze-alarm");
         ((GLib.SimpleAction)action).activate.connect ((action, param) => {
             var a = (Item)alarms.find ((a) => {
-                return ((Item)a).id == param.get_string();
+                return ((Item)a).id == param.get_string ();
             });
             if (a != null) {
-                a.snooze();
+                a.snooze ();
             }
         });
 
@@ -599,7 +599,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         Utils.WallClock.get_default ().tick.connect (() => {
             alarms.foreach ((i) => {
                 var a = (Item)i;
-                if (a.tick()) {
+                if (a.tick ()) {
                     if (a.state == Item.State.RINGING) {
                         show_ringing_panel (a);
                         ring ();

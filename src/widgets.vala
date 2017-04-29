@@ -295,7 +295,7 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         return store.get_item (position);
     }
 
-    public void set_sorting(owned CompareDataFunc sort) {
+    public void set_sorting (owned CompareDataFunc sort) {
         sort_func = (owned) sort;
 
         // TODO: we should re-sort, but for now we only
@@ -317,18 +317,18 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         item.notify["selected"].connect (on_item_selection_toggle);
     }
 
-    public delegate void ForeachFunc(ContentItem item);
+    public delegate void ForeachFunc (ContentItem item);
 
-    public void foreach(ForeachFunc func) {
+    public void foreach (ForeachFunc func) {
         var n = store.get_n_items ();
         for (int i = 0; i < n; i++) {
-            func(store.get_object (i) as ContentItem);
+            func (store.get_object (i) as ContentItem);
         }
     }
 
-    public delegate bool FindFunc(ContentItem item);
+    public delegate bool FindFunc (ContentItem item);
 
-    public ContentItem? find(FindFunc func) {
+    public ContentItem? find (FindFunc func) {
         var n = store.get_n_items ();
         for (int i = 0; i < n; i++) {
             var item = store.get_object (i) as ContentItem;
@@ -410,7 +410,7 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         return builder.end ();
     }
 
-    public delegate ContentItem? DeserializeItemFunc(Variant v);
+    public delegate ContentItem? DeserializeItemFunc (Variant v);
 
     public void deserialize (Variant variant, DeserializeItemFunc deserialize_item) {
         foreach (var v in variant) {
@@ -857,7 +857,7 @@ public class AnalogFrame : Gtk.Bin {
         context.restore ();
         cr.restore ();
 
-        return base.draw(cr);
+        return base.draw (cr);
     }
 
     public virtual void draw_progress (Cairo.Context cr, int center_x, int center_y, int radius) {

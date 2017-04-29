@@ -62,11 +62,11 @@ public class Item : Object, ContentItem, ContentThumb {
 
     public string? state_name {
         owned get {
-            GWeather.Location? parent = location.get_parent();
+            GWeather.Location? parent = location.get_parent ();
 
             if (parent != null) {
-                if (parent.get_level() == GWeather.LocationLevel.ADM1) {
-                    return parent.get_name();
+                if (parent.get_level () == GWeather.LocationLevel.ADM1) {
+                    return parent.get_name ();
                 }
             }
 
@@ -145,7 +145,7 @@ public class Item : Object, ContentItem, ContentThumb {
         Object (location: location);
 
         var weather_time_zone = location.get_timezone ();
-        time_zone = new GLib.TimeZone (weather_time_zone.get_tzid());
+        time_zone = new GLib.TimeZone (weather_time_zone.get_tzid ());
 
         tick ();
     }
@@ -237,7 +237,7 @@ private class LocationDialog : Gtk.Dialog {
             }
         }
 
-        set_response_sensitive(1, l != null && t != null);
+        set_response_sensitive (1, l != null && t != null);
     }
 
     public Item? get_location () {
@@ -281,9 +281,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
         locations = new ContentStore ();
         settings = new GLib.Settings ("org.gnome.clocks");
 
-        locations.set_sorting((item1, item2) => {
-            var offset1 = ((Item) item1).location.get_timezone().get_offset();
-            var offset2 = ((Item) item2).location.get_timezone().get_offset();
+        locations.set_sorting ((item1, item2) => {
+            var offset1 = ((Item) item1).location.get_timezone ().get_offset ();
+            var offset2 = ((Item) item2).location.get_timezone ().get_offset ();
             if (offset1 < offset2)
                 return -1;
             if (offset1 > offset2)
@@ -330,7 +330,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         // Start ticking...
         Utils.WallClock.get_default ().tick.connect (() => {
             locations.foreach ((l) => {
-                ((Item)l).tick();
+                ((Item)l).tick ();
             });
             content_view.queue_draw ();
             update_standalone ();
@@ -475,7 +475,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
             break;
         case HeaderBar.Mode.STANDALONE:
             if (standalone_location.state_name != null) {
-                header_bar.title = "%s, %s".printf(standalone_location.city_name, standalone_location.state_name);
+                header_bar.title = "%s, %s".printf (standalone_location.city_name, standalone_location.state_name);
             } else {
                 header_bar.title = standalone_location.city_name;
             }
