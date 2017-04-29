@@ -368,6 +368,10 @@ public class ContentStore : GLib.Object, GLib.ListModel {
 
         if (n_deleted > 0) {
             store.splice(0, n, not_selected);
+            if (sort_func != null) {
+                store.sort (sort_func);
+            }
+
             selection_changed ();
         }
     }
