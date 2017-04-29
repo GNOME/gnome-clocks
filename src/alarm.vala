@@ -73,6 +73,7 @@ private class Item : Object, ContentItem, ContentThumb {
          }
     }
 
+    [CCode (notify = false)]
     public bool active {
         get {
             return _active;
@@ -86,6 +87,7 @@ private class Item : Object, ContentItem, ContentThumb {
                 } else if (state == State.RINGING) {
                     stop ();
                 }
+                notify_property ("active");
             }
         }
     }
