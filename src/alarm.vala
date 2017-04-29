@@ -19,6 +19,11 @@
 namespace Clocks {
 namespace Alarm {
 
+private struct AlarmTime {
+    public int hour;
+    public int minute;
+}
+
 private class Item : Object, ContentItem {
     const int SNOOZE_MINUTES = 9;
     const int RING_MINUTES = 3;
@@ -50,8 +55,8 @@ private class Item : Object, ContentItem {
         }
     }
 
-    public int hour { get; set; }
-    public int minute { get; set; }
+    public AlarmTime time { get; set; }
+
     public Utils.Weekdays days { get; construct set; }
 
     public string repeat_label {
@@ -104,9 +109,9 @@ private class Item : Object, ContentItem {
         days = new Utils.Weekdays ();
     }
 
-    public Item.with_data (string? id, string name, bool active, int hour, int minute, Utils.Weekdays days) {
+    public Item.with_data (string? id, string name, bool active, AlarmTime time, Utils.Weekdays days) {
         var _id = id != null ? id : GLib.DBus.generate_guid();
-        Object (id: _id, name: name, active: active, hour: hour, minute: minute, days: days);
+        Object (id: _id, name: name, active: active, time: time, days: days);
 
         setup_bell ();
         reset ();
@@ -133,8 +138,8 @@ private class Item : Object, ContentItem {
                                    now.get_year (),
                                    now.get_month (),
                                    now.get_day_of_month (),
-                                   hour,
-                                   minute,
+                                   time.hour,
+                                   time.minute,
                                    0);
 
         if (days.empty) {
@@ -247,8 +252,8 @@ private class Item : Object, ContentItem {
         builder.add ("{sv}", "name", new GLib.Variant.string (name));
         builder.add ("{sv}", "id", new GLib.Variant.string (id));
         builder.add ("{sv}", "active", new GLib.Variant.boolean (active));
-        builder.add ("{sv}", "hour", new GLib.Variant.int32 (hour));
-        builder.add ("{sv}", "minute", new GLib.Variant.int32 (minute));
+        builder.add ("{sv}", "hour", new GLib.Variant.int32 (time.hour));
+        builder.add ("{sv}", "minute", new GLib.Variant.int32 (time.minute));
         builder.add ("{sv}", "days", days.serialize ());
         builder.close ();
     }
@@ -277,7 +282,8 @@ private class Item : Object, ContentItem {
             }
         }
         if (name != null && hour >= 0 && minute >= 0) {
-            return new Item.with_data (id, name, active, hour, minute, days);
+            AlarmTime time = { hour, minute };
+            return new Item.with_data (id, name, active, time, days);
         } else {
             warning ("Invalid alarm %s", name != null ? name : "name missing");
         }
@@ -382,8 +388,8 @@ private class SetupDialog : Gtk.Dialog {
             active = true;
         } else {
             name = alarm.name;
-            hour = alarm.hour;
-            minute = alarm.minute;
+            hour = alarm.time.hour;
+            minute = alarm.time.minute;
             days = alarm.days;
             active = alarm.active;
         }
@@ -433,10 +439,11 @@ private class SetupDialog : Gtk.Dialog {
             }
         }
 
+        AlarmTime time = { hour, minute };
+
         alarm.name = name;
         alarm.active = active;
-        alarm.hour = hour;
-        alarm.minute = minute;
+        alarm.time = time;
 
         for (int i = 0; i < 7; i++) {
             alarm.days.set ((Utils.Weekdays.Day) i, day_buttons[i].active);
