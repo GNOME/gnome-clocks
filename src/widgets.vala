@@ -260,12 +260,14 @@ public interface ContentItem : GLib.Object {
     public abstract bool selectable { get; set; default = true; }
     public abstract bool selected { get; set; default = false; }
 
+    public abstract void serialize (GLib.VariantBuilder builder);
+}
+
+public interface ContentThumb : GLib.Object {
     public abstract void get_thumb_properties (out string text,
                                                out string subtext,
                                                out Gdk.Pixbuf? pixbuf,
                                                out string css_class);
-
-    public abstract void serialize (GLib.VariantBuilder builder);
 }
 
 public class ContentStore : GLib.Object, GLib.ListModel {
@@ -456,7 +458,7 @@ private class IconView : Gtk.IconView {
                 string subtext;
                 Gdk.Pixbuf? pixbuf;
                 string css_class;
-                item.get_thumb_properties (out text, out subtext, out pixbuf, out css_class);
+                ((ContentThumb)item).get_thumb_properties (out text, out subtext, out pixbuf, out css_class);
                 renderer.selectable = item.selectable;
                 renderer.toggle_visible = (mode == Mode.SELECTION);
                 renderer.checked = item.selected;

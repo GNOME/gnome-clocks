@@ -19,7 +19,7 @@
 namespace Clocks {
 namespace World {
 
-public class Item : Object, ContentItem {
+public class Item : Object, ContentItem, ContentThumb {
     private static Gdk.Pixbuf? day_pixbuf = Utils.load_image ("day.png");
     private static Gdk.Pixbuf? night_pixbuf = Utils.load_image ("night.png");
 
@@ -162,21 +162,6 @@ public class Item : Object, ContentItem {
                                                    enabled_providers: GWeather.Provider.NONE);
     }
 
-    public void get_thumb_properties (out string text,
-                                      out string subtext,
-                                      out Gdk.Pixbuf? pixbuf,
-                                      out string css_class) {
-        text = time_label;
-        subtext = day_label;
-        if (is_daytime) {
-            pixbuf = day_pixbuf;
-            css_class = "light";
-        } else {
-            pixbuf = night_pixbuf;
-            css_class = "dark";
-        }
-    }
-
     public void serialize (GLib.VariantBuilder builder) {
         if (!automatic) {
             builder.open (new GLib.VariantType ("a{sv}"));
@@ -197,6 +182,21 @@ public class Item : Object, ContentItem {
             }
         }
         return location != null ? new Item (location) : null;
+    }
+
+    public void get_thumb_properties (out string text,
+                                      out string subtext,
+                                      out Gdk.Pixbuf? pixbuf,
+                                      out string css_class) {
+        text = time_label;
+        subtext = day_label;
+        if (is_daytime) {
+            pixbuf = day_pixbuf;
+            css_class = "light";
+        } else {
+            pixbuf = night_pixbuf;
+            css_class = "dark";
+        }
     }
 }
 

@@ -24,7 +24,7 @@ private struct AlarmTime {
     public int minute;
 }
 
-private class Item : Object, ContentItem {
+private class Item : Object, ContentItem, ContentThumb {
     const int SNOOZE_MINUTES = 9;
     const int RING_MINUTES = 3;
 
@@ -58,12 +58,6 @@ private class Item : Object, ContentItem {
     public AlarmTime time { get; set; }
 
     public Utils.Weekdays days { get; construct set; }
-
-    public string repeat_label {
-        owned get {
-            return days.get_label ();
-        }
-    }
 
     public State state { get; private set; }
 
@@ -231,22 +225,6 @@ private class Item : Object, ContentItem {
         return state != last_state;
     }
 
-    public void get_thumb_properties (out string text,
-                                      out string subtext,
-                                      out Gdk.Pixbuf? pixbuf,
-                                      out string css_class) {
-        if (state == State.SNOOZING) {
-            text = snooze_time_label;
-            subtext = "(%s)".printf(time_label);
-            css_class = "snoozing";
-        } else {
-            text = time_label;
-            subtext = repeat_label;
-            css_class = active ? "active" : "inactive";
-        }
-        pixbuf = null;
-    }
-
     public void serialize (GLib.VariantBuilder builder) {
         builder.open (new GLib.VariantType ("a{sv}"));
         builder.add ("{sv}", "name", new GLib.Variant.string (name));
@@ -288,6 +266,22 @@ private class Item : Object, ContentItem {
             warning ("Invalid alarm %s", name != null ? name : "name missing");
         }
         return null;
+    }
+
+    public void get_thumb_properties (out string text,
+                                      out string subtext,
+                                      out Gdk.Pixbuf? pixbuf,
+                                      out string css_class) {
+        if (state == State.SNOOZING) {
+            text = snooze_time_label;
+            subtext = "(%s)".printf(time_label);
+            css_class = "snoozing";
+        } else {
+            text = time_label;
+            subtext = days.get_label ();;
+            css_class = active ? "active" : "inactive";
+        }
+        pixbuf = null;
     }
 }
 
