@@ -256,8 +256,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private GLib.Settings settings;
     private Gtk.Button new_button;
     private Gtk.Button back_button;
-    private Gdk.Pixbuf? day_pixbuf;
-    private Gdk.Pixbuf? night_pixbuf;
     private Item standalone_location;
     [GtkChild]
     private Gtk.Widget empty_view;
@@ -292,9 +290,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 return 1;
             return 0;
         });
-
-        day_pixbuf = Utils.load_image ("day.png");
-        night_pixbuf = Utils.load_image ("night.png");
 
         // Translators: "New" refers to a world clock
         new_button = new Gtk.Button.with_label (C_("World clock", "New"));
