@@ -720,6 +720,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     private void reset_view () {
         visible_child = alarms.get_n_items () == 0 ? empty_view : content_view;
+        request_header_bar_update ();
     }
 
     public void activate_new () {

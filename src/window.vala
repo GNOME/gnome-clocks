@@ -77,6 +77,9 @@ public class Window : Gtk.ApplicationWindow {
 
         foreach (var clock in panels) {
             stack.add_titled (clock, ((Clock)clock).label, ((Clock)clock).label);
+            ((Clock)clock).request_header_bar_update.connect (() => {
+                update_header_bar ();
+            });
         }
 
         stack_switcher.set_stack (stack);

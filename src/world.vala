@@ -486,6 +486,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public void reset_view () {
         standalone_location = null;
         visible_child = locations.get_n_items () == 0 ? empty_view : content_view;
+        request_header_bar_update ();
     }
 
     public void update_header_bar () {

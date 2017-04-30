@@ -286,31 +286,11 @@ public class ContentView : Gtk.Bin {
                 default:
                     assert_not_reached ();
                 }
-
-                update_header_bar ();
-            }
-        }
-    }
-
-    private bool can_select {
-        get {
-            return _can_select;
-        }
-
-        private set {
-            if (_can_select != value) {
-                _can_select = value;
-
-                // show the select button only if we are mapped,
-                // since we do not want to show it when the geolocation
-                // query ends, but we are on another page
-                select_button.visible = _can_select && get_mapped ();
             }
         }
     }
 
     private Mode _mode;
-    private bool _can_select;
     private ContentStore model;
     private Gtk.FlowBox flow_box;
     private Gtk.Button select_button;
@@ -372,13 +352,6 @@ public class ContentView : Gtk.Bin {
 
     public void bind_model (ContentStore store, owned ContentViewCreateWidgetFunc create_func) {
         model = store;
-        model.items_changed.connect ((position, removed, added) => {
-            var first_selectable = model.find ((i) => {
-                return i.selectable;
-            });
-
-            can_select = first_selectable != null;
-        });
 
         model.selection_changed.connect (() => {
             var n_items = model.get_n_selected ();
@@ -519,7 +492,11 @@ public class ContentView : Gtk.Bin {
             cancel_button.show ();
             break;
         case HeaderBar.Mode.NORMAL:
-            select_button.visible = can_select;
+            var first_selectable = model.find ((i) => {
+                return i.selectable;
+            });
+
+            select_button.visible = first_selectable != null;
             break;
         }
     }
