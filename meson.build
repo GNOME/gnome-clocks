@@ -8,6 +8,7 @@ project(
 
 gnome = import('gnome')
 i18n = import('i18n')
+python3 = import('python3')
 
 glib = dependency('glib-2.0', version: '>=2.44')
 gio = dependency('gio-2.0', version: '>=2.44')
@@ -48,7 +49,8 @@ endif
 configure_file(output: 'config.h', configuration: conf)
 config_h_dir = include_directories('.')
 
-meson.add_install_script(join_paths('build-aux', 'post-install.py'))
+meson.add_install_script(python3.find_python().path(),
+  join_paths(meson.source_root(), 'build-aux', 'post-install.py'))
 
 subdir('data')
 subdir('help')
