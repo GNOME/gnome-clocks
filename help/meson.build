@@ -30,6 +30,7 @@ help_linguas = [
   'id',
   'ko',
   'nl',
+  'pl',
   'pt_BR',
   'ru',
   'sv'
