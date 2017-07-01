@@ -1,7 +1,9 @@
-project('gnome-clocks', ['vala', 'c'],
+project(
+  'gnome-clocks',
+  ['vala', 'c'],
   version: '3.25.1',
   license: 'GPL2+',
-  meson_version: '>= 0.37',
+  meson_version: '>= 0.41.0',
 )
 
 gnome = import('gnome')
@@ -46,9 +48,7 @@ endif
 configure_file(output: 'config.h', configuration: conf)
 config_h_dir = include_directories('.')
 
-meson.add_install_script(join_paths('mesonscripts', 'post_install.py'))
-
-run_target('release', command: [join_paths('mesonscripts', 'release.sh'), meson.project_name(), meson.project_version()])
+meson.add_install_script(join_paths('build-aux', 'post-install.py'))
 
 subdir('data')
 subdir('help')
