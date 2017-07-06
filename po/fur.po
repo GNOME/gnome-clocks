@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-11-01 18:50+0000\n"
-"PO-Revision-Date: 2016-11-04 21:04+0100\n"
+"POT-Creation-Date: 2017-06-28 17:42+0000\n"
+"PO-Revision-Date: 2017-07-07 00:35+0200\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -17,45 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.8\n"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:6
-#: data/org.gnome.clocks.desktop.in:5
-msgid "GNOME Clocks"
-msgstr "Orlois par GNOME"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:7
-#: data/org.gnome.clocks.desktop.in:6
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Orlois par i fûs oraris tal mont, sveis, cronometri e un timer"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:9
-msgid ""
-"A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
-msgstr ""
-"Un orloi sempliç e graciôs: al ten i orlois di dut il mont, sveis, un "
-"cronometri e un temporizadôr."
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:13
-msgid "Goals:"
-msgstr "Obietîfs:"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:15
-msgid "Show the time in different cities around the world"
-msgstr "Mostre la ore in plui citâts ator pal mont"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:16
-msgid "Set alarms to wake you up"
-msgstr "Impostâ sveis"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:17
-msgid "Measure elapsed time with an accurate stopwatch"
-msgstr "Misurâ il timp cuntun cronometri precîs"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:18
-msgid "Set timers to properly cook your food"
-msgstr "Imposte temporizadôr par cusinâ ben"
+"X-Generator: Poedit 1.8.12\n"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -151,9 +113,65 @@ msgstr "Selezione dut"
 msgid "Select None"
 msgstr "Anule selezion"
 
+#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
+msgid "GNOME Clocks"
+msgstr "Orlois par GNOME"
+
+#: data/org.gnome.clocks.appdata.xml.in:7 data/org.gnome.clocks.desktop.in:6
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "Orlois par i fûs oraris tal mont, sveis, cronometri e un timer"
+
+#: data/org.gnome.clocks.appdata.xml.in:9
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"Un orloi sempliç e graciôs: al ten i orlois di dut il mont, sveis, un "
+"cronometri e un temporizadôr."
+
+#: data/org.gnome.clocks.appdata.xml.in:13
+msgid "Goals:"
+msgstr "Obietîfs:"
+
+#: data/org.gnome.clocks.appdata.xml.in:15
+msgid "Show the time in different cities around the world"
+msgstr "Mostre la ore in plui citâts ator pal mont"
+
+#: data/org.gnome.clocks.appdata.xml.in:16
+msgid "Set alarms to wake you up"
+msgstr "Impostâ sveis"
+
+#: data/org.gnome.clocks.appdata.xml.in:17
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "Misurâ il timp cuntun cronometri precîs"
+
+#: data/org.gnome.clocks.appdata.xml.in:18
+msgid "Set timers to properly cook your food"
+msgstr "Imposte temporizadôr par cusinâ ben"
+
+#: data/org.gnome.clocks.appdata.xml.in:33
+msgid "Initial screen"
+msgstr "Videade iniziâl"
+
+#: data/org.gnome.clocks.appdata.xml.in:37
+msgid "Alarms screen"
+msgstr "Videade alarmis"
+
+#: data/org.gnome.clocks.appdata.xml.in:41
+msgid "Alarms setup"
+msgstr "Impostazion alarmis"
+
+#: data/org.gnome.clocks.appdata.xml.in:45
+msgid "Stopwatch screen"
+msgstr "Videade cronometri"
+
+#: data/org.gnome.clocks.appdata.xml.in:49
+msgid "Timer screen"
+msgstr "Videade timer"
+
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:248
-#: src/world.vala:455
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
+#: src/world.vala:495
 msgid "Clocks"
 msgstr "Orlois"
 
@@ -227,11 +245,11 @@ msgstr "Stât dal panel"
 msgid "Current clock panel."
 msgstr "Panel atuâl dal orloi."
 
-#: data/ui/alarmringing.ui:39 src/alarm.vala:119 src/stopwatch.vala:199
+#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:199
 msgid "Stop"
 msgstr "Ferme"
 
-#: data/ui/alarmringing.ui:59 src/alarm.vala:120
+#: data/ui/alarmringing.ui:59 src/alarm.vala:119
 msgid "Snooze"
 msgstr "Ripet"
 
@@ -263,7 +281,7 @@ msgstr "Ripet ogni"
 msgid "Active"
 msgstr "Ativade"
 
-#: data/ui/alarm.ui:31
+#: data/ui/alarm.ui:32
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Selezione <b>Gnûf</b> par zontâ une svee"
 
@@ -287,32 +305,32 @@ msgstr "_Zonte"
 msgid "Search for a city:"
 msgstr "Cîr une citât:"
 
-#: data/ui/world.ui:31
+#: data/ui/world.ui:32
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Selezione <b>Gnûf</b> par zontâ un orloi par une localitât tal mont"
 
-#: data/ui/world.ui:122
+#: data/ui/world.ui:123
 msgid "Sunrise"
 msgstr "Cricâ dal dì"
 
-#: data/ui/world.ui:136
+#: data/ui/world.ui:137
 msgid "Sunset"
 msgstr "Amont"
 
-#: src/alarm.vala:117 src/alarm.vala:378 src/alarm.vala:547
+#: src/alarm.vala:116 src/alarm.vala:416 src/alarm.vala:595
 msgid "Alarm"
 msgstr "Svee"
 
-#: src/alarm.vala:312
+#: src/alarm.vala:350
 msgid "Edit Alarm"
 msgstr "Cambie svee"
 
-#: src/alarm.vala:312
+#: src/alarm.vala:350
 msgid "New Alarm"
 msgstr "Gnove svee"
 
 #. Translators: "New" refers to an alarm
-#: src/alarm.vala:576
+#: src/alarm.vala:624
 msgctxt "Alarm"
 msgid "New"
 msgstr "Gnûf"
@@ -381,56 +399,56 @@ msgstr "Dîs de vore"
 msgid "Weekends"
 msgstr "Dîs di fieste"
 
-#: src/widgets.vala:538 src/widgets.vala:553
+#: src/widgets.vala:232 src/widgets.vala:247
 msgid "Click on items to select them"
 msgstr "Fâs clic sui elements par selezionaju"
 
-#: src/widgets.vala:540
+#: src/widgets.vala:234
 #, c-format
 msgid "%u selected"
 msgid_plural "%u selected"
 msgstr[0] "%u selezionât"
 msgstr[1] "%u selezionâts"
 
-#: src/widgets.vala:612
+#: src/widgets.vala:333
 msgid "Delete"
 msgstr "Elimine "
 
-#: src/widgets.vala:710
+#: src/widgets.vala:477
 msgid "Cancel"
 msgstr "Anule"
 
-#: src/window.vala:221
+#: src/window.vala:224
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Impussibil mostrâ l'aiût: %s"
 
-#: src/window.vala:251
+#: src/window.vala:254
 msgid "Utilities to help you with the time."
 msgstr "Imprescj par controlâ la ore."
 
-#: src/window.vala:256
+#: src/window.vala:259
 msgid "translator-credits"
 msgstr "Fabio Tomat (f.t.public at gmail.com)"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:109 src/world.vala:113
+#: src/world.vala:122 src/world.vala:126
 msgid "Tomorrow"
 msgstr "Doman"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:109 src/world.vala:113
+#: src/world.vala:122 src/world.vala:126
 msgid "Yesterday"
 msgstr "Îr"
 
-#: src/world.vala:260
+#: src/world.vala:300
 msgid "World"
 msgstr "Mont"
 
 #. Translators: "New" refers to a world clock
-#: src/world.vala:282
+#: src/world.vala:319
 msgctxt "World clock"
 msgid "New"
 msgstr "Gnûf"
