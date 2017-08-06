@@ -10,10 +10,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-01-18 21:55+0000\n"
-"PO-Revision-Date: 2017-02-02 23:11+0100\n"
+"POT-Creation-Date: 2017-07-29 16:24+0000\n"
+"PO-Revision-Date: 2017-08-06 12:30+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.2\n"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -153,9 +153,29 @@ msgstr "Mäta tid med ett exakt stoppur"
 msgid "Set timers to properly cook your food"
 msgstr "Sätta timer för att underlätta din matlagning"
 
+#: data/org.gnome.clocks.appdata.xml.in:33
+msgid "Initial screen"
+msgstr "Startskärm"
+
+#: data/org.gnome.clocks.appdata.xml.in:37
+msgid "Alarms screen"
+msgstr "Alarmskärm"
+
+#: data/org.gnome.clocks.appdata.xml.in:41
+msgid "Alarms setup"
+msgstr "Konfiguration av alarm"
+
+#: data/org.gnome.clocks.appdata.xml.in:45
+msgid "Stopwatch screen"
+msgstr "Stoppursskärm"
+
+#: data/org.gnome.clocks.appdata.xml.in:49
+msgid "Timer screen"
+msgstr "Timerskärm"
+
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:248
-#: src/world.vala:455
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
+#: src/world.vala:495
 msgid "Clocks"
 msgstr "Klockor"
 
@@ -229,11 +249,11 @@ msgstr "Panelläge"
 msgid "Current clock panel."
 msgstr "Aktuell klockpanel."
 
-#: data/ui/alarmringing.ui:39 src/alarm.vala:119 src/stopwatch.vala:199
+#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:199
 msgid "Stop"
 msgstr "Stopp"
 
-#: data/ui/alarmringing.ui:59 src/alarm.vala:120
+#: data/ui/alarmringing.ui:59 src/alarm.vala:119
 msgid "Snooze"
 msgstr "Snooza"
 
@@ -265,7 +285,7 @@ msgstr "Upprepa var"
 msgid "Active"
 msgstr "Aktiv"
 
-#: data/ui/alarm.ui:31
+#: data/ui/alarm.ui:32
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Välj <b>Nytt</b> för att lägga till ett alarm"
 
@@ -290,32 +310,32 @@ msgid "Search for a city:"
 msgstr "Sök efter en stad:"
 
 # https://bugzilla.gnome.org/show_bug.cgi?id=746474
-#: data/ui/world.ui:31
+#: data/ui/world.ui:32
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Välj <b>Nytt</b> för att lägga till en världsklocka"
 
-#: data/ui/world.ui:122
+#: data/ui/world.ui:123
 msgid "Sunrise"
 msgstr "Soluppgång"
 
-#: data/ui/world.ui:136
+#: data/ui/world.ui:137
 msgid "Sunset"
 msgstr "Solnedgång"
 
-#: src/alarm.vala:117 src/alarm.vala:378 src/alarm.vala:547
+#: src/alarm.vala:116 src/alarm.vala:416 src/alarm.vala:595
 msgid "Alarm"
 msgstr "Alarm"
 
-#: src/alarm.vala:312
+#: src/alarm.vala:350
 msgid "Edit Alarm"
 msgstr "Redigera alarm"
 
-#: src/alarm.vala:312
+#: src/alarm.vala:350
 msgid "New Alarm"
 msgstr "Nytt alarm"
 
 #. Translators: "New" refers to an alarm
-#: src/alarm.vala:576
+#: src/alarm.vala:624
 msgctxt "Alarm"
 msgid "New"
 msgstr "Nytt"
@@ -384,35 +404,35 @@ msgstr "Veckodagar"
 msgid "Weekends"
 msgstr "Helger"
 
-#: src/widgets.vala:538 src/widgets.vala:553
+#: src/widgets.vala:232 src/widgets.vala:247
 msgid "Click on items to select them"
 msgstr "Klicka på objekt för att välja dem"
 
-#: src/widgets.vala:540
+#: src/widgets.vala:234
 #, c-format
 msgid "%u selected"
 msgid_plural "%u selected"
 msgstr[0] "%u vald"
 msgstr[1] "%u valda"
 
-#: src/widgets.vala:612
+#: src/widgets.vala:333
 msgid "Delete"
 msgstr "Ta bort"
 
-#: src/widgets.vala:710
+#: src/widgets.vala:477
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/window.vala:221
+#: src/window.vala:224
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Misslyckades med att visa hjälp: %s"
 
-#: src/window.vala:251
+#: src/window.vala:254
 msgid "Utilities to help you with the time."
 msgstr "Verktyg för att hjälpa dig med tiden."
 
-#: src/window.vala:256
+#: src/window.vala:259
 msgid "translator-credits"
 msgstr ""
 "Daniel Nylander <po@danielnylander.se>\n"
@@ -425,22 +445,22 @@ msgstr ""
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:109 src/world.vala:113
+#: src/world.vala:122 src/world.vala:126
 msgid "Tomorrow"
 msgstr "I morgon"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:109 src/world.vala:113
+#: src/world.vala:122 src/world.vala:126
 msgid "Yesterday"
 msgstr "Igår"
 
-#: src/world.vala:260
+#: src/world.vala:300
 msgid "World"
 msgstr "Världen"
 
 #. Translators: "New" refers to a world clock
-#: src/world.vala:282
+#: src/world.vala:319
 msgctxt "World clock"
 msgid "New"
 msgstr "Ny"
