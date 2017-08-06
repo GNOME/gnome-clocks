@@ -8,10 +8,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-04-26 10:47+0000\n"
-"PO-Revision-Date: 2013-04-26 19:38+0530\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-clocks&keywords=I18N"
+"+L10N&component=general\n"
+"POT-Creation-Date: 2017-06-28 17:42+0000\n"
+"PO-Revision-Date: 2017-08-06 14:50+0530\n"
 "Last-Translator: Anish A <aneesh.nl@gmail.com>\n"
 "Language-Team: Swatantra Malayalam Computing\n"
 "Language: ml\n"
@@ -19,266 +19,454 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Poedit 2.0.3\n"
 "X-DamnedLies-Scope: partial\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
-#: ../src/window.vala:142
-msgid "Clocks"
-msgstr "ഘടികാരങ്ങള്‍"
+#: data/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "General"
+msgstr "പൊതുവിവരം"
 
-#: ../data/gnome-clocks.desktop.in.h:2
-msgid "GNOME Clocks"
-msgstr "ഗ്നോം ഘടികാരങ്ങള്‍"
+#: data/gtk/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "Go to the next section"
+msgstr "അടുത്ത ഭാഗത്തിലേക്ക് പോകുക"
 
-#: ../data/gnome-clocks.desktop.in.h:3
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr ""
-"ലോകത്തെവിടെയുമുള്ള സമയം കാണിയ്ക്കുന്ന ഘടികാരങ്ങള്‍, കൂടെ അലാറമ്മുകള്‍, സ്റ്റോപ്പ്‌വാച്ച്, ടൈമര്‍ "
-"എന്നിവയും"
+#: data/gtk/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Go to the previous section"
+msgstr "കഴിഞ്ഞ ഭാഗത്തിലേക്ക് പോകുക"
 
-#: ../data/gnome-clocks.desktop.in.h:4
-msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "സമയം;ടൈമര്‍;അലാറം;ലോക ഘടികാരം;സ്റ്റോപ്പ്‌വാച്ച്;സമയമേഖല;"
+#: data/gtk/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "പുറത്തു കടക്കുക"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:1
-msgid "Configured world clocks"
-msgstr "ക്രമീകരിച്ച ലോക ഘടികാരങ്ങള്‍"
+#: data/gtk/help-overlay.ui:42
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr "ലോകത്തിലെ മറ്റുസ്ഥലങ്ങളിലെ ക്ലോക്കുകൾ"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:2
-msgid "List of world clocks to show."
-msgstr "കാണിക്കേണ്ട ലോക ഘടികാരങ്ങളുടെ പട്ടിക."
+#: data/gtk/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Add a world clock"
+msgstr "പുതിയ ഒരു സ്ഥലത്തെ ക്ലോക്ക് ചേർക്കുക"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:3
-msgid "Configured alarms"
-msgstr "ക്രമീകരിച്ച അലാറമുകള്‍ "
+#: data/gtk/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "Select all world clocks"
+msgstr "ലോകത്തിലെ മറ്റുസ്ഥലങ്ങളിലുള്ള എല്ലാ ക്ലോക്കുകളും തിരഞ്ഞെടുക്കുക"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:4
-msgid "List of alarms set."
-msgstr "സജ്ജമാക്കിയ അലാറമുകളുടെ പട്ടിക."
-
-#: ../data/org.gnome.clocks.gschema.xml.in.h:5 ../src/timer.vala:49
-msgid "Timer"
-msgstr "ടൈമര്‍"
-
-#: ../data/org.gnome.clocks.gschema.xml.in.h:6
-msgid "Configured timer duration in seconds."
-msgstr "സെക്കന്റിലുള്ള ടൈമര്‍ ദൈര്‍ഖ്യം."
-
-#: ../src/alarm.vala:105 ../src/alarm.vala:327 ../src/alarm.vala:476
+#: data/gtk/help-overlay.ui:63
+msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "അലാറം"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:121 ../data/ui/alarm.ui.h:2
-msgid "Stop"
-msgstr "നിര്‍ത്തുക"
+#: data/gtk/help-overlay.ui:68
+msgctxt "shortcut window"
+msgid "Add an alarm"
+msgstr "ഒരു അലാറം ചേർക്കുക"
 
-#: ../src/alarm.vala:109 ../data/ui/alarm.ui.h:3
-msgid "Snooze"
-msgstr "സ്നൂസ്‌"
+#: data/gtk/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Select all alarms"
+msgstr "എല്ലാ അലാറങ്ങളും തിരഞ്ഞെടുക്കുക"
 
-#: ../src/alarm.vala:265
-msgid "Edit Alarm"
-msgstr "അലാറം മാറ്റം വരുത്തുക"
-
-#: ../src/alarm.vala:265
-msgid "New Alarm"
-msgstr "പുതിയ അലാറം"
-
-#: ../src/alarm.vala:267
-msgid "_Done"
-msgstr "പൂര്‍ത്തി_യായി"
-
-#. Translators: "New" refers to an alarm
-#. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:484 ../src/world.vala:281
-msgid "New"
-msgstr "പുതിയത്"
-
-#: ../src/launcher.vala:22
-msgid "Print version information and exit"
-msgstr "വേര്‍ഷന്‍ പ്രിന്‍റ് ചെയ്തു് പുറത്തു് കടക്കുക"
-
-#: ../src/stopwatch.vala:50
+#: data/gtk/help-overlay.ui:84
+msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "സ്റ്റോപ്പ്‌വാച്ച്"
 
-#: ../src/stopwatch.vala:124 ../data/ui/stopwatch.ui.h:3
-msgid "Lap"
-msgstr "ലാപ്പ്"
+#: data/gtk/help-overlay.ui:89
+msgctxt "shortcut window"
+msgid "Stop / Reset"
+msgstr "നിർത്തുക/പുനഃക്രമീകരിക്കുക"
 
-#: ../src/stopwatch.vala:131 ../src/timer.vala:88
-msgid "Continue"
-msgstr "തുടരുക"
+#: data/gtk/help-overlay.ui:98
+msgctxt "shortcut window"
+msgid "Timer"
+msgstr "ടൈമ"
 
-#: ../src/stopwatch.vala:135 ../data/ui/stopwatch.ui.h:2
-#: ../data/ui/timer.ui.h:3
+#: data/gtk/help-overlay.ui:103
+msgctxt "shortcut window"
 msgid "Reset"
-msgstr "പുനഃസ്ഥാപിക്കുക"
+msgstr "പുനഃക്രമീകരിക്കുക"
 
-#: ../src/stopwatch.vala:143 ../data/ui/stopwatch.ui.h:1
-#: ../data/ui/timer.ui.h:1
-msgid "Start"
-msgstr "ആരംഭിക്കുക"
+#: data/gtk/menus.ui:7
+msgid "_Keyboard Shortcuts"
+msgstr "കീബോർഡ് എളുപ്പവഴികൾ (_K)"
 
-#: ../src/timer.vala:53
-msgid "Time is up!"
-msgstr "സമയം തീര്‍ന്നു!"
+#: data/gtk/menus.ui:12
+msgid "_Help"
+msgstr "സഹായം (_H)"
 
-#: ../src/timer.vala:53
-msgid "Timer countdown finished"
-msgstr "ടൈമര്‍ കൌണ്ട്ഡൌണ്‍ തീര്‍ന്നു"
-
-#: ../src/timer.vala:93 ../src/timer.vala:103 ../data/ui/timer.ui.h:2
-msgid "Pause"
-msgstr "തല്ക്കാലവിരാമം"
-
-#: ../src/utils.vala:149
-msgid "Mondays"
-msgstr "തിങ്കളാഴ്ച്ചകള്‍"
-
-#: ../src/utils.vala:150
-msgid "Tuesdays"
-msgstr "ചൊവ്വാഴ്ച്ചകള്‍"
-
-#: ../src/utils.vala:151
-msgid "Wednesdays"
-msgstr "ബുധനാഴ്ച്ചകള്‍"
-
-#: ../src/utils.vala:152
-msgid "Thursdays"
-msgstr "വ്യാഴാഴ്ച്ചകള്‍"
-
-#: ../src/utils.vala:153
-msgid "Fridays"
-msgstr "വെള്ളിയാഴ്ച്ചകള്‍"
-
-#: ../src/utils.vala:154
-msgid "Saturdays"
-msgstr "ശനിയാഴ്ച്ചകള്‍"
-
-#: ../src/utils.vala:155
-msgid "Sundays"
-msgstr "ഞായറാഴ്ച്ചകള്‍"
-
-#: ../src/utils.vala:235
-msgid "Every Day"
-msgstr "എല്ലാ ദിവസവും"
-
-#: ../src/utils.vala:237
-msgid "Weekdays"
-msgstr "പ്രവൃത്തി ദിവസങ്ങള്‍"
-
-#: ../src/widgets.vala:386
-msgid "Done"
-msgstr "പൂര്‍ത്തിയായി"
-
-#: ../src/widgets.vala:398 ../src/widgets.vala:433
-msgid "Click on items to select them"
-msgstr "തിരഞ്ഞെടുക്കാനുള്ള ഇനങ്ങള്‍ ക്ലിക്ക് ചെയ്യുക"
-
-#: ../src/widgets.vala:435
-#, c-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "%d ഇനം തിരഞ്ഞെടുത്തിരിക്കുന്നു"
-msgstr[1] "%d ഇനങ്ങള്‍ തിരഞ്ഞെടുത്തിരിക്കുന്നു"
-
-#: ../src/widgets.vala:477
-msgid "Delete"
-msgstr "നീക്കം ചെയ്യുക"
-
-#: ../src/window.vala:145
-msgid "Utilities to help you with the time."
-msgstr "സമയവുമായി ബന്ധപെട്ട കാര്യങ്ങള്‍ക്ക് സഹായിക്കുന്ന ഉപകരണങ്ങള്‍"
-
-#: ../src/window.vala:150
-msgid "translator-credits"
-msgstr "എസ് എം സി, Razee Marikar, രാഗ് സാഗര്‍.വി, ജിഷ്ണു മോഹന്‍"
-
-#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:102 ../src/world.vala:105
-msgid "Tomorrow"
-msgstr "നാളെ"
-
-#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:102 ../src/world.vala:105
-msgid "Yesterday"
-msgstr "ഇന്നലെ"
-
-#: ../src/world.vala:172
-msgid "Add a New World Clock"
-msgstr "പുതിയ ലോക സമയ ഘടികാരം ചേര്‍ക്കുക"
-
-#: ../src/world.vala:270
-msgid "World"
-msgstr "ലോകം"
-
-#. namespace World
-#. namespace Clocks
-#: ../data/ui/alarm.ui.h:1
-msgid "Select <b>New</b> to add an alarm"
-msgstr "അലാറം ചേര്‍ക്കാന്‍ <b>പുതിയത്</b> തിരഞ്ഞെടുക്കുക"
-
-#: ../data/ui/alarm.ui.h:4
-msgid "Name"
-msgstr "പേര്"
-
-#: ../data/ui/alarm.ui.h:5
-msgid "Repeat Every"
-msgstr "എപ്പോള്‍ ആവര്‍ത്തിക്കണം"
-
-#: ../data/ui/alarm.ui.h:6
-msgid "Active"
-msgstr "സജീവം"
-
-#: ../data/ui/menu.ui.h:1
-msgid "_New"
-msgstr "_പുതിയ"
-
-#: ../data/ui/menu.ui.h:2
+#: data/gtk/menus.ui:17
 msgid "_About"
-msgstr "_സംബന്ധിച്ചു്"
+msgstr "വിവരം (_A)"
 
-#: ../data/ui/menu.ui.h:3
+#: data/gtk/menus.ui:21
 msgid "_Quit"
-msgstr "പുറത്ത്‌ _കടക്കുക"
+msgstr "പുറത്ത്‌ കടക്കുക (_Q)"
 
-#: ../data/ui/menu.ui.h:4
+#: data/gtk/menus.ui:31
 msgid "Select All"
-msgstr "എല്ലാം തെരഞ്ഞെടുക്കുക"
+msgstr "എല്ലാം തിരഞ്ഞെടുക്കുക"
 
-#: ../data/ui/menu.ui.h:5
+#: data/gtk/menus.ui:36
 msgid "Select None"
 msgstr "ഒന്നും തിരഞ്ഞെടുക്കാതിരിക്കുക"
 
-#: ../data/ui/stopwatch.ui.h:4
-msgid "Split"
-msgstr "വിഭജിക്കുക"
+#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
+msgid "GNOME Clocks"
+msgstr "ഗ്നോം ക്ലോക്കുകൾ"
 
-#: ../data/ui/stopwatch.ui.h:5
-msgid "Total"
-msgstr "ആകെ"
+#: data/org.gnome.clocks.appdata.xml.in:7 data/org.gnome.clocks.desktop.in:6
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "ലോകത്തെവിടെയുമുള്ള സമയം കാണിയ്ക്കുന്ന ക്ലോക്കുകൾ, അലാറങ്ങൾ, സ്റ്റോപ്പ്‌വാച്ച്, ടൈമര്‍ എന്നിവയും"
 
-#: ../data/ui/world.ui.h:1
-msgid "Select <b>New</b> to add a world clock"
-msgstr "ലോക സമയ ഘടികാരം ചേര്‍ക്കാന്‍ <b>പുതിയത്</b> തിരഞ്ഞെടുക്കുക"
+#: data/org.gnome.clocks.appdata.xml.in:9
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a stopwatch and a "
+"timer."
+msgstr ""
+"ലളിതവും മികച്ചതുമായ ഒരു ക്ലോക്ക് പ്രയോഗം. ലോകത്തുള്ള സ്ഥലങ്ങളിലെ ക്ലോക്കുകൾ, അലാറങ്ങൾ, സ്റ്റോപ്‌വാച്ച്, ടൈമർ എന്നിവ "
+"ഉൾപ്പെടുന്നത്."
 
-#: ../data/ui/world.ui.h:2
+#: data/org.gnome.clocks.appdata.xml.in:13
+msgid "Goals:"
+msgstr "ലക്ഷ്യങ്ങൾ:"
+
+#: data/org.gnome.clocks.appdata.xml.in:15
+msgid "Show the time in different cities around the world"
+msgstr "ലോകത്തുള്ള വിവിധ നഗരങ്ങളിലെ സമയം കാണിക്കുക"
+
+#: data/org.gnome.clocks.appdata.xml.in:16
+msgid "Set alarms to wake you up"
+msgstr "നിങ്ങളെ ഉണർത്താൻ അലാറങ്ങൾ ക്രമീകരിക്കുക"
+
+#: data/org.gnome.clocks.appdata.xml.in:17
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "കഴിഞ്ഞുപോയ സമയം ഒരു കൃത്യതയാർന്ന സ്റ്റോപ്‌വാച്ച് ഉപയോഗിച്ച് അളക്കുക"
+
+#: data/org.gnome.clocks.appdata.xml.in:18
+msgid "Set timers to properly cook your food"
+msgstr "നിങ്ങളുടെ ആഹാരം കൃത്യമായി പാകം ചെയ്യാനായി ടൈമറുകൾ ക്രമീകരിക്കുക"
+
+#: data/org.gnome.clocks.appdata.xml.in:33
+msgid "Initial screen"
+msgstr "പ്രാരംഭജാലകം"
+
+#: data/org.gnome.clocks.appdata.xml.in:37
+msgid "Alarms screen"
+msgstr "അലാറങ്ങളുടെ ജാലകം"
+
+#: data/org.gnome.clocks.appdata.xml.in:41
+msgid "Alarms setup"
+msgstr "അലാറങ്ങളുടെ ക്രമീകരണം"
+
+#: data/org.gnome.clocks.appdata.xml.in:45
+msgid "Stopwatch screen"
+msgstr "സ്റ്റോപ്പ്‌വാച്ച് സ്ക്രീൻ"
+
+#: data/org.gnome.clocks.appdata.xml.in:49
+msgid "Timer screen"
+msgstr "ടൈമറിന്റെ ജാലകം"
+
+#: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4 data/ui/window.ui:5
+#: src/window.vala:64 src/window.vala:251 src/world.vala:495
+msgid "Clocks"
+msgstr "ക്ലോക്കുകൾ"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.clocks.desktop.in:8
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr "time;timer;alarm;world clock;stopwatch;time zone;"
+
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.clocks.desktop.in:11
+msgid "org.gnome.clocks"
+msgstr "org.gnome.clocks"
+
+#: data/org.gnome.clocks.desktop.in:18
+msgid "Allows world clocks to be displayed for your time zone."
+msgstr "താങ്കളുടെ സമയമേഖലയ്ക്കനുസരിച്ച് ലോകത്തെ മറ്റു സ്ഥലങ്ങളിലെ ക്ലോക്കുകൾ പ്രദർശിപ്പിക്കാൻ അനുവദിക്കുന്നു."
+
+#: data/org.gnome.clocks.gschema.xml.in:5
+msgid "Configured world clocks"
+msgstr "ക്രമീകരിച്ച ലോകത്തെ മറ്റു സ്ഥലങ്ങളിലെ ക്ലോക്കുകൾ"
+
+#: data/org.gnome.clocks.gschema.xml.in:6
+msgid "List of world clocks to show."
+msgstr "ലോകത്തെ കാണിക്കേണ്ട മറ്റു സ്ഥലങ്ങളിലെ ക്ലോക്കുകളുടെ പട്ടിക."
+
+#: data/org.gnome.clocks.gschema.xml.in:12
+msgid "Configured alarms"
+msgstr "ക്രമീകരിച്ച അലാറങ്ങൾ"
+
+#: data/org.gnome.clocks.gschema.xml.in:13
+msgid "List of alarms set."
+msgstr "സജ്ജമാക്കിയ അലാറമുകളുടെ പട്ടിക."
+
+#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:115
+msgid "Timer"
+msgstr "ടൈമര്‍"
+
+#: data/org.gnome.clocks.gschema.xml.in:20
+msgid "Configured timer duration in seconds."
+msgstr "സെക്കന്റിലുള്ള ടൈമര്‍ ദൈര്‍ഖ്യം."
+
+#: data/org.gnome.clocks.gschema.xml.in:26
+msgid "Geolocation support"
+msgstr "ജിയോലൊക്കേഷൻ പിന്തുണ"
+
+#: data/org.gnome.clocks.gschema.xml.in:27
+msgid "Turn geolocation support on and off."
+msgstr "ജിയോലൊക്കേഷൻ പിന്തുണ ഓണാക്കുകയോ ഓഫാക്കുകയോ ചെയ്യുക."
+
+#: data/org.gnome.clocks.gschema.xml.in:44
+msgid "Window state"
+msgstr "ജാലകത്തിന്റെ അവസ്ഥ"
+
+#: data/org.gnome.clocks.gschema.xml.in:45
+msgid "State of the window, e.g. maximized."
+msgstr "ജാലകത്തിന്റെ അവസ്ഥ, ഉദാ: വലുതാക്കിയത്."
+
+#: data/org.gnome.clocks.gschema.xml.in:51
+msgid "Window width and height"
+msgstr "ജാലകത്തിന്റെ നീളവും വീതിയും"
+
+#: data/org.gnome.clocks.gschema.xml.in:52
+msgid "Width and height of the window."
+msgstr "ജാലകത്തിന്റെ നീളവും വീതിയും."
+
+#: data/org.gnome.clocks.gschema.xml.in:58
+msgid "Panel state"
+msgstr "പാളിയുടെ അവസ്ഥ"
+
+#: data/org.gnome.clocks.gschema.xml.in:59
+msgid "Current clock panel."
+msgstr "ഇപ്പോഴത്തെ ക്ലോക്ക് പാളി."
+
+#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:199
+msgid "Stop"
+msgstr "നിര്‍ത്തുക"
+
+#: data/ui/alarmringing.ui:59 src/alarm.vala:119
+msgid "Snooze"
+msgstr "സ്നൂസ്‌"
+
+#: data/ui/alarmsetupdialog.ui:27 data/ui/worldlocationdialog.ui:17
+msgid "Add a New World Clock"
+msgstr "ലോകത്തിലെ മറ്റുള്ള സ്ഥലങ്ങളിലെ ഒരു പുതിയ ക്ലോക്ക് ചേർക്കുക"
+
+#: data/ui/alarmsetupdialog.ui:31 data/ui/worldlocationdialog.ui:21
+msgid "_Cancel"
+msgstr "റദ്ദാക്കുക (_C)"
+
+#: data/ui/alarmsetupdialog.ui:47
+msgid "_Done"
+msgstr "പൂര്‍ത്തിയായി (_D)"
+
+#: data/ui/alarmsetupdialog.ui:199
+msgid "You already have an alarm for this time."
+msgstr "ഈ സമയത്ത് താങ്കൾക്ക് ഒരു അലാറം നിലവിലുണ്ട്."
+
+#: data/ui/alarmsetupdialog.ui:227
+msgid "Name"
+msgstr "പേര്"
+
+#: data/ui/alarmsetupdialog.ui:241
+msgid "Repeat Every"
+msgstr "എപ്പോള്‍ ആവര്‍ത്തിക്കണം"
+
+#: data/ui/alarmsetupdialog.ui:295
+msgid "Active"
+msgstr "സജീവം"
+
+#: data/ui/alarm.ui:32
+msgid "Select <b>New</b> to add an alarm"
+msgstr "അലാറം ചേര്‍ക്കാന്‍ <b>പുതിയത്</b> തിരഞ്ഞെടുക്കുക"
+
+#: data/ui/stopwatch.ui:54 data/ui/timer.ui:194 src/stopwatch.vala:221
+msgid "Start"
+msgstr "ആരംഭിക്കുക"
+
+#: data/ui/stopwatch.ui:72 data/ui/timer.ui:415 src/stopwatch.vala:213
+msgid "Reset"
+msgstr "പുനഃക്രമീകരിക്കുക"
+
+#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
+msgid "Pause"
+msgstr "താൽക്കാലികമായി നിർത്തുക"
+
+#: data/ui/worldlocationdialog.ui:37
+msgid "_Add"
+msgstr "ചേർക്കുക (_A)"
+
+#: data/ui/worldlocationdialog.ui:76
 msgid "Search for a city:"
-msgstr "ഒരു നഗരം തേടുക:"
+msgstr "ഒരു നഗരം തിരയുക:"
 
-#: ../data/ui/world.ui.h:3
+#: data/ui/world.ui:32
+msgid "Select <b>New</b> to add a world clock"
+msgstr "ലോകത്തെ മറ്റുള്ള സ്ഥലങ്ങളിലെ ഒരു ക്ലോക്ക് ചേര്‍ക്കാന്‍ <b>പുതിയത്</b> തിരഞ്ഞെടുക്കുക"
+
+#: data/ui/world.ui:123
 msgid "Sunrise"
 msgstr "സൂര്യോദയം"
 
-#: ../data/ui/world.ui.h:4
+#: data/ui/world.ui:137
 msgid "Sunset"
 msgstr "സൂര്യാസ്തമയം"
 
-#~ msgid "Gnome Clocks"
-#~ msgstr "ഗ്നോം ഘടികാരങ്ങള്‍"
+#: src/alarm.vala:116 src/alarm.vala:416 src/alarm.vala:595
+msgid "Alarm"
+msgstr "അലാറം"
+
+#: src/alarm.vala:350
+msgid "Edit Alarm"
+msgstr "അലാറം തിരുത്തുക"
+
+#: src/alarm.vala:350
+msgid "New Alarm"
+msgstr "പുതിയ അലാറം"
+
+#. Translators: "New" refers to an alarm
+#: src/alarm.vala:624
+msgctxt "Alarm"
+msgid "New"
+msgstr "പുതിയത്"
+
+#: src/application.vala:23
+msgid "Print version information and exit"
+msgstr "പതിപ്പു് വിവരം പ്രിന്റ് ചെയ്തു് പുറത്തു് കടക്കുക"
+
+#: src/stopwatch.vala:139
+msgid "Stopwatch"
+msgstr "സ്റ്റോപ്പ്‌വാച്ച്"
+
+#: src/stopwatch.vala:202
+msgid "Lap"
+msgstr "ലാപ്പ്"
+
+#: src/stopwatch.vala:209 src/timer.vala:208
+msgid "Continue"
+msgstr "തുടരുക"
+
+#: src/timer.vala:127
+msgid "Time is up!"
+msgstr "സമയം തീര്‍ന്നു!"
+
+#: src/timer.vala:128
+msgid "Timer countdown finished"
+msgstr "ടൈമര്‍ കൌണ്ട്ഡൌണ്‍ തീര്‍ന്നു"
+
+#: src/utils.vala:168
+msgid "Mondays"
+msgstr "തിങ്കളാഴ്ച്ചകള്‍"
+
+#: src/utils.vala:169
+msgid "Tuesdays"
+msgstr "ചൊവ്വാഴ്ചകൾ"
+
+#: src/utils.vala:170
+msgid "Wednesdays"
+msgstr "ബുധനാഴ്ച്ചകള്‍"
+
+#: src/utils.vala:171
+msgid "Thursdays"
+msgstr "വ്യാഴാഴ്ച്ചകള്‍"
+
+#: src/utils.vala:172
+msgid "Fridays"
+msgstr "വെള്ളിയാഴ്ച്ചകള്‍"
+
+#: src/utils.vala:173
+msgid "Saturdays"
+msgstr "ശനിയാഴ്ച്ചകള്‍"
+
+#: src/utils.vala:174
+msgid "Sundays"
+msgstr "ഞായറാഴ്ച്ചകള്‍"
+
+#: src/utils.vala:254
+msgid "Every Day"
+msgstr "എല്ലാ ദിവസവും"
+
+#: src/utils.vala:256
+msgid "Weekdays"
+msgstr "പ്രവൃത്തിദിനങ്ങൾ"
+
+#: src/utils.vala:258
+msgid "Weekends"
+msgstr "വാരാന്ത്യം"
+
+#: src/widgets.vala:232 src/widgets.vala:247
+msgid "Click on items to select them"
+msgstr "ഇനങ്ങൾ തിരഞ്ഞെടുക്കാൻ അവയിൽ ക്ലിക്ക് ചെയ്യുക"
+
+#: src/widgets.vala:234
+#, c-format
+msgid "%u selected"
+msgid_plural "%u selected"
+msgstr[0] "%u തിരഞ്ഞെടുത്തിരിക്കുന്നു"
+msgstr[1] "%u തിരഞ്ഞെടുത്തിരിക്കുന്നു"
+
+#: src/widgets.vala:333
+msgid "Delete"
+msgstr "നീക്കം ചെയ്യുക"
+
+#: src/widgets.vala:477
+msgid "Cancel"
+msgstr "റദ്ദാക്കുക"
+
+#: src/window.vala:224
+#, c-format
+msgid "Failed to show help: %s"
+msgstr "സഹായം ലഭ്യമാക്കാൻ സാധിച്ചില്ല: %s"
+
+#: src/window.vala:254
+msgid "Utilities to help you with the time."
+msgstr "സമയവുമായി ബന്ധപെട്ട കാര്യങ്ങള്‍ക്ക് സഹായിക്കുന്ന ഉപകരണങ്ങള്‍."
+
+#: src/window.vala:259
+msgid "translator-credits"
+msgstr "എസ് എം സി, Razee Marikar, രാഗ് സാഗര്‍.വി, ജിഷ്ണു മോഹന്‍, ബാലശങ്കർ സി <balasankarc@autistici.org>"
+
+#. If it is Jan 1st there, and not Jan 2nd here, then it must be
+#. Dec 31st here, so return "tomorrow"
+#: src/world.vala:122 src/world.vala:126
+msgid "Tomorrow"
+msgstr "നാളെ"
+
+#. If it is Jan 1st here, and not Jan 2nd there, then it must be
+#. Dec 31st there, so return "yesterday"
+#: src/world.vala:122 src/world.vala:126
+msgid "Yesterday"
+msgstr "ഇന്നലെ"
+
+#: src/world.vala:300
+msgid "World"
+msgstr "ലോകം"
+
+#. Translators: "New" refers to a world clock
+#: src/world.vala:319
+msgctxt "World clock"
+msgid "New"
+msgstr "പുതിയത്"
+
+#~ msgid "Done"
+#~ msgstr "പൂര്‍ത്തിയായി"
+
+#~ msgid "_New"
+#~ msgstr "_പുതിയ"
+
+#~ msgid "Split"
+#~ msgstr "വിഭജിക്കുക"
+
+#~ msgid "Total"
+#~ msgstr "ആകെ"
 
 #~ msgid "Time"
 #~ msgstr "സമയം"
