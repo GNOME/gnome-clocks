@@ -5,12 +5,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-01-18 21:55+0000\n"
-"PO-Revision-Date: 2017-02-21 06:38+0200\n"
+"POT-Creation-Date: 2017-07-29 16:24+0000\n"
+"PO-Revision-Date: 2017-08-14 20:40+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
-"Language-Team: Serbian <(nothing)>\n"
+"Language-Team: srpski <gnome-sr@googlegroups.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -149,9 +149,30 @@ msgstr "Meri proteklo vreme preciznom štopericom"
 msgid "Set timers to properly cook your food"
 msgstr "Podešava odbrojavače da ispravno spreme vašu hranu"
 
+#: data/org.gnome.clocks.appdata.xml.in:33
+msgid "Initial screen"
+msgstr "Početni ekran"
+
+#: data/org.gnome.clocks.appdata.xml.in:37
+msgid "Alarms screen"
+msgstr "Ekran upozorenja"
+
+#: data/org.gnome.clocks.appdata.xml.in:41
+msgid "Alarms setup"
+msgstr "Podešavanje upozorenja"
+
+#: data/org.gnome.clocks.appdata.xml.in:45
+#| msgid "Stopwatch"
+msgid "Stopwatch screen"
+msgstr "Ekran štoperice"
+
+#: data/org.gnome.clocks.appdata.xml.in:49
+msgid "Timer screen"
+msgstr "Ekran odbrojavača"
+
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:248
-#: src/world.vala:455
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
+#: src/world.vala:495
 msgid "Clocks"
 msgstr "Satovi"
 
@@ -225,11 +246,11 @@ msgstr "Stanje panela"
 msgid "Current clock panel."
 msgstr "Panel trenutnog sata."
 
-#: data/ui/alarmringing.ui:39 src/alarm.vala:119 src/stopwatch.vala:199
+#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:199
 msgid "Stop"
 msgstr "Zaustavi"
 
-#: data/ui/alarmringing.ui:59 src/alarm.vala:120
+#: data/ui/alarmringing.ui:59 src/alarm.vala:119
 msgid "Snooze"
 msgstr "Dremaj"
 
@@ -261,7 +282,7 @@ msgstr "Ponavljaj"
 msgid "Active"
 msgstr "Radan"
 
-#: data/ui/alarm.ui:31
+#: data/ui/alarm.ui:32
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Izaberite <b>Novi</b> da dodate budilnik"
 
@@ -285,33 +306,32 @@ msgstr "_Dodaj"
 msgid "Search for a city:"
 msgstr "Potraži grad:"
 
-#: data/ui/world.ui:31
+#: data/ui/world.ui:32
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Izaberite <b>Novi</b> da dodate svetski sat"
 
-#: data/ui/world.ui:122
+#: data/ui/world.ui:123
 msgid "Sunrise"
 msgstr "Sunce izlazi u"
 
-#: data/ui/world.ui:136
+#: data/ui/world.ui:137
 msgid "Sunset"
 msgstr "Sunce zalazi u"
 
-#: src/alarm.vala:117 src/alarm.vala:378 src/alarm.vala:547
+#: src/alarm.vala:116 src/alarm.vala:416 src/alarm.vala:595
 msgid "Alarm"
 msgstr "Budilnik"
 
-#: src/alarm.vala:312
+#: src/alarm.vala:350
 msgid "Edit Alarm"
 msgstr "Uredi budilnik"
 
-#: src/alarm.vala:312
+#: src/alarm.vala:350
 msgid "New Alarm"
 msgstr "Novi budilnik"
 
 #. Translators: "New" refers to an alarm
-#: src/alarm.vala:576
-#| msgid "New"
+#: src/alarm.vala:624
 msgctxt "Alarm"
 msgid "New"
 msgstr "Nov"
@@ -380,14 +400,12 @@ msgstr "radnim danima"
 msgid "Weekends"
 msgstr "vikendom"
 
-#: src/widgets.vala:538 src/widgets.vala:553
+#: src/widgets.vala:232 src/widgets.vala:247
 msgid "Click on items to select them"
 msgstr "Pritisnite na stavke da ih izaberete"
 
-#: src/widgets.vala:540
+#: src/widgets.vala:234
 #, c-format
-#| msgid "%d selected"
-#| msgid_plural "%d selected"
 msgid "%u selected"
 msgid_plural "%u selected"
 msgstr[0] "Izabrana je %u stavka"
@@ -395,24 +413,24 @@ msgstr[1] "Izabrane su %u stavke"
 msgstr[2] "Izabrano je %u stavki"
 msgstr[3] "Izabrana je jedna stavka"
 
-#: src/widgets.vala:612
+#: src/widgets.vala:333
 msgid "Delete"
 msgstr "Obriši"
 
-#: src/widgets.vala:710
+#: src/widgets.vala:477
 msgid "Cancel"
 msgstr "Otkaži"
 
-#: src/window.vala:221
+#: src/window.vala:224
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Nisam uspeo da prikažem pomoć: %s"
 
-#: src/window.vala:251
+#: src/window.vala:254
 msgid "Utilities to help you with the time."
 msgstr "Alatke koje će vam pomoći sa vremenom."
 
-#: src/window.vala:256
+#: src/window.vala:259
 msgid "translator-credits"
 msgstr ""
 "  Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
@@ -421,23 +439,22 @@ msgstr ""
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:109 src/world.vala:113
+#: src/world.vala:122 src/world.vala:126
 msgid "Tomorrow"
 msgstr "Sutra"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:109 src/world.vala:113
+#: src/world.vala:122 src/world.vala:126
 msgid "Yesterday"
 msgstr "Juče"
 
-#: src/world.vala:260
+#: src/world.vala:300
 msgid "World"
 msgstr "Svet"
 
 #. Translators: "New" refers to a world clock
-#: src/world.vala:282
-#| msgid "New"
+#: src/world.vala:319
 msgctxt "World clock"
 msgid "New"
 msgstr "Nov"
