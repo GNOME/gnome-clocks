@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-02-22 08:22+0000\n"
-"PO-Revision-Date: 2017-02-23 13:35+0100\n"
+"POT-Creation-Date: 2017-07-29 16:24+0000\n"
+"PO-Revision-Date: 2017-08-22 16:16+0200\n"
 "Last-Translator: Charles Monzat <superboa@hotmail.fr>\n"
 "Language-Team: français <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -156,9 +156,29 @@ msgstr "Mesurer le temps écoulé avec un chonomètre précis"
 msgid "Set timers to properly cook your food"
 msgstr "Régler des minuteurs pour bien cuire vos aliments"
 
+#: data/org.gnome.clocks.appdata.xml.in:33
+msgid "Initial screen"
+msgstr "Écran initial"
+
+#: data/org.gnome.clocks.appdata.xml.in:37
+msgid "Alarms screen"
+msgstr "Écran des alarmes"
+
+#: data/org.gnome.clocks.appdata.xml.in:41
+msgid "Alarms setup"
+msgstr "Définition d’alarmes"
+
+#: data/org.gnome.clocks.appdata.xml.in:45
+msgid "Stopwatch screen"
+msgstr "Écran du chronomètre"
+
+#: data/org.gnome.clocks.appdata.xml.in:49
+msgid "Timer screen"
+msgstr "Écran du minuteur"
+
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:248
-#: src/world.vala:455
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
+#: src/world.vala:495
 msgid "Clocks"
 msgstr "Horloges"
 
@@ -233,11 +253,11 @@ msgstr "État du panneau"
 msgid "Current clock panel."
 msgstr "Panneau d'horloge actuel."
 
-#: data/ui/alarmringing.ui:39 src/alarm.vala:119 src/stopwatch.vala:199
+#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:199
 msgid "Stop"
 msgstr "Arrêter"
 
-#: data/ui/alarmringing.ui:59 src/alarm.vala:120
+#: data/ui/alarmringing.ui:59 src/alarm.vala:119
 msgid "Snooze"
 msgstr "Répéter"
 
@@ -269,7 +289,7 @@ msgstr "Répéter chaque"
 msgid "Active"
 msgstr "Activer"
 
-#: data/ui/alarm.ui:31
+#: data/ui/alarm.ui:32
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Selectionner <b>Nouvelle</b> pour ajouter une alarme"
 
@@ -293,32 +313,32 @@ msgstr "_Ajouter"
 msgid "Search for a city:"
 msgstr "Rechercher une ville :"
 
-#: data/ui/world.ui:31
+#: data/ui/world.ui:32
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Selectionner <b>Nouvelle</b> pour ajouter une horloge mondiale"
 
-#: data/ui/world.ui:122
+#: data/ui/world.ui:123
 msgid "Sunrise"
 msgstr "Lever du soleil"
 
-#: data/ui/world.ui:136
+#: data/ui/world.ui:137
 msgid "Sunset"
 msgstr "Coucher du soleil"
 
-#: src/alarm.vala:117 src/alarm.vala:378 src/alarm.vala:547
+#: src/alarm.vala:116 src/alarm.vala:416 src/alarm.vala:595
 msgid "Alarm"
 msgstr "Alarme"
 
-#: src/alarm.vala:312
+#: src/alarm.vala:350
 msgid "Edit Alarm"
 msgstr "Modifier l'alarme"
 
-#: src/alarm.vala:312
+#: src/alarm.vala:350
 msgid "New Alarm"
 msgstr "Nouvelle alarme"
 
 #. Translators: "New" refers to an alarm
-#: src/alarm.vala:576
+#: src/alarm.vala:624
 msgctxt "Alarm"
 msgid "New"
 msgstr "Nouvelle"
@@ -387,37 +407,35 @@ msgstr "En semaine"
 msgid "Weekends"
 msgstr "Les fins de semaine"
 
-#: src/widgets.vala:538 src/widgets.vala:553
+#: src/widgets.vala:232 src/widgets.vala:247
 msgid "Click on items to select them"
 msgstr "Cliquer sur un élément pour le sélectionner"
 
-#: src/widgets.vala:540
+#: src/widgets.vala:234
 #, c-format
-#| msgid "%d selected"
-#| msgid_plural "%d selected"
 msgid "%u selected"
 msgid_plural "%u selected"
 msgstr[0] "%u sélectionné"
 msgstr[1] "%u sélectionnés"
 
-#: src/widgets.vala:612
+#: src/widgets.vala:333
 msgid "Delete"
 msgstr "Supprimer"
 
-#: src/widgets.vala:710
+#: src/widgets.vala:477
 msgid "Cancel"
 msgstr "Annuler"
 
-#: src/window.vala:221
+#: src/window.vala:224
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Impossible d'afficher l'aide : %s"
 
-#: src/window.vala:251
+#: src/window.vala:254
 msgid "Utilities to help you with the time."
 msgstr "Des utilitaires pour vous aider à gérer le temps."
 
-#: src/window.vala:256
+#: src/window.vala:259
 msgid "translator-credits"
 msgstr ""
 "Maël Lavault\n"
@@ -427,22 +445,22 @@ msgstr ""
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:109 src/world.vala:113
+#: src/world.vala:122 src/world.vala:126
 msgid "Tomorrow"
 msgstr "Demain"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:109 src/world.vala:113
+#: src/world.vala:122 src/world.vala:126
 msgid "Yesterday"
 msgstr "Hier"
 
-#: src/world.vala:260
+#: src/world.vala:300
 msgid "World"
 msgstr "Monde"
 
 #. Translators: "New" refers to a world clock
-#: src/world.vala:282
+#: src/world.vala:319
 msgctxt "World clock"
 msgid "New"
 msgstr "Nouvelle"
