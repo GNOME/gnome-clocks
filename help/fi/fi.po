@@ -6,21 +6,23 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"POT-Creation-Date: 2014-02-04 07:35+0000\n"
-"PO-Revision-Date: 2014-01-26 10:28+0200\n"
-"Last-Translator: Sami Jaktholm <sjakthol@outlook.com>\n"
+"POT-Creation-Date: 2017-06-28 17:42+0000\n"
+"PO-Revision-Date: 2017-09-02 15:40+0300\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Sami Jaktholm <sjakthol@outlook.com>, 2014"
+msgstr ""
+"Jiri Grönroos\n"
+"Sami Jaktholm <sjakthol@outlook.com>, 2014"
 
 #. (itstool) path: credit/name
 #: C/alarm-add.page:14 C/alarm-edit.page:14 C/alarm-remove.page:15
@@ -343,18 +345,23 @@ msgstr ""
 "\">Tauko</gui>-painikkeesta. Ajastimen nollaaminen onnistuu <gui style="
 "\"button\">Nollaa</gui>-painikkeella."
 
-#. (itstool) path: info/desc
+#. (itstool) path: credit/name
 #: C/world-add.page:24
+msgid "Michael Hill"
+msgstr "Michael Hill"
+
+#. (itstool) path: info/desc
+#: C/world-add.page:28
 msgid "Add a clock for a new city to your world clocks list."
 msgstr "Uuden kaupungin lisääminen maailman kellojen luetteloon."
 
 #. (itstool) path: page/title
-#: C/world-add.page:27
+#: C/world-add.page:31
 msgid "Add a new city clock"
 msgstr "Kaupungin kellon lisääminen"
 
 #. (itstool) path: page/p
-#: C/world-add.page:29
+#: C/world-add.page:33
 msgid ""
 "Add a city to your world clocks to see the time of day or night in that "
 "city. You will also be able to <link xref=\"world-check\">check the sunrise "
@@ -365,12 +372,12 @@ msgstr ""
 "\">auringon nousu- ja laskuajat</link> voidaan myös tarkistaa."
 
 #. (itstool) path: item/p
-#: C/world-add.page:35 C/world-check.page:35 C/world-remove.page:33
+#: C/world-add.page:39 C/world-check.page:35 C/world-remove.page:33
 msgid "Press the <gui style=\"button\">World</gui> button."
 msgstr "Napsauta <gui style=\"button\">Maailma</gui>-painiketta."
 
 #. (itstool) path: item/p
-#: C/world-add.page:38
+#: C/world-add.page:42
 msgid ""
 "Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> to add a new city."
@@ -379,23 +386,23 @@ msgstr ""
 "key></keyseq> lisätäksesi uuden kaupungin."
 
 #. (itstool) path: item/p
-#: C/world-add.page:42
+#: C/world-add.page:46
 msgid "Start typing the name of the city into the search."
 msgstr "Aloita kaupungin nimen kirjoittaminen hakukenttään."
 
 #. (itstool) path: item/p
-#: C/world-add.page:45
+#: C/world-add.page:49
 msgid "Select the correct city or the closest location to you from the list."
 msgstr "Valitse oikea tai lähinnä sijaitseva kaupunki luettelosta."
 
 #. (itstool) path: item/p
-#: C/world-add.page:49
+#: C/world-add.page:53
 msgid "Press <gui style=\"button\">Add</gui> to finish adding the city."
 msgstr ""
 "Napsauta <gui style=\"button\">Lisää</gui> päättääksesi kaupungin lisäämisen."
 
 #. (itstool) path: page/p
-#: C/world-add.page:53
+#: C/world-add.page:57
 msgid ""
 "If you do not see your city in the list, it is probably not available at "
 "this time. You should try adding the closest bigger city or the capital of "
@@ -406,16 +413,16 @@ msgstr ""
 "yritetyn sijasta."
 
 #. (itstool) path: note/p
-#: C/world-add.page:58
+#: C/world-add.page:62
 msgid ""
 "The clock for your current location will automatically be added to your "
-"world clocks when you are connected to the Internet. Not be shown if you "
-"disconnect from the Internet and will automatically update if you take your "
-"computer to a different city."
+"world clocks when you are connected to the Internet. It will not be shown if "
+"you disconnect from the Internet and it will automatically update if you "
+"take your computer to a different city."
 msgstr ""
 "Nykyinen sijaintisi lisätään automaattisesti maailman kellojen luetteloon "
-"ollessasi yhteydessä internetiin. Sitä ei näytetä, jos yhteys katkeaa ja se "
-"päivitetään automaattisesti sijainnin muuttuessa."
+"ollessasi yhteydessä internetiin. Sitä ei näytetä, jos yhteys internetiin "
+"katkeaa. Kellonaika päivitetään automaattisesti aikavyöhykkeen muuttuessa."
 
 #. (itstool) path: info/desc
 #: C/world-check.page:24
@@ -433,9 +440,9 @@ msgid ""
 "Apart from checking the time, you can also view the sunrise and sunset times "
 "for today. You will also see if the city is a day behind or ahead of you."
 msgstr ""
-"Ajan tarkastamisen lisäksi <app>Kellot</app> kykenee näyttämään auringon "
-"nousu- ja laskuajat, sekä mahdollisesti nykyisestä sijainnista eroavan "
-"viikonpäivän."
+"Ajan tarkastamisen lisäksi <app>Kellot</app> kykenee näyttämään "
+"auringonnousu- ja laskuajat, sekä mahdollisesti nykyisestä sijainnista "
+"eroavan viikonpäivän."
 
 #. (itstool) path: item/p
 #: C/world-check.page:38
@@ -544,7 +551,7 @@ msgstr "Aseta sekunteja, minuutteja tai tunteja kestävä ajastin."
 #. (itstool) path: p/link
 #: C/legal.xml:4
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
-msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported Lisenssi"
+msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported -lisenssi"
 
 #. (itstool) path: license/p
 #: C/legal.xml:3
