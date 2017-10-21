@@ -7,22 +7,23 @@
 # Aron Xu <aronxu@gnome.org>, 2012.
 # 甘露(Lu Gan) <rhythm.gan@gmail.com>，2013
 # sphinx <yishanj@gmail.com>, 2014.
+# Dingzhong Chen <wsxy162@gmail.com>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-12-27 16:54+0000\n"
-"PO-Revision-Date: 2017-01-11 20:48+0800\n"
-"Last-Translator: Jeff Bai <jeffbai@aosc.xyz>\n"
-"Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
+"POT-Creation-Date: 2017-08-15 17:28+0000\n"
+"PO-Revision-Date: 2017-08-18 23:55+0800\n"
+"Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
+"Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -152,9 +153,29 @@ msgstr "用精确的秒表计量花费的时间"
 msgid "Set timers to properly cook your food"
 msgstr "设置定时器帮您做好饭"
 
+#: data/org.gnome.clocks.appdata.xml.in:33
+msgid "Initial screen"
+msgstr "初始屏幕"
+
+#: data/org.gnome.clocks.appdata.xml.in:37
+msgid "Alarms screen"
+msgstr "闹钟屏幕"
+
+#: data/org.gnome.clocks.appdata.xml.in:41
+msgid "Alarms setup"
+msgstr "闹钟设置"
+
+#: data/org.gnome.clocks.appdata.xml.in:45
+msgid "Stopwatch screen"
+msgstr "秒表屏幕"
+
+#: data/org.gnome.clocks.appdata.xml.in:49
+msgid "Timer screen"
+msgstr "定时器屏幕"
+
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:248
-#: src/world.vala:455
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
+#: src/world.vala:495
 msgid "Clocks"
 msgstr "时钟"
 
@@ -229,11 +250,11 @@ msgstr "面板状态"
 msgid "Current clock panel."
 msgstr "当前时钟面板。"
 
-#: data/ui/alarmringing.ui:39 src/alarm.vala:119 src/stopwatch.vala:199
+#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:199
 msgid "Stop"
 msgstr "停止"
 
-#: data/ui/alarmringing.ui:59 src/alarm.vala:120
+#: data/ui/alarmringing.ui:59 src/alarm.vala:119
 msgid "Snooze"
 msgstr "贪睡"
 
@@ -265,7 +286,7 @@ msgstr "重复周期"
 msgid "Active"
 msgstr "活动"
 
-#: data/ui/alarm.ui:31
+#: data/ui/alarm.ui:32
 msgid "Select <b>New</b> to add an alarm"
 msgstr "选择<b>新建</b>以添加闹钟"
 
@@ -289,32 +310,32 @@ msgstr "填加(_A)"
 msgid "Search for a city:"
 msgstr "搜索城市："
 
-#: data/ui/world.ui:31
+#: data/ui/world.ui:32
 msgid "Select <b>New</b> to add a world clock"
 msgstr "选择<b>新建</b>以添加世界时钟"
 
-#: data/ui/world.ui:122
+#: data/ui/world.ui:123
 msgid "Sunrise"
 msgstr "日出"
 
-#: data/ui/world.ui:136
+#: data/ui/world.ui:137
 msgid "Sunset"
 msgstr "日落"
 
-#: src/alarm.vala:117 src/alarm.vala:378 src/alarm.vala:547
+#: src/alarm.vala:116 src/alarm.vala:416 src/alarm.vala:595
 msgid "Alarm"
 msgstr "闹钟"
 
-#: src/alarm.vala:312
+#: src/alarm.vala:350
 msgid "Edit Alarm"
 msgstr "编辑闹钟"
 
-#: src/alarm.vala:312
+#: src/alarm.vala:350
 msgid "New Alarm"
 msgstr "新建闹钟"
 
 #. Translators: "New" refers to an alarm
-#: src/alarm.vala:576
+#: src/alarm.vala:624
 msgctxt "Alarm"
 msgid "New"
 msgstr "新建"
@@ -383,60 +404,61 @@ msgstr "工作日"
 msgid "Weekends"
 msgstr "周末"
 
-#: src/widgets.vala:538 src/widgets.vala:553
+#: src/widgets.vala:232 src/widgets.vala:247
 msgid "Click on items to select them"
 msgstr "点击条目以选中它们"
 
-#: src/widgets.vala:540
+#: src/widgets.vala:234
 #, c-format
 msgid "%u selected"
 msgid_plural "%u selected"
 msgstr[0] "已选中 %u 个"
 
-#: src/widgets.vala:612
+#: src/widgets.vala:333
 msgid "Delete"
 msgstr "删除"
 
-#: src/widgets.vala:710
+#: src/widgets.vala:477
 msgid "Cancel"
 msgstr "取消"
 
-#: src/window.vala:221
+#: src/window.vala:224
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "无法显示帮助：%s"
 
-#: src/window.vala:251
+#: src/window.vala:254
 msgid "Utilities to help you with the time."
 msgstr "帮助您使用时间的工具。"
 
-#: src/window.vala:256
+#: src/window.vala:259
 msgid "translator-credits"
 msgstr ""
 "tuhaihe <1132321739qq@gmail.com>, 2012~2013\n"
 "Aron Xu <aronxu@gnome.org>, 2012\n"
 "YunQiang Su <wzssyqa@gmail.com>, 2012\n"
 "Boyuan Yang <073plan@gmail.com>, 2016\n"
-"Jeff Bai <jeffbai@aosc.xyz>, 2017"
+"Jeff Bai <jeffbai@aosc.xyz>, 2017\n"
+"Dingzhong Chen <wsxy162@gmail.com>, 2017"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:109 src/world.vala:113
+#: src/world.vala:122 src/world.vala:126
 msgid "Tomorrow"
 msgstr "明天"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:109 src/world.vala:113
+#: src/world.vala:122 src/world.vala:126
 msgid "Yesterday"
 msgstr "昨天"
 
-#: src/world.vala:260
+#: src/world.vala:300
 msgid "World"
 msgstr "世界"
 
 #. Translators: "New" refers to a world clock
-#: src/world.vala:282
+#: src/world.vala:319
 msgctxt "World clock"
 msgid "New"
 msgstr "新建"
