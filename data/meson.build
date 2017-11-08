@@ -36,7 +36,7 @@ custom_target('appdata-file',
   input: 'org.gnome.clocks.appdata.xml.in',
   output: 'org.gnome.clocks.appdata.xml',
   install: true,
-  install_dir: join_paths(get_option('datadir'), 'appdata'),
+  install_dir: join_paths(get_option('datadir'), 'metainfo'),
   command: [msgfmt, '--xml', '--template', '@INPUT@', '-d', podir, '-o', '@OUTPUT@'],
 )
 
