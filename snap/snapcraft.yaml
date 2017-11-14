@@ -28,6 +28,7 @@ apps:
       - desktop
       - desktop-legacy
       - gsettings
+      - pulseaudio
       - unity7
       - location-observe
       - wayland
@@ -44,6 +45,7 @@ parts:
     configflags: [--prefix=/snap/gnome-clocks/current/usr]
     organize:
       snap/gnome-clocks/current/usr: usr
+    build-attributes: ['no-system-libraries']
     build-packages:
       - gnome-common
       - gnome-pkg-tools
@@ -78,6 +80,7 @@ parts:
       mkdir -p $SNAPCRAFT_PART_INSTALL/meta/gui/
       cp ../src/data/icons/hicolor/256x256/apps/org.gnome.clocks.png $SNAPCRAFT_PART_INSTALL/meta/gui/
       cp _build/data/org.gnome.clocks.desktop $SNAPCRAFT_PART_INSTALL/meta/gui/
+    build-attributes: ['no-system-libraries']
     build-packages:
       - meson
       - desktop-file-utils
@@ -97,3 +100,14 @@ parts:
       - pkg-config
       - valac
       - yelp-tools
+
+  libraries:
+    plugin: nil
+    stage-packages:
+      - libgsound0
+      - libgeocode-glib0
+      - libgeoclue-2-0
+    prime:
+      - "usr/lib/*/libgsound.so.*"
+      - "usr/lib/*/libgeocode-glib.so.*"
+      - "usr/lib/*/libgeoclue-2.so.*"
