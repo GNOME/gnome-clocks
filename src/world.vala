@@ -77,12 +77,19 @@ public class Item : Object, ContentItem {
 
     public bool is_daytime {
          get {
-            return weather_info.is_daytime ();
+            if (weather_info != null) {
+                return weather_info.is_daytime ();
+            }
+            return true;
         }
     }
 
     public string sunrise_label {
         owned get {
+            if (weather_info == null) {
+                return "-";
+            }
+
             ulong sunrise;
             if (!weather_info.get_value_sunrise (out sunrise)) {
                 return "-";
@@ -95,6 +102,10 @@ public class Item : Object, ContentItem {
 
     public string sunset_label {
         owned get {
+            if (weather_info == null) {
+                return "-";
+            }
+
             ulong sunset;
             if (!weather_info.get_value_sunset (out sunset)) {
                 return "-";
@@ -153,9 +164,11 @@ public class Item : Object, ContentItem {
 
         // We don't use the normal constructor since we only want static data
         // and we do not want update() to be called.
-        weather_info = (GWeather.Info) Object.new (typeof (GWeather.Info),
-                                                   location: location,
-                                                   enabled_providers: GWeather.Provider.NONE);
+        if (location.has_coords ()) {
+            weather_info = (GWeather.Info) Object.new (typeof (GWeather.Info),
+                                                       location: location,
+                                                       enabled_providers: GWeather.Provider.NONE);
+        }
     }
 
     public void serialize (GLib.VariantBuilder builder) {
