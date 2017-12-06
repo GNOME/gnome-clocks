@@ -51,7 +51,12 @@ public class Item : Object, ContentItem {
 
     public string city_name {
         owned get {
-            return location.get_city_name ();
+            var city_name = location.get_city_name ();
+            /* Named Timezones don't have city names */
+            if (city_name == null) {
+                city_name = location.get_name ();
+            }
+            return city_name;
         }
     }
 
