@@ -73,7 +73,9 @@ public class SearchProvider : Object {
         GWeather.Location? []locations = location.get_children ();
         if (locations != null) {
             for (int i = 0; i < locations.length; i++) {
-                if (locations[i].get_level () == GWeather.LocationLevel.CITY) {
+                var level = locations[i].get_level ();
+                if (level == GWeather.LocationLevel.CITY ||
+                    level == GWeather.LocationLevel.NAMED_TIMEZONE) {
                     if (location_matches(locations[i], normalized_terms)) {
                         matches.add (locations[i]);
                     }
