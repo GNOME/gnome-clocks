@@ -28,7 +28,9 @@ public class Application : Gtk.Application {
         { "stop-alarm", null, "s" },
         { "snooze-alarm", null, "s" },
         { "quit", on_quit_activate },
-        { "add-location", on_add_location_activate, "v" }
+        { "add-location", on_add_location_activate, "v" },
+        { "activate-alarm", on_activate_alarm_activate, "s" },
+        { "activate-all-alarms", on_activate_all_alarms_activate }
     };
 
     private SearchProvider search_provider;
@@ -138,6 +140,27 @@ public class Application : Gtk.Application {
         if (location != null) {
             window.add_world_location (location);
         }
+    }
+
+    public void on_activate_all_alarms_activate (GLib.SimpleAction action, GLib.Variant? parameter) {
+        /* This is run as part of session startup. Just create the alarm
+         * objects, which is enough to get them to set themselves up as systemd
+         * timer units. */
+        var settings = new GLib.Settings ("org.gnome.clocks");
+        var alarms = new ContentStore ();
+        alarms.deserialize (settings.get_value ("alarms"), Alarm.Item.deserialize);
+    }
+
+    public void on_activate_alarm_activate (GLib.SimpleAction action, GLib.Variant? parameter) {
+        if (parameter == null) {
+            return;
+        }
+
+        string alarm_id = parameter.get_string ();
+
+        ensure_window ();
+        window.activate_alarm (alarm_id);
+        window.present ();
     }
 
     public new void send_notification (string notification_id, GLib.Notification notification) {

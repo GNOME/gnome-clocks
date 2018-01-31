@@ -53,3 +53,13 @@ configure_file(
   install: true,
   install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas'),
 )
+
+systemdconf = configuration_data()
+systemdconf.set('libexecdir', join_paths(get_option('prefix'), get_option('libexecdir')))
+configure_file(
+  input: 'gnome-clocks-alarm@.service.in',
+  output: 'gnome-clocks-alarm@.service',
+  configuration: systemdconf,
+  install: true,
+  install_dir: systemd_userunitdir
+)

@@ -19,6 +19,10 @@ gweather = dependency('gweather-3.0', version: '>=3.27.2')
 gnomedesktop = dependency('gnome-desktop-3.0', version: '>=3.8')
 geocodeglib = dependency('geocode-glib-1.0', version: '>=1.0')
 libgeoclue = dependency('libgeoclue-2.0', version: '>=2.4')
+posix = meson.get_compiler('vala').find_library('posix')
+
+systemd = dependency('systemd')
+systemd_userunitdir = systemd.get_pkgconfig_variable('systemduserunitdir')
 
 cc = meson.get_compiler('c')
 math = cc.find_library('m', required: false)

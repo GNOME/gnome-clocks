@@ -174,6 +174,11 @@ public class Window : Gtk.ApplicationWindow {
         ((World.Face) panels[PanelId.WORLD]).add_location (location);
     }
 
+    public void activate_alarm (string alarm_id) {
+        var alarm_panel = (Alarm.Face)panels[PanelId.ALARM];
+        alarm_panel.activate_alarm (alarm_id);
+    }
+
     public override bool key_press_event (Gdk.EventKey event) {
         uint keyval;
         bool handled = false;

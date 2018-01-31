@@ -1,0 +1,11 @@
+[Unit]
+Description=Sound a GNOME Clocks alarm (%i)
+PartOf=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=@libexecdir@/gnome-clocks-activate-alarm '%i'
+
+[Install]
+DefaultInstance=all
+WantedBy=graphical-session.target

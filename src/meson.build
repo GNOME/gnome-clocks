@@ -10,6 +10,7 @@ clocks_vala_sources = [
   'main.vala',
   'search-provider.vala',
   'stopwatch.vala',
+  'systemd.vala',
   'timer.vala',
   'utils.vala',
   'widgets.vala',
@@ -59,4 +60,29 @@ executable('gnome-clocks', clocks_sources,
   c_args: clocks_c_args,
   dependencies: clocks_dependencies,
   install: true
+)
+
+activate_alarm_sources = [
+    vapi_sources,
+    'gnome-clocks-activate-alarm.vala'
+]
+
+activate_alarm_c_args = [
+  '-include', 'config.h'
+]
+
+activate_alarm_dependencies = [
+  glib,
+  gio,
+  posix
+]
+
+executable('gnome-clocks-activate-alarm',
+           activate_alarm_sources,
+           include_directories: config_h_dir,
+           vala_args: clocks_vala_args,
+           c_args: activate_alarm_c_args,
+           dependencies: activate_alarm_dependencies,
+           install_dir: get_option('libexecdir'),
+           install: true
 )

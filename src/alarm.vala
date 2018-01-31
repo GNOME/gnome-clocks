@@ -16,17 +16,19 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+using Clocks.Systemd;
+
 namespace Clocks {
 namespace Alarm {
 
-private struct AlarmTime {
+public struct AlarmTime {
     public int hour;
     public int minute;
 }
 
-private class Item : Object, ContentItem {
+public class Item : Object, ContentItem {
     const int SNOOZE_MINUTES = 9;
-    const int RING_MINUTES = 3;
+    const int RING_SECONDS = 3 * 60;
 
     // FIXME: should we add a "MISSED" state where the alarm stopped
     // ringing but we keep showing the ringing panel?
@@ -100,15 +102,109 @@ private class Item : Object, ContentItem {
 
     private string _name;
     private bool _active;
-    private GLib.DateTime alarm_time;
+    public GLib.DateTime alarm_time { get; private set; }
     private GLib.DateTime snooze_time;
-    private GLib.DateTime ring_end_time;
     private Utils.Bell bell;
     private GLib.Notification notification;
+    private Systemd.SystemdManager systemd;
+    private Systemd.SystemdUnit? transient_unit;
 
     public Item (string? id = null) {
         var guid = id != null ? id : GLib.DBus.generate_guid ();
         Object (id: guid);
+        try {
+            systemd = Bus.get_proxy_sync (BusType.SESSION,
+                                          "org.freedesktop.systemd1",
+                                          "/org/freedesktop/systemd1");
+        } catch (IOError e) {
+            GLib.critical ("Failed to get session bus - alarm will not work.");
+            return;
+        }
+
+        try {
+            set_up_transient_unit ();
+        } catch (IOError e) {
+            /* Expected if the alarm wasn't already created by the time we were
+             * launched */
+        }
+
+        this.notify["alarm-time"].connect(start_systemd_timer);
+        this.notify["active"].connect(start_systemd_timer);
+    }
+
+    public string systemd_time {
+        owned get {
+            string ds = "";
+            if (days != null && !days.empty) {
+                string[] d = {};
+                for (int i = 0; i < 7; i++) {
+                    if (days.get ((Utils.Weekdays.Day) i)) {
+                        d += Utils.Weekdays.abbreviation ((Utils.Weekdays.Day) i);
+                    }
+                }
+                ds = "%s ".printf(string.joinv(",", d));
+            }
+            return "%s*-*-* %d:%d:00".printf(ds, time.hour, time.minute);
+        }
+    }
+
+    private string transient_unit_name {
+        owned get {
+            return "gnome-clocks-alarm@%s.timer".printf(id);
+        }
+    }
+
+    private void set_up_transient_unit () throws IOError {
+        var transient_unit_path = systemd.get_unit (transient_unit_name);
+        transient_unit = Bus.get_proxy_sync (BusType.SESSION,
+                                             "org.freedesktop.systemd1",
+                                             transient_unit_path);
+    }
+
+    private void start_systemd_timer () {
+        string trigger_time;
+
+        if (state == State.SNOOZING) {
+            trigger_time = snooze_time.format("%Y-%m-%d %H:%M:%S %Z");
+        } else {
+            trigger_time = systemd_time;
+        }
+
+        Systemd.Property[] properties = {
+            Systemd.Property() { name = "OnCalendar", value = trigger_time },
+            Systemd.Property() { name = "AccuracyUSec", value = 1000000ull /* 1s, must be uint64 (ull) */ }
+        };
+        Systemd.Aux[] aux = new Aux[0];
+
+        if (transient_unit != null) {
+            /* Stop the old one */
+            try {
+                transient_unit.stop ("replace");
+                transient_unit = null;
+            } catch (IOError e) {
+                GLib.critical ("Failed to stop transient unit '%s': %s",
+                               transient_unit_name,
+                               e.message);
+            }
+        }
+
+        if (!active) {
+            /* Not active, so don't create a unit */
+            return;
+        }
+
+        try {
+            systemd.start_transient_unit (transient_unit_name,
+                                          "replace",
+                                          properties,
+                                          aux);
+
+            set_up_transient_unit ();
+        } catch (IOError e) {
+            GLib.critical ("Failed to start transient unit '%s': %s",
+                           transient_unit_name,
+                           e.message);
+        }
     }
 
     private void setup_bell () {
@@ -121,7 +217,6 @@ private class Item : Object, ContentItem {
 
     public void reset () {
         update_alarm_time ();
-        update_snooze_time (alarm_time);
         state = State.READY;
     }
 
@@ -153,31 +248,34 @@ private class Item : Object, ContentItem {
         alarm_time = dt;
     }
 
-    private void update_snooze_time (GLib.DateTime start_time) {
-        snooze_time = start_time.add_minutes (SNOOZE_MINUTES);
-    }
-
     public virtual signal void ring () {
         var app = GLib.Application.get_default () as Clocks.Application;
         app.send_notification ("alarm-clock-elapsed", notification);
         bell.ring ();
+        GLib.Timeout.add_seconds(RING_SECONDS, (() => {
+                                 stop ();
+                                 return GLib.Source.REMOVE;
+        }));
     }
 
-    private void start_ringing (GLib.DateTime now) {
-        update_snooze_time (now);
-        ring_end_time = now.add_minutes (RING_MINUTES);
+    public void start_ringing () {
         state = State.RINGING;
         ring ();
     }
 
     public void snooze () {
+        var wallclock = Utils.WallClock.get_default ();
+        var now = wallclock.date_time;
         bell.stop ();
+
+        snooze_time = now.add_minutes (SNOOZE_MINUTES);
         state = State.SNOOZING;
+
+        start_systemd_timer ();
     }
 
     public void stop () {
         bell.stop ();
-        update_snooze_time (alarm_time);
         state = State.READY;
     }
 
@@ -194,35 +292,6 @@ private class Item : Object, ContentItem {
             }
         }
         return false;
-    }
-
-    // Update the state and ringing time. Ring or stop
-    // depending on the current time.
-    // Returns true if the state changed, false otherwise.
-    public bool tick () {
-        if (!active) {
-            return false;
-        }
-
-        State last_state = state;
-
-        var wallclock = Utils.WallClock.get_default ();
-        var now = wallclock.date_time;
-
-        if (state == State.RINGING && now.compare (ring_end_time) > 0) {
-            stop ();
-        }
-
-        if (state == State.SNOOZING && now.compare (snooze_time) > 0) {
-            start_ringing (now);
-        }
-
-        if (state == State.READY && now.compare (alarm_time) > 0) {
-            start_ringing (now);
-            update_alarm_time (); // reschedule for the next repeat
-        }
-
-        return state != last_state;
     }
 
     public void serialize (GLib.VariantBuilder builder) {
@@ -261,11 +330,15 @@ private class Item : Object, ContentItem {
         }
         if (name != null && hour >= 0 && minute >= 0) {
             Item alarm = new Item (id);
+            /* Don't trigger alarm_time changes until we're done - we update
+             * the systemd unit when we change. */
+            alarm.freeze_notify();
             alarm.name = name;
             alarm.active = active;
             alarm.time = { hour, minute };
             alarm.days = days;
             alarm.reset ();
+            alarm.thaw_notify();
             return alarm;
         } else {
             warning ("Invalid alarm %s", name != null ? name : "name missing");
@@ -493,6 +566,9 @@ private class SetupDialog : Gtk.Dialog {
 
     private void avoid_duplicate_alarm () {
         var alarm = new Item ();
+        /* This isn't a real alarm, don't trigger property change notifications
+         * for it. */
+        alarm.freeze_notify ();
         apply_to_alarm (alarm);
 
         var duplicate = alarm.check_duplicate_alarm (other_alarms);
@@ -642,21 +718,18 @@ public class Face : Gtk.Stack, Clocks.Clock {
         });
 
         reset_view ();
+    }
 
-        // Start ticking...
-        Utils.WallClock.get_default ().tick.connect (() => {
-            alarms.foreach ((i) => {
-                var a = (Item)i;
-                if (a.tick ()) {
-                    if (a.state == Item.State.RINGING) {
-                        show_ringing_panel (a);
-                        ring ();
-                    } else if (ringing_panel.alarm == a) {
-                        ringing_panel.update ();
-                    }
-                }
-            });
+    public void activate_alarm (string alarm_id) {
+        var a = (Item)alarms.find ((a) => {
+            return ((Item)a).id == alarm_id;
         });
+
+        if (a != null) {
+            a.start_ringing ();
+            show_ringing_panel (a);
+            ring ();
+        }
     }
 
     public signal void ring ();
