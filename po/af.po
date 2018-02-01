@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "clocks&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2017-06-28 17:42+0000\n"
-"PO-Revision-Date: 2017-12-07 12:21+0200\n"
+"PO-Revision-Date: 2018-02-01 13:26+0200\n"
 "Last-Translator: Pieter Schoeman <pieter@sonbesie.co.za>\n"
 "Language-Team: Afrikaans <pieter@sonbesie.co.za>\n"
 "Language: af\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Poedit 2.0.3\n"
 "X-Project-Style: gnome\n"
 
 #: data/gtk/help-overlay.ui:14
@@ -76,7 +76,7 @@ msgstr "Voeg 'n wekker by"
 #| msgid "Select All"
 msgctxt "shortcut window"
 msgid "Select all alarms"
-msgstr "Kies alle alarms"
+msgstr "Kies alle wekkers"
 
 #: data/gtk/help-overlay.ui:84
 #| msgid "Stopwatch"
@@ -139,7 +139,7 @@ msgid ""
 "stopwatch and a timer."
 msgstr ""
 "'n Eenvoudige en elegante horlosie toepassing. Dit bevat wêreldhorlosies, "
-"alarms, 'n stophorlosie en 'n tydteller."
+"wekkers, 'n stophorlosie en 'n tydteller."
 
 #: data/org.gnome.clocks.appdata.xml.in:13
 msgid "Goals:"
@@ -151,7 +151,7 @@ msgstr "Wys die tyd in verskillende stede regoor die wêreld"
 
 #: data/org.gnome.clocks.appdata.xml.in:16
 msgid "Set alarms to wake you up"
-msgstr "Stel alarms om jou wakker te maak"
+msgstr "Stel wekkers om jou wakker te maak"
 
 #: data/org.gnome.clocks.appdata.xml.in:17
 msgid "Measure elapsed time with an accurate stopwatch"
@@ -167,11 +167,11 @@ msgstr "Aanvanklike skerm"
 
 #: data/org.gnome.clocks.appdata.xml.in:37
 msgid "Alarms screen"
-msgstr "Alarms skerm"
+msgstr "Wekkers skerm"
 
 #: data/org.gnome.clocks.appdata.xml.in:41
 msgid "Alarms setup"
-msgstr "Alarms opstelling"
+msgstr "Wekkers opstelling"
 
 #: data/org.gnome.clocks.appdata.xml.in:45
 #| msgid "Stopwatch"
@@ -191,9 +191,7 @@ msgstr "Horlosies"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr ""
-"time;timer;alarm;world clock;stopwatch;time zone;tyd;tydteller;wekker;"
-"wêreldtyd;stophorlosie;tydsone;tydhou;"
+msgstr "tyd;tydteller;wekker;wêreldhorlosie;stophorlosie;tydsone;"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/org.gnome.clocks.desktop.in:11
@@ -284,7 +282,7 @@ msgstr "_Klaar"
 
 #: data/ui/alarmsetupdialog.ui:199
 msgid "You already have an alarm for this time."
-msgstr "Jy het klaar vir die tyd 'n alarm."
+msgstr "Jy het klaar vir die tyd 'n wekker."
 
 #: data/ui/alarmsetupdialog.ui:227
 msgid "Name"
@@ -292,7 +290,7 @@ msgstr "Naam"
 
 #: data/ui/alarmsetupdialog.ui:241
 msgid "Repeat Every"
-msgstr "Herhaal Elke"
+msgstr "Herhaal elke"
 
 #: data/ui/alarmsetupdialog.ui:295
 msgid "Active"
@@ -312,7 +310,7 @@ msgstr "Stel terug"
 
 #: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
 msgid "Pause"
-msgstr "Stop"
+msgstr "Wag"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -451,7 +449,7 @@ msgstr "Nutsgoed om te help met tyd."
 msgid "translator-credits"
 msgstr ""
 "Dawid Loubser\n"
-"Pieter Schalk Schoeman"
+"Pieter Schoeman"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
