@@ -299,21 +299,19 @@ public class Weekdays {
 }
 
 public class Bell : Object {
-    private GLib.Settings settings;
     private GSound.Context? gsound;
     private GLib.Cancellable cancellable;
     private string soundtheme;
     private string sound;
 
     public Bell (string soundid) {
-        settings = new GLib.Settings("org.gnome.desktop.sound");
-
         try {
             gsound = new GSound.Context();
         } catch (GLib.Error e) {
             warning ("Sound could not be initialized, error: %s", e.message);
         }
 
+        var settings = new GLib.Settings("org.gnome.desktop.sound");
         soundtheme = settings.get_string ("theme-name");
         sound = soundid;
         cancellable = new GLib.Cancellable();
