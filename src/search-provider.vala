@@ -94,6 +94,11 @@ public class SearchProvider : Object {
 
         string[] result = {};
         matches.foreach ((location) => {
+            // FIXME: Avoid cities without children locations
+            if (location.get_level () == GWeather.LocationLevel.CITY &&
+                location.get_children().length == 0) {
+                return;
+            }
             // HACK: the search provider interface does not currently allow variants as result IDs
             result += serialize_location (location);
         });
