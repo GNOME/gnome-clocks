@@ -43,6 +43,7 @@
         },
         {
             "name": "libgweather",
+            "buildsystem": "meson",
             "build-options": {
                 "env": {
                     "PKG_CONFIG_VAPIGEN_VAPIDIR": "/app/share/vala/vapi"
