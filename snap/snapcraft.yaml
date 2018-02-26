@@ -42,7 +42,9 @@ parts:
     source: https://git.gnome.org/browse/libgweather
     source-type: git
     plugin: meson
-    meson-parameters: [--prefix=/usr]
+    meson-parameters: 
+      - --prefix=/usr
+      - --datadir=../snap/gnome-clocks/current/usr/share
     organize:
       snap/gnome-clocks/current/usr: usr
     build-attributes: ['no-system-libraries']
@@ -70,7 +72,7 @@ parts:
     source: .
     source-type: git
     plugin: meson
-    meson-parameters: [--prefix=/usr]
+    meson-parameters: [--prefix=/snap/gnome-clocks/current/usr]
     organize:
       snap/gnome-clocks/current/usr: usr
     prepare:
