@@ -41,8 +41,8 @@ parts:
   libgweather:
     source: https://git.gnome.org/browse/libgweather
     source-type: git
-    plugin: autotools
-    configflags: [--prefix=/snap/gnome-clocks/current/usr]
+    plugin: meson
+    meson-parameters: [--prefix=/usr]
     organize:
       snap/gnome-clocks/current/usr: usr
     build-attributes: ['no-system-libraries']
@@ -65,13 +65,12 @@ parts:
       - valac
       - libgeocode-glib-dev
       - libgladeui-dev
-
   gnome-clocks:
-    after: [desktop-gnome-platform]
+    after: [libgweather, desktop-gnome-platform]
     source: .
     source-type: git
-    plugin: autotools
-    configflags: [--prefix=/snap/gnome-clocks/current/usr]
+    plugin: meson
+    meson-parameters: [--prefix=/usr]
     organize:
       snap/gnome-clocks/current/usr: usr
     prepare:
@@ -79,7 +78,7 @@ parts:
     install: |
       mkdir -p $SNAPCRAFT_PART_INSTALL/meta/gui/
       cp ../src/data/icons/hicolor/256x256/apps/org.gnome.clocks.png $SNAPCRAFT_PART_INSTALL/meta/gui/
-      cp _build/data/org.gnome.clocks.desktop $SNAPCRAFT_PART_INSTALL/meta/gui/
+      cp snapbuild/data/org.gnome.clocks.desktop $SNAPCRAFT_PART_INSTALL/meta/gui/
     build-attributes: ['no-system-libraries']
     build-packages:
       - meson
@@ -96,7 +95,6 @@ parts:
       - libgnome-desktop-3-dev
       - libgsound-dev
       - libgtk-3-dev
-      - libgweather-3-dev
       - pkg-config
       - valac
       - yelp-tools
