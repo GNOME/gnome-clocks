@@ -1,14 +1,14 @@
 # Scottish Gaelic translation for gnome-clocks.
 # Copyright (C) 2014 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-# GunChleoc <fios@foramnagaidhlig.net>, 2014, 2015, 2016, 2017.
+# GunChleoc <fios@foramnagaidhlig.net>, 2014, 2015, 2016, 2017, 2018.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product"
 "=gnome-clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-03-01 11:58+0000\n"
-"PO-Revision-Date: 2017-03-07 11:42+0100\n"
+"POT-Creation-Date: 2018-01-10 08:24+0000\n"
+"PO-Revision-Date: 2018-03-01 12:14+0100\n"
 "Last-Translator: GunChleoc <fios@foramnagaidhlig.net>\n"
 "Language-Team: Fòram na Gàidhlig\n"
 "Language: gd\n"
@@ -19,46 +19,6 @@ msgstr ""
 "(n > 2 && n < 20) ? 2 : 3;\n"
 "X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:6
-#: data/org.gnome.clocks.desktop.in:5
-msgid "GNOME Clocks"
-msgstr "Uaireadairean GNOME"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:7
-#: data/org.gnome.clocks.desktop.in:6
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr ""
-"Uaireadairean airson àm an t-saoghail le caismeachdan, stad-uaireadair 's "
-"tìmear"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:9
-msgid ""
-"A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
-msgstr ""
-"Aplacaid shimplidh ach shnasail airson uaireadairean. Gabhaidh i a-steach "
-"uaireadairean an t-saoghail, caismeachdan, stad-uaireadair 's tìmear."
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:13
-msgid "Goals:"
-msgstr "Amasan:"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:15
-msgid "Show the time in different cities around the world"
-msgstr "Seall an t-àm ann an iomadh bhaile air an t-saoghal"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:16
-msgid "Set alarms to wake you up"
-msgstr "Suidhich caismeachdan gus do dhùsgadh"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:17
-msgid "Measure elapsed time with an accurate stopwatch"
-msgstr "Tomhais àm a chaidh seachad le stad-uaireadair pongail"
-
-#: data/appdata/org.gnome.clocks.appdata.xml.in:18
-msgid "Set timers to properly cook your food"
-msgstr "Suidhich tìmear ach an dèan thu còcaireachd mar bu chòir"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -132,7 +92,7 @@ msgstr "Ath-shuidhich"
 
 #: data/gtk/menus.ui:7
 msgid "_Keyboard Shortcuts"
-msgstr "Ath-ghoiridean a' _mheur-chlàir"
+msgstr "Ath-ghoiridean a’ _mheur-chlàir"
 
 #: data/gtk/menus.ui:12
 msgid "_Help"
@@ -154,9 +114,68 @@ msgstr "Tagh na h-uile"
 msgid "Select None"
 msgstr "Na tagh gin"
 
+#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
+msgid "GNOME Clocks"
+msgstr "Uaireadairean GNOME"
+
+#: data/org.gnome.clocks.appdata.xml.in:7 data/org.gnome.clocks.desktop.in:6
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr ""
+"Uaireadairean airson àm an t-saoghail le caismeachdan, stad-uaireadair ’s "
+"tìmear"
+
+#: data/org.gnome.clocks.appdata.xml.in:9
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"Aplacaid shimplidh ach shnasail airson uaireadairean. Gabhaidh i a-steach "
+"uaireadairean an t-saoghail, caismeachdan, stad-uaireadair ’s tìmear."
+
+#: data/org.gnome.clocks.appdata.xml.in:13
+msgid "Goals:"
+msgstr "Amasan:"
+
+#: data/org.gnome.clocks.appdata.xml.in:15
+msgid "Show the time in different cities around the world"
+msgstr "Seall an t-àm ann an iomadh bhaile air an t-saoghal"
+
+#: data/org.gnome.clocks.appdata.xml.in:16
+msgid "Set alarms to wake you up"
+msgstr "Suidhich caismeachdan gus do dhùsgadh"
+
+#: data/org.gnome.clocks.appdata.xml.in:17
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "Tomhais àm a chaidh seachad le stad-uaireadair pongail"
+
+#: data/org.gnome.clocks.appdata.xml.in:18
+msgid "Set timers to properly cook your food"
+msgstr "Suidhich tìmear ach an dèan thu còcaireachd mar bu chòir"
+
+#: data/org.gnome.clocks.appdata.xml.in:33
+msgid "Initial screen"
+msgstr "An sgrìn-tòiseachaidh"
+
+#: data/org.gnome.clocks.appdata.xml.in:37
+msgid "Alarms screen"
+msgstr "Sgrìn nan caismeachdan"
+
+#: data/org.gnome.clocks.appdata.xml.in:41
+msgid "Alarms setup"
+msgstr "Suidheachadh nan caismeachdan"
+
+#: data/org.gnome.clocks.appdata.xml.in:45
+#| msgid "Stopwatch"
+msgid "Stopwatch screen"
+msgstr "Sgrìn an stad-uaireadair"
+
+#: data/org.gnome.clocks.appdata.xml.in:49
+msgid "Timer screen"
+msgstr "Sgrìn an tìmeir"
+
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:248
-#: src/world.vala:455
+#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
+#: src/world.vala:495
 msgid "Clocks"
 msgstr "Uaireadairean"
 
@@ -220,25 +239,25 @@ msgstr "Staid na h-uinneige, m.e. làn-mheud."
 
 #: data/org.gnome.clocks.gschema.xml.in:51
 msgid "Window width and height"
-msgstr "Leud 's àirde na h-uinneige"
+msgstr "Leud ’s àirde na h-uinneige"
 
 #: data/org.gnome.clocks.gschema.xml.in:52
 msgid "Width and height of the window."
-msgstr "Leud 's àirde na h-uinneige."
+msgstr "Leud ’s àirde na h-uinneige."
 
 #: data/org.gnome.clocks.gschema.xml.in:58
 msgid "Panel state"
-msgstr "Staid a' phanail"
+msgstr "Staid a’ phanail"
 
 #: data/org.gnome.clocks.gschema.xml.in:59
 msgid "Current clock panel."
 msgstr "Panail làithreach an uaireadair."
 
-#: data/ui/alarmringing.ui:39 src/alarm.vala:119 src/stopwatch.vala:199
+#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:199
 msgid "Stop"
 msgstr "Stad"
 
-#: data/ui/alarmringing.ui:59 src/alarm.vala:120
+#: data/ui/alarmringing.ui:59 src/alarm.vala:119
 msgid "Snooze"
 msgstr "Dèan dùsal"
 
@@ -270,7 +289,7 @@ msgstr "Dèan a-rithist"
 msgid "Active"
 msgstr "Gnìomhach"
 
-#: data/ui/alarm.ui:31
+#: data/ui/alarm.ui:32
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Tagh <b>Ùr</b> gus caismeachd a chur ris"
 
@@ -284,7 +303,7 @@ msgstr "Ath-shuidhich"
 
 #: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
 msgid "Pause"
-msgstr "'Na stad"
+msgstr "’Na stad"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -294,33 +313,34 @@ msgstr "_Cuir ris"
 msgid "Search for a city:"
 msgstr "Lorg baile:"
 
-#: data/ui/world.ui:31
+#: data/ui/world.ui:32
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Tagh <b>Ùr</b> gus uaireadair an t-saoghail a chur ris"
 
-#: data/ui/world.ui:122
+#: data/ui/world.ui:123
 msgid "Sunrise"
 msgstr "Èirigh na grèine"
 
-#: data/ui/world.ui:136
+#: data/ui/world.ui:137
 msgid "Sunset"
 msgstr "Laighe na grèine"
 
-#: src/alarm.vala:117 src/alarm.vala:378 src/alarm.vala:547
+#: src/alarm.vala:116 src/alarm.vala:416 src/alarm.vala:595
 msgid "Alarm"
 msgstr "Caismeachd"
 
-#: src/alarm.vala:312
+#: src/alarm.vala:350
 msgid "Edit Alarm"
-msgstr "Deasaich a' chaismeachd"
+msgstr "Deasaich a’ chaismeachd"
 
-#: src/alarm.vala:312
+#: src/alarm.vala:350
 msgid "New Alarm"
 msgstr "Caismeachd ùr"
 
 #. Translators: "New" refers to an alarm
-#. Translators: "New" refers to a world clock
-#: src/alarm.vala:576 src/world.vala:282
+#: src/alarm.vala:624
+#| msgid "New"
+msgctxt "Alarm"
 msgid "New"
 msgstr "Ùr"
 
@@ -388,52 +408,61 @@ msgstr "Gach latha obrach"
 msgid "Weekends"
 msgstr "Gach latha deiridh-sheachdaine"
 
-#: src/widgets.vala:538 src/widgets.vala:553
+#: src/widgets.vala:232 src/widgets.vala:247
 msgid "Click on items to select them"
 msgstr "Briog air nithean gus an taghadh"
 
-#: src/widgets.vala:540
+#: src/widgets.vala:234
 #, c-format
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "%d air a thaghadh"
-msgstr[1] "%d air an taghadh"
-msgstr[2] "%d air an taghadh"
-msgstr[3] "%d air an taghadh"
+#| msgid "%d selected"
+#| msgid_plural "%d selected"
+msgid "%u selected"
+msgid_plural "%u selected"
+msgstr[0] "Chaidh %u a thaghadh"
+msgstr[1] "Chaidh %u a thaghadh"
+msgstr[2] "Chaidh %u a thaghadh"
+msgstr[3] "Chaidh %u a thaghadh"
 
-#: src/widgets.vala:612
+#: src/widgets.vala:333
 msgid "Delete"
 msgstr "Sguab às"
 
-#: src/widgets.vala:710
+#: src/widgets.vala:477
 msgid "Cancel"
 msgstr "Sguir dheth"
 
-#: src/window.vala:221
+#: src/window.vala:224
 #, c-format
 msgid "Failed to show help: %s"
-msgstr "Cha deach leinn a' chobhair a shealltainn: %s"
+msgstr "Cha deach leinn a’ chobhair a shealltainn: %s"
 
-#: src/window.vala:251
+#: src/window.vala:254
 msgid "Utilities to help you with the time."
 msgstr "Goireasan a chuidicheas thu leis an àm."
 
-#: src/window.vala:256
+#: src/window.vala:259
 msgid "translator-credits"
 msgstr "GunChleoc fios@foramnagaidhlig.net"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:109 src/world.vala:113
+#: src/world.vala:122 src/world.vala:126
 msgid "Tomorrow"
 msgstr "A-màireach"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:109 src/world.vala:113
+#: src/world.vala:122 src/world.vala:126
 msgid "Yesterday"
 msgstr "An-dè"
 
-#: src/world.vala:260
+#: src/world.vala:300
 msgid "World"
 msgstr "An saoghal"
+
+#. Translators: "New" refers to a world clock
+#: src/world.vala:319
+#| msgid "New"
+msgctxt "World clock"
+msgid "New"
+msgstr "Ùr"
