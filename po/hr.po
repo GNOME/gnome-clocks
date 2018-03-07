@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-09-18 16:14+0000\n"
-"PO-Revision-Date: 2017-12-10 13:05+0100\n"
+"POT-Creation-Date: 2018-03-05 15:27+0000\n"
+"PO-Revision-Date: 2018-03-07 15:48+0100\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -96,7 +96,7 @@ msgstr "_Prečaci tipkovnice"
 
 #: data/gtk/menus.ui:12
 msgid "_Help"
-msgstr "_Pomoć"
+msgstr "_Priručnik"
 
 #: data/gtk/menus.ui:17
 msgid "_About"
@@ -114,7 +114,7 @@ msgstr "Odaberi sve"
 msgid "Select None"
 msgstr "Ukloni odabir"
 
-#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
+#: data/org.gnome.clocks.appdata.xml.in:6
 msgid "GNOME Clocks"
 msgstr "GNOME satovi"
 
@@ -176,7 +176,7 @@ msgstr "Zaslon odbrojavanja"
 
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
 #: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
-#: src/world.vala:495
+#: src/world.vala:513
 msgid "Clocks"
 msgstr "Satovi"
 
@@ -441,22 +441,22 @@ msgstr ""
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:122 src/world.vala:126
+#: src/world.vala:138 src/world.vala:142
 msgid "Tomorrow"
 msgstr "Sutra"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:122 src/world.vala:126
+#: src/world.vala:138 src/world.vala:142
 msgid "Yesterday"
 msgstr "Jučer"
 
-#: src/world.vala:300
+#: src/world.vala:318
 msgid "World"
 msgstr "Svijet"
 
 #. Translators: "New" refers to a world clock
-#: src/world.vala:319
+#: src/world.vala:337
 msgctxt "World clock"
 msgid "New"
 msgstr "Novi"
