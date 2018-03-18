@@ -16,29 +16,8 @@ help_media = [
   'figures/gnome-clocks.png'
 ]
 
-help_linguas = [
-  'ca',
-  'cs',
-  'da',
-  'de',
-  'el',
-  'es',
-  'fi',
-  'fr',
-  'gl',
-  'hu',
-  'id',
-  'ko',
-  'nl',
-  'pl',
-  'pt_BR',
-  'ru',
-  'sv'
-]
-
 gnome.yelp(
   meson.project_name(),
   sources: help_files,
-  media: help_media,
-  languages: help_linguas,
+  media: help_media
 )
