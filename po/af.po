@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-06-28 17:42+0000\n"
-"PO-Revision-Date: 2017-12-07 12:21+0200\n"
-"Last-Translator: Pieter Schoeman <pieter@sonbesie.co.za>\n"
+"POT-Creation-Date: 2018-02-01 11:30+0000\n"
+"PO-Revision-Date: 2018-05-19 18:24+0200\n"
+"Last-Translator: Pieter Schalk Schoeman <pieter@sonbesie.co.za>\n"
 "Language-Team: Afrikaans <pieter@sonbesie.co.za>\n"
 "Language: af\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Poedit 2.0.7\n"
 "X-Project-Style: gnome\n"
 
 #: data/gtk/help-overlay.ui:14
@@ -38,31 +38,26 @@ msgid "Go to the previous section"
 msgstr "Gaan na vorige afdeling"
 
 #: data/gtk/help-overlay.ui:33
-#| msgid "_Quit"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Sluit af"
 
 #: data/gtk/help-overlay.ui:42
-#| msgid "Add a New World Clock"
 msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Wêreldhorlosies"
 
 #: data/gtk/help-overlay.ui:47
-#| msgid "Add a New World Clock"
 msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Voeg wêreldhorlosies by"
 
 #: data/gtk/help-overlay.ui:54
-#| msgid "Select <b>New</b> to add a world clock"
 msgctxt "shortcut window"
 msgid "Select all world clocks"
 msgstr "Kies alle wêreldhorlosies"
 
 #: data/gtk/help-overlay.ui:63
-#| msgid "Alarm"
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Wekker"
@@ -73,13 +68,11 @@ msgid "Add an alarm"
 msgstr "Voeg 'n wekker by"
 
 #: data/gtk/help-overlay.ui:75
-#| msgid "Select All"
 msgctxt "shortcut window"
 msgid "Select all alarms"
-msgstr "Kies alle alarms"
+msgstr "Kies alle wekkers"
 
 #: data/gtk/help-overlay.ui:84
-#| msgid "Stopwatch"
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Stophorlosie"
@@ -90,13 +83,11 @@ msgid "Stop / Reset"
 msgstr "Stop / Stel terug"
 
 #: data/gtk/help-overlay.ui:98
-#| msgid "Timer"
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Tydteller"
 
 #: data/gtk/help-overlay.ui:103
-#| msgid "Reset"
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Stel terug"
@@ -139,7 +130,7 @@ msgid ""
 "stopwatch and a timer."
 msgstr ""
 "'n Eenvoudige en elegante horlosie toepassing. Dit bevat wêreldhorlosies, "
-"alarms, 'n stophorlosie en 'n tydteller."
+"wekkers, 'n stophorlosie en 'n tydteller."
 
 #: data/org.gnome.clocks.appdata.xml.in:13
 msgid "Goals:"
@@ -151,7 +142,7 @@ msgstr "Wys die tyd in verskillende stede regoor die wêreld"
 
 #: data/org.gnome.clocks.appdata.xml.in:16
 msgid "Set alarms to wake you up"
-msgstr "Stel alarms om jou wakker te maak"
+msgstr "Stel wekkers om jou wakker te maak"
 
 #: data/org.gnome.clocks.appdata.xml.in:17
 msgid "Measure elapsed time with an accurate stopwatch"
@@ -167,14 +158,13 @@ msgstr "Aanvanklike skerm"
 
 #: data/org.gnome.clocks.appdata.xml.in:37
 msgid "Alarms screen"
-msgstr "Alarms skerm"
+msgstr "Wekkers skerm"
 
 #: data/org.gnome.clocks.appdata.xml.in:41
 msgid "Alarms setup"
-msgstr "Alarms opstelling"
+msgstr "Wekkers opstelling"
 
 #: data/org.gnome.clocks.appdata.xml.in:45
-#| msgid "Stopwatch"
 msgid "Stopwatch screen"
 msgstr "Stophorlosie skerm"
 
@@ -191,9 +181,7 @@ msgstr "Horlosies"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr ""
-"time;timer;alarm;world clock;stopwatch;time zone;tyd;tydteller;wekker;"
-"wêreldtyd;stophorlosie;tydsone;tydhou;"
+msgstr "tyd;tydteller;wekker;wêreldhorlosie;stophorlosie;tydsone;"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 #: data/org.gnome.clocks.desktop.in:11
@@ -241,7 +229,6 @@ msgid "Window state"
 msgstr "Venstertoestand"
 
 #: data/org.gnome.clocks.gschema.xml.in:45
-#| msgid "State of the window: i.e. maximized."
 msgid "State of the window, e.g. maximized."
 msgstr "Toestand van die venster, bv. gemaksimeer."
 
@@ -274,7 +261,6 @@ msgid "Add a New World Clock"
 msgstr "Voeg nuwe wêreldhorlosie by"
 
 #: data/ui/alarmsetupdialog.ui:31 data/ui/worldlocationdialog.ui:21
-#| msgid "Cancel"
 msgid "_Cancel"
 msgstr "_Kanselleer"
 
@@ -284,7 +270,7 @@ msgstr "_Klaar"
 
 #: data/ui/alarmsetupdialog.ui:199
 msgid "You already have an alarm for this time."
-msgstr "Jy het klaar vir die tyd 'n alarm."
+msgstr "Jy het klaar vir die tyd 'n wekker."
 
 #: data/ui/alarmsetupdialog.ui:227
 msgid "Name"
@@ -292,7 +278,7 @@ msgstr "Naam"
 
 #: data/ui/alarmsetupdialog.ui:241
 msgid "Repeat Every"
-msgstr "Herhaal Elke"
+msgstr "Herhaal elke"
 
 #: data/ui/alarmsetupdialog.ui:295
 msgid "Active"
@@ -312,7 +298,7 @@ msgstr "Stel terug"
 
 #: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
 msgid "Pause"
-msgstr "Stop"
+msgstr "Wag"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -348,7 +334,6 @@ msgstr "Nuwe wekker"
 
 #. Translators: "New" refers to an alarm
 #: src/alarm.vala:624
-#| msgid "New"
 msgctxt "Alarm"
 msgid "New"
 msgstr "Nuwe"
@@ -423,8 +408,6 @@ msgstr "Klik op items om hulle te kies"
 
 #: src/widgets.vala:234
 #, c-format
-#| msgid "%d selected"
-#| msgid_plural "%d selected"
 msgid "%u selected"
 msgid_plural "%u selected"
 msgstr[0] "%u gekies"
@@ -451,7 +434,7 @@ msgstr "Nutsgoed om te help met tyd."
 msgid "translator-credits"
 msgstr ""
 "Dawid Loubser\n"
-"Pieter Schalk Schoeman"
+"Pieter Schoeman"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
@@ -471,7 +454,6 @@ msgstr "Wêreld"
 
 #. Translators: "New" refers to a world clock
 #: src/world.vala:319
-#| msgid "New"
 msgctxt "World clock"
 msgid "New"
 msgstr "Nuwe"
