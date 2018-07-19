@@ -68,6 +68,11 @@
         },
         {
             "name": "gsound",
+            "build-options": {
+                "env": {
+                    "CFLAGS": "-Wno-error=cast-function-type"
+                }
+            },
             "sources": [
                 {
                     "type": "git",
