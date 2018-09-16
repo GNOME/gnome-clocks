@@ -58,7 +58,8 @@
         },
         {
             "name": "gnome-desktop",
-            "config-opts": ["--disable-debug-tools", "--disable-udev"],
+            "buildsystem": "meson",
+            "config-opts": ["-Ddebug-tools=false", "-Dudev=disabled"],
             "sources": [
                 {
                     "type": "git",
