@@ -67,6 +67,7 @@
                     <property name="orientation">vertical</property>
                     <property name="adjustment">adjustment_hours</property>
                     <property name="numeric">True</property>
+                    <property name="width_chars">2</property>
                     <property name="wrap">True</property>
                     <signal name="output" handler="show_leading_zeros" swapped="no"/>
                     <signal name="changed" handler="update_start_button" swapped="no"/>
@@ -109,6 +110,7 @@
                     <property name="orientation">vertical</property>
                     <property name="adjustment">adjustment_minutes</property>
                     <property name="numeric">True</property>
+                    <property name="width_chars">2</property>
                     <property name="wrap">True</property>
                     <signal name="output" handler="show_leading_zeros" swapped="no"/>
                     <signal name="changed" handler="update_start_button" swapped="no"/>
@@ -152,6 +154,7 @@
                     <property name="orientation">vertical</property>
                     <property name="adjustment">adjustment_seconds</property>
                     <property name="numeric">True</property>
+                    <property name="width_chars">2</property>
                     <property name="wrap">True</property>
                     <signal name="output" handler="show_leading_zeros" swapped="no"/>
                     <signal name="changed" handler="update_start_button" swapped="no"/>
@@ -263,6 +266,7 @@
                     <property name="orientation">vertical</property>
                     <property name="adjustment">adjustment_hours</property>
                     <property name="numeric">True</property>
+                    <property name="width_chars">2</property>
                     <property name="wrap">True</property>
                     <signal name="output" handler="show_leading_zeros" swapped="no"/>
                     <signal name="changed" handler="update_start_button" swapped="no"/>
@@ -306,6 +310,7 @@
                     <property name="orientation">vertical</property>
                     <property name="adjustment">adjustment_minutes</property>
                     <property name="numeric">True</property>
+                    <property name="width_chars">2</property>
                     <property name="wrap">True</property>
                     <signal name="output" handler="show_leading_zeros" swapped="no"/>
                     <signal name="changed" handler="update_start_button" swapped="no"/>
@@ -349,6 +354,7 @@
                     <property name="orientation">vertical</property>
                     <property name="adjustment">adjustment_seconds</property>
                     <property name="numeric">True</property>
+                    <property name="width_chars">2</property>
                     <property name="wrap">True</property>
                     <signal name="output" handler="show_leading_zeros" swapped="no"/>
                     <signal name="changed" handler="update_start_button" swapped="no"/>
