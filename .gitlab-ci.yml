@@ -8,7 +8,7 @@ flatpak:app:
   image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master
   stage: build
   variables:
-    MANIFEST_PATH: "flatpak/org.gnome.clocks.json"
+    MANIFEST_PATH: "data/flatpak/org.gnome.clocks.json"
     RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
     FLATPAK_MODULE: "gnome-clocks"
   script:
