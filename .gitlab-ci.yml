@@ -4,7 +4,7 @@ stages:
 variables:
   BUNDLE: "org.gnome.Clocks.Devel.flatpak"
 
-flatpak:app:
+flatpak:
   image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master
   stage: build
   variables:
