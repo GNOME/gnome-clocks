@@ -12,7 +12,7 @@ flatpak:app:
     MESON_ARGS: "-Dprofile=development"
     RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
     FLATPAK_MODULE: "gnome-clocks"
-    DBUS_ID: "org.gnome.clocks.Debug"
+    DBUS_ID: "org.gnome.clocks"
   script:
     - flatpak-builder --stop-at=${FLATPAK_MODULE} app ${MANIFEST_PATH}
     - flatpak build app meson --prefix=/app -Dprofile=development ${MESON_ARGS} _build
