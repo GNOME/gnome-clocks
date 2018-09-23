@@ -1,0 +1,30 @@
+stages:
+  - build
+
+variables:
+  BUNDLE: "gnome-clocks-git.flatpak"
+
+flatpak:app:
+  image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master
+  stage: build
+  variables:
+    MANIFEST_PATH: "flatpak/org.gnome.clocks.json"
+    RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
+    FLATPAK_MODULE: "gnome-clocks"
+  script:
+    - flatpak-builder --stop-at=${FLATPAK_MODULE} app ${MANIFEST_PATH}
+    - flatpak build app meson --prefix=/app -Dprofile=development ${MESON_ARGS} _build
+    - flatpak build app ninja -C _build install
+    - flatpak build app mkdir -p /app/lib/libretro/extra.d
+    - flatpak-builder --finish-only --repo=repo app ${MANIFEST_PATH}
+    - flatpak build-bundle repo ${BUNDLE} --runtime-repo=${RUNTIME_REPO} org.gnome.ClocksDevel
+
+  artifacts:
+    paths:
+      - ${BUNDLE}
+      - _build/meson-logs/meson-log.txt
+    expire_in: 30 days
+  cache:
+    paths:
+      - .flatpak-builder/downloads
+      - .flatpak-builder/git
