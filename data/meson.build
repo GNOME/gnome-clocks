@@ -1,5 +1,5 @@
 iconsdir = join_paths(get_option('datadir'), 'icons/hicolor')
-foreach size: ['16x16', '22x22', '32x32', '48x48', '256x256', 'symbolic']
+foreach size: ['scalable', 'symbolic']
   install_subdir('icons/hicolor/' + size, install_dir: iconsdir)
 endforeach
 
