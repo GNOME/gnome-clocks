@@ -80,6 +80,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private GLib.Settings settings;
     private double span;
     private GLib.Timer timer;
+    private uint timeout_id;
     private Utils.Bell bell;
     private GLib.Notification notification;
     [GtkChild]
@@ -120,6 +121,14 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         span = 0;
         timer = new GLib.Timer ();
+
+        timeout_id = 0;
+        destroy.connect(() => {
+            if (timeout_id != 0) {
+                GLib.Source.remove(timeout_id);
+                timeout_id = 0;
+            }
+        });
 
         bell = new Utils.Bell ("complete");
         notification = new GLib.Notification (_("Time is up!"));
@@ -254,14 +263,16 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         state = State.RUNNING;
         timer.start ();
-        GLib.Timeout.add(40, () => {
+        timeout_id = GLib.Timeout.add(40, () => {
 	    if (state != State.RUNNING) {
+                timeout_id = 0;
                 return false;
             }
             var e = timer.elapsed ();
             if (e >= span) {
                 reset ();
                 ring ();
+                timeout_id = 0;
                 return false;
             }
             update_countdown (e);
