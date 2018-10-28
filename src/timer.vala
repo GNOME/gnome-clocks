@@ -78,9 +78,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public State state { get; private set; default = State.STOPPED; }
 
     private GLib.Settings settings;
-    private uint tick_id;
     private double span;
     private GLib.Timer timer;
+    private uint timeout_id;
     private Utils.Bell bell;
     private GLib.Notification notification;
     [GtkChild]
@@ -119,9 +119,16 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         settings = new GLib.Settings ("org.gnome.clocks");
 
-        tick_id = 0;
         span = 0;
         timer = new GLib.Timer ();
+
+        timeout_id = 0;
+        destroy.connect(() => {
+            if (timeout_id != 0) {
+                GLib.Source.remove(timeout_id);
+                timeout_id = 0;
+            }
+        });
 
         bell = new Utils.Bell ("complete");
         notification = new GLib.Notification (_("Time is up!"));
@@ -227,7 +234,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private void reset () {
         state = State.STOPPED;
         timer.reset ();
-        stop_ticking ();
         span = settings.get_uint ("timer");
         h_spinbutton.value = (int) span / 3600;
         m_spinbutton.value = (int) span % 3600 / 60;
@@ -242,7 +248,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private void start () {
         countdown_frame.get_style_context ().remove_class ("clocks-paused");
 
-        if (state == State.STOPPED && tick_id == 0) {
+        if (state == State.STOPPED) {
             var h = h_spinbutton.get_value_as_int ();
             var m = m_spinbutton.get_value_as_int ();
             var s = s_spinbutton.get_value_as_int ();
@@ -257,44 +263,29 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         state = State.RUNNING;
         timer.start ();
-        start_ticking ();
+        timeout_id = GLib.Timeout.add(40, () => {
+	    if (state != State.RUNNING) {
+                timeout_id = 0;
+                return false;
+            }
+            var e = timer.elapsed ();
+            if (e >= span) {
+                reset ();
+                ring ();
+                timeout_id = 0;
+                return false;
+            }
+            update_countdown (e);
+            return true;
+        });
     }
 
     private void pause () {
         state = State.PAUSED;
         timer.stop ();
-        stop_ticking ();
         span -= timer.elapsed ();
         countdown_frame.get_style_context ().add_class ("clocks-paused");
         countdown_frame.pause ();
-    }
-
-    private void start_ticking () {
-        if (tick_id == 0) {
-            tick_id = add_tick_callback ((c) => {
-                return count ();
-            });
-        }
-    }
-
-    private void stop_ticking () {
-        if (tick_id != 0) {
-            remove_tick_callback (tick_id);
-            tick_id = 0;
-        }
-    }
-
-    private bool count () {
-        var e = timer.elapsed ();
-        if (e >= span) {
-            update_countdown_label (0, 0, 0);
-            ring ();
-            reset ();
-            return false;
-        }
-
-        update_countdown (e);
-        return true;
     }
 
     private void update_countdown (double elapsed) {
