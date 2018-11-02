@@ -21,7 +21,8 @@ namespace Clocks {
 [GtkTemplate (ui = "/org/gnome/clocks/ui/window.ui")]
 public class Window : Gtk.ApplicationWindow {
     private const GLib.ActionEntry[] action_entries = {
-        // app menu
+        // primary menu
+        { "show-primary-menu", on_show_primary_menu_activate, null, "false", null },
         { "new", on_new_activate },
         { "help", on_help_activate },
         { "about", on_about_activate },
@@ -37,6 +38,8 @@ public class Window : Gtk.ApplicationWindow {
     private Gtk.Stack stack;
     [GtkChild]
     private Gtk.StackSwitcher stack_switcher;
+    [GtkChild]
+    private Gtk.MenuButton menu_button;
     private GLib.Settings settings;
     private Gtk.Widget[] panels;
 
@@ -151,6 +154,11 @@ public class Window : Gtk.ApplicationWindow {
         } else {
             stack.error_bell ();
         }
+    }
+
+    private void on_show_primary_menu_activate (SimpleAction action) {
+        var state = action.get_state ().get_boolean ();
+        action.set_state (new Variant.boolean (!state));
     }
 
     private void on_new_activate () {
@@ -272,6 +280,7 @@ public class Window : Gtk.ApplicationWindow {
 
         if (header_bar.mode == HeaderBar.Mode.NORMAL) {
             header_bar.custom_title = stack_switcher;
+            menu_button.show ();
         }
 
         header_bar.set_show_close_button (header_bar.mode != HeaderBar.Mode.SELECTION);

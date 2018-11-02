@@ -3,6 +3,22 @@
   <!-- interface-requires gtk+ 3.8 -->
   <template class="ClocksWindow" parent="GtkApplicationWindow">
     <property name="title" translatable="yes">Clocks</property>
+    <menu id="primary-menu">
+      <section>
+        <item>
+          <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+          <attribute name="action">win.show-help-overlay</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">_Help</attribute>
+          <attribute name="action">win.help</attribute>
+        </item>
+        <item>
+          <attribute name="label" translatable="yes">_About</attribute>
+          <attribute name="action">win.about</attribute>
+        </item>
+      </section>
+    </menu>
     <child type="titlebar">
       <object class="ClocksHeaderBar" id="header_bar">
         <property name="visible">True</property>
@@ -15,6 +31,20 @@
           <object class="GtkStackSwitcher" id="stack_switcher">
             <property name="visible">True</property>
           </object>
+        </child>
+        <child>
+          <object class="GtkMenuButton" id="menu_button">
+            <property name="valign">center</property>
+            <property name="menu_model">primary-menu</property>
+            <property name="action_name">win.show-primary-menu</property>
+            <property name="direction">none</property>
+            <style>
+              <class name="image-button"/>
+            </style>
+          </object>
+          <packing>
+            <property name="pack_type">end</property>
+          </packing>
         </child>
       </object>
     </child>

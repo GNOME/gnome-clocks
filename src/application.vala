@@ -111,8 +111,12 @@ public class Application : Gtk.Application {
         });
         update_theme (settings);
 
-        add_accelerator ("<Primary>n", "win.new", null);
-        add_accelerator ("<Primary>a", "win.select-all", null);
+        set_accels_for_action ("win.new", { "<Primary>n" });
+        set_accels_for_action ("win.select-all", { "<Primary>a" });
+        set_accels_for_action ("win.show-primary-menu", { "F10" });
+        set_accels_for_action ("win.show-help-overlay", { "<Primary>F10" });
+        set_accels_for_action ("win.help", { "F1" });
+        set_accels_for_action ("app.quit", { "<Primary>q" });
     }
 
     protected override int handle_local_options (GLib.VariantDict options) {
