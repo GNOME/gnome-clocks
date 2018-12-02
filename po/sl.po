@@ -7,10 +7,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-07-28 12:30+0200\n"
-"PO-Revision-Date: 2018-04-03 17:27+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
+"POT-Creation-Date: 2018-11-11 15:33+0000\n"
+"PO-Revision-Date: 2018-12-01 21:58+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -20,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.1.1\n"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -92,31 +91,15 @@ msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Ponastavi"
 
-#: data/gtk/menus.ui:7
-msgid "_Keyboard Shortcuts"
-msgstr "_Tipkovne bližnjice"
-
-#: data/gtk/menus.ui:12
-msgid "_Help"
-msgstr "Pomo_č"
-
-#: data/gtk/menus.ui:17
-msgid "_About"
-msgstr "_O programu"
-
-#: data/gtk/menus.ui:21
-msgid "_Quit"
-msgstr "_Končaj"
-
-#: data/gtk/menus.ui:31
+#: data/gtk/menus.ui:8
 msgid "Select All"
 msgstr "Izberi vse"
 
-#: data/gtk/menus.ui:36
+#: data/gtk/menus.ui:12
 msgid "Select None"
 msgstr "Odstrani izbor"
 
-#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
+#: data/org.gnome.clocks.appdata.xml.in:6
 msgid "GNOME Clocks"
 msgstr "GNOME Ure"
 
@@ -173,8 +156,8 @@ msgid "Timer screen"
 msgstr "Časomer"
 
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
-#: src/world.vala:495
+#: data/ui/window.ui:5 src/window.vala:67 src/window.vala:259
+#: src/world.vala:513
 msgid "Clocks"
 msgstr "Ure"
 
@@ -288,17 +271,29 @@ msgstr "Dejavno"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Za dodajanje alarma je treba klikniti na <b>gumb</b>."
 
-#: data/ui/stopwatch.ui:54 data/ui/timer.ui:194 src/stopwatch.vala:221
+#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:221
 msgid "Start"
 msgstr "Začni"
 
-#: data/ui/stopwatch.ui:72 data/ui/timer.ui:415 src/stopwatch.vala:213
+#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:213
 msgid "Reset"
 msgstr "Počisti"
 
-#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
+#: data/ui/timer.ui:403 src/timer.vala:220 src/timer.vala:231
 msgid "Pause"
 msgstr "Premor"
+
+#: data/ui/window.ui:9
+msgid "_Keyboard Shortcuts"
+msgstr "_Tipkovne bližnjice"
+
+#: data/ui/window.ui:13
+msgid "_Help"
+msgstr "Pomo_č"
+
+#: data/ui/window.ui:17
+msgid "_About Clocks"
+msgstr "_O programu"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -350,15 +345,15 @@ msgstr "Štoparica"
 msgid "Lap"
 msgstr "Krog"
 
-#: src/stopwatch.vala:209 src/timer.vala:208
+#: src/stopwatch.vala:209 src/timer.vala:215
 msgid "Continue"
 msgstr "Nadaljuj"
 
-#: src/timer.vala:127
+#: src/timer.vala:134
 msgid "Time is up!"
 msgstr "Čas je potekel!"
 
-#: src/timer.vala:128
+#: src/timer.vala:135
 msgid "Timer countdown finished"
 msgstr "Odštevanje je končano."
 
@@ -423,40 +418,46 @@ msgstr "Izbriši"
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/window.vala:224
+#: src/window.vala:232
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Ni mogoče prikazati pomoči: %s"
 
-#: src/window.vala:254
+#: src/window.vala:262
 msgid "Utilities to help you with the time."
 msgstr "Programska orodja za pomoč s časom."
 
-#: src/window.vala:259
+#: src/window.vala:267
 msgid "translator-credits"
 msgstr "Matej Urbančič <mateju@svn@gnome.org>"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:122 src/world.vala:126
+#: src/world.vala:138 src/world.vala:142
 msgid "Tomorrow"
 msgstr "Jutri"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:122 src/world.vala:126
+#: src/world.vala:138 src/world.vala:142
 msgid "Yesterday"
 msgstr "Včeraj"
 
-#: src/world.vala:300
+#: src/world.vala:318
 msgid "World"
 msgstr "Svet"
 
 #. Translators: "New" refers to a world clock
-#: src/world.vala:319
+#: src/world.vala:337
 msgctxt "World clock"
 msgid "New"
 msgstr "Dodaj čas"
+
+#~ msgid "_About"
+#~ msgstr "_O programu"
+
+#~ msgid "_Quit"
+#~ msgstr "_Končaj"
 
 #~ msgid "New"
 #~ msgstr "Novo"
@@ -491,9 +492,6 @@ msgstr "Dodaj čas"
 
 #~ msgid "Edit"
 #~ msgstr "Uredi"
-
-#~ msgid "About Clocks"
-#~ msgstr "O programu"
 
 #~ msgid "Laps"
 #~ msgstr "Krogi"
