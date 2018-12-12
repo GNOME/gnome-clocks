@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-  <id>org.gnome.clocks.desktop</id>
+  <id>org.gnome.clocks</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0</project_license>
   <name>GNOME Clocks</name>
@@ -49,11 +49,20 @@
       <caption>Timer screen</caption>
     </screenshot>
   </screenshots>
+  <provides>
+    <binary>gnome-clocks</binary>
+  </provides>
+  <releases>
+    <release version="3.31.1" date="2018-11-11" />
+    <release version="3.30.1" date="2018-10-21" />
+  </releases>
   <url type="homepage">https://wiki.gnome.org/Apps/Clocks</url>
-  <url type="bugtracker">https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-clocks</url>
+  <url type="bugtracker">https://gitlab.gnome.org/GNOME/gnome-clocks/issues</url>
   <url type="donation">http://www.gnome.org/friends/</url>
   <url type="help">https://help.gnome.org/users/gnome-clocks/stable/</url>
   <update_contact>pborelli@gnome.org</update_contact>
+  <launchable type="desktop-id">org.gnome.clocks.desktop</launchable>
+  <developer_name>The GNOME Project</developer_name>
   <project_group>GNOME</project_group>
   <translation type="gettext">gnome-clocks</translation>
   <content_rating type="oars-1.1">
