@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2018-10-28 09:15+0000\n"
-"PO-Revision-Date: 2018-12-13 21:44+0100\n"
+"POT-Creation-Date: 2018-12-13 20:46+0000\n"
+"PO-Revision-Date: 2018-12-13 21:48+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -92,27 +92,11 @@ msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Återställ"
 
-#: data/gtk/menus.ui:7
-msgid "_Keyboard Shortcuts"
-msgstr "Tan_gentbordsgenvägar"
-
-#: data/gtk/menus.ui:12
-msgid "_Help"
-msgstr "_Hjälp"
-
-#: data/gtk/menus.ui:17
-msgid "_About"
-msgstr "_Om"
-
-#: data/gtk/menus.ui:21
-msgid "_Quit"
-msgstr "_Avsluta"
-
-#: data/gtk/menus.ui:31
+#: data/gtk/menus.ui:8
 msgid "Select All"
 msgstr "Markera allt"
 
-#: data/gtk/menus.ui:36
+#: data/gtk/menus.ui:12
 msgid "Select None"
 msgstr "Markera inget"
 
@@ -172,8 +156,12 @@ msgstr "Stoppursskärm"
 msgid "Timer screen"
 msgstr "Timerskärm"
 
+#: data/org.gnome.clocks.appdata.xml.in:65
+msgid "The GNOME Project"
+msgstr "GNOME-projektet"
+
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
+#: data/ui/window.ui:5 src/window.vala:67 src/window.vala:259
 #: src/world.vala:513
 msgid "Clocks"
 msgstr "Klockor"
@@ -296,9 +284,21 @@ msgstr "Starta"
 msgid "Reset"
 msgstr "Återställ"
 
-#: data/ui/timer.ui:403 src/timer.vala:213 src/timer.vala:224
+#: data/ui/timer.ui:403 src/timer.vala:220 src/timer.vala:231
 msgid "Pause"
 msgstr "Paus"
+
+#: data/ui/window.ui:9
+msgid "_Keyboard Shortcuts"
+msgstr "Tan_gentbordsgenvägar"
+
+#: data/ui/window.ui:13
+msgid "_Help"
+msgstr "_Hjälp"
+
+#: data/ui/window.ui:17
+msgid "_About Clocks"
+msgstr "_Om Klockor"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -350,15 +350,15 @@ msgstr "Stoppur"
 msgid "Lap"
 msgstr "Varv"
 
-#: src/stopwatch.vala:209 src/timer.vala:208
+#: src/stopwatch.vala:209 src/timer.vala:215
 msgid "Continue"
 msgstr "Fortsätt"
 
-#: src/timer.vala:127
+#: src/timer.vala:134
 msgid "Time is up!"
 msgstr "Tiden är slut!"
 
-#: src/timer.vala:128
+#: src/timer.vala:135
 msgid "Timer countdown finished"
 msgstr "Nedräkning av timer är färdig"
 
@@ -421,16 +421,16 @@ msgstr "Ta bort"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/window.vala:224
+#: src/window.vala:232
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Misslyckades med att visa hjälp: %s"
 
-#: src/window.vala:254
+#: src/window.vala:262
 msgid "Utilities to help you with the time."
 msgstr "Verktyg för att hjälpa dig med tiden."
 
-#: src/window.vala:259
+#: src/window.vala:267
 msgid "translator-credits"
 msgstr ""
 "Daniel Nylander <po@danielnylander.se>\n"
@@ -462,3 +462,9 @@ msgstr "Världen"
 msgctxt "World clock"
 msgid "New"
 msgstr "Ny"
+
+#~ msgid "_About"
+#~ msgstr "_Om"
+
+#~ msgid "_Quit"
+#~ msgstr "_Avsluta"
