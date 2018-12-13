@@ -10,10 +10,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-07-29 16:24+0000\n"
-"PO-Revision-Date: 2017-08-06 12:30+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
+"POT-Creation-Date: 2018-10-28 09:15+0000\n"
+"PO-Revision-Date: 2018-12-13 21:44+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -21,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.2\n"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -117,7 +116,7 @@ msgstr "Markera allt"
 msgid "Select None"
 msgstr "Markera inget"
 
-#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
+#: data/org.gnome.clocks.appdata.xml.in:6
 msgid "GNOME Clocks"
 msgstr "GNOME Klockor"
 
@@ -175,7 +174,7 @@ msgstr "Timerskärm"
 
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
 #: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
-#: src/world.vala:495
+#: src/world.vala:513
 msgid "Clocks"
 msgstr "Klockor"
 
@@ -289,15 +288,15 @@ msgstr "Aktiv"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Välj <b>Nytt</b> för att lägga till ett alarm"
 
-#: data/ui/stopwatch.ui:54 data/ui/timer.ui:194 src/stopwatch.vala:221
+#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:221
 msgid "Start"
 msgstr "Starta"
 
-#: data/ui/stopwatch.ui:72 data/ui/timer.ui:415 src/stopwatch.vala:213
+#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:213
 msgid "Reset"
 msgstr "Återställ"
 
-#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
+#: data/ui/timer.ui:403 src/timer.vala:213 src/timer.vala:224
 msgid "Pause"
 msgstr "Paus"
 
@@ -309,10 +308,9 @@ msgstr "_Lägg till"
 msgid "Search for a city:"
 msgstr "Sök efter en stad:"
 
-# https://bugzilla.gnome.org/show_bug.cgi?id=746474
 #: data/ui/world.ui:32
 msgid "Select <b>New</b> to add a world clock"
-msgstr "Välj <b>Nytt</b> för att lägga till en världsklocka"
+msgstr "Välj <b>Ny</b> för att lägga till en världsklocka"
 
 #: data/ui/world.ui:123
 msgid "Sunrise"
@@ -445,22 +443,22 @@ msgstr ""
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:122 src/world.vala:126
+#: src/world.vala:138 src/world.vala:142
 msgid "Tomorrow"
 msgstr "I morgon"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:122 src/world.vala:126
+#: src/world.vala:138 src/world.vala:142
 msgid "Yesterday"
 msgstr "Igår"
 
-#: src/world.vala:300
+#: src/world.vala:318
 msgid "World"
 msgstr "Världen"
 
 #. Translators: "New" refers to a world clock
-#: src/world.vala:319
+#: src/world.vala:337
 msgctxt "World clock"
 msgid "New"
 msgstr "Ny"
