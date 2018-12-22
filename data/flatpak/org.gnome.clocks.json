@@ -11,6 +11,8 @@
         "--share=ipc", "--socket=x11",
         /* Wayland access */
         "--socket=wayland",
+        /* PulseAudio access */
+        "--socket=pulseaudio",
         /* Needs to talk to the network: */
         "--share=network",
         /* Needed to get geo-positioning */
