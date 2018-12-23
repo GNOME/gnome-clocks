@@ -22,8 +22,6 @@ namespace Geo {
 public class Info : Object {
     public GClue.Location? geo_location { get; private set; default = null; }
 
-    private const string DESKTOP_ID = "org.gnome.clocks";
-
     private GWeather.Location? found_location;
     private string? country_code;
     private GClue.Simple simple;
@@ -39,7 +37,7 @@ public class Info : Object {
 
     public async void seek () {
         try {
-            simple = yield new GClue.Simple (DESKTOP_ID, GClue.AccuracyLevel.CITY, null);
+            simple = yield new GClue.Simple (Config.APP_ID, GClue.AccuracyLevel.CITY, null);
         } catch (Error e) {
             warning ("Failed to connect to GeoClue2 service: %s", e.message);
             return;
