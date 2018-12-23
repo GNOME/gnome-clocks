@@ -138,6 +138,11 @@ public class Window : Gtk.ApplicationWindow {
 
         stack.visible_child = panels[settings.get_enum ("panel-id")];
 
+        Gtk.StyleContext style = get_style_context ();
+        if (Config.PROFILE == "Devel") {
+            style.add_class ("devel");
+        }
+
         update_header_bar ();
 
         show_all ();
@@ -255,9 +260,10 @@ public class Window : Gtk.ApplicationWindow {
             null
         };
 
+        var program_name = Config.NAME_PREFIX + "Clocks";
         Gtk.show_about_dialog (this,
-                               "program-name", _("Clocks"),
-                               "logo-icon-name", "org.gnome.clocks",
+                               "program-name", _(program_name),
+                               "logo-icon-name", Config.APP_ID,
                                "version", Config.VERSION,
                                "comments", _("Utilities to help you with the time."),
                                "copyright", copyright,

@@ -3,7 +3,7 @@ project(
   ['vala', 'c'],
   version: '3.31.1',
   license: 'GPL2+',
-  meson_version: '>= 0.41.0',
+  meson_version: '>= 0.46.0',
 )
 
 gnome = import('gnome')
@@ -35,10 +35,23 @@ int main() {
 msgfmt = find_program('msgfmt')
 podir = join_paths(meson.source_root(), 'po')
 
+if get_option('profile') == 'development'
+  name_prefix = '(Development) '
+  profile = 'Devel'
+else
+  name_prefix = ''
+  profile = ''
+endif
+
+app_id = 'org.gnome.clocks@0@'.format(profile)
+
 conf = configuration_data()
-conf.set_quoted('G_LOG_DOMAIN', 'org.gnome.Clocks')
+conf.set_quoted('APP_ID', app_id)
+conf.set_quoted('G_LOG_DOMAIN', 'org.gnome.Clocks@0@'.format(profile))
+conf.set_quoted('NAME_PREFIX', name_prefix)
 conf.set_quoted('PACKAGE_NAME', meson.project_name())
 conf.set_quoted('PACKAGE_VERSION', meson.project_version())
+conf.set_quoted('PROFILE', profile)
 conf.set_quoted('VERSION', meson.project_version())
 conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 conf.set_quoted('DATADIR', join_paths(get_option('prefix'), get_option('datadir')))

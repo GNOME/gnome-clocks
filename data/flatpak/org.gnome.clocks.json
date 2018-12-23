@@ -1,11 +1,11 @@
 {
-    "app-id": "org.gnome.clocks",
+    "app-id": "org.gnome.clocksDevel",
     "runtime": "org.gnome.Platform",
     "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
     "command": "gnome-clocks",
     "tags": ["nightly"],
-    "desktop-file-name-prefix": "(Nightly) ",
+    "desktop-file-name-prefix": "(Development) ",
     "finish-args": [
         /* X11 + XShm access */
         "--share=ipc", "--socket=x11",
@@ -81,6 +81,9 @@
         {
             "name": "gnome-clocks",
             "buildsystem": "meson",
+            "config-opts": [
+                "-Dprofile=development"
+            ],
             "sources": [
                 {
                     "type": "git",
