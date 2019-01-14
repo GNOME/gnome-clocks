@@ -3,8 +3,17 @@ project(
   ['vala', 'c'],
   version: '3.31.1',
   license: 'GPL2+',
-  meson_version: '>= 0.41.0',
+  meson_version: '>= 0.48.0',
 )
+
+application_id = 'org.gnome.clocks'
+app_path = '/org/gnome/clocks/'
+gettext_package = meson.project_name()
+if get_option('profile') == 'development'
+  application_id = 'org.gnome.ClocksDevel'
+  gettext_package = meson.project_name() + 'Devel'
+  app_path = '/org/gnome/clocksDevel/'
+endif
 
 gnome = import('gnome')
 i18n = import('i18n')
@@ -36,11 +45,12 @@ msgfmt = find_program('msgfmt')
 podir = join_paths(meson.source_root(), 'po')
 
 conf = configuration_data()
-conf.set_quoted('G_LOG_DOMAIN', 'org.gnome.Clocks')
+conf.set_quoted('APPLICATION_ID', application_id)
+conf.set_quoted('PROFILE', get_option('profile'))
 conf.set_quoted('PACKAGE_NAME', meson.project_name())
 conf.set_quoted('PACKAGE_VERSION', meson.project_version())
 conf.set_quoted('VERSION', meson.project_version())
-conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
+conf.set_quoted('GETTEXT_PACKAGE', gettext_package)
 conf.set_quoted('DATADIR', join_paths(get_option('prefix'), get_option('datadir')))
 conf.set_quoted('GNOMELOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
 if have_first_weekday

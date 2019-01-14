@@ -117,7 +117,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 panel_id: PanelId.TIMER,
                 transition_type: Gtk.StackTransitionType.CROSSFADE);
 
-        settings = new GLib.Settings ("org.gnome.clocks");
+        settings = new GLib.Settings (Config.APPLICATION_ID);
 
         span = 0;
         timer = new GLib.Timer ();

@@ -2,17 +2,17 @@ stages:
   - build
 
 variables:
-  BUNDLE: "org.gnome.Clocks.Devel.flatpak"
+  BUNDLE: "org.gnome.ClocksDevel.flatpak"
 
 flatpak:
   image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master
   stage: build
   variables:
-    MANIFEST_PATH: "data/flatpak/org.gnome.clocks.json"
+    MANIFEST_PATH: "build-aux/flatpak/org.gnome.clocksDevel.json"
     MESON_ARGS: "-Dprofile=development"
     RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
     FLATPAK_MODULE: "gnome-clocks"
-    DBUS_ID: "org.gnome.clocks"
+    DBUS_ID: "org.gnome.clocksDevel"
   script:
     - flatpak-builder --stop-at=${FLATPAK_MODULE} app ${MANIFEST_PATH}
     - flatpak build app meson --prefix=/app -Dprofile=development ${MESON_ARGS} _build

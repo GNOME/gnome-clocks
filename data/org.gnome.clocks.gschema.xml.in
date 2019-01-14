@@ -1,5 +1,5 @@
 <schemalist gettext-domain="@GETTEXT_PACKAGE@">
-  <schema id="org.gnome.clocks" path="/org/gnome/clocks/">
+  <schema id="@schema-id@" path="@schema-path@">
     <key name="world-clocks" type="aa{sv}">
       <default>[]</default>
       <summary>Configured world clocks</summary>
@@ -29,16 +29,16 @@
       </description>
     </key>
   </schema>
-  <enum id="org.gnome.clocks.panelid">
+  <enum id="@schema-id@.panelid">
     <value nick="world" value="0"/>
     <value nick="alarm" value="1"/>
     <value nick="stopwatch" value="2"/>
     <value nick="timer" value="3"/>
   </enum>
-  <schema id="org.gnome.clocks.state" path="/org/gnome/clocks/state/">
-    <child schema="org.gnome.clocks.state.window" name="window"/>
+  <schema id="@schema-id@.state" path="@schema-path@state/">
+    <child schema="@schema-id@.state.window" name="window"/>
   </schema>
-  <schema id="org.gnome.clocks.state.window" path="/org/gnome/clocks/state/window/">
+  <schema id="@schema-id@.state.window" path="@schema-path@state/window/">
     <key type="i" name="state">
       <default>0</default>
       <summary>Window state</summary>
@@ -53,7 +53,7 @@
         Width and height of the window.
       </description>
     </key>
-    <key enum="org.gnome.clocks.panelid" name="panel-id">
+    <key enum="@schema-id@.panelid" name="panel-id">
       <default>"world"</default>
       <summary>Panel state</summary>
       <description>

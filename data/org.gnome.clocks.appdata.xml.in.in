@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop">
-  <id>org.gnome.clocks.desktop</id>
+<component type="desktop-application">
+  <id>@app-id@</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0</project_license>
   <name>GNOME Clocks</name>
@@ -49,13 +49,14 @@
       <caption>Timer screen</caption>
     </screenshot>
   </screenshots>
+  <launchable type="desktop-id">@app-id@.desktop</launchable>
   <url type="homepage">https://wiki.gnome.org/Apps/Clocks</url>
   <url type="bugtracker">https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-clocks</url>
   <url type="donation">http://www.gnome.org/friends/</url>
   <url type="help">https://help.gnome.org/users/gnome-clocks/stable/</url>
   <update_contact>pborelli@gnome.org</update_contact>
   <project_group>GNOME</project_group>
-  <translation type="gettext">gnome-clocks</translation>
+  <translation type="gettext">@gettext@</translation>
   <content_rating type="oars-1.1">
     <content_attribute id="violence-cartoon">none</content_attribute>
     <content_attribute id="violence-fantasy">none</content_attribute>

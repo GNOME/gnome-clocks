@@ -1,5 +1,5 @@
 {
-    "app-id": "org.gnome.clocks",
+    "app-id": "org.gnome.clocksDevel",
     "runtime": "org.gnome.Platform",
     "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
@@ -81,6 +81,9 @@
         {
             "name": "gnome-clocks",
             "buildsystem": "meson",
+            "config-opts": [
+                "-Dprofile=development"
+            ],
             "sources": [
                 {
                     "type": "git",

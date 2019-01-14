@@ -48,12 +48,16 @@ public class Window : Gtk.ApplicationWindow {
 
         add_action_entries (action_entries, this);
 
-        settings = new Settings ("org.gnome.clocks.state.window");
+        settings = new Settings (Config.APPLICATION_ID + ".state.window");
         settings.delay ();
 
         destroy.connect(() => {
             settings.apply ();
         });
+
+        if (Config.PROFILE == "development") {
+            this.get_style_context().add_class("devel");
+        }
 
         // Setup window geometry saving
         Gdk.WindowState window_state = (Gdk.WindowState)settings.get_int ("state");
@@ -257,7 +261,7 @@ public class Window : Gtk.ApplicationWindow {
 
         Gtk.show_about_dialog (this,
                                "program-name", _("Clocks"),
-                               "logo-icon-name", "org.gnome.clocks",
+                               "logo-icon-name", Config.APPLICATION_ID,
                                "version", Config.VERSION,
                                "comments", _("Utilities to help you with the time."),
                                "copyright", copyright,

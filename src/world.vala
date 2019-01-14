@@ -321,7 +321,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 transition_type: Gtk.StackTransitionType.CROSSFADE);
 
         locations = new ContentStore ();
-        settings = new GLib.Settings ("org.gnome.clocks");
+        settings = new GLib.Settings (Config.APPLICATION_ID);
 
         locations.set_sorting ((item1, item2) => {
             var offset1 = ((Item) item1).location.get_timezone ().get_offset ();

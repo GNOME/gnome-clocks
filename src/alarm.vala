@@ -597,7 +597,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 panel_id: PanelId.ALARM);
 
         alarms = new ContentStore ();
-        settings = new GLib.Settings ("org.gnome.clocks");
+        settings = new GLib.Settings (Config.APPLICATION_ID);
 
         var app = GLib.Application.get_default ();
         var action = app.lookup_action ("stop-alarm");
