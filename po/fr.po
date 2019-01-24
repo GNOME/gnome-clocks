@@ -6,23 +6,22 @@
 # Alexandre Franke <alexandre.franke@gmail.com>, 2012.
 # Alain Lojewski <allomervan@gmail.com>, 2013.
 # Bruno Cauet <brunocauet@gmail.com>, 2014.
-# Charles Monzat <superboa@hotmail.fr>, 2016, 2017.
+# Charles Monzat <charles.monzat@numericable.fr>, 2016-2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-22 14:17+0000\n"
-"PO-Revision-Date: 2017-09-07 16:16+0200\n"
-"Last-Translator: Charles Monzat <superboa@hotmail.fr>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
+"POT-Creation-Date: 2018-10-28 09:15+0000\n"
+"PO-Revision-Date: 2018-11-20 16:20+0100\n"
+"Last-Translator: Charles Monzat <charles.monzat@numericable.fr>\n"
 "Language-Team: français <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Gtranslator 3.30.0\n"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -118,7 +117,7 @@ msgstr "Tout sélectionner"
 msgid "Select None"
 msgstr "Ne rien sélectionner"
 
-#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
+#: data/org.gnome.clocks.appdata.xml.in:6
 msgid "GNOME Clocks"
 msgstr "Horloges de GNOME"
 
@@ -150,7 +149,7 @@ msgstr "Régler des alarmes pour le réveil"
 
 #: data/org.gnome.clocks.appdata.xml.in:17
 msgid "Measure elapsed time with an accurate stopwatch"
-msgstr "Mesurer le temps écoulé avec un chonomètre précis"
+msgstr "Mesurer le temps écoulé avec un chronomètre précis"
 
 #: data/org.gnome.clocks.appdata.xml.in:18
 msgid "Set timers to properly cook your food"
@@ -178,7 +177,7 @@ msgstr "Écran du minuteur"
 
 #: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
 #: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
-#: src/world.vala:495
+#: src/world.vala:513
 msgid "Clocks"
 msgstr "Horloges"
 
@@ -291,17 +290,17 @@ msgstr "Activer"
 
 #: data/ui/alarm.ui:32
 msgid "Select <b>New</b> to add an alarm"
-msgstr "Selectionner <b>Nouvelle</b> pour ajouter une alarme"
+msgstr "Sélectionner <b>Nouvelle</b> pour ajouter une alarme"
 
-#: data/ui/stopwatch.ui:54 data/ui/timer.ui:194 src/stopwatch.vala:221
+#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:221
 msgid "Start"
 msgstr "Démarrer"
 
-#: data/ui/stopwatch.ui:72 data/ui/timer.ui:415 src/stopwatch.vala:213
+#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:213
 msgid "Reset"
 msgstr "Recommencer"
 
-#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
+#: data/ui/timer.ui:403 src/timer.vala:213 src/timer.vala:224
 msgid "Pause"
 msgstr "Pause"
 
@@ -315,7 +314,7 @@ msgstr "Rechercher une ville :"
 
 #: data/ui/world.ui:32
 msgid "Select <b>New</b> to add a world clock"
-msgstr "Selectionner <b>Nouvelle</b> pour ajouter une horloge mondiale"
+msgstr "Sélectionner <b>Nouvelle</b> pour ajouter une horloge mondiale"
 
 #: data/ui/world.ui:123
 msgid "Sunrise"
@@ -445,22 +444,22 @@ msgstr ""
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:122 src/world.vala:126
+#: src/world.vala:138 src/world.vala:142
 msgid "Tomorrow"
 msgstr "Demain"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:122 src/world.vala:126
+#: src/world.vala:138 src/world.vala:142
 msgid "Yesterday"
 msgstr "Hier"
 
-#: src/world.vala:300
+#: src/world.vala:318
 msgid "World"
 msgstr "Monde"
 
 #. Translators: "New" refers to a world clock
-#: src/world.vala:319
+#: src/world.vala:337
 msgctxt "World clock"
 msgid "New"
 msgstr "Nouvelle"
