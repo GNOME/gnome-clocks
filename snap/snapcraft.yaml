@@ -5,11 +5,17 @@ description: |
   GNOME Clocks is a simple application to show the time and date in multiple
   locations and set alarms or timers. A stopwatch is also included.
 
-grade: devel # must be 'stable' to release into candidate/stable channels
+grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict
+base: core18
+
+# Launchpad doesn't recognize these fields yet
+passthrough:
+  license: GPL-2.0+
+  title: GNOME Clocks
 
 plugs:
-  gnome-3-26-1604:
+  gnome-3-28-1804:
     interface: content
     target: $SNAP/gnome-platform
     default-provider: gnome-3-26-1604
@@ -50,6 +56,18 @@ apps:
       LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/lib/gnome-clocks
 
 parts:
+  desktop-gnome-platform:
+    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    source-subdir: gtk
+    plugin: make
+    make-parameters: ["FLAVOR=gtk3"]
+    build-packages:
+      - build-essential
+      - libgtk-3-dev
+    override-build: |
+      snapcraftctl build
+      mkdir -pv $SNAPCRAFT_PART_INSTALL/gnome-platform
+
   libgweather:
     source: https://git.gnome.org/browse/libgweather
     source-type: git
@@ -59,16 +77,11 @@ parts:
       - --datadir=../snap/gnome-clocks/current/usr/share
     organize:
       snap/gnome-clocks/current/usr: usr
-    build-attributes: ['no-system-libraries']
     build-packages:
-      - gnome-common
-      - gnome-pkg-tools
       - libxml2-dev
       - libglib2.0-dev
       - libgtk-3-dev
       - libsoup2.4-dev
-      - intltool
-      - pkg-config
       - libxml2-utils
       - gtk-doc-tools
       - libglib2.0-doc
@@ -79,6 +92,7 @@ parts:
       - valac
       - libgeocode-glib-dev
       - libgladeui-dev
+
   gnome-clocks:
     after: [libgweather, desktop-gnome-platform]
     source: .
@@ -93,15 +107,10 @@ parts:
       mkdir -p $SNAPCRAFT_PART_INSTALL/meta/gui/
       cp ../src/data/icons/hicolor/256x256/apps/org.gnome.clocks.png $SNAPCRAFT_PART_INSTALL/meta/gui/
       cp snapbuild/data/org.gnome.clocks.desktop $SNAPCRAFT_PART_INSTALL/meta/gui/
-    build-attributes: ['no-system-libraries']
     build-packages:
-      - meson
-      - desktop-file-utils
       - gettext
-      - gnome-common
       - gsettings-desktop-schemas-dev
-      - appstream-util
-      - gnome-pkg-tools
+      - itstool
       - libgeoclue-2-dev
       - libgeocode-glib-dev
       - libgirepository1.0-dev
@@ -109,9 +118,7 @@ parts:
       - libgnome-desktop-3-dev
       - libgsound-dev
       - libgtk-3-dev
-      - pkg-config
       - valac
-      - yelp-tools
 
   libraries:
     plugin: nil
