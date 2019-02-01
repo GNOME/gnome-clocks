@@ -7,6 +7,7 @@ description: |
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict
+base: core18
 
 # Launchpad doesn't recognize these fields yet
 passthrough:
@@ -14,10 +15,10 @@ passthrough:
   title: GNOME Clocks
 
 plugs:
-  gnome-3-26-1604:
+  gnome-3-28-1804:
     interface: content
     target: $SNAP/gnome-platform
-    default-provider: gnome-3-26-1604
+    default-provider: gnome-3-28-1804
   gtk-3-themes:
     interface: content
     target: $SNAP/data-dir/themes
@@ -55,15 +56,62 @@ apps:
       LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/lib/gnome-clocks
 
 parts:
+  desktop-gnome-platform:
+    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    source-subdir: gtk
+    plugin: make
+    make-parameters: ["FLAVOR=gtk3"]
+    build-packages:
+      - build-essential
+      - libgtk-3-dev
+    override-build: |
+      snapcraftctl build
+      mkdir -pv $SNAPCRAFT_PART_INSTALL/gnome-platform
+
+  libcanberra:
+    source: git://git.0pointer.de/libcanberra
+    source-type: git
+    plugin: autotools
+    configflags:
+      - --prefix=/snap/gnome-clocks/current/usr
+      - --enable-pulse
+      - --enable-gstreamer
+      - --enable-gtk3
+      - --enable-alsa
+      - --disable-oss
+    organize:
+      snap/gnome-clocks/current/usr: usr
+    build-packages:
+      - libltdl-dev
+      - libasound2-dev
+      - libvorbis-dev
+      - libgtk-3-dev
+      - libtdb-dev
+      - libpulse-dev
+      - libgstreamer1.0-dev
+      - gtk-doc-tools
+
+  gsound:
+    after: [libcanberra]
+    source: https://gitlab.gnome.org/GNOME/gsound.git
+    source-type: git
+    plugin: autotools
+    configflags: [--prefix=/snap/gnome-clocks/current/usr, --disable-Werror]
+    organize:
+      snap/gnome-clocks/current/usr: usr
+    build-packages:
+      - autoconf-archive
+      - intltool
+      - libgirepository1.0-dev
+      - libglib2.0-dev
+      - valac
+
   libgweather:
     source: https://git.gnome.org/browse/libgweather
     source-type: git
     plugin: meson
     meson-parameters: 
       - --prefix=/usr
-      - --datadir=../snap/gnome-clocks/current/usr/share
-    organize:
-      snap/gnome-clocks/current/usr: usr
     build-packages:
       - libxml2-dev
       - libglib2.0-dev
@@ -81,7 +129,7 @@ parts:
       - libgladeui-dev
 
   gnome-clocks:
-    after: [libgweather, desktop-gnome-platform]
+    after: [gsound, libgweather, desktop-gnome-platform]
     source: .
     source-type: git
     plugin: meson
@@ -89,6 +137,7 @@ parts:
     organize:
       snap/gnome-clocks/current/usr: usr
     override-build: |
+      sed -i.bak -e "s|'--vapidir'|'--vapidir', '$SNAPCRAFT_STAGE/usr/share/vala/vapi', '--vapidir'|g" src/meson.build
       sed -i.bak -e 's|=org.gnome.clocks$|=${SNAP}/meta/gui/org.gnome.clocks.svg|g' data/org.gnome.clocks.desktop.in.in
       snapcraftctl build
       mkdir -p $SNAPCRAFT_PART_INSTALL/meta/gui/
