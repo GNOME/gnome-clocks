@@ -4,14 +4,13 @@
 # Erwin Poeze <donnut@outlook.com>, 2013, 2014.
 # Reinout van Schouwen <reinouts@gnome.org>, 2015.
 # Hannie Dumoleyn <hannie@ubuntu-nl.org>, 2016.
-# Nathan Follens <nthn@unseen.is>, 2017.
+# Nathan Follens <nthn@unseen.is>, 2017, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-23 19:59+0000\n"
-"PO-Revision-Date: 2017-08-24 19:49+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
+"POT-Creation-Date: 2019-01-31 23:40+0000\n"
+"PO-Revision-Date: 2019-02-24 16:30+0100\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <gnome-nl-list@gnome.org>\n"
 "Language: nl\n"
@@ -19,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Poedit 2.2.1\n"
 "X-Project-Style: gnome\n"
 
 #: data/gtk/help-overlay.ui:14
@@ -80,7 +79,7 @@ msgstr "Stopwatch"
 #: data/gtk/help-overlay.ui:89
 msgctxt "shortcut window"
 msgid "Stop / Reset"
-msgstr "Stoppen / Opnieuw"
+msgstr "Stoppen / opnieuw"
 
 #: data/gtk/help-overlay.ui:98
 msgctxt "shortcut window"
@@ -92,39 +91,24 @@ msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Opnieuw"
 
-#: data/gtk/menus.ui:7
-msgid "_Keyboard Shortcuts"
-msgstr "Snel_toetsen"
-
-#: data/gtk/menus.ui:12
-msgid "_Help"
-msgstr "_Hulp"
-
-#: data/gtk/menus.ui:17
-msgid "_About"
-msgstr "_Info"
-
-#: data/gtk/menus.ui:21
-msgid "_Quit"
-msgstr "_Afsluiten"
-
-#: data/gtk/menus.ui:31
+#: data/gtk/menus.ui:8
 msgid "Select All"
 msgstr "Alles selecteren"
 
-#: data/gtk/menus.ui:36
+#: data/gtk/menus.ui:12
 msgid "Select None"
 msgstr "Niets selecteren"
 
-#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
+#: data/org.gnome.clocks.appdata.xml.in.in:6
 msgid "GNOME Clocks"
 msgstr "Gnome Klok"
 
-#: data/org.gnome.clocks.appdata.xml.in:7 data/org.gnome.clocks.desktop.in:6
+#: data/org.gnome.clocks.appdata.xml.in.in:7
+#: data/org.gnome.clocks.desktop.in.in:6
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Wereldklok, wekker, stopwatch en timer"
 
-#: data/org.gnome.clocks.appdata.xml.in:9
+#: data/org.gnome.clocks.appdata.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
@@ -132,65 +116,69 @@ msgstr ""
 "Een eenvoudige en elegante kloktoepassing met daarin wereldklokken, wekkers, "
 "een stopwatch en een timer."
 
-#: data/org.gnome.clocks.appdata.xml.in:13
+#: data/org.gnome.clocks.appdata.xml.in.in:13
 msgid "Goals:"
 msgstr "Doelen:"
 
-#: data/org.gnome.clocks.appdata.xml.in:15
+#: data/org.gnome.clocks.appdata.xml.in.in:15
 msgid "Show the time in different cities around the world"
 msgstr "Toon de tijd in verschillende wereldsteden"
 
-#: data/org.gnome.clocks.appdata.xml.in:16
+#: data/org.gnome.clocks.appdata.xml.in.in:16
 msgid "Set alarms to wake you up"
 msgstr "Stel wekkers in om te ontwaken"
 
-#: data/org.gnome.clocks.appdata.xml.in:17
+#: data/org.gnome.clocks.appdata.xml.in.in:17
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Meet de verlopen tijd met een nauwkeurige stopwatch"
 
-#: data/org.gnome.clocks.appdata.xml.in:18
+#: data/org.gnome.clocks.appdata.xml.in.in:18
 msgid "Set timers to properly cook your food"
 msgstr "Stel timers in om de kooktijd bij te houden"
 
-#: data/org.gnome.clocks.appdata.xml.in:33
+#: data/org.gnome.clocks.appdata.xml.in.in:33
 msgid "Initial screen"
 msgstr "Opstartscherm"
 
-#: data/org.gnome.clocks.appdata.xml.in:37
+#: data/org.gnome.clocks.appdata.xml.in.in:37
 msgid "Alarms screen"
 msgstr "Wekkerscherm"
 
-#: data/org.gnome.clocks.appdata.xml.in:41
+#: data/org.gnome.clocks.appdata.xml.in.in:41
 msgid "Alarms setup"
 msgstr "Wekkerinstelling"
 
-#: data/org.gnome.clocks.appdata.xml.in:45
+#: data/org.gnome.clocks.appdata.xml.in.in:45
 msgid "Stopwatch screen"
 msgstr "Stopwatch-scherm"
 
-#: data/org.gnome.clocks.appdata.xml.in:49
+#: data/org.gnome.clocks.appdata.xml.in.in:49
 msgid "Timer screen"
 msgstr "Timerscherm"
 
-#: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
-#: src/world.vala:495
+#: data/org.gnome.clocks.appdata.xml.in.in:65
+msgid "The GNOME Project"
+msgstr "Het Gnome-project"
+
+#: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
+#: data/ui/window.ui:5 src/window.vala:67 src/window.vala:263
+#: src/world.vala:513
 msgid "Clocks"
 msgstr "Klok"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in:8
+#: data/org.gnome.clocks.desktop.in.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
 "time;timer;alarm;world clock;stopwatch;time zone;klok;tijd;wekker;wereldtijd;"
 "wereldklok;tijdzone;"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.clocks.desktop.in:11
-msgid "org.gnome.clocks"
-msgstr "org.gnome.clocks"
+#: data/org.gnome.clocks.desktop.in.in:11
+msgid "@icon@"
+msgstr "@icon@"
 
-#: data/org.gnome.clocks.desktop.in:18
+#: data/org.gnome.clocks.desktop.in.in:18
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "Uw tijdzone kan worden weergegeven in de wereldklok."
 
@@ -224,7 +212,7 @@ msgstr "Ondersteuning geografische locatie"
 
 #: data/org.gnome.clocks.gschema.xml.in:27
 msgid "Turn geolocation support on and off."
-msgstr "In- en uitschakelen ondersteuning van de geografische locatie."
+msgstr "In- en uitschakelen van geolocatie-ondersteuning."
 
 #: data/org.gnome.clocks.gschema.xml.in:44
 msgid "Window state"
@@ -290,17 +278,29 @@ msgstr "Actief"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Kies <b>Nieuw</b> om een wekker toe te voegen"
 
-#: data/ui/stopwatch.ui:54 data/ui/timer.ui:194 src/stopwatch.vala:221
+#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:221
 msgid "Start"
 msgstr "Starten"
 
-#: data/ui/stopwatch.ui:72 data/ui/timer.ui:415 src/stopwatch.vala:213
+#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:213
 msgid "Reset"
 msgstr "Opnieuw"
 
-#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
+#: data/ui/timer.ui:403 src/timer.vala:220 src/timer.vala:231
 msgid "Pause"
 msgstr "Pauze"
+
+#: data/ui/window.ui:9
+msgid "_Keyboard Shortcuts"
+msgstr "Snel_toetsen"
+
+#: data/ui/window.ui:13
+msgid "_Help"
+msgstr "_Hulp"
+
+#: data/ui/window.ui:17
+msgid "_About Clocks"
+msgstr "_Over Klok"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -352,15 +352,15 @@ msgstr "Stopwatch"
 msgid "Lap"
 msgstr "Rondetijd"
 
-#: src/stopwatch.vala:209 src/timer.vala:208
+#: src/stopwatch.vala:209 src/timer.vala:215
 msgid "Continue"
 msgstr "Doorgaan"
 
-#: src/timer.vala:127
+#: src/timer.vala:134
 msgid "Time is up!"
 msgstr "Tijd is om!"
 
-#: src/timer.vala:128
+#: src/timer.vala:135
 msgid "Timer countdown finished"
 msgstr "Klaar met aftellen"
 
@@ -406,7 +406,7 @@ msgstr "Weekeinden"
 
 #: src/widgets.vala:232 src/widgets.vala:247
 msgid "Click on items to select them"
-msgstr "Klik op een item om te selecteren"
+msgstr "Klik op een item om het te selecteren"
 
 #: src/widgets.vala:234
 #, c-format
@@ -423,43 +423,54 @@ msgstr "Verwijderen"
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: src/window.vala:224
+#: src/window.vala:237
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Tonen hulptekst over ‘%s’ is mislukt"
 
-#: src/window.vala:254
+#: src/window.vala:268
 msgid "Utilities to help you with the time."
 msgstr "Hulpmiddelen om bij de tijd te blijven."
 
-#: src/window.vala:259
+#: src/window.vala:273
 msgid "translator-credits"
 msgstr ""
 "Wouter Bolsterlee\n"
 "Erwin Poeze\n"
-"Nathan Follens"
+"Nathan Follens\n"
+"\n"
+"Meer info over Gnome-NL http://nl.gnome.org"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:122 src/world.vala:126
+#: src/world.vala:138 src/world.vala:142
 msgid "Tomorrow"
 msgstr "Morgen"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:122 src/world.vala:126
+#: src/world.vala:138 src/world.vala:142
 msgid "Yesterday"
 msgstr "Gisteren"
 
-#: src/world.vala:300
+#: src/world.vala:318
 msgid "World"
 msgstr "Wereld"
 
 #. Translators: "New" refers to a world clock
-#: src/world.vala:319
+#: src/world.vala:337
 msgctxt "World clock"
 msgid "New"
 msgstr "Nieuw"
+
+#~ msgid "_About"
+#~ msgstr "_Info"
+
+#~ msgid "_Quit"
+#~ msgstr "_Afsluiten"
+
+#~ msgid "org.gnome.clocks"
+#~ msgstr "org.gnome.clocks"
 
 #~ msgid "_New"
 #~ msgstr "_Nieuw"
@@ -469,9 +480,6 @@ msgstr "Nieuw"
 
 #~ msgid "Edit"
 #~ msgstr "Bewerken"
-
-#~ msgid "About Clocks"
-#~ msgstr "Over Klok"
 
 #~ msgid "Split"
 #~ msgstr "Tussentijd"
