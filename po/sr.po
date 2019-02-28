@@ -5,19 +5,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-07-29 16:24+0000\n"
-"PO-Revision-Date: 2017-08-14 20:40+0200\n"
-"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
+"POT-Creation-Date: 2019-01-31 23:40+0000\n"
+"PO-Revision-Date: 2019-02-28 20:35+0100\n"
+"Last-Translator: Марко М. Костић <marko.m.kostic@gmail.com>\n"
 "Language-Team: српски <gnome-sr@googlegroups.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
-"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
+"X-Generator: Poedit 2.2\n"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -89,39 +89,24 @@ msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Поврати"
 
-#: data/gtk/menus.ui:7
-msgid "_Keyboard Shortcuts"
-msgstr "_Пречице тастатуре"
-
-#: data/gtk/menus.ui:12
-msgid "_Help"
-msgstr "По_моћ"
-
-#: data/gtk/menus.ui:17
-msgid "_About"
-msgstr "_О програму"
-
-#: data/gtk/menus.ui:21
-msgid "_Quit"
-msgstr "_Изађи"
-
-#: data/gtk/menus.ui:31
+#: data/gtk/menus.ui:8
 msgid "Select All"
 msgstr "Изабери све"
 
-#: data/gtk/menus.ui:36
+#: data/gtk/menus.ui:12
 msgid "Select None"
 msgstr "Поништи избор"
 
-#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
+#: data/org.gnome.clocks.appdata.xml.in.in:6
 msgid "GNOME Clocks"
 msgstr "Гномови сатови"
 
-#: data/org.gnome.clocks.appdata.xml.in:7 data/org.gnome.clocks.desktop.in:6
+#: data/org.gnome.clocks.appdata.xml.in.in:7
+#: data/org.gnome.clocks.desktop.in.in:6
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Сатови за светска времена, будилници, штоперица и одбројавач"
 
-#: data/org.gnome.clocks.appdata.xml.in:9
+#: data/org.gnome.clocks.appdata.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
@@ -129,64 +114,67 @@ msgstr ""
 "Једноставан и елегантан примерак сата. Садржи светске сатове, будилнике, "
 "штоперицу и одбројавач."
 
-#: data/org.gnome.clocks.appdata.xml.in:13
+#: data/org.gnome.clocks.appdata.xml.in.in:13
 msgid "Goals:"
 msgstr "Намена:"
 
-#: data/org.gnome.clocks.appdata.xml.in:15
+#: data/org.gnome.clocks.appdata.xml.in.in:15
 msgid "Show the time in different cities around the world"
 msgstr "Показује време у разним градовима широм света"
 
-#: data/org.gnome.clocks.appdata.xml.in:16
+#: data/org.gnome.clocks.appdata.xml.in.in:16
 msgid "Set alarms to wake you up"
 msgstr "Подешава будилнике за устајање у цик зоре"
 
-#: data/org.gnome.clocks.appdata.xml.in:17
+#: data/org.gnome.clocks.appdata.xml.in.in:17
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Мери протекло време прецизном штоперицом"
 
-#: data/org.gnome.clocks.appdata.xml.in:18
+#: data/org.gnome.clocks.appdata.xml.in.in:18
 msgid "Set timers to properly cook your food"
 msgstr "Подешава одбројаваче да исправно спреме вашу храну"
 
-#: data/org.gnome.clocks.appdata.xml.in:33
+#: data/org.gnome.clocks.appdata.xml.in.in:33
 msgid "Initial screen"
 msgstr "Почетни екран"
 
-#: data/org.gnome.clocks.appdata.xml.in:37
+#: data/org.gnome.clocks.appdata.xml.in.in:37
 msgid "Alarms screen"
 msgstr "Екран упозорења"
 
-#: data/org.gnome.clocks.appdata.xml.in:41
+#: data/org.gnome.clocks.appdata.xml.in.in:41
 msgid "Alarms setup"
 msgstr "Подешавање упозорења"
 
-#: data/org.gnome.clocks.appdata.xml.in:45
-#| msgid "Stopwatch"
+#: data/org.gnome.clocks.appdata.xml.in.in:45
 msgid "Stopwatch screen"
 msgstr "Екран штоперице"
 
-#: data/org.gnome.clocks.appdata.xml.in:49
+#: data/org.gnome.clocks.appdata.xml.in.in:49
 msgid "Timer screen"
 msgstr "Екран одбројавача"
 
-#: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
-#: src/world.vala:495
+#: data/org.gnome.clocks.appdata.xml.in.in:65
+msgid "The GNOME Project"
+msgstr "Гном пројекат"
+
+#: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
+#: data/ui/window.ui:5 src/window.vala:67 src/window.vala:263
+#: src/world.vala:513
 msgid "Clocks"
 msgstr "Сатови"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in:8
+#: data/org.gnome.clocks.desktop.in.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "време;одбројавач;аларм;будилник;светски сат;штоперица;временска зона;"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.clocks.desktop.in:11
-msgid "org.gnome.clocks"
-msgstr "org.gnome.clocks"
+#: data/org.gnome.clocks.desktop.in.in:11
+msgid "@icon@"
+msgstr "@icon@"
 
-#: data/org.gnome.clocks.desktop.in:18
+#: data/org.gnome.clocks.desktop.in.in:18
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "Допустите да светски сатови буду приказани за вашу временску зону."
 
@@ -286,17 +274,29 @@ msgstr "Радан"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Изаберите <b>Нови</b> да додате будилник"
 
-#: data/ui/stopwatch.ui:54 data/ui/timer.ui:194 src/stopwatch.vala:221
+#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:221
 msgid "Start"
 msgstr "Покрени"
 
-#: data/ui/stopwatch.ui:72 data/ui/timer.ui:415 src/stopwatch.vala:213
+#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:213
 msgid "Reset"
 msgstr "Поврати"
 
-#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
+#: data/ui/timer.ui:403 src/timer.vala:220 src/timer.vala:231
 msgid "Pause"
 msgstr "Паузирај"
+
+#: data/ui/window.ui:9
+msgid "_Keyboard Shortcuts"
+msgstr "_Пречице тастатуре"
+
+#: data/ui/window.ui:13
+msgid "_Help"
+msgstr "По_моћ"
+
+#: data/ui/window.ui:17
+msgid "_About Clocks"
+msgstr "_О Сатовима"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -348,15 +348,15 @@ msgstr "Штоперица"
 msgid "Lap"
 msgstr "Круг"
 
-#: src/stopwatch.vala:209 src/timer.vala:208
+#: src/stopwatch.vala:209 src/timer.vala:215
 msgid "Continue"
 msgstr "Настави"
 
-#: src/timer.vala:127
+#: src/timer.vala:134
 msgid "Time is up!"
 msgstr "Време је истекло!"
 
-#: src/timer.vala:128
+#: src/timer.vala:135
 msgid "Timer countdown finished"
 msgstr "Одбројавач је завршио"
 
@@ -421,16 +421,16 @@ msgstr "Обриши"
 msgid "Cancel"
 msgstr "Откажи"
 
-#: src/window.vala:224
+#: src/window.vala:237
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Нисам успео да прикажем помоћ: %s"
 
-#: src/window.vala:254
+#: src/window.vala:268
 msgid "Utilities to help you with the time."
 msgstr "Алатке које ће вам помоћи са временом."
 
-#: src/window.vala:259
+#: src/window.vala:273
 msgid "translator-credits"
 msgstr ""
 "  Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
@@ -439,25 +439,34 @@ msgstr ""
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:122 src/world.vala:126
+#: src/world.vala:138 src/world.vala:142
 msgid "Tomorrow"
 msgstr "Сутра"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:122 src/world.vala:126
+#: src/world.vala:138 src/world.vala:142
 msgid "Yesterday"
 msgstr "Јуче"
 
-#: src/world.vala:300
+#: src/world.vala:318
 msgid "World"
 msgstr "Свет"
 
 #. Translators: "New" refers to a world clock
-#: src/world.vala:319
+#: src/world.vala:337
 msgctxt "World clock"
 msgid "New"
 msgstr "Нов"
+
+#~ msgid "_About"
+#~ msgstr "_О програму"
+
+#~ msgid "_Quit"
+#~ msgstr "_Изађи"
+
+#~ msgid "org.gnome.clocks"
+#~ msgstr "org.gnome.clocks"
 
 #~ msgid "_New"
 #~ msgstr "_Нови"
