@@ -3,15 +3,14 @@
 # Copyright © 2016 GNOME i18n Project for Vietnamese.
 # This file is distributed under the same license as the gnome-clocks package.
 # Nguyễn Thái Ngọc Duy <pclouds@gmail.com>, 2012-2013.
-# Trần Ngọc Quân <vnwildman@gmail.com>, 2014, 2015, 2016, 2017.
+# Trần Ngọc Quân <vnwildman@gmail.com>, 2014, 2015, 2016, 2017, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-09-03 15:28+0000\n"
-"PO-Revision-Date: 2017-09-05 15:01+0700\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
+"POT-Creation-Date: 2019-03-02 21:22+0000\n"
+"PO-Revision-Date: 2019-03-03 13:57+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <gnome-vi-list@gnome.org>\n"
 "Language: vi\n"
@@ -91,39 +90,24 @@ msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Đặt lại"
 
-#: data/gtk/menus.ui:7
-msgid "_Keyboard Shortcuts"
-msgstr "_Phím tắt"
-
-#: data/gtk/menus.ui:12
-msgid "_Help"
-msgstr "Trợ g_iúp"
-
-#: data/gtk/menus.ui:17
-msgid "_About"
-msgstr "_Giới thiệu"
-
-#: data/gtk/menus.ui:21
-msgid "_Quit"
-msgstr "T_hoát"
-
-#: data/gtk/menus.ui:31
+#: data/gtk/menus.ui:8
 msgid "Select All"
 msgstr "Chọn tất cả"
 
-#: data/gtk/menus.ui:36
+#: data/gtk/menus.ui:12
 msgid "Select None"
 msgstr "Bỏ chọn"
 
-#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
+#: data/org.gnome.clocks.appdata.xml.in.in:6
 msgid "GNOME Clocks"
 msgstr "Đồng hồ GNOME"
 
-#: data/org.gnome.clocks.appdata.xml.in:7 data/org.gnome.clocks.desktop.in:6
+#: data/org.gnome.clocks.appdata.xml.in.in:7
+#: data/org.gnome.clocks.desktop.in.in:6
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Đồng hồ thế giới, kèm báo thức và đo giờ"
+msgstr "Đồng hồ thế giới, kèm báo thức, bấm giờ và đếm ngược"
 
-#: data/org.gnome.clocks.appdata.xml.in:9
+#: data/org.gnome.clocks.appdata.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
@@ -131,65 +115,69 @@ msgstr ""
 "Ứng dụng đồng hồ đơn giản và tao nhã. Nó bao gồm giờ thế giới, báo thức, "
 "đồng hồ bấm giờ và đồng hồ đếm ngược."
 
-#: data/org.gnome.clocks.appdata.xml.in:13
+#: data/org.gnome.clocks.appdata.xml.in.in:13
 msgid "Goals:"
 msgstr "Đích:"
 
-#: data/org.gnome.clocks.appdata.xml.in:15
+#: data/org.gnome.clocks.appdata.xml.in.in:15
 msgid "Show the time in different cities around the world"
 msgstr "Hiển thị thời gian ở các thành phố khác nhau trên thế "
 
-#: data/org.gnome.clocks.appdata.xml.in:16
+#: data/org.gnome.clocks.appdata.xml.in.in:16
 msgid "Set alarms to wake you up"
 msgstr "Đặt giờ báo thức"
 
-#: data/org.gnome.clocks.appdata.xml.in:17
+#: data/org.gnome.clocks.appdata.xml.in.in:17
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Đo thời gian đã đi qua bằng đồng hồ bấm giờ chính xác"
 
-#: data/org.gnome.clocks.appdata.xml.in:18
+#: data/org.gnome.clocks.appdata.xml.in.in:18
 msgid "Set timers to properly cook your food"
 msgstr "Đặt thời gian nấu nướng thức ăn phù hợp"
 
-#: data/org.gnome.clocks.appdata.xml.in:33
+#: data/org.gnome.clocks.appdata.xml.in.in:33
 msgid "Initial screen"
 msgstr "Màn hình khởi tạo"
 
-#: data/org.gnome.clocks.appdata.xml.in:37
+#: data/org.gnome.clocks.appdata.xml.in.in:37
 msgid "Alarms screen"
 msgstr "Màn hình báo thức"
 
-#: data/org.gnome.clocks.appdata.xml.in:41
+#: data/org.gnome.clocks.appdata.xml.in.in:41
 msgid "Alarms setup"
 msgstr "Cài đặt báo thức"
 
-#: data/org.gnome.clocks.appdata.xml.in:45
+#: data/org.gnome.clocks.appdata.xml.in.in:45
 msgid "Stopwatch screen"
 msgstr "Màn hình bấm giờ"
 
-#: data/org.gnome.clocks.appdata.xml.in:49
+#: data/org.gnome.clocks.appdata.xml.in.in:49
 msgid "Timer screen"
 msgstr "Màn hình đếm ngược"
 
-#: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
-#: src/world.vala:495
+#: data/org.gnome.clocks.appdata.xml.in.in:65
+msgid "The GNOME Project"
+msgstr "Dự án GNOME"
+
+#: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
+#: data/ui/window.ui:5 src/window.vala:67 src/window.vala:263
+#: src/world.vala:513
 msgid "Clocks"
 msgstr "Đồng hồ"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in:8
+#: data/org.gnome.clocks.desktop.in.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
 "time;thời;gian;thoi;timer;hẹn;giờ;hen;gio;alarm;world clock;đồng;hồ;dong;ho;"
-"stopwatch;time zone;múi;mui;bấm;"
+"stopwatch;time zone;múi giờ;mui gio;bấm;"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.clocks.desktop.in:11
-msgid "org.gnome.clocks"
-msgstr "org.gnome.clocks"
+#: data/org.gnome.clocks.desktop.in.in:11
+msgid "@icon@"
+msgstr "@icon@"
 
-#: data/org.gnome.clocks.desktop.in:18
+#: data/org.gnome.clocks.desktop.in.in:18
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "Cho phép các đồng hồ thế giới hiển thị cho múi giờ của bạn."
 
@@ -289,17 +277,29 @@ msgstr "Hoạt động"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Chọn <b>Thêm mới</b> để thêm báo thức"
 
-#: data/ui/stopwatch.ui:54 data/ui/timer.ui:194 src/stopwatch.vala:221
+#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:221
 msgid "Start"
 msgstr "Bắt đầu"
 
-#: data/ui/stopwatch.ui:72 data/ui/timer.ui:415 src/stopwatch.vala:213
+#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:213
 msgid "Reset"
 msgstr "Đặt lại"
 
-#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
+#: data/ui/timer.ui:403 src/timer.vala:220 src/timer.vala:231
 msgid "Pause"
 msgstr "Tạm dừng"
+
+#: data/ui/window.ui:9
+msgid "_Keyboard Shortcuts"
+msgstr "_Phím tắt"
+
+#: data/ui/window.ui:13
+msgid "_Help"
+msgstr "Trợ g_iúp"
+
+#: data/ui/window.ui:17
+msgid "_About Clocks"
+msgstr "_Giới thiệu Đồng hồ"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -351,15 +351,15 @@ msgstr "Bấm giờ"
 msgid "Lap"
 msgstr "Vòng"
 
-#: src/stopwatch.vala:209 src/timer.vala:208
+#: src/stopwatch.vala:209 src/timer.vala:215
 msgid "Continue"
 msgstr "Tiếp tục"
 
-#: src/timer.vala:127
+#: src/timer.vala:134
 msgid "Time is up!"
 msgstr "Hết giờ!"
 
-#: src/timer.vala:128
+#: src/timer.vala:135
 msgid "Timer countdown finished"
 msgstr "Hoàn tất đếm ngược"
 
@@ -421,40 +421,49 @@ msgstr "Xóa"
 msgid "Cancel"
 msgstr "Thôi"
 
-#: src/window.vala:224
+#: src/window.vala:237
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Gặp lỗi khi hiển thị trợ giúp: %s"
 
-#: src/window.vala:254
+#: src/window.vala:268
 msgid "Utilities to help you with the time."
 msgstr "Tiện ích giúp bạn về mặt thời gian."
 
-#: src/window.vala:259
+#: src/window.vala:273
 msgid "translator-credits"
 msgstr "Nhóm Việt hóa GNOME <gnome-vi-list@gnome.org>"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:122 src/world.vala:126
+#: src/world.vala:138 src/world.vala:142
 msgid "Tomorrow"
 msgstr "Ngày mai"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:122 src/world.vala:126
+#: src/world.vala:138 src/world.vala:142
 msgid "Yesterday"
 msgstr "Hôm qua"
 
-#: src/world.vala:300
+#: src/world.vala:318
 msgid "World"
 msgstr "Thế giới"
 
 #. Translators: "New" refers to a world clock
-#: src/world.vala:319
+#: src/world.vala:337
 msgctxt "World clock"
 msgid "New"
 msgstr "Thêm mới"
+
+#~ msgid "_About"
+#~ msgstr "_Giới thiệu"
+
+#~ msgid "_Quit"
+#~ msgstr "T_hoát"
+
+#~ msgid "org.gnome.clocks"
+#~ msgstr "org.gnome.clocks"
 
 #~ msgid "Done"
 #~ msgstr "Xong"
@@ -470,9 +479,6 @@ msgstr "Thêm mới"
 
 #~ msgid "Time"
 #~ msgstr "Thời gian"
-
-#~ msgid "About Clocks"
-#~ msgstr "Giới thiệu đồng hồ"
 
 #~ msgid "Edit"
 #~ msgstr "Sửa"
