@@ -6,10 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2018-03-05 15:27+0000\n"
-"PO-Revision-Date: 2018-03-07 15:48+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
+"POT-Creation-Date: 2019-03-21 08:35+0000\n"
+"PO-Revision-Date: 2019-03-26 17:28+0100\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
@@ -90,41 +89,26 @@ msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Vrati izvorno"
 
-#: data/gtk/menus.ui:7
-msgid "_Keyboard Shortcuts"
-msgstr "_Prečaci tipkovnice"
-
-#: data/gtk/menus.ui:12
-msgid "_Help"
-msgstr "_Priručnik"
-
-#: data/gtk/menus.ui:17
-msgid "_About"
-msgstr "_O programu"
-
-#: data/gtk/menus.ui:21
-msgid "_Quit"
-msgstr "_Zatvori"
-
-#: data/gtk/menus.ui:31
+#: data/gtk/menus.ui:8
 msgid "Select All"
 msgstr "Odaberi sve"
 
-#: data/gtk/menus.ui:36
+#: data/gtk/menus.ui:12
 msgid "Select None"
 msgstr "Ukloni odabir"
 
-#: data/org.gnome.clocks.appdata.xml.in:6
+#: data/org.gnome.clocks.appdata.xml.in.in:6
 msgid "GNOME Clocks"
 msgstr "GNOME satovi"
 
-#: data/org.gnome.clocks.appdata.xml.in:7 data/org.gnome.clocks.desktop.in:6
+#: data/org.gnome.clocks.appdata.xml.in.in:7
+#: data/org.gnome.clocks.desktop.in.in:6
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr ""
 "Satovi sa svjetskim vremenima, uključujući alarme, štopericu i odbrojavanje "
 "vremena"
 
-#: data/org.gnome.clocks.appdata.xml.in:9
+#: data/org.gnome.clocks.appdata.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
@@ -132,65 +116,69 @@ msgstr ""
 "Jednostavna i elegantna aplikacija sata. Koja uključuje alarme, štopericu i "
 "odbrojavanje vremena."
 
-#: data/org.gnome.clocks.appdata.xml.in:13
+#: data/org.gnome.clocks.appdata.xml.in.in:13
 msgid "Goals:"
 msgstr "Namjena:"
 
-#: data/org.gnome.clocks.appdata.xml.in:15
+#: data/org.gnome.clocks.appdata.xml.in.in:15
 msgid "Show the time in different cities around the world"
 msgstr "Prikaz vremena u drugim gradovima diljem svijeta"
 
-#: data/org.gnome.clocks.appdata.xml.in:16
+#: data/org.gnome.clocks.appdata.xml.in.in:16
 msgid "Set alarms to wake you up"
 msgstr "Postavljanje alarma da vas probudi"
 
-#: data/org.gnome.clocks.appdata.xml.in:17
+#: data/org.gnome.clocks.appdata.xml.in.in:17
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Mjerenje preostalog vremena s preciznošću štoperice"
 
-#: data/org.gnome.clocks.appdata.xml.in:18
+#: data/org.gnome.clocks.appdata.xml.in.in:18
 msgid "Set timers to properly cook your food"
 msgstr ""
 "Postavljanje podsjetnika odbrojavanja kako bi mogli pravilno skuhati svoju "
 "hranu"
 
-#: data/org.gnome.clocks.appdata.xml.in:33
+#: data/org.gnome.clocks.appdata.xml.in.in:33
 msgid "Initial screen"
 msgstr "Početni zaslon"
 
-#: data/org.gnome.clocks.appdata.xml.in:37
+#: data/org.gnome.clocks.appdata.xml.in.in:37
 msgid "Alarms screen"
 msgstr "Zaslon alarma"
 
-#: data/org.gnome.clocks.appdata.xml.in:41
+#: data/org.gnome.clocks.appdata.xml.in.in:41
 msgid "Alarms setup"
 msgstr "Postavke alarma"
 
-#: data/org.gnome.clocks.appdata.xml.in:45
+#: data/org.gnome.clocks.appdata.xml.in.in:45
 msgid "Stopwatch screen"
 msgstr "Zaslon štoperice"
 
-#: data/org.gnome.clocks.appdata.xml.in:49
+#: data/org.gnome.clocks.appdata.xml.in.in:49
 msgid "Timer screen"
 msgstr "Zaslon odbrojavanja"
 
-#: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
+#: data/org.gnome.clocks.appdata.xml.in.in:65
+msgid "The GNOME Project"
+msgstr "GNOME projekt"
+
+#: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
+#: data/ui/window.ui:5 src/window.vala:67 src/window.vala:263
 #: src/world.vala:513
 msgid "Clocks"
 msgstr "Satovi"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in:8
+#: data/org.gnome.clocks.desktop.in.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "vrijeme;odbrojavanje;alarm;svjetski sat;štoperica;vremenska zona;"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.clocks.desktop.in:11
-msgid "org.gnome.clocks"
-msgstr "org.gnome.clocks"
+#: data/org.gnome.clocks.desktop.in.in:11
+msgid "@icon@"
+msgstr "@icon@"
 
-#: data/org.gnome.clocks.desktop.in:18
+#: data/org.gnome.clocks.desktop.in.in:18
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "Dopušta svjetskim satovima prikaz u vašoj vremenskoj zoni."
 
@@ -290,17 +278,29 @@ msgstr "Aktivan"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Odaberi <b>Novi</b> za dodavanje alarma"
 
-#: data/ui/stopwatch.ui:54 data/ui/timer.ui:194 src/stopwatch.vala:221
+#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:221
 msgid "Start"
 msgstr "Pokreni"
 
-#: data/ui/stopwatch.ui:72 data/ui/timer.ui:415 src/stopwatch.vala:213
+#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:213
 msgid "Reset"
 msgstr "Vrati izvorno"
 
-#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
+#: data/ui/timer.ui:403 src/timer.vala:220 src/timer.vala:231
 msgid "Pause"
 msgstr "Pauza"
+
+#: data/ui/window.ui:9
+msgid "_Keyboard Shortcuts"
+msgstr "_Prečaci tipkovnice"
+
+#: data/ui/window.ui:13
+msgid "_Help"
+msgstr "_Priručnik"
+
+#: data/ui/window.ui:17
+msgid "_About Clocks"
+msgstr "_O Svjetskim satovima"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -352,15 +352,15 @@ msgstr "Štoperica"
 msgid "Lap"
 msgstr "Krug"
 
-#: src/stopwatch.vala:209 src/timer.vala:208
+#: src/stopwatch.vala:209 src/timer.vala:215
 msgid "Continue"
 msgstr "Nastavi"
 
-#: src/timer.vala:127
+#: src/timer.vala:134
 msgid "Time is up!"
 msgstr "Vrijeme je isteklo!"
 
-#: src/timer.vala:128
+#: src/timer.vala:135
 msgid "Timer countdown finished"
 msgstr "Odbrojavanje završeno"
 
@@ -424,16 +424,16 @@ msgstr "Obriši"
 msgid "Cancel"
 msgstr "Odustani"
 
-#: src/window.vala:224
+#: src/window.vala:237
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Neuspješni prikaz pomoći: %s"
 
-#: src/window.vala:254
+#: src/window.vala:268
 msgid "Utilities to help you with the time."
 msgstr "Pomagala za pomoć s vremenom."
 
-#: src/window.vala:259
+#: src/window.vala:273
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -460,3 +460,12 @@ msgstr "Svijet"
 msgctxt "World clock"
 msgid "New"
 msgstr "Novi"
+
+#~ msgid "_About"
+#~ msgstr "_O programu"
+
+#~ msgid "_Quit"
+#~ msgstr "_Zatvori"
+
+#~ msgid "org.gnome.clocks"
+#~ msgstr "org.gnome.clocks"
