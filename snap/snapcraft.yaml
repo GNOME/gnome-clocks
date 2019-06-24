@@ -9,6 +9,10 @@ grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict
 base: core18
 
+layout:
+  /usr/share/libgweather:
+    bind: $SNAP/usr/share/libgweather
+
 # Launchpad doesn't recognize these fields yet
 passthrough:
   license: GPL-2.0+
