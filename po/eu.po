@@ -7,11 +7,9 @@
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2013, 2014, 2015, 2016, 2017.
 # Edurne Labaka <elabaka@uzei.com>, 2015.
 msgid ""
-msgstr ""
-"Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-07-29 16:24+0000\n"
+msgstr "Project-Id-Version: gnome-clocks master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
+"POT-Creation-Date: 2019-03-26 16:29+0000\n"
 "PO-Revision-Date: 2017-08-27 14:32+0200\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
 "Language-Team: Basque <librezale@librezale.eus>\n"
@@ -45,7 +43,7 @@ msgstr "Irten"
 #: data/gtk/help-overlay.ui:42
 msgctxt "shortcut window"
 msgid "World Clocks"
-msgstr "Munduko ordulariak"
+msgstr "Munduko erlojuak"
 
 #: data/gtk/help-overlay.ui:47
 msgctxt "shortcut window"
@@ -92,105 +90,85 @@ msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Berrezarri"
 
-#: data/gtk/menus.ui:7
-msgid "_Keyboard Shortcuts"
-msgstr "_Laster-teklak"
+#: data/gtk/menus.ui:8
+msgid "Select All"
+msgstr "Hautatu dena"
 
 #: data/gtk/menus.ui:12
-msgid "_Help"
-msgstr "_Laguntza"
-
-#: data/gtk/menus.ui:17
-msgid "_About"
-msgstr "Honi _buruz"
-
-#: data/gtk/menus.ui:21
-msgid "_Quit"
-msgstr "I_rten"
-
-#: data/gtk/menus.ui:31
-msgid "Select All"
-msgstr "Hautatu denak"
-
-#: data/gtk/menus.ui:36
 msgid "Select None"
-msgstr "Bat ere ez hautatu"
+msgstr "Hautatu bat ere ez"
 
-#: data/org.gnome.clocks.appdata.xml.in:6 data/org.gnome.clocks.desktop.in:5
+#: data/org.gnome.clocks.appdata.xml.in.in:6
 msgid "GNOME Clocks"
 msgstr "GNOMEren ordulariak"
 
-#: data/org.gnome.clocks.appdata.xml.in:7 data/org.gnome.clocks.desktop.in:6
+#: data/org.gnome.clocks.appdata.xml.in.in:7
+#: data/org.gnome.clocks.desktop.in.in:6
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr ""
-"Ordulariak munduko orduetarako, gehi alarmak, kronometroa eta tenporizadorea"
+msgstr "Ordulariak munduko orduetarako, gehi alarmak, kronometroa eta tenporizadorea"
 
-#: data/org.gnome.clocks.appdata.xml.in:9
+#: data/org.gnome.clocks.appdata.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
-msgstr ""
-"Ordulariaren aplikazio xume eta dotorea. Munduko ordulariak, alarmak, "
-"kronometro eta tenporizadorea ditu."
+msgstr "Ordulariaren aplikazio xume eta dotorea. Munduko ordulariak, alarmak, kronometro eta tenporizadorea ditu."
 
-#: data/org.gnome.clocks.appdata.xml.in:13
+#: data/org.gnome.clocks.appdata.xml.in.in:13
 msgid "Goals:"
 msgstr "Helburuak:"
 
-#: data/org.gnome.clocks.appdata.xml.in:15
+#: data/org.gnome.clocks.appdata.xml.in.in:15
 msgid "Show the time in different cities around the world"
 msgstr "Erakutsi munduko hiri desberdinen ordua"
 
-#: data/org.gnome.clocks.appdata.xml.in:16
+#: data/org.gnome.clocks.appdata.xml.in.in:16
 msgid "Set alarms to wake you up"
 msgstr "Ezarri alarma zu esnatzeko"
 
-#: data/org.gnome.clocks.appdata.xml.in:17
+#: data/org.gnome.clocks.appdata.xml.in.in:17
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Neurtu igarotako denbora kronometro zehatzarekin"
 
-#: data/org.gnome.clocks.appdata.xml.in:18
+#: data/org.gnome.clocks.appdata.xml.in.in:18
 msgid "Set timers to properly cook your food"
 msgstr "Ezarri tenporizadorea zure janaria egokiro prestatzeko"
 
-#: data/org.gnome.clocks.appdata.xml.in:33
+#: data/org.gnome.clocks.appdata.xml.in.in:33
 msgid "Initial screen"
 msgstr "Hasierako pantaila"
 
-#: data/org.gnome.clocks.appdata.xml.in:37
+#: data/org.gnome.clocks.appdata.xml.in.in:37
 msgid "Alarms screen"
 msgstr "Alarmen pantaila"
 
-#: data/org.gnome.clocks.appdata.xml.in:41
+#: data/org.gnome.clocks.appdata.xml.in.in:41
 msgid "Alarms setup"
 msgstr "Alarmen konfigurazioa"
 
-#: data/org.gnome.clocks.appdata.xml.in:45
-#| msgid "Stopwatch"
+#: data/org.gnome.clocks.appdata.xml.in.in:45
 msgid "Stopwatch screen"
 msgstr "Kronometroaren pantaila"
 
-#: data/org.gnome.clocks.appdata.xml.in:49
+#: data/org.gnome.clocks.appdata.xml.in.in:49
 msgid "Timer screen"
 msgstr "Tenporizadorearen pantaila"
 
-#: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
-#: src/world.vala:495
+#: data/org.gnome.clocks.appdata.xml.in.in:65
+msgid "The GNOME Project"
+msgstr "GNOME proiektua"
+
+#: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
+#: data/ui/window.ui:5 src/window.vala:67 src/window.vala:263
+#: src/world.vala:513
 msgid "Clocks"
 msgstr "Ordulariak"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in:8
+#: data/org.gnome.clocks.desktop.in.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "ordua;tenporizadorea;alarma;munduko ordulariak;kronometroa;ordu-zona;"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.clocks.desktop.in:11
-msgid "org.gnome.clocks"
-msgstr "org.gnome.clocks"
-
-#: data/org.gnome.clocks.desktop.in:18
+#: data/org.gnome.clocks.desktop.in.in:18
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "Munduko ordulariak zure ordu-zonan bistaratzea baimentzen du."
 
@@ -290,17 +268,29 @@ msgstr "Aktibo"
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Hautatu <b>Berria</b> alarma bat gehitzeko"
 
-#: data/ui/stopwatch.ui:54 data/ui/timer.ui:194 src/stopwatch.vala:221
+#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:221
 msgid "Start"
-msgstr "Hasi"
+msgstr "Hasiera"
 
-#: data/ui/stopwatch.ui:72 data/ui/timer.ui:415 src/stopwatch.vala:213
+#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:213
 msgid "Reset"
 msgstr "Berrezarri"
 
-#: data/ui/timer.ui:397 src/timer.vala:213 src/timer.vala:224
+#: data/ui/timer.ui:403 src/timer.vala:220 src/timer.vala:231
 msgid "Pause"
 msgstr "Pausatu"
+
+#: data/ui/window.ui:9
+msgid "_Keyboard Shortcuts"
+msgstr "Las_ter-teklak"
+
+#: data/ui/window.ui:13
+msgid "_Help"
+msgstr "_Laguntza"
+
+#: data/ui/window.ui:17
+msgid "_About Clocks"
+msgstr ""
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -352,15 +342,15 @@ msgstr "Kronometroa"
 msgid "Lap"
 msgstr "Itzulia"
 
-#: src/stopwatch.vala:209 src/timer.vala:208
+#: src/stopwatch.vala:209 src/timer.vala:215
 msgid "Continue"
 msgstr "Jarraitu"
 
-#: src/timer.vala:127
+#: src/timer.vala:134
 msgid "Time is up!"
 msgstr "Denbora amaitu da!"
 
-#: src/timer.vala:128
+#: src/timer.vala:135
 msgid "Timer countdown finished"
 msgstr "Tenporizadorearen atzekoz aurrera zenbatzea amaituta"
 
@@ -406,7 +396,7 @@ msgstr "Asteburuak"
 
 #: src/widgets.vala:232 src/widgets.vala:247
 msgid "Click on items to select them"
-msgstr "Egin klik elementuetan haiek hautatzeko"
+msgstr "Egin klik elementuen gainean hautatzeko"
 
 #: src/widgets.vala:234
 #, c-format
@@ -423,42 +413,49 @@ msgstr "Ezabatu"
 msgid "Cancel"
 msgstr "Utzi"
 
-#: src/window.vala:224
+#: src/window.vala:237
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Huts egin du laguntza erakustean: %s"
 
-#: src/window.vala:254
+#: src/window.vala:268
 msgid "Utilities to help you with the time."
 msgstr "Orduarekin lagunduko dizuten tresnak."
 
-#: src/window.vala:259
+#: src/window.vala:273
 msgid "translator-credits"
-msgstr ""
-"Asier Sarasua Garmendia <asiersar@yahoo.com>\n"
-"Iñaki Larrañaga Murgoitio <dooteo@zundan.com>"
+msgstr "Asier Sarasua Garmendia <asier.sarasua@gmail.com>"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:122 src/world.vala:126
+#: src/world.vala:138 src/world.vala:142
 msgid "Tomorrow"
 msgstr "Bihar"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:122 src/world.vala:126
+#: src/world.vala:138 src/world.vala:142
 msgid "Yesterday"
 msgstr "Atzo"
 
-#: src/world.vala:300
+#: src/world.vala:318
 msgid "World"
 msgstr "Mundua"
 
 #. Translators: "New" refers to a world clock
-#: src/world.vala:319
+#: src/world.vala:337
 msgctxt "World clock"
 msgid "New"
 msgstr "Berria"
+
+#~ msgid "_About"
+#~ msgstr "Honi _buruz"
+
+#~ msgid "_Quit"
+#~ msgstr "I_rten"
+
+#~ msgid "org.gnome.clocks"
+#~ msgstr "org.gnome.clocks"
 
 #~ msgid "_New"
 #~ msgstr "_Berria"
@@ -486,6 +483,3 @@ msgstr "Berria"
 
 #~ msgid "Edit"
 #~ msgstr "Editatu"
-
-#~ msgid "About Clocks"
-#~ msgstr "Clocks-i buruz"
