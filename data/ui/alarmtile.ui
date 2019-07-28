@@ -1,47 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="ClocksAlarmTile" parent="GtkGrid">
+  <template class="ClocksAlarmRow" parent="HdyActionRow">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="halign">start</property>
-    <property name="valign">start</property>
-    <child>
-      <object class="GtkLabel" id="time_label">
-        <property name="width_request">256</property>
-        <property name="height_request">256</property>
+    <property name="activatable-widget">toggle</property>
+    <child type="action">
+      <object class="GtkButton">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="valign">center</property>
         <property name="halign">center</property>
-        <property name="valign">end</property>
-        <property name="use-markup">True</property>
-        <property name="justify">center</property>
-        <property name="wrap">True</property>
-        <property name="max-width-chars">7</property>
-        <style>
-          <class name="tile-label"/>
-          <class name="alarm-tile"/>
-        </style>
+        <child>
+          <object class="GtkImage">
+            <property name="visible">True</property>
+            <property name="icon-name">applications-system-symbolic</property>
+            <property name="icon-size">4</property>
+          </object>
+        </child>
       </object>
-      <packing>
-        <property name="left_attach">0</property>
-        <property name="top_attach">0</property>
-      </packing>
     </child>
-    <child>
-      <object class="GtkLabel" id="name_label">
+    <child type="action">
+      <object class="GtkSeparator">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
         <property name="halign">center</property>
-        <property name="wrap">True</property>
-        <property name="max-width-chars">30</property>
-        <style>
-          <class name="name-label"/>
-        </style>
+        <property name="margin-top">8</property>
+        <property name="margin-bottom">8</property>
       </object>
-      <packing>
-        <property name="left_attach">0</property>
-        <property name="top_attach">1</property>
-      </packing>
+    </child>
+    <child type="action">
+      <object class="GtkSwitch" id="toggle">
+        <property name="visible">True</property>
+        <property name="valign">center</property>
+        <property name="halign">center</property>
+      </object>
     </child>
   </template>
 </interface>
