@@ -275,18 +275,13 @@ private class Item : Object, ContentItem {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarmtile.ui")]
-private class Tile : Gtk.Grid {
+private class Row : Hdy.ActionRow {
     public Item alarm { get; construct set; }
 
-    [GtkChild]
-    private Gtk.Label time_label;
-    [GtkChild]
-    private Gtk.Widget name_label;
-
-    public Tile (Item alarm) {
+    public Row (Item alarm) {
         Object (alarm: alarm);
 
-        alarm.bind_property ("name", name_label, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        alarm.bind_property ("name", this, "subtitle", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
 
         alarm.notify["active"].connect (update);
         alarm.notify["state"].connect (update);
@@ -316,9 +311,9 @@ private class Tile : Gtk.Grid {
         }
 
         if (sub_text != null && sub_text != "") {
-            time_label.label = "%s\n<span size='xx-small'>%s</span>".printf (text, sub_text);
+            title = "%s • %s".printf (text, sub_text);
         } else {
-            time_label.label = text;
+            title = text;
         }
     }
 }
@@ -632,8 +627,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
             }
         });
 
+        listbox.set_header_func((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
         listbox.bind_model (alarms, (item) => {
-            return new Tile ((Item)item);
+            return new Row ((Item)item);
         });
 
         load ();
