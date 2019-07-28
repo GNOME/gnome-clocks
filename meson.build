@@ -19,6 +19,7 @@ gweather = dependency('gweather-3.0', version: '>=3.27.2')
 gnomedesktop = dependency('gnome-desktop-3.0', version: '>=3.8')
 geocodeglib = dependency('geocode-glib-1.0', version: '>=1.0')
 libgeoclue = dependency('libgeoclue-2.0', version: '>=2.4')
+libhandy = dependency('libhandy-0.0', version: '>= 0.0.9', fallback: ['libhandy', 'libhandy_dep'])
 
 cc = meson.get_compiler('c')
 math = cc.find_library('m', required: false)
