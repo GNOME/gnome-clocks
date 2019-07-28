@@ -43,9 +43,20 @@
       </object>
     </child>
     <child>
-      <object class="ClocksContentView" id="content_view">
+      <object class="GtkScrolledWindow" id="list_view">
         <property name="visible">True</property>
-        <signal name="item-activated" handler="item_activated" swapped="no"/>
+        <child>
+          <object class="HdyColumn">
+            <property name="visible">True</property>
+            <property name="maximum-width">500</property>
+            <child>
+              <object class="GtkListBox" id="listbox">
+                <property name="visible">True</property>
+                <!--<signal name="row-activated" handler="item_activated" swapped="no"/>-->
+              </object>
+            </child>
+          </object>
+        </child>
       </object>
     </child>
     <child>
