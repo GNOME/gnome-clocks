@@ -586,8 +586,12 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private Gtk.Button new_button;
     [GtkChild]
     private Gtk.Widget empty_view;
+    //[GtkChild]
+    //private ContentView content_view;
     [GtkChild]
-    private ContentView content_view;
+    private Gtk.ListBox listbox;
+    [GtkChild]
+    private Gtk.ScrolledWindow list_view;
     [GtkChild]
     private RingingPanel ringing_panel;
 
@@ -627,11 +631,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
         new_button.action_name = "win.new";
         header_bar.pack_start (new_button);
 
-        content_view.bind_model (alarms, (item) => {
+        listbox.bind_model (alarms, (item) => {
             return new Tile ((Item)item);
         });
 
-        content_view.set_header_bar (header_bar);
+        // content_view.set_header_bar (header_bar);
 
         load ();
         show_all ();
@@ -661,7 +665,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     public signal void ring ();
 
-    [GtkCallback]
+    //[GtkCallback]
     private void item_activated (ContentItem item) {
         Item alarm = (Item) item;
         if (alarm.state == Item.State.SNOOZING) {
@@ -678,7 +682,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     [GtkCallback]
     private void visible_child_changed () {
-        if (visible_child == empty_view || visible_child == content_view) {
+        if (visible_child == empty_view || visible_child == list_view) {
             header_bar.mode = HeaderBar.Mode.NORMAL;
         } else if (visible_child == ringing_panel) {
             header_bar.mode = HeaderBar.Mode.STANDALONE;
@@ -719,7 +723,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     private void reset_view () {
-        visible_child = alarms.get_n_items () == 0 ? empty_view : content_view;
+        visible_child = alarms.get_n_items () == 0 ? empty_view : list_view;
         request_header_bar_update ();
     }
 
@@ -738,25 +742,25 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     public void activate_select_all () {
-        content_view.select_all ();
+        // content_view.select_all ();
     }
 
     public void activate_select_none () {
-        content_view.unselect_all ();
+        // content_view.unselect_all ();
     }
 
     public bool escape_pressed () {
-        return content_view.escape_pressed ();
+        return /*content_view.escape_pressed ();*/ false;
     }
 
     public void update_header_bar () {
         switch (header_bar.mode) {
         case HeaderBar.Mode.NORMAL:
             new_button.show ();
-            content_view.update_header_bar ();
+            //content_view.update_header_bar ();
             break;
         case HeaderBar.Mode.SELECTION:
-            content_view.update_header_bar ();
+            //content_view.update_header_bar ();
             break;
         case HeaderBar.Mode.STANDALONE:
             header_bar.title = ringing_panel.alarm.name;
