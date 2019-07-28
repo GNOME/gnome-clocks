@@ -596,8 +596,12 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private GLib.Settings settings;
     [GtkChild]
     private Gtk.Widget empty_view;
+    //[GtkChild]
+    //private ContentView content_view;
     [GtkChild]
-    private ContentView content_view;
+    private Gtk.ListBox listbox;
+    [GtkChild]
+    private Gtk.ScrolledWindow list_view;
     [GtkChild]
     private RingingPanel ringing_panel;
 
@@ -628,7 +632,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
             }
         });
 
-        content_view.bind_model (alarms, (item) => {
+        listbox.bind_model (alarms, (item) => {
             return new Tile ((Item)item);
         });
 
@@ -660,7 +664,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     public signal void ring ();
 
-    [GtkCallback]
+    //[GtkCallback]
     private void item_activated (ContentItem item) {
         Item alarm = (Item) item;
         if (alarm.state == Item.State.SNOOZING) {
@@ -679,7 +683,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     [GtkCallback]
     private void visible_child_changed () {
-        if (visible_child == empty_view || visible_child == content_view) {
+        if (visible_child == empty_view || visible_child == list_view) {
             view_mode = NORMAL;
         } else if (visible_child == ringing_panel) {
             view_mode = STANDALONE;
@@ -723,7 +727,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     private void reset_view () {
-        visible_child = alarms.get_n_items () == 0 ? empty_view : content_view;
+        visible_child = alarms.get_n_items () == 0 ? empty_view : list_view;
     }
 
     public void activate_new () {
@@ -749,15 +753,15 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     public void activate_select_all () {
-        content_view.select_all ();
+        // content_view.select_all ();
     }
 
     public void activate_select_none () {
-        content_view.unselect_all ();
+        // content_view.unselect_all ();
     }
 
     public bool escape_pressed () {
-        return content_view.escape_pressed ();
+        return /*content_view.escape_pressed ();*/ false;
     }
 }
 
