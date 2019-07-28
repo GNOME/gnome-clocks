@@ -52,7 +52,13 @@
             <child>
               <object class="GtkListBox" id="listbox">
                 <property name="visible">True</property>
+                <property name="selection-mode">none</property>
+                <property name="valign">start</property>
+                <property name="margin">24</property>
                 <!--<signal name="row-activated" handler="item_activated" swapped="no"/>-->
+                <style>
+                  <class name="frame"/>
+                </style>
               </object>
             </child>
           </object>
