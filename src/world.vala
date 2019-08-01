@@ -19,6 +19,50 @@
 namespace Clocks {
 namespace World {
 
+// Export world clock locations to GNOME Shell
+[DBus (name = "org.gnome.Shell.ClocksIntegration")]
+public class ShellWorldClocks : Object {
+    public GLib.Variant[] locations {
+        owned get {
+            GLib.Variant[] rv = {};
+            GLib.Variant locations = settings.get_value ("world-clocks");
+
+            for (int i = 0; i < locations.n_children(); i++) {
+                rv += locations.get_child_value (i).lookup_value ("location", null);
+            }
+            return rv;
+        }
+    }
+
+    private DBusConnection connection;
+    private string object_path;
+
+    private GLib.Settings settings;
+
+    public ShellWorldClocks (DBusConnection connection, string object_path) {
+        this.connection = connection;
+        this.object_path = object_path;
+
+        settings = new GLib.Settings ("org.gnome.clocks");
+        settings.changed["world-clocks"].connect (() => {
+            var builder = new VariantBuilder (VariantType.ARRAY);
+            var invalid_builder = new VariantBuilder (new VariantType ("as"));
+
+            Variant v = locations;
+            builder.add ("{sv}", "Locations", v);
+
+            this.connection.emit_signal (null,
+                                         this.object_path,
+                                         "org.freedesktop.DBus.Properties",
+                                         "PropertiesChanged",
+                                         new Variant ("(sa{sv}as)",
+                                                      "org.gnome.Shell.ClocksIntegration",
+                                                      builder,
+                                                      invalid_builder));
+        });
+    }
+}
+
 public class Item : Object, ContentItem {
     public GWeather.Location location { get; set; }
 
