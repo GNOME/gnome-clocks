@@ -9,6 +9,7 @@
         <property name="visible">True</property>
         <property name="valign">center</property>
         <property name="halign">center</property>
+        <signal name="clicked" handler="edit" swapped="no" object="ClocksAlarmRow"/>
         <child>
           <object class="GtkImage">
             <property name="visible">True</property>
