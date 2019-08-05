@@ -35,6 +35,11 @@ window > stack:backdrop {
 
 /* alarms */
 
+row.snoozing {
+    background: transparent -gtk-icontheme("alarm-symbolic") 65% 400%/48px 48px no-repeat;
+    font-weight: bold;
+}
+
 .alarm-tile,
 .alarm-tile:backdrop,
 .tile.prelight .alarm-tile,
