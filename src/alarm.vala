@@ -277,9 +277,10 @@ private class Item : Object, ContentItem {
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarmtile.ui")]
 private class Row : Hdy.ActionRow {
     public Item alarm { get; construct set; }
+    public Face face { get; construct set; }
 
-    public Row (Item alarm) {
-        Object (alarm: alarm);
+    public Row (Item alarm, Face face) {
+        Object (alarm: alarm, face: face);
 
         alarm.bind_property ("name", this, "subtitle", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
 
@@ -315,6 +316,11 @@ private class Row : Hdy.ActionRow {
         } else {
             title = text;
         }
+    }
+
+    [GtkCallback]
+    private void edit () requires (face != null && alarm != null) {
+        face.edit(alarm);
     }
 }
 
@@ -628,10 +634,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         listbox.set_header_func((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
         listbox.bind_model (alarms, (item) => {
-            return new Row ((Item)item);
+            return new Row ((Item) item, this);
         });
-
-        // content_view.set_header_bar (header_bar);
 
         load ();
         show_all ();
@@ -661,16 +665,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     public signal void ring ();
 
-    //[GtkCallback]
-    private void item_activated (ContentItem item) {
-        Item alarm = (Item) item;
-        if (alarm.state == Item.State.SNOOZING) {
-            show_ringing_panel (alarm);
-        } else {
-            edit (alarm);
-        }
-    }
-
     [GtkCallback]
     private void dismiss_ringing_panel () {
        reset_view ();
@@ -693,7 +687,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         settings.set_value ("alarms", alarms.serialize ());
     }
 
-    private void edit (Item alarm) {
+    internal void edit (Item alarm) {
         var dialog = new SetupDialog ((Gtk.Window) get_toplevel (), alarm, alarms);
 
         // Disable alarm while editing it and remember the original active state.
