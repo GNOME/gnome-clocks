@@ -281,6 +281,8 @@ private class Row : Hdy.ActionRow {
 
     [GtkChild]
     private Gtk.Switch toggle;
+    [GtkChild]
+    private Gtk.Label repeats;
 
     public Row (Item alarm, Face face) {
         Object (alarm: alarm, face: face);
@@ -301,8 +303,6 @@ private class Row : Hdy.ActionRow {
     }
 
     private void update () {
-        string text, sub_text;
-
         if (alarm.active) {
             get_style_context ().add_class ("active");
         } else {
@@ -311,19 +311,13 @@ private class Row : Hdy.ActionRow {
 
         if (alarm.state == Item.State.SNOOZING) {
             get_style_context ().add_class ("snoozing");
-            text = alarm.snooze_time_label;
-            sub_text = "(%s)".printf (alarm.time_label);
+            title = "%s (%s)".printf (alarm.snooze_time_label, alarm.time_label);
         } else {
             get_style_context ().remove_class ("snoozing");
-            text = alarm.time_label;
-            sub_text = alarm.days_label;
+            title = alarm.time_label;
         }
 
-        if (sub_text != null && sub_text != "") {
-            title = "%s • %s".printf (text, sub_text);
-        } else {
-            title = text;
-        }
+        repeats.label = alarm.days_label;
     }
 }
 
