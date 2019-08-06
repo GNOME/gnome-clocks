@@ -12,8 +12,6 @@ install_data(
   rename: '@0@-symbolic.svg'.format(app_id)
 )
 
-install_subdir('images/', install_dir: join_paths(get_option('datadir'), meson.project_name()))
-
 resource_files = files('gnome-clocks.gresource.xml')
 resources = gnome.compile_resources('org.gnome.clocks', resource_files,
   c_name: 'resources'

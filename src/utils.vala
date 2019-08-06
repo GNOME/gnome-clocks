@@ -49,8 +49,7 @@ public void load_theme_css (string theme_name) {
 
 public Gdk.Pixbuf? load_image (string image) {
     try {
-        var path = Path.build_filename (Config.DATADIR, "gnome-clocks", "images", image);
-        return new Gdk.Pixbuf.from_file (path);
+        return new Gdk.Pixbuf.from_resource ("/org/gnome/clocks/images/" + image);
     } catch (Error e) {
         warning ("loading image file: %s", e.message);
     }
