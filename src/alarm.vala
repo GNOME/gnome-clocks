@@ -296,6 +296,10 @@ private class Row : Hdy.ActionRow {
         update ();
     }
 
+    public override void activate () {
+        face.edit(alarm);
+    }
+
     private void update () {
         string text, sub_text;
 
@@ -320,11 +324,6 @@ private class Row : Hdy.ActionRow {
         } else {
             title = text;
         }
-    }
-
-    [GtkCallback]
-    private void edit () requires (face != null && alarm != null) {
-        face.edit(alarm);
     }
 }
 
