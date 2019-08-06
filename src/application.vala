@@ -33,6 +33,8 @@ public class Application : Gtk.Application {
 
     private SearchProvider search_provider;
     private uint search_provider_id = 0;
+    private World.ShellWorldClocks world_clocks;
+    private uint world_clocks_id = 0;
     private Window window;
     private List<string> system_notifications;
 
@@ -70,6 +72,13 @@ public class Application : Gtk.Application {
             printerr ("Could not register search provider service: %s\n", error.message);
         }
 
+        try {
+            world_clocks = new World.ShellWorldClocks (connection, object_path);
+            world_clocks_id = connection.register_object (object_path, world_clocks);
+        } catch (IOError error) {
+            printerr ("Could not register world clocks service: %s\n", error.message);
+        }
+
         return true;
     }
 
@@ -77,6 +86,11 @@ public class Application : Gtk.Application {
         if (search_provider_id != 0) {
             connection.unregister_object (search_provider_id);
             search_provider_id = 0;
+        }
+
+        if (world_clocks_id != 0) {
+            connection.unregister_object (world_clocks_id);
+            world_clocks_id = 0;
         }
     }
 
