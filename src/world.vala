@@ -291,7 +291,7 @@ private class Tile : Gtk.Grid {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/worldlocationdialog.ui")]
-private class LocationDialog : Gtk.Dialog {
+private class LocationDialog : Hdy.Dialog {
     [GtkChild]
     private GWeather.LocationEntry location_entry;
     private Face world;

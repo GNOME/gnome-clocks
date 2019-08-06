@@ -2,9 +2,8 @@
 <interface>
   <!-- interface-requires libgweather 3.0 -->
   <!-- interface-requires gtk+ 3.12 -->
-  <template class="ClocksWorldLocationDialog" parent="GtkDialog">
+  <template class="ClocksWorldLocationDialog" parent="HdyDialog">
     <property name="can_focus">False</property>
-    <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
     <property name="destroy_with_parent">True</property>
@@ -57,16 +56,14 @@
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox1">
         <property name="can_focus">False</property>
-        <property name="valign">start</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
+        <property name="valign">center</property>
         <child>
           <object class="GtkGrid" id="location_dialog_content">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="border_width">5</property>
+            <property name="border_width">6</property>
             <property name="row_spacing">6</property>
             <child>
               <object class="GtkLabel" id="label2">
@@ -85,8 +82,8 @@
             <child>
               <object class="GWeatherLocationEntry" id="location_entry">
                 <property name="show-named-timezones">True</property>
-                <property name="width_request">400</property>
                 <property name="visible">True</property>
+                <property name="hexpand">True</property>
                 <property name="can_focus">True</property>
                 <property name="activates_default">True</property>
                 <signal name="activate" handler="location_changed" object="ClocksWorldLocationDialog" swapped="no"/>
