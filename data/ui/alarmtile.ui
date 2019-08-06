@@ -19,5 +19,14 @@
         <property name="margin-bottom">8</property>
       </object>
     </child>
+    <child type="action">
+      <object class="GtkLabel" id="repeats">
+        <property name="visible">True</property>
+        <property name="valign">center</property>
+        <style>
+          <class name="dim-label" />
+        </style>
+      </object>
+    </child>
   </template>
 </interface>
