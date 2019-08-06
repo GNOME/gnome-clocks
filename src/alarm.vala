@@ -279,10 +279,14 @@ private class Row : Hdy.ActionRow {
     public Item alarm { get; construct set; }
     public Face face { get; construct set; }
 
+    [GtkChild]
+    private Gtk.Switch toggle;
+
     public Row (Item alarm, Face face) {
         Object (alarm: alarm, face: face);
 
         alarm.bind_property ("name", this, "subtitle", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        alarm.bind_property ("active", toggle, "active", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
 
         alarm.notify["active"].connect (update);
         alarm.notify["state"].connect (update);
@@ -325,7 +329,7 @@ private class Row : Hdy.ActionRow {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarmsetupdialog.ui")]
-private class SetupDialog : Gtk.Dialog {
+private class SetupDialog : Hdy.Dialog {
     private Utils.WallClock.Format format;
     [GtkChild]
     private Gtk.Grid time_grid;
@@ -345,10 +349,17 @@ private class SetupDialog : Gtk.Dialog {
     private Gtk.Stack am_pm_stack;
     [GtkChild]
     private Gtk.Revealer label_revealer;
+    [GtkChild]
+    private Gtk.ListBox listbox;
+    [GtkChild]
+    private Gtk.Box delete_area;
     private List<Item> other_alarms;
 
     public SetupDialog (Gtk.Window parent, Item? alarm, ListModel all_alarms) {
         Object (transient_for: parent, title: alarm != null ? _("Edit Alarm") : _("New Alarm"), use_header_bar: 1);
+
+        delete_area.visible = alarm != null;
+        listbox.set_header_func((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
 
         other_alarms = new List<Item> ();
         var n = all_alarms.get_n_items ();
@@ -521,6 +532,11 @@ private class SetupDialog : Gtk.Dialog {
         spin_button.set_text ("%02i".printf (spin_button.get_value_as_int ()));
         return true;
     }
+
+    [GtkCallback]
+    private void delete_alarm () {
+        response(2);
+    }
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarmringing.ui")]
@@ -679,6 +695,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
         }
     }
 
+    [GtkCallback]
+    private void create_alarm () {
+        activate_new();
+    }
+
     private void load () {
         alarms.deserialize (settings.get_value ("alarms"), Item.deserialize);
     }
@@ -697,6 +718,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
         dialog.response.connect ((dialog, response) => {
             if (response == 1) {
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
+                save ();
+            } else if (response == 2) {
+                alarms.delete_item (alarm);
                 save ();
             } else {
                 alarm.active = saved_active;
