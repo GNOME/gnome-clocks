@@ -144,7 +144,6 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         }
     }
 
-
     public void delete_selected () {
         // remove everything and readd the ones not selected
         uint n_deleted = 0;

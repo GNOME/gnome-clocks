@@ -8,6 +8,30 @@ window > stack:backdrop {
     box-shadow: none;
 }
 
+label.destructive-action {
+    color: #e01b24;
+}
+
+/* content view */
+
+.tile {
+    padding: 12px;
+    background-color: transparent;
+}
+
+.tile .tile-label {
+    font-size: 32pt;
+}
+
+.tile .name-label {
+    padding-top: 0.5em;
+}
+
+.tile .name-icon {
+    padding-top: 0.5em;
+    padding-right: 8px;
+}
+
 /* alarms */
 
 row.snoozing {
