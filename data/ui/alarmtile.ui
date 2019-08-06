@@ -3,20 +3,11 @@
   <template class="ClocksAlarmRow" parent="HdyActionRow">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="activatable-widget">toggle</property>
     <child type="action">
-      <object class="GtkButton">
+      <object class="GtkSwitch" id="toggle">
         <property name="visible">True</property>
         <property name="valign">center</property>
         <property name="halign">center</property>
-        <signal name="clicked" handler="edit" swapped="no" object="ClocksAlarmRow"/>
-        <child>
-          <object class="GtkImage">
-            <property name="visible">True</property>
-            <property name="icon-name">applications-system-symbolic</property>
-            <property name="icon-size">4</property>
-          </object>
-        </child>
       </object>
     </child>
     <child type="action">
@@ -26,13 +17,6 @@
         <property name="halign">center</property>
         <property name="margin-top">8</property>
         <property name="margin-bottom">8</property>
-      </object>
-    </child>
-    <child type="action">
-      <object class="GtkSwitch" id="toggle">
-        <property name="visible">True</property>
-        <property name="valign">center</property>
-        <property name="halign">center</property>
       </object>
     </child>
   </template>
