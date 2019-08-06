@@ -572,6 +572,9 @@ private class SetupDialog : Hdy.Dialog {
         delete_button.visible = alarm != null;
         listbox.set_header_func((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
 
+        delete_area.visible = alarm != null;
+        listbox.set_header_func((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
+
         other_alarms = new List<Item> ();
         var n = all_alarms.get_n_items ();
         for (int i = 0; i < n; i++) {
@@ -881,6 +884,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
         } else if (visible_child == ringing_panel) {
             view_mode = STANDALONE;
         }
+    }
+
+    [GtkCallback]
+    private void create_alarm () {
+        activate_new();
     }
 
     private void load () {
