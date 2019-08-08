@@ -69,7 +69,7 @@ public class SearchProvider : Object {
     }
 
     private async void search_locations_recurse (GWeather.Location location, string[] normalized_terms,
-                                                 GenericArray<GWeather.Location> matches) {
+                                                    GenericArray<GWeather.Location> matches) {
         GWeather.Location? []locations = location.get_children ();
         if (locations != null) {
             for (int i = 0; i < locations.length; i++) {
@@ -106,11 +106,11 @@ public class SearchProvider : Object {
         return result;
     }
 
-    public async string[] get_initial_result_set (string[] terms) {
+    public async string[] get_initial_result_set (string[] terms) throws GLib.DBusError, GLib.IOError {
         return yield search_locations (normalize_terms (terms));
     }
 
-    public async string[] get_subsearch_result_set (string[] previous_results, string[] terms) {
+    public async string[] get_subsearch_result_set (string[] previous_results, string[] terms) throws GLib.DBusError, GLib.IOError {
         var normalized_terms = normalize_terms (terms);
 
         if (previous_results.length == 0) {
@@ -129,7 +129,7 @@ public class SearchProvider : Object {
         return result;
     }
 
-    public HashTable<string, Variant>[] get_result_metas (string[] results) {
+    public HashTable<string, Variant>[] get_result_metas (string[] results) throws GLib.DBusError, GLib.IOError {
         var result = new GenericArray<HashTable<string, Variant>> ();
         int count = 0;
 
@@ -158,11 +158,11 @@ public class SearchProvider : Object {
         return result.data;
     }
 
-    public void activate_result (string result, string[] terms, uint32 timestamp) {
+    public void activate_result (string result, string[] terms, uint32 timestamp) throws GLib.DBusError, GLib.IOError {
         activate (timestamp);
     }
 
-    public void launch_search (string[] terms, uint32 timestamp) {
+    public void launch_search (string[] terms, uint32 timestamp) throws GLib.DBusError, GLib.IOError {
     }
 }
 
