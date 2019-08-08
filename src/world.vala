@@ -51,14 +51,18 @@ public class ShellWorldClocks : Object {
             Variant v = locations;
             builder.add ("{sv}", "Locations", v);
 
-            this.connection.emit_signal (null,
-                                         this.object_path,
-                                         "org.freedesktop.DBus.Properties",
-                                         "PropertiesChanged",
-                                         new Variant ("(sa{sv}as)",
-                                                      "org.gnome.Shell.ClocksIntegration",
-                                                      builder,
-                                                      invalid_builder));
+            try {
+                this.connection.emit_signal (null,
+                                            this.object_path,
+                                            "org.freedesktop.DBus.Properties",
+                                            "PropertiesChanged",
+                                            new Variant ("(sa{sv}as)",
+                                                        "org.gnome.Shell.ClocksIntegration",
+                                                        builder,
+                                                        invalid_builder));
+            } catch (Error e) {
+                warning ("Shell Integration failed: %s", e.message);
+            }
         });
     }
 }
