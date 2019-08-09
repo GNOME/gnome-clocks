@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="ClocksAlarmDayPickerRow" parent="HdyActionRow">
+    <property name="visible">True</property>
+    <property name="title">Repeats</property>
+    <child type="action">
+      <object class="GtkImage" id="icon">
+        <property name="visible">True</property>
+        <property name="valign">center</property>
+        <property name="halign">center</property>
+        <property name="icon-name">pan-down-symbolic</property>
+        <property name="icon-size">1</property>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkLabel" id="current">
+        <property name="visible">True</property>
+        <property name="valign">center</property>
+        <property name="label" translatable="yes">No Repeat</property>
+      </object>
+    </child>
+  </template>
+  <object class="GtkPopover" id="popover">
+    <property name="relative-to">icon</property>
+    <signal name="closed" handler="popover_done" swapped="no"/>
+  </object>
+</interface>
