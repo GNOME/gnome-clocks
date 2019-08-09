@@ -42,6 +42,8 @@ private class Item : Object, ContentItem {
 
     public bool selected { get; set; default = false; }
 
+    public bool editing { get; set; default = false; }
+
     public string id { get; construct set; }
 
     public string name {
@@ -82,7 +84,7 @@ private class Item : Object, ContentItem {
     [CCode (notify = false)]
     public bool active {
         get {
-            return _active;
+            return _active && !this.editing;
         }
 
         set {
@@ -182,7 +184,7 @@ private class Item : Object, ContentItem {
     }
 
     private bool compare_with_item (Item i) {
-        return (this.alarm_time.compare (i.alarm_time) == 0 && this.active && i.active);
+        return (this.alarm_time.compare (i.alarm_time) == 0 && (this.active || this.editing) && i.active);
     }
 
     public bool check_duplicate_alarm (List<Item> alarms) {
@@ -321,6 +323,175 @@ private class Row : Hdy.ActionRow {
     }
 }
 
+[GtkTemplate (ui = "/org/gnome/clocks/ui/alarmdaypickerrow.ui")]
+public class DayPickerRow : Hdy.ActionRow {
+    public bool monday {
+        get {
+            return days[Utils.Weekdays.Day.MON];
+        }
+
+        set {
+            days[Utils.Weekdays.Day.MON] = value;
+            update();
+        }
+    }
+
+    public bool tuesday {
+        get {
+            return days[Utils.Weekdays.Day.TUE];
+        }
+
+        set {
+            days[Utils.Weekdays.Day.TUE] = value;
+            update();
+        }
+    }
+
+    public bool wednesday {
+        get {
+            return days[Utils.Weekdays.Day.WED];
+        }
+
+        set {
+            days[Utils.Weekdays.Day.WED] = value;
+            update();
+        }
+    }
+
+    public bool thursday {
+        get {
+            return days[Utils.Weekdays.Day.THU];
+        }
+
+        set {
+            days[Utils.Weekdays.Day.THU] = value;
+            update();
+        }
+    }
+
+    public bool friday {
+        get {
+            return days[Utils.Weekdays.Day.FRI];
+        }
+
+        set {
+            days[Utils.Weekdays.Day.FRI] = value;
+            update();
+        }
+    }
+
+    public bool saturday {
+        get {
+            return days[Utils.Weekdays.Day.SAT];
+        }
+
+        set {
+            days[Utils.Weekdays.Day.SAT] = value;
+            update();
+        }
+    }
+
+    public bool sunday {
+        get {
+            return days[Utils.Weekdays.Day.SUN];
+        }
+
+        set {
+            days[Utils.Weekdays.Day.SUN] = value;
+            update();
+        }
+    }
+
+    public signal void days_changed ();
+
+    private Utils.Weekdays days = new Utils.Weekdays();
+
+    [GtkChild]
+    private Gtk.Popover popover;
+    [GtkChild]
+    private Gtk.Label current;
+
+    construct {
+        // Create actions to control propeties from menu items
+        var group = new SimpleActionGroup ();
+        group.add_action (new PropertyAction ("day-0", this, "monday"));
+        group.add_action (new PropertyAction ("day-1", this, "tuesday"));
+        group.add_action (new PropertyAction ("day-2", this, "wednesday"));
+        group.add_action (new PropertyAction ("day-3", this, "thursday"));
+        group.add_action (new PropertyAction ("day-4", this, "friday"));
+        group.add_action (new PropertyAction ("day-5", this, "saturday"));
+        group.add_action (new PropertyAction ("day-6", this, "sunday"));
+        insert_action_group ("repeats", group);
+
+        // Create an array with the weekday items with
+        // items[0] referencing the button for Monday, and so on.
+        var items = new GLib.MenuItem[7];
+        for (int i = 0; i < 7; i++) {
+            items[i] = new GLib.MenuItem (((Utils.Weekdays.Day) i).name (), "repeats.day-%i".printf(i));
+        }
+
+        // Add the items, starting with the first day of the week
+        // depending on the locale.
+        var first_weekday = Utils.Weekdays.Day.get_first_weekday ();
+        var menu = new GLib.Menu();
+        for (int i = 0; i < 7; i++) {
+            var day_number = (first_weekday + i) % 7;
+            menu.insert_item (-1, items[day_number]);
+        }
+
+        // Populate the popover with the menu
+        popover.bind_model (menu, null);
+
+        update ();
+    }
+
+    public override void activate () {
+        // Open the popover
+        popover.popup ();
+    }
+
+    [GtkCallback]
+    private void popover_done () {
+        days_changed ();
+    }
+
+    public void load (Utils.Weekdays current_days) {
+        // Copy in the days
+        for (int i = 0; i < 7; i++) {
+            days[(Utils.Weekdays.Day) i] = current_days[(Utils.Weekdays.Day) i];
+        }
+
+        // Make sure the popover updates
+        notify_property ("monday");
+        notify_property ("tuesday");
+        notify_property ("wednesday");
+        notify_property ("thursday");
+        notify_property ("friday");
+        notify_property ("saturday");
+        notify_property ("sunday");
+
+        // Sync the label to the new state
+        update ();
+    }
+
+    public Utils.Weekdays store () {
+        var new_days = new Utils.Weekdays ();
+
+        for (int i = 0; i < 7; i++) {
+            new_days[(Utils.Weekdays.Day) i] = days[(Utils.Weekdays.Day) i];
+        }
+
+        return new_days;
+    }
+
+    private void update () {
+        var repeats = days.get_label();
+        current.label = repeats.length > 0 ? repeats : _("None");
+
+        days_changed ();
+    }
+}
+
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarmsetupdialog.ui")]
 private class SetupDialog : Hdy.Dialog {
     private Utils.WallClock.Format format;
@@ -335,9 +506,7 @@ private class SetupDialog : Hdy.Dialog {
     private AmPmToggleButton am_pm_button;
     private Gtk.ToggleButton[] day_buttons;
     [GtkChild]
-    private Gtk.Switch active_switch;
-    [GtkChild]
-    private Gtk.Box day_buttons_box;
+    private DayPickerRow repeats;
     [GtkChild]
     private Gtk.Stack am_pm_stack;
     [GtkChild]
@@ -347,6 +516,10 @@ private class SetupDialog : Hdy.Dialog {
     [GtkChild]
     private Gtk.Box delete_area;
     private List<Item> other_alarms;
+
+    static construct {
+        typeof(DayPickerRow).ensure();
+    }
 
     public SetupDialog (Gtk.Window parent, Item? alarm, ListModel all_alarms) {
         Object (transient_for: parent, title: alarm != null ? _("Edit Alarm") : _("New Alarm"), use_header_bar: 1);
@@ -365,27 +538,6 @@ private class SetupDialog : Hdy.Dialog {
 
         // Force LTR since we do not want to reverse [hh] : [mm]
         time_grid.set_direction (Gtk.TextDirection.LTR);
-
-        // Create an array with the weekday buttons with
-        // day_buttons[0] referencing the button for Monday, and so on.
-        // Also declare toogled signal connection.
-        day_buttons = new Gtk.ToggleButton[7];
-        for (int i = 0; i < 7; i++) {
-            var button = new Gtk.ToggleButton.with_label (Utils.Weekdays.abbreviation ((Utils.Weekdays.Day) i));
-            day_buttons[i] = button;
-
-            day_buttons[i].toggled.connect (() => {
-                avoid_duplicate_alarm ();
-            });
-        }
-
-        // Pack the buttons, starting with the first day of the week
-        // depending on the locale.
-        var first_weekday = Utils.Weekdays.get_first_weekday ();
-        for (int i = 0; i < 7; i++) {
-            var day_number = (first_weekday + i) % 7;
-            day_buttons_box.pack_start (day_buttons[day_number]);
-        }
 
         format = Utils.WallClock.get_default ().format;
         am_pm_button = new AmPmToggleButton ();
@@ -450,21 +602,14 @@ private class SetupDialog : Hdy.Dialog {
         // Set the name.
         name_entry.set_text (name);
 
-        // Set the toggle buttons for weekdays.
         if (days != null) {
-            for (int i = 0; i < 7; i++) {
-                day_buttons[i].active = days.get ((Utils.Weekdays.Day) i);
-            }
+            repeats.load (days);
         }
-
-        // Set On/Off switch.
-        active_switch.active = active;
     }
 
     // Sets alarm according to the current dialog settings.
     public void apply_to_alarm (Item alarm) {
         var name = name_entry.get_text ();
-        var active = active_switch.active;
         var hour = h_spinbutton.get_value_as_int ();
         var minute = m_spinbutton.get_value_as_int ();
         if (format == Utils.WallClock.Format.TWELVE) {
@@ -478,15 +623,11 @@ private class SetupDialog : Hdy.Dialog {
 
         AlarmTime time = { hour, minute };
 
-        Utils.Weekdays days = new Utils.Weekdays ();
-        for (int i = 0; i < 7; i++) {
-            days.set ((Utils.Weekdays.Day) i, day_buttons[i].active);
-        }
+        var days = repeats.store ();
 
         alarm.freeze_notify ();
 
         alarm.name = name;
-        alarm.active = active;
         alarm.time = time;
         alarm.days = days;
 
@@ -506,17 +647,17 @@ private class SetupDialog : Hdy.Dialog {
     }
 
     [GtkCallback]
+    private void days_changed () {
+        avoid_duplicate_alarm ();
+    }
+
+    [GtkCallback]
     private void entry_changed (Gtk.Editable editable) {
         avoid_duplicate_alarm ();
     }
 
     [GtkCallback]
     private void spinbuttons_changed (Gtk.Editable editable) {
-        avoid_duplicate_alarm ();
-    }
-
-    [GtkCallback]
-    private void active_changed () {
         avoid_duplicate_alarm ();
     }
 
@@ -708,18 +849,16 @@ public class Face : Gtk.Stack, Clocks.Clock {
         var dialog = new SetupDialog ((Gtk.Window) get_toplevel (), alarm, alarms);
 
         // Disable alarm while editing it and remember the original active state.
-        var saved_active = alarm.active;
-        alarm.active = false;
+        alarm.editing = true;
 
         dialog.response.connect ((dialog, response) => {
+            alarm.editing = false;
             if (response == 1) {
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
                 save ();
             } else if (response == 2) {
                 alarms.delete_item (alarm);
                 save ();
-            } else {
-                alarm.active = saved_active;
             }
             dialog.destroy ();
         });
