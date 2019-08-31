@@ -8,9 +8,6 @@ a stopwatch and a timer.
 ## Useful links
 
 - Homepage: <https://wiki.gnome.org/Apps/Clocks>
-
 - Report issues: <https://gitlab.gnome.org/GNOME/gnome-clocks/issues/>
-
 - Donate: <https://www.gnome.org/friends/>
-
 - Translate: <https://wiki.gnome.org/TranslationProject>
