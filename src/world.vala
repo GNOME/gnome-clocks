@@ -248,25 +248,21 @@ public class Item : Object, ContentItem {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/worldtile.ui")]
-private class Tile : Gtk.Grid {
-    private static Gdk.Pixbuf? day_pixbuf = Utils.load_image ("day.png");
-    private static Gdk.Pixbuf? night_pixbuf = Utils.load_image ("night.png");
+private class Tile : Gtk.Box {
 
     public Item location { get; construct set; }
 
     [GtkChild]
-    private Gtk.Image image;
-    [GtkChild]
     private Gtk.Label time_label;
     [GtkChild]
-    private Gtk.Widget name_icon;
+    private Gtk.Label name_label;
     [GtkChild]
-    private Gtk.Widget name_label;
+    private Gtk.Label delta_label;
 
     public Tile (Item location) {
         Object (location: location);
 
-        location.bind_property ("automatic", name_icon, "visible", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        // location.bind_property ("automatic", name_icon, "visible", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
         location.bind_property ("name", name_label, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
         location.tick.connect (update);
 
@@ -274,14 +270,6 @@ private class Tile : Gtk.Grid {
     }
 
     private void update () {
-        if (location.is_daytime) {
-            get_style_context ().remove_class ("night");
-            image.pixbuf = day_pixbuf;
-        } else {
-            get_style_context ().add_class ("night");
-            image.pixbuf = night_pixbuf;
-        }
-
         if (location.day_label != null && location.day_label != "") {
             time_label.label = "%s\n<span size='xx-small'>%s</span>".printf (location.time_label, location.day_label);
         } else {
