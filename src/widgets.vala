@@ -310,6 +310,7 @@ public class ContentView : Gtk.Bin {
         list_box.selection_mode = Gtk.SelectionMode.NONE;
         list_box.margin = 24;
         list_box.get_style_context ().add_class ("frame");
+        list_box.set_header_func(list_header_func);
         /*
         list_box.child_activated.connect ((child) => {
             var item = model.get_item (child.get_index ()) as ContentItem;
@@ -320,7 +321,14 @@ public class ContentView : Gtk.Bin {
         */
 
         var scrolled_window = new Gtk.ScrolledWindow (null, null);
-        scrolled_window.add (list_box);
+
+        var column = new Hdy.Column();
+        column.set_maximum_width(700);
+        column.set_linear_growth_width(700);
+
+        column.add (list_box);
+
+        scrolled_window.add (column);
         scrolled_window.hexpand = true;
         scrolled_window.vexpand = true;
         scrolled_window.halign = Gtk.Align.FILL;
@@ -467,25 +475,6 @@ public class ContentView : Gtk.Bin {
 
     public void set_header_bar (HeaderBar bar) {
         header_bar = bar;
-
-        select_button = new Gtk.Button ();
-        var select_button_image = new Gtk.Image.from_icon_name ("object-select-symbolic", Gtk.IconSize.MENU);
-        select_button.set_image (select_button_image);
-        select_button.valign = Gtk.Align.CENTER;
-        select_button.no_show_all = true;
-        select_button.clicked.connect (() => {
-            mode = Mode.SELECTION;
-        });
-        header_bar.pack_end (select_button);
-
-        cancel_button = new Gtk.Button.with_label (_("Cancel"));
-        cancel_button.no_show_all = true;
-        cancel_button.valign = Gtk.Align.CENTER;
-        cancel_button.clicked.connect (() => {
-            mode = Mode.NORMAL;
-        });
-        header_bar.pack_end (cancel_button);
-
         selection_menubutton = new SelectionMenuButton ();
     }
 
@@ -504,6 +493,17 @@ public class ContentView : Gtk.Bin {
             break;
         }
     }
+
+    private void list_header_func(Gtk.ListBoxRow? before, Gtk.ListBoxRow? after)
+    {
+        if (after != null) {
+            var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+            separator.show();
+            before.set_header(separator);
+        }
+
+    }
+
 }
 
 public class AmPmToggleButton : Gtk.Button {

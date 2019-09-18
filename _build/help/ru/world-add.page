@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" style="task" id="world-add" xml:lang="ru">
+
+  <info>
+    <link type="guide" xref="index#world-clock"/>
+
+    <revision pkgversion="3.10" date="2013-09-15" status="candidate"/>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <credit type="author copyright">
+      <name>Аруна Санкаранараянан (Aruna Sankaranarayanan)</name>
+      <email its:translate="no">aruna.evam@gmail.com</email>
+      <years>2013</years>
+    </credit>
+    <credit type="copyright editor">
+      <name>Екатерина Герасимова (Ekaterina Gerasimova)</name>
+      <email its:translate="no">kittykat3756@gmail.com</email>
+      <years>2013</years>
+    </credit>
+    <credit type="editor">
+      <name>Michael Hill</name>
+      <email its:translate="no">mdhillca@gmail.com</email>
+    </credit>
+
+    <desc>Добавьте часы для нового города к списку ваших мировых часов.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Dmitri Vaganov</mal:name>
+      <mal:email>d.vaganov92@yandex.ru</mal:email>
+      <mal:years>2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Добавить часы нового города</title>
+
+  <p>Добавьте город к мировым часам, чтобы видеть время в этом городе. Также можно <link xref="world-check">посмотреть время рассвета и заката</link> для каждого добавленного города.</p>
+
+  <steps>
+    <item>
+      <p>Нажмите кнопку <gui style="button">Мировое время</gui>.</p>
+    </item>
+    <item>
+      <p>Нажмите кнопку <gui style="button">Создать</gui> или <keyseq><key>Ctrl</key><key>N</key></keyseq>, чтобы добавить новый город.</p>
+    </item>
+    <item>
+      <p>В строке поиска начните печатать название города.</p>
+    </item>
+    <item>
+      <p>Выберите нужный город или самое близкое место к желаемому из списка.</p>
+    </item>
+    <item>
+      <p>Нажмите <gui style="button">Добавить</gui>, чтобы завершить добавление города.</p>
+    </item>
+  </steps>
+
+  <p>Если вы не видите свой город в списке, возможно, информация о нём пока не доступна. Вместо этого можно добавить ближайший крупный город или столицу страны.</p>
+
+  <note style="info">
+    <p>The clock for your current location will automatically be added to your
+    world clocks when you are connected to the Internet. It will not be shown
+    if you disconnect from the Internet and it will automatically update if you
+    take your computer to a different city.</p>
+  </note>
+
+</page>

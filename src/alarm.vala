@@ -275,19 +275,21 @@ private class Item : Object, ContentItem {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarmtile.ui")]
-private class Tile : Gtk.Grid {
+private class Tile : Gtk.Box {
     public Item alarm { get; construct set; }
 
     [GtkChild]
     private Gtk.Label time_label;
     [GtkChild]
-    private Gtk.Widget name_label;
+    private Gtk.Label name_label;
+    [GtkChild]
+    private Gtk.Label days_label;
 
     public Tile (Item alarm) {
         Object (alarm: alarm);
 
-        alarm.bind_property ("name", name_label, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
-
+        days_label.hide();
+        name_label.hide();
         alarm.notify["active"].connect (update);
         alarm.notify["state"].connect (update);
         alarm.notify["time"].connect (update);
@@ -297,8 +299,6 @@ private class Tile : Gtk.Grid {
     }
 
     private void update () {
-        string text, sub_text;
-
         if (alarm.active) {
             get_style_context ().add_class ("active");
         } else {
@@ -307,18 +307,23 @@ private class Tile : Gtk.Grid {
 
         if (alarm.state == Item.State.SNOOZING) {
             get_style_context ().add_class ("snoozing");
-            text = alarm.snooze_time_label;
-            sub_text = "(%s)".printf (alarm.time_label);
+            time_label.label = alarm.snooze_time_label;
         } else {
+            time_label.label = alarm.time_label;
             get_style_context ().remove_class ("snoozing");
-            text = alarm.time_label;
-            sub_text = alarm.days_label;
+        }
+        if (alarm.days_label != "") {
+            days_label.label = alarm.days_label;
+            days_label.show();
+        } else {
+            days_label.hide();
         }
 
-        if (sub_text != null && sub_text != "") {
-            time_label.label = "%s\n<span size='xx-small'>%s</span>".printf (text, sub_text);
+        if (alarm.name != "") {
+            name_label.label = alarm.name;
+            name_label.show();
         } else {
-            time_label.label = text;
+            name_label.hide();
         }
     }
 }
@@ -578,6 +583,7 @@ private class RingingPanel : Gtk.Grid {
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm.ui")]
 public class Face : Gtk.Stack, Clocks.Clock {
     public string label { get; construct set; }
+    public string icon_name { get; construct set; }
     public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
 
@@ -593,6 +599,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     public Face (HeaderBar header_bar) {
         Object (label: _("Alarm"),
+                icon_name: "alarm-symbolic",
                 header_bar: header_bar,
                 panel_id: PanelId.ALARM);
 
@@ -620,8 +627,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
             }
         });
 
-        // Translators: "New" refers to an alarm
-        new_button = new Gtk.Button.with_label (C_("Alarm", "New"));
+        new_button = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.BUTTON);
         new_button.valign = Gtk.Align.CENTER;
         new_button.no_show_all = true;
         new_button.action_name = "win.new";

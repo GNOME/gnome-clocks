@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" style="task" id="stopwatch" xml:lang="fi">
+
+  <info>
+    <link type="guide" xref="index#stopwatch"/>
+
+    <revision pkgversion="3.10" date="2013-09-10" status="candidate"/>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <credit type="author copyright">
+      <name>Aruna Sankaranarayanan</name>
+      <email its:translate="no">aruna.evam@gmail.com</email>
+      <years>2013</years>
+    </credit>
+    <credit type="copyright editor">
+      <name>Ekaterina Gerasimova</name>
+      <email its:translate="no">kittykat3756@gmail.com</email>
+      <years>2013</years>
+    </credit>
+
+    <desc>Mittaa sekuntikellolla tehtäviin kuluvaa aikaa.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sami Jaktholm</mal:name>
+      <mal:email>sjakthol@outlook.com</mal:email>
+      <mal:years>2014</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Aikojen kellottaminen</title>
+
+  <p>Sekuntikellolla voi mitata tehtävän eri osien suorituksen vaatimaa aikaa siihen kuluneen kokonaisajan lisäksi. Urheilijat käyttävät usein sekuntikelloa kierrosaikojen mittaamiseen. Näiden pohjalta he voivat laskea, pysyikö heidän nopeutensa tasaisena koko matkan ajan vai vaihteliko se kierros kierrokselta.</p>
+
+  <steps>
+    <item>
+      <p>Napsauta <gui style="button">Sekuntikello</gui>-painiketta.</p>
+    </item>
+    <item>
+      <p>Napsauta <gui style="button">Aloita</gui> käynnistääksesi sekuntikellon.</p>
+    </item>
+    <item>
+      <p>Kun yksi tehtävän osa on suoritettu:</p>
+      <list>
+        <item>
+	        <p>Paina <gui style="button">Kierros</gui> tallentaaksesi ensimmäisen osan loppuhetken ja aloittaaksesi seuraavan osan ajan mittaamisen.</p>
+        </item>
+        <item>
+          <p>Paina <gui style="button">Pysäytä</gui> pysäyttääksesi sekuntikellon ja <gui style="button">Jatka</gui>, kun olet valmis jatkamaan tehtävää.</p>
+        </item>
+      </list>
+    </item>
+  </steps>
+
+  <p>Sekuntikellon voi nollata sen ollessa pysäytettynä <gui style="button">Nollaa</gui>-painikkeella.</p>
+
+  <note style="info">
+    <p>Sekä kierros- että kokonaisajat tuhotaan, kun sekuntikello nollataan tai <app>Kellot</app> suljetaan.</p>
+  </note>
+
+</page>

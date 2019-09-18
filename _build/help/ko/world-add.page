@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" style="task" id="world-add" xml:lang="ko">
+
+  <info>
+    <link type="guide" xref="index#world-clock"/>
+
+    <revision pkgversion="3.10" date="2013-09-15" status="candidate"/>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <credit type="author copyright">
+      <name>Aruna Sankaranarayanan</name>
+      <email its:translate="no">aruna.evam@gmail.com</email>
+      <years>2013</years>
+    </credit>
+    <credit type="copyright editor">
+      <name>Ekaterina Gerasimova</name>
+      <email its:translate="no">kittykat3756@gmail.com</email>
+      <years>2013</years>
+    </credit>
+    <credit type="editor">
+      <name>Michael Hill</name>
+      <email its:translate="no">mdhillca@gmail.com</email>
+    </credit>
+
+    <desc>세계 시계 목록에 새 도시의 시계를 추가합니다.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>조성호</mal:name>
+      <mal:email>shcho@gnome.org</mal:email>
+      <mal:years>2016.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>새 도시 시계 추가</title>
+
+  <p>해당 도시의 낮 또는 밤 시간을 보려면 세계 시계에 도시를 추가하십시오. 추가한 각 도시의 <link xref="world-check">일출 일몰 시간 확인</link>도 가능합니다.</p>
+
+  <steps>
+    <item>
+      <p><gui style="button">세계</gui> 단추를 누르십시오.</p>
+    </item>
+    <item>
+      <p><gui style="button">새로 만들기</gui> 단추를 누르거나 <keyseq><key>Ctrl</key><key>N</key></keyseq> 단축키를 눌러 새 도시를 추가하십시오.</p>
+    </item>
+    <item>
+      <p>검색할 도시 이름의 입력을 시작하십시오.</p>
+    </item>
+    <item>
+      <p>목록에서 올바른 도시 또는 가까운 지역을 선택하십시오.</p>
+    </item>
+    <item>
+      <p><gui style="button">추가</gui>를 눌러 도시 추가를 끝내십시오.</p>
+    </item>
+  </steps>
+
+  <p>목록에 도시가 없다면 아마 아직은 없을수도 있습니다. 가까운 대도시 또는 거주 국가의 수도를 대신 선택해보십시오.</p>
+
+  <note style="info">
+    <p>인터넷에 연결했다면 세계 시계에 현재 위치 시계를 자동으로 추가합니다. 인터넷으로부터 연결을 끊었다면 나타나지 않으며 컴퓨터를 다른 지역으로 가져갔다면 자동으로 업데이트합니다.</p>
+  </note>
+
+</page>

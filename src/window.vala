@@ -37,9 +37,18 @@ public class Window : Gtk.ApplicationWindow {
     [GtkChild]
     private Gtk.Stack stack;
     [GtkChild]
-    private Gtk.StackSwitcher stack_switcher;
-    [GtkChild]
     private Gtk.MenuButton menu_button;
+    [GtkChild]
+    private Hdy.ViewSwitcherBar switcher_bar;
+    [GtkChild]
+    private Hdy.Squeezer squeezer;
+    [GtkChild]
+    private Hdy.ViewSwitcher title_wide_switcher;
+    [GtkChild]
+    private Hdy.ViewSwitcher title_narrow_switcher;
+    [GtkChild]
+    private Gtk.Box title_text;
+
     private GLib.Settings settings;
     private Gtk.Widget[] panels;
 
@@ -80,12 +89,11 @@ public class Window : Gtk.ApplicationWindow {
 
         foreach (var clock in panels) {
             stack.add_titled (clock, ((Clock)clock).label, ((Clock)clock).label);
+            stack.child_set_property(clock, "icon-name",  ((Clock)clock).icon_name);
             ((Clock)clock).request_header_bar_update.connect (() => {
                 update_header_bar ();
             });
         }
-
-        stack_switcher.set_stack (stack);
 
         var stack_id = stack.notify["visible-child"].connect (() => {
             var help_overlay = get_help_overlay ();
@@ -95,6 +103,13 @@ public class Window : Gtk.ApplicationWindow {
 
         var header_bar_id = header_bar.notify["mode"].connect (() => {
             update_header_bar ();
+        });
+        this.size_allocate.connect((widget, allocation) => {
+            if (allocation.width > 500) {
+                switcher_bar.set_reveal(false);
+            }  else {
+                switcher_bar.set_reveal(true);
+            }
         });
 
         stack.destroy.connect(() => {
@@ -275,7 +290,6 @@ public class Window : Gtk.ApplicationWindow {
     }
 
     private void update_header_bar () {
-        header_bar.clear ();
 
         var clock = (Clock) stack.visible_child;
         if (clock != null) {
@@ -285,7 +299,7 @@ public class Window : Gtk.ApplicationWindow {
         }
 
         if (header_bar.mode == HeaderBar.Mode.NORMAL) {
-            header_bar.custom_title = stack_switcher;
+            // header_bar.custom_title = stack_switcher;
             menu_button.show ();
         }
 

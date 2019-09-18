@@ -118,6 +118,8 @@ public class Application : Gtk.Application {
         base.startup ();
 
         Utils.load_main_css ();
+        var theme = Gtk.IconTheme.get_default ();
+        theme.add_resource_path("/org/gnome/clocks/icons");
 
         var settings = Gtk.Settings.get_default ();
         settings.notify["gtk-theme-name"].connect(() => {

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="topic" style="task" id="world-add" xml:lang="hu">
+
+  <info>
+    <link type="guide" xref="index#world-clock"/>
+
+    <revision pkgversion="3.10" date="2013-09-15" status="candidate"/>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <credit type="author copyright">
+      <name>Aruna Sankaranarayanan</name>
+      <email its:translate="no">aruna.evam@gmail.com</email>
+      <years>2013</years>
+    </credit>
+    <credit type="copyright editor">
+      <name>Ekaterina Gerasimova</name>
+      <email its:translate="no">kittykat3756@gmail.com</email>
+      <years>2013</years>
+    </credit>
+    <credit type="editor">
+      <name>Michael Hill</name>
+      <email its:translate="no">mdhillca@gmail.com</email>
+    </credit>
+
+    <desc>Új városhoz tartozó óra hozzáadása a világórák listájához.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Kelemen Gábor</mal:name>
+      <mal:email>kelemeng at gnome dot hu</mal:email>
+      <mal:years>2013.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>Új város órájának hozzáadása</title>
+
+  <p>Egy város hozzáadásával a világórák listájához láthatja, hogy az adott városban épp mennyi az idő. Ezen kívül megnézheti a <link xref="world-check">napkelte és napnyugta</link> idejét is az egyes felvett városokban.</p>
+
+  <steps>
+    <item>
+      <p>Nyomja meg a <gui style="button">Világ</gui> gombot.</p>
+    </item>
+    <item>
+      <p>Nyomja meg az <gui style="button">Új</gui> gombot, vagy a <keyseq><key>Ctrl</key><key>N</key></keyseq> kombinációt egy új város felvételéhez.</p>
+    </item>
+    <item>
+      <p>Kezdje el beírni a város nevét a keresőmezőbe.</p>
+    </item>
+    <item>
+      <p>Válassza ki a megfelelő várost vagy az Önhöz legközelebbi helyet a listából.</p>
+    </item>
+    <item>
+      <p>Kattintson a <gui style="button">Hozzáadás</gui> gombra a város felvételének befejezéséhez.</p>
+    </item>
+  </steps>
+
+  <p>Ha nem látja a kívánt várost a listában, akkor az valószínűleg még nem érhető el. Próbálja meg a legközelebbi nagyvárost vagy országa fővárosát felvenni.</p>
+
+  <note style="info">
+    <p>A jelenlegi helyhez tartozó óra automatikusan felvételre kerül a világórák közé, amint csatlakozik az internethez. Nem jelenik meg, ha megszűnik az internetkapcsolat, és automatikusan frissül, ha számítógépét másik városba viszi.</p>
+  </note>
+
+</page>

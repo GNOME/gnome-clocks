@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:its="http://www.w3.org/2005/11/its" type="guide" style="task" id="timer" xml:lang="ko">
+
+  <info>
+    <link type="guide" xref="index#timer"/>
+
+    <revision pkgversion="3.10" date="2013-09-15" status="candidate"/>
+
+    <include xmlns="http://www.w3.org/2001/XInclude" href="legal.xml"/>
+
+    <credit type="author copyright">
+      <name>Aruna Sankaranarayanan</name>
+      <email its:translate="no">aruna.evam@gmail.com</email>
+      <years>2013</years>
+    </credit>
+    <credit type="copyright editor">
+      <name>Ekaterina Gerasimova</name>
+      <email its:translate="no">kittykat3756@gmail.com</email>
+      <years>2013</years>
+    </credit>
+
+    <desc>카운트다운 시계를 활용하여 지정 시간이 도달하면 알림을 받습니다.</desc>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>조성호</mal:name>
+      <mal:email>shcho@gnome.org</mal:email>
+      <mal:years>2016.</mal:years>
+    </mal:credit>
+  </info>
+
+  <title>타이머 설정</title>
+
+  <p>0 까지 시간을 거꾸로 셀 초를 초단위로 설정하십시오. 초세기가 끝나면 알림을 받습니다.</p>
+
+  <steps>
+    <item>
+      <p><gui style="button">타이머</gui> 단추를 누르십시오.</p>
+    </item>
+    <item>
+      <p>카운트다운 시간을 설정하십시오.</p>
+    </item>
+    <item>
+      <p><gui style="button">시작</gui>을 눌러 카운트다운을 시작하십시오.</p>
+    </item>
+  </steps>
+
+  <p>카운트 다운이 0값에 도달하면 알림을 받습니다.</p>
+
+  <note style="tip">
+    <p>타이머에서 카운트다운을 시작하면 <gui style="button">일시정지</gui>를 눌러 타이머를 멈출 수 있습니다. 타이머를 초기화하려면 <gui style="button">초기화</gui> 단추를 누르십시오.</p>
+  </note>
+
+</page>
