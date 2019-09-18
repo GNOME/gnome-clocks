@@ -18,51 +18,6 @@
 
 namespace Clocks {
 namespace Timer {
-
-public class CountdownFrame : AnalogFrame {
-    public double span { get; set; default = 0; }
-
-    private double elapsed;
-    private double elapsed_before_pause;
-
-    private double get_progress () {
-        return span != 0 ? (elapsed_before_pause + elapsed) / span : 0;
-    }
-
-    public void update (double e) {
-        elapsed = e;
-        queue_draw ();
-    }
-
-    public void pause () {
-        elapsed_before_pause += elapsed;
-        elapsed = 0;
-    }
-
-    public void reset () {
-        elapsed_before_pause = 0;
-        elapsed = 0;
-    }
-
-    public override void draw_progress (Cairo.Context cr, int center_x, int center_y, int radius) {
-        var progress = get_progress ();
-        var context = get_style_context ();
-
-        context.save ();
-        context.add_class ("progress");
-
-        var color = context.get_color (context.get_state ());
-
-        cr.arc (center_x, center_y, radius - LINE_WIDTH / 2, 1.5  * Math.PI, (1.5 + (1 - progress) * 2 ) * Math.PI);
-        Gdk.cairo_set_source_rgba (cr, color);
-        cr.set_line_width (LINE_WIDTH);
-        cr.set_line_cap  (Cairo.LineCap.ROUND);
-        cr.stroke ();
-
-        context.restore ();
-    }
-}
-
 [GtkTemplate (ui = "/org/gnome/clocks/ui/timer.ui")]
 public class Face : Gtk.Stack, Clocks.Clock {
     public enum State {
@@ -85,7 +40,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private Utils.Bell bell;
     private GLib.Notification notification;
     [GtkChild]
-    private AnalogFrame setup_frame;
+    private Gtk.Box setup_frame;
     [GtkChild]
     private Gtk.Grid grid_spinbuttons;
     [GtkChild]
@@ -99,7 +54,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     [GtkChild]
     private Gtk.Button start_button;
     [GtkChild]
-    private CountdownFrame countdown_frame;
+    private Gtk.Box countdown_frame;
     [GtkChild]
     // We cheat and use spibuttons also when displaying the time
     // making them insensitive and hiding the +/- via css
@@ -243,7 +198,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
         left_button.get_style_context ().remove_class("clocks-go");
         countdown_frame.get_style_context ().remove_class ("clocks-paused");
         start_button.set_sensitive (span > 0);
-        countdown_frame.reset ();
         visible_child = setup_frame;
     }
 
@@ -257,7 +211,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
             span = h * 3600 + m * 60 + s;
             settings.set_uint ("timer", (uint) span);
-            countdown_frame.span = span;
+            // countdown_frame.span = span;
             visible_child = countdown_frame;
 
             update_countdown_label (h, m, s);
@@ -286,8 +240,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
         state = State.PAUSED;
         timer.stop ();
         span -= timer.elapsed ();
-        countdown_frame.get_style_context ().add_class ("clocks-paused");
-        countdown_frame.pause ();
     }
 
     private void update_countdown (double elapsed) {
@@ -302,7 +254,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
             double r;
             Utils.time_to_hms (t, out h, out m, out s, out r);
             update_countdown_label (h, m, s);
-            countdown_frame.update (elapsed);
         }
     }
 
