@@ -133,7 +133,7 @@ public class Window : Gtk.ApplicationWindow {
         });
 
         timer.notify["state"].connect ((w) => {
-            stack.child_set_property (timer, "needs-attention", timer.state == Timer.Face.State.RUNNING);
+            // stack.child_set_property (timer, "needs-attention", timer.state == Timer.Face.State.RUNNING);
         });
 
         unowned Gtk.BindingSet binding_set = Gtk.BindingSet.by_class (get_class ());

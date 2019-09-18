@@ -14,12 +14,12 @@
         List of alarms set.
       </description>
     </key>
-    <key name="timer" type="u">
-      <default>300</default>
-      <summary>Timer</summary>
-      <description>
-        Configured timer duration in seconds.
-      </description>
+    <key name="timers" type="aa{sv}">
+    	<default>[]</default>
+	<summary>Configured Timers</summary>
+	<description>
+	List of timers set.
+	</description>
     </key>
     <key name="geolocation" type="b">
       <default>true</default>
