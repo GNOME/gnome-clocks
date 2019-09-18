@@ -264,18 +264,11 @@ private class Tile : Gtk.Box {
 
         // location.bind_property ("automatic", name_icon, "visible", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
         location.bind_property ("name", name_label, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
-        location.tick.connect (update);
+        location.bind_property ("time_label", time_label, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
 
-        update ();
+
     }
 
-    private void update () {
-        if (location.day_label != null && location.day_label != "") {
-            time_label.label = "%s\n<span size='xx-small'>%s</span>".printf (location.time_label, location.day_label);
-        } else {
-            time_label.label = location.time_label;
-        }
-    }
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/worldlocationdialog.ui")]
@@ -327,6 +320,7 @@ private class LocationDialog : Gtk.Dialog {
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world.ui")]
 public class Face : Gtk.Stack, Clocks.Clock {
     public string label { get; construct set; }
+    public string icon_name { get; construct set; }
     public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
 
@@ -352,6 +346,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     public Face (HeaderBar header_bar) {
         Object (label: _("World"),
+                icon_name: "globe-symbolic",
                 header_bar: header_bar,
                 panel_id: PanelId.WORLD,
                 transition_type: Gtk.StackTransitionType.CROSSFADE);
@@ -369,8 +364,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
             return 0;
         });
 
-        // Translators: "New" refers to a world clock
-        new_button = new Gtk.Button.with_label (C_("World clock", "New"));
+        new_button = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.BUTTON);
         new_button.valign = Gtk.Align.CENTER;
         new_button.no_show_all = true;
         new_button.action_name = "win.new";
