@@ -105,11 +105,10 @@ public class Window : Gtk.ApplicationWindow {
             update_header_bar ();
         });
         this.size_allocate.connect((widget, allocation) => {
-            if (allocation.width > 500) {
-                switcher_bar.set_reveal(false);
-            }  else {
-                switcher_bar.set_reveal(true);
-            }
+            switcher_bar.set_reveal(allocation.width < 450);
+            squeezer.set_child_enabled(title_wide_switcher, allocation.width > 800);
+            squeezer.set_child_enabled(title_narrow_switcher, allocation.width > 450);
+            squeezer.set_child_enabled(title_text, allocation.width <= 450);
         });
 
         stack.destroy.connect(() => {
