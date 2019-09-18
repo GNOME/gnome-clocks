@@ -323,8 +323,8 @@ public class ContentView : Gtk.Bin {
         var scrolled_window = new Gtk.ScrolledWindow (null, null);
 
         var column = new Hdy.Column();
-        column.set_maximum_width(700);
-        column.set_linear_growth_width(700);
+        column.set_maximum_width(800);
+        column.set_linear_growth_width(800);
 
         column.add (list_box);
 

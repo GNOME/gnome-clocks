@@ -86,7 +86,7 @@ public class Item : Object, ContentItem {
 
     public Item (GLib.Time timer, string name) {
         Object (name: name);
-        timer = timer;
+        this.timer = timer;
     }
 }
 
@@ -339,21 +339,20 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public string label { get; construct set; }
     public string icon_name { get; construct set; }
 
-    public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
 
     [GtkChild]
     private ContentView content_view;
+    public Gtk.Widget? header_actions_widget{ get; set; }
 
     private Utils.Bell bell;
     private GLib.Notification notification;
     private ContentStore timers;
     private GLib.Settings settings;
 
-    public Face(HeaderBar header_bar) {
+    public Face() {
         Object (label: _("Timer"),
                 icon_name: "timer-symbolic",
-                header_bar: header_bar,
                 panel_id: PanelId.TIMER);
 
         bell = new Utils.Bell ("complete");
@@ -379,12 +378,10 @@ public class Face : Gtk.Stack, Clocks.Clock {
             return new Row((Item)item);
         });
 
-        content_view.set_header_bar (header_bar);
-
         var new_button = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.BUTTON);
         new_button.valign = Gtk.Align.CENTER;
         new_button.clicked.connect(on_add_clicked);
-        header_bar.pack_start (new_button);
+        header_actions_widget = new_button;
     }
 
     private void add_timer_item (Item item) {

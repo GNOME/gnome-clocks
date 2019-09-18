@@ -33,7 +33,10 @@ public class Window : Gtk.ApplicationWindow {
     };
 
     [GtkChild]
-    private HeaderBar header_bar;
+    private Gtk.HeaderBar header_bar;
+    [GtkChild]
+    private Gtk.Stack headerbar_actions_stack;
+
     [GtkChild]
     private Gtk.Stack stack;
     [GtkChild]
@@ -77,22 +80,24 @@ public class Window : Gtk.ApplicationWindow {
 
         panels = new Gtk.Widget[N_PANELS];
 
-        panels[PanelId.WORLD] = new World.Face (header_bar);
-        panels[PanelId.ALARM] =  new Alarm.Face (header_bar);
-        panels[PanelId.STOPWATCH] = new Stopwatch.Face (header_bar);
-        panels[PanelId.TIMER] = new Timer.Face (header_bar);
+        panels[PanelId.WORLD] = new World.Face ();
+        panels[PanelId.ALARM] =  new Alarm.Face ();
+        panels[PanelId.STOPWATCH] = new Stopwatch.Face ();
+        panels[PanelId.TIMER] = new Timer.Face ();
 
         var world = (World.Face)panels[PanelId.WORLD];
         var alarm = (Alarm.Face)panels[PanelId.ALARM];
         var stopwatch = (Stopwatch.Face)panels[PanelId.STOPWATCH];
         var timer = (Timer.Face)panels[PanelId.TIMER];
 
-        foreach (var clock in panels) {
-            stack.add_titled (clock, ((Clock)clock).label, ((Clock)clock).label);
-            stack.child_set_property(clock, "icon-name",  ((Clock)clock).icon_name);
-            ((Clock)clock).request_header_bar_update.connect (() => {
-                update_header_bar ();
-            });
+        foreach (var panel in panels) {
+            stack.add_titled (panel, ((Clock)panel).label, ((Clock)panel).label);
+            stack.child_set_property(panel, "icon-name", ((Clock)panel).icon_name);
+            var header_actions_widget = ((Clock)panel).header_actions_widget;
+            if (header_actions_widget != null) {
+                headerbar_actions_stack.add_named (header_actions_widget,
+                                                    ((Clock)panel).panel_id.to_string());
+            }
         }
 
         var stack_id = stack.notify["visible-child"].connect (() => {
@@ -101,19 +106,14 @@ public class Window : Gtk.ApplicationWindow {
             update_header_bar ();
         });
 
-        var header_bar_id = header_bar.notify["mode"].connect (() => {
-            update_header_bar ();
-        });
         this.size_allocate.connect((widget, allocation) => {
-            switcher_bar.set_reveal(allocation.width < 450);
+            switcher_bar.set_reveal(allocation.width < 500);
             squeezer.set_child_enabled(title_wide_switcher, allocation.width > 800);
-            squeezer.set_child_enabled(title_narrow_switcher, allocation.width > 450);
-            squeezer.set_child_enabled(title_text, allocation.width <= 450);
+            squeezer.set_child_enabled(title_narrow_switcher, allocation.width > 500);
+            squeezer.set_child_enabled(title_text, allocation.width <= 500);
         });
 
         stack.destroy.connect(() => {
-            header_bar.disconnect (header_bar_id);
-            header_bar_id = 0;
             stack.disconnect (stack_id);
             stack_id = 0;
         });
@@ -289,20 +289,18 @@ public class Window : Gtk.ApplicationWindow {
     }
 
     private void update_header_bar () {
-
         var clock = (Clock) stack.visible_child;
+        var panel_id = clock.panel_id.to_string();
+        if (headerbar_actions_stack.get_child_by_name(panel_id) != null) {
+            headerbar_actions_stack.visible_child_name = clock.panel_id.to_string();
+            headerbar_actions_stack.show();
+        } else {
+            headerbar_actions_stack.hide();
+        }
         if (clock != null) {
             settings.set_enum ("panel-id", clock.panel_id);
-            clock.update_header_bar ();
             ((Gtk.Widget) clock).grab_focus ();
         }
-
-        if (header_bar.mode == HeaderBar.Mode.NORMAL) {
-            // header_bar.custom_title = stack_switcher;
-            menu_button.show ();
-        }
-
-        header_bar.set_show_close_button (header_bar.mode != HeaderBar.Mode.SELECTION);
     }
 }
 

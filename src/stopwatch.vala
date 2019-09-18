@@ -57,7 +57,6 @@ public class Face : Gtk.Box, Clocks.Clock {
 
     public string label { get; construct set; }
     public string icon_name { get; construct set; }
-    public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
 
     public State state { get; private set; default = State.RESET; }
@@ -76,11 +75,11 @@ public class Face : Gtk.Box, Clocks.Clock {
     private Gtk.ScrolledWindow laps_scrollwin;
     [GtkChild]
     private Gtk.ListBox laps_list;
+    public Gtk.Widget? header_actions_widget { get; set; default=null; }
 
-    public Face (HeaderBar header_bar) {
+    public Face () {
         Object (label: _("Stopwatch"),
                 icon_name: "stopwatch-symbolic",
-                header_bar: header_bar,
                 panel_id: PanelId.STOPWATCH);
 
         timer = new GLib.Timer ();

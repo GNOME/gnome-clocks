@@ -321,7 +321,6 @@ private class LocationDialog : Gtk.Dialog {
 public class Face : Gtk.Stack, Clocks.Clock {
     public string label { get; construct set; }
     public string icon_name { get; construct set; }
-    public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
 
     private ContentStore locations;
@@ -343,11 +342,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private Gtk.Label standalone_sunrise_label;
     [GtkChild]
     private Gtk.Label standalone_sunset_label;
+    public Gtk.Widget? header_actions_widget{ get; set; }
 
-    public Face (HeaderBar header_bar) {
+    public Face () {
         Object (label: _("World"),
                 icon_name: "globe-symbolic",
-                header_bar: header_bar,
                 panel_id: PanelId.WORLD,
                 transition_type: Gtk.StackTransitionType.CROSSFADE);
 
@@ -364,27 +363,26 @@ public class Face : Gtk.Stack, Clocks.Clock {
             return 0;
         });
 
+        header_actions_widget = new Gtk.Stack();
+
         new_button = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.BUTTON);
         new_button.valign = Gtk.Align.CENTER;
-        new_button.no_show_all = true;
         new_button.action_name = "win.new";
-        header_bar.pack_start (new_button);
+        ((Gtk.Stack)header_actions_widget).add_named (new_button, "add");
 
         back_button = new Gtk.Button ();
         var back_button_image = new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.MENU);
         back_button.valign = Gtk.Align.CENTER;
         back_button.set_image (back_button_image);
-        back_button.no_show_all = true;
         back_button.clicked.connect (() => {
             reset_view ();
+            ((Gtk.Stack)header_actions_widget).visible_child_name = "add";
         });
-        header_bar.pack_start (back_button);
+        ((Gtk.Stack)header_actions_widget).add_named (back_button, "back");
 
         content_view.bind_model (locations, (item) => {
             return new Tile ((Item)item);
         });
-
-        content_view.set_header_bar (header_bar);
 
         load ();
         show_all ();
@@ -412,18 +410,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
         });
     }
 
+
     [GtkCallback]
     private void item_activated (ContentItem item) {
         show_standalone ((Item) item);
-    }
-
-    [GtkCallback]
-    private void visible_child_changed () {
-        if (visible_child == empty_view || visible_child == content_view) {
-            header_bar.mode = HeaderBar.Mode.NORMAL;
-        } else if (visible_child == standalone) {
-            header_bar.mode = HeaderBar.Mode.STANDALONE;
-        }
+        ((Gtk.Stack)header_actions_widget).visible_child_name = "back";
     }
 
     private void update_standalone () {
@@ -534,32 +525,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public void reset_view () {
         standalone_location = null;
         visible_child = locations.get_n_items () == 0 ? empty_view : content_view;
-        request_header_bar_update ();
-    }
-
-    public void update_header_bar () {
-        switch (header_bar.mode) {
-        case HeaderBar.Mode.NORMAL:
-            header_bar.title = _("Clocks");
-            header_bar.subtitle = null;
-            new_button.show ();
-            content_view.update_header_bar ();
-            break;
-        case HeaderBar.Mode.SELECTION:
-            content_view.update_header_bar ();
-            break;
-        case HeaderBar.Mode.STANDALONE:
-            if (standalone_location.state_name != null) {
-                header_bar.title = "%s, %s".printf (standalone_location.city_name, standalone_location.state_name);
-            } else {
-                header_bar.title = standalone_location.city_name;
-            }
-            header_bar.subtitle = standalone_location.country_name;
-            back_button.show ();
-            break;
-        default:
-            assert_not_reached ();
-        }
     }
 }
 

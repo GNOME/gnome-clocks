@@ -584,7 +584,6 @@ private class RingingPanel : Gtk.Grid {
 public class Face : Gtk.Stack, Clocks.Clock {
     public string label { get; construct set; }
     public string icon_name { get; construct set; }
-    public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
 
     private ContentStore alarms;
@@ -596,11 +595,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private ContentView content_view;
     [GtkChild]
     private RingingPanel ringing_panel;
+    public Gtk.Widget? header_actions_widget{ get; set; }
 
-    public Face (HeaderBar header_bar) {
+    public Face () {
         Object (label: _("Alarm"),
                 icon_name: "alarm-symbolic",
-                header_bar: header_bar,
                 panel_id: PanelId.ALARM);
 
         alarms = new ContentStore ();
@@ -629,15 +628,12 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         new_button = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.BUTTON);
         new_button.valign = Gtk.Align.CENTER;
-        new_button.no_show_all = true;
         new_button.action_name = "win.new";
-        header_bar.pack_start (new_button);
+        header_actions_widget = new_button;
 
         content_view.bind_model (alarms, (item) => {
             return new Tile ((Item)item);
         });
-
-        content_view.set_header_bar (header_bar);
 
         load ();
         show_all ();
@@ -682,15 +678,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
        reset_view ();
     }
 
-    [GtkCallback]
-    private void visible_child_changed () {
-        if (visible_child == empty_view || visible_child == content_view) {
-            header_bar.mode = HeaderBar.Mode.NORMAL;
-        } else if (visible_child == ringing_panel) {
-            header_bar.mode = HeaderBar.Mode.STANDALONE;
-        }
-    }
-
     private void load () {
         alarms.deserialize (settings.get_value ("alarms"), Item.deserialize);
     }
@@ -726,7 +713,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     private void reset_view () {
         visible_child = alarms.get_n_items () == 0 ? empty_view : content_view;
-        request_header_bar_update ();
     }
 
     public void activate_new () {
@@ -753,23 +739,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     public bool escape_pressed () {
         return content_view.escape_pressed ();
-    }
-
-    public void update_header_bar () {
-        switch (header_bar.mode) {
-        case HeaderBar.Mode.NORMAL:
-            new_button.show ();
-            content_view.update_header_bar ();
-            break;
-        case HeaderBar.Mode.SELECTION:
-            content_view.update_header_bar ();
-            break;
-        case HeaderBar.Mode.STANDALONE:
-            header_bar.title = ringing_panel.alarm.name;
-            break;
-        default:
-            assert_not_reached ();
-        }
     }
 }
 
