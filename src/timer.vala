@@ -125,6 +125,11 @@ public class Row : Gtk.Box {
     [GtkChild]
     private Gtk.Box countdown_frame;
     [GtkChild]
+    private Gtk.Box actions_box;
+
+    [GtkChild]
+    private Gtk.Box timer_box;
+    [GtkChild]
     private Gtk.Stack timer_stack;
     [GtkChild]
     private Gtk.Stack start_stack;
@@ -148,6 +153,21 @@ public class Row : Gtk.Box {
             if (timeout_id != 0) {
                 GLib.Source.remove(timeout_id);
                 timeout_id = 0;
+            }
+        });
+        this.size_allocate.connect((widget, allocation) => {
+            if (allocation.width > 550) {
+                this.set_orientation(Gtk.Orientation.HORIZONTAL);
+                this.margin = 24;
+                actions_box.set_orientation(Gtk.Orientation.VERTICAL);
+                actions_box.margin = 24;
+                timer_box.margin = 24;
+            } else {
+                this.margin = 0;
+                timer_box.margin = 12;
+                actions_box.margin = 6;
+                this.set_orientation(Gtk.Orientation.VERTICAL);
+                actions_box.set_orientation(Gtk.Orientation.HORIZONTAL);
             }
         });
 

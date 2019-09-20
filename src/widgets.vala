@@ -308,9 +308,16 @@ public class ContentView : Gtk.Bin {
         list_box.halign = Gtk.Align.FILL;
         list_box.valign = Gtk.Align.START;
         list_box.selection_mode = Gtk.SelectionMode.NONE;
-        list_box.margin = 24;
         list_box.get_style_context ().add_class ("frame");
         list_box.set_header_func(list_header_func);
+
+        list_box.size_allocate.connect((widget, allocation) => {
+            if (allocation.width < 550) {
+                widget.margin = 0;
+            } else {
+                widget.margin = 24;
+            }
+        });
         /*
         list_box.child_activated.connect ((child) => {
             var item = model.get_item (child.get_index ()) as ContentItem;
@@ -323,8 +330,8 @@ public class ContentView : Gtk.Bin {
         var scrolled_window = new Gtk.ScrolledWindow (null, null);
 
         var column = new Hdy.Column();
-        column.set_maximum_width(800);
-        column.set_linear_growth_width(800);
+        column.set_maximum_width(1200);
+        column.set_linear_growth_width(1200);
 
         column.add (list_box);
 
@@ -452,6 +459,7 @@ public class ContentView : Gtk.Bin {
 
             list_box_row.show_all ();
 
+            list_box_row.queue_allocate ();
             return list_box_row;
         });
     }
