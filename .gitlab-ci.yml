@@ -6,7 +6,7 @@ variables:
 flatpak:
     image: 'registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master'
     variables:
-        MANIFEST_PATH: "data/flatpak/org.gnome.clocks.json"
+        MANIFEST_PATH: "build-aux/org.gnome.clocks.json"
         MESON_ARGS: "-Dprofile=development"
         FLATPAK_MODULE: "gnome-clocks"
         RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
