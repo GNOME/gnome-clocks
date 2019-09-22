@@ -241,7 +241,8 @@ public class Window : Gtk.ApplicationWindow {
     private void on_about_activate () {
         const string copyright = "Copyright \xc2\xa9 2011 Collabora Ltd.\n" +
                                  "Copyright \xc2\xa9 2012-2013 Collabora Ltd., Seif Lotfy, Emily Gonyer\n" +
-                                 "Eslam Mostafa, Paolo Borelli, Volker Sobek\n";
+                                 "Eslam Mostafa, Paolo Borelli, Volker Sobek\n" + 
+                                 "Copyright \xc2\xa9 2019 Bilal Elmoussaoui & Zander Brown et al";
 
         const string authors[] = {
             "Alex Anthony",
@@ -257,6 +258,8 @@ public class Window : Gtk.ApplicationWindow {
             "Bastien Nocera",
             "Volker Sobek",
             "Jakub Steiner",
+            "Bilal Elmoussaoui",
+            "Zander Brown",
             null
         };
 
