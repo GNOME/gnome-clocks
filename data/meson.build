@@ -1,8 +1,7 @@
 scalable_iconsdir = join_paths('icons', 'hicolor', 'scalable', 'apps')
 install_data(
-  join_paths(scalable_iconsdir, 'org.gnome.clocks.svg'),
-  install_dir: join_paths(get_option('datadir'), scalable_iconsdir),
-  rename: '@0@.svg'.format(app_id)
+  join_paths(scalable_iconsdir, '@0@.svg'.format(app_id)),
+  install_dir: join_paths(get_option('datadir'), scalable_iconsdir)
 )
 
 symbolic_iconsdir = join_paths('icons', 'hicolor', 'symbolic', 'apps')
