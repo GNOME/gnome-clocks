@@ -18,10 +18,10 @@ resources = gnome.compile_resources('org.gnome.clocks', resource_files,
 
 desktop_conf = configuration_data()
 desktop_conf.set('icon', app_id)
-custom_target('desktop-file',
+desktop_file = custom_target('desktop-file',
   input: configure_file(
     input: 'org.gnome.clocks.desktop.in.in',
-    output: 'org.gnome.clocks.desktop.in',
+    output: '@BASENAME@',
     configuration: desktop_conf
   ),
   output: '@0@.desktop'.format(app_id),
@@ -33,6 +33,18 @@ custom_target('desktop-file',
     '--keyword=Name', '--keyword=GenericName', '--keyword=Comment', '--keyword=Keywords'
   ]
 )
+# Validate Desktop file
+desktop_file_validate = find_program('desktop-file-validate', required: false)
+if desktop_file_validate.found()
+  test(
+    'validate-desktop',
+    desktop_file_validate,
+    args: [
+      desktop_file.full_path()
+    ]
+  )
+endif
+
 
 dbusconf = configuration_data()
 dbusconf.set('bindir', join_paths(get_option('prefix'), get_option('bindir')))
@@ -47,17 +59,28 @@ configure_file(
 
 appdata_conf = configuration_data()
 appdata_conf.set('appid', app_id)
-custom_target('appdata-file',
+appdata_file = i18n.merge_file (
   input: configure_file(
     input: 'org.gnome.clocks.appdata.xml.in.in',
-    output: 'org.gnome.clocks.appdata.xml.in',
-    configuration: appdata_conf,
+    output: '@BASENAME@',
+    configuration: appdata_conf
   ),
   output: '@0@.appdata.xml'.format(app_id),
+  po_dir: podir,
   install: true,
-  install_dir: join_paths(get_option('datadir'), 'metainfo'),
-  command: [msgfmt, '--xml', '--template', '@INPUT@', '-d', podir, '-o', '@OUTPUT@'],
+  install_dir: join_paths(get_option('datadir'), 'metainfo')
 )
+
+# Validate Appdata
+appstream_util = find_program('appstream-util', required: false)
+if appstream_util.found()
+  test(
+    'validate-appdata', appstream_util,
+    args: [
+      'validate', '--nonet', appdata_file.full_path()
+    ]
+  )
+endif
 
 search_conf = configuration_data()
 search_conf.set('appid', app_id)
@@ -74,8 +97,20 @@ gsettingsconf = configuration_data()
 gsettingsconf.set('GETTEXT_PACKAGE', meson.project_name())
 configure_file(
   input: 'org.gnome.clocks.gschema.xml.in',
-  output: 'org.gnome.clocks.gschema.xml',
+  output: '@BASENAME@',
   configuration: gsettingsconf,
   install: true,
   install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas'),
 )
+
+glib_compile_schemas = find_program('glib-compile-schemas', required: false)
+# Validata GSchema
+if glib_compile_schemas.found()
+  test(
+    'validate-gschema', glib_compile_schemas,
+    args: [
+      '--strict', '--dry-run', meson.current_source_dir()
+    ]
+  )
+endif
+
