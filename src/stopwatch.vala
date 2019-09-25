@@ -19,63 +19,6 @@
 namespace Clocks {
 namespace Stopwatch {
 
-public class Frame : AnalogFrame {
-    private int seconds;
-    private double millisecs;
-
-    public void update (int s, double ms) {
-        seconds = s;
-        millisecs = ms;
-        queue_draw ();
-    }
-
-    public void reset () {
-        update (0, 0);
-    }
-
-    public override void draw_progress (Cairo.Context cr, int center_x, int center_y, int radius) {
-        var context = get_style_context ();
-
-        context.save ();
-        context.add_class ("progress");
-
-        cr.set_line_width (LINE_WIDTH);
-        cr.set_line_cap  (Cairo.LineCap.ROUND);
-
-        var color = context.get_color (context.get_state ());
-        var progress = ((double) seconds + millisecs) / 60;
-        if (progress > 0) {
-            cr.arc (center_x,
-                    center_y,
-                    radius - LINE_WIDTH / 2,
-                    1.5  * Math.PI,
-                    (1.5 + progress * 2 ) * Math.PI);
-            Gdk.cairo_set_source_rgba (cr, color);
-            cr.stroke ();
-        }
-
-        context.restore ();
-
-        context.save ();
-        context.add_class ("progress-fast");
-
-        cr.set_line_width (LINE_WIDTH - 2);
-        color = context.get_color (context.get_state ());
-        progress = millisecs;
-        if (progress > 0) {
-            cr.arc (center_x,
-                    center_y,
-                    radius - LINE_WIDTH / 2,
-                    (1.5 + progress * 2 ) * Math.PI - 0.1,
-                    (1.5 + progress * 2 ) * Math.PI + 0.1);
-            Gdk.cairo_set_source_rgba (cr, color);
-            cr.stroke ();
-        }
-
-        context.restore ();
-    }
-}
-
 [GtkTemplate (ui = "/org/gnome/clocks/ui/stopwatchlapsrow.ui")]
 private class LapsRow : Gtk.ListBoxRow {
     [GtkChild]
@@ -113,7 +56,7 @@ public class Face : Gtk.Box, Clocks.Clock {
     }
 
     public string label { get; construct set; }
-    public HeaderBar header_bar { get; construct set; }
+    public string icon_name { get; construct set; }
     public PanelId panel_id { get; construct set; }
 
     public State state { get; private set; default = State.RESET; }
@@ -122,8 +65,6 @@ public class Face : Gtk.Box, Clocks.Clock {
     private uint tick_id;
     private int current_lap;
     private double last_lap_time;
-    [GtkChild]
-    private Frame analog_frame;
     [GtkChild]
     private Gtk.Label time_label;
     [GtkChild]
@@ -134,10 +75,11 @@ public class Face : Gtk.Box, Clocks.Clock {
     private Gtk.ScrolledWindow laps_scrollwin;
     [GtkChild]
     private Gtk.ListBox laps_list;
+    public Gtk.Widget? header_actions_widget { get; set; default=null; }
 
-    public Face (HeaderBar header_bar) {
+    public Face () {
         Object (label: _("Stopwatch"),
-                header_bar: header_bar,
+                icon_name: "stopwatch-symbolic",
                 panel_id: PanelId.STOPWATCH);
 
         timer = new GLib.Timer ();
@@ -147,6 +89,14 @@ public class Face : Gtk.Box, Clocks.Clock {
             if (state == State.RUNNING) {
                 update_time_label ();
                 add_tick ();
+            }
+        });
+
+        laps_list.set_header_func((before, after) => {
+            if (after != null) {
+                var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+                separator.show();
+                before.set_header(separator);
             }
         });
 
@@ -311,9 +261,6 @@ public class Face : Gtk.Box, Clocks.Clock {
         } else {
             time_label.set_text ("%02i\u200E∶%02i.%i".printf (m, s, ds));
         }
-
-        analog_frame.update (s, r);
-
         return true;
     }
 

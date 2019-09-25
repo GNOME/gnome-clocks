@@ -248,46 +248,27 @@ public class Item : Object, ContentItem {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/worldtile.ui")]
-private class Tile : Gtk.Grid {
-    private static Gdk.Pixbuf? day_pixbuf = Utils.load_image ("day.png");
-    private static Gdk.Pixbuf? night_pixbuf = Utils.load_image ("night.png");
+private class Tile : Gtk.Box {
 
     public Item location { get; construct set; }
 
     [GtkChild]
-    private Gtk.Image image;
-    [GtkChild]
     private Gtk.Label time_label;
     [GtkChild]
-    private Gtk.Widget name_icon;
+    private Gtk.Label name_label;
     [GtkChild]
-    private Gtk.Widget name_label;
+    private Gtk.Label delta_label;
 
     public Tile (Item location) {
         Object (location: location);
 
-        location.bind_property ("automatic", name_icon, "visible", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        // location.bind_property ("automatic", name_icon, "visible", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
         location.bind_property ("name", name_label, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
-        location.tick.connect (update);
+        location.bind_property ("time_label", time_label, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
 
-        update ();
+
     }
 
-    private void update () {
-        if (location.is_daytime) {
-            get_style_context ().remove_class ("night");
-            image.pixbuf = day_pixbuf;
-        } else {
-            get_style_context ().add_class ("night");
-            image.pixbuf = night_pixbuf;
-        }
-
-        if (location.day_label != null && location.day_label != "") {
-            time_label.label = "%s\n<span size='xx-small'>%s</span>".printf (location.time_label, location.day_label);
-        } else {
-            time_label.label = location.time_label;
-        }
-    }
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/worldlocationdialog.ui")]
@@ -339,7 +320,7 @@ private class LocationDialog : Gtk.Dialog {
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world.ui")]
 public class Face : Gtk.Stack, Clocks.Clock {
     public string label { get; construct set; }
-    public HeaderBar header_bar { get; construct set; }
+    public string icon_name { get; construct set; }
     public PanelId panel_id { get; construct set; }
 
     private ContentStore locations;
@@ -361,10 +342,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private Gtk.Label standalone_sunrise_label;
     [GtkChild]
     private Gtk.Label standalone_sunset_label;
+    public Gtk.Widget? header_actions_widget{ get; set; }
 
-    public Face (HeaderBar header_bar) {
+    public Face () {
         Object (label: _("World"),
-                header_bar: header_bar,
+                icon_name: "globe-symbolic",
                 panel_id: PanelId.WORLD,
                 transition_type: Gtk.StackTransitionType.CROSSFADE);
 
@@ -381,28 +363,26 @@ public class Face : Gtk.Stack, Clocks.Clock {
             return 0;
         });
 
-        // Translators: "New" refers to a world clock
-        new_button = new Gtk.Button.with_label (C_("World clock", "New"));
+        header_actions_widget = new Gtk.Stack();
+
+        new_button = new Gtk.Button.from_icon_name ("list-add-symbolic", Gtk.IconSize.BUTTON);
         new_button.valign = Gtk.Align.CENTER;
-        new_button.no_show_all = true;
         new_button.action_name = "win.new";
-        header_bar.pack_start (new_button);
+        ((Gtk.Stack)header_actions_widget).add_named (new_button, "add");
 
         back_button = new Gtk.Button ();
         var back_button_image = new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.MENU);
         back_button.valign = Gtk.Align.CENTER;
         back_button.set_image (back_button_image);
-        back_button.no_show_all = true;
         back_button.clicked.connect (() => {
             reset_view ();
+            ((Gtk.Stack)header_actions_widget).visible_child_name = "add";
         });
-        header_bar.pack_start (back_button);
+        ((Gtk.Stack)header_actions_widget).add_named (back_button, "back");
 
         content_view.bind_model (locations, (item) => {
             return new Tile ((Item)item);
         });
-
-        content_view.set_header_bar (header_bar);
 
         load ();
         show_all ();
@@ -430,18 +410,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
         });
     }
 
+
     [GtkCallback]
     private void item_activated (ContentItem item) {
         show_standalone ((Item) item);
-    }
-
-    [GtkCallback]
-    private void visible_child_changed () {
-        if (visible_child == empty_view || visible_child == content_view) {
-            header_bar.mode = HeaderBar.Mode.NORMAL;
-        } else if (visible_child == standalone) {
-            header_bar.mode = HeaderBar.Mode.STANDALONE;
-        }
+        ((Gtk.Stack)header_actions_widget).visible_child_name = "back";
     }
 
     private void update_standalone () {
@@ -552,32 +525,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public void reset_view () {
         standalone_location = null;
         visible_child = locations.get_n_items () == 0 ? empty_view : content_view;
-        request_header_bar_update ();
-    }
-
-    public void update_header_bar () {
-        switch (header_bar.mode) {
-        case HeaderBar.Mode.NORMAL:
-            header_bar.title = _("Clocks");
-            header_bar.subtitle = null;
-            new_button.show ();
-            content_view.update_header_bar ();
-            break;
-        case HeaderBar.Mode.SELECTION:
-            content_view.update_header_bar ();
-            break;
-        case HeaderBar.Mode.STANDALONE:
-            if (standalone_location.state_name != null) {
-                header_bar.title = "%s, %s".printf (standalone_location.city_name, standalone_location.state_name);
-            } else {
-                header_bar.title = standalone_location.city_name;
-            }
-            header_bar.subtitle = standalone_location.country_name;
-            back_button.show ();
-            break;
-        default:
-            assert_not_reached ();
-        }
     }
 }
 

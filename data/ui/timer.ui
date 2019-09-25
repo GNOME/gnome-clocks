@@ -1,472 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1 -->
 <interface>
-  <!-- interface-requires gtk+ 3.6 -->
-  <object class="GtkAdjustment" id="adjustment_hours">
-    <property name="upper">99</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">10</property>
-  </object>
-  <object class="GtkAdjustment" id="adjustment_minutes">
-    <property name="upper">59</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">10</property>
-  </object>
-  <object class="GtkAdjustment" id="adjustment_seconds">
-    <property name="upper">59</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">10</property>
-  </object>
+  <requires lib="gtk+" version="3.18"/>
   <template class="ClocksTimerFace" parent="GtkStack">
     <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <signal name="notify::visible-child" handler="visible_child_changed" swapped="no"/>
     <child>
-      <object class="ClocksAnalogFrame" id="setup_frame">
+      <object class="GtkGrid" id="empty_view">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="margin_start">48</property>
-        <property name="margin_end">48</property>
-        <property name="margin_top">48</property>
-        <property name="margin_bottom">48</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <property name="row_spacing">6</property>
         <child>
-          <object class="GtkGrid" id="setup_grid">
+          <object class="GtkImage" id="image1">
+            <property name="visible">True</property>
+            <property name="sensitive">False</property>
+            <property name="can_focus">False</property>
+            <property name="icon_name">timer-symbolic</property>
+            <property name="icon_size">6</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="hexpand">True</property>
-            <property name="vexpand">True</property>
-            <property name="row_spacing">24</property>
-            <child>
-              <object class="GtkGrid" id="grid_spinbuttons">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">center</property>
-                <property name="valign">center</property>
-                <child>
-                  <object class="GtkLabel" id="dummy_label1">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="label"></property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkSpinButton" id="h_spinbutton">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="max_length">2</property>
-                    <property name="invisible_char">●</property>
-                    <property name="xalign">0.5</property>
-                    <property name="invisible_char_set">True</property>
-                    <property name="input_purpose">number</property>
-                    <property name="orientation">vertical</property>
-                    <property name="adjustment">adjustment_hours</property>
-                    <property name="numeric">True</property>
-                    <property name="width_chars">2</property>
-                    <property name="wrap">True</property>
-                    <signal name="output" handler="show_leading_zeros" swapped="no"/>
-                    <signal name="changed" handler="update_start_button" swapped="no"/>
-                    <style>
-                      <class name="clocks-spinbutton"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="colon_label1">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label">∶</property>
-                    <style>
-                      <class name="clocks-timer-label"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">2</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkSpinButton" id="m_spinbutton">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="max_length">2</property>
-                    <property name="invisible_char">●</property>
-                    <property name="xalign">0.5</property>
-                    <property name="invisible_char_set">True</property>
-                    <property name="input_purpose">number</property>
-                    <property name="orientation">vertical</property>
-                    <property name="adjustment">adjustment_minutes</property>
-                    <property name="numeric">True</property>
-                    <property name="width_chars">2</property>
-                    <property name="wrap">True</property>
-                    <signal name="output" handler="show_leading_zeros" swapped="no"/>
-                    <signal name="changed" handler="update_start_button" swapped="no"/>
-                    <signal name="input" handler="input_minutes" swapped="no"/>
-                    <style>
-                      <class name="clocks-spinbutton"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">3</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="colon_label2">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label">∶</property>
-                    <style>
-                      <class name="clocks-timer-label"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">4</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkSpinButton" id="s_spinbutton">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="max_length">2</property>
-                    <property name="invisible_char">●</property>
-                    <property name="xalign">0.5</property>
-                    <property name="invisible_char_set">True</property>
-                    <property name="input_purpose">number</property>
-                    <property name="orientation">vertical</property>
-                    <property name="adjustment">adjustment_seconds</property>
-                    <property name="numeric">True</property>
-                    <property name="width_chars">2</property>
-                    <property name="wrap">True</property>
-                    <signal name="output" handler="show_leading_zeros" swapped="no"/>
-                    <signal name="changed" handler="update_start_button" swapped="no"/>
-                    <signal name="input" handler="input_seconds" swapped="no"/>
-                    <style>
-                      <class name="clocks-spinbutton"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">5</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="dummy_label2">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="label"></property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">6</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="start_button">
-                <property name="label" translatable="yes">Start</property>
-                <property name="width_request">280</property>
-                <property name="height_request">40</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <signal name="clicked" handler="on_start_button_clicked" swapped="no"/>
-                <style>
-                  <class name="clocks-button"/>
-                </style>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">1</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
+            <property name="label" translatable="yes">Select &lt;b&gt;New&lt;/b&gt; to add an timer</property>
+            <property name="use_markup">True</property>
+            <style>
+              <class name="dim-label"/>
+            </style>
           </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">1</property>
+          </packing>
         </child>
       </object>
+      <packing>
+        <property name="name">empty</property>
+      </packing>
     </child>
     <child>
-      <object class="ClocksTimerCountdownFrame" id="countdown_frame">
+      <object class="ClocksContentView" id="content_view">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="margin_start">48</property>
-        <property name="margin_end">48</property>
-        <property name="margin_top">48</property>
-        <property name="margin_bottom">48</property>
-        <child>
-          <object class="GtkGrid" id="countdown_grid">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="hexpand">True</property>
-            <property name="vexpand">True</property>
-            <property name="row_spacing">24</property>
-            <child>
-              <object class="GtkGrid" id="grid_labels">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">center</property>
-                <property name="valign">center</property>
-                <child>
-                  <object class="GtkLabel" id="dummy_label3">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="label"></property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkSpinButton" id="h_label">
-                    <property name="visible">True</property>
-                    <property name="sensitive">False</property>
-                    <property name="can_focus">True</property>
-                    <property name="max_length">2</property>
-                    <property name="invisible_char">●</property>
-                    <property name="xalign">0.5</property>
-                    <property name="invisible_char_set">True</property>
-                    <property name="input_purpose">number</property>
-                    <property name="orientation">vertical</property>
-                    <property name="adjustment">adjustment_hours</property>
-                    <property name="numeric">True</property>
-                    <property name="width_chars">2</property>
-                    <property name="wrap">True</property>
-                    <signal name="output" handler="show_leading_zeros" swapped="no"/>
-                    <signal name="changed" handler="update_start_button" swapped="no"/>
-                    <style>
-                      <class name="clocks-timer-label"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="colon_label3">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label">∶</property>
-                    <style>
-                      <class name="clocks-timer-label"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">2</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkSpinButton" id="m_label">
-                    <property name="visible">True</property>
-                    <property name="sensitive">False</property>
-                    <property name="can_focus">True</property>
-                    <property name="max_length">2</property>
-                    <property name="invisible_char">●</property>
-                    <property name="xalign">0.5</property>
-                    <property name="invisible_char_set">True</property>
-                    <property name="input_purpose">number</property>
-                    <property name="orientation">vertical</property>
-                    <property name="adjustment">adjustment_minutes</property>
-                    <property name="numeric">True</property>
-                    <property name="width_chars">2</property>
-                    <property name="wrap">True</property>
-                    <signal name="output" handler="show_leading_zeros" swapped="no"/>
-                    <signal name="changed" handler="update_start_button" swapped="no"/>
-                    <style>
-                      <class name="clocks-timer-label"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">3</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="colon_label4">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label">∶</property>
-                    <style>
-                      <class name="clocks-timer-label"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">4</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkSpinButton" id="s_label">
-                    <property name="visible">True</property>
-                    <property name="sensitive">False</property>
-                    <property name="can_focus">True</property>
-                    <property name="max_length">2</property>
-                    <property name="invisible_char">●</property>
-                    <property name="xalign">0.5</property>
-                    <property name="invisible_char_set">True</property>
-                    <property name="input_purpose">number</property>
-                    <property name="orientation">vertical</property>
-                    <property name="adjustment">adjustment_seconds</property>
-                    <property name="numeric">True</property>
-                    <property name="width_chars">2</property>
-                    <property name="wrap">True</property>
-                    <signal name="output" handler="show_leading_zeros" swapped="no"/>
-                    <signal name="changed" handler="update_start_button" swapped="no"/>
-                    <style>
-                      <class name="clocks-timer-label"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="left_attach">5</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="dummy_label4">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="label"></property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">6</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">0</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkBox" id="button_box">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="hexpand">True</property>
-                <property name="homogeneous">True</property>
-                <property name="spacing">16</property>
-                <child>
-                  <object class="GtkButton" id="left_button">
-                    <property name="label" translatable="yes">Pause</property>
-                    <property name="width_request">132</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <signal name="clicked" handler="on_left_button_clicked" swapped="no"/>
-                    <style>
-                      <class name="clocks-button"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="right_button">
-                    <property name="label" translatable="yes">Reset</property>
-                    <property name="width_request">132</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <signal name="clicked" handler="on_right_button_clicked" swapped="no"/>
-                    <style>
-                      <class name="clocks-button"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">1</property>
-                <property name="width">1</property>
-                <property name="height">1</property>
-              </packing>
-            </child>
-          </object>
-        </child>
+        <signal name="item-activated" handler="item_activated" swapped="no"/>
       </object>
+      <packing>
+        <property name="name">timers</property>
+        <property name="position">1</property>
+      </packing>
     </child>
   </template>
-  <object class="GtkSizeGroup" id="sizegroup1">
-    <widgets>
-      <widget name="grid_spinbuttons"/>
-      <widget name="start_button"/>
-      <widget name="grid_labels"/>
-      <widget name="button_box"/>
-    </widgets>
-  </object>
-  <object class="GtkSizeGroup" id="sizegroup2">
-    <property name="mode">vertical</property>
-    <widgets>
-      <widget name="grid_spinbuttons"/>
-      <widget name="grid_labels"/>
-    </widgets>
-  </object>
-  <object class="GtkSizeGroup" id="sizegroup3">
-    <property name="mode">vertical</property>
-    <widgets>
-      <widget name="start_button"/>
-      <widget name="button_box"/>
-    </widgets>
-  </object>
 </interface>

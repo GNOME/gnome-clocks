@@ -292,7 +292,7 @@ public class ContentView : Gtk.Bin {
 
     private Mode _mode;
     private ContentStore model;
-    private Gtk.FlowBox flow_box;
+    private Gtk.ListBox list_box;
     private Gtk.Button select_button;
     private Gtk.Button cancel_button;
     private SelectionMenuButton selection_menubutton;
@@ -304,19 +304,38 @@ public class ContentView : Gtk.Bin {
     construct {
         get_style_context ().add_class ("content-view");
 
-        flow_box = new Gtk.FlowBox ();
-        flow_box.selection_mode = Gtk.SelectionMode.NONE;
-        flow_box.min_children_per_line = 3;
+        list_box = new Gtk.ListBox ();
+        list_box.halign = Gtk.Align.FILL;
+        list_box.valign = Gtk.Align.START;
+        list_box.selection_mode = Gtk.SelectionMode.NONE;
+        list_box.get_style_context ().add_class ("frame");
+        list_box.set_header_func(list_header_func);
 
-        flow_box.child_activated.connect ((child) => {
+        list_box.size_allocate.connect((widget, allocation) => {
+            if (allocation.width < 550) {
+                widget.margin = 0;
+            } else {
+                widget.margin = 24;
+            }
+        });
+        /*
+        list_box.child_activated.connect ((child) => {
             var item = model.get_item (child.get_index ()) as ContentItem;
             if (item != null) {
                 item_activated (item);
             }
         });
+        */
 
         var scrolled_window = new Gtk.ScrolledWindow (null, null);
-        scrolled_window.add (flow_box);
+
+        var column = new Hdy.Column();
+        column.set_maximum_width(1200);
+        column.set_linear_growth_width(1200);
+
+        column.add (list_box);
+
+        scrolled_window.add (column);
         scrolled_window.hexpand = true;
         scrolled_window.vexpand = true;
         scrolled_window.halign = Gtk.Align.FILL;
@@ -364,7 +383,7 @@ public class ContentView : Gtk.Bin {
             }
         });
 
-        flow_box.bind_model (model, (object) => {
+        list_box.bind_model (model, (object) => {
             var item = (ContentItem) object;
             var inner = create_func (item);
 
@@ -390,7 +409,7 @@ public class ContentView : Gtk.Bin {
 
             // wrap the widget in overlay for the selection check box
             var overlay = new Gtk.Overlay ();
-            overlay.halign = Gtk.Align.START;
+            overlay.halign = Gtk.Align.FILL;
             overlay.valign = Gtk.Align.START;
             overlay.add (event_box);
 
@@ -417,30 +436,31 @@ public class ContentView : Gtk.Bin {
             overlay.add_overlay (check);
 
             // manually wrap in flowboxchild ourselves since we want to set alignment
-            var flow_box_child = new Gtk.FlowBoxChild ();
-            flow_box_child.halign = Gtk.Align.START;
-            flow_box_child.valign = Gtk.Align.START;
-            flow_box_child.add (overlay);
-            flow_box_child.get_style_context ().add_class ("tile");
+            var list_box_row = new Gtk.ListBoxRow ();
+            list_box_row.halign = Gtk.Align.FILL;
+            list_box_row.valign = Gtk.Align.CENTER;
+            list_box_row.add (overlay);
+            list_box_row.get_style_context ().add_class ("tile");
 
             // flowbox does not handle :hover and setting the PRELIGHT state does not
             // seem to get propagated to the children despite what the documentation
             // says... emulate it ourselves with css classes :(
             event_box.enter_notify_event.connect ((event) => {
-                flow_box_child.get_style_context ().add_class ("prelight");
+                list_box_row.get_style_context ().add_class ("prelight");
                 return false;
             });
 
             event_box.leave_notify_event.connect ((event) => {
                 if (event.detail != Gdk.NotifyType.INFERIOR) {
-                    flow_box_child.get_style_context ().remove_class ("prelight");
+                    list_box_row.get_style_context ().remove_class ("prelight");
                 }
                 return false;
             });
 
-            flow_box_child.show_all ();
+            list_box_row.show_all ();
 
-            return flow_box_child;
+            list_box_row.queue_allocate ();
+            return list_box_row;
         });
     }
 
@@ -463,25 +483,6 @@ public class ContentView : Gtk.Bin {
 
     public void set_header_bar (HeaderBar bar) {
         header_bar = bar;
-
-        select_button = new Gtk.Button ();
-        var select_button_image = new Gtk.Image.from_icon_name ("object-select-symbolic", Gtk.IconSize.MENU);
-        select_button.set_image (select_button_image);
-        select_button.valign = Gtk.Align.CENTER;
-        select_button.no_show_all = true;
-        select_button.clicked.connect (() => {
-            mode = Mode.SELECTION;
-        });
-        header_bar.pack_end (select_button);
-
-        cancel_button = new Gtk.Button.with_label (_("Cancel"));
-        cancel_button.no_show_all = true;
-        cancel_button.valign = Gtk.Align.CENTER;
-        cancel_button.clicked.connect (() => {
-            mode = Mode.NORMAL;
-        });
-        header_bar.pack_end (cancel_button);
-
         selection_menubutton = new SelectionMenuButton ();
     }
 
@@ -500,6 +501,17 @@ public class ContentView : Gtk.Bin {
             break;
         }
     }
+
+    private void list_header_func(Gtk.ListBoxRow? before, Gtk.ListBoxRow? after)
+    {
+        if (after != null) {
+            var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+            separator.show();
+            before.set_header(separator);
+        }
+
+    }
+
 }
 
 public class AmPmToggleButton : Gtk.Button {
