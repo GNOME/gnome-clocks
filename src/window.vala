@@ -37,7 +37,16 @@ public class Window : Gtk.ApplicationWindow {
     [GtkChild]
     private Gtk.Stack stack;
     [GtkChild]
+    private Hdy.ViewSwitcherBar switcher_bar;
+    [GtkChild]
     private Hdy.Squeezer squeezer;
+    [GtkChild]
+    private Hdy.ViewSwitcher title_wide_switcher;
+    [GtkChild]
+    private Hdy.ViewSwitcher title_narrow_switcher;
+    [GtkChild]
+    private Gtk.Box title_text;
+
     [GtkChild]
     private Gtk.MenuButton menu_button;
     private GLib.Settings settings;
@@ -87,6 +96,13 @@ public class Window : Gtk.ApplicationWindow {
             var help_overlay = get_help_overlay ();
             help_overlay.view_name = Type.from_instance(stack.visible_child).name();
             update_header_bar ();
+        });
+
+        this.size_allocate.connect((widget, allocation) => {
+            switcher_bar.set_reveal(allocation.width < 500);
+            squeezer.set_child_enabled(title_wide_switcher, allocation.width > 800);
+            squeezer.set_child_enabled(title_narrow_switcher, allocation.width > 500);
+            squeezer.set_child_enabled(title_text, allocation.width <= 500);
         });
 
         var header_bar_id = header_bar.notify["mode"].connect (() => {
