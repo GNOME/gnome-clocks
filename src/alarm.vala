@@ -275,18 +275,18 @@ private class Item : Object, ContentItem {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarmtile.ui")]
-private class Tile : Gtk.Grid {
+private class Row : Hdy.ActionRow {
     public Item alarm { get; construct set; }
+    public Face face { get; construct set; }
 
     [GtkChild]
-    private Gtk.Label time_label;
-    [GtkChild]
-    private Gtk.Widget name_label;
+    private Gtk.Switch toggle;
 
-    public Tile (Item alarm) {
-        Object (alarm: alarm);
+    public Row (Item alarm, Face face) {
+        Object (alarm: alarm, face: face);
 
-        alarm.bind_property ("name", name_label, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        alarm.bind_property ("name", this, "subtitle", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        alarm.bind_property ("active", toggle, "active", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
 
         alarm.notify["active"].connect (update);
         alarm.notify["state"].connect (update);
@@ -294,6 +294,10 @@ private class Tile : Gtk.Grid {
         alarm.notify["days"].connect (update);
 
         update ();
+    }
+
+    public override void activate () {
+        face.edit(alarm);
     }
 
     private void update () {
@@ -316,15 +320,15 @@ private class Tile : Gtk.Grid {
         }
 
         if (sub_text != null && sub_text != "") {
-            time_label.label = "%s\n<span size='xx-small'>%s</span>".printf (text, sub_text);
+            title = "%s • %s".printf (text, sub_text);
         } else {
-            time_label.label = text;
+            title = text;
         }
     }
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarmsetupdialog.ui")]
-private class SetupDialog : Gtk.Dialog {
+private class SetupDialog : Hdy.Dialog {
     private Utils.WallClock.Format format;
     [GtkChild]
     private Gtk.Grid time_grid;
@@ -344,10 +348,17 @@ private class SetupDialog : Gtk.Dialog {
     private Gtk.Stack am_pm_stack;
     [GtkChild]
     private Gtk.Revealer label_revealer;
+    [GtkChild]
+    private Gtk.ListBox listbox;
+    [GtkChild]
+    private Gtk.Box delete_area;
     private List<Item> other_alarms;
 
     public SetupDialog (Gtk.Window parent, Item? alarm, ListModel all_alarms) {
         Object (transient_for: parent, title: alarm != null ? _("Edit Alarm") : _("New Alarm"), use_header_bar: 1);
+
+        delete_area.visible = alarm != null;
+        listbox.set_header_func((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
 
         other_alarms = new List<Item> ();
         var n = all_alarms.get_n_items ();
@@ -520,6 +531,11 @@ private class SetupDialog : Gtk.Dialog {
         spin_button.set_text ("%02i".printf (spin_button.get_value_as_int ()));
         return true;
     }
+
+    [GtkCallback]
+    private void delete_alarm () {
+        response(2);
+    }
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarmringing.ui")]
@@ -586,8 +602,12 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private Gtk.Button new_button;
     [GtkChild]
     private Gtk.Widget empty_view;
+    //[GtkChild]
+    //private ContentView content_view;
     [GtkChild]
-    private ContentView content_view;
+    private Gtk.ListBox listbox;
+    [GtkChild]
+    private Gtk.ScrolledWindow list_view;
     [GtkChild]
     private RingingPanel ringing_panel;
 
@@ -627,11 +647,10 @@ public class Face : Gtk.Stack, Clocks.Clock {
         new_button.action_name = "win.new";
         header_bar.pack_start (new_button);
 
-        content_view.bind_model (alarms, (item) => {
-            return new Tile ((Item)item);
+        listbox.set_header_func((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
+        listbox.bind_model (alarms, (item) => {
+            return new Row ((Item) item, this);
         });
-
-        content_view.set_header_bar (header_bar);
 
         load ();
         show_all ();
@@ -662,27 +681,22 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public signal void ring ();
 
     [GtkCallback]
-    private void item_activated (ContentItem item) {
-        Item alarm = (Item) item;
-        if (alarm.state == Item.State.SNOOZING) {
-            show_ringing_panel (alarm);
-        } else {
-            edit (alarm);
-        }
-    }
-
-    [GtkCallback]
     private void dismiss_ringing_panel () {
        reset_view ();
     }
 
     [GtkCallback]
     private void visible_child_changed () {
-        if (visible_child == empty_view || visible_child == content_view) {
+        if (visible_child == empty_view || visible_child == list_view) {
             header_bar.mode = HeaderBar.Mode.NORMAL;
         } else if (visible_child == ringing_panel) {
             header_bar.mode = HeaderBar.Mode.STANDALONE;
         }
+    }
+
+    [GtkCallback]
+    private void create_alarm () {
+        activate_new();
     }
 
     private void load () {
@@ -693,7 +707,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         settings.set_value ("alarms", alarms.serialize ());
     }
 
-    private void edit (Item alarm) {
+    internal void edit (Item alarm) {
         var dialog = new SetupDialog ((Gtk.Window) get_toplevel (), alarm, alarms);
 
         // Disable alarm while editing it and remember the original active state.
@@ -703,6 +717,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
         dialog.response.connect ((dialog, response) => {
             if (response == 1) {
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
+                save ();
+            } else if (response == 2) {
+                alarms.delete_item (alarm);
                 save ();
             } else {
                 alarm.active = saved_active;
@@ -719,7 +736,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     private void reset_view () {
-        visible_child = alarms.get_n_items () == 0 ? empty_view : content_view;
+        visible_child = alarms.get_n_items () == 0 ? empty_view : list_view;
         request_header_bar_update ();
     }
 
@@ -738,25 +755,25 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     public void activate_select_all () {
-        content_view.select_all ();
+        // content_view.select_all ();
     }
 
     public void activate_select_none () {
-        content_view.unselect_all ();
+        // content_view.unselect_all ();
     }
 
     public bool escape_pressed () {
-        return content_view.escape_pressed ();
+        return /*content_view.escape_pressed ();*/ false;
     }
 
     public void update_header_bar () {
         switch (header_bar.mode) {
         case HeaderBar.Mode.NORMAL:
             new_button.show ();
-            content_view.update_header_bar ();
+            //content_view.update_header_bar ();
             break;
         case HeaderBar.Mode.SELECTION:
-            content_view.update_header_bar ();
+            //content_view.update_header_bar ();
             break;
         case HeaderBar.Mode.STANDALONE:
             header_bar.title = ringing_panel.alarm.name;
