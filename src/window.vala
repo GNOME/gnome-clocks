@@ -37,7 +37,16 @@ public class Window : Gtk.ApplicationWindow {
     [GtkChild]
     private Gtk.Stack stack;
     [GtkChild]
-    private Gtk.StackSwitcher stack_switcher;
+    private Hdy.ViewSwitcherBar switcher_bar;
+    [GtkChild]
+    private Hdy.Squeezer squeezer;
+    [GtkChild]
+    private Hdy.ViewSwitcher title_wide_switcher;
+    [GtkChild]
+    private Hdy.ViewSwitcher title_narrow_switcher;
+    [GtkChild]
+    private Gtk.Box title_text;
+
     [GtkChild]
     private Gtk.MenuButton menu_button;
     private GLib.Settings settings;
@@ -78,14 +87,10 @@ public class Window : Gtk.ApplicationWindow {
         var stopwatch = (Stopwatch.Face)panels[PanelId.STOPWATCH];
         var timer = (Timer.Face)panels[PanelId.TIMER];
 
-        foreach (var clock in panels) {
-            stack.add_titled (clock, ((Clock)clock).label, ((Clock)clock).label);
-            ((Clock)clock).request_header_bar_update.connect (() => {
-                update_header_bar ();
-            });
+       foreach (var panel in panels) {
+            stack.add_titled (panel, ((Clock)panel).label, ((Clock)panel).label);
+            stack.child_set_property(panel, "icon-name", ((Clock)panel).icon_name);
         }
-
-        stack_switcher.set_stack (stack);
 
         var stack_id = stack.notify["visible-child"].connect (() => {
             var help_overlay = get_help_overlay ();
@@ -159,6 +164,14 @@ public class Window : Gtk.ApplicationWindow {
         } else {
             stack.error_bell ();
         }
+    }
+
+    public override void size_allocate (Gtk.Allocation allocation) {
+        base.size_allocate (allocation);
+        switcher_bar.set_reveal (allocation.width <= 500);
+        squeezer.set_child_enabled (title_wide_switcher, allocation.width > 800);
+        squeezer.set_child_enabled (title_narrow_switcher, allocation.width > 500);
+        squeezer.set_child_enabled (title_text, allocation.width <= 500);
     }
 
     private void on_show_primary_menu_activate (SimpleAction action) {
@@ -288,7 +301,7 @@ public class Window : Gtk.ApplicationWindow {
         }
 
         if (header_bar.mode == HeaderBar.Mode.NORMAL) {
-            header_bar.custom_title = stack_switcher;
+            header_bar.custom_title = squeezer;
             menu_button.show ();
         }
 

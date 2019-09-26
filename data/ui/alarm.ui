@@ -4,6 +4,7 @@
   <template class="ClocksAlarmFace" parent="GtkStack">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
+    <property name="homogeneous">False</property>
     <signal name="notify::visible-child" handler="visible_child_changed" swapped="no"/>
     <child>
       <object class="GtkGrid" id="empty_view">
