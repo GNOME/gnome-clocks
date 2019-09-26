@@ -37,7 +37,7 @@ public class Window : Gtk.ApplicationWindow {
     [GtkChild]
     private Gtk.Stack stack;
     [GtkChild]
-    private Gtk.StackSwitcher stack_switcher;
+    private Hdy.Squeezer squeezer;
     [GtkChild]
     private Gtk.MenuButton menu_button;
     private GLib.Settings settings;
@@ -85,7 +85,6 @@ public class Window : Gtk.ApplicationWindow {
             });
         }
 
-        stack_switcher.set_stack (stack);
 
         var stack_id = stack.notify["visible-child"].connect (() => {
             var help_overlay = get_help_overlay ();
@@ -288,7 +287,7 @@ public class Window : Gtk.ApplicationWindow {
         }
 
         if (header_bar.mode == HeaderBar.Mode.NORMAL) {
-            header_bar.custom_title = stack_switcher;
+            header_bar.custom_title = squeezer;
             menu_button.show ();
         }
 

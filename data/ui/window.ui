@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <!-- interface-requires gtk+ 3.8 -->
+  <!-- interface-requires gtk+ 3.20 -->
+  <requires lib="gtk+" version="3.20"/>
+  <requires lib="libhandy" version="0.0"/>
   <template class="ClocksWindow" parent="GtkApplicationWindow">
     <property name="title" translatable="yes">Clocks</property>
     <menu id="primary-menu">
@@ -28,8 +30,52 @@
           <class name="titlebar"/>
         </style>
         <child type="title">
-          <object class="GtkStackSwitcher" id="stack_switcher">
+          <object class="HdySqueezer" id="squeezer">
             <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="transition_type">crossfade</property>
+            <child>
+              <object class="HdyViewSwitcher" id="title_wide_switcher">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">center</property>
+                <property name="policy">wide</property>
+                <property name="stack">stack</property>
+              </object>
+            </child>
+            <child>
+              <object class="HdyViewSwitcher" id="title_narrow_switcher">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">center</property>
+                <property name="policy">narrow</property>
+                <property name="stack">stack</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox" id="title_text">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkLabel" id="title_label">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Clock</property>
+                    <style>
+                      <class name="title"/>
+                    </style>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
           </object>
         </child>
         <child>
