@@ -98,13 +98,6 @@ public class Window : Gtk.ApplicationWindow {
             update_header_bar ();
         });
 
-        this.size_allocate.connect((widget, allocation) => {
-            switcher_bar.set_reveal(allocation.width < 500);
-            squeezer.set_child_enabled(title_wide_switcher, allocation.width > 800);
-            squeezer.set_child_enabled(title_narrow_switcher, allocation.width > 500);
-            squeezer.set_child_enabled(title_text, allocation.width <= 500);
-        });
-
         var header_bar_id = header_bar.notify["mode"].connect (() => {
             update_header_bar ();
         });
@@ -171,6 +164,14 @@ public class Window : Gtk.ApplicationWindow {
         } else {
             stack.error_bell ();
         }
+    }
+
+    public override void size_allocate (Gtk.Allocation allocation) {
+        base.size_allocate (allocation);
+        switcher_bar.set_reveal (allocation.width <= 500);
+        squeezer.set_child_enabled (title_wide_switcher, allocation.width > 800);
+        squeezer.set_child_enabled (title_narrow_switcher, allocation.width > 500);
+        squeezer.set_child_enabled (title_text, allocation.width <= 500);
     }
 
     private void on_show_primary_menu_activate (SimpleAction action) {

@@ -119,6 +119,8 @@ public class Application : Gtk.Application {
 
         Utils.load_main_css ();
 
+        set_resource_base_path("/org/gnome/clocks/");
+
         var theme = Gtk.IconTheme.get_default ();
         theme.add_resource_path("/org/gnome/clocks/icons");
 
