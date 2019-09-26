@@ -78,13 +78,10 @@ public class Window : Gtk.ApplicationWindow {
         var stopwatch = (Stopwatch.Face)panels[PanelId.STOPWATCH];
         var timer = (Timer.Face)panels[PanelId.TIMER];
 
-        foreach (var clock in panels) {
-            stack.add_titled (clock, ((Clock)clock).label, ((Clock)clock).label);
-            ((Clock)clock).request_header_bar_update.connect (() => {
-                update_header_bar ();
-            });
+       foreach (var panel in panels) {
+            stack.add_titled (panel, ((Clock)panel).label, ((Clock)panel).label);
+            stack.child_set_property(panel, "icon-name", ((Clock)panel).icon_name);
         }
-
 
         var stack_id = stack.notify["visible-child"].connect (() => {
             var help_overlay = get_help_overlay ();
