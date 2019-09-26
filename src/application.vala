@@ -41,8 +41,8 @@ public class Application : Gtk.Application {
     private void ensure_window () {
         if (window == null) {
             window = new Window (this);
-            window.destroy.connect (() => {
-                window = null;
+            window.delete_event.connect(() => {
+               return window.hide_on_delete();
             });
         }
     }
@@ -182,6 +182,7 @@ public class Application : Gtk.Application {
     }
 
     void on_quit_activate () {
+        window.destroy ();
         quit ();
     }
 }
