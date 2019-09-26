@@ -19,6 +19,25 @@ gweather = dependency('gweather-3.0', version: '>=3.27.2')
 gnomedesktop = dependency('gnome-desktop-3.0', version: '>=3.8')
 geocodeglib = dependency('geocode-glib-1.0', version: '>=1.0')
 libgeoclue = dependency('libgeoclue-2.0', version: '>=2.4')
+libhandy = dependency('libhandy-0.0', version: '>= 0.0.9', required: false)
+if not libhandy.found()
+  libhandy_proj = subproject(
+    'libhandy',
+    default_options: [
+      'examples=false',
+      'glade_catalog=disabled',
+      'introspection=enabled',
+      'static=false',
+      'tests=false',
+      'vapi=true',
+    ]
+  )
+  # Of course this should be libhandy_dep but apparently
+  # libhandy_vapi isn't built by default and as a dependency
+  # object seems to get the job done
+  libhandy = libhandy_proj.get_variable('libhandy_vapi')
+endif
+
 
 cc = meson.get_compiler('c')
 math = cc.find_library('m', required: false)

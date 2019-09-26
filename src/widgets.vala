@@ -144,6 +144,24 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         return n_selected;
     }
 
+    public void delete_item (ContentItem item) {
+        var n = store.get_n_items ();
+        for (int i = 0; i < n; i++) {
+            var o = store.get_object (i);
+            if (o == item) {
+                store.remove(i);
+
+                if (sort_func != null) {
+                    store.sort (sort_func);
+                }
+    
+                selection_changed ();
+
+                return;
+            }
+        }
+    }
+
     public void delete_selected () {
         // remove everything and readd the ones not selected
         uint n_deleted = 0;

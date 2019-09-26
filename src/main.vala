@@ -21,6 +21,8 @@ int main (string[] args) {
     Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
     Intl.textdomain (Config.GETTEXT_PACKAGE);
 
+    Hdy.init(ref args);
+
     var app = new Clocks.Application ();
     return app.run (args);
 }

@@ -43,9 +43,59 @@
       </object>
     </child>
     <child>
-      <object class="ClocksContentView" id="content_view">
+      <object class="GtkScrolledWindow" id="list_view">
         <property name="visible">True</property>
-        <signal name="item-activated" handler="item_activated" swapped="no"/>
+        <child>
+          <object class="HdyColumn">
+            <property name="visible">True</property>
+            <property name="maximum-width">500</property>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="margin">24</property>
+                <property name="valign">start</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkListBox" id="listbox">
+                    <property name="visible">True</property>
+                    <property name="selection-mode">none</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkSeparator">
+                    <property name="visible">True</property>
+                    <property name="orientation">horizontal</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkListBox">
+                    <property name="visible">True</property>
+                    <property name="selection-mode">none</property>
+                    <signal name="row-activated" handler="create_alarm" swapped="no"/>
+                    <child>
+                      <object class="GtkListBoxRow">
+                        <property name="visible">True</property>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="visible">True</property>
+                            <property name="label">Add a new Alarm…</property>
+                            <property name="margin-start">12</property>
+                            <property name="margin-end">12</property>
+                            <property name="margin-top">18</property>
+                            <property name="margin-bottom">18</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <style>
+                  <class name="frame"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
       </object>
     </child>
     <child>

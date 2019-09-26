@@ -79,6 +79,23 @@
             ]
         },
         {
+            "name" : "libhandy",
+            "buildsystem" : "meson",
+            "config-opts" : [
+                "-Dexamples=false",
+                "-Dglade_catalog=disabled",
+                "-Dintrospection=enabled",
+                "-Dtests=false",
+                "-Dvapi=true"
+            ],
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://source.puri.sm/Librem5/libhandy.git"
+                }
+            ]
+        },
+        {
             "name": "gnome-clocks",
             "buildsystem": "meson",
             "config-opts": [
