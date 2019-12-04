@@ -19,63 +19,6 @@
 namespace Clocks {
 namespace Stopwatch {
 
-public class Frame : AnalogFrame {
-    private int seconds;
-    private double millisecs;
-
-    public void update (int s, double ms) {
-        seconds = s;
-        millisecs = ms;
-        queue_draw ();
-    }
-
-    public void reset () {
-        update (0, 0);
-    }
-
-    public override void draw_progress (Cairo.Context cr, int center_x, int center_y, int radius) {
-        var context = get_style_context ();
-
-        context.save ();
-        context.add_class ("progress");
-
-        cr.set_line_width (LINE_WIDTH);
-        cr.set_line_cap  (Cairo.LineCap.ROUND);
-
-        var color = context.get_color (context.get_state ());
-        var progress = ((double) seconds + millisecs) / 60;
-        if (progress > 0) {
-            cr.arc (center_x,
-                    center_y,
-                    radius - LINE_WIDTH / 2,
-                    1.5  * Math.PI,
-                    (1.5 + progress * 2 ) * Math.PI);
-            Gdk.cairo_set_source_rgba (cr, color);
-            cr.stroke ();
-        }
-
-        context.restore ();
-
-        context.save ();
-        context.add_class ("progress-fast");
-
-        cr.set_line_width (LINE_WIDTH - 2);
-        color = context.get_color (context.get_state ());
-        progress = millisecs;
-        if (progress > 0) {
-            cr.arc (center_x,
-                    center_y,
-                    radius - LINE_WIDTH / 2,
-                    (1.5 + progress * 2 ) * Math.PI - 0.1,
-                    (1.5 + progress * 2 ) * Math.PI + 0.1);
-            Gdk.cairo_set_source_rgba (cr, color);
-            cr.stroke ();
-        }
-
-        context.restore ();
-    }
-}
-
 [GtkTemplate (ui = "/org/gnome/clocks/ui/stopwatchlapsrow.ui")]
 private class LapsRow : Gtk.ListBoxRow {
     [GtkChild]
@@ -124,15 +67,11 @@ public class Face : Gtk.Box, Clocks.Clock {
     private int current_lap;
     private double last_lap_time;
     [GtkChild]
-    private Frame analog_frame;
-    [GtkChild]
     private Gtk.Label time_label;
     [GtkChild]
-    private Gtk.Button left_button;
+    private Gtk.Button start_btn;
     [GtkChild]
-    private Gtk.Button right_button;
-    [GtkChild]
-    private Gtk.ScrolledWindow laps_scrollwin;
+    private Gtk.Button clear_btn;
     [GtkChild]
     private Gtk.ListBox laps_list;
 
@@ -144,6 +83,14 @@ public class Face : Gtk.Box, Clocks.Clock {
 
         timer = new GLib.Timer ();
         tick_id = 0;
+
+        laps_list.set_header_func((before, after) => {
+            if (after != null) {
+                var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+                separator.show();
+                before.set_header(separator);
+            }
+        });
 
         map.connect ((w) => {
             if (state == State.RUNNING) {
@@ -162,7 +109,7 @@ public class Face : Gtk.Box, Clocks.Clock {
     }
 
     [GtkCallback]
-    private void on_left_button_clicked (Gtk.Button button) {
+    private void on_start_btn_clicked (Gtk.Button button) {
         switch (state) {
         case State.RESET:
         case State.STOPPED:
@@ -177,7 +124,7 @@ public class Face : Gtk.Box, Clocks.Clock {
     }
 
     [GtkCallback]
-    private void on_right_button_clicked (Gtk.Button button) {
+    private void on_clear_btn_clicked (Gtk.Button button) {
         switch (state) {
         case State.STOPPED:
             reset ();
@@ -198,21 +145,21 @@ public class Face : Gtk.Box, Clocks.Clock {
         }
         state = State.RUNNING;
         add_tick ();
-        left_button.set_label (_("Stop"));
-        left_button.get_style_context ().add_class ("destructive-action");
-        right_button.set_sensitive (true);
-        right_button.set_label (_("Lap"));
+        start_btn.set_label (_("Stop"));
+        start_btn.get_style_context ().add_class ("destructive-action");
+        clear_btn.set_sensitive (true);
+        clear_btn.set_label (_("Lap"));
     }
 
     private void stop () {
         timer.stop ();
         state = State.STOPPED;
         remove_tick ();
-        left_button.set_label (_("Continue"));
-        left_button.get_style_context ().remove_class ("destructive-action");
-        left_button.get_style_context ().add_class ("suggested-action");
-        right_button.set_sensitive (true);
-        right_button.set_label (_("Reset"));
+        start_btn.set_label (_("Continue"));
+        start_btn.get_style_context ().remove_class ("destructive-action");
+        start_btn.get_style_context ().add_class ("suggested-action");
+        clear_btn.set_sensitive (true);
+        clear_btn.set_label (_("Reset"));
     }
 
     private void reset () {
@@ -220,9 +167,9 @@ public class Face : Gtk.Box, Clocks.Clock {
         state = State.RESET;
         remove_tick ();
         update_time_label ();
-        left_button.set_label (_("Start"));
-        left_button.get_style_context ().add_class ("suggested-action");
-        right_button.set_sensitive (false);
+        start_btn.set_label (_("Start"));
+        start_btn.get_style_context ().add_class ("suggested-action");
+        clear_btn.set_sensitive (false);
         current_lap = 0;
         last_lap_time = 0;
         foreach (var l in laps_list.get_children ()) {
@@ -255,7 +202,7 @@ public class Face : Gtk.Box, Clocks.Clock {
         Utils.time_to_hms (split, out split_h, out split_m, out split_s, out r);
         int split_cs = (int) (r * 100);
 
-        var n_label = "#%d".printf (current_lap);
+        var n_label = "Lap %d".printf (current_lap);
 
         // Note that the format uses unicode RATIO character
         // We also prepend the LTR mark to make sure text is always in this direction
@@ -277,7 +224,6 @@ public class Face : Gtk.Box, Clocks.Clock {
         var row = new LapsRow (n_label, split_label, tot_label);
         laps_list.prepend (row);
         row.slide_in ();
-        laps_scrollwin.vadjustment.value = laps_scrollwin.vadjustment.lower;
     }
 
     private void add_tick () {
@@ -309,18 +255,16 @@ public class Face : Gtk.Box, Clocks.Clock {
         // Note that the format uses unicode RATIO character
         // We also prepend the LTR mark to make sure text is always in this direction
         if (h > 0) {
-            time_label.set_text ("%i\u200E∶%02i\u200E∶%02i.%i".printf (h, m, s, ds));
+            time_label.set_text ("%i\u200E∶%02i\u200E∶%02i.%02i".printf (h, m, s, ds));
         } else {
-            time_label.set_text ("%02i\u200E∶%02i.%i".printf (m, s, ds));
+            time_label.set_text ("%02i\u200E∶%02i.%02i".printf (m, s, ds));
         }
-
-        analog_frame.update (s, r);
 
         return true;
     }
 
     public override void grab_focus () {
-        left_button.grab_focus ();
+        start_btn.grab_focus ();
     }
 
     public bool escape_pressed () {

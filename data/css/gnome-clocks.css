@@ -143,7 +143,6 @@ window > stack:backdrop {
     font-size: 48pt;
 }
 
-.clocks-stopwatch-label,
 .clocks-timer-label {
     font-size: 48pt;
 }
@@ -227,4 +226,9 @@ spinbutton.clocks-timer-label button {
     animation-iteration-count: infinite;  
     animation-timing-function: cubic-bezier(1.0,0,0,1.0);
     animation-duration: 1s; 
+}
+
+/* Stopwatch */
+.large-button {
+  padding: 12px 24px;
 }
