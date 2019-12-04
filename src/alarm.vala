@@ -586,10 +586,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public string icon_name { get; construct set; }
     public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
+    public ButtonMode button_mode { get; private set; default = NEW; }
+
 
     private ContentStore alarms;
     private GLib.Settings settings;
-    private Gtk.Button new_button;
     [GtkChild]
     private Gtk.Widget empty_view;
     [GtkChild]
@@ -626,13 +627,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 a.snooze ();
             }
         });
-
-        // Translators: "New" refers to an alarm
-        new_button = new Gtk.Button.with_label (C_("Alarm", "New"));
-        new_button.valign = Gtk.Align.CENTER;
-        new_button.no_show_all = true;
-        new_button.action_name = "win.new";
-        header_bar.pack_start (new_button);
 
         content_view.bind_model (alarms, (item) => {
             return new Tile ((Item)item);
@@ -758,18 +752,19 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     public void update_header_bar () {
         switch (header_bar.mode) {
-        case HeaderBar.Mode.NORMAL:
-            new_button.show ();
-            content_view.update_header_bar ();
-            break;
-        case HeaderBar.Mode.SELECTION:
-            content_view.update_header_bar ();
-            break;
-        case HeaderBar.Mode.STANDALONE:
-            header_bar.title = ringing_panel.alarm.name;
-            break;
-        default:
-            assert_not_reached ();
+            case HeaderBar.Mode.NORMAL:
+                button_mode = NEW;
+                content_view.update_header_bar ();
+                break;
+            case HeaderBar.Mode.SELECTION:
+                content_view.update_header_bar ();
+                break;
+            case HeaderBar.Mode.STANDALONE:
+                button_mode = NONE;
+                header_bar.title = ringing_panel.alarm.name;
+                break;
+            default:
+                assert_not_reached ();
         }
     }
 }

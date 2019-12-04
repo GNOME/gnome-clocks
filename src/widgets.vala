@@ -18,44 +18,6 @@
 
 namespace Clocks {
 
-public class HeaderBar : Gtk.HeaderBar {
-    public enum Mode {
-        NORMAL,
-        SELECTION,
-        STANDALONE
-    }
-
-    [CCode (notify = false)]
-    public Mode mode {
-        get {
-            return _mode;
-        }
-
-        set {
-            if (_mode != value) {
-                _mode = value;
-
-                if (_mode == Mode.SELECTION) {
-                    get_style_context ().add_class ("selection-mode");
-                } else {
-                    get_style_context ().remove_class ("selection-mode");
-                }
-
-                notify_property ("mode");
-            }
-        }
-    }
-
-    private Mode _mode;
-
-    public void clear () {
-        custom_title = null;
-        foreach (Gtk.Widget w in get_children ()) {
-            w.hide ();
-        }
-    }
-}
-
 public interface ContentItem : GLib.Object {
     public abstract string name { get; set; }
     public abstract bool selectable { get; set; default = true; }
