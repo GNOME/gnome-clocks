@@ -24,6 +24,7 @@ public class Window : Gtk.ApplicationWindow {
         // primary menu
         { "show-primary-menu", on_show_primary_menu_activate, null, "false", null },
         { "new", on_new_activate },
+        { "back", on_back_activate },
         { "help", on_help_activate },
         { "about", on_about_activate },
 
@@ -51,6 +52,8 @@ public class Window : Gtk.ApplicationWindow {
     private Gtk.MenuButton menu_button;
     private GLib.Settings settings;
     private Gtk.Widget[] panels;
+
+    private Binding bind_button_mode = null;
 
     public Window (Application app) {
         Object (application: app);
@@ -94,8 +97,17 @@ public class Window : Gtk.ApplicationWindow {
 
         var stack_id = stack.notify["visible-child"].connect (() => {
             var help_overlay = get_help_overlay ();
-            help_overlay.view_name = Type.from_instance(stack.visible_child).name();
+            var page = stack.visible_child;
+            help_overlay.view_name = Type.from_instance (page).name();
             update_header_bar ();
+
+            if (bind_button_mode != null) {
+                bind_button_mode.unbind ();
+            }
+            bind_button_mode = page.bind_property ("button-mode",
+                                                   header_bar,
+                                                   "button-mode",
+                                                   SYNC_CREATE);
         });
 
         var header_bar_id = header_bar.notify["mode"].connect (() => {
@@ -181,6 +193,10 @@ public class Window : Gtk.ApplicationWindow {
 
     private void on_new_activate () {
         ((Clock) stack.visible_child).activate_new ();
+    }
+
+    private void on_back_activate () {
+        ((Clock) stack.visible_child).activate_back ();
     }
 
     private void on_select_all_activate () {

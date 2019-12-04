@@ -342,11 +342,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public string icon_name { get; construct set; }
     public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
+    public ButtonMode button_mode { get; private set; default = NEW; }
+
 
     private ContentStore locations;
     private GLib.Settings settings;
-    private Gtk.Button new_button;
-    private Gtk.Button back_button;
     private Item standalone_location;
     [GtkChild]
     private Gtk.Widget empty_view;
@@ -382,23 +382,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 return 1;
             return 0;
         });
-
-        // Translators: "New" refers to a world clock
-        new_button = new Gtk.Button.with_label (C_("World clock", "New"));
-        new_button.valign = Gtk.Align.CENTER;
-        new_button.no_show_all = true;
-        new_button.action_name = "win.new";
-        header_bar.pack_start (new_button);
-
-        back_button = new Gtk.Button ();
-        var back_button_image = new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.MENU);
-        back_button.valign = Gtk.Align.CENTER;
-        back_button.set_image (back_button_image);
-        back_button.no_show_all = true;
-        back_button.clicked.connect (() => {
-            reset_view ();
-        });
-        header_bar.pack_start (back_button);
 
         content_view.bind_model (locations, (item) => {
             return new Tile ((Item)item);
@@ -528,6 +511,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
         dialog.show ();
     }
 
+    public void activate_back () {
+        reset_view ();
+        button_mode = NEW;
+    }
+
     public void activate_select_all () {
         content_view.select_all ();
     }
@@ -545,12 +533,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
         return content_view.escape_pressed ();
     }
 
-    public void back () {
-        if (visible_child == standalone) {
-            reset_view ();
-        }
-    }
-
     public void reset_view () {
         standalone_location = null;
         visible_child = locations.get_n_items () == 0 ? empty_view : content_view;
@@ -562,8 +544,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
         case HeaderBar.Mode.NORMAL:
             header_bar.title = _("Clocks");
             header_bar.subtitle = null;
-            new_button.show ();
             content_view.update_header_bar ();
+            button_mode = NEW;
             break;
         case HeaderBar.Mode.SELECTION:
             content_view.update_header_bar ();
@@ -575,7 +557,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 header_bar.title = standalone_location.city_name;
             }
             header_bar.subtitle = standalone_location.country_name;
-            back_button.show ();
+            button_mode = BACK;
             break;
         default:
             assert_not_reached ();

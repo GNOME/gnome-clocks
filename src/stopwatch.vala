@@ -116,6 +116,11 @@ public class Face : Gtk.Box, Clocks.Clock {
     public string icon_name { get; construct set; }
     public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
+    public ButtonMode button_mode {
+        get {
+            return NONE;
+        }
+    }
 
     public State state { get; private set; default = State.RESET; }
 
