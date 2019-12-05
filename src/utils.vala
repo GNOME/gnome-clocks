@@ -322,7 +322,7 @@ public class Bell : Object {
         }
 
         if (cancellable.is_cancelled()) {
-            cancellable = new GLib.Cancellable();
+            cancellable.reset ();
         }
 
         try {
