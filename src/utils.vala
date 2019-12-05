@@ -321,6 +321,10 @@ public class Bell : Object {
             return;
         }
 
+        if (cancellable.is_cancelled()) {
+            cancellable = new GLib.Cancellable();
+        }
+
         try {
             do {
                 yield gsound.play_full (cancellable,
