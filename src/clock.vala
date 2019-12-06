@@ -16,48 +16,33 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-namespace Clocks {
-
-public enum PanelId {
+public enum Clocks.PanelId {
     WORLD,
     ALARM,
     STOPWATCH,
-    TIMER;
-
-    public string to_string() {
-        switch (this) {
-            case WORLD:
-                return "world";
-            case ALARM:
-                return "alarm";
-            case STOPWATCH:
-                return "stopwatch";
-            case TIMER:
-                return "timer";
-            default:
-                assert_not_reached();
-        }
-    }
+    TIMER,
 }
 
-public const int N_PANELS = 4;
 
-public enum ButtonMode {
-    NEW,
-    BACK,
-    NONE
-}
-
-public interface Clock : GLib.Object {
-    public abstract string label { get; protected construct set; }
-    public abstract string icon_name { get; protected construct set; }
-    public abstract HeaderBar header_bar { get; protected construct set; }
+public interface Clocks.Clock : GLib.Object {
     public abstract PanelId panel_id { get; protected construct set; }
+    public abstract ButtonMode button_mode { get; set; }
+    public abstract ViewMode view_mode { get; set; }
+    public abstract bool can_select { get; set; }
+    public abstract bool n_selected { get; set; }
+    public abstract string title { get; protected set; }
+    public abstract string subtitle { get; protected set; }
 
     public virtual void activate_new () {
     }
 
     public virtual void activate_back () {
+    }
+
+    public virtual void activate_select () {
+    }
+
+    public virtual void activate_select_cancel () {
     }
 
     public virtual void activate_select_all () {
@@ -69,14 +54,4 @@ public interface Clock : GLib.Object {
     public virtual bool escape_pressed () {
         return false;
     }
-
-    public virtual void back () {
-    }
-
-    public signal void request_header_bar_update ();
-
-    public virtual void update_header_bar () {
-    }
 }
-
-} // namespace Clocks

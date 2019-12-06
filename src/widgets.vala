@@ -203,7 +203,7 @@ private class SelectionMenuButton : Gtk.MenuButton {
     private uint _n_items;
     private Gtk.Label menubutton_label;
 
-    public SelectionMenuButton () {
+    construct {
         var app = (Gtk.Application) GLib.Application.get_default ();
         menu_model = app.get_menu_by_id ("selection-menu");
         menubutton_label = new Gtk.Label (_("Click on items to select them"));
@@ -220,48 +220,37 @@ private class SelectionMenuButton : Gtk.MenuButton {
 }
 
 public class ContentView : Gtk.Bin {
-    public enum Mode {
-        NORMAL,
-        SELECTION
-    }
-
-    public Mode mode {
+    public ViewMode mode {
         get {
             return _mode;
         }
 
-        private set {
+        set {
             if (_mode != value) {
                 _mode = value;
 
                 switch (_mode) {
-                case Mode.SELECTION:
-                    header_bar.mode = HeaderBar.Mode.SELECTION;
-                    action_bar.show ();
-                    break;
-                case Mode.NORMAL:
-                    header_bar.mode = HeaderBar.Mode.NORMAL;
-                    action_bar.hide ();
-                    // clear current selection
-                    model.unselect_all ();
-                    break;
-                default:
-                    assert_not_reached ();
+                    case SELECTION:
+                        action_bar.show ();
+                        break;
+                    case NORMAL:
+                    case STANDALONE:
+                        action_bar.hide ();
+                        // clear current selection
+                        model.unselect_all ();
+                        break;
                 }
             }
         }
     }
+    public uint n_selected { get; private set; }
 
-    private Mode _mode;
+    private ViewMode _mode;
     private ContentStore model;
     private Gtk.FlowBox flow_box;
-    private Gtk.Button select_button;
-    private Gtk.Button cancel_button;
-    private SelectionMenuButton selection_menubutton;
     private Gtk.Grid grid;
     private Gtk.ActionBar action_bar;
     private Gtk.Button delete_button;
-    private HeaderBar? header_bar;
 
     construct {
         get_style_context ().add_class ("content-view");
@@ -299,7 +288,7 @@ public class ContentView : Gtk.Bin {
         delete_button.hexpand = true;
         delete_button.clicked.connect (() => {
             model.delete_selected ();
-            mode = Mode.NORMAL;
+            mode = NORMAL;
         });
 
         action_bar.pack_end (delete_button);
@@ -317,7 +306,7 @@ public class ContentView : Gtk.Bin {
 
         model.selection_changed.connect (() => {
             var n_items = model.get_n_selected ();
-            selection_menubutton.n_items = n_items;
+            n_selected = n_items;
 
             if (n_items != 0) {
                 delete_button.sensitive = true;
@@ -334,12 +323,12 @@ public class ContentView : Gtk.Bin {
             var event_box = new Gtk.EventBox ();
             event_box.add (inner);
             event_box.button_press_event.connect ((event) => {
-                // On right click, swicth to selection mode automatically
+                // On right click, switch to selection mode automatically
                 if (item.selectable && event.button == Gdk.BUTTON_SECONDARY) {
-                    mode = Mode.SELECTION;
+                    mode = SELECTION;
                 }
 
-                if (item.selectable && mode == Mode.SELECTION) {
+                if (item.selectable && mode == SELECTION) {
                     item.selected = !item.selected;
                     return true;
                 } else if (event.button == Gdk.BUTTON_PRIMARY) {
@@ -366,13 +355,13 @@ public class ContentView : Gtk.Bin {
             item.bind_property ("selected", check, "active", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
             item.bind_property ("selectable", check, "visible", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE,
                                  (binding, selectable, ref visible) => {
-                visible = this.mode == Mode.SELECTION && (item).selectable;
+                visible = this.mode == SELECTION && (item).selectable;
                 return true;
             });
 
             bind_property ("mode", check, "visible", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE,
                            (binding, mode, ref visible) => {
-                visible = mode == Mode.SELECTION && (item).selectable;
+                visible = mode == ViewMode.SELECTION && (item).selectable;
                 return true;
             });
 
@@ -407,7 +396,7 @@ public class ContentView : Gtk.Bin {
     }
 
     public void select_all () {
-        mode = Mode.SELECTION;
+        mode = SELECTION;
         model.select_all ();
     }
 
@@ -416,51 +405,11 @@ public class ContentView : Gtk.Bin {
     }
 
     public bool escape_pressed () {
-        if (mode == Mode.SELECTION) {
-            mode = Mode.NORMAL;
+        if (mode == SELECTION) {
+            mode = NORMAL;
             return true;
         }
         return false;
-    }
-
-    public void set_header_bar (HeaderBar bar) {
-        header_bar = bar;
-
-        select_button = new Gtk.Button ();
-        var select_button_image = new Gtk.Image.from_icon_name ("object-select-symbolic", Gtk.IconSize.MENU);
-        select_button.set_image (select_button_image);
-        select_button.valign = Gtk.Align.CENTER;
-        select_button.no_show_all = true;
-        select_button.clicked.connect (() => {
-            mode = Mode.SELECTION;
-        });
-        header_bar.pack_end (select_button);
-
-        cancel_button = new Gtk.Button.with_label (_("Cancel"));
-        cancel_button.no_show_all = true;
-        cancel_button.valign = Gtk.Align.CENTER;
-        cancel_button.clicked.connect (() => {
-            mode = Mode.NORMAL;
-        });
-        header_bar.pack_end (cancel_button);
-
-        selection_menubutton = new SelectionMenuButton ();
-    }
-
-    public void update_header_bar () {
-        switch (header_bar.mode) {
-        case HeaderBar.Mode.SELECTION:
-            header_bar.custom_title = selection_menubutton;
-            cancel_button.show ();
-            break;
-        case HeaderBar.Mode.NORMAL:
-            var first_selectable = model.find ((i) => {
-                return i.selectable;
-            });
-
-            select_button.visible = first_selectable != null;
-            break;
-        }
     }
 }
 
