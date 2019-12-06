@@ -71,11 +71,13 @@ public class Face : Gtk.Stack, Clocks.Clock {
         PAUSED
     }
 
-    public string label { get; construct set; }
-    public string icon_name { get; construct set; }
-    public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
-    public ButtonMode button_mode { get; private set; default = NONE; }
+    public ButtonMode button_mode { get; set; default = NONE; }
+    public ViewMode view_mode { get; set; default = NORMAL; }
+    public bool can_select { get; set; default = false; }
+    public bool n_selected { get; set; }
+    public string title { get; set; default = _("Clocks"); }
+    public string subtitle { get; set; }
 
     public State state { get; private set; default = State.STOPPED; }
 
@@ -113,12 +115,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
     [GtkChild]
     private Gtk.Button left_button;
 
-    public Face (HeaderBar header_bar) {
-        Object (label: _("Timer"),
-                icon_name: "timer-symbolic",
-                header_bar: header_bar,
-                panel_id: PanelId.TIMER,
-                transition_type: Gtk.StackTransitionType.CROSSFADE);
+    construct {
+        panel_id = TIMER;
+        transition_type = CROSSFADE;
 
         settings = new GLib.Settings ("org.gnome.clocks");
 

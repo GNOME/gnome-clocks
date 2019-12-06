@@ -27,6 +27,8 @@ public class Window : Gtk.ApplicationWindow {
         { "back", on_back_activate },
         { "help", on_help_activate },
         { "about", on_about_activate },
+        { "select", on_select_activate },
+        { "select-cancel", on_select_cancel_activate },
 
         // selection menu
         { "select-all", on_select_all_activate },
@@ -38,22 +40,25 @@ public class Window : Gtk.ApplicationWindow {
     [GtkChild]
     private Gtk.Stack stack;
     [GtkChild]
-    private Hdy.ViewSwitcherBar switcher_bar;
+    private World.Face world;
     [GtkChild]
-    private Hdy.Squeezer squeezer;
+    private Alarm.Face alarm;
     [GtkChild]
-    private Hdy.ViewSwitcher title_wide_switcher;
+    private Stopwatch.Face stopwatch;
     [GtkChild]
-    private Hdy.ViewSwitcher title_narrow_switcher;
-    [GtkChild]
-    private Gtk.Box title_text;
+    private Timer.Face timer;
 
-    [GtkChild]
-    private Gtk.MenuButton menu_button;
     private GLib.Settings settings;
-    private Gtk.Widget[] panels;
 
+    // DIY DzlBindingGroup
     private Binding bind_button_mode = null;
+    private Binding bind_view_mode = null;
+    private Binding bind_can_select = null;
+    private Binding bind_selected = null;
+    private Binding bind_title = null;
+    private Binding bind_subtitle = null;
+
+    private bool inited = false;
 
     public Window (Application app) {
         Object (application: app);
@@ -67,6 +72,15 @@ public class Window : Gtk.ApplicationWindow {
             settings.apply ();
         });
 
+        // GSettings gives us the nick, which matches the stack page name
+        stack.visible_child_name = settings.get_string ("panel-id");
+
+        inited = true;
+
+        header_bar.bind_property ("title", this, "title", SYNC_CREATE);
+
+        pane_changed ();
+
         // Setup window geometry saving
         Gdk.WindowState window_state = (Gdk.WindowState)settings.get_int ("state");
         if (Gdk.WindowState.MAXIMIZED in window_state) {
@@ -76,50 +90,6 @@ public class Window : Gtk.ApplicationWindow {
         int width, height;
         settings.get ("size", "(ii)", out width, out height);
         resize (width, height);
-        set_title (_("Clocks"));
-
-        panels = new Gtk.Widget[N_PANELS];
-
-        panels[PanelId.WORLD] = new World.Face (header_bar);
-        panels[PanelId.ALARM] =  new Alarm.Face (header_bar);
-        panels[PanelId.STOPWATCH] = new Stopwatch.Face (header_bar);
-        panels[PanelId.TIMER] = new Timer.Face (header_bar);
-
-        var world = (World.Face)panels[PanelId.WORLD];
-        var alarm = (Alarm.Face)panels[PanelId.ALARM];
-        var stopwatch = (Stopwatch.Face)panels[PanelId.STOPWATCH];
-        var timer = (Timer.Face)panels[PanelId.TIMER];
-
-       foreach (var panel in panels) {
-            stack.add_titled (panel, ((Clock)panel).label, ((Clock)panel).label);
-            stack.child_set_property(panel, "icon-name", ((Clock)panel).icon_name);
-        }
-
-        var stack_id = stack.notify["visible-child"].connect (() => {
-            var help_overlay = get_help_overlay ();
-            var page = stack.visible_child;
-            help_overlay.view_name = Type.from_instance (page).name();
-            update_header_bar ();
-
-            if (bind_button_mode != null) {
-                bind_button_mode.unbind ();
-            }
-            bind_button_mode = page.bind_property ("button-mode",
-                                                   header_bar,
-                                                   "button-mode",
-                                                   SYNC_CREATE);
-        });
-
-        var header_bar_id = header_bar.notify["mode"].connect (() => {
-            update_header_bar ();
-        });
-
-        stack.destroy.connect(() => {
-            header_bar.disconnect (header_bar_id);
-            header_bar_id = 0;
-            stack.disconnect (stack_id);
-            stack_id = 0;
-        });
 
         alarm.ring.connect ((w) => {
             world.reset_view ();
@@ -146,44 +116,61 @@ public class Window : Gtk.ApplicationWindow {
                                      Gdk.Key.Page_Up,
                                      Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.MOD1_MASK,
                                      "change-page", 1,
-                                     typeof(int), -1);
+                                     typeof(int), 0);
         Gtk.BindingEntry.add_signal (binding_set,
                                      Gdk.Key.Page_Down,
                                      Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.MOD1_MASK,
                                      "change-page", 1,
                                      typeof(int), 1);
 
-        stack.visible_child = panels[settings.get_enum ("panel-id")];
-
         Gtk.StyleContext style = get_style_context ();
         if (Config.PROFILE == "Devel") {
             style.add_class ("devel");
         }
-
-        update_header_bar ();
 
         show_all ();
     }
 
     [Signal(action = true)]
     public virtual signal void change_page (int offset) {
-        int page;
+        var dir = false;
 
-        stack.child_get (stack.visible_child, "position", out page);
-        page += offset;
-        if (page >= 0 && page < panels.length) {
-            stack.visible_child = panels[page];
+        if (get_direction () == RTL) {
+            dir = offset == 0 ? false : true;
         } else {
-            stack.error_bell ();
+            dir = offset == 1 ? false : true;
         }
-    }
 
-    public override void size_allocate (Gtk.Allocation allocation) {
-        base.size_allocate (allocation);
-        switcher_bar.set_reveal (allocation.width <= 500);
-        squeezer.set_child_enabled (title_wide_switcher, allocation.width > 800);
-        squeezer.set_child_enabled (title_narrow_switcher, allocation.width > 500);
-        squeezer.set_child_enabled (title_text, allocation.width <= 500);
+        switch (stack.visible_child_name) {
+            case "world":
+                if (dir) {
+                    stack.error_bell ();
+                } else {
+                    stack.visible_child = alarm;
+                }
+                break;
+            case "alarm":
+                if (dir) {
+                    stack.visible_child = world;
+                } else {
+                    stack.visible_child = stopwatch;
+                }
+                break;
+            case "stopwatch":
+                if (dir) {
+                    stack.visible_child = alarm;
+                } else {
+                    stack.visible_child = timer;
+                }
+                break;
+            case "timer":
+                if (dir) {
+                    stack.visible_child = stopwatch;
+                } else {
+                    stack.error_bell ();
+                }
+                break;
+        }
     }
 
     private void on_show_primary_menu_activate (SimpleAction action) {
@@ -199,6 +186,14 @@ public class Window : Gtk.ApplicationWindow {
         ((Clock) stack.visible_child).activate_back ();
     }
 
+    private void on_select_activate () {
+        ((Clock) stack.visible_child).activate_select ();
+    }
+
+    private void on_select_cancel_activate () {
+        ((Clock) stack.visible_child).activate_select_cancel ();
+    }
+
     private void on_select_all_activate () {
         ((Clock) stack.visible_child).activate_select_all ();
     }
@@ -208,12 +203,12 @@ public class Window : Gtk.ApplicationWindow {
     }
 
     public void show_world () {
-        ((World.Face) panels[PanelId.WORLD]).reset_view ();
-        stack.visible_child = panels[PanelId.WORLD];;
+        world.reset_view ();
+        stack.visible_child = world;
     }
 
     public void add_world_location (GWeather.Location location) {
-        ((World.Face) panels[PanelId.WORLD]).add_location (location);
+        world.add_location (location);
     }
 
     public override bool key_press_event (Gdk.EventKey event) {
@@ -236,7 +231,7 @@ public class Window : Gtk.ApplicationWindow {
         uint button;
 
         if (((Gdk.Event)(event)).get_button (out button) && button == BUTTON_BACK) {
-            ((Clock) stack.visible_child).back ();
+            ((Clock) stack.visible_child).activate_back ();
             return true;
         }
 
@@ -306,22 +301,70 @@ public class Window : Gtk.ApplicationWindow {
                                null);
     }
 
-    private void update_header_bar () {
-        header_bar.clear ();
+    [GtkCallback]
+    private void pane_changed () {
+        var help_overlay = get_help_overlay ();
+        var panel = (Clock) stack.visible_child;
 
-        var clock = (Clock) stack.visible_child;
-        if (clock != null) {
-            settings.set_enum ("panel-id", clock.panel_id);
-            clock.update_header_bar ();
-            ((Gtk.Widget) clock).grab_focus ();
+        if (stack.in_destruction ()) {
+            return;
         }
 
-        if (header_bar.mode == HeaderBar.Mode.NORMAL) {
-            header_bar.custom_title = squeezer;
-            menu_button.show ();
+        help_overlay.view_name = Type.from_instance (panel).name();
+
+        if (inited) {
+            settings.set_enum ("panel-id", panel.panel_id);
         }
 
-        header_bar.set_show_close_button (header_bar.mode != HeaderBar.Mode.SELECTION);
+        if (bind_button_mode != null) {
+            bind_button_mode.unbind ();
+        }
+        bind_button_mode = panel.bind_property ("button-mode",
+                                                header_bar,
+                                                "button-mode",
+                                                SYNC_CREATE);
+
+        if (bind_view_mode != null) {
+            bind_view_mode.unbind ();
+        }
+        bind_view_mode = panel.bind_property ("view-mode",
+                                              header_bar,
+                                              "view-mode",
+                                              SYNC_CREATE);
+
+        if (bind_can_select != null) {
+            bind_can_select.unbind ();
+        }
+        bind_can_select = panel.bind_property ("can-select",
+                                               header_bar,
+                                               "can-select",
+                                               SYNC_CREATE);
+
+        if (bind_selected != null) {
+            bind_selected.unbind ();
+        }
+        bind_selected = panel.bind_property ("n-selected",
+                                             header_bar,
+                                             "n-selected",
+                                             SYNC_CREATE);
+
+        if (bind_title != null) {
+            bind_title.unbind ();
+        }
+        bind_title = panel.bind_property ("title",
+                                          header_bar,
+                                          "title",
+                                          SYNC_CREATE);
+
+        if (bind_subtitle != null) {
+            bind_subtitle.unbind ();
+        }
+        bind_subtitle = panel.bind_property ("subtitle",
+                                             header_bar,
+                                             "subtitle",
+                                             SYNC_CREATE);
+
+        stack.visible_child.grab_focus ();
     }
 }
 
