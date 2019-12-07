@@ -22,6 +22,8 @@ int main (string[] args) {
     Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
     Intl.textdomain (Config.GETTEXT_PACKAGE);
 
+    Environment.set_application_name (_("Clocks"));
+
     Hdy.init (ref args);
 
     var app = new Clocks.Application ();
