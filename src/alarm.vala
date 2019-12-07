@@ -557,7 +557,12 @@ private class RingingPanel : Gtk.Grid {
 
     [GtkCallback]
     private void snooze_clicked () {
-        alarm.snooze ();
+        if (alarm.state != Item.State.SNOOZING) {
+            alarm.snooze ();
+        } else {
+           // The alarm is already snoozed, simply dismiss the panel.
+            dismiss ();
+        }
     }
 
     public virtual signal void dismiss () {
