@@ -57,6 +57,7 @@ public class Window : Gtk.ApplicationWindow {
     private Binding bind_selected = null;
     private Binding bind_title = null;
     private Binding bind_subtitle = null;
+    private Binding bind_new_label = null;
 
     private bool inited = false;
 
@@ -364,6 +365,14 @@ public class Window : Gtk.ApplicationWindow {
                                              "subtitle",
                                              SYNC_CREATE);
 
+        if (bind_new_label != null) {
+            bind_new_label.unbind ();
+        }
+        bind_new_label = panel.bind_property ("new-label",
+                                              header_bar,
+                                              "new-label",
+                                              SYNC_CREATE);
+                                    
         stack.visible_child.grab_focus ();
     }
 }

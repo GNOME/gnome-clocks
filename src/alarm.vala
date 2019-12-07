@@ -560,7 +560,7 @@ private class RingingPanel : Gtk.Grid {
         if (alarm.state != Item.State.SNOOZING) {
             alarm.snooze ();
         } else {
-           // The alarm is already snoozed, simply dismiss the panel.
+            // The alarm is already snoozed, simply dismiss the panel.
             dismiss ();
         }
     }
@@ -589,6 +589,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public bool n_selected { get; set; }
     public string title { get; set; default = _("Clocks"); }
     public string subtitle { get; set; }
+    // Translators: Tooltip for the + button
+    public string new_label { get; default = _("New Alarm"); }
 
     private ContentStore alarms;
     private GLib.Settings settings;

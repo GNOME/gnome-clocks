@@ -32,6 +32,7 @@ public interface Clocks.Clock : GLib.Object {
     public abstract bool n_selected { get; set; }
     public abstract string title { get; protected set; }
     public abstract string subtitle { get; protected set; }
+    public abstract string new_label { get; }
 
     public virtual void activate_new () {
     }

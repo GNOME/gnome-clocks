@@ -136,7 +136,7 @@
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="action_name">win.new</property>
-            <property name="tooltip-text" translatable="yes">New</property>
+            <property name="tooltip-text" bind-source="ClocksHeaderBar" bind-property="new-label" bind-flags="sync-create" />
             <child>
               <object class="GtkImage">
                 <property name="visible">True</property>

@@ -345,6 +345,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public bool n_selected { get; set; }
     public string title { get; set; default = _("Clocks"); }
     public string subtitle { get; set; }
+    // Translators: Tooltip for the + button
+    public string new_label { get; default = _("Add Location"); }
 
     private ContentStore locations;
     private GLib.Settings settings;

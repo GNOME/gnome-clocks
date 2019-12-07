@@ -114,6 +114,7 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
     public Gtk.Stack stack { get; set; }
     public Hdy.ViewSwitcherBar switcher_bar { get; set; }
     public uint n_selected { get; set; }
+    public string new_label { get; set; }
 
     private bool _can_select;
     private ViewMode _mode;
