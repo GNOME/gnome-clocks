@@ -338,15 +338,18 @@ private class LocationDialog : Gtk.Dialog {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world.ui")]
 public class Face : Gtk.Stack, Clocks.Clock {
-    public string label { get; construct set; }
-    public string icon_name { get; construct set; }
-    public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
+    public ButtonMode button_mode { get; set; default = NEW; }
+    public ViewMode view_mode { get; set; default = NORMAL; }
+    public bool can_select { get; set; default = true; }
+    public bool n_selected { get; set; }
+    public string title { get; set; default = _("Clocks"); }
+    public string subtitle { get; set; }
+    // Translators: Tooltip for the + button
+    public string new_label { get; default = _("Add Location"); }
 
     private ContentStore locations;
     private GLib.Settings settings;
-    private Gtk.Button new_button;
-    private Gtk.Button back_button;
     private Item standalone_location;
     [GtkChild]
     private Gtk.Widget empty_view;
@@ -363,12 +366,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
     [GtkChild]
     private Gtk.Label standalone_sunset_label;
 
-    public Face (HeaderBar header_bar) {
-        Object (label: _("World"),
-                header_bar: header_bar,
-                icon_name: "globe-symbolic",
-                panel_id: PanelId.WORLD,
-                transition_type: Gtk.StackTransitionType.CROSSFADE);
+    construct {
+        panel_id = WORLD;
+        transition_type = CROSSFADE;
 
         locations = new ContentStore ();
         settings = new GLib.Settings ("org.gnome.clocks");
@@ -383,28 +383,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
             return 0;
         });
 
-        // Translators: "New" refers to a world clock
-        new_button = new Gtk.Button.with_label (C_("World clock", "New"));
-        new_button.valign = Gtk.Align.CENTER;
-        new_button.no_show_all = true;
-        new_button.action_name = "win.new";
-        header_bar.pack_start (new_button);
-
-        back_button = new Gtk.Button ();
-        var back_button_image = new Gtk.Image.from_icon_name ("go-previous-symbolic", Gtk.IconSize.MENU);
-        back_button.valign = Gtk.Align.CENTER;
-        back_button.set_image (back_button_image);
-        back_button.no_show_all = true;
-        back_button.clicked.connect (() => {
-            reset_view ();
-        });
-        header_bar.pack_start (back_button);
-
         content_view.bind_model (locations, (item) => {
             return new Tile ((Item)item);
         });
-
-        content_view.set_header_bar (header_bar);
 
         load ();
         show_all ();
@@ -440,9 +421,15 @@ public class Face : Gtk.Stack, Clocks.Clock {
     [GtkCallback]
     private void visible_child_changed () {
         if (visible_child == empty_view || visible_child == content_view) {
-            header_bar.mode = HeaderBar.Mode.NORMAL;
+            view_mode = NORMAL;
+            button_mode = NEW;
+            can_select = true;
+            title = _("Clocks");
+            subtitle = null;
         } else if (visible_child == standalone) {
-            header_bar.mode = HeaderBar.Mode.STANDALONE;
+            view_mode = STANDALONE;
+            button_mode = BACK;
+            can_select = false;
         }
     }
 
@@ -459,6 +446,12 @@ public class Face : Gtk.Stack, Clocks.Clock {
         standalone_location = location;
         update_standalone ();
         visible_child = standalone;
+        if (standalone_location.state_name != null) {
+            title = "%s, %s".printf (standalone_location.city_name, standalone_location.state_name);
+        } else {
+            title = standalone_location.city_name;
+        }
+        subtitle = standalone_location.country_name;
     }
 
     private void load () {
@@ -528,6 +521,18 @@ public class Face : Gtk.Stack, Clocks.Clock {
         dialog.show ();
     }
 
+    public void activate_back () {
+        reset_view ();
+    }
+
+    public void activate_select () {
+        view_mode = SELECTION;
+    }
+
+    public void activate_select_cancel () {
+        view_mode = NORMAL;
+    }
+
     public void activate_select_all () {
         content_view.select_all ();
     }
@@ -545,41 +550,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
         return content_view.escape_pressed ();
     }
 
-    public void back () {
-        if (visible_child == standalone) {
-            reset_view ();
-        }
-    }
-
     public void reset_view () {
         standalone_location = null;
         visible_child = locations.get_n_items () == 0 ? empty_view : content_view;
-        request_header_bar_update ();
-    }
-
-    public void update_header_bar () {
-        switch (header_bar.mode) {
-        case HeaderBar.Mode.NORMAL:
-            header_bar.title = _("Clocks");
-            header_bar.subtitle = null;
-            new_button.show ();
-            content_view.update_header_bar ();
-            break;
-        case HeaderBar.Mode.SELECTION:
-            content_view.update_header_bar ();
-            break;
-        case HeaderBar.Mode.STANDALONE:
-            if (standalone_location.state_name != null) {
-                header_bar.title = "%s, %s".printf (standalone_location.city_name, standalone_location.state_name);
-            } else {
-                header_bar.title = standalone_location.city_name;
-            }
-            header_bar.subtitle = standalone_location.country_name;
-            back_button.show ();
-            break;
-        default:
-            assert_not_reached ();
-        }
     }
 }
 
