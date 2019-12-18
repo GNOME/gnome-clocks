@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2018-10-28 09:15+0000\n"
-"PO-Revision-Date: 2018-11-10 11:01+0200\n"
+"POT-Creation-Date: 2019-12-08 11:04+0000\n"
+"PO-Revision-Date: 2019-12-15 16:59+0100\n"
 "Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
 "Language-Team: Esperanto <gnome-eo-list@gnome.org>\n"
 "Language: eo\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Project-Style: gnome\n"
 
 #: data/gtk/help-overlay.ui:14
@@ -35,7 +35,7 @@ msgstr "Iri al sekva sekcio"
 #: data/gtk/help-overlay.ui:26
 msgctxt "shortcut window"
 msgid "Go to the previous section"
-msgstr "Iri al antaŭa sekvoi"
+msgstr "Iri al antaŭa sekcio"
 
 #: data/gtk/help-overlay.ui:33
 msgctxt "shortcut window"
@@ -75,7 +75,7 @@ msgstr "Elekti ĉiujn alarmojn"
 #: data/gtk/help-overlay.ui:84
 msgctxt "shortcut window"
 msgid "Stopwatch"
-msgstr "Kronometro"
+msgstr "Klikhorloĝo"
 
 #: data/gtk/help-overlay.ui:89
 msgctxt "shortcut window"
@@ -85,110 +85,97 @@ msgstr "Haltigi / Rekomencigi"
 #: data/gtk/help-overlay.ui:98
 msgctxt "shortcut window"
 msgid "Timer"
-msgstr "Tempmezurilo"
+msgstr "Ĝisnombrilo"
 
 #: data/gtk/help-overlay.ui:103
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Rekomencigi"
 
-#: data/gtk/menus.ui:7
-msgid "_Keyboard Shortcuts"
-msgstr "_Klavkombinoj"
-
-#: data/gtk/menus.ui:12
-msgid "_Help"
-msgstr "_Helpo"
-
-#: data/gtk/menus.ui:17
-msgid "_About"
-msgstr "_Pri"
-
-#: data/gtk/menus.ui:21
-msgid "_Quit"
-msgstr "Ĉ_esi"
-
-#: data/gtk/menus.ui:31
+#: data/gtk/menus.ui:8
 msgid "Select All"
 msgstr "Elekti ĉiujn"
 
-#: data/gtk/menus.ui:36
+#: data/gtk/menus.ui:12
 msgid "Select None"
 msgstr "Elekti neniun"
 
-#: data/org.gnome.clocks.appdata.xml.in:6
+#: data/org.gnome.clocks.appdata.xml.in.in:6
 msgid "GNOME Clocks"
 msgstr "GNOME Horloĝoj"
 
-#: data/org.gnome.clocks.appdata.xml.in:7 data/org.gnome.clocks.desktop.in:6
+#: data/org.gnome.clocks.appdata.xml.in.in:7
+#: data/org.gnome.clocks.desktop.in.in:6
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Horloĝoj por mondaj horoj, plus alarmoj, kronometro kaj tempmezurilo"
+msgstr "Horloĝoj por mondaj horoj, plus alarmoj, klikhorloĝo kaj ĝisnombrilo"
 
-#: data/org.gnome.clocks.appdata.xml.in:9
+#: data/org.gnome.clocks.appdata.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
 msgstr ""
 "Simpla kaj eleganta horloĝa aplikaĵo. Enhavas mondajn horloĝojn, alarmojn, "
-"kronometron kaj minutatoron."
+"klikhorloĝon kaj ĝisnombrilon."
 
-#: data/org.gnome.clocks.appdata.xml.in:13
+#: data/org.gnome.clocks.appdata.xml.in.in:13
 msgid "Goals:"
 msgstr "Celoj:"
 
-#: data/org.gnome.clocks.appdata.xml.in:15
+#: data/org.gnome.clocks.appdata.xml.in.in:15
 msgid "Show the time in different cities around the world"
 msgstr "Montri la tempon en malsamaj urboj ĉirkaŭ la mondo"
 
-#: data/org.gnome.clocks.appdata.xml.in:16
+#: data/org.gnome.clocks.appdata.xml.in.in:16
 msgid "Set alarms to wake you up"
 msgstr "Agordi alarmojn por veki vin"
 
-#: data/org.gnome.clocks.appdata.xml.in:17
+#: data/org.gnome.clocks.appdata.xml.in.in:17
 msgid "Measure elapsed time with an accurate stopwatch"
-msgstr "Mezuras pasitan tempon kun preciza kronometro"
+msgstr "Mezuri pasitan tempon per preciza klikhorloĝo"
 
-#: data/org.gnome.clocks.appdata.xml.in:18
+#: data/org.gnome.clocks.appdata.xml.in.in:18
 msgid "Set timers to properly cook your food"
-msgstr "Agordi tempmezurilojn por ĝuste kuiri vian manĝaĵon"
+msgstr "Agordi ĝisnombrilojn por ĝuste kuiri vian manĝaĵon"
 
-#: data/org.gnome.clocks.appdata.xml.in:33
+#: data/org.gnome.clocks.appdata.xml.in.in:32
 msgid "Initial screen"
 msgstr "Komenca ekrano"
 
-#: data/org.gnome.clocks.appdata.xml.in:37
+#: data/org.gnome.clocks.appdata.xml.in.in:36
 msgid "Alarms screen"
 msgstr "Alarma ekrano"
 
-#: data/org.gnome.clocks.appdata.xml.in:41
+#: data/org.gnome.clocks.appdata.xml.in.in:40
 msgid "Alarms setup"
 msgstr "Alarma agordado"
 
-#: data/org.gnome.clocks.appdata.xml.in:45
+#: data/org.gnome.clocks.appdata.xml.in.in:44
 msgid "Stopwatch screen"
-msgstr "Kronometra ekrano"
+msgstr "Klikhorloĝa ekrano"
 
-#: data/org.gnome.clocks.appdata.xml.in:49
+#: data/org.gnome.clocks.appdata.xml.in.in:48
 msgid "Timer screen"
-msgstr "Tempmezurila ekrano"
+msgstr "Ĝisnombrila ekrano"
 
-#: data/org.gnome.clocks.desktop.in:3 data/org.gnome.clocks.desktop.in:4
-#: data/ui/window.ui:5 src/window.vala:64 src/window.vala:251
-#: src/world.vala:513
+#: data/org.gnome.clocks.appdata.xml.in.in:62
+msgid "The GNOME Project"
+msgstr "La projekto GNOME"
+
+#: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
+#: data/ui/headerbar.ui:24 src/alarm.vala:590 src/alarm.vala:677
+#: src/main.vala:25 src/stopwatch.vala:120 src/timer.vala:79
+#: src/window.vala:291 src/world.vala:346 src/world.vala:427
 msgid "Clocks"
 msgstr "Horloĝoj"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in:8
+#: data/org.gnome.clocks.desktop.in.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "horo;tempmezurilo;alarmo;monda horloĝo;kronometro;horzono;"
+msgstr ""
+"horo;tempmezurilo;ĝisnombrilo;alarmo;monda horloĝo;kronometro;klikhorloĝo;"
+"horzono;"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.clocks.desktop.in:11
-msgid "org.gnome.clocks"
-msgstr "org.gnome.clocks"
-
-#: data/org.gnome.clocks.desktop.in:18
+#: data/org.gnome.clocks.desktop.in.in:18
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "Permesas, ke mondaj horloĝoj estu montritaj por via horzono."
 
@@ -208,13 +195,13 @@ msgstr "Agorditaj alarmoj"
 msgid "List of alarms set."
 msgstr "Listo de alarmoj agorditaj."
 
-#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:115
+#: data/org.gnome.clocks.gschema.xml.in:19
 msgid "Timer"
-msgstr "Minutatoro"
+msgstr "Ĝisnombrilo"
 
 #: data/org.gnome.clocks.gschema.xml.in:20
 msgid "Configured timer duration in seconds."
-msgstr "Agordita minutatora daŭro, en sekundoj."
+msgstr "Agordita ĝisnombrila daŭro, en sekundoj."
 
 #: data/org.gnome.clocks.gschema.xml.in:26
 msgid "Geolocation support"
@@ -248,7 +235,7 @@ msgstr "Panela stato"
 msgid "Current clock panel."
 msgstr "Aktuala horloĝa reĝimo."
 
-#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:199
+#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:202
 msgid "Stop"
 msgstr "Haltigi"
 
@@ -260,7 +247,8 @@ msgstr "Dormeti"
 msgid "Add a New World Clock"
 msgstr "Aldoni novan mondhorloĝon"
 
-#: data/ui/alarmsetupdialog.ui:31 data/ui/worldlocationdialog.ui:21
+#: data/ui/alarmsetupdialog.ui:31 data/ui/headerbar.ui:211
+#: data/ui/worldlocationdialog.ui:21
 msgid "_Cancel"
 msgstr "_Nuligi"
 
@@ -284,19 +272,43 @@ msgstr "Ripeti ĉiun"
 msgid "Active"
 msgstr "Aktiva"
 
-#: data/ui/alarm.ui:32
+#: data/ui/alarm.ui:34
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Elektu na <b>Nova</b> por aldoni alarmon"
 
-#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:221
+#: data/ui/headerbar.ui:8
+msgid "_Keyboard Shortcuts"
+msgstr "_Klavkombinoj"
+
+#: data/ui/headerbar.ui:12
+msgid "_Help"
+msgstr "_Helpo"
+
+#: data/ui/headerbar.ui:16
+msgid "_About Clocks"
+msgstr "_Pri Horloĝoj"
+
+#: data/ui/headerbar.ui:158
+msgid "Back"
+msgstr "Reen"
+
+#: data/ui/headerbar.ui:195
+msgid "Menu"
+msgstr "Menuo"
+
+#: data/ui/headerbar.ui:248
+msgid "Select"
+msgstr "Elekti"
+
+#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:224
 msgid "Start"
 msgstr "Startigi"
 
-#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:213
+#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:216
 msgid "Reset"
 msgstr "Rekomencigi"
 
-#: data/ui/timer.ui:403 src/timer.vala:213 src/timer.vala:224
+#: data/ui/timer.ui:403 src/timer.vala:224 src/timer.vala:235
 msgid "Pause"
 msgstr "Paŭzigi"
 
@@ -308,19 +320,19 @@ msgstr "_Aldoni"
 msgid "Search for a city:"
 msgstr "Serĉi urbon:"
 
-#: data/ui/world.ui:32
+#: data/ui/world.ui:34
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Elektu na <b>Nova</b> por aldoni novan mondhorloĝon"
 
-#: data/ui/world.ui:123
+#: data/ui/world.ui:126
 msgid "Sunrise"
 msgstr "Sunleviĝo"
 
-#: data/ui/world.ui:137
+#: data/ui/world.ui:140
 msgid "Sunset"
 msgstr "Sunsubiro"
 
-#: src/alarm.vala:116 src/alarm.vala:416 src/alarm.vala:595
+#: src/alarm.vala:116 src/alarm.vala:416
 msgid "Alarm"
 msgstr "Alarmoj"
 
@@ -328,147 +340,158 @@ msgstr "Alarmoj"
 msgid "Edit Alarm"
 msgstr "Redakti alarmon"
 
-#: src/alarm.vala:350
+#. Translators: Tooltip for the + button
+#: src/alarm.vala:350 src/alarm.vala:593
 msgid "New Alarm"
 msgstr "Nova alarmo"
-
-#. Translators: "New" refers to an alarm
-#: src/alarm.vala:624
-msgctxt "Alarm"
-msgid "New"
-msgstr "Nova"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Eligi versian informon kaj ĉesi"
 
-#: src/stopwatch.vala:139
-msgid "Stopwatch"
-msgstr "Kronometro"
-
-#: src/stopwatch.vala:202
+#: src/stopwatch.vala:205
 msgid "Lap"
 msgstr "Rondiro"
 
-#: src/stopwatch.vala:209 src/timer.vala:208
+#: src/stopwatch.vala:212 src/timer.vala:219
 msgid "Continue"
 msgstr "Daŭrigi"
 
-#: src/timer.vala:127
+#. Translators: Tooltip for the + button
+#: src/timer.vala:82
+msgid "New Timer"
+msgstr "Nova ĝisnombrilo"
+
+#: src/timer.vala:138
 msgid "Time is up!"
 msgstr "Tempo estas pasinta!"
 
-#: src/timer.vala:128
+#: src/timer.vala:139
 msgid "Timer countdown finished"
-msgstr "Minutatora ĝisnombrado finita"
+msgstr "Ĝisnombrado finita"
 
-#: src/utils.vala:168
+#: src/utils.vala:167
 msgid "Mondays"
 msgstr "Lunde"
 
-#: src/utils.vala:169
+#: src/utils.vala:168
 msgid "Tuesdays"
 msgstr "Marde"
 
-#: src/utils.vala:170
+#: src/utils.vala:169
 msgid "Wednesdays"
 msgstr "Merkrede"
 
-#: src/utils.vala:171
+#: src/utils.vala:170
 msgid "Thursdays"
 msgstr "Ĵaŭde"
 
-#: src/utils.vala:172
+#: src/utils.vala:171
 msgid "Fridays"
 msgstr "Vendrede"
 
-#: src/utils.vala:173
+#: src/utils.vala:172
 msgid "Saturdays"
 msgstr "Sabate"
 
-#: src/utils.vala:174
+#: src/utils.vala:173
 msgid "Sundays"
 msgstr "Dimanĉe"
 
-#: src/utils.vala:254
+#: src/utils.vala:253
 msgid "Every Day"
 msgstr "Ĉiutage"
 
-#: src/utils.vala:256
+#: src/utils.vala:255
 msgid "Weekdays"
 msgstr "Semajntage"
 
-#: src/utils.vala:258
+#: src/utils.vala:257
 msgid "Weekends"
 msgstr "Semajnfine"
 
-#: src/widgets.vala:232 src/widgets.vala:247
+#: src/widgets.vala:194 src/widgets.vala:209
 msgid "Click on items to select them"
 msgstr "Klaki sur elementoj por elekti ilin"
 
-#: src/widgets.vala:234
+#: src/widgets.vala:196
 #, c-format
 msgid "%u selected"
 msgid_plural "%u selected"
 msgstr[0] "%u elektita"
 msgstr[1] "%u elektitaj"
 
-#: src/widgets.vala:333
+#: src/widgets.vala:284
 msgid "Delete"
 msgstr "Forigi"
 
-#: src/widgets.vala:477
-msgid "Cancel"
-msgstr "Nuligi"
-
-#: src/window.vala:224
+#: src/window.vala:262
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Malsukcesis montri helpon: %s"
 
-#: src/window.vala:254
+#: src/window.vala:296
 msgid "Utilities to help you with the time."
-msgstr "Utilaĵoj por helpi vin pri la horo."
+msgstr "Utilaĵoj por helpi vin pri tempo."
 
-#: src/window.vala:259
+#: src/window.vala:301
 msgid "translator-credits"
 msgstr ""
 "Kristjan SCHMIDT\n"
 "Ryan LORTIE <desrt@desrt.ca>\n"
 "Baptiste DARTHENAY <baptiste+ecrevisse@darthenay.fr>\n"
 "Daniel PUENTES <blatberk@openmailbox.org>\n"
-"Carmen Bianca BAKKER <carmen@carmenbianca.eu>"
+"Carmen Bianca BAKKER <carmen@carmenbianca.eu>\n"
+"Tirifto <tirifto@posteo.cz>"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:138 src/world.vala:142
+#: src/world.vala:186 src/world.vala:190
 msgid "Tomorrow"
 msgstr "Morgaŭ"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:138 src/world.vala:142
+#: src/world.vala:186 src/world.vala:190
 msgid "Yesterday"
 msgstr "Hieraŭ"
 
-#: src/world.vala:318
-msgid "World"
-msgstr "Mondo"
+#. Translators: Tooltip for the + button
+#: src/world.vala:349
+msgid "Add Location"
+msgstr "Aldoni lokon"
 
-#. Translators: "New" refers to a world clock
-#: src/world.vala:337
-msgctxt "World clock"
-msgid "New"
-msgstr "Nova"
+#~ msgid "_About"
+#~ msgstr "_Pri"
+
+#~ msgid "_Quit"
+#~ msgstr "Ĉ_esi"
+
+#~ msgid "org.gnome.clocks"
+#~ msgstr "org.gnome.clocks"
+
+#~ msgctxt "Alarm"
+#~ msgid "New"
+#~ msgstr "Nova"
+
+#~ msgid "Stopwatch"
+#~ msgstr "Kronometro"
+
+#~ msgid "Cancel"
+#~ msgstr "Nuligi"
+
+#~ msgid "World"
+#~ msgstr "Mondo"
+
+#~ msgctxt "World clock"
+#~ msgid "New"
+#~ msgstr "Nova"
 
 #~ msgid "_New"
 #~ msgstr "_Nova"
 
 #~ msgid "Time"
 #~ msgstr "Horo"
-
-#~ msgid "About Clocks"
-#~ msgstr "Pri horloĝoj"
 
 #~ msgid "Edit"
 #~ msgstr "Redakti"
