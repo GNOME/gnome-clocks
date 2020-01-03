@@ -107,6 +107,12 @@ public class SearchProvider : Object {
                 location.get_children().length == 0) {
                 return;
             }
+            // FIXME there is a bug in libgweather <= 3.28.3 where assertions are
+            // raised when serializing locations without a station code. Remove
+            // once the minimum version has changed.
+            if (location.get_code () == null) {
+                return;
+            }
             // HACK: the search provider interface does not currently allow variants as result IDs
             result += serialize_location (location);
         });
