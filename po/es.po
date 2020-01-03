@@ -2,14 +2,14 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Israel Campoy <churritzu@yahoo.com>, 2012.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2012-2019.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2012-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2019-12-08 11:04+0000\n"
-"PO-Revision-Date: 2019-12-11 09:27+0100\n"
+"POT-Creation-Date: 2020-01-02 23:31+0000\n"
+"PO-Revision-Date: 2020-01-03 09:32+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -191,7 +191,7 @@ msgstr "Alarmas configuradas"
 msgid "List of alarms set."
 msgstr "Lista de alarmas establecidas."
 
-#: data/org.gnome.clocks.gschema.xml.in:19
+#: data/org.gnome.clocks.gschema.xml.in:19 data/ui/window.ui:69
 msgid "Timer"
 msgstr "Temporizador"
 
@@ -293,7 +293,6 @@ msgid "Menu"
 msgstr "Menú"
 
 #: data/ui/headerbar.ui:248
-#| msgid "Select All"
 msgid "Select"
 msgstr "Seleccionar"
 
@@ -308,6 +307,19 @@ msgstr "Reiniciar"
 #: data/ui/timer.ui:403 src/timer.vala:224 src/timer.vala:235
 msgid "Pause"
 msgstr "Pausar"
+
+#: data/ui/window.ui:39
+msgid "World"
+msgstr "Mundo"
+
+#: data/ui/window.ui:49
+#| msgid "Alarm"
+msgid "Alarms"
+msgstr "Alarmas"
+
+#: data/ui/window.ui:59
+msgid "Stopwatch"
+msgstr "Cronómetro"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -356,7 +368,6 @@ msgstr "Continuar"
 
 #. Translators: Tooltip for the + button
 #: src/timer.vala:82
-#| msgid "Timer"
 msgid "New Timer"
 msgstr "Nuevo temporizador"
 
@@ -463,14 +474,8 @@ msgstr "Añadir ubicación"
 #~ msgid "New"
 #~ msgstr "Nueva"
 
-#~ msgid "Stopwatch"
-#~ msgstr "Cronómetro"
-
 #~ msgid "Cancel"
 #~ msgstr "Cancelar"
-
-#~ msgid "World"
-#~ msgstr "Mundo"
 
 #~ msgctxt "World clock"
 #~ msgid "New"
