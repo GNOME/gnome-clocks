@@ -77,18 +77,20 @@ public class SearchProvider : Object {
     private async void search_locations_recurse (GWeather.Location location, string[] normalized_terms,
                                                     GenericArray<GWeather.Location> matches) {
         GWeather.Location? []locations = location.get_children ();
-        if (locations != null) {
-            for (int i = 0; i < locations.length; i++) {
-                var level = locations[i].get_level ();
-                if (level == GWeather.LocationLevel.CITY ||
-                    level == GWeather.LocationLevel.NAMED_TIMEZONE) {
-                    if (location_matches(locations[i], normalized_terms)) {
-                        matches.add (locations[i]);
-                    }
-                }
+        if (locations == null) {
+            return;
+        }
 
-                yield search_locations_recurse (locations[i], normalized_terms, matches);
+        for (int i = 0; i < locations.length; i++) {
+            var level = locations[i].get_level ();
+            if (level == GWeather.LocationLevel.CITY ||
+                level == GWeather.LocationLevel.NAMED_TIMEZONE) {
+                if (location_matches(locations[i], normalized_terms)) {
+                    matches.add (locations[i]);
+                }
             }
+
+            yield search_locations_recurse (locations[i], normalized_terms, matches);
         }
     }
 
