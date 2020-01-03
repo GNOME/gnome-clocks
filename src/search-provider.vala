@@ -27,7 +27,13 @@ public class SearchProvider : Object {
     private string[] normalize_terms (string[] terms) {
         var normalized_terms = new GenericArray<string> ();
         foreach (string t in terms) {
-            normalized_terms.add (t.normalize ().casefold ());
+            string normalized_term = t.normalize ();
+            // From https://valadoc.org/glib-2.0/string.normalize.html:
+            // > The string has to be valid UTF-8, otherwise null is returned.
+            if (normalized_term == null) {
+                continue;
+            }
+            normalized_terms.add (normalized_term.casefold ());
         }
 
         return normalized_terms.data;
