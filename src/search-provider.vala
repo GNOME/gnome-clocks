@@ -104,12 +104,13 @@ public class SearchProvider : Object {
         matches.foreach ((location) => {
             // FIXME: Avoid cities without children locations
             if (location.get_level () == GWeather.LocationLevel.CITY &&
-                location.get_children().length == 0) {
+                location.get_children ().length == 0) {
                 return;
             }
             // FIXME there is a bug in libgweather <= 3.28.3 where assertions are
             // raised when serializing locations without a station code. Remove
             // once the minimum version has changed.
+            // Relevant commit https://gitlab.gnome.org/GNOME/libgweather/commit/2bb1524f88f1ab6ec48f213276ece13bc4324c98
             if (location.get_code () == null) {
                 return;
             }
