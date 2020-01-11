@@ -133,7 +133,7 @@ public class Application : Gtk.Application {
         set_accels_for_action ("win.new", { "<Primary>n" });
         set_accels_for_action ("win.select-all", { "<Primary>a" });
         set_accels_for_action ("win.show-primary-menu", { "F10" });
-        set_accels_for_action ("win.show-help-overlay", { "<Primary>F10" });
+        set_accels_for_action ("win.show-help-overlay", { "<Primary>F1", "<Primary>question" });
         set_accels_for_action ("win.help", { "F1" });
         set_accels_for_action ("app.quit", { "<Primary>q" });
     }
