@@ -15,6 +15,34 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
+                <property name="accelerator">F1</property>
+                <property name="title" translatable="yes" context="shortcut window">Show help</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">F10</property>
+                <property name="title" translatable="yes" context="shortcut window">Show primary menu</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;ctrl&gt;F1 &lt;ctrl&gt;question</property>
+                <property name="title" translatable="yes" context="shortcut window">Keyboard shortcuts</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;ctrl&gt;Q</property>
+                <property name="title" translatable="yes" context="shortcut window">Quit</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;&lt;alt&gt;Page_Down</property>
                 <property name="title" translatable="yes" context="shortcut window">Go to the next section</property>
               </object>
@@ -24,13 +52,6 @@
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;&lt;alt&gt;Page_Up</property>
                 <property name="title" translatable="yes" context="shortcut window">Go to the previous section</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
-                <property name="accelerator">&lt;ctrl&gt;Q</property>
-                <property name="title" translatable="yes" context="shortcut window">Quit</property>
               </object>
             </child>
           </object>
