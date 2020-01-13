@@ -2,7 +2,8 @@
 <interface>
   <template class="ClocksAlarmDayPickerRow" parent="HdyActionRow">
     <property name="visible">True</property>
-    <property name="title">Repeats</property>
+    <property name="title">_Repeat</property>
+    <property name="use-underline">True</property>
     <child type="action">
       <object class="GtkImage" id="icon">
         <property name="visible">True</property>

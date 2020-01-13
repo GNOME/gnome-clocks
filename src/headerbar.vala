@@ -43,6 +43,8 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
         set {
             _mode = value;
 
+            var width = get_allocated_width ();
+
             switch (_mode) {
                 case SELECTION:
                     title_stack.visible_child_name = "selection";
@@ -52,6 +54,7 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
                     select_stack.hide ();
                     end_button_stack.visible_child_name = "cancel";
                     centering_policy = LOOSE;
+                    switcher_bar.reveal = width <= 500;
                     break;
                 case NORMAL:
                     title_stack.visible_child_name = "switcher";
@@ -61,6 +64,7 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
                     select_stack.show ();
                     end_button_stack.visible_child_name = "menu";
                     centering_policy = STRICT;
+                    switcher_bar.reveal = width <= 500;
                     break;
                 case STANDALONE:
                     title_stack.visible_child_name = "title";
@@ -68,6 +72,7 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
                     end_button_stack.hide ();
                     select_stack.hide ();
                     centering_policy = STRICT;
+                    switcher_bar.reveal = false;
                     break;
             }
             
@@ -148,7 +153,7 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
         squeezer.set_child_enabled (title_wide_switcher, allocation.width > 800);
         squeezer.set_child_enabled (title_narrow_switcher, allocation.width > 500);
         squeezer.set_child_enabled (title_text, allocation.width <= 500);
-        switcher_bar.set_reveal (allocation.width <= 500);
+        switcher_bar.reveal = allocation.width <= 500 && view_mode != STANDALONE;
     }
 
     [GtkCallback]

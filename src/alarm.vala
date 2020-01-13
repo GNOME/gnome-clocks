@@ -276,32 +276,43 @@ private class Item : Object, ContentItem {
     }
 }
 
-[GtkTemplate (ui = "/org/gnome/clocks/ui/alarmtile.ui")]
-private class Row : Hdy.ActionRow {
+[GtkTemplate (ui = "/org/gnome/clocks/ui/alarmrow.ui")]
+private class Row : Gtk.ListBoxRow {
     public Item alarm { get; construct set; }
     public Face face { get; construct set; }
 
     [GtkChild]
     private Gtk.Switch toggle;
     [GtkChild]
+    private Gtk.Label title;
+    [GtkChild]
+    private Gtk.Revealer title_reveal;
+    [GtkChild]
+    private Gtk.Label time;
+    [GtkChild]
     private Gtk.Label repeats;
+    [GtkChild]
+    private Gtk.Revealer repeats_reveal;
 
     public Row (Item alarm, Face face) {
         Object (alarm: alarm, face: face);
 
-        alarm.bind_property ("name", this, "subtitle", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
-        alarm.bind_property ("active", toggle, "active", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        alarm.notify["days"].connect (update_repeats);
 
+        alarm.bind_property ("active", toggle, "active", SYNC_CREATE | BIDIRECTIONAL);
+
+        alarm.notify["name"].connect (update);
         alarm.notify["active"].connect (update);
         alarm.notify["state"].connect (update);
         alarm.notify["time"].connect (update);
-        alarm.notify["days"].connect (update);
 
+        update_repeats ();
         update ();
     }
 
-    public override void activate () {
-        face.edit(alarm);
+    private void update_repeats () {
+        repeats_reveal.reveal_child = !alarm.days.empty;
+        repeats.label = alarm.days_label;
     }
 
     private void update () {
@@ -313,13 +324,41 @@ private class Row : Hdy.ActionRow {
 
         if (alarm.state == Item.State.SNOOZING) {
             get_style_context ().add_class ("snoozing");
-            title = "%s (%s)".printf (alarm.snooze_time_label, alarm.time_label);
+            time.label = alarm.snooze_time_label;
         } else {
             get_style_context ().remove_class ("snoozing");
-            title = alarm.time_label;
+            time.label = alarm.time_label;
         }
 
-        repeats.label = alarm.days_label;
+        var label = alarm.name;
+
+        // Prior to 3.36 unamed alarms would just be called "Alarm",
+        // pretend alarms called "Alarm" don't have a name (of course
+        // this fails if the language/translation has since changed)
+        if (alarm.name == _("Alarm")) {
+            label = null;
+        }
+
+        if (alarm.state == Item.State.SNOOZING) {
+            if (label != null && label.length > 0) {
+                label = "Snoozed from %s: %s".printf (alarm.time_label, label);
+            } else {
+                label = "Snoozed from %s".printf (alarm.time_label);
+            }
+        }
+
+        title_reveal.reveal_child = label != null && label.length > 0;
+        title.label = label;
+    }
+
+    [GtkCallback]
+    private void edit () {
+        face.edit (alarm);
+    }
+
+    [GtkCallback]
+    private void delete () {
+        face.delete (alarm);
     }
 }
 
@@ -514,7 +553,7 @@ private class SetupDialog : Hdy.Dialog {
     [GtkChild]
     private Gtk.ListBox listbox;
     [GtkChild]
-    private Gtk.Box delete_area;
+    private Gtk.Button delete_button;
     private List<Item> other_alarms;
 
     static construct {
@@ -524,7 +563,7 @@ private class SetupDialog : Hdy.Dialog {
     public SetupDialog (Gtk.Window parent, Item? alarm, ListModel all_alarms) {
         Object (transient_for: parent, title: alarm != null ? _("Edit Alarm") : _("New Alarm"), use_header_bar: 1);
 
-        delete_area.visible = alarm != null;
+        delete_button.visible = alarm != null;
         listbox.set_header_func((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
 
         other_alarms = new List<Item> ();
@@ -570,7 +609,8 @@ private class SetupDialog : Hdy.Dialog {
 
         if (alarm == null) {
             var wc = Utils.WallClock.get_default ();
-            name = _("Alarm");
+            // Not great but we can't null it
+            name = "";
             hour = wc.date_time.get_hour ();
             minute = wc.date_time.get_minute ();
             days = null;
@@ -668,10 +708,11 @@ private class SetupDialog : Hdy.Dialog {
     }
 
     [GtkCallback]
-    private void delete_alarm () {
-        response(2);
+    private void delete () {
+        response (2);
     }
 }
+
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarmringing.ui")]
 private class RingingPanel : Gtk.Grid {
@@ -736,7 +777,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public ViewMode view_mode { get; set; default = NORMAL; }
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NEW; }
-    public bool can_select { get; set; default = true; }
+    public bool can_select { get; set; default = false; }
     public bool n_selected { get; set; }
     public string title { get; set; default = _("Clocks"); }
     public string subtitle { get; set; }
@@ -832,11 +873,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
         }
     }
 
-    [GtkCallback]
-    private void create_alarm () {
-        activate_new();
-    }
-
     private void load () {
         alarms.deserialize (settings.get_value ("alarms"), Item.deserialize);
     }
@@ -863,6 +899,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
             dialog.destroy ();
         });
         dialog.show_all ();
+    }
+
+    internal void delete (Item alarm) {
+        alarms.delete_item (alarm);
+        save ();
     }
 
     private void show_ringing_panel (Item alarm) {
