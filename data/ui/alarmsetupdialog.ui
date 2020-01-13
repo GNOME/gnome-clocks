@@ -186,84 +186,52 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkBox">
+                  <object class="GtkListBox" id="listbox">
                     <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="selection_mode">none</property>
                     <property name="margin">6</property>
-                    <property name="orientation">vertical</property>
                     <child>
-                      <object class="GtkListBox" id="listbox">
+                      <object class="ClocksAlarmDayPickerRow" id="repeats">
                         <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="selection_mode">none</property>
-                        <child>
-                          <object class="HdyActionRow">
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="activatable_widget">name_entry</property>
-                            <property name="title" translatable="yes">Name</property>
-                            <child type="action">
-                              <object class="GtkEntry" id="name_entry">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="valign">center</property>
-                                <property name="hexpand">True</property>
-                                <property name="activates_default">True</property>
-                                <signal name="changed" handler="entry_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="ClocksAlarmDayPickerRow" id="repeats">
-                            <property name="visible">True</property>
-                            <signal name="days_changed" handler="days_changed" swapped="no" />
-                          </object>
-                        </child>
+                        <signal name="days_changed" handler="days_changed" swapped="no" />
                       </object>
                     </child>
                     <child>
-                      <object class="GtkBox" id="delete_area">
-                        <property name="visible">False</property>
-                        <property name="no-show-all">True</property>
-                        <property name="orientation">vertical</property>
-                        <child>
-                          <object class="GtkSeparator">
+                      <object class="HdyActionRow">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="activatable_widget">name_entry</property>
+                        <property name="title" translatable="yes">Name</property>
+                        <property name="subtitle" translatable="yes">Optional</property>
+                        <child type="action">
+                          <object class="GtkEntry" id="name_entry">
                             <property name="visible">True</property>
-                            <property name="orientation">horizontal</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkListBox">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="selection_mode">none</property>
-                            <signal name="row-activated" handler="delete_alarm" swapped="no"/>
-                            <child>
-                              <object class="GtkListBoxRow">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <child>
-                                  <object class="GtkLabel">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="margin_left">12</property>
-                                    <property name="margin_right">12</property>
-                                    <property name="margin_top">18</property>
-                                    <property name="margin_bottom">18</property>
-                                    <property name="label" translatable="yes">Delete Alarm</property>
-                                    <style>
-                                      <class name="destructive-action"/>
-                                    </style>
-                                  </object>
-                                </child>
-                              </object>
-                            </child>
+                            <property name="can_focus">True</property>
+                            <property name="valign">center</property>
+                            <property name="hexpand">True</property>
+                            <property name="activates_default">True</property>
+                            <signal name="changed" handler="entry_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
                           </object>
                         </child>
                       </object>
                     </child>
                     <style>
                       <class name="frame"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="delete_button">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">R_emove Alarm</property>
+                    <property name="use-underline">True</property>
+                    <property name="margin">6</property>
+                    <property name="halign">start</property>
+                    <signal name="clicked" handler="delete" swapped="no" />
+                    <style>
+                      <class name="destructive-action"/>
                     </style>
                   </object>
                 </child>
