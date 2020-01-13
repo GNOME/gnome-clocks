@@ -65,66 +65,21 @@ row.snoozing {
     font-weight: bold;
 }
 
-.alarm-tile,
-.alarm-tile:backdrop {
-    color: shade(@insensitive_fg_color,0.9);
-    background-color: transparent;
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center bottom, 1.0,
-                                    from(shade(@insensitive_bg_color,0.9)), to(shade(@insensitive_bg_color,0.85)));
+.alarm-row button {
+    min-width: 24px;
+    min-height: 24px;
 }
 
-.tile.prelight .alarm-tile,
-.tile.prelight .alarm-tile:backdrop {
-    color: @insensitive_fg_color;
-    background-color: transparent;
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center bottom, 1.0,
-                                    from(shade(@insensitive_bg_color,0.99)), to(shade(@insensitive_bg_color,0.9)));
+.alarm-name {
+    font-weight: bold;
 }
 
-.active .alarm-tile,
-.active .alarm-tile:backdrop {
-    color: white;
-    background-color: transparent;
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center bottom, 1.0,
-                                    from(shade(@theme_selected_bg_color,1.2)), to(@theme_selected_bg_color));
+.alarm-time {
+    font-size: 2.5em;
 }
 
-.tile.prelight .active .alarm-tile,
-.tile.prelight .active .alarm-tile:backdrop {
-    color: white;
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
-    background-color: transparent;
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center bottom, 1.0,
-                                    from(shade(@theme_selected_bg_color, 1.4)), to(@theme_selected_bg_color));
-}
-
-.snoozing .alarm-tile,
-.snoozing .alarm-tile:backdrop {
-    color: white;
-    background-color: transparent;
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center bottom, 1.0,
-                                    from(@warning_color), to(shade(@warning_color,0.9)));
-}
-
-.tile.prelight .snoozing .alarm-tile,
-.tile.prelight .snoozing .alarm-tile:backdrop {
-    color: white;
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
-    background-color: transparent;
-    background-image: -gtk-gradient(radial,
-                                    center center, 0,
-                                    center bottom, 1.0,
-                                    from(shade(@warning_color,1.1)), to(shade(@warning_color,0.99)));
+.alarm-list {
+    border-radius: 6px;
 }
 
 .clocks-ampm-toggle-button {
