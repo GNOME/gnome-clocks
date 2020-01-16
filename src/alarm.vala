@@ -724,6 +724,8 @@ private class RingingPanel : Gtk.Grid {
     private Item? _alarm;
     private ulong alarm_state_handler;
     [GtkChild]
+    private Gtk.Label title_label;
+    [GtkChild]
     private Gtk.Label time_label;
 
     [GtkCallback]
@@ -747,11 +749,15 @@ private class RingingPanel : Gtk.Grid {
 
     public void update () {
         if (alarm != null) {
+            title_label.label = alarm.name;
             if (alarm.state == Item.State.SNOOZING) {
                 time_label.label = alarm.snooze_time_label;
             } else {
                 time_label.label = alarm.time_label;
             }
+        } else {
+            title_label.label = "";
+            time_label.label = "";
         }
     }
 }
@@ -892,7 +898,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         ringing_panel.alarm = alarm;
         ringing_panel.update ();
         visible_child = ringing_panel;
-        title = ringing_panel.alarm.name;
+        title = _("Alarm");
         view_mode = STANDALONE;
         button_mode = NONE;
     }
