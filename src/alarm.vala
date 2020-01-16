@@ -772,8 +772,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private GLib.Settings settings;
     [GtkChild]
     private Gtk.Widget empty_view;
-    //[GtkChild]
-    //private ContentView content_view;
     [GtkChild]
     private Gtk.ListBox listbox;
     [GtkChild]
