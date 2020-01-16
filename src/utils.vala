@@ -149,13 +149,30 @@ public class Weekdays {
     private static string[] names = null;
 
     public enum Day {
-        MON,
+        MON = 0,
         TUE,
         WED,
         THU,
         FRI,
         SAT,
         SUN;
+
+        private const string[] symbols = {
+            // Translators: This is used in the repeat toggle for Monday
+            NC_("Repeat|Monday", "M"),
+            // Translators: This is used in the repeat toggle for Tuesday
+            NC_("Repeat|Tuesday", "T"),
+            // Translators: This is used in the repeat toggle for Wednesday
+            NC_("Repeat|Wednesday", "W"),
+            // Translators: This is used in the repeat toggle for Thursday
+            NC_("Repeat|Thursday", "T"),
+            // Translators: This is used in the repeat toggle for Friday
+            NC_("Repeat|Friday", "F"),
+            // Translators: This is used in the repeat toggle for Saturday
+            NC_("Repeat|Saturday", "S"),
+            // Translators: This is used in the repeat toggle for Sunday
+            NC_("Repeat|Sunday", "S")
+        };
 
         private const string[] plurals = {
             N_("Mondays"),
@@ -166,7 +183,11 @@ public class Weekdays {
             N_("Saturdays"),
             N_("Sundays")
         };
-    
+
+        public string symbol () {
+            return _(symbols[this]);
+        }
+
         public string plural () {
             return _(plurals[this]);
         }

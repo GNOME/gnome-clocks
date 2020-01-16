@@ -446,9 +446,7 @@ public class DayPickerRow : Hdy.ActionRow {
     private Utils.Weekdays days = new Utils.Weekdays();
 
     [GtkChild]
-    private Gtk.Popover popover;
-    [GtkChild]
-    private Gtk.Label current;
+    private Gtk.FlowBox flow;
 
     construct {
         // Create actions to control propeties from menu items
@@ -463,35 +461,26 @@ public class DayPickerRow : Hdy.ActionRow {
         insert_action_group ("repeats", group);
 
         // Create an array with the weekday items with
-        // items[0] referencing the button for Monday, and so on.
-        var items = new GLib.MenuItem[7];
+        // buttons[0] referencing the button for Monday, and so on.
+        var buttons = new Gtk.ToggleButton[7];
         for (int i = 0; i < 7; i++) {
-            items[i] = new GLib.MenuItem (((Utils.Weekdays.Day) i).name (), "repeats.day-%i".printf(i));
+            var day = (Utils.Weekdays.Day) i;
+            buttons[i] = new Gtk.ToggleButton.with_label (day.symbol ());
+            buttons[i].action_name = "repeats.day-%i".printf(i);
+            buttons[i].tooltip_text = day.name ();
+            buttons[i].get_style_context ().add_class ("circular");
+            buttons[i].show ();
         }
 
         // Add the items, starting with the first day of the week
         // depending on the locale.
         var first_weekday = Utils.Weekdays.Day.get_first_weekday ();
-        var menu = new GLib.Menu();
         for (int i = 0; i < 7; i++) {
             var day_number = (first_weekday + i) % 7;
-            menu.insert_item (-1, items[day_number]);
+            flow.add (buttons[day_number]);
         }
 
-        // Populate the popover with the menu
-        popover.bind_model (menu, null);
-
         update ();
-    }
-
-    public override void activate () {
-        // Open the popover
-        popover.popup ();
-    }
-
-    [GtkCallback]
-    private void popover_done () {
-        days_changed ();
     }
 
     public void load (Utils.Weekdays current_days) {
@@ -500,7 +489,7 @@ public class DayPickerRow : Hdy.ActionRow {
             days[(Utils.Weekdays.Day) i] = current_days[(Utils.Weekdays.Day) i];
         }
 
-        // Make sure the popover updates
+        // Make sure the buttons update
         notify_property ("monday");
         notify_property ("tuesday");
         notify_property ("wednesday");
@@ -509,7 +498,6 @@ public class DayPickerRow : Hdy.ActionRow {
         notify_property ("saturday");
         notify_property ("sunday");
 
-        // Sync the label to the new state
         update ();
     }
 
@@ -524,9 +512,6 @@ public class DayPickerRow : Hdy.ActionRow {
     }
 
     private void update () {
-        var repeats = days.get_label();
-        current.label = repeats.length > 0 ? repeats : _("None");
-
         days_changed ();
     }
 }
@@ -543,7 +528,6 @@ private class SetupDialog : Hdy.Dialog {
     [GtkChild]
     private Gtk.Entry name_entry;
     private AmPmToggleButton am_pm_button;
-    private Gtk.ToggleButton[] day_buttons;
     [GtkChild]
     private DayPickerRow repeats;
     [GtkChild]
@@ -898,7 +882,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
             }
             dialog.destroy ();
         });
-        dialog.show_all ();
+        dialog.show ();
     }
 
     internal void delete (Item alarm) {
@@ -930,7 +914,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
             }
             dialog.destroy ();
         });
-        dialog.show_all ();
+        dialog.show ();
     }
 
     public void activate_select () {
