@@ -1,18 +1,18 @@
 # Swedish translation for gnome-clocks.
-# Copyright © 2012, 2014-2018 Free Software Foundation, Inc.
+# Copyright © 2012-2020 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-clocks package.
 # Daniel Nylander <po@danielnylander.se>, 2012.
 # Fredrik Söderström <tirithen@gmail.com>, 2014.
 # Mattias Eriksson <snaggen@gmail.com>, 2014.
 # Sebastian Rasmussen <sebras@gmail.com>, 2015.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015, 2016, 2017, 2018.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015, 2016, 2017, 2018, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2019-09-26 16:08+0000\n"
-"PO-Revision-Date: 2019-11-29 14:47+0100\n"
+"POT-Creation-Date: 2020-01-02 23:31+0000\n"
+"PO-Revision-Date: 2020-01-26 02:01+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -162,8 +162,9 @@ msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/window.ui:7 src/window.vala:76 src/window.vala:279
-#: src/world.vala:563
+#: data/ui/headerbar.ui:24 src/alarm.vala:590 src/alarm.vala:677
+#: src/main.vala:25 src/stopwatch.vala:120 src/timer.vala:79
+#: src/window.vala:291 src/world.vala:346 src/world.vala:427
 msgid "Clocks"
 msgstr "Klockor"
 
@@ -192,7 +193,7 @@ msgstr "Konfigurerade alarm"
 msgid "List of alarms set."
 msgstr "Lista över satta alarm."
 
-#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:116
+#: data/org.gnome.clocks.gschema.xml.in:19 data/ui/window.ui:69
 msgid "Timer"
 msgstr "Timer"
 
@@ -232,7 +233,7 @@ msgstr "Panelläge"
 msgid "Current clock panel."
 msgstr "Aktuell klockpanel."
 
-#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:201
+#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:202
 msgid "Stop"
 msgstr "Stopp"
 
@@ -244,7 +245,8 @@ msgstr "Snooza"
 msgid "Add a New World Clock"
 msgstr "Lägg till ny världsklocka"
 
-#: data/ui/alarmsetupdialog.ui:31 data/ui/worldlocationdialog.ui:21
+#: data/ui/alarmsetupdialog.ui:31 data/ui/headerbar.ui:211
+#: data/ui/worldlocationdialog.ui:21
 msgid "_Cancel"
 msgstr "_Avbryt"
 
@@ -268,37 +270,57 @@ msgstr "Upprepa var"
 msgid "Active"
 msgstr "Aktiv"
 
-#: data/ui/alarm.ui:33
+#: data/ui/alarm.ui:34
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Välj <b>Nytt</b> för att lägga till ett alarm"
 
-#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:223
-msgid "Start"
-msgstr "Starta"
-
-#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:215
-msgid "Reset"
-msgstr "Återställ"
-
-#: data/ui/timer.ui:403 src/timer.vala:222 src/timer.vala:233
-msgid "Pause"
-msgstr "Paus"
-
-#: data/ui/window.ui:11
+#: data/ui/headerbar.ui:8
 msgid "_Keyboard Shortcuts"
 msgstr "Tan_gentbordsgenvägar"
 
-#: data/ui/window.ui:15
+#: data/ui/headerbar.ui:12
 msgid "_Help"
 msgstr "_Hjälp"
 
-#: data/ui/window.ui:19
+#: data/ui/headerbar.ui:16
 msgid "_About Clocks"
 msgstr "_Om Klockor"
 
-#: data/ui/window.ui:66
-msgid "Clock"
-msgstr "Klocka"
+#: data/ui/headerbar.ui:158
+msgid "Back"
+msgstr "Bakåt"
+
+#: data/ui/headerbar.ui:195
+msgid "Menu"
+msgstr "Meny"
+
+#: data/ui/headerbar.ui:248
+msgid "Select"
+msgstr "Välj"
+
+#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:224
+msgid "Start"
+msgstr "Starta"
+
+#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:216
+msgid "Reset"
+msgstr "Återställ"
+
+#: data/ui/timer.ui:403 src/timer.vala:224 src/timer.vala:235
+msgid "Pause"
+msgstr "Paus"
+
+#: data/ui/window.ui:39
+msgid "World"
+msgstr "Världen"
+
+#: data/ui/window.ui:49
+msgid "Alarms"
+msgstr "Alarm"
+
+#: data/ui/window.ui:59
+msgid "Stopwatch"
+msgstr "Stoppur"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -308,19 +330,19 @@ msgstr "_Lägg till"
 msgid "Search for a city:"
 msgstr "Sök efter en stad:"
 
-#: data/ui/world.ui:33
+#: data/ui/world.ui:34
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Välj <b>Ny</b> för att lägga till en världsklocka"
 
-#: data/ui/world.ui:124
+#: data/ui/world.ui:126
 msgid "Sunrise"
 msgstr "Soluppgång"
 
-#: data/ui/world.ui:138
+#: data/ui/world.ui:140
 msgid "Sunset"
 msgstr "Solnedgång"
 
-#: src/alarm.vala:116 src/alarm.vala:416 src/alarm.vala:596
+#: src/alarm.vala:116 src/alarm.vala:416
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -328,37 +350,33 @@ msgstr "Alarm"
 msgid "Edit Alarm"
 msgstr "Redigera alarm"
 
-#: src/alarm.vala:350
+#. Translators: Tooltip for the + button
+#: src/alarm.vala:350 src/alarm.vala:593
 msgid "New Alarm"
 msgstr "Nytt alarm"
-
-#. Translators: "New" refers to an alarm
-#: src/alarm.vala:626
-msgctxt "Alarm"
-msgid "New"
-msgstr "Nytt"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Skriv ut versionsinformation och avsluta"
 
-#: src/stopwatch.vala:140
-msgid "Stopwatch"
-msgstr "Stoppur"
-
-#: src/stopwatch.vala:204
+#: src/stopwatch.vala:205
 msgid "Lap"
 msgstr "Varv"
 
-#: src/stopwatch.vala:211 src/timer.vala:217
+#: src/stopwatch.vala:212 src/timer.vala:219
 msgid "Continue"
 msgstr "Fortsätt"
 
-#: src/timer.vala:136
+#. Translators: Tooltip for the + button
+#: src/timer.vala:82
+msgid "New Timer"
+msgstr "Ny timer"
+
+#: src/timer.vala:138
 msgid "Time is up!"
 msgstr "Tiden är slut!"
 
-#: src/timer.vala:137
+#: src/timer.vala:139
 msgid "Timer countdown finished"
 msgstr "Nedräkning av timer är färdig"
 
@@ -402,35 +420,31 @@ msgstr "Veckodagar"
 msgid "Weekends"
 msgstr "Helger"
 
-#: src/widgets.vala:232 src/widgets.vala:247
+#: src/widgets.vala:194 src/widgets.vala:209
 msgid "Click on items to select them"
 msgstr "Klicka på objekt för att välja dem"
 
-#: src/widgets.vala:234
+#: src/widgets.vala:196
 #, c-format
 msgid "%u selected"
 msgid_plural "%u selected"
 msgstr[0] "%u vald"
 msgstr[1] "%u valda"
 
-#: src/widgets.vala:333
+#: src/widgets.vala:284
 msgid "Delete"
 msgstr "Ta bort"
 
-#: src/widgets.vala:477
-msgid "Cancel"
-msgstr "Avbryt"
-
-#: src/window.vala:250
+#: src/window.vala:262
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Misslyckades med att visa hjälp: %s"
 
-#: src/window.vala:284
+#: src/window.vala:296
 msgid "Utilities to help you with the time."
 msgstr "Verktyg för att hjälpa dig med tiden."
 
-#: src/window.vala:289
+#: src/window.vala:301
 msgid "translator-credits"
 msgstr ""
 "Daniel Nylander <po@danielnylander.se>\n"
@@ -453,15 +467,24 @@ msgstr "I morgon"
 msgid "Yesterday"
 msgstr "Igår"
 
-#: src/world.vala:367
-msgid "World"
-msgstr "Världen"
+#. Translators: Tooltip for the + button
+#: src/world.vala:349
+msgid "Add Location"
+msgstr "Lägg till plats"
 
-#. Translators: "New" refers to a world clock
-#: src/world.vala:387
-msgctxt "World clock"
-msgid "New"
-msgstr "Ny"
+#~ msgid "Clock"
+#~ msgstr "Klocka"
+
+#~ msgctxt "Alarm"
+#~ msgid "New"
+#~ msgstr "Nytt"
+
+#~ msgid "Cancel"
+#~ msgstr "Avbryt"
+
+#~ msgctxt "World clock"
+#~ msgid "New"
+#~ msgstr "Ny"
 
 #~ msgid "@icon@"
 #~ msgstr "@icon@"
