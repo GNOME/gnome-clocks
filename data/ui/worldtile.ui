@@ -1,59 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.22.1 -->
 <interface>
-  <template class="ClocksWorldTile" parent="GtkGrid">
+  <requires lib="gtk+" version="3.20"/>
+  <template class="ClocksWorldTile" parent="GtkListBoxRow">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="halign">start</property>
-    <property name="valign">start</property>
-    <child>
-      <object class="GtkOverlay" id="tile_overlay">
-        <property name="can_focus">False</property>
-        <child>
-          <object class="GtkImage" id="image">
-            <property name="width_request">256</property>
-            <property name="height_request">256</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-          </object>
-        </child>
-        <child type="overlay">
-          <object class="GtkLabel" id="time_label">
-            <property name="width_request">256</property>
-            <property name="height_request">128</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="use-markup">True</property>
-            <property name="justify">center</property>
-            <style>
-              <class name="stripe"/>
-              <class name="tile-label"/>
-            </style>
-          </object>
-        </child>
-        <style>
-          <class name="world-tile"/>
-        </style>
-      </object>
-    </child>
     <child>
       <object class="GtkGrid">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="halign">center</property>
+        <property name="valign">start</property>
+        <property name="margin_left">12</property>
+        <property name="margin_right">12</property>
+        <property name="margin_top">12</property>
+        <property name="margin_bottom">12</property>
+        <property name="hexpand">True</property>
+        <property name="row_spacing">6</property>
+        <property name="column_spacing">12</property>
         <child>
-          <object class="GtkImage" id="name_icon">
-            <property name="icon_name">find-location-symbolic</property>
-            <property name="pixel_size">16</property>
-            <property name="visible">False</property>
-            <property name="no_show_all">True</property>
+          <object class="GtkLabel" id="name_label">
+            <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">center</property>
-            <property name="valign">center</property>
+            <property name="hexpand">True</property>
+            <property name="label" translatable="yes">label</property>
+            <property name="ellipsize">end</property>
+            <property name="xalign">0</property>
+            <property name="yalign">1</property>
             <style>
-              <class name="dim-label"/>
-              <class name="name-icon"/>
+              <class name="clock-title"/>
             </style>
           </object>
           <packing>
@@ -62,27 +36,94 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="name_label">
+          <object class="GtkLabel" id="desc">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="hexpand">True</property>
+            <property name="label" translatable="yes">label</property>
+            <property name="ellipsize">end</property>
+            <property name="xalign">0</property>
+            <property name="yalign">0</property>
+            <style>
+              <class name="dim-label"/>
+              <class name="clock-desc"/>
+            </style>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="time_label">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
-            <property name="wrap">True</property>
-            <property name="max-width-chars">30</property>
+            <property name="label" translatable="yes">12:34</property>
+            <property name="use_markup">True</property>
+            <property name="ellipsize">end</property>
+            <attributes>
+              <attribute name="font-features" value="tnum=1"/>
+            </attributes>
             <style>
-              <class name="name-label"/>
+              <class name="clock-time"/>
             </style>
           </object>
           <packing>
             <property name="left_attach">1</property>
             <property name="top_attach">0</property>
+            <property name="height">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkStack" id="delete_stack">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkButton" id="delete_button">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="relief">none</property>
+                <signal name="clicked" handler="delete" object="ClocksWorldTile" swapped="no"/>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="icon_name">edit-delete-symbolic</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="name">page0</property>
+                <property name="title" translatable="yes">page0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="delete_empty">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="name">page1</property>
+                <property name="title" translatable="yes">page1</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="top_attach">0</property>
+            <property name="height">2</property>
           </packing>
         </child>
       </object>
-      <packing>
-        <property name="left_attach">0</property>
-        <property name="top_attach">1</property>
-      </packing>
     </child>
+    <style>
+      <class name="clock"/>
+    </style>
   </template>
 </interface>

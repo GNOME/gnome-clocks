@@ -5,7 +5,6 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="homogeneous">False</property>
-    <property name="n-selected" bind-source="content_view" bind-property="n-selected" bind-flags="sync-create" />
     <signal name="notify::visible-child" handler="visible_child_changed" swapped="no"/>
     <child>
       <object class="GtkGrid" id="empty_view">
@@ -45,10 +44,27 @@
       </object>
     </child>
     <child>
-      <object class="ClocksContentView" id="content_view">
+      <object class="GtkScrolledWindow" id="list_view">
         <property name="visible">True</property>
-        <property name="mode" bind-source="ClocksWorldFace" bind-property="view-mode" bind-flags="sync-create|bidirectional" />
-        <signal name="item-activated" handler="item_activated" swapped="no"/>
+        <child>
+          <object class="HdyColumn">
+            <property name="visible">True</property>
+            <property name="maximum-width">600</property>
+            <child>
+              <object class="GtkListBox" id="listbox">
+                <property name="visible">True</property>
+                <property name="margin">12</property>
+                <property name="valign">start</property>
+                <property name="selection-mode">none</property>
+                <signal name="row-activated" handler="item_activated" swapped="no"/>
+                <style>
+                  <class name="frame"/>
+                  <class name="clock-list"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
       </object>
     </child>
     <child>
@@ -83,6 +99,9 @@
                 <property name="can_focus">False</property>
                 <property name="justify">center</property>
                 <property name="wrap">True</property>
+                <attributes>
+                  <attribute name="font-features" value="tnum=1"/>
+                </attributes>
                 <style>
                   <class name="clocks-standalone-label"/>
                 </style>
@@ -154,6 +173,9 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label">label</property>
+                <attributes>
+                  <attribute name="font-features" value="tnum=1"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">1</property>
@@ -164,6 +186,9 @@
               <object class="GtkLabel" id="standalone_sunset_label">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <attributes>
+                  <attribute name="font-features" value="tnum=1"/>
+                </attributes>
               </object>
               <packing>
                 <property name="left_attach">1</property>

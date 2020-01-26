@@ -8,52 +8,6 @@ window > stack:backdrop {
     box-shadow: none;
 }
 
-/* content view */
-
-.tile {
-    padding: 12px;
-    background-color: transparent;
-}
-
-.tile .tile-label {
-    font-size: 32pt;
-}
-
-.tile .name-label {
-    padding-top: 0.5em;
-}
-
-.tile .name-icon {
-    padding-top: 0.5em;
-    padding-right: 8px;
-}
-
-/* world */
-
-.world-tile .stripe,
-.world-tile .stripe:backdrop {
-    color: black;
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-.tile.prelight .world-tile .stripe,
-.tile.prelight .world-tile .stripe:backdrop {
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
-    background-color: rgba(255, 255, 255, 0.6);
-}
-
-.night .world-tile .stripe,
-.night .world-tile .stripe:backdrop {
-    color: white;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.tile.prelight .night .world-tile .stripe,
-.tile.prelight .night .world-tile .stripe:backdrop {
-    text-shadow: 0 0 0.1em rgba(255, 255, 255, 0.6), 0 0 0.2em rgba(255, 255, 255, 0.6);
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
 /* alarms */
 
 .alarm-tile,
@@ -124,11 +78,11 @@ window > stack:backdrop {
 
 .clocks-standalone-label,
 .clocks-ringing-label {
-    font-size: 64pt;
+    font-size: 5em;
 }
 
 .clocks-secondary-standalone-label {
-    font-size: 18pt;
+    font-size: 1.7em;
 }
 
 .clocks-button {
@@ -302,5 +256,24 @@ spinbutton.clocks-timer-label button {
 .pill-button {
     border-radius: 9999px;
     -gtk-outline-radius: 9999px;
+}
+
+/* World */
+
+.clock-title {
+    font-size: 1.1em;
+}
+
+.clock-desc {
+    font-size: 0.9em;
+}
+
+.clock-time {
+    font-size: 2em;
+    padding: 0.2em 0.5em;
+    border-radius: 1em;
+    background: #e5a50a;
+    color: #000000;
+    font-weight: lighter;
 }
 
