@@ -47,15 +47,6 @@ public void load_theme_css (string theme_name) {
     load_css ("gnome-clocks." + theme_name.down (), false);
 }
 
-public Gdk.Pixbuf? load_image (string image) {
-    try {
-        return new Gdk.Pixbuf.from_resource ("/org/gnome/clocks/images/" + image);
-    } catch (Error e) {
-        warning ("loading image file: %s", e.message);
-    }
-    return null;
-}
-
 public void time_to_hms (double t, out int h, out int m, out int s, out double remainder) {
     h = (int) t / 3600;
     t = t % 3600;
