@@ -341,9 +341,11 @@ private class Row : Gtk.ListBoxRow {
 
         if (alarm.state == Item.State.SNOOZING) {
             if (label != null && label.length > 0) {
-                label = "Snoozed from %s: %s".printf (alarm.time_label, label);
+                // Translators: The alarm for the time %s titled %s has been "snoozed"
+                label = _("Snoozed from %s: %s").printf (alarm.time_label, label);
             } else {
-                label = "Snoozed from %s".printf (alarm.time_label);
+                // Translators: %s is a time
+                label = _("Snoozed from %s").printf (alarm.time_label);
             }
         }
 
