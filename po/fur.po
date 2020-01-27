@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2019-12-11 09:24+0000\n"
-"PO-Revision-Date: 2019-12-16 17:15+0100\n"
+"POT-Creation-Date: 2020-01-02 23:31+0000\n"
+"PO-Revision-Date: 2020-01-27 08:53+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -189,7 +189,7 @@ msgstr "Sveis configuradis"
 msgid "List of alarms set."
 msgstr "Liste di sveis configuradis."
 
-#: data/org.gnome.clocks.gschema.xml.in:19
+#: data/org.gnome.clocks.gschema.xml.in:19 data/ui/window.ui:69
 msgid "Timer"
 msgstr "Timer"
 
@@ -305,6 +305,18 @@ msgstr "Met a zero"
 #: data/ui/timer.ui:403 src/timer.vala:224 src/timer.vala:235
 msgid "Pause"
 msgstr "Pause"
+
+#: data/ui/window.ui:39
+msgid "World"
+msgstr "Mont"
+
+#: data/ui/window.ui:49
+msgid "Alarms"
+msgstr "Sveis"
+
+#: data/ui/window.ui:59
+msgid "Stopwatch"
+msgstr "Cronometri"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -430,7 +442,7 @@ msgstr "Imprescj par controlâ la ore."
 
 #: src/window.vala:301
 msgid "translator-credits"
-msgstr "Fabio Tomat (f.t.public at gmail.com)"
+msgstr "Fabio Tomat (f.t.public@gmail.com)"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
@@ -456,14 +468,8 @@ msgstr "Zonte lûc"
 #~ msgid "New"
 #~ msgstr "Gnûf"
 
-#~ msgid "Stopwatch"
-#~ msgstr "Cronometri"
-
 #~ msgid "Cancel"
 #~ msgstr "Anule"
-
-#~ msgid "World"
-#~ msgstr "Mont"
 
 #~ msgctxt "World clock"
 #~ msgid "New"
