@@ -232,21 +232,20 @@ spinbutton.clocks-timer-label button {
 .large-button {
   padding: 6px 32px;
 }
-
-.lap-row label {
-  font-size: 16px;
-  font-weight: 400;
+.lap-time {
+  font-weight: bold;
 }
+
 .negative-lap {
   color: #ED333B;
 }
 .positive-lap {
-  color:green;
+  color: #428be5;
 }
 .stopped-stopwatch label,
 .running-stopwatch label,
 .paused-stopwatch label {
-  font-size: 80px;
+  font-size: 70px;
   color: grey;
   font-weight: 200;
 }
@@ -273,6 +272,6 @@ spinbutton.clocks-timer-label button {
 .stopped-stopwatch .miliseconds-label,
 .paused-stopwatch .seconds-label,
 .paused-stopwatch .miliseconds-label {
-color:black;
+  color:black;
 }
 

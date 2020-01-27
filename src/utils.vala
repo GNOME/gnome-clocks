@@ -65,6 +65,16 @@ public void time_to_hms (double t, out int h, out int m, out int s, out double r
     remainder = t - s;
 }
 
+public string render_duration(double duration) {
+    int h;
+    int m;
+    int s;
+    double r;
+    time_to_hms (Math.floor(duration * 100) / 100, out h, out m, out s, out r);
+    int cs = (int) (r * 100);
+    return "%02i\u200E∶%02i\u200E∶%02i.%i".printf (h, m, s, cs.abs());
+}
+
 // TODO: For now we are wrapping Gnome's clock, but we should probably
 // implement our own class, maybe using gnome-datetime-source
 // Especially if we want to try to use CLOCK_REALTIME_ALARM
