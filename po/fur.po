@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2019-10-10 11:58+0000\n"
-"PO-Revision-Date: 2019-10-17 16:49+0200\n"
+"POT-Creation-Date: 2019-12-11 09:24+0000\n"
+"PO-Revision-Date: 2019-12-16 17:15+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -158,8 +158,9 @@ msgid "The GNOME Project"
 msgstr "Il progjet GNOME"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/window.ui:7 src/window.vala:76 src/window.vala:279
-#: src/world.vala:563
+#: data/ui/headerbar.ui:24 src/alarm.vala:590 src/alarm.vala:677
+#: src/main.vala:25 src/stopwatch.vala:120 src/timer.vala:79
+#: src/window.vala:291 src/world.vala:346 src/world.vala:427
 msgid "Clocks"
 msgstr "Orlois"
 
@@ -188,7 +189,7 @@ msgstr "Sveis configuradis"
 msgid "List of alarms set."
 msgstr "Liste di sveis configuradis."
 
-#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:116
+#: data/org.gnome.clocks.gschema.xml.in:19
 msgid "Timer"
 msgstr "Timer"
 
@@ -228,7 +229,7 @@ msgstr "Stât dal panel"
 msgid "Current clock panel."
 msgstr "Panel atuâl dal orloi."
 
-#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:201
+#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:202
 msgid "Stop"
 msgstr "Ferme"
 
@@ -240,7 +241,8 @@ msgstr "Ripet"
 msgid "Add a New World Clock"
 msgstr "Zonte un gnûf orloi"
 
-#: data/ui/alarmsetupdialog.ui:31 data/ui/worldlocationdialog.ui:21
+#: data/ui/alarmsetupdialog.ui:31 data/ui/headerbar.ui:211
+#: data/ui/worldlocationdialog.ui:21
 msgid "_Cancel"
 msgstr "_Anule"
 
@@ -264,37 +266,45 @@ msgstr "Ripet ogni"
 msgid "Active"
 msgstr "Ativade"
 
-#: data/ui/alarm.ui:33
+#: data/ui/alarm.ui:34
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Selezione <b>Gnûf</b> par zontâ une svee"
 
-#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:223
-msgid "Start"
-msgstr "Tache"
-
-#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:215
-msgid "Reset"
-msgstr "Met a zero"
-
-#: data/ui/timer.ui:403 src/timer.vala:222 src/timer.vala:233
-msgid "Pause"
-msgstr "Pause"
-
-#: data/ui/window.ui:11
+#: data/ui/headerbar.ui:8
 msgid "_Keyboard Shortcuts"
 msgstr "_Scurtis tastiere"
 
-#: data/ui/window.ui:15
+#: data/ui/headerbar.ui:12
 msgid "_Help"
 msgstr "_Jutori"
 
-#: data/ui/window.ui:19
+#: data/ui/headerbar.ui:16
 msgid "_About Clocks"
 msgstr "_Informazions su Orlois"
 
-#: data/ui/window.ui:66
-msgid "Clock"
-msgstr "Orloi"
+#: data/ui/headerbar.ui:158
+msgid "Back"
+msgstr "Indaûr"
+
+#: data/ui/headerbar.ui:195
+msgid "Menu"
+msgstr "Menù"
+
+#: data/ui/headerbar.ui:248
+msgid "Select"
+msgstr "Selezione"
+
+#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:224
+msgid "Start"
+msgstr "Tache"
+
+#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:216
+msgid "Reset"
+msgstr "Met a zero"
+
+#: data/ui/timer.ui:403 src/timer.vala:224 src/timer.vala:235
+msgid "Pause"
+msgstr "Pause"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -304,19 +314,19 @@ msgstr "_Zonte"
 msgid "Search for a city:"
 msgstr "Cîr une citât:"
 
-#: data/ui/world.ui:33
+#: data/ui/world.ui:34
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Selezione <b>Gnûf</b> par zontâ un orloi par une localitât tal mont"
 
-#: data/ui/world.ui:124
+#: data/ui/world.ui:126
 msgid "Sunrise"
 msgstr "Cricâ dal dì"
 
-#: data/ui/world.ui:138
+#: data/ui/world.ui:140
 msgid "Sunset"
 msgstr "Amont"
 
-#: src/alarm.vala:116 src/alarm.vala:416 src/alarm.vala:596
+#: src/alarm.vala:116 src/alarm.vala:416
 msgid "Alarm"
 msgstr "Svee"
 
@@ -324,37 +334,33 @@ msgstr "Svee"
 msgid "Edit Alarm"
 msgstr "Cambie svee"
 
-#: src/alarm.vala:350
+#. Translators: Tooltip for the + button
+#: src/alarm.vala:350 src/alarm.vala:593
 msgid "New Alarm"
 msgstr "Gnove svee"
-
-#. Translators: "New" refers to an alarm
-#: src/alarm.vala:626
-msgctxt "Alarm"
-msgid "New"
-msgstr "Gnûf"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Scrîf informazions di version e jes"
 
-#: src/stopwatch.vala:140
-msgid "Stopwatch"
-msgstr "Cronometri"
-
-#: src/stopwatch.vala:204
+#: src/stopwatch.vala:205
 msgid "Lap"
 msgstr "Gîr"
 
-#: src/stopwatch.vala:211 src/timer.vala:217
+#: src/stopwatch.vala:212 src/timer.vala:219
 msgid "Continue"
 msgstr "Continue"
 
-#: src/timer.vala:136
+#. Translators: Tooltip for the + button
+#: src/timer.vala:82
+msgid "New Timer"
+msgstr "Gnûf timer"
+
+#: src/timer.vala:138
 msgid "Time is up!"
 msgstr "Timp scjadût!"
 
-#: src/timer.vala:137
+#: src/timer.vala:139
 msgid "Timer countdown finished"
 msgstr "Conte par ledrôs finide"
 
@@ -398,35 +404,31 @@ msgstr "Dîs de vore"
 msgid "Weekends"
 msgstr "Dîs di fieste"
 
-#: src/widgets.vala:232 src/widgets.vala:247
+#: src/widgets.vala:194 src/widgets.vala:209
 msgid "Click on items to select them"
 msgstr "Fâs clic sui elements par selezionaju"
 
-#: src/widgets.vala:234
+#: src/widgets.vala:196
 #, c-format
 msgid "%u selected"
 msgid_plural "%u selected"
 msgstr[0] "%u selezionât"
 msgstr[1] "%u selezionâts"
 
-#: src/widgets.vala:333
+#: src/widgets.vala:284
 msgid "Delete"
 msgstr "Elimine"
 
-#: src/widgets.vala:477
-msgid "Cancel"
-msgstr "Anule"
-
-#: src/window.vala:250
+#: src/window.vala:262
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Impussibil mostrâ l'aiût: %s"
 
-#: src/window.vala:284
+#: src/window.vala:296
 msgid "Utilities to help you with the time."
 msgstr "Imprescj par controlâ la ore."
 
-#: src/window.vala:289
+#: src/window.vala:301
 msgid "translator-credits"
 msgstr "Fabio Tomat (f.t.public at gmail.com)"
 
@@ -442,15 +444,30 @@ msgstr "Doman"
 msgid "Yesterday"
 msgstr "Îr"
 
-#: src/world.vala:367
-msgid "World"
-msgstr "Mont"
+#. Translators: Tooltip for the + button
+#: src/world.vala:349
+msgid "Add Location"
+msgstr "Zonte lûc"
 
-#. Translators: "New" refers to a world clock
-#: src/world.vala:387
-msgctxt "World clock"
-msgid "New"
-msgstr "Gnûf"
+#~ msgid "Clock"
+#~ msgstr "Orloi"
+
+#~ msgctxt "Alarm"
+#~ msgid "New"
+#~ msgstr "Gnûf"
+
+#~ msgid "Stopwatch"
+#~ msgstr "Cronometri"
+
+#~ msgid "Cancel"
+#~ msgstr "Anule"
+
+#~ msgid "World"
+#~ msgstr "Mont"
+
+#~ msgctxt "World clock"
+#~ msgid "New"
+#~ msgstr "Gnûf"
 
 #~ msgid "@icon@"
 #~ msgstr "@icon@"
