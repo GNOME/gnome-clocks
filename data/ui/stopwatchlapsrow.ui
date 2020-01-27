@@ -15,10 +15,11 @@
           <object class="GtkLabel" id="duration_label">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="tooltip_text" translatable="yes">Time</property>
             <property name="halign">start</property>
             <property name="valign">center</property>
             <attributes>
-              <attribute name="font-features" value="tnum=1"/>
+              <attribute name="font-features"/>
             </attributes>
             <style>
               <class name="lap-time"/>
@@ -35,10 +36,11 @@
           <object class="GtkLabel" id="difference_label">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="tooltip_text" translatable="yes">Difference</property>
             <property name="halign">start</property>
             <property name="valign">center</property>
             <attributes>
-              <attribute name="font-features" value="tnum=1"/>
+              <attribute name="font-features"/>
             </attributes>
           </object>
           <packing>
