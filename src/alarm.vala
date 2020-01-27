@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2013  Paolo Borelli <pborelli@gnome.org>
+ * Copyright (C) 2020  Zander Brown <zbrown@gnome.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -518,6 +519,9 @@ public class DayPickerRow : Hdy.ActionRow {
     }
 }
 
+// Response used for the "Delete Alarm" button in the edit dialogue
+const int DELETE_ALARM = 2;
+
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarmsetupdialog.ui")]
 private class SetupDialog : Hdy.Dialog {
     private Utils.WallClock.Format format;
@@ -695,7 +699,7 @@ private class SetupDialog : Hdy.Dialog {
 
     [GtkCallback]
     private void delete () {
-        response (2);
+        response (DELETE_ALARM);
     }
 }
 
@@ -882,7 +886,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
             if (response == 1) {
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
                 save ();
-            } else if (response == 2) {
+            } else if (response == DELETE_ALARM) {
                 alarms.delete_item (alarm);
                 save ();
             }
