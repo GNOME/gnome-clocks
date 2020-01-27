@@ -230,49 +230,48 @@ spinbutton.clocks-timer-label button {
 
 /* Stopwatch */
 .large-button {
-  padding: 6px 32px;
+    padding: 6px 32px;
+}
+.lap-time {
+    font-weight: bold;
 }
 
-.lap-row label {
-  font-size: 16px;
-  font-weight: 400;
-}
 .negative-lap {
-  color: #ED333B;
+    color: #ED333B;
 }
 .positive-lap {
-  color:green;
+    color: #428be5;
 }
 .stopped-stopwatch label,
 .running-stopwatch label,
 .paused-stopwatch label {
-  font-size: 80px;
-  color: grey;
-  font-weight: 200;
+    font-size: 70px;
+    color: grey;
+    font-weight: 200;
 }
 
 .stopped-stopwatch .seconds-label {
-  font-weight: 300;
+    font-weight: 300;
 }
 
 .running-stopwatch .seconds-label,
 .running-stopwatch .miliseconds-label {
-	color: #428be5;
+    color: #428be5;
 }
 .stopped-stopwatch .miliseconds-label,
 .running-stopwatch .miliseconds-label,
 .paused-stopwatch .miliseconds-label {
-  font-size: 50px;
+    font-size: 50px;
 }
 .running-stopwatch .seconds-label,
 .paused-stopwatch .seconds-label {
-  font-weight: 500;
+    font-weight: 500;
 }
 
 .stopped-stopwatch .seconds-label,
 .stopped-stopwatch .miliseconds-label,
 .paused-stopwatch .seconds-label,
 .paused-stopwatch .miliseconds-label {
-color:black;
+    color: black;
 }
 
