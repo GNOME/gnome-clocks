@@ -25,9 +25,9 @@ private string render_duration (double duration) {
     int m;
     int s;
     double r;
-    Utils.time_to_hms (Math.floor(duration * 100) / 100, out h, out m, out s, out r);
+    Utils.time_to_hms (Math.floor (duration * 100) / 100, out h, out m, out s, out r);
     int cs = (int) (r * 10);
-    return "%02i\u200E∶%02i\u200E∶%02i.%i".printf (h.abs(), m.abs(), s.abs(), cs.abs());
+    return "%02i\u200E∶%02i\u200E∶%02i.%i".printf (h.abs (), m.abs (), s.abs (), cs.abs ());
 }
 
 public class Lap : GLib.Object {
@@ -64,9 +64,9 @@ private class LapsRow : Gtk.ListBoxRow {
 
             var difference = this.get_delta_duration ();
             if (difference > 0) {
-                difference_label.get_style_context().add_class ("negative-lap");
+                difference_label.get_style_context ().add_class ("negative-lap");
             } else if (difference < 0) {
-                difference_label.get_style_context().add_class ("positive-lap");
+                difference_label.get_style_context ().add_class ("positive-lap");
             }
         }
     }
@@ -155,7 +155,7 @@ public class Face : Gtk.Box, Clocks.Clock {
     construct {
         panel_id = STOPWATCH;
 
-        laps = new GLib.ListStore (typeof(Lap));
+        laps = new GLib.ListStore (typeof (Lap));
 
         timer = new GLib.Timer ();
         tick_id = 0;
@@ -226,15 +226,15 @@ public class Face : Gtk.Box, Clocks.Clock {
         state = State.RUNNING;
         add_tick ();
         start_btn.set_label (_("Pause"));
-        start_btn.get_style_context().remove_class ("suggested-action");
+        start_btn.get_style_context ().remove_class ("suggested-action");
 
         clear_btn.set_sensitive (true);
         clear_btn.set_label (_("Lap"));
-        clear_btn.get_style_context().remove_class ("destructive-action");
+        clear_btn.get_style_context ().remove_class ("destructive-action");
 
-        time_container.get_style_context().add_class ("running-stopwatch");
-        time_container.get_style_context().remove_class ("paused-stopwatch");
-        time_container.get_style_context().remove_class ("stopped-stopwatch");
+        time_container.get_style_context ().add_class ("running-stopwatch");
+        time_container.get_style_context ().remove_class ("paused-stopwatch");
+        time_container.get_style_context ().remove_class ("stopped-stopwatch");
     }
 
     private void stop () {
@@ -246,15 +246,15 @@ public class Face : Gtk.Box, Clocks.Clock {
         start_btn.get_style_context ().add_class ("suggested-action");
         clear_btn.set_sensitive (true);
         clear_btn.set_label (_("Clear"));
-        clear_btn.get_style_context().add_class ("destructive-action");
+        clear_btn.get_style_context ().add_class ("destructive-action");
 
-        time_container.get_style_context().add_class ("paused-stopwatch");
-        time_container.get_style_context().remove_class ("running-stopwatch");
-        time_container.get_style_context().remove_class ("stopped-stopwatch");
+        time_container.get_style_context ().add_class ("paused-stopwatch");
+        time_container.get_style_context ().remove_class ("running-stopwatch");
+        time_container.get_style_context ().remove_class ("stopped-stopwatch");
     }
 
     private void reset () {
-        laps_revealer.set_reveal_child(false);
+        laps_revealer.set_reveal_child (false);
 
         timer.reset ();
         state = State.RESET;
@@ -263,21 +263,21 @@ public class Face : Gtk.Box, Clocks.Clock {
         current_lap = 0;
 
         start_btn.set_label (_("Start"));
-        start_btn.get_style_context().add_class ("suggested-action");
+        start_btn.get_style_context ().add_class ("suggested-action");
 
         clear_btn.set_sensitive (false);
         clear_btn.set_label (_("Lap"));
-        clear_btn.get_style_context().remove_class ("destructive-action");
+        clear_btn.get_style_context ().remove_class ("destructive-action");
 
-        time_container.get_style_context().add_class ("stopped-stopwatch");
-        time_container.get_style_context().remove_class ("paused-stopwatch");
-        time_container.get_style_context().remove_class ("running-stopwatch");
+        time_container.get_style_context ().add_class ("stopped-stopwatch");
+        time_container.get_style_context ().remove_class ("paused-stopwatch");
+        time_container.get_style_context ().remove_class ("running-stopwatch");
         laps.remove_all ();
     }
 
     private double total_laps_duration () {
         double total = 0;
-        for(var i=0; i < laps.get_n_items (); i++) {
+        for (var i = 0; i < laps.get_n_items (); i++) {
             var lap = (Lap) laps.get_item (i);
             total += lap.duration;
         }
