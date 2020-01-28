@@ -14,10 +14,9 @@
         <property name="valign">center</property>
         <property name="margin_left">12</property>
         <property name="margin_right">12</property>
-        <property name="margin_top">6</property>
-        <property name="margin_bottom">6</property>
+        <property name="margin_top">12</property>
+        <property name="margin_bottom">12</property>
         <property name="hexpand">True</property>
-        <property name="row_spacing">6</property>
         <property name="column_spacing">12</property>
         <child>
           <object class="GtkSwitch" id="toggle">
@@ -28,76 +27,8 @@
           </object>
           <packing>
             <property name="left_attach">1</property>
-            <property name="top_attach">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkRevealer" id="title_reveal">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="transition_type">slide-up</property>
-            <child>
-              <object class="GtkLabel" id="title">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="hexpand">True</property>
-                <property name="label">Name</property>
-                <property name="ellipsize">end</property>
-                <property name="xalign">0</property>
-                <attributes>
-                  <attribute name="font-features" value="tnum=1"/>
-                </attributes>
-                <style>
-                  <class name="alarm-name"/>
-                </style>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="left_attach">0</property>
             <property name="top_attach">0</property>
-            <property name="width">2</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="time">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="hexpand">True</property>
-            <property name="label">12:34</property>
-            <property name="xalign">0</property>
-            <style>
-              <class name="alarm-time"/>
-            </style>
-          </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkRevealer" id="repeats_reveal">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <child>
-              <object class="GtkLabel" id="repeats">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="hexpand">True</property>
-                <property name="tooltip_text" translatable="yes">Repeats</property>
-                <property name="ellipsize">end</property>
-                <property name="xalign">0</property>
-                <style>
-                  <class name="dim-label"/>
-                  <class name="alarm-repeate"/>
-                </style>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">2</property>
-            <property name="width">2</property>
+            <property name="height">3</property>
           </packing>
         </child>
         <child>
@@ -134,7 +65,8 @@
           </object>
           <packing>
             <property name="left_attach">3</property>
-            <property name="top_attach">1</property>
+            <property name="top_attach">0</property>
+            <property name="height">3</property>
           </packing>
         </child>
         <child>
@@ -159,20 +91,76 @@
           </object>
           <packing>
             <property name="left_attach">4</property>
+            <property name="top_attach">0</property>
+            <property name="height">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRevealer" id="repeats_reveal">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="repeats">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Repeats</property>
+                <property name="hexpand">True</property>
+                <property name="ellipsize">end</property>
+                <property name="xalign">0</property>
+                <style>
+                  <class name="dim-label"/>
+                  <class name="alarm-repeat"/>
+                </style>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="time">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="hexpand">True</property>
+            <property name="label">12:34</property>
+            <property name="xalign">0</property>
+            <style>
+              <class name="alarm-time"/>
+            </style>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
             <property name="top_attach">1</property>
           </packing>
         </child>
         <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
+          <object class="GtkRevealer" id="title_reveal">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="transition_type">slide-up</property>
+            <child>
+              <object class="GtkLabel" id="title">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="hexpand">True</property>
+                <property name="label">Name</property>
+                <property name="ellipsize">end</property>
+                <property name="xalign">0</property>
+                <attributes>
+                  <attribute name="font-features" value="tnum=1"/>
+                </attributes>
+                <style>
+                  <class name="alarm-name"/>
+                </style>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">0</property>
+          </packing>
         </child>
       </object>
     </child>
