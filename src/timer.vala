@@ -518,22 +518,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     public override void grab_focus () {
-        /*if (visible_child == setup_frame) {
+        if (timers.get_n_items () == 0) {
             start_button.grab_focus ();
         }
-        */
-    }
-
-    public bool escape_pressed () {
-        /*if (state == State.STOPPED) {
-            return false;
-        }
-
-        reset ();
-
-        return true;
-        */
-       return false;
     }
 }
 
