@@ -307,7 +307,7 @@ public class Row : Gtk.ListBoxRow {
         name_stack.visible_child_name = "edit";
     }
 
-    private void start () {
+    public void start () {
         update_name_label ();
         countdown_label.get_style_context ().add_class ("timer-running");
         countdown_label.get_style_context ().remove_class ("timer-ringing");
@@ -383,7 +383,21 @@ public class Row : Gtk.ListBoxRow {
         if (item.name != null && item.name != "") {
             timer_name.label = item.name;
         } else {
-            timer_name.label = _("%i minutes timer".printf (item.minutes));
+            if (item.seconds != 0 && item.minutes == 0 && item.hours == 0) {
+                timer_name.label = _("%i second timer".printf (item.minutes));
+            } else if (item.seconds == 0 && item.minutes != 0 && item.hours == 0) {
+                timer_name.label = _("%i minute timer".printf (item.minutes));
+            } else if (item.seconds == 0 && item.minutes == 0 && item.hours != 0) {
+                timer_name.label = _("%i hour timer".printf (item.minutes));
+            } else if (item.seconds != 0 && item.minutes != 0 && item.hours == 0) {
+                timer_name.label = _("%i minute %i second timer".printf (item.minutes, item.seconds));
+            } else if (item.seconds == 0 && item.minutes != 0 && item.hours != 0) {
+                timer_name.label = _("%i hour %i minute timer".printf (item.hours, item.minutes));
+            } else if (item.seconds != 0 && item.minutes == 0 && item.hours != 0) {
+                timer_name.label = _("%i hour %i second timer".printf (item.hours, item.seconds));
+            }  else if (item.seconds != 0 && item.minutes != 0 && item.hours != 0) {
+                timer_name.label = _("%i hour %i minute %i second timer".printf (item.hours, item.minutes, item.seconds));
+            }
         }
     }
 }
@@ -434,10 +448,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
             row.deleted.connect (() => remove_timer ((Item) timer));
             row.edited.connect (() => save ());
             row.ringing.connect (() => ring ());
+
             return row;
         });
 
-        timers.items_changed.connect (() => {
+        timers.items_changed.connect ( (added, removed, position) => {
             if (this.timers.get_n_items () > 0) {
                 this.visible_child_name = "timers";
                 this.button_mode = NEW;
@@ -476,7 +491,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         dialog.response.connect ((dialog, response) => {
             if (response == Gtk.ResponseType.ACCEPT) {
                 var timer = ((SetupDialog) dialog).timer_setup.get_timer ();
-                timers.add (timer);
+                add_timer (timer);
             }
             dialog.destroy ();
         });
