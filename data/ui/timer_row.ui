@@ -32,7 +32,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkStack">
+          <object class="GtkStack" id="name_stack">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
@@ -44,7 +44,7 @@
                 <property name="placeholder_text" translatable="yes">Title...</property>
               </object>
               <packing>
-                <property name="name">page0</property>
+                <property name="name">edit</property>
               </packing>
             </child>
             <child>
@@ -57,7 +57,7 @@
                 </style>
               </object>
               <packing>
-                <property name="name">page1</property>
+                <property name="name">display</property>
                 <property name="position">1</property>
               </packing>
             </child>

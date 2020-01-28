@@ -85,10 +85,6 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         return position;
     }
 
-    public void insert (uint position, ContentItem item) {
-        store.insert (position, item);
-    }
-
     public void remove (ContentItem item) {
         var index = get_index (item);
         if (index != -1) {

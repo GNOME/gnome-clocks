@@ -246,9 +246,7 @@ public class Row : Gtk.ListBoxRow {
     private Gtk.Stack start_stack;
 
     [GtkChild]
-    private Gtk.Label name_label;
-    [GtkChild]
-    private Gtk.Entry name_entry;
+    private Gtk.Label timer_name;
 
     [GtkChild]
     private Gtk.Stack name_stack;
@@ -391,9 +389,9 @@ public class Row : Gtk.ListBoxRow {
 
     private void update_name_label () {
         if (item.name != null && item.name != "") {
-            name_label.label = item.name;
+            timer_name.label = item.name;
         } else {
-            name_label.label = _("%i minutes timer".printf(item.duration.minutes));
+            timer_name.label = _("%i minutes timer".printf(item.duration.minutes));
         }
     }
 
@@ -487,21 +485,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
         load ();
     }
 
-    private void update_timer (Item item) {
-        /*
-        var current_position = timers.get_index (item);
-        if (current_position != -1) {
-            Item? timer_item = (Item) timers.get_item (current_position);
-
-            timer_item.name = item.name;
-            save ();
-        }*/
-    }
-
     private void remove_timer (Item item) {
         timers.remove (item);
     }
-
 
     public void activate_new () {
         var dialog = new NewTimerDialog ((Gtk.Window) get_toplevel ());
