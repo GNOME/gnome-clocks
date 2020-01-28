@@ -19,6 +19,34 @@
 namespace Clocks {
 namespace Timer {
 
+public class Duration: Object {
+    public int hours { get; set; default = 0; }
+    public int minutes { get; set; default = 0; }
+    public int seconds { get; set; default = 0; }
+
+    public Duration.from_seconds (int s) {
+        int rest = 0;
+        hours = s / 3600;
+        rest = s - hours * 3600;
+        minutes = rest / 60;
+        seconds = rest - minutes * 60;
+
+    }
+
+
+    public Duration (int h, int m, int s) {
+        hours = h;
+        minutes = m;
+        seconds = s;
+    }
+
+    public int get_total_seconds () {
+        return hours * 3600 + minutes * 60 + seconds;
+    }
+
+
+}
+
 public class Item : Object, ContentItem {
     public bool selectable { get; set; default = false; }
     public bool selected { get; set; default = false; }
@@ -32,33 +60,12 @@ public class Item : Object, ContentItem {
         }
     }
 
-    public int hours {
-        get {
-            return timer.hour;
-        }
-    }
-    public int minutes {
-        get {
-            return timer.minute;
-        }
-    }
-
-    public int seconds {
-        get {
-            return timer.second;
-        }
-    }
-
-    public int in_seconds() {
-        return timer.second + timer.minute * 60 + timer.hour * 3600;
-    }
-
     private string _name;
-    public GLib.Time timer { get; set; }
+    public Duration duration { get; set; }
 
     public void serialize (GLib.VariantBuilder builder) {
         builder.open (new GLib.VariantType ("a{sv}"));
-        builder.add ("{sv}", "time", new GLib.Variant.int32(in_seconds()));
+        builder.add ("{sv}", "duration", new GLib.Variant.int32(duration.get_total_seconds ()));
         if (name != null) {
             builder.add ("{sv}", "name", new GLib.Variant.string(name));
         }
@@ -66,26 +73,26 @@ public class Item : Object, ContentItem {
     }
 
     public static Item? deserialize (GLib.Variant time_variant) {
-        GLib.Time? time = null;
+        Duration? duration = null;
         string? name = null;
 
         foreach (var v in time_variant) {
             var key = v.get_child_value (0).get_string ();
             switch (key) {
-                case "time":
-                    time = GLib.Time.gm(v.get_child_value (1).get_child_value (0).get_int32());
+                case "duration":
+                    duration = new Duration.from_seconds(v.get_child_value (1).get_child_value (0).get_int32());
                     break;
                 case "name":
                     name = v.get_child_value (1).get_child_value (0).get_string();
                     break;
             }
         }
-        return time != null ? new Item (time, name) : null;
+        return duration != null ? new Item (duration, name) : null;
     }
 
-    public Item (GLib.Time timer, string? name) {
+    public Item (Duration duration, string? name) {
         Object (name: name);
-        this.timer = timer;
+        this.duration = duration;
     }
 }
 
@@ -163,10 +170,10 @@ public class Setup : Gtk.Box {
         var h = this.h_spinbutton.get_value();
         var m = this.m_spinbutton.get_value();
         var s = this.s_spinbutton.get_value();
-        time_t total_seconds = (time_t)(h * 3600 + m * 60 + s);
+        int total_seconds = (int)(h * 3600 + m * 60 + s);
 
-        var time = GLib.Time.gm(total_seconds);
-        return (new Item (time, ""));
+        var duration = new Duration.from_seconds(total_seconds);
+        return (new Item (duration, ""));
     }
 
 
@@ -274,6 +281,11 @@ public class Row : Gtk.Box {
                 timeout_id = 0;
             }
         });
+
+        hours_label.label = "%02i".printf(item.duration.hours);
+        minutes_label.label = "%02i".printf(item.duration.minutes);
+        seconds_label.label = "%02i".printf(item.duration.seconds);
+
         reset ();
     }
 
@@ -314,7 +326,7 @@ public class Row : Gtk.Box {
         s_spinbutton.value = item.seconds;
         */
         countdown_container.get_style_context ().remove_class ("timer-paused");
-        start_button.set_sensitive (item.in_seconds() > 0);
+        start_button.set_sensitive (item.duration.get_total_seconds() > 0);
         // timer_stack.visible_child = setup_frame;
         start_stack.visible_child_name = "start";
     }
@@ -378,9 +390,9 @@ public class Row : Gtk.Box {
     }
 
     private void update_countdown_label (int h, int m, int s) {
-        hours_label.set_text ("%i02".printf(h));
-        minutes_label.set_text ("%i02".printf(m));
-        seconds_label.set_text ("%i02".printf(s));
+        hours_label.set_text ("%02i".printf(h));
+        minutes_label.set_text ("%02i".printf(m));
+        seconds_label.set_text ("%02i".printf(s));
     }
 
     public override void grab_focus () {
