@@ -216,6 +216,7 @@ public class Setup : Gtk.Box {
 [GtkTemplate (ui = "/org/gnome/clocks/ui/timer_row.ui")]
 public class Row : Gtk.Box {
     public signal void deleted (Item item);
+    public signal void updated (Item item);
     public enum State {
         STOPPED,
         RUNNING,
@@ -234,6 +235,14 @@ public class Row : Gtk.Box {
     private Gtk.Stack start_stack;
 
     [GtkChild]
+    private Gtk.Label name_label;
+    [GtkChild]
+    private Gtk.Entry name_entry;
+
+    [GtkChild]
+    private Gtk.Stack name_stack;
+
+    [GtkChild]
     private Gtk.Button reset_button;
     [GtkChild]
     private Gtk.Button delete_button;
@@ -244,16 +253,20 @@ public class Row : Gtk.Box {
         timer = new GLib.Timer ();
 
         timeout_id = 0;
-        destroy.connect(() => {
+        destroy.connect (() => {
             if (timeout_id != 0) {
                 GLib.Source.remove(timeout_id);
                 timeout_id = 0;
             }
         });
-        delete_button.clicked.connect(() => {
+        delete_button.clicked.connect (() => {
             this.deleted (this.item);
         });
-
+        name_entry.bind_property ("text", item, "name", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        name_entry.key_release_event.connect (() => {
+            this.updated (this.item);
+            return true;
+        });
         reset ();
     }
 
@@ -286,6 +299,7 @@ public class Row : Gtk.Box {
     }
 
     private void reset () {
+        update_name_label ();
         state = State.STOPPED;
         span = item.duration.get_total_seconds ();
 
@@ -298,9 +312,11 @@ public class Row : Gtk.Box {
         countdown_label.get_style_context ().add_class ("timer-paused");
         countdown_label.get_style_context ().remove_class ("timer-running");
         start_stack.visible_child_name = "start";
+        name_stack.visible_child_name = "edit";
     }
 
     private void start () {
+        update_name_label ();
         countdown_label.get_style_context ().add_class ("timer-running");
         countdown_label.get_style_context ().remove_class ("timer-paused");
 
@@ -308,6 +324,7 @@ public class Row : Gtk.Box {
         delete_button.hide ();
 
         start_stack.visible_child_name = "pause";
+        name_stack.visible_child_name = "display";
         state = State.RUNNING;
         timer.start ();
         timeout_id = GLib.Timeout.add(40, () => {
@@ -338,6 +355,7 @@ public class Row : Gtk.Box {
         timer.stop ();
         span -= timer.elapsed ();
         start_stack.visible_child_name = "start";
+        name_stack.visible_child_name = "display";
     }
 
     private void update_countdown (double elapsed) {
@@ -357,6 +375,14 @@ public class Row : Gtk.Box {
 
     private void update_countdown_label (int h, int m, int s) {
         countdown_label.set_text ("%02i:%02i:%02i".printf(h, m, s));
+    }
+
+    private void update_name_label () {
+        if (item.name != null && item.name != "") {
+            name_label.label = item.name;
+        } else {
+            name_label.label = _("%i minutes timer".printf(item.duration.minutes));
+        }
     }
 
     public override void grab_focus () {
@@ -415,9 +441,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
         timers_list.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
         timers_list.bind_model (timers, (timer) => {
             var timer_row = new Row ((Item)timer);
-            timer_row.deleted.connect((item) => {
-               this.remove_timer(item);
-            });
+            timer_row.deleted.connect ((item) => this.remove_timer (item));
+            timer_row.updated.connect ((item) => this.update_timer (item));
             return timer_row;
         });
 
@@ -448,6 +473,17 @@ public class Face : Gtk.Stack, Clocks.Clock {
             this.add_timer(timer);
         });
         load ();
+    }
+
+    private void update_timer (Item item) {
+        /*
+        var current_position = timers.get_index (item);
+        if (current_position != -1) {
+            Item? timer_item = (Item) timers.get_item (current_position);
+
+            timer_item.name = item.name;
+            save ();
+        }*/
     }
 
     private void remove_timer (Item item) {

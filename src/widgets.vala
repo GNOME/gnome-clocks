@@ -72,15 +72,27 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         item.notify["selected"].connect (on_item_selection_toggle);
     }
 
-    public void remove (ContentItem item) {
-
+    public int get_index (ContentItem item) {
+        int position = -1;
         var n = store.get_n_items ();
         for (int i = 0; i < n; i++) {
             var compared_item = (ContentItem) store.get_object (i);
             if (compared_item == item) {
-                store.remove (i);
+                position = i;
                 break;
             }
+        }
+        return position;
+    }
+
+    public void insert (uint position, ContentItem item) {
+        store.insert (position, item);
+    }
+
+    public void remove (ContentItem item) {
+        var index = get_index (item);
+        if (index != -1) {
+            store.remove (index);
         }
     }
 

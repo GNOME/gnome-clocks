@@ -9,7 +9,7 @@
     <property name="margin_top">12</property>
     <property name="margin_bottom">12</property>
     <property name="orientation">vertical</property>
-    <property name="spacing">18</property>
+    <property name="spacing">6</property>
     <child>
       <object class="GtkLabel" id="countdown_label">
         <property name="visible">True</property>
@@ -29,11 +29,11 @@
       </packing>
     </child>
     <child>
-      <object class="GtkStack">
+      <object class="GtkStack" id="name_stack">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <child>
-          <object class="GtkEntry">
+          <object class="GtkEntry" id="name_entry">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="halign">center</property>
@@ -41,12 +41,11 @@
             <property name="placeholder_text" translatable="yes">Title...</property>
           </object>
           <packing>
-            <property name="name">page0</property>
-            <property name="title" translatable="yes">page0</property>
+            <property name="name">edit</property>
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="timer_name">
+          <object class="GtkLabel" id="name_label">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="halign">center</property>
@@ -55,8 +54,7 @@
             </style>
           </object>
           <packing>
-            <property name="name">page1</property>
-            <property name="title" translatable="yes">page1</property>
+            <property name="name">display</property>
             <property name="position">1</property>
           </packing>
         </child>
