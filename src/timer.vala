@@ -107,23 +107,6 @@ public class NewTimerDialog: Hdy.Dialog {
 [GtkTemplate (ui = "/org/gnome/clocks/ui/timer_setup.ui")]
 public class Setup : Gtk.Box {
     public signal void duration_changed (Duration duration);
-
-    [GtkChild]
-    private Gtk.Button predefined_1m;
-    [GtkChild]
-    private Gtk.Button predefined_2m;
-    [GtkChild]
-    private Gtk.Button predefined_3m;
-    [GtkChild]
-    private Gtk.Button predefined_5m;
-    [GtkChild]
-    private Gtk.Button predefined_15m;
-    [GtkChild]
-    private Gtk.Button predefined_30m;
-    [GtkChild]
-    private Gtk.Button predefined_45m;
-    [GtkChild]
-    private Gtk.Button predefined_1h;
     [GtkChild]
     private Gtk.SpinButton h_spinbutton;
     [GtkChild]
@@ -132,14 +115,19 @@ public class Setup : Gtk.Box {
     private Gtk.SpinButton s_spinbutton;
 
     public Setup() {
-        predefined_1m.clicked.connect(() => this.update_timer(0, 1, 0));
-        predefined_2m.clicked.connect(() => this.update_timer(0, 2, 0));
-        predefined_3m.clicked.connect(() => this.update_timer(0, 3, 0));
-        predefined_5m.clicked.connect(() => this.update_timer(0, 5, 0));
-        predefined_15m.clicked.connect(() => this.update_timer(0, 15, 0));
-        predefined_30m.clicked.connect(() => this.update_timer(0, 30, 0));
-        predefined_45m.clicked.connect(() => this.update_timer(0, 45, 0));
-        predefined_1h.clicked.connect(() => this.update_timer(1, 0, 0));
+        var actions = new SimpleActionGroup ();
+        // The duration here represends a number of minutes
+        var duration_type = new GLib.VariantType ("i");
+        var set_duration_action = new SimpleAction ("set-duration", duration_type);
+        set_duration_action.activate.connect ((action, param) => {
+            var total_minutes = param.get_int32();
+            var hours = total_minutes / 60;
+            var minutes = total_minutes - hours * 60;
+            this.h_spinbutton.set_value(hours);
+            this.m_spinbutton.set_value(minutes);
+        });
+        actions.add_action (set_duration_action);
+        insert_action_group ("timer-setup", actions);
 
     }
 
@@ -154,12 +142,6 @@ public class Setup : Gtk.Box {
 
     public Item get_timer() {
         return (new Item (get_duration (), ""));
-    }
-
-    private void update_timer(int h, int m, int s) {
-        this.h_spinbutton.set_value(h);
-        this.m_spinbutton.set_value(m);
-        this.s_spinbutton.set_value(s);
     }
 
     [GtkCallback]
@@ -214,7 +196,6 @@ public class Setup : Gtk.Box {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/timer_row.ui")]
 public class Row : Gtk.ListBoxRow {
-    public signal void ringing ();
     public enum State {
         STOPPED,
         RUNNING,
@@ -265,12 +246,12 @@ public class Row : Gtk.ListBoxRow {
     private Gtk.Button pause_button;
     [GtkChild]
     private Gtk.Button start_button;
-
     [GtkChild]
     private Gtk.Entry title;
 
     public signal void deleted ();
     public signal void edited ();
+    public signal void ringing ();
 
 
     public Row (Item item) {
@@ -420,17 +401,6 @@ public class Row : Gtk.ListBoxRow {
             timer_name.label = _("%i minutes timer".printf(item.duration.minutes));
         }
     }
-
-    public override void grab_focus () {
-        /*if (timer_stack.visible_child == setup_frame) {
-            start_button.grab_focus ();
-        }*/
-    }
-
-    public bool escape_pressed () {
-
-        return true;
-    }
 }
 
 
@@ -546,7 +516,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
         app.send_notification ("timer-is-up", notification);
         bell.ring_once ();
     }
-
 
     public override void grab_focus () {
         /*if (visible_child == setup_frame) {
