@@ -242,8 +242,6 @@ public class Row : Gtk.ListBoxRow {
     private uint timeout_id;
     [GtkChild]
     private Gtk.Label countdown_label;
-    [GtkChild]
-    private Gtk.Stack start_stack;
 
     [GtkChild]
     private Gtk.Label timer_name;
@@ -252,9 +250,20 @@ public class Row : Gtk.ListBoxRow {
     private Gtk.Stack name_stack;
 
     [GtkChild]
+    private Gtk.Stack start_stack;
+    [GtkChild]
+    private Gtk.Stack reset_stack;
+    [GtkChild]
+    private Gtk.Stack delete_stack;
+
+    [GtkChild]
     private Gtk.Button reset_button;
     [GtkChild]
     private Gtk.Button delete_button;
+    [GtkChild]
+    private Gtk.Button pause_button;
+    [GtkChild]
+    private Gtk.Button start_button;
 
     [GtkChild]
     private Gtk.Entry title;
@@ -276,6 +285,11 @@ public class Row : Gtk.ListBoxRow {
             }
         });
         delete_button.clicked.connect (() => deleted ());
+        // Not sure why I keep getting the flat class locally.
+        reset_button.get_style_context ().remove_class ("flat");
+        delete_button.get_style_context ().remove_class ("flat");
+        start_button.get_style_context ().remove_class ("flat");
+        pause_button.get_style_context ().remove_class ("flat");
 
         reset ();
     }
@@ -315,8 +329,8 @@ public class Row : Gtk.ListBoxRow {
 
         update_countdown_label (item.duration.hours, item.duration.minutes, item.duration.seconds);
 
-        reset_button.hide ();
-        delete_button.show ();
+        reset_stack.visible_child_name = "empty";
+        delete_stack.visible_child_name = "button";
 
         timer.reset ();
         countdown_label.get_style_context ().add_class ("timer-paused");
@@ -330,8 +344,8 @@ public class Row : Gtk.ListBoxRow {
         countdown_label.get_style_context ().add_class ("timer-running");
         countdown_label.get_style_context ().remove_class ("timer-paused");
 
-        reset_button.hide ();
-        delete_button.hide ();
+        reset_stack.visible_child_name = "empty";
+        delete_stack.visible_child_name = "empty";
 
         start_stack.visible_child_name = "pause";
         name_stack.visible_child_name = "display";
@@ -358,8 +372,8 @@ public class Row : Gtk.ListBoxRow {
         countdown_label.get_style_context ().add_class ("timer-paused");
         countdown_label.get_style_context ().remove_class ("timer-running");
 
-        reset_button.show ();
-        delete_button.show ();
+        reset_stack.visible_child_name = "button";
+        delete_stack.visible_child_name = "button";
 
         state = State.PAUSED;
         timer.stop ();
