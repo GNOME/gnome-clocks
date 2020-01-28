@@ -80,7 +80,7 @@ public class Info : Object {
     }
 
     private double get_distance (double latitude1, double longitude1, double latitude2, double longitude2) {
-        const double earth_radius = 6372.795d;
+        const double EARTH_RADIUS = 6372.795d;
 
         double lat1 = deg_to_rad (latitude1);
         double lat2 = deg_to_rad (latitude2);
@@ -88,7 +88,7 @@ public class Info : Object {
         double lon2 = deg_to_rad (longitude2);
 
         return Math.acos (Math.cos (lat1) * Math.cos (lat2) * Math.cos (lon1 - lon2) +
-                          Math.sin (lat1) * Math.sin (lat2)) * earth_radius;
+                          Math.sin (lat1) * Math.sin (lat2)) * EARTH_RADIUS;
     }
 
     private async void search_locations (GWeather.Location location) {
@@ -128,8 +128,8 @@ public class Info : Object {
             string? country_code = location.get_country ();
             string? found_country_code = found_location.get_country ();
             if (country_code != null && country_code == found_country_code) {
-                GWeather.Timezone? timezone = location.get_timezone();
-                GWeather.Timezone? found_timezone = found_location.get_timezone();
+                GWeather.Timezone? timezone = location.get_timezone ();
+                GWeather.Timezone? found_timezone = found_location.get_timezone ();
 
                 if (timezone != null && found_timezone != null) {
                     string? tzid = timezone.get_tzid ();

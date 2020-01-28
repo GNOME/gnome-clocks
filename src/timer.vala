@@ -53,10 +53,10 @@ public class CountdownFrame : AnalogFrame {
 
         var color = context.get_color (context.get_state ());
 
-        cr.arc (center_x, center_y, radius - LINE_WIDTH / 2, 1.5  * Math.PI, (1.5 + (1 - progress) * 2 ) * Math.PI);
+        cr.arc (center_x, center_y, radius - LINE_WIDTH / 2, 1.5 * Math.PI, (1.5 + (1 - progress) * 2 ) * Math.PI);
         Gdk.cairo_set_source_rgba (cr, color);
         cr.set_line_width (LINE_WIDTH);
-        cr.set_line_cap  (Cairo.LineCap.ROUND);
+        cr.set_line_cap (Cairo.LineCap.ROUND);
         cr.stroke ();
 
         context.restore ();
@@ -127,9 +127,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
         timer = new GLib.Timer ();
 
         timeout_id = 0;
-        destroy.connect(() => {
+        destroy.connect (() => {
             if (timeout_id != 0) {
-                GLib.Source.remove(timeout_id);
+                GLib.Source.remove (timeout_id);
                 timeout_id = 0;
             }
         });
@@ -153,7 +153,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     [GtkCallback]
     private bool show_leading_zeros (Gtk.SpinButton spin_button) {
-        spin_button.set_text ("%02i".printf(spin_button.get_value_as_int ()));
+        spin_button.set_text ("%02i".printf (spin_button.get_value_as_int ()));
         return true;
     }
 
@@ -222,7 +222,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         case State.PAUSED:
             start ();
             left_button.set_label (_("Pause"));
-            left_button.get_style_context ().remove_class("suggested-action");
+            left_button.get_style_context ().remove_class ("suggested-action");
             break;
         default:
             assert_not_reached ();
@@ -242,7 +242,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         h_spinbutton.value = (int) span / 3600;
         m_spinbutton.value = (int) span % 3600 / 60;
         s_spinbutton.value = span % 60;
-        left_button.get_style_context ().remove_class("clocks-go");
+        left_button.get_style_context ().remove_class ("clocks-go");
         countdown_frame.get_style_context ().remove_class ("clocks-paused");
         start_button.set_sensitive (span > 0);
         countdown_frame.reset ();
@@ -267,8 +267,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         state = State.RUNNING;
         timer.start ();
-        timeout_id = GLib.Timeout.add(40, () => {
-	    if (state != State.RUNNING) {
+        timeout_id = GLib.Timeout.add (40, () => {
+            if (state != State.RUNNING) {
                 timeout_id = 0;
                 return false;
             }

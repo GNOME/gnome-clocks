@@ -1,4 +1,8 @@
 include: 'https://gitlab.gnome.org/GNOME/citemplates/raw/master/flatpak/flatpak_ci_initiative.yml'
+stages:
+  - lint
+  - test
+  - deploy
 
 variables:
     BUNDLE: "gnome-clocks-dev.flatpak"
@@ -24,3 +28,9 @@ stop_review:
 nightly:
   extends: '.publish_nightly'
 
+
+lint:
+  image: valalang/lint:latest
+  stage: .pre
+  script:
+    - io.elementary.vala-lint src

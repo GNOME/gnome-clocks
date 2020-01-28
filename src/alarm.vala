@@ -145,7 +145,7 @@ private class Item : Object, ContentItem {
         } else {
             // Alarm with at least one day set.
             // Find the next possible day for ringing
-            while (dt.compare (now) <= 0 || ! days.get ((Utils.Weekdays.Day) (dt.get_day_of_week () -1))) {
+            while (dt.compare (now) <= 0 || ! days.get ((Utils.Weekdays.Day) (dt.get_day_of_week () - 1))) {
                 dt = dt.add_days (1);
             }
         }
@@ -382,7 +382,7 @@ private class SetupDialog : Gtk.Dialog {
             day_buttons_box.pack_start (day_buttons[day_number]);
         }
 
-        format  = Utils.WallClock.get_default ().format;
+        format = Utils.WallClock.get_default ().format;
         am_pm_button = new AmPmToggleButton ();
         am_pm_button.clicked.connect (() => {
             avoid_duplicate_alarm ();
