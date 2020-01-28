@@ -228,6 +228,7 @@ public class Setup : Gtk.Box {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/timer_row.ui")]
 public class Row : Gtk.Box {
+    public signal void deleted (Item item);
     public enum State {
         STOPPED,
         RUNNING,
@@ -268,6 +269,9 @@ public class Row : Gtk.Box {
                 GLib.Source.remove(timeout_id);
                 timeout_id = 0;
             }
+        });
+        delete_button.clicked.connect(() => {
+            this.deleted (this.item);
         });
 
         reset ();
@@ -435,6 +439,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
         timers_list.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
         timers_list.bind_model (timers, (timer) => {
             var timer_row = new Row ((Item)timer);
+            timer_row.deleted.connect((item) => {
+               this.remove_timer(item);
+            });
             return timer_row;
         });
 
@@ -462,6 +469,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
             this.add_timer(timer);
         });
         load ();
+    }
+
+    private void remove_timer (Item item) {
+        timers.remove (item);
+        save ();
     }
 
 
