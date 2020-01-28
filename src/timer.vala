@@ -214,6 +214,7 @@ public class Setup : Gtk.Box {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/timer_row.ui")]
 public class Row : Gtk.ListBoxRow {
+    public signal void ringing ();
     public enum State {
         STOPPED,
         RUNNING,
@@ -334,6 +335,7 @@ public class Row : Gtk.ListBoxRow {
 
         timer.reset ();
         countdown_label.get_style_context ().add_class ("timer-paused");
+        countdown_label.get_style_context ().remove_class ("timer-ringing");
         countdown_label.get_style_context ().remove_class ("timer-running");
         start_stack.visible_child_name = "start";
         name_stack.visible_child_name = "edit";
@@ -342,6 +344,7 @@ public class Row : Gtk.ListBoxRow {
     private void start () {
         update_name_label ();
         countdown_label.get_style_context ().add_class ("timer-running");
+        countdown_label.get_style_context ().remove_class ("timer-ringing");
         countdown_label.get_style_context ().remove_class ("timer-paused");
 
         reset_stack.visible_child_name = "empty";
@@ -359,7 +362,7 @@ public class Row : Gtk.ListBoxRow {
             var e = timer.elapsed ();
             if (e >= span) {
                 reset ();
-                // ring ();
+                ring ();
                 timeout_id = 0;
                 return false;
             }
@@ -368,8 +371,17 @@ public class Row : Gtk.ListBoxRow {
         });
     }
 
+    private void ring () {
+        countdown_label.get_style_context ().add_class ("timer-ringing");
+        countdown_label.get_style_context ().remove_class ("timer-paused");
+        countdown_label.get_style_context ().remove_class ("timer-running");
+
+        ringing ();
+    }
+
     private void pause () {
         countdown_label.get_style_context ().add_class ("timer-paused");
+        countdown_label.get_style_context ().remove_class ("timer-ringing");
         countdown_label.get_style_context ().remove_class ("timer-running");
 
         reset_stack.visible_child_name = "button";
@@ -466,6 +478,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
             var row = new Row ((Item) timer);
             row.deleted.connect (() => remove_timer ((Item) timer));
             row.edited.connect (() => save ());
+            row.ringing.connect (() => ring ());
             return row;
         });
 
