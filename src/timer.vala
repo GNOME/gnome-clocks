@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2013  Paolo Borelli <pborelli@gnome.org>
- *
+ * Copyright (C) 2020  Bilal Elmoussaoui <bilal.elmoussaoui@gnome.org>
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -30,9 +30,7 @@ public class Duration: Object {
         rest = s - hours * 3600;
         minutes = rest / 60;
         seconds = rest - minutes * 60;
-
     }
-
 
     public Duration (int h, int m, int s) {
         hours = h;
@@ -43,24 +41,14 @@ public class Duration: Object {
     public int get_total_seconds () {
         return hours * 3600 + minutes * 60 + seconds;
     }
-
-
 }
+
 
 public class Item : Object, ContentItem {
     public bool selectable { get; set; default = false; }
     public bool selected { get; set; default = false; }
 
-    public string name {
-        get {
-            return _name;
-        }
-        set {
-            // ignored
-        }
-    }
-
-    private string _name;
+    public string name { get ; set; }
     public Duration duration { get; set; }
 
     public void serialize (GLib.VariantBuilder builder) {
@@ -96,14 +84,14 @@ public class Item : Object, ContentItem {
     }
 }
 
-public class NewTimerDialog: Hdy.Dialog {
 
+public class NewTimerDialog: Hdy.Dialog {
     private new Gtk.Button add_button;
     private Gtk.Button cancel_button;
-    private Setup timer_setup;
+    public Setup timer_setup;
 
-    public NewTimerDialog (Gtk.Window parent, Item? timer) {
-        Object (transient_for: parent, title: timer != null ? _("Edit Timer") : _("New Timer"), use_header_bar: 1);
+    public NewTimerDialog (Gtk.Window parent) {
+        Object (transient_for: parent, title: _("New Timer"), use_header_bar: 1);
         this.set_default_size (640, 360);
 
         var headerbar = (Gtk.HeaderBar)this.get_header_bar ();
@@ -113,6 +101,7 @@ public class NewTimerDialog: Hdy.Dialog {
         add_button.get_style_context ().add_class ("suggested-action");
         add_button.set_sensitive (false);
         add_button.show ();
+        add_button.clicked.connect( () => this.response (Gtk.ResponseType.ACCEPT));
         headerbar.pack_end (add_button);
 
         cancel_button = new Gtk.Button.with_label (_("Cancel"));
@@ -122,14 +111,16 @@ public class NewTimerDialog: Hdy.Dialog {
 
         timer_setup = new Setup ();
         this.get_content_area ().add (timer_setup);
-
-
+        timer_setup.duration_changed.connect ((duration) => {
+            add_button.set_sensitive (duration.get_total_seconds () != 0);
+        });
     }
 }
 
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/timer_setup.ui")]
 public class Setup : Gtk.Box {
+    public signal void duration_changed (Duration duration);
 
     [GtkChild]
     private Gtk.Button predefined_1m;
@@ -166,16 +157,18 @@ public class Setup : Gtk.Box {
 
     }
 
-    public Item get_timer() {
-        var h = this.h_spinbutton.get_value();
-        var m = this.m_spinbutton.get_value();
-        var s = this.s_spinbutton.get_value();
-        int total_seconds = (int)(h * 3600 + m * 60 + s);
+    public Duration get_duration () {
+        int h = (int)this.h_spinbutton.get_value();
+        int m = (int)this.m_spinbutton.get_value();
+        int s = (int)this.s_spinbutton.get_value();
 
-        var duration = new Duration.from_seconds(total_seconds);
-        return (new Item (duration, ""));
+        var duration = new Duration(h, m, s);
+        return duration;
     }
 
+    public Item get_timer() {
+        return (new Item (get_duration (), ""));
+    }
 
     private void update_timer(int h, int m, int s) {
         this.h_spinbutton.set_value(h);
@@ -184,21 +177,15 @@ public class Setup : Gtk.Box {
     }
 
     [GtkCallback]
+    private void update_duration() {
+        var duration = get_duration ();
+        duration_changed (duration);
+    }
+
+    [GtkCallback]
     private bool show_leading_zeros (Gtk.SpinButton spin_button) {
         spin_button.set_text ("%02i".printf(spin_button.get_value_as_int ()));
         return true;
-    }
-    [GtkCallback]
-    private void update_start_button () {
-       /* var h = h_spinbutton.get_value_as_int ();
-        var m = m_spinbutton.get_value_as_int ();
-        var s = s_spinbutton.get_value_as_int ();
-
-        if (h != 0 || m != 0 || s != 0) {
-            start_button.set_sensitive (true);
-        } else {
-            start_button.set_sensitive (false);
-        }*/
     }
 
     [GtkCallback]
@@ -236,8 +223,6 @@ public class Setup : Gtk.Box {
         new_value = entered_value % 60;
         return 1;
     }
-
-
 }
 
 
@@ -288,7 +273,6 @@ public class Row : Gtk.Box {
 
         reset ();
     }
-
 
     [GtkCallback]
     private void on_start_button_clicked () {
@@ -412,6 +396,7 @@ public class Row : Gtk.Box {
     }
 }
 
+
 [GtkTemplate (ui = "/org/gnome/clocks/ui/timer.ui")]
 public class Face : Gtk.Stack, Clocks.Clock {
     public enum State {
@@ -486,13 +471,12 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
 
     public void activate_new () {
-        var dialog = new NewTimerDialog ((Gtk.Window) get_toplevel (), null);
+        var dialog = new NewTimerDialog ((Gtk.Window) get_toplevel ());
         dialog.response.connect ((dialog, response) => {
-            if (response == 1) {
-                /* var alarm = new Item ();
-                ((SetupDialog) dialog).apply_to_alarm (alarm);
-                alarms.add (alarm);
-                save ();*/
+            if (response == Gtk.ResponseType.ACCEPT) {
+                var timer = ((NewTimerDialog) dialog).timer_setup.get_timer ();
+                timers.add (timer);
+                save ();
             }
             dialog.destroy ();
         });
