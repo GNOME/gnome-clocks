@@ -86,33 +86,20 @@ public class Item : Object, ContentItem {
 
 
 public class NewTimerDialog: Hdy.Dialog {
-    private new Gtk.Button add_button;
-    private Gtk.Button cancel_button;
     public Setup timer_setup;
 
     public NewTimerDialog (Gtk.Window parent) {
         Object (transient_for: parent, title: _("New Timer"), use_header_bar: 1);
         this.set_default_size (640, 360);
 
-        var headerbar = (Gtk.HeaderBar)this.get_header_bar ();
-        headerbar.set_show_close_button (false);
-
-        add_button = new Gtk.Button.with_label (_("Add"));
-        add_button.get_style_context ().add_class ("suggested-action");
-        add_button.set_sensitive (false);
-        add_button.show ();
-        add_button.clicked.connect( () => this.response (Gtk.ResponseType.ACCEPT));
-        headerbar.pack_end (add_button);
-
-        cancel_button = new Gtk.Button.with_label (_("Cancel"));
-        cancel_button.clicked.connect ( () => this.destroy ());
-        cancel_button.show ();
-        headerbar.pack_start (cancel_button);
+        add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
+        var create_button = add_button (_("Add"), Gtk.ResponseType.ACCEPT);
+        create_button.get_style_context ().add_class ("suggested-action");
 
         timer_setup = new Setup ();
         this.get_content_area ().add (timer_setup);
         timer_setup.duration_changed.connect ((duration) => {
-            add_button.set_sensitive (duration.get_total_seconds () != 0);
+            this.set_response_sensitive (Gtk.ResponseType.ACCEPT, duration.get_total_seconds () != 0);
         });
     }
 }
