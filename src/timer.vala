@@ -463,7 +463,10 @@ public class Face : Gtk.Stack, Clocks.Clock {
         no_timer_container.reorder_child(timer_setup, 0);
         set_visible_child_name ("empty");
 
-        // start_button.set_sensitive(false);
+        start_button.set_sensitive(false);
+        timer_setup.duration_changed.connect ((duration) => {
+            start_button.set_sensitive (duration.get_total_seconds () != 0);
+        });
         start_button.clicked.connect(() => {
             var timer = this.timer_setup.get_timer();
             this.add_timer(timer);
