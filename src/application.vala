@@ -19,12 +19,12 @@
 namespace Clocks {
 
 public class Application : Gtk.Application {
-    const OptionEntry[] option_entries = {
+    const OptionEntry[] OPTION_ENTRIES = {
         { "version", 'v', 0, OptionArg.NONE, null, N_("Print version information and exit"), null },
         { null }
     };
 
-    const GLib.ActionEntry[] action_entries = {
+    const GLib.ActionEntry[] ACTION_ENTRIES = {
         { "stop-alarm", null, "s" },
         { "snooze-alarm", null, "s" },
         { "quit", on_quit_activate },
@@ -41,8 +41,8 @@ public class Application : Gtk.Application {
     private void ensure_window () {
         if (window == null) {
             window = new Window (this);
-            window.delete_event.connect(() => {
-               return window.hide_on_delete();
+            window.delete_event.connect (() => {
+               return window.hide_on_delete ();
             });
         }
     }
@@ -52,8 +52,8 @@ public class Application : Gtk.Application {
 
         Gtk.Window.set_default_icon_name (Config.APP_ID);
 
-        add_main_option_entries (option_entries);
-        add_action_entries (action_entries, this);
+        add_main_option_entries (OPTION_ENTRIES);
+        add_action_entries (ACTION_ENTRIES, this);
 
         search_provider = new SearchProvider ();
         search_provider.activate.connect ((timestamp) => {
@@ -110,7 +110,7 @@ public class Application : Gtk.Application {
     private void update_theme (Gtk.Settings settings) {
         string theme_name;
 
-        settings.get("gtk-theme-name", out theme_name);
+        settings.get ("gtk-theme-name", out theme_name);
         Utils.load_theme_css (theme_name);
     }
 
@@ -119,13 +119,13 @@ public class Application : Gtk.Application {
 
         Utils.load_main_css ();
 
-        set_resource_base_path("/org/gnome/clocks/");
+        set_resource_base_path ("/org/gnome/clocks/");
 
         var theme = Gtk.IconTheme.get_default ();
-        theme.add_resource_path("/org/gnome/clocks/icons");
+        theme.add_resource_path ("/org/gnome/clocks/icons");
 
         var settings = Gtk.Settings.get_default ();
-        settings.notify["gtk-theme-name"].connect(() => {
+        settings.notify["gtk-theme-name"].connect (() => {
             update_theme (settings);
         });
         update_theme (settings);
@@ -139,7 +139,7 @@ public class Application : Gtk.Application {
     }
 
     protected override int handle_local_options (GLib.VariantDict options) {
-        if (options.contains("version")) {
+        if (options.contains ("version")) {
             print ("%s %s\n", Environment.get_application_name (), Config.VERSION);
             return 0;
         }
@@ -157,7 +157,7 @@ public class Application : Gtk.Application {
         window.present ();
 
         var world = GWeather.Location.get_world ();
-        var location = world.deserialize (parameter.get_child_value(0));
+        var location = world.deserialize (parameter.get_child_value (0));
         if (location != null) {
             window.add_world_location (location);
         }

@@ -24,7 +24,7 @@ namespace Utils {
 private void load_css (string css, bool required) {
     var provider = new Gtk.CssProvider ();
     try {
-        var file = File.new_for_uri("resource:///org/gnome/clocks/css/" + css + ".css");
+        var file = File.new_for_uri ("resource:///org/gnome/clocks/css/" + css + ".css");
         provider.load_from_file (file);
     } catch (Error e) {
         if (required) {
@@ -34,7 +34,7 @@ private void load_css (string css, bool required) {
         return;
     }
 
-    Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default(),
+    Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (),
                                               provider,
                                               Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 }
@@ -155,15 +155,15 @@ public class Weekdays {
         SUN
     }
 
-    private const bool[] weekdays = {
+    private const bool[] WEEKDAYS = {
         true, true, true, true, true, false, false
     };
 
-    private const bool[] weekends = {
+    private const bool[] WEEKENDS = {
         false, false, false, false, false, true, true
     };
 
-    private const string[] plurals = {
+    private const string[] PLURALS = {
         N_("Mondays"),
         N_("Tuesdays"),
         N_("Wednesdays"),
@@ -182,7 +182,7 @@ public class Weekdays {
 
     public static string plural (Day d) {
         assert (d >= 0 && d < 7);
-        return _(plurals[d]);
+        return _(PLURALS[d]);
     }
 
     public static string abbreviation (Day d) {
@@ -204,11 +204,11 @@ public class Weekdays {
         return abbreviations[d];
     }
 
-    private bool[] days= {
+    private bool[] days = {
         false, false, false, false, false, false, false
     };
 
-    public Weekdays() {
+    public Weekdays () {
     }
 
     public bool empty {
@@ -251,9 +251,9 @@ public class Weekdays {
             r = plural ((Day) first);
         } else if (n == 7) {
             r = _("Every Day");
-        } else if (days_equal (weekdays)) {
+        } else if (days_equal (WEEKDAYS)) {
             r = _("Weekdays");
-        } else if (days_equal (weekends)) {
+        } else if (days_equal (WEEKENDS)) {
             r = _("Weekends");
         } else {
             string[] abbrs = {};
@@ -280,7 +280,7 @@ public class Weekdays {
             }
             i++;
         }
-        return builder.end ();;
+        return builder.end ();
     }
 
     public static Weekdays deserialize (GLib.Variant days_variant) {
@@ -305,15 +305,15 @@ public class Bell : Object {
 
     public Bell (string soundid) {
         try {
-            gsound = new GSound.Context();
+            gsound = new GSound.Context ();
         } catch (GLib.Error e) {
             warning ("Sound could not be initialized, error: %s", e.message);
         }
 
-        var settings = new GLib.Settings("org.gnome.desktop.sound");
+        var settings = new GLib.Settings ("org.gnome.desktop.sound");
         soundtheme = settings.get_string ("theme-name");
         sound = soundid;
-        cancellable = new GLib.Cancellable();
+        cancellable = new GLib.Cancellable ();
     }
 
     private async void ring_real (bool repeat) {
@@ -321,7 +321,7 @@ public class Bell : Object {
             return;
         }
 
-        if (cancellable.is_cancelled()) {
+        if (cancellable.is_cancelled ()) {
             cancellable.reset ();
         }
 
@@ -348,7 +348,7 @@ public class Bell : Object {
     }
 
     public void stop () {
-        cancellable.cancel();
+        cancellable.cancel ();
     }
 }
 

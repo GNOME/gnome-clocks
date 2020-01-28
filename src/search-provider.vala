@@ -51,21 +51,21 @@ public class SearchProvider : Object {
     }
 
     private string serialize_location (GWeather.Location location) {
-        return location.serialize().print(false);
+        return location.serialize ().print (false);
     }
 
     private GWeather.Location? deserialize_location (string str) {
         Variant? variant;
 
         try {
-            variant = Variant.parse(new VariantType ("(uv)"), str, null, null);
+            variant = Variant.parse (new VariantType ("(uv)"), str, null, null);
         } catch (GLib.VariantParseError e) {
             warning ("Malformed variant: %s", e.message);
             return null;
         }
 
         var world = GWeather.Location.get_world ();
-        return world.deserialize(variant);
+        return world.deserialize (variant);
     }
 
     private async void search_locations_recurse (GWeather.Location location, string[] normalized_terms,
@@ -76,7 +76,7 @@ public class SearchProvider : Object {
                 var level = locations[i].get_level ();
                 if (level == GWeather.LocationLevel.CITY ||
                     level == GWeather.LocationLevel.NAMED_TIMEZONE) {
-                    if (location_matches(locations[i], normalized_terms)) {
+                    if (location_matches (locations[i], normalized_terms)) {
                         matches.add (locations[i]);
                     }
                 }
@@ -96,7 +96,7 @@ public class SearchProvider : Object {
         matches.foreach ((location) => {
             // FIXME: Avoid cities without children locations
             if (location.get_level () == GWeather.LocationLevel.CITY &&
-                location.get_children().length == 0) {
+                location.get_children ().length == 0) {
                 return;
             }
             // HACK: the search provider interface does not currently allow variants as result IDs
@@ -143,12 +143,12 @@ public class SearchProvider : Object {
             var meta = new HashTable<string, Variant> (str_hash, str_equal);
             var item = new World.Item (location);
             string time_label = item.time_label;
-            string day =  item.day_label;
+            string day = item.day_label;
             if (day != null) {
                 time_label += " " + day;
             }
             count++;
-            meta.insert ("id", count.to_string());
+            meta.insert ("id", count.to_string ());
             meta.insert ("name", time_label);
             meta.insert ("description", item.name);
 

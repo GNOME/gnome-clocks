@@ -70,7 +70,7 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
                     centering_policy = STRICT;
                     break;
             }
-            
+
             show_close_button = _mode != SELECTION;
         }
     }
@@ -100,7 +100,7 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
         get {
             return _can_select;
         }
-        
+
         set {
             _can_select = value;
             if (_can_select) {
