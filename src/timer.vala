@@ -246,6 +246,11 @@ public class Row : Gtk.Box {
     private Gtk.Stack start_stack;
 
     [GtkChild]
+    private Gtk.Button reset_button;
+    [GtkChild]
+    private Gtk.Button delete_button;
+
+    [GtkChild]
     private Gtk.Label hours_label;
     [GtkChild]
     private Gtk.Label minutes_label;
@@ -304,6 +309,9 @@ public class Row : Gtk.Box {
         minutes_label.label = "%02i".printf(item.duration.minutes);
         seconds_label.label = "%02i".printf(item.duration.seconds);
 
+        reset_button.hide ();
+        delete_button.show ();
+
         timer.reset ();
         countdown_container.get_style_context ().add_class ("timer-paused");
         countdown_container.get_style_context ().remove_class ("timer-running");
@@ -313,6 +321,9 @@ public class Row : Gtk.Box {
     private void start () {
         countdown_container.get_style_context ().add_class ("timer-running");
         countdown_container.get_style_context ().remove_class ("timer-paused");
+
+        reset_button.hide ();
+        delete_button.hide ();
 
         start_stack.visible_child_name = "pause";
         state = State.RUNNING;
@@ -337,6 +348,9 @@ public class Row : Gtk.Box {
     private void pause () {
         countdown_container.get_style_context ().add_class ("timer-paused");
         countdown_container.get_style_context ().remove_class ("timer-running");
+
+        reset_button.show ();
+        delete_button.show ();
 
         state = State.PAUSED;
         timer.stop ();
