@@ -40,7 +40,7 @@ public class Frame : AnalogFrame {
         context.add_class ("progress");
 
         cr.set_line_width (LINE_WIDTH);
-        cr.set_line_cap  (Cairo.LineCap.ROUND);
+        cr.set_line_cap (Cairo.LineCap.ROUND);
 
         var color = context.get_color (context.get_state ());
         var progress = ((double) seconds + millisecs) / 60;
@@ -48,7 +48,7 @@ public class Frame : AnalogFrame {
             cr.arc (center_x,
                     center_y,
                     radius - LINE_WIDTH / 2,
-                    1.5  * Math.PI,
+                    1.5 * Math.PI,
                     (1.5 + progress * 2 ) * Math.PI);
             Gdk.cairo_set_source_rgba (cr, color);
             cr.stroke ();
@@ -241,7 +241,7 @@ public class Face : Gtk.Box, Clocks.Clock {
         // 0.108000 and the next lap is 1.202000, we would see on screen 0.10
         // and 1.20, so we would expect a split time of 1.10, but we would
         // instead get 1.094000 and thus display 1.09
-        last_lap_time = Math.floor(e * 100) / 100;
+        last_lap_time = Math.floor (e * 100) / 100;
 
         int h;
         int m;

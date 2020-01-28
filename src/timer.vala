@@ -152,7 +152,7 @@ public class Setup : Gtk.Box {
 
     [GtkCallback]
     private bool show_leading_zeros (Gtk.SpinButton spin_button) {
-        spin_button.set_text ("%02i".printf(spin_button.get_value_as_int ()));
+        spin_button.set_text ("%02i".printf (spin_button.get_value_as_int ()));
         return true;
     }
 
@@ -335,7 +335,7 @@ public class Row : Gtk.ListBoxRow {
         name_stack.visible_child_name = "display";
         state = State.RUNNING;
         timer.start ();
-        timeout_id = GLib.Timeout.add(40, () => {
+        timeout_id = GLib.Timeout.add (40, () => {
             if (state != State.RUNNING) {
                 timeout_id = 0;
                 return false;
