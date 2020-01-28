@@ -395,7 +395,7 @@ public class Row : Gtk.ListBoxRow {
                 timer_name.label = _("%i hour %i minute timer".printf (item.hours, item.minutes));
             } else if (item.seconds != 0 && item.minutes == 0 && item.hours != 0) {
                 timer_name.label = _("%i hour %i second timer".printf (item.hours, item.seconds));
-            }  else if (item.seconds != 0 && item.minutes != 0 && item.hours != 0) {
+            } else if (item.seconds != 0 && item.minutes != 0 && item.hours != 0) {
                 timer_name.label = _("%i hour %i minute %i second timer".printf (item.hours, item.minutes, item.seconds));
             }
         }
@@ -518,22 +518,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     public override void grab_focus () {
-        /*if (visible_child == setup_frame) {
+        if (timers.get_n_items () == 0) {
             start_button.grab_focus ();
         }
-        */
-    }
-
-    public bool escape_pressed () {
-        /*if (state == State.STOPPED) {
-            return false;
-        }
-
-        reset ();
-
-        return true;
-        */
-       return false;
     }
 }
 
