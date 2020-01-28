@@ -20,7 +20,7 @@ namespace Clocks {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/window.ui")]
 public class Window : Gtk.ApplicationWindow {
-    private const GLib.ActionEntry[] action_entries = {
+    private const GLib.ActionEntry[] ACTION_ENTRIES = {
         // primary menu
         { "show-primary-menu", on_show_primary_menu_activate, null, "false", null },
         { "new", on_new_activate },
@@ -64,12 +64,12 @@ public class Window : Gtk.ApplicationWindow {
     public Window (Application app) {
         Object (application: app);
 
-        add_action_entries (action_entries, this);
+        add_action_entries (ACTION_ENTRIES, this);
 
         settings = new Settings ("org.gnome.clocks.state.window");
         settings.delay ();
 
-        destroy.connect(() => {
+        destroy.connect (() => {
             settings.apply ();
         });
 
@@ -117,7 +117,7 @@ public class Window : Gtk.ApplicationWindow {
                                      Gdk.Key.Page_Up,
                                      Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.MOD1_MASK,
                                      "change-page", 1,
-                                     typeof(int), 0);
+                                     typeof (int), 0);
         Gtk.BindingEntry.add_signal (binding_set,
                                      Gdk.Key.Page_Down,
                                      Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.MOD1_MASK,
@@ -132,7 +132,7 @@ public class Window : Gtk.ApplicationWindow {
         show_all ();
     }
 
-    [Signal(action = true)]
+    [Signal (action = true)]
     public virtual signal void change_page (int offset) {
         var dir = false;
 
@@ -264,12 +264,12 @@ public class Window : Gtk.ApplicationWindow {
     }
 
     private void on_about_activate () {
-        const string copyright = "Copyright \xc2\xa9 2011 Collabora Ltd.\n" +
+        const string COPYRIGHT = "Copyright \xc2\xa9 2011 Collabora Ltd.\n" +
                                  "Copyright \xc2\xa9 2012-2013 Collabora Ltd., Seif Lotfy, Emily Gonyer\n" +
-                                 "Eslam Mostafa, Paolo Borelli, Volker Sobek\n" + 
+                                 "Eslam Mostafa, Paolo Borelli, Volker Sobek\n" +
                                  "Copyright \xc2\xa9 2019 Bilal Elmoussaoui & Zander Brown et al";
 
-        const string authors[] = {
+        const string AUTHORS[] = {
             "Alex Anthony",
             "Paolo Borelli",
             "Allan Day",
@@ -294,8 +294,8 @@ public class Window : Gtk.ApplicationWindow {
                                "logo-icon-name", Config.APP_ID,
                                "version", Config.VERSION,
                                "comments", _("Utilities to help you with the time."),
-                               "copyright", copyright,
-                               "authors", authors,
+                               "copyright", COPYRIGHT,
+                               "authors", AUTHORS,
                                "license-type", Gtk.License.GPL_2_0,
                                "wrap-license", false,
                                "translator-credits", _("translator-credits"),
@@ -311,7 +311,7 @@ public class Window : Gtk.ApplicationWindow {
             return;
         }
 
-        help_overlay.view_name = Type.from_instance (panel).name();
+        help_overlay.view_name = Type.from_instance (panel).name ();
 
         if (inited) {
             settings.set_enum ("panel-id", panel.panel_id);
@@ -372,7 +372,7 @@ public class Window : Gtk.ApplicationWindow {
                                               header_bar,
                                               "new-label",
                                               SYNC_CREATE);
-                                    
+
         stack.visible_child.grab_focus ();
     }
 }

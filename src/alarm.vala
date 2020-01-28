@@ -145,7 +145,7 @@ private class Item : Object, ContentItem {
         } else {
             // Alarm with at least one day set.
             // Find the next possible day for ringing
-            while (dt.compare (now) <= 0 || ! days.get ((Utils.Weekdays.Day) (dt.get_day_of_week () -1))) {
+            while (dt.compare (now) <= 0 || ! days.get ((Utils.Weekdays.Day) (dt.get_day_of_week () - 1))) {
                 dt = dt.add_days (1);
             }
         }
