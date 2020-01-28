@@ -27,7 +27,7 @@ public class ShellWorldClocks : Object {
             GLib.Variant[] rv = {};
             GLib.Variant locations = settings.get_value ("world-clocks");
 
-            for (int i = 0; i < locations.n_children(); i++) {
+            for (int i = 0; i < locations.n_children (); i++) {
                 rv += locations.get_child_value (i).lookup_value ("location", null);
             }
             return rv;
