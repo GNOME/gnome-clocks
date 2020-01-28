@@ -229,7 +229,7 @@ public class Row : Gtk.Box {
     private GLib.Timer timer;
     private uint timeout_id;
     [GtkChild]
-    private Gtk.Box countdown_container;
+    private Gtk.Label countdown_label;
     [GtkChild]
     private Gtk.Stack start_stack;
 
@@ -237,13 +237,6 @@ public class Row : Gtk.Box {
     private Gtk.Button reset_button;
     [GtkChild]
     private Gtk.Button delete_button;
-
-    [GtkChild]
-    private Gtk.Label hours_label;
-    [GtkChild]
-    private Gtk.Label minutes_label;
-    [GtkChild]
-    private Gtk.Label seconds_label;
 
     public Row (Item item) {
         Object(item: item);
@@ -296,22 +289,20 @@ public class Row : Gtk.Box {
         state = State.STOPPED;
         span = item.duration.get_total_seconds ();
 
-        hours_label.label = "%02i".printf(item.duration.hours);
-        minutes_label.label = "%02i".printf(item.duration.minutes);
-        seconds_label.label = "%02i".printf(item.duration.seconds);
+        update_countdown_label (item.duration.hours, item.duration.minutes, item.duration.seconds);
 
         reset_button.hide ();
         delete_button.show ();
 
         timer.reset ();
-        countdown_container.get_style_context ().add_class ("timer-paused");
-        countdown_container.get_style_context ().remove_class ("timer-running");
+        countdown_label.get_style_context ().add_class ("timer-paused");
+        countdown_label.get_style_context ().remove_class ("timer-running");
         start_stack.visible_child_name = "start";
     }
 
     private void start () {
-        countdown_container.get_style_context ().add_class ("timer-running");
-        countdown_container.get_style_context ().remove_class ("timer-paused");
+        countdown_label.get_style_context ().add_class ("timer-running");
+        countdown_label.get_style_context ().remove_class ("timer-paused");
 
         reset_button.hide ();
         delete_button.hide ();
@@ -337,8 +328,8 @@ public class Row : Gtk.Box {
     }
 
     private void pause () {
-        countdown_container.get_style_context ().add_class ("timer-paused");
-        countdown_container.get_style_context ().remove_class ("timer-running");
+        countdown_label.get_style_context ().add_class ("timer-paused");
+        countdown_label.get_style_context ().remove_class ("timer-running");
 
         reset_button.show ();
         delete_button.show ();
@@ -350,7 +341,7 @@ public class Row : Gtk.Box {
     }
 
     private void update_countdown (double elapsed) {
-        if (hours_label.get_mapped ()) {
+        if (countdown_label.get_mapped ()) {
             // Math.ceil() because we count backwards:
             // with 0.3 seconds we want to show 1 second remaining,
             // with 59.2 seconds we want to show 1 minute, etc
@@ -365,9 +356,7 @@ public class Row : Gtk.Box {
     }
 
     private void update_countdown_label (int h, int m, int s) {
-        hours_label.set_text ("%02i".printf(h));
-        minutes_label.set_text ("%02i".printf(m));
-        seconds_label.set_text ("%02i".printf(s));
+        countdown_label.set_text ("%02i:%02i:%02i".printf(h, m, s));
     }
 
     public override void grab_focus () {
