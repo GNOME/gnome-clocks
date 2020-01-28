@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2013  Paolo Borelli <pborelli@gnome.org>
  * Copyright (C) 2020  Bilal Elmoussaoui <bilal.elmoussaoui@gnome.org>
+ * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -53,9 +54,9 @@ public class Item : Object, ContentItem {
 
     public void serialize (GLib.VariantBuilder builder) {
         builder.open (new GLib.VariantType ("a{sv}"));
-        builder.add ("{sv}", "duration", new GLib.Variant.int32(duration.get_total_seconds ()));
+        builder.add ("{sv}", "duration", new GLib.Variant.int32 (duration.get_total_seconds ()));
         if (name != null) {
-            builder.add ("{sv}", "name", new GLib.Variant.string(name));
+            builder.add ("{sv}", "name", new GLib.Variant.string (name));
         }
         builder.close ();
     }
@@ -68,10 +69,10 @@ public class Item : Object, ContentItem {
             var key = v.get_child_value (0).get_string ();
             switch (key) {
                 case "duration":
-                    duration = new Duration.from_seconds(v.get_child_value (1).get_child_value (0).get_int32());
+                    duration = new Duration.from_seconds (v.get_child_value (1).get_child_value (0).get_int32());
                     break;
                 case "name":
-                    name = v.get_child_value (1).get_child_value (0).get_string();
+                    name = v.get_child_value (1).get_child_value (0).get_string ();
                     break;
             }
         }
@@ -114,17 +115,17 @@ public class Setup : Gtk.Box {
     [GtkChild]
     private Gtk.SpinButton s_spinbutton;
 
-    public Setup() {
+    public Setup () {
         var actions = new SimpleActionGroup ();
         // The duration here represends a number of minutes
         var duration_type = new GLib.VariantType ("i");
         var set_duration_action = new SimpleAction ("set-duration", duration_type);
         set_duration_action.activate.connect ((action, param) => {
-            var total_minutes = param.get_int32();
+            var total_minutes = param.get_int32 ();
             var hours = total_minutes / 60;
             var minutes = total_minutes - hours * 60;
-            this.h_spinbutton.set_value(hours);
-            this.m_spinbutton.set_value(minutes);
+            this.h_spinbutton.set_value (hours);
+            this.m_spinbutton.set_value (minutes);
         });
         actions.add_action (set_duration_action);
         insert_action_group ("timer-setup", actions);
@@ -132,20 +133,20 @@ public class Setup : Gtk.Box {
     }
 
     public Duration get_duration () {
-        int h = (int)this.h_spinbutton.get_value();
-        int m = (int)this.m_spinbutton.get_value();
-        int s = (int)this.s_spinbutton.get_value();
+        int h = (int)this.h_spinbutton.get_value ();
+        int m = (int)this.m_spinbutton.get_value ();
+        int s = (int)this.s_spinbutton.get_value ();
 
-        var duration = new Duration(h, m, s);
+        var duration = new Duration (h, m, s);
         return duration;
     }
 
-    public Item get_timer() {
+    public Item get_timer () {
         return (new Item (get_duration (), ""));
     }
 
     [GtkCallback]
-    private void update_duration() {
+    private void update_duration () {
         var duration = get_duration ();
         duration_changed (duration);
     }
@@ -255,7 +256,7 @@ public class Row : Gtk.ListBoxRow {
 
 
     public Row (Item item) {
-        Object(item: item);
+        Object (item: item);
         span = item.duration.get_total_seconds ();
         timer = new GLib.Timer ();
 
@@ -391,7 +392,7 @@ public class Row : Gtk.ListBoxRow {
     }
 
     private void update_countdown_label (int h, int m, int s) {
-        countdown_label.set_text ("%02i:%02i:%02i".printf(h, m, s));
+        countdown_label.set_text ("%02i:%02i:%02i".printf (h, m, s));
     }
 
     private void update_name_label () {
@@ -441,7 +442,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         timer_setup = new Setup ();
 
         settings = new GLib.Settings ("org.gnome.clocks");
-        timers = new ContentStore();
+        timers = new ContentStore ();
 
         timers_list.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
         timers_list.bind_model (timers, (timer) => {
@@ -467,17 +468,17 @@ public class Face : Gtk.Stack, Clocks.Clock {
         notification = new GLib.Notification (_("Time is up!"));
         notification.set_body (_("Timer countdown finished"));
 
-        no_timer_container.add(timer_setup);
-        no_timer_container.reorder_child(timer_setup, 0);
+        no_timer_container.add (timer_setup);
+        no_timer_container.reorder_child (timer_setup, 0);
         set_visible_child_name ("empty");
 
-        start_button.set_sensitive(false);
+        start_button.set_sensitive (false);
         timer_setup.duration_changed.connect ((duration) => {
             start_button.set_sensitive (duration.get_total_seconds () != 0);
         });
-        start_button.clicked.connect(() => {
-            var timer = this.timer_setup.get_timer();
-            this.add_timer(timer);
+        start_button.clicked.connect (() => {
+            var timer = this.timer_setup.get_timer ();
+            this.add_timer (timer);
         });
         load ();
     }
