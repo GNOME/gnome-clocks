@@ -79,8 +79,7 @@ public class Item : Object, ContentItem {
     }
 
     public Item (Duration duration, string? name) {
-        Object (name: name);
-        this.duration = duration;
+        Object (name: name, duration: duration);
     }
 }
 
@@ -214,8 +213,7 @@ public class Setup : Gtk.Box {
 
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/timer_row.ui")]
-public class Row : Gtk.Box {
-    public signal void deleted (Item item);
+public class Row : Gtk.ListBoxRow {
     public enum State {
         STOPPED,
         RUNNING,
@@ -223,7 +221,21 @@ public class Row : Gtk.Box {
     }
 
     public State state { get; private set; default = State.STOPPED; }
-    public Item item { get; construct set; }
+    public Item item {
+        get {
+            return _item;
+        }
+
+        construct set {
+            _item = value;
+
+            title.text = _item.name;
+            title.bind_property ("text", _item, "name");
+
+            _item.notify["name"].connect (() => edited ());
+        }
+    }
+    private Item _item = null;
 
     private double span;
     private GLib.Timer timer;
@@ -238,21 +250,26 @@ public class Row : Gtk.Box {
     [GtkChild]
     private Gtk.Button delete_button;
 
+    [GtkChild]
+    private Gtk.Entry title;
+
+    public signal void deleted ();
+    public signal void edited ();
+
+
     public Row (Item item) {
         Object(item: item);
         span = item.duration.get_total_seconds ();
         timer = new GLib.Timer ();
 
         timeout_id = 0;
-        destroy.connect(() => {
+        destroy.connect (() => {
             if (timeout_id != 0) {
-                GLib.Source.remove(timeout_id);
+                GLib.Source.remove (timeout_id);
                 timeout_id = 0;
             }
         });
-        delete_button.clicked.connect(() => {
-            this.deleted (this.item);
-        });
+        delete_button.clicked.connect (() => deleted ());
 
         reset ();
     }
@@ -311,7 +328,7 @@ public class Row : Gtk.Box {
         state = State.RUNNING;
         timer.start ();
         timeout_id = GLib.Timeout.add(40, () => {
-	        if (state != State.RUNNING) {
+            if (state != State.RUNNING) {
                 timeout_id = 0;
                 return false;
             }
@@ -411,24 +428,23 @@ public class Face : Gtk.Stack, Clocks.Clock {
         settings = new GLib.Settings ("org.gnome.clocks");
         timers = new ContentStore();
 
-
         timers_list.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
         timers_list.bind_model (timers, (timer) => {
-            var timer_row = new Row ((Item)timer);
-            timer_row.deleted.connect((item) => {
-               this.remove_timer(item);
-            });
-            return timer_row;
+            var row = new Row ((Item) timer);
+            row.deleted.connect (() => remove_timer ((Item) timer));
+            row.edited.connect (() => save ());
+            return row;
         });
 
-        timers.items_changed.connect(() => {
+        timers.items_changed.connect (() => {
             if (this.timers.get_n_items () > 0) {
-                this.set_visible_child_name ("timers");
+                this.visible_child_name = "timers";
                 this.button_mode = NEW;
             } else {
-                this.set_visible_child_name ("empty");
+                this.visible_child_name = "empty";
                 this.button_mode = NONE;
             }
+            save ();
         });
 
         bell = new Utils.Bell ("complete");
@@ -452,7 +468,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     private void remove_timer (Item item) {
         timers.remove (item);
-        save ();
     }
 
 
@@ -462,7 +477,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
             if (response == Gtk.ResponseType.ACCEPT) {
                 var timer = ((NewTimerDialog) dialog).timer_setup.get_timer ();
                 timers.add (timer);
-                save ();
             }
             dialog.destroy ();
         });
@@ -472,7 +486,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     private void add_timer (Item timer) {
         timers.add (timer);
-        save ();
     }
 
     private void load () {

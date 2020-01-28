@@ -1,199 +1,202 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.1 -->
 <interface>
-  <requires lib="gtk+" version="3.12"/>
-  <template class="ClocksTimerRow" parent="GtkBox">
+  <requires lib="gtk+" version="3.20"/>
+  <template class="ClocksTimerRow" parent="GtkListBoxRow">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="valign">start</property>
-    <property name="margin_top">12</property>
-    <property name="margin_bottom">12</property>
-    <property name="orientation">vertical</property>
-    <property name="spacing">18</property>
     <child>
-      <object class="GtkLabel" id="countdown_label">
-        <property name="visible">True</property>
+      <object class="GtkBox">
         <property name="can_focus">False</property>
-        <property name="label">00:00:00</property>
-        <attributes>
-          <attribute name="font-features" value="tnum=1"/>
-        </attributes>
-        <style>
-          <class name="timer-countdown"/>
-        </style>
-      </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">0</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkStack">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="valign">start</property>
+        <property name="margin_top">12</property>
+        <property name="margin_bottom">12</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">18</property>
         <child>
-          <object class="GtkEntry">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="halign">center</property>
-            <property name="width_chars">26</property>
-            <property name="placeholder_text" translatable="yes">Title...</property>
-          </object>
-          <packing>
-            <property name="name">page0</property>
-            <property name="title" translatable="yes">page0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="timer_name">
+          <object class="GtkLabel" id="countdown_label">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">center</property>
+            <property name="label">00:00:00</property>
+            <attributes>
+              <attribute name="font-features" value="tnum=1"/>
+            </attributes>
             <style>
-              <class name="dim-label"/>
+              <class name="timer-countdown"/>
             </style>
           </object>
           <packing>
-            <property name="name">page1</property>
-            <property name="title" translatable="yes">page1</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-      </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">1</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkGrid">
-        <property name="width_request">300</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="halign">center</property>
-        <property name="row_homogeneous">True</property>
-        <property name="column_homogeneous">True</property>
-        <child>
-          <object class="GtkButton" id="reset_button">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="relief">none</property>
-            <signal name="clicked" handler="on_reset_button_clicked" swapped="no"/>
-            <child>
-              <object class="GtkImage">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="icon_name">view-refresh-symbolic</property>
-              </object>
-            </child>
-            <style>
-              <class name="round-button"/>
-            </style>
-          </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">0</property>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
           </packing>
         </child>
         <child>
-          <object class="GtkStack" id="start_stack">
+          <object class="GtkStack">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="hhomogeneous">False</property>
-            <property name="vhomogeneous">False</property>
             <child>
-              <object class="GtkButton" id="pause_button">
+              <object class="GtkEntry" id="title">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
                 <property name="halign">center</property>
-                <property name="valign">center</property>
-                <property name="relief">none</property>
-                <signal name="clicked" handler="on_pause_button_clicked" swapped="no"/>
-                <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="icon_name">media-playback-pause-symbolic</property>
-                  </object>
-                </child>
-                <style>
-                  <class name="round-button"/>
-                </style>
+                <property name="width_chars">26</property>
+                <property name="placeholder_text" translatable="yes">Title...</property>
               </object>
               <packing>
-                <property name="name">pause</property>
+                <property name="name">page0</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="start_button">
+              <object class="GtkLabel" id="timer_name">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
+                <property name="can_focus">False</property>
                 <property name="halign">center</property>
-                <property name="valign">center</property>
-                <property name="relief">none</property>
-                <signal name="clicked" handler="on_start_button_clicked" swapped="no"/>
-                <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="icon_name">media-playback-start-symbolic</property>
-                  </object>
-                </child>
                 <style>
-                  <class name="round-button"/>
-                  <class name="suggested-action"/>
+                  <class name="dim-label"/>
                 </style>
               </object>
               <packing>
-                <property name="name">start</property>
+                <property name="name">page1</property>
                 <property name="position">1</property>
               </packing>
             </child>
           </object>
           <packing>
-            <property name="left_attach">1</property>
-            <property name="top_attach">0</property>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="delete_button">
+          <object class="GtkGrid">
+            <property name="width_request">300</property>
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
+            <property name="can_focus">False</property>
             <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="relief">none</property>
+            <property name="row_homogeneous">True</property>
+            <property name="column_homogeneous">True</property>
             <child>
-              <object class="GtkImage">
+              <object class="GtkButton" id="reset_button">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="relief">none</property>
+                <signal name="clicked" handler="on_reset_button_clicked" swapped="no"/>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="icon_name">view-refresh-symbolic</property>
+                  </object>
+                </child>
+                <style>
+                  <class name="round-button"/>
+                </style>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkStack" id="start_stack">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="icon_name">edit-delete-symbolic</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="hhomogeneous">False</property>
+                <property name="vhomogeneous">False</property>
+                <child>
+                  <object class="GtkButton" id="pause_button">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="clicked" handler="on_pause_button_clicked" swapped="no"/>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="icon_name">media-playback-pause-symbolic</property>
+                      </object>
+                    </child>
+                    <style>
+                      <class name="round-button"/>
+                    </style>
+                  </object>
+                  <packing>
+                    <property name="name">pause</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="start_button">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="relief">none</property>
+                    <signal name="clicked" handler="on_start_button_clicked" swapped="no"/>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="icon_name">media-playback-start-symbolic</property>
+                      </object>
+                    </child>
+                    <style>
+                      <class name="round-button"/>
+                      <class name="suggested-action"/>
+                    </style>
+                  </object>
+                  <packing>
+                    <property name="name">start</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
               </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
             </child>
-            <style>
-              <class name="round-button"/>
-            </style>
+            <child>
+              <object class="GtkButton" id="delete_button">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="relief">none</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="icon_name">edit-delete-symbolic</property>
+                  </object>
+                </child>
+                <style>
+                  <class name="round-button"/>
+                </style>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
           </object>
           <packing>
-            <property name="left_attach">2</property>
-            <property name="top_attach">0</property>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
           </packing>
         </child>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">3</property>
-      </packing>
     </child>
   </template>
 </interface>
