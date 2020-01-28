@@ -19,8 +19,9 @@
 namespace Clocks {
 namespace Timer {
 
-public class Item : Object {
-
+public class Item : Object, ContentItem {
+    public bool selectable { get; set; default = false; }
+    public bool selected { get; set; default = false; }
 
     public string name {
         get {
@@ -82,56 +83,9 @@ public class Item : Object {
         return time != null ? new Item (time, name) : null;
     }
 
-    public Item (GLib.Time timer, string name) {
+    public Item (GLib.Time timer, string? name) {
         Object (name: name);
         this.timer = timer;
-    }
-}
-
-
-public class TimersStore: Object, GLib.ListModel {
-    private ListStore store;
-
-    public TimersStore () {
-        store = new ListStore (typeof (Item));
-    }
-
-    public void add(Item timer) {
-       store.append (timer);
-    }
-
-    public Type get_item_type () {
-        return store.get_item_type ();
-    }
-
-    public uint get_n_items () {
-        return store.get_n_items ();
-    }
-
-    public Object? get_item (uint position) {
-        return store.get_item (position);
-    }
-
-
-    public Variant serialize () {
-        var builder = new GLib.VariantBuilder (new VariantType ("aa{sv}"));
-        var n = store.get_n_items ();
-        for (int i = 0; i < n; i++) {
-            var item = store.get_object (i) as Item;
-            item.serialize (builder);
-        }
-        return builder.end ();
-    }
-
-    public delegate Item? DeserializeItemFunc (Variant v);
-
-    public void deserialize (Variant variant, DeserializeItemFunc deserialize_item) {
-        foreach (var v in variant) {
-            Item? i = deserialize_item (v);
-            if (i != null) {
-                store.append (i);
-            }
-        }
     }
 }
 
@@ -297,18 +251,16 @@ public class Row : Gtk.Box {
     [GtkChild]
     private Gtk.Button start_button;
     [GtkChild]
-    private Gtk.Box countdown_frame;
+    private Gtk.Box countdown_container;
     [GtkChild]
     private Gtk.Stack start_stack;
+
     [GtkChild]
-    // We cheat and use spibuttons also when displaying the time
-    // making them insensitive and hiding the +/- via css
-    // this is needed to ensure the text does not move in the transition
-    private Gtk.SpinButton h_label;
+    private Gtk.Label hours_label;
     [GtkChild]
-    private Gtk.SpinButton m_label;
+    private Gtk.Label minutes_label;
     [GtkChild]
-    private Gtk.SpinButton s_label;
+    private Gtk.Label seconds_label;
 
     public Row (Item item) {
         Object(item: item);
@@ -361,14 +313,14 @@ public class Row : Gtk.Box {
         m_spinbutton.value = item.minutes;
         s_spinbutton.value = item.seconds;
         */
-        countdown_frame.get_style_context ().remove_class ("clocks-paused");
+        countdown_container.get_style_context ().remove_class ("timer-paused");
         start_button.set_sensitive (item.in_seconds() > 0);
         // timer_stack.visible_child = setup_frame;
         start_stack.visible_child_name = "start";
     }
 
     private void start () {
-        countdown_frame.get_style_context ().remove_class ("clocks-paused");
+        countdown_container.get_style_context ().remove_class ("timer-paused");
 
         if (state == State.STOPPED) {
            /* var h = h_spinbutton.get_value_as_int ();
@@ -378,7 +330,6 @@ public class Row : Gtk.Box {
             span = h * 3600 + m * 60 + s;
             // settings.set_uint ("timer", (uint) span);
             // countdown_frame.span = span;
-            timer_stack.visible_child = countdown_frame;
 
             update_countdown_label (h, m, s);
             */
@@ -412,7 +363,7 @@ public class Row : Gtk.Box {
     }
 
     private void update_countdown (double elapsed) {
-        if (h_label.get_mapped ()) {
+        if (hours_label.get_mapped ()) {
             // Math.ceil() because we count backwards:
             // with 0.3 seconds we want to show 1 second remaining,
             // with 59.2 seconds we want to show 1 minute, etc
@@ -427,9 +378,9 @@ public class Row : Gtk.Box {
     }
 
     private void update_countdown_label (int h, int m, int s) {
-        h_label.set_value (h);
-        m_label.set_value (m);
-        s_label.set_value (s);
+        hours_label.set_text ("%i02".printf(h));
+        minutes_label.set_text ("%i02".printf(m));
+        seconds_label.set_text ("%i02".printf(s));
     }
 
     public override void grab_focus () {
@@ -475,7 +426,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     // Translators: Tooltip for the + button
     public string new_label { get; default = _("New Timer"); }
 
-    private TimersStore timers;
+    private ContentStore timers;
     private GLib.Settings settings;
     private Utils.Bell bell;
     private GLib.Notification notification;
@@ -486,7 +437,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         timer_setup = new Setup ();
 
         settings = new GLib.Settings ("org.gnome.clocks");
-        timers = new TimersStore();
+        timers = new ContentStore();
 
 
         timers_list.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
@@ -539,7 +490,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     private void add_timer (Item timer) {
         timers.add (timer);
-        visible_child_name = "timers";
         save ();
     }
 
