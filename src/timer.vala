@@ -241,8 +241,6 @@ public class Row : Gtk.Box {
     private GLib.Timer timer;
     private uint timeout_id;
     [GtkChild]
-    private Gtk.Button start_button;
-    [GtkChild]
     private Gtk.Box countdown_container;
     [GtkChild]
     private Gtk.Stack start_stack;
@@ -256,7 +254,7 @@ public class Row : Gtk.Box {
 
     public Row (Item item) {
         Object(item: item);
-        span = 0;
+        span = item.duration.get_total_seconds ();
         timer = new GLib.Timer ();
 
         timeout_id = 0;
@@ -266,10 +264,6 @@ public class Row : Gtk.Box {
                 timeout_id = 0;
             }
         });
-
-        hours_label.label = "%02i".printf(item.duration.hours);
-        minutes_label.label = "%02i".printf(item.duration.minutes);
-        seconds_label.label = "%02i".printf(item.duration.seconds);
 
         reset ();
     }
@@ -304,38 +298,27 @@ public class Row : Gtk.Box {
 
     private void reset () {
         state = State.STOPPED;
+        span = item.duration.get_total_seconds ();
+
+        hours_label.label = "%02i".printf(item.duration.hours);
+        minutes_label.label = "%02i".printf(item.duration.minutes);
+        seconds_label.label = "%02i".printf(item.duration.seconds);
+
         timer.reset ();
-        /*h_spinbutton.value = item.hours;
-        m_spinbutton.value = item.minutes;
-        s_spinbutton.value = item.seconds;
-        */
-        countdown_container.get_style_context ().remove_class ("timer-paused");
-        start_button.set_sensitive (item.duration.get_total_seconds() > 0);
-        // timer_stack.visible_child = setup_frame;
+        countdown_container.get_style_context ().add_class ("timer-paused");
+        countdown_container.get_style_context ().remove_class ("timer-running");
         start_stack.visible_child_name = "start";
     }
 
     private void start () {
+        countdown_container.get_style_context ().add_class ("timer-running");
         countdown_container.get_style_context ().remove_class ("timer-paused");
 
-        if (state == State.STOPPED) {
-           /* var h = h_spinbutton.get_value_as_int ();
-            var m = m_spinbutton.get_value_as_int ();
-            var s = s_spinbutton.get_value_as_int ();
-
-            span = h * 3600 + m * 60 + s;
-            // settings.set_uint ("timer", (uint) span);
-            // countdown_frame.span = span;
-
-            update_countdown_label (h, m, s);
-            */
-        }
         start_stack.visible_child_name = "pause";
-
         state = State.RUNNING;
         timer.start ();
         timeout_id = GLib.Timeout.add(40, () => {
-	    if (state != State.RUNNING) {
+	        if (state != State.RUNNING) {
                 timeout_id = 0;
                 return false;
             }
@@ -352,6 +335,9 @@ public class Row : Gtk.Box {
     }
 
     private void pause () {
+        countdown_container.get_style_context ().add_class ("timer-paused");
+        countdown_container.get_style_context ().remove_class ("timer-running");
+
         state = State.PAUSED;
         timer.stop ();
         span -= timer.elapsed ();
@@ -386,11 +372,6 @@ public class Row : Gtk.Box {
     }
 
     public bool escape_pressed () {
-        if (state == State.STOPPED) {
-            return false;
-        }
-
-        reset ();
 
         return true;
     }
