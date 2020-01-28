@@ -240,19 +240,19 @@ public class Weekdays {
         false, false, false, false, false, true, true
     };
 
-    const bool[] none = {
+    const bool[] NONE = {
         false, false, false, false, false, false, false
     };
 
-    const bool[] all = {
+    const bool[] ALL = {
         true, true, true, true, true, true, true
     };
 
-    private bool[] days = none;
+    private bool[] days = NONE;
 
     public bool empty {
         get {
-            return (days_equal (none));
+            return (days_equal (NONE));
         }
     }
     
@@ -270,7 +270,7 @@ public class Weekdays {
 
     public bool is_all {
         get {
-            return (days_equal (all));
+            return (days_equal (ALL));
         }
     }
 
