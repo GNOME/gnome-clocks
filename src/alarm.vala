@@ -926,26 +926,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
         });
         dialog.show ();
     }
-
-    public void activate_select () {
-        view_mode = SELECTION;
-    }
-
-    public void activate_select_cancel () {
-        view_mode = NORMAL;
-    }
-
-    public void activate_select_all () {
-        // content_view.select_all ();
-    }
-
-    public void activate_select_none () {
-        // content_view.unselect_all ();
-    }
-
-    public bool escape_pressed () {
-        return /*content_view.escape_pressed ();*/ false;
-    }
 }
 
 } // namespace Alarm
