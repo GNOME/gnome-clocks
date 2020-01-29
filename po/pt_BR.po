@@ -1,18 +1,18 @@
 # Brazilian Portuguese translation for gnome-clocks.
-# Copyright (C) 2019 gnome-clocks's COPYRIGHT HOLDER
+# Copyright (C) 2020 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Djavan Fagundes <djavan@comum.org>, 2012.
 # Edson Silva <edsonlead@gmail.com>, 2013.
 # Fábio Nogueira <fnogueira@gnome.org>, 2016.
 # Enrico Nicoletto <liverig@gmail.com>, 2012, 2013, 2014, 2016.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2017-2019.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2017-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2019-12-08 11:04+0000\n"
-"PO-Revision-Date: 2019-12-26 07:35-0300\n"
+"POT-Creation-Date: 2020-01-02 23:31+0000\n"
+"PO-Revision-Date: 2020-01-29 07:00-0300\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -195,7 +195,7 @@ msgstr "Alarmes configurados"
 msgid "List of alarms set."
 msgstr "Lista de alarmes ajustados."
 
-#: data/org.gnome.clocks.gschema.xml.in:19
+#: data/org.gnome.clocks.gschema.xml.in:19 data/ui/window.ui:69
 msgid "Timer"
 msgstr "Temporizador"
 
@@ -297,7 +297,6 @@ msgid "Menu"
 msgstr "Menu"
 
 #: data/ui/headerbar.ui:248
-#| msgid "Select All"
 msgid "Select"
 msgstr "Selecionar"
 
@@ -312,6 +311,19 @@ msgstr "Reiniciar"
 #: data/ui/timer.ui:403 src/timer.vala:224 src/timer.vala:235
 msgid "Pause"
 msgstr "Pausar"
+
+#: data/ui/window.ui:39
+msgid "World"
+msgstr "Mundial"
+
+#: data/ui/window.ui:49
+#| msgid "Alarm"
+msgid "Alarms"
+msgstr "Alarmes"
+
+#: data/ui/window.ui:59
+msgid "Stopwatch"
+msgstr "Cronômetro"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -360,7 +372,6 @@ msgstr "Continuar"
 
 #. Translators: Tooltip for the + button
 #: src/timer.vala:82
-#| msgid "Timer"
 msgid "New Timer"
 msgstr "Novo temporizador"
 
@@ -468,14 +479,8 @@ msgstr "Adiciona um local"
 #~ msgid "New"
 #~ msgstr "Novo"
 
-#~ msgid "Stopwatch"
-#~ msgstr "Cronômetro"
-
 #~ msgid "Cancel"
 #~ msgstr "Cancelar"
-
-#~ msgid "World"
-#~ msgstr "Mundial"
 
 #~ msgctxt "World clock"
 #~ msgid "New"
