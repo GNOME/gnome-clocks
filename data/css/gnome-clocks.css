@@ -143,7 +143,6 @@ window > stack:backdrop {
     font-size: 48pt;
 }
 
-.clocks-stopwatch-label,
 .clocks-timer-label {
     font-size: 48pt;
 }
@@ -244,3 +243,50 @@ spinbutton.clocks-timer-label button {
 .timer-countdown.timer-running {
   color: #428be5;
 }
+/* Stopwatch */
+.large-button {
+    padding: 6px 32px;
+}
+.lap-time {
+    font-weight: bold;
+}
+
+.negative-lap {
+    color: #ED333B;
+}
+.positive-lap {
+    color: #428be5;
+}
+.stopped-stopwatch label,
+.running-stopwatch label,
+.paused-stopwatch label {
+    font-size: 70px;
+    color: grey;
+    font-weight: 200;
+}
+
+.stopped-stopwatch .seconds-label {
+    font-weight: 300;
+}
+
+.running-stopwatch .seconds-label,
+.running-stopwatch .miliseconds-label {
+    color: #428be5;
+}
+.stopped-stopwatch .miliseconds-label,
+.running-stopwatch .miliseconds-label,
+.paused-stopwatch .miliseconds-label {
+    font-size: 50px;
+}
+.running-stopwatch .seconds-label,
+.paused-stopwatch .seconds-label {
+    font-weight: 500;
+}
+
+.stopped-stopwatch .seconds-label,
+.stopped-stopwatch .miliseconds-label,
+.paused-stopwatch .seconds-label,
+.paused-stopwatch .miliseconds-label {
+    color: black;
+}
+

@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2013  Paolo Borelli <pborelli@gnome.org>
+ * Copyright (C) 2020  Bilal Elmoussaoui <bil.elmoussaoui@gnome.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,82 +20,80 @@
 namespace Clocks {
 namespace Stopwatch {
 
-public class Frame : AnalogFrame {
-    private int seconds;
-    private double millisecs;
+private string render_duration (double duration) {
+    int h;
+    int m;
+    int s;
+    double r;
+    Utils.time_to_hms (Math.floor (duration * 100) / 100, out h, out m, out s, out r);
+    int cs = (int) (r * 10);
+    return "%02i\u200E∶%02i\u200E∶%02i.%i".printf (h.abs (), m.abs (), s.abs (), cs.abs ());
+}
 
-    public void update (int s, double ms) {
-        seconds = s;
-        millisecs = ms;
-        queue_draw ();
-    }
+public class Lap : GLib.Object {
+    public int index; // Starts at #1
+    public double duration;
 
-    public void reset () {
-        update (0, 0);
-    }
-
-    public override void draw_progress (Cairo.Context cr, int center_x, int center_y, int radius) {
-        var context = get_style_context ();
-
-        context.save ();
-        context.add_class ("progress");
-
-        cr.set_line_width (LINE_WIDTH);
-        cr.set_line_cap (Cairo.LineCap.ROUND);
-
-        var color = context.get_color (context.get_state ());
-        var progress = ((double) seconds + millisecs) / 60;
-        if (progress > 0) {
-            cr.arc (center_x,
-                    center_y,
-                    radius - LINE_WIDTH / 2,
-                    1.5 * Math.PI,
-                    (1.5 + progress * 2 ) * Math.PI);
-            Gdk.cairo_set_source_rgba (cr, color);
-            cr.stroke ();
-        }
-
-        context.restore ();
-
-        context.save ();
-        context.add_class ("progress-fast");
-
-        cr.set_line_width (LINE_WIDTH - 2);
-        color = context.get_color (context.get_state ());
-        progress = millisecs;
-        if (progress > 0) {
-            cr.arc (center_x,
-                    center_y,
-                    radius - LINE_WIDTH / 2,
-                    (1.5 + progress * 2 ) * Math.PI - 0.1,
-                    (1.5 + progress * 2 ) * Math.PI + 0.1);
-            Gdk.cairo_set_source_rgba (cr, color);
-            cr.stroke ();
-        }
-
-        context.restore ();
+    public Lap (int index, double duration) {
+        this.index = index;
+        this.duration = duration;
     }
 }
+
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/stopwatchlapsrow.ui")]
 private class LapsRow : Gtk.ListBoxRow {
     [GtkChild]
-    private Gtk.Revealer slider;
+    private Gtk.Label index_label;
     [GtkChild]
-    private Gtk.Label num_label;
+    private Gtk.Label difference_label;
     [GtkChild]
-    private Gtk.Label split_label;
-    [GtkChild]
-    private Gtk.Label tot_label;
+    private Gtk.Label duration_label;
 
-    public LapsRow (string n, string split, string tot) {
-        num_label.label = n;
-        split_label.label = split;
-        tot_label.label = tot;
+    private Lap current;
+    private Lap? before;
+
+    public LapsRow (Lap current, Lap? before) {
+        this.current = current;
+        this.before = before;
+        index_label.label = _("Lap %i").printf (this.current.index);
+        duration_label.label = this.get_duration_label ();
+
+        if (this.before != null) {
+            difference_label.label = this.get_delta_label ();
+
+            var difference = this.get_delta_duration ();
+            if (difference > 0) {
+                difference_label.get_style_context ().add_class ("negative-lap");
+            } else if (difference < 0) {
+                difference_label.get_style_context ().add_class ("positive-lap");
+            }
+        }
     }
 
-    public void slide_in () {
-        slider.reveal_child = true;
+    private string get_duration_label () {
+        return render_duration (this.current.duration);
+    }
+
+    private double get_delta_duration () {
+        if (this.before != null) {
+            return this.current.duration - this.before.duration;
+        }
+        return 0;
+    }
+
+    private string? get_delta_label () {
+        if (this.before != null) {
+            var difference = this.current.duration - this.before.duration;
+            var delta_label = render_duration (difference);
+            string sign = "+";
+            if (difference < 0) {
+                sign = "-";
+            }
+
+            return "%s%s".printf (sign, delta_label);
+        }
+        return null;
     }
 }
 
@@ -112,6 +111,11 @@ public class Face : Gtk.Box, Clocks.Clock {
         TOTAL
     }
 
+    private ListStore laps;
+
+    public string label { get; construct set; }
+    public string icon_name { get; construct set; }
+    public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NONE; }
     public ViewMode view_mode { get; set; default = NORMAL; }
@@ -126,25 +130,46 @@ public class Face : Gtk.Box, Clocks.Clock {
     private GLib.Timer timer;
     private uint tick_id;
     private int current_lap;
-    private double last_lap_time;
+
     [GtkChild]
-    private Frame analog_frame;
+    private Gtk.Label hours_label;
     [GtkChild]
-    private Gtk.Label time_label;
+    private Gtk.Label minutes_label;
     [GtkChild]
-    private Gtk.Button left_button;
+    private Gtk.Label seconds_label;
     [GtkChild]
-    private Gtk.Button right_button;
+    private Gtk.Label miliseconds_label;
     [GtkChild]
-    private Gtk.ScrolledWindow laps_scrollwin;
+    private Gtk.Box time_container;
+
+    [GtkChild]
+    private Gtk.Revealer laps_revealer;
+
+    [GtkChild]
+    private Gtk.Button start_btn;
+    [GtkChild]
+    private Gtk.Button clear_btn;
     [GtkChild]
     private Gtk.ListBox laps_list;
 
     construct {
         panel_id = STOPWATCH;
 
+        laps = new GLib.ListStore (typeof (Lap));
+
         timer = new GLib.Timer ();
         tick_id = 0;
+
+        laps_list.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
+        laps_list.bind_model (laps, (lap) => {
+            var total_items = laps.get_n_items ();
+            Lap? before = null;
+            if (total_items > 1) {
+                before = (Lap)laps.get_item (total_items - 1); // Get the latest item
+            }
+            var lap_row = new LapsRow ((Lap)lap, before);
+            return lap_row;
+        });
 
         map.connect ((w) => {
             if (state == State.RUNNING) {
@@ -163,7 +188,7 @@ public class Face : Gtk.Box, Clocks.Clock {
     }
 
     [GtkCallback]
-    private void on_left_button_clicked (Gtk.Button button) {
+    private void on_start_btn_clicked (Gtk.Button button) {
         switch (state) {
         case State.RESET:
         case State.STOPPED:
@@ -178,7 +203,7 @@ public class Face : Gtk.Box, Clocks.Clock {
     }
 
     [GtkCallback]
-    private void on_right_button_clicked (Gtk.Button button) {
+    private void on_clear_btn_clicked (Gtk.Button button) {
         switch (state) {
         case State.STOPPED:
             reset ();
@@ -197,88 +222,75 @@ public class Face : Gtk.Box, Clocks.Clock {
         } else {
             timer.continue ();
         }
+
         state = State.RUNNING;
         add_tick ();
-        left_button.set_label (_("Stop"));
-        left_button.get_style_context ().add_class ("destructive-action");
-        right_button.set_sensitive (true);
-        right_button.set_label (_("Lap"));
+        start_btn.set_label (_("Pause"));
+        start_btn.get_style_context ().remove_class ("suggested-action");
+
+        clear_btn.set_sensitive (true);
+        clear_btn.set_label (_("Lap"));
+        clear_btn.get_style_context ().remove_class ("destructive-action");
+
+        time_container.get_style_context ().add_class ("running-stopwatch");
+        time_container.get_style_context ().remove_class ("paused-stopwatch");
+        time_container.get_style_context ().remove_class ("stopped-stopwatch");
     }
 
     private void stop () {
         timer.stop ();
         state = State.STOPPED;
         remove_tick ();
-        left_button.set_label (_("Continue"));
-        left_button.get_style_context ().remove_class ("destructive-action");
-        left_button.get_style_context ().add_class ("suggested-action");
-        right_button.set_sensitive (true);
-        right_button.set_label (_("Reset"));
+        start_btn.set_label (_("Resume"));
+        start_btn.get_style_context ().remove_class ("destructive-action");
+        start_btn.get_style_context ().add_class ("suggested-action");
+        clear_btn.set_sensitive (true);
+        clear_btn.set_label (_("Clear"));
+        clear_btn.get_style_context ().add_class ("destructive-action");
+
+        time_container.get_style_context ().add_class ("paused-stopwatch");
+        time_container.get_style_context ().remove_class ("running-stopwatch");
+        time_container.get_style_context ().remove_class ("stopped-stopwatch");
     }
 
     private void reset () {
+        laps_revealer.set_reveal_child (false);
+
         timer.reset ();
         state = State.RESET;
         remove_tick ();
         update_time_label ();
-        left_button.set_label (_("Start"));
-        left_button.get_style_context ().add_class ("suggested-action");
-        right_button.set_sensitive (false);
         current_lap = 0;
-        last_lap_time = 0;
-        foreach (var l in laps_list.get_children ()) {
-            laps_list.remove (l);
+
+        start_btn.set_label (_("Start"));
+        start_btn.get_style_context ().add_class ("suggested-action");
+
+        clear_btn.set_sensitive (false);
+        clear_btn.set_label (_("Lap"));
+        clear_btn.get_style_context ().remove_class ("destructive-action");
+
+        time_container.get_style_context ().add_class ("stopped-stopwatch");
+        time_container.get_style_context ().remove_class ("paused-stopwatch");
+        time_container.get_style_context ().remove_class ("running-stopwatch");
+        laps.remove_all ();
+    }
+
+    private double total_laps_duration () {
+        double total = 0;
+        for (var i = 0; i < laps.get_n_items (); i++) {
+            var lap = (Lap) laps.get_item (i);
+            total += lap.duration;
         }
+        return total;
     }
 
     private void lap () {
         current_lap += 1;
+        laps_revealer.reveal_child = current_lap >= 1;
         var e = timer.elapsed ();
-        var split = e - last_lap_time;
-
-        // Discard milliseconds in the saved lap time to ensure
-        // total and split times are consistent: for instance if we saved
-        // 0.108000 and the next lap is 1.202000, we would see on screen 0.10
-        // and 1.20, so we would expect a split time of 1.10, but we would
-        // instead get 1.094000 and thus display 1.09
-        last_lap_time = Math.floor (e * 100) / 100;
-
-        int h;
-        int m;
-        int s;
-        double r;
-        Utils.time_to_hms (e, out h, out m, out s, out r);
-        int cs = (int) (r * 100);
-
-        int split_h;
-        int split_m;
-        int split_s;
-        Utils.time_to_hms (split, out split_h, out split_m, out split_s, out r);
-        int split_cs = (int) (r * 100);
-
-        var n_label = "#%d".printf (current_lap);
-
-        // Note that the format uses unicode RATIO character
-        // We also prepend the LTR mark to make sure text is always in this direction
-
-        string split_label;
-        if (split_h > 0) {
-            split_label = "%i\u200E∶%02i\u200E∶%02i.%02i".printf (split_h, split_m, split_s, split_cs);
-        } else {
-            split_label = "%02i\u200E∶%02i.%02i".printf (split_m, split_s, split_cs);
-        }
-
-        string tot_label;
-        if (h > 0) {
-            tot_label = "%i\u200E∶%02i\u200E∶%02i.%02i".printf (h, m, s, cs);
-        } else {
-            tot_label = "%02i\u200E∶%02i.%02i".printf (m, s, cs);
-        }
-
-        var row = new LapsRow (n_label, split_label, tot_label);
-        laps_list.prepend (row);
-        row.slide_in ();
-        laps_scrollwin.vadjustment.value = laps_scrollwin.vadjustment.lower;
+        double lap_duration = e - this.total_laps_duration ();
+        var lap = new Lap (current_lap, lap_duration);
+        laps.insert (0, lap);
     }
 
     private void add_tick () {
@@ -309,19 +321,16 @@ public class Face : Gtk.Box, Clocks.Clock {
 
         // Note that the format uses unicode RATIO character
         // We also prepend the LTR mark to make sure text is always in this direction
-        if (h > 0) {
-            time_label.set_text ("%i\u200E∶%02i\u200E∶%02i.%i".printf (h, m, s, ds));
-        } else {
-            time_label.set_text ("%02i\u200E∶%02i.%i".printf (m, s, ds));
-        }
-
-        analog_frame.update (s, r);
+        hours_label.set_text ("%02i\u200E".printf (h));
+        minutes_label.set_text ("%02i\u200E".printf (m));
+        seconds_label.set_text ("%02i".printf (s));
+        miliseconds_label.set_text ("%i".printf (ds));
 
         return true;
     }
 
     public override void grab_focus () {
-        left_button.grab_focus ();
+        start_btn.grab_focus ();
     }
 
     public bool escape_pressed () {
