@@ -197,7 +197,7 @@ window > stack:backdrop {
     font-weight: bold;
     padding-right: 20px;
 }
-
+/* Timer Panel */
 /* disguise insensitive spinbuttons as normal labels */
 spinbutton.clocks-timer-label,
 spinbutton.clocks-timer-label button,
@@ -231,7 +231,7 @@ spinbutton.clocks-timer-label button {
 .round-button {
   border-radius: 9999px;
 }
-.large-button {
+.timer-panel .large-button {
   padding: 12px 18px;
 }
 .timer-countdown {
@@ -243,8 +243,8 @@ spinbutton.clocks-timer-label button {
 .timer-countdown.timer-running {
   color: #428be5;
 }
-/* Stopwatch */
-.large-button {
+/* Stopwatch Panel */
+.stopwatch-panel .large-button {
     padding: 6px 32px;
 }
 .lap-time {
