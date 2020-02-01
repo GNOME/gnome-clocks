@@ -42,7 +42,7 @@ public class Item : Object, ContentItem {
     private uint timeout_id;
 
     public signal void ring ();
-    public signal void countdown_updated (double elapsed_time);
+    public signal void countdown_updated (int hours, int minutes, int seconds);
 
     public int get_total_seconds () {
         return hours * 3600 + minutes * 60 + seconds;
@@ -102,13 +102,23 @@ public class Item : Object, ContentItem {
         state = State.RUNNING;
         timeout_id = GLib.Timeout.add (40, () => {
             var e = timer.elapsed ();
+            if (state != State.RUNNING) {
+                return false;
+            }
             if (e >= span) {
                 reset ();
                 ring ();
                 timeout_id = 0;
                 return false;
             }
-            countdown_updated (Math.ceil (span - e));
+            var elapsed = Math.ceil (span - e);
+            int h;
+            int m;
+            int s;
+            double r;
+            Utils.time_to_hms (elapsed, out h, out m, out s, out r);
+
+            countdown_updated (h, m, s);
             return true;
         });
         timer.start ();
@@ -291,7 +301,7 @@ public class Row : Gtk.ListBoxRow {
     public Row (Item item) {
         Object (item: item);
 
-        item.countdown_updated.connect ( (elapsed ) => this.update_countdown (elapsed));
+        item.countdown_updated.connect (this.update_countdown);
         item.ring.connect (() => this.ring ());
         item.start.connect (() => this.start ());
         item.pause.connect (() => this.pause ());
@@ -314,7 +324,11 @@ public class Row : Gtk.ListBoxRow {
 
     [GtkCallback]
     private void on_pause_button_clicked () {
-        item.pause ();
+        if (item.state == Item.State.RUNNING) {
+            item.pause ();
+        } else {
+            item.start ();
+        }
     }
 
     [GtkCallback]
@@ -367,13 +381,8 @@ public class Row : Gtk.ListBoxRow {
         name_stack.visible_child_name = "display";
     }
 
-    private void update_countdown (double elapsed) {
+    private void update_countdown (int h, int m, int s ) {
         if (countdown_label.get_mapped ()) {
-            int h;
-            int m;
-            int s;
-            double r;
-            Utils.time_to_hms (elapsed, out h, out m, out s, out r);
             update_countdown_label (h, m, s);
         }
     }
@@ -497,7 +506,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
             if (response == Gtk.ResponseType.ACCEPT) {
                 var timer = ((SetupDialog) dialog).timer_setup.get_timer ();
                 add_timer (timer);
-
                 timer.start ();
             }
             dialog.destroy ();
