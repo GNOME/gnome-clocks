@@ -295,8 +295,6 @@ public class Row : Gtk.ListBoxRow {
 
     public signal void deleted ();
     public signal void edited ();
-    public signal void ringing ();
-
 
     public Row (Item item) {
         Object (item: item);
@@ -306,12 +304,6 @@ public class Row : Gtk.ListBoxRow {
         item.start.connect (() => this.start ());
         item.pause.connect (() => this.pause ());
         item.reset.connect (() => this.reset ());
-        /*destroy.connect (() => {
-            if (timeout_id != 0) {
-                GLib.Source.remove (timeout_id);
-                timeout_id = 0;
-            }
-        });*/
         delete_button.clicked.connect (() => deleted ());
 
         reset ();
@@ -459,7 +451,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
             var row = new Row ((Item) timer);
             row.deleted.connect (() => remove_timer ((Item) timer));
             row.edited.connect (() => save ());
-            row.ringing.connect (() => ring ());
+            ((Item)timer).ring.connect (() => ring ());
 
             return row;
         });
