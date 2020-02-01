@@ -380,7 +380,7 @@ public class Row : Gtk.ListBoxRow {
     }
 
     private void update_countdown_label (int h, int m, int s) {
-        countdown_label.set_text ("%02i:%02i:%02i".printf (h, m, s));
+        countdown_label.set_text ("%02i ∶ %02i ∶ %02i".printf (h, m, s));
     }
 
     private void update_name_label () {
