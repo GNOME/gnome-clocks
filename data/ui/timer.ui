@@ -13,6 +13,22 @@
         <property name="halign">center</property>
         <property name="valign">center</property>
         <property name="orientation">vertical</property>
+        <property name="spacing">18</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Select Duration</property>
+            <style>
+              <class name="timer-header"/>
+            </style>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
         <child>
           <object class="GtkButton" id="start_button">
             <property name="visible">True</property>
@@ -61,12 +77,12 @@
                 <property name="can_focus">False</property>
                 <property name="maximum_width">600</property>
                 <property name="linear_growth_width">600</property>
-                <property name="margin">12</property>
                 <child>
                   <object class="GtkListBox" id="timers_list">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="valign">start</property>
+                    <property name="margin">18</property>
                     <property name="selection_mode">none</property>
                     <property name="activate_on_single_click">False</property>
                     <style>

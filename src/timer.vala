@@ -455,7 +455,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         notification.set_body (_("Timer countdown finished"));
 
         no_timer_container.add (timer_setup);
-        no_timer_container.reorder_child (timer_setup, 0);
+        no_timer_container.reorder_child (timer_setup, 1);
         set_visible_child_name ("empty");
 
         start_button.set_sensitive (false);
