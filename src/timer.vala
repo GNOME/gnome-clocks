@@ -132,12 +132,8 @@ public class Item : Object, ContentItem {
 
     public virtual signal void reset () {
         state = State.STOPPED;
-
         span = get_total_seconds ();
         timer.reset ();
-        if (timeout_id != 0) {
-            GLib.Source.remove (timeout_id);
-        }
         timeout_id = 0;
     }
 }
@@ -339,10 +335,10 @@ public class Row : Gtk.ListBoxRow {
         name_stack.visible_child_name = "edit";
 
         update_name_label ();
-        update_countdown_label (item.hours, item.minutes, item.seconds);
+        update_countdown (item.hours, item.minutes, item.seconds);
     }
 
-    public void start () {
+    private void start () {
         countdown_label.get_style_context ().add_class ("timer-running");
         countdown_label.get_style_context ().remove_class ("timer-ringing");
         countdown_label.get_style_context ().remove_class ("timer-paused");
@@ -356,13 +352,13 @@ public class Row : Gtk.ListBoxRow {
         update_name_label ();
     }
 
-    public void ring () {
+    private void ring () {
         countdown_label.get_style_context ().add_class ("timer-ringing");
         countdown_label.get_style_context ().remove_class ("timer-paused");
         countdown_label.get_style_context ().remove_class ("timer-running");
     }
 
-    public void pause () {
+    private void pause () {
         countdown_label.get_style_context ().add_class ("timer-paused");
         countdown_label.get_style_context ().remove_class ("timer-ringing");
         countdown_label.get_style_context ().remove_class ("timer-running");
@@ -374,12 +370,6 @@ public class Row : Gtk.ListBoxRow {
     }
 
     private void update_countdown (int h, int m, int s ) {
-        if (countdown_label.get_mapped ()) {
-            update_countdown_label (h, m, s);
-        }
-    }
-
-    private void update_countdown_label (int h, int m, int s) {
         countdown_label.set_text ("%02i ∶ %02i ∶ %02i".printf (h, m, s));
     }
 
@@ -388,11 +378,11 @@ public class Row : Gtk.ListBoxRow {
             timer_name.label = item.name;
         } else {
             if (item.seconds != 0 && item.minutes == 0 && item.hours == 0) {
-                timer_name.label = _("%i second timer".printf (item.minutes));
+                timer_name.label = _("%i second timer".printf (item.seconds));
             } else if (item.seconds == 0 && item.minutes != 0 && item.hours == 0) {
                 timer_name.label = _("%i minute timer".printf (item.minutes));
             } else if (item.seconds == 0 && item.minutes == 0 && item.hours != 0) {
-                timer_name.label = _("%i hour timer".printf (item.minutes));
+                timer_name.label = _("%i hour timer".printf (item.hours));
             } else if (item.seconds != 0 && item.minutes != 0 && item.hours == 0) {
                 timer_name.label = _("%i minute %i second timer".printf (item.minutes, item.seconds));
             } else if (item.seconds == 0 && item.minutes != 0 && item.hours != 0) {
@@ -409,11 +399,6 @@ public class Row : Gtk.ListBoxRow {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/timer.ui")]
 public class Face : Gtk.Stack, Clocks.Clock {
-    public enum State {
-        EMPTY,
-        RUNNING,
-    }
-
     private Setup timer_setup;
     [GtkChild]
     private Gtk.ListBox timers_list;
@@ -425,7 +410,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NONE; }
     public ViewMode view_mode { get; set; default = NORMAL; }
-    public State state { get; set; default = State.EMPTY; }
     public bool can_select { get; set; default = false; }
     public bool n_selected { get; set; }
     public string title { get; set; default = _("Clocks"); }
@@ -481,7 +465,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         });
         start_button.clicked.connect (() => {
             var timer = this.timer_setup.get_timer ();
-            this.add_timer (timer);
+            this.timers.add (timer);
 
             timer.start ();
         });
@@ -497,17 +481,12 @@ public class Face : Gtk.Stack, Clocks.Clock {
         dialog.response.connect ((dialog, response) => {
             if (response == Gtk.ResponseType.ACCEPT) {
                 var timer = ((SetupDialog) dialog).timer_setup.get_timer ();
-                add_timer (timer);
+                this.timers.add (timer);
                 timer.start ();
             }
             dialog.destroy ();
         });
         dialog.show ();
-    }
-
-
-    private void add_timer (Item timer) {
-        timers.add (timer);
     }
 
     private void load () {
