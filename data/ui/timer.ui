@@ -7,42 +7,12 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <child>
-      <object class="HdyColumn">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="maximum_width">600</property>
-        <property name="linear_growth_width">600</property>
-        <child>
-          <object class="GtkListBox" id="timers_list">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="valign">start</property>
-            <property name="margin_left">24</property>
-            <property name="margin_right">24</property>
-            <property name="margin_top">24</property>
-            <property name="margin_bottom">24</property>
-            <property name="selection_mode">none</property>
-            <property name="activate_on_single_click">False</property>
-            <style>
-              <class name="frame"/>
-            </style>
-          </object>
-        </child>
-      </object>
-      <packing>
-        <property name="name">timers</property>
-      </packing>
-    </child>
-    <child>
       <object class="GtkBox" id="no_timer_container">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="halign">center</property>
         <property name="valign">center</property>
         <property name="orientation">vertical</property>
-        <child>
-          <placeholder/>
-        </child>
         <child>
           <object class="GtkButton" id="start_button">
             <property name="visible">True</property>
@@ -74,11 +44,49 @@
       </object>
       <packing>
         <property name="name">empty</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkScrolledWindow">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <child>
+          <object class="GtkViewport">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="shadow_type">none</property>
+            <child>
+              <object class="HdyColumn">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="maximum_width">600</property>
+                <property name="linear_growth_width">600</property>
+                <child>
+                  <object class="GtkListBox" id="timers_list">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="valign">start</property>
+                    <property name="margin_top">24</property>
+                    <property name="margin_bottom">24</property>
+                    <property name="selection_mode">none</property>
+                    <property name="activate_on_single_click">False</property>
+                    <style>
+                      <class name="frame"/>
+                    </style>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+      <packing>
+        <property name="name">timers</property>
         <property name="position">1</property>
       </packing>
     </child>
     <style>
-      <class name="timer-panel" />
+      <class name="timer-panel"/>
     </style>
   </template>
 </interface>
