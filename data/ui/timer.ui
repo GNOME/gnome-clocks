@@ -61,13 +61,12 @@
                 <property name="can_focus">False</property>
                 <property name="maximum_width">600</property>
                 <property name="linear_growth_width">600</property>
+                <property name="margin">12</property>
                 <child>
                   <object class="GtkListBox" id="timers_list">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="valign">start</property>
-                    <property name="margin_top">24</property>
-                    <property name="margin_bottom">24</property>
                     <property name="selection_mode">none</property>
                     <property name="activate_on_single_click">False</property>
                     <style>
