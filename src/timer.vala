@@ -312,11 +312,7 @@ public class Row : Gtk.ListBoxRow {
 
     [GtkCallback]
     private void on_pause_button_clicked () {
-        if (item.state == Item.State.RUNNING) {
-            item.pause ();
-        } else {
-            item.start ();
-        }
+        item.pause ();
     }
 
     [GtkCallback]
@@ -410,6 +406,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NONE; }
     public ViewMode view_mode { get; set; default = NORMAL; }
+    public bool is_running { get; set; default = false; }
     public bool can_select { get; set; default = false; }
     public bool n_selected { get; set; }
     public string title { get; set; default = _("Clocks"); }
@@ -436,7 +433,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
             row.deleted.connect (() => remove_timer ((Item) timer));
             row.edited.connect (() => save ());
             ((Item)timer).ring.connect (() => ring ());
-
+            ((Item)timer).notify["state"].connect (() => {
+                this.is_running = this.get_total_active_timers () != 0;
+            });
             return row;
         });
 
@@ -470,6 +469,16 @@ public class Face : Gtk.Stack, Clocks.Clock {
             timer.start ();
         });
         load ();
+    }
+
+    private int get_total_active_timers () {
+        var total_items = 0;
+        this.timers.foreach ((timer) => {
+            if (((Item)timer).state == Item.State.RUNNING) {
+                total_items += 1;
+            }
+        });
+        return total_items;
     }
 
     private void remove_timer (Item item) {

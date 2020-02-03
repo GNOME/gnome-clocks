@@ -106,6 +106,11 @@ public class Window : Gtk.ApplicationWindow {
             stack.visible_child = w;
         });
 
+
+        timer.notify["is-running"].connect ((w) => {
+            stack.child_set_property (timer, "needs-attention", timer.is_running);
+        });
+
         unowned Gtk.BindingSet binding_set = Gtk.BindingSet.by_class (get_class ());
 
         // plain ctrl+page_up/down is easten by the scrolled window...
