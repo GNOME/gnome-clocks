@@ -27,7 +27,7 @@ private string render_duration (double duration) {
     double r;
     Utils.time_to_hms (Math.floor (duration * 100) / 100, out h, out m, out s, out r);
     int cs = (int) (r * 10);
-    return "%02i\u200E ∶ %02i\u200E ∶ %02i. %i".printf (h.abs (), m.abs (), s.abs (), cs.abs ());
+    return "%02i\u200E ∶ %02i\u200E ∶ %02i. %i".printf (h.abs (), m.abs (), s.abs (), cs.abs ());
 }
 
 public class Lap : GLib.Object {
@@ -91,7 +91,7 @@ private class LapsRow : Gtk.ListBoxRow {
                 sign = "-";
             }
 
-            return "%s %s".printf (sign, delta_label);
+            return "%s %s".printf (sign, delta_label);
         }
         return null;
     }
