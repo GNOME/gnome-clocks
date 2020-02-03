@@ -110,6 +110,11 @@ public class Window : Gtk.ApplicationWindow {
             stack.child_set_property (timer, "needs-attention", timer.state == Timer.Face.State.RUNNING);
         });
 
+        // We need to set this manually, otherwise it fails in the devel version
+        var builder = new Gtk.Builder.from_resource ("/org/gnome/clocks/gtk/help-overlay.ui");
+        var dialog = (Gtk.ShortcutsWindow)builder.get_object ("help_overlay");
+        set_help_overlay (dialog);
+
         unowned Gtk.BindingSet binding_set = Gtk.BindingSet.by_class (get_class ());
 
         // plain ctrl+page_up/down is easten by the scrolled window...
