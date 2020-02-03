@@ -21,6 +21,14 @@ namespace Clocks {
 namespace Timer {
 
 public class Item : Object, ContentItem {
+    public enum State {
+        STOPPED,
+        RUNNING,
+        PAUSED
+    }
+
+    public State state { get; private set; default = State.STOPPED; }
+
     public bool selectable { get; set; default = false; }
     public bool selected { get; set; default = false; }
 
@@ -29,6 +37,12 @@ public class Item : Object, ContentItem {
     public int minutes { get; set; default = 0; }
     public int seconds { get; set; default = 0; }
 
+    private double span;
+    private GLib.Timer timer;
+    private uint timeout_id;
+
+    public signal void ring ();
+    public signal void countdown_updated (int hours, int minutes, int seconds);
 
     public int get_total_seconds () {
         return hours * 3600 + minutes * 60 + seconds;
@@ -61,14 +75,15 @@ public class Item : Object, ContentItem {
         return duration != 0 ? new Item.from_seconds (duration, name) : null;
     }
 
-    public Item.from_seconds (int s, string? name) {
-        Object (name: name);
+    public Item.from_seconds (int seconds, string? name) {
 
         int rest = 0;
-        hours = s / 3600;
-        rest = s - hours * 3600;
-        minutes = rest / 60;
-        seconds = rest - minutes * 60;
+        int h = seconds / 3600;
+        rest = seconds - h * 3600;
+        int m = rest / 60;
+        int s = rest - m * 60;
+
+        this (h, m, s, name);
     }
 
     public Item (int h, int m, int s, string? name) {
@@ -76,6 +91,50 @@ public class Item : Object, ContentItem {
         hours = h;
         minutes = m;
         seconds = s;
+
+        span = get_total_seconds ();
+        timer = new GLib.Timer ();
+
+        timeout_id = 0;
+    }
+
+    public virtual signal void start () {
+        state = State.RUNNING;
+        timeout_id = GLib.Timeout.add (40, () => {
+            var e = timer.elapsed ();
+            if (state != State.RUNNING) {
+                return false;
+            }
+            if (e >= span) {
+                reset ();
+                ring ();
+                timeout_id = 0;
+                return false;
+            }
+            var elapsed = Math.ceil (span - e);
+            int h;
+            int m;
+            int s;
+            double r;
+            Utils.time_to_hms (elapsed, out h, out m, out s, out r);
+
+            countdown_updated (h, m, s);
+            return true;
+        });
+        timer.start ();
+    }
+
+    public virtual signal void pause () {
+        state = State.PAUSED;
+        span -= timer.elapsed ();
+        timer.stop ();
+    }
+
+    public virtual signal void reset () {
+        state = State.STOPPED;
+        span = get_total_seconds ();
+        timer.reset ();
+        timeout_id = 0;
     }
 }
 
@@ -192,13 +251,6 @@ public class Setup : Gtk.Box {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/timer_row.ui")]
 public class Row : Gtk.ListBoxRow {
-    public enum State {
-        STOPPED,
-        RUNNING,
-        PAUSED
-    }
-
-    public State state { get; private set; default = State.STOPPED; }
     public Item item {
         get {
             return _item;
@@ -215,9 +267,7 @@ public class Row : Gtk.ListBoxRow {
     }
     private Item _item = null;
 
-    private double span;
-    private GLib.Timer timer;
-    private uint timeout_id;
+
     [GtkChild]
     private Gtk.Label countdown_label;
 
@@ -241,21 +291,15 @@ public class Row : Gtk.ListBoxRow {
 
     public signal void deleted ();
     public signal void edited ();
-    public signal void ringing ();
-
 
     public Row (Item item) {
         Object (item: item);
-        span = item.get_total_seconds ();
-        timer = new GLib.Timer ();
 
-        timeout_id = 0;
-        destroy.connect (() => {
-            if (timeout_id != 0) {
-                GLib.Source.remove (timeout_id);
-                timeout_id = 0;
-            }
-        });
+        item.countdown_updated.connect (this.update_countdown);
+        item.ring.connect (() => this.ring ());
+        item.start.connect (() => this.start ());
+        item.pause.connect (() => this.pause ());
+        item.reset.connect (() => this.reset ());
         delete_button.clicked.connect (() => deleted ());
 
         reset ();
@@ -263,52 +307,38 @@ public class Row : Gtk.ListBoxRow {
 
     [GtkCallback]
     private void on_start_button_clicked () {
-        switch (state) {
-            case State.PAUSED:
-            case State.STOPPED:
-                start ();
-                break;
-            default:
-                assert_not_reached ();
-        }
+        item.start ();
     }
 
     [GtkCallback]
     private void on_pause_button_clicked () {
-        switch (state) {
-            case State.RUNNING:
-                pause ();
-                break;
-            default:
-                assert_not_reached ();
+        if (item.state == Item.State.RUNNING) {
+            item.pause ();
+        } else {
+            item.start ();
         }
     }
 
     [GtkCallback]
     private void on_reset_button_clicked () {
-        reset ();
+        item.reset ();
     }
 
     private void reset () {
-        update_name_label ();
-        state = State.STOPPED;
-        span = item.get_total_seconds ();
-
-        update_countdown_label (item.hours, item.minutes, item.seconds);
-
         reset_stack.visible_child_name = "empty";
         delete_stack.visible_child_name = "button";
 
-        timer.reset ();
         countdown_label.get_style_context ().add_class ("timer-paused");
         countdown_label.get_style_context ().remove_class ("timer-ringing");
         countdown_label.get_style_context ().remove_class ("timer-running");
         start_stack.visible_child_name = "start";
         name_stack.visible_child_name = "edit";
+
+        update_name_label ();
+        update_countdown (item.hours, item.minutes, item.seconds);
     }
 
-    public void start () {
-        update_name_label ();
+    private void start () {
         countdown_label.get_style_context ().add_class ("timer-running");
         countdown_label.get_style_context ().remove_class ("timer-ringing");
         countdown_label.get_style_context ().remove_class ("timer-paused");
@@ -318,31 +348,14 @@ public class Row : Gtk.ListBoxRow {
 
         start_stack.visible_child_name = "pause";
         name_stack.visible_child_name = "display";
-        state = State.RUNNING;
-        timer.start ();
-        timeout_id = GLib.Timeout.add (40, () => {
-            if (state != State.RUNNING) {
-                timeout_id = 0;
-                return false;
-            }
-            var e = timer.elapsed ();
-            if (e >= span) {
-                reset ();
-                ring ();
-                timeout_id = 0;
-                return false;
-            }
-            update_countdown (e);
-            return true;
-        });
+
+        update_name_label ();
     }
 
     private void ring () {
         countdown_label.get_style_context ().add_class ("timer-ringing");
         countdown_label.get_style_context ().remove_class ("timer-paused");
         countdown_label.get_style_context ().remove_class ("timer-running");
-
-        ringing ();
     }
 
     private void pause () {
@@ -352,31 +365,12 @@ public class Row : Gtk.ListBoxRow {
 
         reset_stack.visible_child_name = "button";
         delete_stack.visible_child_name = "button";
-
-        state = State.PAUSED;
-        timer.stop ();
-        span -= timer.elapsed ();
         start_stack.visible_child_name = "start";
         name_stack.visible_child_name = "display";
     }
 
-    private void update_countdown (double elapsed) {
-        if (countdown_label.get_mapped ()) {
-            // Math.ceil() because we count backwards:
-            // with 0.3 seconds we want to show 1 second remaining,
-            // with 59.2 seconds we want to show 1 minute, etc
-            double t = Math.ceil (span - elapsed);
-            int h;
-            int m;
-            int s;
-            double r;
-            Utils.time_to_hms (t, out h, out m, out s, out r);
-            update_countdown_label (h, m, s);
-        }
-    }
-
-    private void update_countdown_label (int h, int m, int s) {
-        countdown_label.set_text ("%02i:%02i:%02i".printf (h, m, s));
+    private void update_countdown (int h, int m, int s ) {
+        countdown_label.set_text ("%02i ∶ %02i ∶ %02i".printf (h, m, s));
     }
 
     private void update_name_label () {
@@ -384,11 +378,11 @@ public class Row : Gtk.ListBoxRow {
             timer_name.label = item.name;
         } else {
             if (item.seconds != 0 && item.minutes == 0 && item.hours == 0) {
-                timer_name.label = _("%i second timer".printf (item.minutes));
+                timer_name.label = _("%i second timer".printf (item.seconds));
             } else if (item.seconds == 0 && item.minutes != 0 && item.hours == 0) {
                 timer_name.label = _("%i minute timer".printf (item.minutes));
             } else if (item.seconds == 0 && item.minutes == 0 && item.hours != 0) {
-                timer_name.label = _("%i hour timer".printf (item.minutes));
+                timer_name.label = _("%i hour timer".printf (item.hours));
             } else if (item.seconds != 0 && item.minutes != 0 && item.hours == 0) {
                 timer_name.label = _("%i minute %i second timer".printf (item.minutes, item.seconds));
             } else if (item.seconds == 0 && item.minutes != 0 && item.hours != 0) {
@@ -405,11 +399,6 @@ public class Row : Gtk.ListBoxRow {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/timer.ui")]
 public class Face : Gtk.Stack, Clocks.Clock {
-    public enum State {
-        EMPTY,
-        RUNNING,
-    }
-
     private Setup timer_setup;
     [GtkChild]
     private Gtk.ListBox timers_list;
@@ -421,7 +410,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NONE; }
     public ViewMode view_mode { get; set; default = NORMAL; }
-    public State state { get; set; default = State.EMPTY; }
     public bool can_select { get; set; default = false; }
     public bool n_selected { get; set; }
     public string title { get; set; default = _("Clocks"); }
@@ -447,7 +435,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
             var row = new Row ((Item) timer);
             row.deleted.connect (() => remove_timer ((Item) timer));
             row.edited.connect (() => save ());
-            row.ringing.connect (() => ring ());
+            ((Item)timer).ring.connect (() => ring ());
 
             return row;
         });
@@ -477,7 +465,9 @@ public class Face : Gtk.Stack, Clocks.Clock {
         });
         start_button.clicked.connect (() => {
             var timer = this.timer_setup.get_timer ();
-            this.add_timer (timer);
+            this.timers.add (timer);
+
+            timer.start ();
         });
         load ();
     }
@@ -491,16 +481,12 @@ public class Face : Gtk.Stack, Clocks.Clock {
         dialog.response.connect ((dialog, response) => {
             if (response == Gtk.ResponseType.ACCEPT) {
                 var timer = ((SetupDialog) dialog).timer_setup.get_timer ();
-                add_timer (timer);
+                this.timers.add (timer);
+                timer.start ();
             }
             dialog.destroy ();
         });
         dialog.show ();
-    }
-
-
-    private void add_timer (Item timer) {
-        timers.add (timer);
     }
 
     private void load () {

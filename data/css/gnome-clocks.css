@@ -228,11 +228,14 @@ spinbutton.clocks-timer-label button {
     animation-duration: 1s; 
 }
 
-.round-button {
+.timer-panel .round-button {
   border-radius: 9999px;
 }
+.timer-panel .small-button {
+  padding: 5px 9px
+}
 .timer-panel .large-button {
-  padding: 12px 18px;
+  padding: 12px 16px;
 }
 .timer-countdown {
   font-size: 40pt;

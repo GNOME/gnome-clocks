@@ -18,7 +18,7 @@
           <object class="GtkLabel" id="countdown_label">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label">00:00:00</property>
+            <property name="label">00 ∶ 00 ∶ 00</property>
             <attributes>
               <attribute name="font-features" value="tnum=1"/>
             </attributes>
@@ -124,9 +124,9 @@
                       </object>
                     </child>
                     <style>
+                      <class name="suggested-action"/>
                       <class name="round-button"/>
                       <class name="large-button"/>
-                      <class name="suggested-action"/>
                     </style>
                   </object>
                   <packing>
@@ -161,6 +161,7 @@
                     </child>
                     <style>
                       <class name="round-button"/>
+                      <class name="small-button"/>
                     </style>
                   </object>
                   <packing>
@@ -203,7 +204,7 @@
                     </child>
                     <style>
                       <class name="round-button"/>
-                      <class name="round-button"/>
+                      <class name="small-button"/>
                     </style>
                   </object>
                   <packing>
