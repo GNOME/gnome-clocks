@@ -295,7 +295,7 @@ private class Tile : Gtk.ListBoxRow {
         }
 
         // Translators: The time is the same as the local time
-        var message = _("Equal");
+        var message = _("Current timezone");
 
         if (diff > 0) {
             // Translators: The (possibly fractical) number hours in the past
@@ -312,14 +312,14 @@ private class Tile : Gtk.ListBoxRow {
         }
 
         if (location.day_label != null && location.day_label != "") {
-            desc.label = "%s • %s".printf(location.day_label, message);
+            desc.label = "%s • %s".printf (location.day_label, message);
             delete_stack.visible_child = delete_button;
         } else if (location.automatic) {
             // Translators: This clock represents the local time
             desc.label = _("Current location");
             delete_stack.visible_child = delete_empty;
         } else {
-            desc.label = "%s".printf(message);
+            desc.label = "%s".printf (message);
             delete_stack.visible_child = delete_button;
         }
 
