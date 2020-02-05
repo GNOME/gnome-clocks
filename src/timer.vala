@@ -324,7 +324,7 @@ public class Row : Gtk.ListBoxRow {
         reset_stack.visible_child_name = "empty";
         delete_stack.visible_child_name = "button";
 
-        countdown_label.get_style_context ().add_class ("timer-paused");
+        countdown_label.get_style_context ().remove_class ("timer-paused");
         countdown_label.get_style_context ().remove_class ("timer-ringing");
         countdown_label.get_style_context ().remove_class ("timer-running");
         start_stack.visible_child_name = "start";
