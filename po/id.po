@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-01-02 23:31+0000\n"
-"PO-Revision-Date: 2020-01-12 22:34+0700\n"
+"POT-Creation-Date: 2020-02-01 23:08+0000\n"
+"PO-Revision-Date: 2020-02-03 16:26+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome@i15n.org>\n"
 "Language: id\n"
@@ -28,65 +28,80 @@ msgstr "Umum"
 
 #: data/gtk/help-overlay.ui:19
 msgctxt "shortcut window"
-msgid "Go to the next section"
-msgstr "Pergi ke bagian selanjutnya"
+msgid "Show help"
+msgstr "Tampilkan bantuan"
 
 #: data/gtk/help-overlay.ui:26
 msgctxt "shortcut window"
-msgid "Go to the previous section"
-msgstr "Pergi ke bagian sebelumnya"
+msgid "Open menu"
+msgstr "Buka menu"
 
 #: data/gtk/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "Pintasan papan tik"
+
+#: data/gtk/help-overlay.ui:40
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Keluar"
 
-#: data/gtk/help-overlay.ui:42
+#: data/gtk/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Go to the next section"
+msgstr "Pergi ke bagian selanjutnya"
+
+#: data/gtk/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "Go to the previous section"
+msgstr "Pergi ke bagian sebelumnya"
+
+#: data/gtk/help-overlay.ui:63
 msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Jam Dunia"
 
-#: data/gtk/help-overlay.ui:47
+#: data/gtk/help-overlay.ui:68
 msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Tambahkan sebuah jam dunia"
 
-#: data/gtk/help-overlay.ui:54
+#: data/gtk/help-overlay.ui:75
 msgctxt "shortcut window"
 msgid "Select all world clocks"
 msgstr "Pilih semua jam dunia"
 
-#: data/gtk/help-overlay.ui:63
+#: data/gtk/help-overlay.ui:84
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Alarm"
 
-#: data/gtk/help-overlay.ui:68
+#: data/gtk/help-overlay.ui:89
 msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Tambah alarm"
 
-#: data/gtk/help-overlay.ui:75
+#: data/gtk/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Select all alarms"
 msgstr "Pilih semua alarm"
 
-#: data/gtk/help-overlay.ui:84
+#: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Stopwatch"
 
-#: data/gtk/help-overlay.ui:89
+#: data/gtk/help-overlay.ui:110
 msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Berhenti / Reset"
 
-#: data/gtk/help-overlay.ui:98
+#: data/gtk/help-overlay.ui:119
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Penghitung Waktu"
 
-#: data/gtk/help-overlay.ui:103
+#: data/gtk/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Atur ulang"
@@ -162,7 +177,7 @@ msgstr "Proyek GNOME"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/ui/headerbar.ui:24 src/alarm.vala:590 src/alarm.vala:677
-#: src/main.vala:25 src/stopwatch.vala:120 src/timer.vala:79
+#: src/main.vala:25 src/stopwatch.vala:124 src/timer.vala:79
 #: src/window.vala:291 src/world.vala:346 src/world.vala:427
 msgid "Clocks"
 msgstr "Jam"
@@ -232,11 +247,11 @@ msgstr "Keadaan panel"
 msgid "Current clock panel."
 msgstr "Panel jam saat ini."
 
-#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:202
+#: data/ui/alarmringing.ui:41 src/alarm.vala:118
 msgid "Stop"
 msgstr "Berhenti"
 
-#: data/ui/alarmringing.ui:59 src/alarm.vala:119
+#: data/ui/alarmringing.ui:61 src/alarm.vala:119
 msgid "Snooze"
 msgstr "Jeda"
 
@@ -297,17 +312,34 @@ msgstr "Menu"
 msgid "Select"
 msgstr "Pilih"
 
-#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:224
+#: data/ui/stopwatchlapsrow.ui:18
+msgid "Time"
+msgstr "Waktu"
+
+#: data/ui/stopwatchlapsrow.ui:39
+msgid "Difference"
+msgstr "Perbedaan"
+
+#: data/ui/stopwatch.ui:166
+msgid "_Start"
+msgstr "_Mulai"
+
+#: data/ui/stopwatch.ui:186 src/stopwatch.vala:248
+msgid "Clear"
+msgstr "Bersihkan"
+
+#: data/ui/timer.ui:197 src/stopwatch.vala:265
 msgid "Start"
 msgstr "Mulai"
 
-#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:216
-msgid "Reset"
-msgstr "Atur ulang"
-
-#: data/ui/timer.ui:403 src/timer.vala:224 src/timer.vala:235
+#: data/ui/timer.ui:403 src/stopwatch.vala:228 src/timer.vala:224
+#: src/timer.vala:235
 msgid "Pause"
 msgstr "Jeda"
+
+#: data/ui/timer.ui:421
+msgid "Reset"
+msgstr "Atur ulang"
 
 #: data/ui/window.ui:39
 msgid "World"
@@ -333,11 +365,11 @@ msgstr "Cari kota:"
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Klik <b>Baru</b> untuk menambahkan jam dunia"
 
-#: data/ui/world.ui:126
+#: data/ui/world.ui:128
 msgid "Sunrise"
 msgstr "Matahari terbit"
 
-#: data/ui/world.ui:140
+#: data/ui/world.ui:142
 msgid "Sunset"
 msgstr "Matahari terbenam"
 
@@ -358,12 +390,17 @@ msgstr "Alarm Baru"
 msgid "Print version information and exit"
 msgstr "Menampilkan informasi versi dan keluar"
 
-#: src/stopwatch.vala:205
+#: src/stopwatch.vala:59
+#, c-format
+msgid "Lap %i"
+msgstr "Putaran %i"
+
+#: src/stopwatch.vala:232 src/stopwatch.vala:269
 msgid "Lap"
 msgstr "Lintasan"
 
-#: src/stopwatch.vala:212 src/timer.vala:219
-msgid "Continue"
+#: src/stopwatch.vala:244
+msgid "Resume"
 msgstr "Lanjutkan"
 
 #. Translators: Tooltip for the + button
@@ -378,6 +415,10 @@ msgstr "Waktu habis!"
 #: src/timer.vala:139
 msgid "Timer countdown finished"
 msgstr "Penghitung waktu sudah selesai"
+
+#: src/timer.vala:219
+msgid "Continue"
+msgstr "Lanjutkan"
 
 #: src/utils.vala:167
 msgid "Mondays"
