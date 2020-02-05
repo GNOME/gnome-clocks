@@ -197,7 +197,7 @@ window > stack:backdrop {
     font-weight: bold;
     padding-right: 20px;
 }
-
+/* Timer Panel */
 /* disguise insensitive spinbuttons as normal labels */
 spinbutton.clocks-timer-label,
 spinbutton.clocks-timer-label button,
@@ -215,21 +215,41 @@ spinbutton.clocks-timer-label {
 spinbutton.clocks-timer-label button {
     color: transparent;
 }
+.timer-panel .round-button {
+  border-radius: 9999px;
+}
+.timer-panel .small-button {
+  padding: 5px 9px
+}
+.timer-panel .large-button {
+  padding: 12px 16px;
+}
+.timer-panel .timer-header {
+  font-size: 20pt;
+  font-weight: 700;
+}
+.timer-countdown {
+  font-size: 40pt;
+  color: #9E9DA1;
+}
 
 @keyframes clocks-blink {
-    0% { color: @theme_fg_color; }
-    100% { color: @insensitive_fg_color; }
+    0% { color: #9E9DA1; }
+    100% { color: #428be5; }
 }
 
-.clocks-paused .clocks-timer-label {
-    animation-name: clocks-blink;
-    animation-iteration-count: infinite;  
-    animation-timing-function: cubic-bezier(1.0,0,0,1.0);
-    animation-duration: 1s; 
+.timer-countdown.timer-paused {
+  color: #9E9DA1;
+  animation-name: clocks-blink;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  animation-duration: 1s;
 }
-
-/* Stopwatch */
-.large-button {
+.timer-countdown.timer-running {
+  color: #428be5;
+}
+/* Stopwatch Panel */
+.stopwatch-panel .large-button {
     padding: 6px 32px;
 }
 .lap-time {

@@ -106,8 +106,9 @@ public class Window : Gtk.ApplicationWindow {
             stack.visible_child = w;
         });
 
-        timer.notify["state"].connect ((w) => {
-            stack.child_set_property (timer, "needs-attention", timer.state == Timer.Face.State.RUNNING);
+
+        timer.notify["is-running"].connect ((w) => {
+            stack.child_set_property (timer, "needs-attention", timer.is_running);
         });
 
         // We need to set this manually, otherwise it fails in the devel version
