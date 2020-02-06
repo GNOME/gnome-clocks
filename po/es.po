@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-02-01 23:08+0000\n"
-"PO-Revision-Date: 2020-02-03 12:00+0100\n"
+"POT-Creation-Date: 2020-02-05 19:22+0000\n"
+"PO-Revision-Date: 2020-02-06 11:31+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -35,7 +35,6 @@ msgid "Open menu"
 msgstr "Abrir menú"
 
 #: data/gtk/help-overlay.ui:33
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "Atajos del teclado"
@@ -177,8 +176,8 @@ msgstr "El Proyecto GNOME"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/ui/headerbar.ui:24 src/alarm.vala:590 src/alarm.vala:677
-#: src/main.vala:25 src/stopwatch.vala:124 src/timer.vala:79
-#: src/window.vala:291 src/world.vala:346 src/world.vala:427
+#: src/main.vala:25 src/stopwatch.vala:124 src/timer.vala:412
+#: src/window.vala:297 src/world.vala:346 src/world.vala:427
 msgid "Clocks"
 msgstr "Relojes"
 
@@ -207,13 +206,15 @@ msgstr "Alarmas configuradas"
 msgid "List of alarms set."
 msgstr "Lista de alarmas establecidas."
 
-#: data/org.gnome.clocks.gschema.xml.in:19 data/ui/window.ui:69
-msgid "Timer"
-msgstr "Temporizador"
+#: data/org.gnome.clocks.gschema.xml.in:19
+#| msgid "Configured alarms"
+msgid "Configured Timers"
+msgstr "Temporizadores configurados"
 
 #: data/org.gnome.clocks.gschema.xml.in:20
-msgid "Configured timer duration in seconds."
-msgstr "Duración en segundos del temporizador configurado."
+#| msgid "List of alarms set."
+msgid "List of timers set."
+msgstr "Lista de temporizadores establecidos."
 
 #: data/org.gnome.clocks.gschema.xml.in:26
 msgid "Geolocation support"
@@ -320,27 +321,55 @@ msgstr "Tiempo"
 msgid "Difference"
 msgstr "Diferencia"
 
-#: data/ui/stopwatch.ui:166
-#| msgid "Start"
+#: data/ui/stopwatch.ui:167
 msgid "_Start"
 msgstr "_Iniciar"
 
-#: data/ui/stopwatch.ui:186 src/stopwatch.vala:248
+#: data/ui/stopwatch.ui:187 src/stopwatch.vala:248
 msgid "Clear"
 msgstr "Limpiar"
 
-#: data/ui/timer.ui:197 src/stopwatch.vala:265
-msgid "Start"
-msgstr "Iniciar"
+#: data/ui/timer_row.ui:45
+msgid "Title..."
+msgstr "Título…"
 
-#: data/ui/timer.ui:403 src/stopwatch.vala:228 src/timer.vala:224
-#: src/timer.vala:235
-msgid "Pause"
-msgstr "Pausar"
+#: data/ui/timer_setup.ui:49
+msgid "1 m"
+msgstr "1 m"
 
-#: data/ui/timer.ui:421
-msgid "Reset"
-msgstr "Reiniciar"
+#: data/ui/timer_setup.ui:67
+msgid "2 m"
+msgstr "2 m"
+
+#: data/ui/timer_setup.ui:85
+msgid "3 m"
+msgstr "3 m"
+
+#: data/ui/timer_setup.ui:103
+msgid "5 m"
+msgstr "5 m"
+
+#: data/ui/timer_setup.ui:121
+msgid "30 m"
+msgstr "30 m"
+
+#: data/ui/timer_setup.ui:139
+msgid "15 m"
+msgstr "15 m"
+
+#: data/ui/timer_setup.ui:157
+msgid "45 m"
+msgstr "45 m"
+
+#: data/ui/timer_setup.ui:229 data/ui/timer_setup.ui:269
+#: data/ui/timer_setup.ui:310
+msgid "0"
+msgstr "0"
+
+#: data/ui/timer.ui:21
+#| msgid "Select None"
+msgid "Select Duration"
+msgstr "Seleccionar duración"
 
 #: data/ui/window.ui:39
 msgid "World"
@@ -353,6 +382,10 @@ msgstr "Alarmas"
 #: data/ui/window.ui:59
 msgid "Stopwatch"
 msgstr "Cronómetro"
+
+#: data/ui/window.ui:69
+msgid "Timer"
+msgstr "Temporizador"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -396,6 +429,10 @@ msgstr "Mostrar información de la versión y salir"
 msgid "Lap %i"
 msgstr "Vuelta %i"
 
+#: src/stopwatch.vala:228
+msgid "Pause"
+msgstr "Pausar"
+
 #: src/stopwatch.vala:232 src/stopwatch.vala:269
 msgid "Lap"
 msgstr "Vuelta"
@@ -404,22 +441,65 @@ msgstr "Vuelta"
 msgid "Resume"
 msgstr "Reanudar"
 
+#: src/stopwatch.vala:265
+msgid "Start"
+msgstr "Iniciar"
+
 #. Translators: Tooltip for the + button
-#: src/timer.vala:82
+#: src/timer.vala:145 src/timer.vala:415
 msgid "New Timer"
 msgstr "Nuevo temporizador"
 
-#: src/timer.vala:138
+#: src/timer.vala:148
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: src/timer.vala:149
+msgid "Add"
+msgstr "Añadir"
+
+#: src/timer.vala:377
+#, c-format
+msgid "%i second timer"
+msgstr "temporizador de %i segundo"
+
+#: src/timer.vala:379
+#, c-format
+msgid "%i minute timer"
+msgstr "temporizador de %i minuto"
+
+#: src/timer.vala:381
+#, c-format
+msgid "%i hour timer"
+msgstr "temporizador de %i hora"
+
+#: src/timer.vala:383
+#, c-format
+msgid "%i minute %i second timer"
+msgstr "temporizador de %i minuto %i segundo"
+
+#: src/timer.vala:385
+#, c-format
+msgid "%i hour %i minute timer"
+msgstr "temporizador de %i hora %i minuto"
+
+#: src/timer.vala:387
+#, c-format
+msgid "%i hour %i second timer"
+msgstr "temporizador de %i hora %i segundo"
+
+#: src/timer.vala:389
+#, c-format
+msgid "%i hour %i minute %i second timer"
+msgstr "temporizador de %i hora %i minuto %i segundo"
+
+#: src/timer.vala:454
 msgid "Time is up!"
 msgstr "¡Se acabó el tiempo!"
 
-#: src/timer.vala:139
+#: src/timer.vala:455
 msgid "Timer countdown finished"
 msgstr "La cuenta atrás ha terminado"
-
-#: src/timer.vala:219
-msgid "Continue"
-msgstr "Continuar"
 
 #: src/utils.vala:167
 msgid "Mondays"
@@ -461,31 +541,31 @@ msgstr "Días de la semana"
 msgid "Weekends"
 msgstr "Fines de semana"
 
-#: src/widgets.vala:194 src/widgets.vala:209
+#: src/widgets.vala:214 src/widgets.vala:229
 msgid "Click on items to select them"
 msgstr "Pulse sobre los elementos para seleccionarlos"
 
-#: src/widgets.vala:196
+#: src/widgets.vala:216
 #, c-format
 msgid "%u selected"
 msgid_plural "%u selected"
 msgstr[0] "%u seleccionado"
 msgstr[1] "%u seleccionados"
 
-#: src/widgets.vala:284
+#: src/widgets.vala:304
 msgid "Delete"
 msgstr "Eliminar"
 
-#: src/window.vala:262
+#: src/window.vala:268
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Falló al mostrar la ayuda: %s"
 
-#: src/window.vala:296
+#: src/window.vala:302
 msgid "Utilities to help you with the time."
 msgstr "Utilidades para ayudarle con la hora."
 
-#: src/window.vala:301
+#: src/window.vala:307
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles, <daniel.mustieles@gmail.com>, 2012 - 2015\n"
@@ -508,6 +588,15 @@ msgstr "Ayer"
 msgid "Add Location"
 msgstr "Añadir ubicación"
 
+#~ msgid "Configured timer duration in seconds."
+#~ msgstr "Duración en segundos del temporizador configurado."
+
+#~ msgid "Reset"
+#~ msgstr "Reiniciar"
+
+#~ msgid "Continue"
+#~ msgstr "Continuar"
+
 #~| msgid "Clocks"
 #~ msgid "Clock"
 #~ msgstr "Reloj"
@@ -515,9 +604,6 @@ msgstr "Añadir ubicación"
 #~ msgctxt "Alarm"
 #~ msgid "New"
 #~ msgstr "Nueva"
-
-#~ msgid "Cancel"
-#~ msgstr "Cancelar"
 
 #~ msgctxt "World clock"
 #~ msgid "New"
@@ -537,9 +623,6 @@ msgstr "Añadir ubicación"
 
 #~ msgid "_New"
 #~ msgstr "_Nuevo"
-
-#~ msgid "0"
-#~ msgstr "0"
 
 #~ msgid "Split"
 #~ msgstr "Dividir"
@@ -567,9 +650,6 @@ msgstr "Añadir ubicación"
 
 #~ msgid "About GNOME Clocks"
 #~ msgstr "Acerca de Relojes de GNOME"
-
-#~ msgid "Add"
-#~ msgstr "Añadir"
 
 #~ msgid "Save"
 #~ msgstr "Guardar"
