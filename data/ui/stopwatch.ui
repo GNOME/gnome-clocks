@@ -170,10 +170,12 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="width_request">120</property>
+                    <property name="margin_left">6</property>
                     <signal name="clicked" handler="on_start_btn_clicked" swapped="no"/>
                     <style>
                       <class name="suggested-action"/>
                       <class name="large-button"/>
+                      <class name="pill-button"/>
                     </style>
                   </object>
                   <packing>
@@ -190,8 +192,10 @@
                     <property name="receives_default">True</property>
                     <signal name="clicked" handler="on_clear_btn_clicked" swapped="no"/>
                     <property name="width_request">120</property>
+                    <property name="margin_right">6</property>
                     <style>
                       <class name="large-button"/>
+                      <class name="pill-button"/>
                     </style>
                   </object>
                   <packing>
