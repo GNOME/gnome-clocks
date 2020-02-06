@@ -551,7 +551,17 @@ private class SetupDialog : Hdy.Dialog {
     }
 
     public SetupDialog (Gtk.Window parent, Item? alarm, ListModel all_alarms) {
-        Object (transient_for: parent, title: alarm != null ? _("Edit Alarm") : _("New Alarm"), use_header_bar: 1);
+        Object (transient_for: parent,
+                title: alarm != null ? _("Edit Alarm") : _("New Alarm"),
+                use_header_bar: 1);
+
+        add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
+        if (alarm != null) {
+            add_button (_("Done"), Gtk.ResponseType.OK);
+        } else {
+            add_button (_("Add"), Gtk.ResponseType.OK);
+        }
+        set_default_response (Gtk.ResponseType.OK);
 
         delete_button.visible = alarm != null;
         listbox.set_header_func((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
@@ -672,7 +682,7 @@ private class SetupDialog : Hdy.Dialog {
         apply_to_alarm (alarm);
 
         var duplicate = alarm.check_duplicate_alarm (other_alarms);
-        this.set_response_sensitive (1, !duplicate);
+        this.set_response_sensitive (Gtk.ResponseType.OK, !duplicate);
         label_revealer.set_reveal_child (duplicate);
     }
 
@@ -883,7 +893,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         dialog.response.connect ((dialog, response) => {
             alarm.editing = false;
-            if (response == 1) {
+            if (response == Gtk.ResponseType.OK) {
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
                 save ();
             } else if (response == DELETE_ALARM) {
@@ -916,7 +926,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public void activate_new () {
         var dialog = new SetupDialog ((Gtk.Window) get_toplevel (), null, alarms);
         dialog.response.connect ((dialog, response) => {
-            if (response == 1) {
+            if (response == Gtk.ResponseType.OK) {
                 var alarm = new Item ();
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
                 alarms.add (alarm);
