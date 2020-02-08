@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-02-05 19:22+0000\n"
-"PO-Revision-Date: 2020-02-06 23:02+0200\n"
+"POT-Creation-Date: 2020-02-07 02:14+0000\n"
+"PO-Revision-Date: 2020-02-08 14:45+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -37,7 +37,6 @@ msgid "Open menu"
 msgstr "Atverti meniu"
 
 #: data/gtk/help-overlay.ui:33
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "Klaviatūros trumpiniai"
@@ -211,12 +210,10 @@ msgid "List of alarms set."
 msgstr "Nustatytų žadintuvų sąrašas."
 
 #: data/org.gnome.clocks.gschema.xml.in:19
-#| msgid "Configured alarms"
 msgid "Configured Timers"
 msgstr "Nustatyti laikmačiai"
 
 #: data/org.gnome.clocks.gschema.xml.in:20
-#| msgid "List of alarms set."
 msgid "List of timers set."
 msgstr "Nustatytų laikmačių sąrašas."
 
@@ -314,12 +311,10 @@ msgid "Menu"
 msgstr "Meniu"
 
 #: data/ui/headerbar.ui:248
-#| msgid "Select All"
 msgid "Select"
 msgstr "Žymėti"
 
 #: data/ui/stopwatchlapsrow.ui:18
-#| msgid "Timer"
 msgid "Time"
 msgstr "Laikas"
 
@@ -328,7 +323,6 @@ msgid "Difference"
 msgstr "Skirtumas"
 
 #: data/ui/stopwatch.ui:167
-#| msgid "Start"
 msgid "_Start"
 msgstr "Palei_sti"
 
@@ -368,13 +362,17 @@ msgstr "15 m"
 msgid "45 m"
 msgstr "45 m"
 
+#: data/ui/timer_setup.ui:175
+#| msgid "1 m"
+msgid "1 h"
+msgstr "1 h"
+
 #: data/ui/timer_setup.ui:229 data/ui/timer_setup.ui:269
 #: data/ui/timer_setup.ui:310
 msgid "0"
 msgstr "0"
 
 #: data/ui/timer.ui:21
-#| msgid "Select None"
 msgid "Select Duration"
 msgstr "Pasirinkite trukmę"
 
@@ -383,7 +381,6 @@ msgid "World"
 msgstr "Pasaulis"
 
 #: data/ui/window.ui:49
-#| msgid "Alarm"
 msgid "Alarms"
 msgstr "Žadintuvai"
 
@@ -455,7 +452,6 @@ msgstr "Paleisti"
 
 #. Translators: Tooltip for the + button
 #: src/timer.vala:145 src/timer.vala:415
-#| msgid "Timer"
 msgid "New Timer"
 msgstr "Naujas laikmatis"
 
@@ -464,7 +460,6 @@ msgid "Cancel"
 msgstr "Atsisakyti"
 
 #: src/timer.vala:149
-#| msgid "_Add"
 msgid "Add"
 msgstr "Pridėti"
 
