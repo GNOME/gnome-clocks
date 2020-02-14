@@ -480,7 +480,13 @@ public class DayPickerRow : Hdy.ActionRow {
         var first_weekday = Utils.Weekdays.Day.get_first_weekday ();
         for (int i = 0; i < 7; i++) {
             var day_number = (first_weekday + i) % 7;
-            flow.add (buttons[day_number]);
+
+            var wrap = new Gtk.FlowBoxChild ();
+            wrap.can_focus = false;
+            wrap.add (buttons[day_number]);
+            wrap.show ();
+
+            flow.add (wrap);
         }
 
         update ();
