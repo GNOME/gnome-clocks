@@ -4,6 +4,8 @@
     <property name="visible">True</property>
     <property name="title" translatable="yes">_Repeat</property>
     <property name="use-underline">True</property>
+    <property name="activatable">False</property>
+    <property name="selectable">False</property>
     <child type="action">
      <object class="GtkFlowBox" id="flow">
         <property name="visible">True</property>
@@ -11,6 +13,8 @@
         <property name="halign">end</property>
         <property name="hexpand">True</property>
         <property name="homogeneous">True</property>
+        <property name="selection-mode">none</property>
+        <property name="activate-on-single-click">False</property>
       </object>
     </child>
     <style>
