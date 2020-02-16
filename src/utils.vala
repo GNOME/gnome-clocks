@@ -17,6 +17,21 @@
  */
 
 extern int clocks_cutils_get_week_start ();
+extern void calculate_sunrise_sunset (double  lat,
+                                      double  lon,
+                                      int     year,
+                                      int     month,
+                                      int     day,
+                                      double  correction,
+                                      out int rise_hour,
+                                      out int rise_min,
+                                      out int set_hour,
+                                      out int set_min);
+
+const double RISESET_CORRECTION_NONE = 0.0;
+const double RISESET_CORRECTION_CIVIL = 6.0;
+const double RISESET_CORRECTION_NAUTICAL = 12.0;
+const double RISESET_CORRECTION_ASTRONOMICAL = 18.0;
 
 namespace Clocks {
 namespace Utils {
