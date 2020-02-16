@@ -199,11 +199,47 @@ public class Item : Object, ContentItem {
         }
     }
 
+    // CSS class for the current time of day
+    public string state_class {
+        get {
+            if (date_time.compare (sun_rise) > 0 || date_time.compare (sun_set) < 0) {
+                return "day";
+            }
+
+            if (date_time.compare (civil_rise) > 0 || date_time.compare (civil_set) < 0) {
+                return "civil";
+            }
+
+            if (date_time.compare (naut_rise) > 0 || date_time.compare (naut_set) < 0) {
+                return "naut";
+            }
+
+            if (date_time.compare (astro_rise) > 0 || date_time.compare (astro_set) < 0) {
+                return "astro";
+            }
+
+            return "night";
+        }
+    }
+
     private string _name;
     private GLib.TimeZone time_zone;
     private GLib.DateTime local_time;
     private GLib.DateTime date_time;
     private GWeather.Info weather_info;
+
+    // When sunrise/sunset happens, at different corrections, in locations
+    // timezone for calculating the colour pill
+    private DateTime sun_rise;
+    private DateTime sun_set;
+    private DateTime civil_rise;
+    private DateTime civil_set;
+    private DateTime naut_rise;
+    private DateTime naut_set;
+    private DateTime astro_rise;
+    private DateTime astro_set;
+    // When we last calculated
+    private int last_calc_day = -1;
 
     public Item (GWeather.Location location) {
         Object (location: location);
@@ -214,11 +250,85 @@ public class Item : Object, ContentItem {
         tick ();
     }
 
+    private void calculate_riseset () {
+        double lat, lon;
+        int y, m, d;
+        int rise_hour, rise_min;
+        int set_hour, set_min;
+
+        if (date_time.get_day_of_year () == last_calc_day) {
+            return;
+        }
+
+        location.get_coords (out lat, out lon);
+
+        var utc = date_time.to_utc ();
+        utc.get_ymd (out y, out m, out d);
+
+        calculate_sunrise_sunset (lat,
+                                  lon,
+                                  y,
+                                  m,
+                                  d,
+                                  RISESET_CORRECTION_NONE,
+                                  out rise_hour,
+                                  out rise_min,
+                                  out set_hour,
+                                  out set_min);
+
+        sun_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
+        sun_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
+
+        calculate_sunrise_sunset (lat,
+                                  lon,
+                                  y,
+                                  m,
+                                  d,
+                                  RISESET_CORRECTION_CIVIL,
+                                  out rise_hour,
+                                  out rise_min,
+                                  out set_hour,
+                                  out set_min);
+
+        civil_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
+        civil_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
+
+        calculate_sunrise_sunset (lat,
+                                  lon,
+                                  y,
+                                  m,
+                                  d,
+                                  RISESET_CORRECTION_NAUTICAL,
+                                  out rise_hour,
+                                  out rise_min,
+                                  out set_hour,
+                                  out set_min);
+
+        naut_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
+        naut_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
+
+        calculate_sunrise_sunset (lat,
+                                  lon,
+                                  y,
+                                  m,
+                                  d,
+                                  RISESET_CORRECTION_ASTRONOMICAL,
+                                  out rise_hour,
+                                  out rise_min,
+                                  out set_hour,
+                                  out set_min);
+
+        astro_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
+        astro_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
+    }
+
     [Signal (run = "first")]
     public virtual signal void tick () {
         var wallclock = Utils.WallClock.get_default ();
         local_time = wallclock.date_time;
         date_time = local_time.to_timezone (time_zone);
+
+        calculate_riseset ();
 
         // We don't use the normal constructor since we only want static data
         // and we do not want update() to be called.
@@ -281,11 +391,13 @@ private class Tile : Gtk.ListBoxRow {
     }
 
     private void update () {
-        if (location.is_daytime) {
-            get_style_context ().remove_class ("night");
-        } else {
-            get_style_context ().add_class ("night");
-        }
+        var ctx = get_style_context ();
+        ctx.remove_class ("night");
+        ctx.remove_class ("astro");
+        ctx.remove_class ("naut");
+        ctx.remove_class ("civil");
+        ctx.remove_class ("day");
+        ctx.add_class (location.state_class);
 
         var diff = ((double) location.local_offset / (double) TimeSpan.HOUR);
         var diff_string = "%.0f".printf (diff.abs ());
@@ -466,7 +578,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     [GtkCallback]
     private void item_activated (Gtk.ListBox list, Gtk.ListBoxRow row) {
-        show_standalone ((row as Tile).location);
+        show_standalone (((Tile) row).location);
     }
 
     [GtkCallback]
