@@ -19,7 +19,8 @@ clocks_vala_sources = [
 ]
 
 clocks_c_sources = [
-  'cutils.c'
+  'cutils.c',
+  'twilight.c',
 ]
 
 clocks_sources = [

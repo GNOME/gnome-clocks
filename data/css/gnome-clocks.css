@@ -278,5 +278,27 @@ spinbutton.clocks-timer-label button {
     background: #e5a50a;
     color: #000000;
     font-weight: lighter;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: 0.4s background ease-in;
+}
+
+.night .clock-time {
+  background: #a0a2b7;
+}
+
+.astro .clock-time {
+  background: #c6adaa;
+}
+
+.naut .clock-time {
+  background: #ecb89c;
+}
+
+.civil .clock-time {
+  background: #FAE189;
+}
+
+.day .clock-time {
+  background: #fcf7b0;
 }
 
