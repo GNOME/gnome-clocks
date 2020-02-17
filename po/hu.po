@@ -1,23 +1,24 @@
 # Hungarian translation for gnome-clocks.
-# Copyright (C) 2012, 2013, 2014, 2016, 2019 Free Software Foundation, Inc.
+# Copyright (C) 2012, 2013, 2014, 2016, 2019, 2020 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-clocks package.
 #
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2012, 2013, 2016.
-# Balázs Úr <urbalazs at gmail dot com>, 2012, 2013, 2014, 2016, 2019.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2012, 2013, 2014, 2016, 2019, 2020.
+# Balázs Meskó <mesko.balazs at fsf dot hu>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2018-12-24 13:35+0000\n"
-"PO-Revision-Date: 2019-01-27 17:01+0100\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"POT-Creation-Date: 2020-02-07 02:14+0000\n"
+"PO-Revision-Date: 2020-02-17 21:22+0100\n"
+"Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 19.04.3\n"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -26,65 +27,81 @@ msgstr "Általános"
 
 #: data/gtk/help-overlay.ui:19
 msgctxt "shortcut window"
-msgid "Go to the next section"
-msgstr "Ugrás a következő szakaszhoz"
+msgid "Show help"
+msgstr "Súgó megjelenítése"
 
 #: data/gtk/help-overlay.ui:26
 msgctxt "shortcut window"
-msgid "Go to the previous section"
-msgstr "Ugrás az előző szakaszhoz"
+msgid "Open menu"
+msgstr "Menü megnyitása"
 
 #: data/gtk/help-overlay.ui:33
+#| msgid "_Keyboard Shortcuts"
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "Gyorsbillentyűk"
+
+#: data/gtk/help-overlay.ui:40
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Kilépés"
 
-#: data/gtk/help-overlay.ui:42
+#: data/gtk/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Go to the next section"
+msgstr "Ugrás a következő szakaszhoz"
+
+#: data/gtk/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "Go to the previous section"
+msgstr "Ugrás az előző szakaszhoz"
+
+#: data/gtk/help-overlay.ui:63
 msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Világórák"
 
-#: data/gtk/help-overlay.ui:47
+#: data/gtk/help-overlay.ui:68
 msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Világóra hozzáadása"
 
-#: data/gtk/help-overlay.ui:54
+#: data/gtk/help-overlay.ui:75
 msgctxt "shortcut window"
 msgid "Select all world clocks"
 msgstr "Az összes világóra kiválasztása"
 
-#: data/gtk/help-overlay.ui:63
+#: data/gtk/help-overlay.ui:84
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Figyelmeztetés"
 
-#: data/gtk/help-overlay.ui:68
+#: data/gtk/help-overlay.ui:89
 msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Figyelmeztetés hozzáadása"
 
-#: data/gtk/help-overlay.ui:75
+#: data/gtk/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Select all alarms"
 msgstr "Összes figyelmeztetés kijelölése"
 
-#: data/gtk/help-overlay.ui:84
+#: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Stopper"
 
-#: data/gtk/help-overlay.ui:89
+#: data/gtk/help-overlay.ui:110
 msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Leállítás / Visszaállítás"
 
-#: data/gtk/help-overlay.ui:98
+#: data/gtk/help-overlay.ui:119
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Időzítő"
 
-#: data/gtk/help-overlay.ui:103
+#: data/gtk/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Visszaállítás"
@@ -134,44 +151,41 @@ msgstr "Az eltelt idő mérése egy pontos stopperórával"
 msgid "Set timers to properly cook your food"
 msgstr "Időzítők beállítása az étel megfelelő főzéséhez"
 
-#: data/org.gnome.clocks.appdata.xml.in.in:33
+#: data/org.gnome.clocks.appdata.xml.in.in:32
 msgid "Initial screen"
 msgstr "Kezdőképernyő"
 
-#: data/org.gnome.clocks.appdata.xml.in.in:37
+#: data/org.gnome.clocks.appdata.xml.in.in:36
 msgid "Alarms screen"
 msgstr "Figyelmeztetések képernyő"
 
-#: data/org.gnome.clocks.appdata.xml.in.in:41
+#: data/org.gnome.clocks.appdata.xml.in.in:40
 msgid "Alarms setup"
 msgstr "Figyelmeztetések beállítása"
 
-#: data/org.gnome.clocks.appdata.xml.in.in:45
+#: data/org.gnome.clocks.appdata.xml.in.in:44
 msgid "Stopwatch screen"
 msgstr "Stopper képernyő"
 
-#: data/org.gnome.clocks.appdata.xml.in.in:49
+#: data/org.gnome.clocks.appdata.xml.in.in:48
 msgid "Timer screen"
 msgstr "Időzítő képernyő"
 
-#: data/org.gnome.clocks.appdata.xml.in.in:65
+#: data/org.gnome.clocks.appdata.xml.in.in:62
 msgid "The GNOME Project"
 msgstr "A GNOME projekt"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/window.ui:5 src/window.vala:67 src/world.vala:513
+#: data/ui/headerbar.ui:24 src/alarm.vala:590 src/alarm.vala:677
+#: src/main.vala:25 src/stopwatch.vala:124 src/timer.vala:412
+#: src/window.vala:297 src/world.vala:346 src/world.vala:427
 msgid "Clocks"
 msgstr "Órák"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "idő;időzítő;riasztás;világóra;stopper;időzóna;"
-
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.clocks.desktop.in.in:11
-msgid "@icon@"
-msgstr "@icon@"
+msgstr "idő;időzítő;riasztás;figyelmeztetés;világóra;stopper;időzóna;"
 
 #: data/org.gnome.clocks.desktop.in.in:18
 msgid "Allows world clocks to be displayed for your time zone."
@@ -193,13 +207,15 @@ msgstr "Beállított figyelmeztetések"
 msgid "List of alarms set."
 msgstr "A beállított figyelmeztetések listája."
 
-#: data/org.gnome.clocks.gschema.xml.in:19 src/timer.vala:115
-msgid "Timer"
-msgstr "Időzítő"
+#: data/org.gnome.clocks.gschema.xml.in:19
+#| msgid "Configured alarms"
+msgid "Configured Timers"
+msgstr "Beállított időzítők"
 
 #: data/org.gnome.clocks.gschema.xml.in:20
-msgid "Configured timer duration in seconds."
-msgstr "Időzítő beállított hossza másodpercben."
+#| msgid "List of alarms set."
+msgid "List of timers set."
+msgstr "A beállított időzítők listája."
 
 #: data/org.gnome.clocks.gschema.xml.in:26
 msgid "Geolocation support"
@@ -233,11 +249,11 @@ msgstr "Panel állapota"
 msgid "Current clock panel."
 msgstr "Jelenlegi órapanel."
 
-#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:199
+#: data/ui/alarmringing.ui:41 src/alarm.vala:118
 msgid "Stop"
 msgstr "Leállítás"
 
-#: data/ui/alarmringing.ui:59 src/alarm.vala:119
+#: data/ui/alarmringing.ui:61 src/alarm.vala:119
 msgid "Snooze"
 msgstr "Szundi"
 
@@ -245,7 +261,8 @@ msgstr "Szundi"
 msgid "Add a New World Clock"
 msgstr "Új világóra hozzáadása"
 
-#: data/ui/alarmsetupdialog.ui:31 data/ui/worldlocationdialog.ui:21
+#: data/ui/alarmsetupdialog.ui:31 data/ui/headerbar.ui:211
+#: data/ui/worldlocationdialog.ui:21
 msgid "_Cancel"
 msgstr "_Mégse"
 
@@ -269,33 +286,115 @@ msgstr "Ismétlés minden"
 msgid "Active"
 msgstr "Aktív"
 
-#: data/ui/alarm.ui:32
+#: data/ui/alarm.ui:34
 msgid "Select <b>New</b> to add an alarm"
 msgstr "Válassza az <b>Új</b> lehetőséget figyelmeztetés hozzáadásához"
 
-#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:221
-msgid "Start"
-msgstr "Indítás"
-
-#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:213
-msgid "Reset"
-msgstr "Visszaállítás"
-
-#: data/ui/timer.ui:403 src/timer.vala:220 src/timer.vala:231
-msgid "Pause"
-msgstr "Szünet"
-
-#: data/ui/window.ui:9
+#: data/ui/headerbar.ui:8
 msgid "_Keyboard Shortcuts"
 msgstr "_Gyorsbillentyűk"
 
-#: data/ui/window.ui:13
+#: data/ui/headerbar.ui:12
 msgid "_Help"
 msgstr "_Súgó"
 
-#: data/ui/window.ui:17
+#: data/ui/headerbar.ui:16
 msgid "_About Clocks"
 msgstr "Az Órák _névjegye"
+
+#: data/ui/headerbar.ui:158
+msgid "Back"
+msgstr "Vissza"
+
+#: data/ui/headerbar.ui:195
+msgid "Menu"
+msgstr "Menü"
+
+#: data/ui/headerbar.ui:248
+#| msgid "Select All"
+msgid "Select"
+msgstr "Kijelölés"
+
+#: data/ui/stopwatchlapsrow.ui:18
+#| msgid "Timer"
+msgid "Time"
+msgstr "Idő"
+
+#: data/ui/stopwatchlapsrow.ui:39
+msgid "Difference"
+msgstr "Különbség"
+
+#: data/ui/stopwatch.ui:167
+#| msgid "Start"
+msgid "_Start"
+msgstr "In_dítás"
+
+#: data/ui/stopwatch.ui:187 src/stopwatch.vala:248
+msgid "Clear"
+msgstr "Törlés"
+
+#: data/ui/timer_row.ui:45
+msgid "Title..."
+msgstr "Cím…"
+
+#: data/ui/timer_setup.ui:49
+msgid "1 m"
+msgstr "1 p"
+
+#: data/ui/timer_setup.ui:67
+msgid "2 m"
+msgstr "2 p"
+
+#: data/ui/timer_setup.ui:85
+msgid "3 m"
+msgstr "3 p"
+
+#: data/ui/timer_setup.ui:103
+msgid "5 m"
+msgstr "5 p"
+
+#: data/ui/timer_setup.ui:121
+msgid "30 m"
+msgstr "30 p"
+
+#: data/ui/timer_setup.ui:139
+msgid "15 m"
+msgstr "15 p"
+
+#: data/ui/timer_setup.ui:157
+msgid "45 m"
+msgstr "45 p"
+
+#: data/ui/timer_setup.ui:175
+msgid "1 h"
+msgstr "1 ó"
+
+#: data/ui/timer_setup.ui:229 data/ui/timer_setup.ui:269
+#: data/ui/timer_setup.ui:310
+msgid "0"
+msgstr "0"
+
+#: data/ui/timer.ui:21
+#| msgid "Select None"
+msgid "Select Duration"
+msgstr "Válasszon időtartamot"
+
+#: data/ui/window.ui:39
+msgid "World"
+msgstr "Világ"
+
+#: data/ui/window.ui:49
+#| msgid "Alarm"
+msgid "Alarms"
+msgstr "Riasztások"
+
+#: data/ui/window.ui:59
+msgid "Stopwatch"
+msgstr "Stopper"
+
+#: data/ui/window.ui:69
+msgid "Timer"
+msgstr "Időzítő"
 
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
@@ -305,19 +404,19 @@ msgstr "_Hozzáadás"
 msgid "Search for a city:"
 msgstr "Város keresése:"
 
-#: data/ui/world.ui:32
+#: data/ui/world.ui:34
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Válassza az <b>Új</b> lehetőséget világóra hozzáadásához"
 
-#: data/ui/world.ui:123
+#: data/ui/world.ui:128
 msgid "Sunrise"
 msgstr "Napkelte"
 
-#: data/ui/world.ui:137
+#: data/ui/world.ui:142
 msgid "Sunset"
 msgstr "Napnyugta"
 
-#: src/alarm.vala:116 src/alarm.vala:416 src/alarm.vala:595
+#: src/alarm.vala:116 src/alarm.vala:416
 msgid "Alarm"
 msgstr "Figyelmeztetés"
 
@@ -325,133 +424,178 @@ msgstr "Figyelmeztetés"
 msgid "Edit Alarm"
 msgstr "Figyelmeztetés szerkesztése"
 
-#: src/alarm.vala:350
+#. Translators: Tooltip for the + button
+#: src/alarm.vala:350 src/alarm.vala:593
 msgid "New Alarm"
 msgstr "Új figyelmeztetés"
-
-#. Translators: "New" refers to an alarm
-#: src/alarm.vala:624
-msgctxt "Alarm"
-msgid "New"
-msgstr "Új"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Verzióinformációk kiírása és kilépés"
 
-#: src/stopwatch.vala:139
-msgid "Stopwatch"
-msgstr "Stopper"
+#: src/stopwatch.vala:59
+#, c-format
+msgid "Lap %i"
+msgstr "%i. kör"
 
-#: src/stopwatch.vala:202
+#: src/stopwatch.vala:228
+msgid "Pause"
+msgstr "Szünet"
+
+#: src/stopwatch.vala:232 src/stopwatch.vala:269
 msgid "Lap"
 msgstr "Kör"
 
-#: src/stopwatch.vala:209 src/timer.vala:215
-msgid "Continue"
+#: src/stopwatch.vala:244
+msgid "Resume"
 msgstr "Folytatás"
 
-#: src/timer.vala:134
+#: src/stopwatch.vala:265
+msgid "Start"
+msgstr "Indítás"
+
+#. Translators: Tooltip for the + button
+#: src/timer.vala:145 src/timer.vala:415
+#| msgid "Timer"
+msgid "New Timer"
+msgstr "Új időzítő"
+
+#: src/timer.vala:148
+msgid "Cancel"
+msgstr "Mégse"
+
+#: src/timer.vala:149
+#| msgid "_Add"
+msgid "Add"
+msgstr "Hozzáadás"
+
+#: src/timer.vala:377
+#, c-format
+msgid "%i second timer"
+msgstr "%i másodperces időzítő"
+
+#: src/timer.vala:379
+#, c-format
+msgid "%i minute timer"
+msgstr "%i perces időzítő"
+
+#: src/timer.vala:381
+#, c-format
+msgid "%i hour timer"
+msgstr "%i órás időzítő"
+
+#: src/timer.vala:383
+#, c-format
+msgid "%i minute %i second timer"
+msgstr "%i perc %i másodperces időzítő"
+
+#: src/timer.vala:385
+#, c-format
+msgid "%i hour %i minute timer"
+msgstr "%i óra %i perces időzítő"
+
+#: src/timer.vala:387
+#, c-format
+msgid "%i hour %i second timer"
+msgstr "%i óra %i másodperces időzítő"
+
+#: src/timer.vala:389
+#, c-format
+msgid "%i hour %i minute %i second timer"
+msgstr "%i óra %i perc %i másodperces időzítő"
+
+#: src/timer.vala:454
 msgid "Time is up!"
 msgstr "Lejárt az idő!"
 
-#: src/timer.vala:135
+#: src/timer.vala:455
 msgid "Timer countdown finished"
 msgstr "Az időzítő visszaszámlálása lejárt"
 
-#: src/utils.vala:168
+#: src/utils.vala:167
 msgid "Mondays"
 msgstr "Hétfőnként"
 
-#: src/utils.vala:169
+#: src/utils.vala:168
 msgid "Tuesdays"
 msgstr "Keddenként"
 
-#: src/utils.vala:170
+#: src/utils.vala:169
 msgid "Wednesdays"
 msgstr "Szerdánként"
 
-#: src/utils.vala:171
+#: src/utils.vala:170
 msgid "Thursdays"
 msgstr "Csütörtökönként"
 
-#: src/utils.vala:172
+#: src/utils.vala:171
 msgid "Fridays"
 msgstr "Péntekenként"
 
-#: src/utils.vala:173
+#: src/utils.vala:172
 msgid "Saturdays"
 msgstr "Szombatonként"
 
-#: src/utils.vala:174
+#: src/utils.vala:173
 msgid "Sundays"
 msgstr "Vasárnaponként"
 
-#: src/utils.vala:254
+#: src/utils.vala:253
 msgid "Every Day"
 msgstr "Naponta"
 
-#: src/utils.vala:256
+#: src/utils.vala:255
 msgid "Weekdays"
 msgstr "Hétköznaponként"
 
-#: src/utils.vala:258
+#: src/utils.vala:257
 msgid "Weekends"
 msgstr "Hétvégente"
 
-#: src/widgets.vala:232 src/widgets.vala:247
+#: src/widgets.vala:214 src/widgets.vala:229
 msgid "Click on items to select them"
 msgstr "Kattintson az elemekre a kiválasztásukhoz"
 
-#: src/widgets.vala:234
+#: src/widgets.vala:216
 #, c-format
 msgid "%u selected"
 msgid_plural "%u selected"
 msgstr[0] "%u kiválasztva"
 msgstr[1] "%u kiválasztva"
 
-#: src/widgets.vala:333
+#: src/widgets.vala:304
 msgid "Delete"
 msgstr "Törlés"
 
-#: src/widgets.vala:477
-msgid "Cancel"
-msgstr "Mégse"
-
-#: src/window.vala:237
+#: src/window.vala:268
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "A súgó megjelenítése meghiúsult: %s"
 
-#: src/window.vala:268
+#: src/window.vala:302
 msgid "Utilities to help you with the time."
 msgstr "Segédprogramok az idő kezeléséhez."
 
-#: src/window.vala:273
+#: src/window.vala:307
 msgid "translator-credits"
 msgstr ""
 "Kelemen Gábor <kelemeng at gnome dot hu>\n"
-"Meskó Balázs <meskobalazs at fedoraproject dot org>"
+"Meskó Balázs <mesko dot balazs at fsf dot hu>\n"
+"Úr Balázs <ur dot balazs at fsf dot hu>"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:138 src/world.vala:142
+#: src/world.vala:186 src/world.vala:190
 msgid "Tomorrow"
 msgstr "Holnap"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:138 src/world.vala:142
+#: src/world.vala:186 src/world.vala:190
 msgid "Yesterday"
 msgstr "Tegnap"
 
-#: src/world.vala:318
-msgid "World"
-msgstr "Világ"
-
-#. Translators: "New" refers to a world clock
-#: src/world.vala:337
-msgctxt "World clock"
-msgid "New"
-msgstr "Új"
-
+#. Translators: Tooltip for the + button
+#: src/world.vala:349
+msgid "Add Location"
+msgstr "Hely hozzáadása"
