@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-01-02 23:31+0000\n"
-"PO-Revision-Date: 2020-01-21 23:25+0800\n"
+"POT-Creation-Date: 2020-02-07 02:14+0000\n"
+"PO-Revision-Date: 2020-02-20 14:56+0800\n"
 "Last-Translator: Yi-Jyun Pan <pan93412@gmail.com>\n"
 "Language-Team: Chinese <zh-l10n@linux.org.tw>\n"
 "Language: zh_TW\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -25,65 +25,80 @@ msgstr "一般"
 
 #: data/gtk/help-overlay.ui:19
 msgctxt "shortcut window"
-msgid "Go to the next section"
-msgstr "移至下一節"
+msgid "Show help"
+msgstr "顯示求助"
 
 #: data/gtk/help-overlay.ui:26
 msgctxt "shortcut window"
-msgid "Go to the previous section"
-msgstr "移至上一節"
+msgid "Open menu"
+msgstr "開啟選單"
 
 #: data/gtk/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "鍵盤快捷鍵"
+
+#: data/gtk/help-overlay.ui:40
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "結束"
 
-#: data/gtk/help-overlay.ui:42
+#: data/gtk/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Go to the next section"
+msgstr "移至下一節"
+
+#: data/gtk/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "Go to the previous section"
+msgstr "移至上一節"
+
+#: data/gtk/help-overlay.ui:63
 msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "世界時鐘"
 
-#: data/gtk/help-overlay.ui:47
+#: data/gtk/help-overlay.ui:68
 msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "加入世界時鐘"
 
-#: data/gtk/help-overlay.ui:54
+#: data/gtk/help-overlay.ui:75
 msgctxt "shortcut window"
 msgid "Select all world clocks"
 msgstr "選擇所有世界時鐘"
 
-#: data/gtk/help-overlay.ui:63
+#: data/gtk/help-overlay.ui:84
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "鬧鐘"
 
-#: data/gtk/help-overlay.ui:68
+#: data/gtk/help-overlay.ui:89
 msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "加入鬧鐘"
 
-#: data/gtk/help-overlay.ui:75
+#: data/gtk/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Select all alarms"
 msgstr "選擇所有鬧鐘"
 
-#: data/gtk/help-overlay.ui:84
+#: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "碼表"
 
-#: data/gtk/help-overlay.ui:89
+#: data/gtk/help-overlay.ui:110
 msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "停止/重設"
 
-#: data/gtk/help-overlay.ui:98
+#: data/gtk/help-overlay.ui:119
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "計時器"
 
-#: data/gtk/help-overlay.ui:103
+#: data/gtk/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "重新設定"
@@ -157,8 +172,8 @@ msgstr "GNOME 專案"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/ui/headerbar.ui:24 src/alarm.vala:590 src/alarm.vala:677
-#: src/main.vala:25 src/stopwatch.vala:120 src/timer.vala:79
-#: src/window.vala:291 src/world.vala:346 src/world.vala:427
+#: src/main.vala:25 src/stopwatch.vala:124 src/timer.vala:412
+#: src/window.vala:297 src/world.vala:346 src/world.vala:427
 msgid "Clocks"
 msgstr "時鐘"
 
@@ -189,13 +204,13 @@ msgstr "設定的鬧鐘"
 msgid "List of alarms set."
 msgstr "鬧鐘設定清單。"
 
-#: data/org.gnome.clocks.gschema.xml.in:19 data/ui/window.ui:69
-msgid "Timer"
-msgstr "計時器"
+#: data/org.gnome.clocks.gschema.xml.in:19
+msgid "Configured Timers"
+msgstr "設定的計時器"
 
 #: data/org.gnome.clocks.gschema.xml.in:20
-msgid "Configured timer duration in seconds."
-msgstr "設定的計時器，以秒計時。"
+msgid "List of timers set."
+msgstr "計時器設定清單。"
 
 #: data/org.gnome.clocks.gschema.xml.in:26
 msgid "Geolocation support"
@@ -229,11 +244,11 @@ msgstr "面板狀態"
 msgid "Current clock panel."
 msgstr "目前的時鐘面板。"
 
-#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:202
+#: data/ui/alarmringing.ui:41 src/alarm.vala:118
 msgid "Stop"
 msgstr "停止"
 
-#: data/ui/alarmringing.ui:59 src/alarm.vala:119
+#: data/ui/alarmringing.ui:61 src/alarm.vala:119
 msgid "Snooze"
 msgstr "延期"
 
@@ -294,17 +309,66 @@ msgstr "選單"
 msgid "Select"
 msgstr "選取"
 
-#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:224
-msgid "Start"
-msgstr "開始"
+#: data/ui/stopwatchlapsrow.ui:18
+msgid "Time"
+msgstr "時間"
 
-#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:216
-msgid "Reset"
-msgstr "重設"
+#: data/ui/stopwatchlapsrow.ui:39
+msgid "Difference"
+msgstr "差異"
 
-#: data/ui/timer.ui:403 src/timer.vala:224 src/timer.vala:235
-msgid "Pause"
-msgstr "暫停"
+#: data/ui/stopwatch.ui:167
+msgid "_Start"
+msgstr "開始(_S)"
+
+#: data/ui/stopwatch.ui:187 src/stopwatch.vala:248
+msgid "Clear"
+msgstr "清除"
+
+#: data/ui/timer_row.ui:45
+msgid "Title..."
+msgstr "標題..."
+
+#: data/ui/timer_setup.ui:49
+msgid "1 m"
+msgstr "1 分"
+
+#: data/ui/timer_setup.ui:67
+msgid "2 m"
+msgstr "2 分"
+
+#: data/ui/timer_setup.ui:85
+msgid "3 m"
+msgstr "3 分"
+
+#: data/ui/timer_setup.ui:103
+msgid "5 m"
+msgstr "5 分"
+
+#: data/ui/timer_setup.ui:121
+msgid "30 m"
+msgstr "30 分"
+
+#: data/ui/timer_setup.ui:139
+msgid "15 m"
+msgstr "15 分"
+
+#: data/ui/timer_setup.ui:157
+msgid "45 m"
+msgstr "45 分"
+
+#: data/ui/timer_setup.ui:175
+msgid "1 h"
+msgstr "1 小時"
+
+#: data/ui/timer_setup.ui:229 data/ui/timer_setup.ui:269
+#: data/ui/timer_setup.ui:310
+msgid "0"
+msgstr "0"
+
+#: data/ui/timer.ui:21
+msgid "Select Duration"
+msgstr "選擇時間"
 
 #: data/ui/window.ui:39
 msgid "World"
@@ -318,6 +382,10 @@ msgstr "鬧鐘"
 msgid "Stopwatch"
 msgstr "碼表"
 
+#: data/ui/window.ui:69
+msgid "Timer"
+msgstr "計時器"
+
 #: data/ui/worldlocationdialog.ui:37
 msgid "_Add"
 msgstr "加入(_A)"
@@ -330,11 +398,11 @@ msgstr "搜尋城市："
 msgid "Select <b>New</b> to add a world clock"
 msgstr "選擇 <b>新增</b> 來加入世界時鐘"
 
-#: data/ui/world.ui:126
+#: data/ui/world.ui:128
 msgid "Sunrise"
 msgstr "日出"
 
-#: data/ui/world.ui:140
+#: data/ui/world.ui:142
 msgid "Sunset"
 msgstr "日落"
 
@@ -355,24 +423,80 @@ msgstr "新增鬧鐘"
 msgid "Print version information and exit"
 msgstr "輸出版本資訊並離開"
 
-#: src/stopwatch.vala:205
+#: src/stopwatch.vala:59
+#, c-format
+msgid "Lap %i"
+msgstr ""
+
+#: src/stopwatch.vala:228
+msgid "Pause"
+msgstr "暫停"
+
+#: src/stopwatch.vala:232 src/stopwatch.vala:269
 msgid "Lap"
 msgstr "圈數"
 
-#: src/stopwatch.vala:212 src/timer.vala:219
-msgid "Continue"
+#: src/stopwatch.vala:244
+msgid "Resume"
 msgstr "繼續"
 
+#: src/stopwatch.vala:265
+msgid "Start"
+msgstr "開始"
+
 #. Translators: Tooltip for the + button
-#: src/timer.vala:82
+#: src/timer.vala:145 src/timer.vala:415
 msgid "New Timer"
 msgstr "新增計時器"
 
-#: src/timer.vala:138
+#: src/timer.vala:148
+msgid "Cancel"
+msgstr "取消"
+
+#: src/timer.vala:149
+msgid "Add"
+msgstr "加入"
+
+#: src/timer.vala:377
+#, c-format
+msgid "%i second timer"
+msgstr "%i 秒計時器"
+
+#: src/timer.vala:379
+#, c-format
+msgid "%i minute timer"
+msgstr "%i 分計時器"
+
+#: src/timer.vala:381
+#, c-format
+msgid "%i hour timer"
+msgstr "%i 時計時器"
+
+#: src/timer.vala:383
+#, c-format
+msgid "%i minute %i second timer"
+msgstr "%i 分 %i 秒計時器"
+
+#: src/timer.vala:385
+#, c-format
+msgid "%i hour %i minute timer"
+msgstr "%i 時 %i 分計時器"
+
+#: src/timer.vala:387
+#, c-format
+msgid "%i hour %i second timer"
+msgstr "%i 時 %i 秒計時器"
+
+#: src/timer.vala:389
+#, c-format
+msgid "%i hour %i minute %i second timer"
+msgstr "%i 時 %i 分 %i 秒計時器"
+
+#: src/timer.vala:454
 msgid "Time is up!"
 msgstr "時間到！"
 
-#: src/timer.vala:139
+#: src/timer.vala:455
 msgid "Timer countdown finished"
 msgstr "計時器倒數截止"
 
@@ -416,30 +540,30 @@ msgstr "工作週"
 msgid "Weekends"
 msgstr "週末"
 
-#: src/widgets.vala:194 src/widgets.vala:209
+#: src/widgets.vala:214 src/widgets.vala:229
 msgid "Click on items to select them"
 msgstr "點按項目來選取它們"
 
-#: src/widgets.vala:196
+#: src/widgets.vala:216
 #, c-format
 msgid "%u selected"
 msgid_plural "%u selected"
 msgstr[0] "已選擇 %u 個"
 
-#: src/widgets.vala:284
+#: src/widgets.vala:304
 msgid "Delete"
 msgstr "刪除"
 
-#: src/window.vala:262
+#: src/window.vala:268
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "無法顯示求助：%s"
 
-#: src/window.vala:296
+#: src/window.vala:302
 msgid "Utilities to help you with the time."
 msgstr "協助您時間方面的工具。"
 
-#: src/window.vala:301
+#: src/window.vala:307
 msgid "translator-credits"
 msgstr ""
 "Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>, 2012\n"
@@ -462,15 +586,21 @@ msgstr "昨天"
 msgid "Add Location"
 msgstr "加入位置"
 
+#~ msgid "Configured timer duration in seconds."
+#~ msgstr "設定的計時器，以秒計時。"
+
+#~ msgid "Reset"
+#~ msgstr "重設"
+
+#~ msgid "Continue"
+#~ msgstr "繼續"
+
 #~ msgid "@icon@"
 #~ msgstr "@icon@"
 
 #~ msgctxt "Alarm"
 #~ msgid "New"
 #~ msgstr "新鬧鐘"
-
-#~ msgid "Cancel"
-#~ msgstr "取消"
 
 #~ msgctxt "World clock"
 #~ msgid "New"
@@ -497,17 +627,11 @@ msgstr "加入位置"
 #~ msgid "Done"
 #~ msgstr "完成"
 
-#~ msgid "Time"
-#~ msgstr "時間"
-
 #~ msgid "Edit"
 #~ msgstr "編輯"
 
 #~ msgid "About GNOME Clocks"
 #~ msgstr "關於 GNOME Clocks"
-
-#~ msgid "Add"
-#~ msgstr "加入"
 
 #~ msgid "Save"
 #~ msgstr "儲存"
