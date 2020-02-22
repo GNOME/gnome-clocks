@@ -374,19 +374,83 @@ public class Row : Gtk.ListBoxRow {
             timer_name.label = item.name;
         } else {
             if (item.seconds != 0 && item.minutes == 0 && item.hours == 0) {
-                timer_name.label = _("%i second timer".printf (item.seconds));
+                timer_name.label = ngettext ("%i second timer".printf (item.seconds), "%i seconds timer".printf (item.seconds), item.seconds);
             } else if (item.seconds == 0 && item.minutes != 0 && item.hours == 0) {
-                timer_name.label = _("%i minute timer".printf (item.minutes));
+                timer_name.label = ngettext ("%i minute timer".printf (item.minutes), "%i minutes timer".printf (item.minutes), item.minutes);
             } else if (item.seconds == 0 && item.minutes == 0 && item.hours != 0) {
-                timer_name.label = _("%i hour timer".printf (item.hours));
+                timer_name.label = ngettext ("%i hour timer".printf (item.hours), "%i hours timer".printf (item.hours), item.hours);
             } else if (item.seconds != 0 && item.minutes != 0 && item.hours == 0) {
-                timer_name.label = _("%i minute %i second timer".printf (item.minutes, item.seconds));
+                if (item.minutes == 1) { 
+                    if (item.seconds == 1) {
+                        timer_name.label = _("%i minute %i second timer".printf (item.minutes, item.seconds));
+                    } else {
+                        timer_name.label = _("%i minute %i seconds timer".printf (item.minutes, item.seconds));
+                    }
+                } else {
+                    if (item.seconds == 1) {
+                        timer_name.label = _("%i minutes %i second timer".printf (item.minutes, item.seconds));
+                    } else {
+                        timer_name.label = _("%i minutes %i seconds timer".printf (item.minutes, item.seconds));
+                    }
+                }
             } else if (item.seconds == 0 && item.minutes != 0 && item.hours != 0) {
-                timer_name.label = _("%i hour %i minute timer".printf (item.hours, item.minutes));
+                if (item.hours == 1) { 
+                    if (item.minutes == 1) {
+                        timer_name.label = _("%i hour %i minute timer".printf (item.hours, item.minutes));
+                    } else {
+                        timer_name.label = _("%i hour %i minutes timer".printf (item.hours, item.minutes));
+                    }
+                } else {
+                    if (item.minutes == 1) {
+                        timer_name.label = _("%i hours %i minute timer".printf (item.hours, item.minutes));
+                    } else {
+                        timer_name.label = _("%i hours %i minutes timer".printf (item.hours, item.minutes));
+                    }
+                }
             } else if (item.seconds != 0 && item.minutes == 0 && item.hours != 0) {
-                timer_name.label = _("%i hour %i second timer".printf (item.hours, item.seconds));
+                if (item.hours == 1) { 
+                    if (item.seconds == 1) {
+                        timer_name.label = _("%i hour %i second timer".printf (item.hours, item.seconds));
+                    } else {
+                        timer_name.label = _("%i hour %i seconds timer".printf (item.hours, item.seconds));
+                    }
+                } else {
+                    if (item.seconds == 1) {
+                        timer_name.label = _("%i hours %i second timer".printf (item.hours, item.seconds));
+                    } else {
+                        timer_name.label = _("%i hours %i seconds timer".printf (item.hours, item.seconds));
+                    }
+                }
             } else if (item.seconds != 0 && item.minutes != 0 && item.hours != 0) {
-                timer_name.label = _("%i hour %i minute %i second timer".printf (item.hours, item.minutes, item.seconds));
+                if (item.hours == 1) {
+                    if (item.minutes == 1) {
+                        if (item.seconds == 1) {
+                            timer_name.label = _("%i hour %i minute %i second timer".printf (item.hours, item.minutes, item.seconds));
+                        } else {
+                            timer_name.label = _("%i hour %i minute %i seconds timer".printf (item.hours, item.minutes, item.seconds));
+                        }
+                    } else {
+                        if (item.seconds == 1) {
+                            timer_name.label = _("%i hour %i minutes %i second timer".printf (item.hours, item.minutes, item.seconds));
+                        } else {
+                            timer_name.label = _("%i hour %i minutes %i seconds timer".printf (item.hours, item.minutes, item.seconds));
+                        }
+                    }
+                } else {
+                    if (item.minutes == 1) {
+                        if (item.seconds == 1) {
+                            timer_name.label = _("%i hours %i minute %i second timer".printf (item.hours, item.minutes, item.seconds));
+                        } else {
+                            timer_name.label = _("%i hours %i minute %i seconds timer".printf (item.hours, item.minutes, item.seconds));
+                        }
+                    } else {
+                        if (item.seconds == 1) {
+                            timer_name.label = _("%i hours %i minutes %i second timer".printf (item.hours, item.minutes, item.seconds));
+                        } else {
+                            timer_name.label = _("%i hours %i minutes %i seconds timer".printf (item.hours, item.minutes, item.seconds));
+                        }
+                    }
+                }
             }
         }
     }
