@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2013  Paolo Borelli <pborelli@gnome.org>
  * Copyright (C) 2020  Bilal Elmoussaoui <bilal.elmoussaoui@gnome.org>
- * 
+ *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -261,6 +261,8 @@ public class Row : Gtk.ListBoxRow {
 
             title.text = _item.name;
             title.bind_property ("text", _item, "name");
+            timer_name.label = _item.name;
+            title.bind_property ("text", timer_name, "label");
 
             _item.notify["name"].connect (() => edited ());
         }
@@ -330,7 +332,6 @@ public class Row : Gtk.ListBoxRow {
         start_stack.visible_child_name = "start";
         name_stack.visible_child_name = "edit";
 
-        update_name_label ();
         update_countdown (item.hours, item.minutes, item.seconds);
     }
 
@@ -344,8 +345,6 @@ public class Row : Gtk.ListBoxRow {
 
         start_stack.visible_child_name = "pause";
         name_stack.visible_child_name = "display";
-
-        update_name_label ();
     }
 
     private void ring () {
@@ -369,27 +368,6 @@ public class Row : Gtk.ListBoxRow {
         countdown_label.set_text ("%02i ∶ %02i ∶ %02i".printf (h, m, s));
     }
 
-    private void update_name_label () {
-        if (item.name != null && item.name != "") {
-            timer_name.label = item.name;
-        } else {
-            if (item.seconds != 0 && item.minutes == 0 && item.hours == 0) {
-                timer_name.label = _("%i second timer".printf (item.seconds));
-            } else if (item.seconds == 0 && item.minutes != 0 && item.hours == 0) {
-                timer_name.label = _("%i minute timer".printf (item.minutes));
-            } else if (item.seconds == 0 && item.minutes == 0 && item.hours != 0) {
-                timer_name.label = _("%i hour timer".printf (item.hours));
-            } else if (item.seconds != 0 && item.minutes != 0 && item.hours == 0) {
-                timer_name.label = _("%i minute %i second timer".printf (item.minutes, item.seconds));
-            } else if (item.seconds == 0 && item.minutes != 0 && item.hours != 0) {
-                timer_name.label = _("%i hour %i minute timer".printf (item.hours, item.minutes));
-            } else if (item.seconds != 0 && item.minutes == 0 && item.hours != 0) {
-                timer_name.label = _("%i hour %i second timer".printf (item.hours, item.seconds));
-            } else if (item.seconds != 0 && item.minutes != 0 && item.hours != 0) {
-                timer_name.label = _("%i hour %i minute %i second timer".printf (item.hours, item.minutes, item.seconds));
-            }
-        }
-    }
 }
 
 
