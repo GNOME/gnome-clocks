@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2013  Paolo Borelli <pborelli@gnome.org>
  * Copyright (C) 2020  Bilal Elmoussaoui <bilal.elmoussaoui@gnome.org>
- * 
+ *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -374,19 +374,69 @@ public class Row : Gtk.ListBoxRow {
             timer_name.label = item.name;
         } else {
             if (item.seconds != 0 && item.minutes == 0 && item.hours == 0) {
-                timer_name.label = _("%i second timer".printf (item.seconds));
+                timer_name.label = ngettext ("%i second timer".printf (item.seconds),
+                                             "%i seconds timer".printf (item.seconds),
+                                             item.seconds);
             } else if (item.seconds == 0 && item.minutes != 0 && item.hours == 0) {
-                timer_name.label = _("%i minute timer".printf (item.minutes));
+                timer_name.label = ngettext ("%i minute timer".printf (item.minutes),
+                                             "%i minutes timer".printf (item.minutes),
+                                             item.minutes);
             } else if (item.seconds == 0 && item.minutes == 0 && item.hours != 0) {
-                timer_name.label = _("%i hour timer".printf (item.hours));
+                timer_name.label = ngettext ("%i hour timer".printf (item.hours),
+                                             "%i hours timer".printf (item.hours),
+                                             item.hours);
             } else if (item.seconds != 0 && item.minutes != 0 && item.hours == 0) {
-                timer_name.label = _("%i minute %i second timer".printf (item.minutes, item.seconds));
+                if (item.minutes == 1) {
+                    timer_name.label = ngettext ("%i minute %i second timer".printf (item.minutes, item.seconds),
+                                                 "%i minute %i seconds timer".printf (item.minutes, item.seconds),
+                                                 item.seconds);
+                } else {
+                    timer_name.label = ngettext ("%i minutes %i second timer".printf (item.minutes, item.seconds),
+                                                 "%i minutes %i seconds timer".printf (item.minutes, item.seconds),
+                                                  item.seconds);
+                }
             } else if (item.seconds == 0 && item.minutes != 0 && item.hours != 0) {
-                timer_name.label = _("%i hour %i minute timer".printf (item.hours, item.minutes));
+                if (item.hours == 1) {
+                    timer_name.label = ngettext ("%i hour %i minute timer".printf (item.hours, item.minutes),
+                                                 "%i hour %i minutes timer".printf (item.hours, item.minutes),
+                                                 item.minutes);
+                } else {
+                    timer_name.label = ngettext ("%i hours %i minute timer".printf (item.hours, item.minutes),
+                                                 "%i hours %i minutes timer".printf (item.hours, item.minutes),
+                                                 item.minutes);
+                }
             } else if (item.seconds != 0 && item.minutes == 0 && item.hours != 0) {
-                timer_name.label = _("%i hour %i second timer".printf (item.hours, item.seconds));
+                if (item.hours == 1) {
+                    timer_name.label = ngettext ("%i hour %i second timer".printf (item.hours, item.seconds),
+                                                 "%i hour %i seconds timer".printf (item.hours, item.seconds),
+                                                 item.seconds);
+                } else {
+                    timer_name.label = ngettext ("%i hours %i second timer".printf (item.hours, item.seconds),
+                                                 "%i hours %i seconds timer".printf (item.hours, item.seconds),
+                                                 item.seconds);
+                }
             } else if (item.seconds != 0 && item.minutes != 0 && item.hours != 0) {
-                timer_name.label = _("%i hour %i minute %i second timer".printf (item.hours, item.minutes, item.seconds));
+                if (item.hours == 1) {
+                    if (item.minutes == 1) {
+                        timer_name.label = ngettext ("%i hour %i minute %i second timer".printf (item.hours, item.minutes, item.seconds),
+                                                     "%i hour %i minute %i seconds timer".printf (item.hours, item.minutes, item.seconds),
+                                                     item.seconds);
+                    } else {
+                        timer_name.label = ngettext ("%i hour %i minutes %i second timer".printf (item.hours, item.minutes, item.seconds),
+                                                     "%i hour %i minutes %i seconds timer".printf (item.hours, item.minutes, item.seconds),
+                                                     item.seconds);
+                    }
+                } else {
+                    if (item.minutes == 1) {
+                        timer_name.label = ngettext ("%i hours %i minute %i second timer".printf (item.hours, item.minutes, item.seconds),
+                                                     "%i hours %i minute %i seconds timer".printf (item.hours, item.minutes, item.seconds),
+                                                     item.seconds);
+                    } else {
+                        timer_name.label = ngettext ("%i hours %i minutes %i second timer".printf (item.hours, item.minutes, item.seconds),
+                                                     "%i hours %i minutes %i seconds timer".printf (item.hours, item.minutes, item.seconds),
+                                                     item.seconds);
+                    }
+                }
             }
         }
     }
