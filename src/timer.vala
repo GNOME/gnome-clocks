@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2013  Paolo Borelli <pborelli@gnome.org>
  * Copyright (C) 2020  Bilal Elmoussaoui <bilal.elmoussaoui@gnome.org>
- * 
+ *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
@@ -374,19 +374,53 @@ public class Row : Gtk.ListBoxRow {
             timer_name.label = item.name;
         } else {
             if (item.seconds != 0 && item.minutes == 0 && item.hours == 0) {
-                timer_name.label = _("%i second timer".printf (item.seconds));
+                timer_name.label = ngettext ("%i second timer", "%i seconds timer", item.seconds).printf (item.seconds);
             } else if (item.seconds == 0 && item.minutes != 0 && item.hours == 0) {
-                timer_name.label = _("%i minute timer".printf (item.minutes));
+                timer_name.label = ngettext ("%i minute timer", "%i minutes timer", item.minutes).printf (item.minutes);
             } else if (item.seconds == 0 && item.minutes == 0 && item.hours != 0) {
-                timer_name.label = _("%i hour timer".printf (item.hours));
+                timer_name.label = ngettext ("%i hour timer", "%i hours timer", item.hours);
             } else if (item.seconds != 0 && item.minutes != 0 && item.hours == 0) {
-                timer_name.label = _("%i minute %i second timer".printf (item.minutes, item.seconds));
+                if (item.minutes == 1) {
+                    timer_name.label = ngettext ("%i minute %i second timer", "%i minute %i seconds timer",
+                                                 item.seconds).printf (item.minutes, item.seconds);
+                } else {
+                    timer_name.label = ngettext ("%i minutes %i second timer", "%i minutes %i seconds timer",
+                                                  item.seconds).printf (item.minutes, item.seconds);
+                }
             } else if (item.seconds == 0 && item.minutes != 0 && item.hours != 0) {
-                timer_name.label = _("%i hour %i minute timer".printf (item.hours, item.minutes));
+                if (item.hours == 1) {
+                    timer_name.label = ngettext ("%i hour %i minute timer", "%i hour %i minutes timer",
+                                                 item.minutes).printf (item.hours, item.minutes);
+                } else {
+                    timer_name.label = ngettext ("%i hours %i minute timer", "%i hours %i minutes timer",
+                                                 item.minutes).printf (item.hours, item.minutes);
+                }
             } else if (item.seconds != 0 && item.minutes == 0 && item.hours != 0) {
-                timer_name.label = _("%i hour %i second timer".printf (item.hours, item.seconds));
+                if (item.hours == 1) {
+                    timer_name.label = ngettext ("%i hour %i second timer", "%i hour %i seconds timer",
+                                                 item.seconds).printf (item.hours, item.seconds);
+                } else {
+                    timer_name.label = ngettext ("%i hours %i second timer", "%i hours %i seconds timer",
+                                                 item.seconds).printf (item.hours, item.seconds);
+                }
             } else if (item.seconds != 0 && item.minutes != 0 && item.hours != 0) {
-                timer_name.label = _("%i hour %i minute %i second timer".printf (item.hours, item.minutes, item.seconds));
+                if (item.hours == 1) {
+                    if (item.minutes == 1) {
+                        timer_name.label = ngettext ("%i hour %i minute %i second timer", "%i hour %i minute %i seconds timer",
+                                                     item.seconds).printf (item.hours, item.minutes, item.seconds);
+                    } else {
+                        timer_name.label = ngettext ("%i hour %i minutes %i second timer", "%i hour %i minutes %i seconds timer",
+                                                     item.seconds).printf (item.hours, item.minutes, item.seconds);
+                    }
+                } else {
+                    if (item.minutes == 1) {
+                        timer_name.label = ngettext ("%i hours %i minute %i second timer", "%i hours %i minute %i seconds timer",
+                                                     item.seconds).printf (item.hours, item.minutes, item.seconds);
+                    } else {
+                        timer_name.label = ngettext ("%i hours %i minutes %i second timer", "%i hours %i minutes %i seconds timer",
+                                                     item.seconds).printf (item.hours, item.minutes, item.seconds);
+                    }
+                }
             }
         }
     }
