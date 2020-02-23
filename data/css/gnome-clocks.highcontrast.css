@@ -12,31 +12,6 @@ label.destructive-action {
     color: #e01b24;
 }
 
-/* world */
-
-.world-tile image,
-.world-tile image:backdrop {
-    border: 2px solid rgb(141, 141, 141);
-}
-
-.world-tile .stripe,
-.world-tile .stripe:backdrop,
-.tile.prelight .world-tile .stripe,
-.tile.prelight .world-tile .stripe:backdrop {
-    color: black;
-    text-shadow: none;
-    background-color: white;
-}
-
-.night .world-tile .stripe,
-.night .world-tile .stripe:backdrop,
-.tile.prelight .night .world-tile .stripe,
-.tile.prelight .night .world-tile .stripe:backdrop {
-    color: white;
-    text-shadow: none;
-    background-color: black;
-}
-
 /* alarms */
 
 row.snoozing {
@@ -72,4 +47,12 @@ row.snoozing {
     text-shadow: none;
     background-image: none;
     background-color: @warning_color;
+}
+
+/* World */
+
+.clock-time {
+    background: transparent;
+    color: #000000;
+    font-weight: normal;
 }

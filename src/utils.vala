@@ -17,22 +17,28 @@
  */
 
 extern int clocks_cutils_get_week_start ();
+extern void calculate_sunrise_sunset (double lat,
+                                      double lon,
+                                      int year,
+                                      int month,
+                                      int day,
+                                      double correction,
+                                      out int rise_hour,
+                                      out int rise_min,
+                                      out int set_hour,
+                                      out int set_min);
+
+const double RISESET_CORRECTION_NONE = 0.0;
+const double RISESET_CORRECTION_CIVIL = 6.0;
+const double RISESET_CORRECTION_NAUTICAL = 12.0;
+const double RISESET_CORRECTION_ASTRONOMICAL = 18.0;
 
 namespace Clocks {
 namespace Utils {
 
 private void load_css (string css, bool required) {
     var provider = new Gtk.CssProvider ();
-    try {
-        var file = File.new_for_uri ("resource:///org/gnome/clocks/css/" + css + ".css");
-        provider.load_from_file (file);
-    } catch (Error e) {
-        if (required) {
-            warning ("loading css: %s", e.message);
-        }
-
-        return;
-    }
+    provider.load_from_resource ("/org/gnome/clocks/css/" + css + ".css");
 
     Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (),
                                               provider,
@@ -45,15 +51,6 @@ public void load_main_css () {
 
 public void load_theme_css (string theme_name) {
     load_css ("gnome-clocks." + theme_name.down (), false);
-}
-
-public Gdk.Pixbuf? load_image (string image) {
-    try {
-        return new Gdk.Pixbuf.from_resource ("/org/gnome/clocks/images/" + image);
-    } catch (Error e) {
-        warning ("loading image file: %s", e.message);
-    }
-    return null;
 }
 
 public void time_to_hms (double t, out int h, out int m, out int s, out double remainder) {

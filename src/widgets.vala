@@ -131,12 +131,12 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         for (int i = 0; i < n; i++) {
             var o = store.get_object (i);
             if (o == item) {
-                store.remove(i);
+                store.remove (i);
 
                 if (sort_func != null) {
                     store.sort (sort_func);
                 }
-    
+
                 selection_changed ();
 
                 return;
@@ -573,3 +573,4 @@ public class AnalogFrame : Gtk.Bin {
 }
 
 } // namespace Clocks
+
