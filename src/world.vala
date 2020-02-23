@@ -275,6 +275,8 @@ public class Item : Object, ContentItem {
 
         sun_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
         sun_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
+        if (sun_set.compare (sun_rise) < 0)
+            sun_set = sun_set.add_days (1);
 
         calculate_sunrise_sunset (lat,
                                   lon,
@@ -289,6 +291,8 @@ public class Item : Object, ContentItem {
 
         civil_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
         civil_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
+        if (civil_set.compare (civil_rise) < 0)
+            civil_set = civil_set.add_days (1);
 
         calculate_sunrise_sunset (lat,
                                   lon,
@@ -303,6 +307,8 @@ public class Item : Object, ContentItem {
 
         naut_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
         naut_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
+        if (naut_set.compare (naut_rise) < 0)
+            naut_set = naut_set.add_days (1);
 
         calculate_sunrise_sunset (lat,
                                   lon,
@@ -317,6 +323,8 @@ public class Item : Object, ContentItem {
 
         astro_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
         astro_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
+        if (astro_set.compare (astro_rise) < 0)
+            astro_set = astro_set.add_days (1);
     }
 
     [Signal (run = "first")]
