@@ -44,16 +44,17 @@
           <object class="HdyColumn">
             <property name="visible">True</property>
             <property name="maximum-width">600</property>
+            <property name="linear_growth_width">600</property>
             <child>
               <object class="GtkListBox" id="listbox">
                 <property name="visible">True</property>
-                <property name="margin">12</property>
                 <property name="valign">start</property>
                 <property name="selection-mode">none</property>
                 <property name="activate-on-single-click">False</property>
                 <style>
                   <class name="frame"/>
                   <class name="alarm-list"/>
+                  <class name="clocks-list"/>
                 </style>
               </object>
             </child>

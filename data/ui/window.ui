@@ -28,7 +28,7 @@
             <property name="can_focus">False</property>
             <property name="hexpand">True</property>
             <property name="vexpand">True</property>
-            <property name="homogeneous">False</property>
+            <property name="homogeneous">True</property>
             <signal name="notify::visible-child" handler="pane_changed" swapped="no"/>
             <child>
               <object class="ClocksWorldFace" id="world">

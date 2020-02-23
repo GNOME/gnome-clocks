@@ -12,6 +12,14 @@ label.destructive-action {
     color: #e01b24;
 }
 
+/* Shared */
+
+.clocks-list {
+    border-radius: 6px;
+    margin: 18px;
+}
+
+
 /* content view */
 
 .tile {
@@ -50,10 +58,6 @@ row.snoozing {
 
 .alarm-time {
     font-size: 2.5em;
-}
-
-.alarm-list {
-    border-radius: 6px;
 }
 
 .alarm-repeat {
@@ -144,11 +148,10 @@ row.snoozing {
     font-weight: bold;
     padding-right: 20px;
 }
+
 /* Timer Panel */
 /* disguise insensitive spinbuttons as normal labels */
-.timer-list {
-    border-radius: 6px;
-}
+
 
 spinbutton.clocks-timer-label,
 spinbutton.clocks-timer-label button,
