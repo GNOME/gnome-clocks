@@ -1,33 +1,17 @@
-include: 'https://gitlab.gnome.org/GNOME/citemplates/raw/master/flatpak/flatpak_ci_initiative.yml'
-stages:
-  - lint
-  - test
-  - deploy
-
-variables:
-    BUNDLE: "gnome-clocks-dev.flatpak"
+include:
+  - project: 'gnome/citemplates'
+    file: 'flatpak/flatpak-ci-initiative-sdk-extensions.yml'
 
 flatpak:
     image: 'registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master'
     variables:
+        BUNDLE: "gnome-clocks-dev.flatpak"
         MANIFEST_PATH: "build-aux/flatpak/org.gnome.clocks.json"
         MESON_ARGS: "-Dprofile=development"
         FLATPAK_MODULE: "gnome-clocks"
         RUNTIME_REPO: "https://nightly.gnome.org/gnome-nightly.flatpakrepo"
         APP_ID: "org.gnome.clocksDevel"
     extends: .flatpak
-
-review:
-  dependencies:
-    - 'flatpak'
-  extends: '.review'
-
-stop_review:
-  extends: '.stop_review'
-
-nightly:
-  extends: '.publish_nightly'
-
 
 lint:
   image: valalang/lint:latest
