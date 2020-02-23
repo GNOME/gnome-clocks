@@ -11,10 +11,10 @@ flatpak:
         FLATPAK_MODULE: "gnome-clocks"
         RUNTIME_REPO: "https://nightly.gnome.org/gnome-nightly.flatpakrepo"
         APP_ID: "org.gnome.clocksDevel"
-    extends: .flatpak
+    extends: ".flatpak"
 
 lint:
-  image: valalang/lint:latest
-  stage: .pre
+  image: "valalang/lint:latest"
+  stage: ".pre"
   script:
     - io.elementary.vala-lint src
