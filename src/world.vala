@@ -199,19 +199,23 @@ public class Item : Object, ContentItem {
     // CSS class for the current time of day
     public string state_class {
         get {
-            if (date_time.compare (sun_rise) > 0 || date_time.compare (sun_set) < 0) {
+            if (sun_rise == null || sun_set == null) {
+                return "none";
+            }
+
+            if (date_time.compare (sun_rise) > 0 && date_time.compare (sun_set) < 0) {
                 return "day";
             }
 
-            if (date_time.compare (civil_rise) > 0 || date_time.compare (civil_set) < 0) {
+            if (date_time.compare (civil_rise) > 0 && date_time.compare (civil_set) < 0) {
                 return "civil";
             }
 
-            if (date_time.compare (naut_rise) > 0 || date_time.compare (naut_set) < 0) {
+            if (date_time.compare (naut_rise) > 0 && date_time.compare (naut_set) < 0) {
                 return "naut";
             }
 
-            if (date_time.compare (astro_rise) > 0 || date_time.compare (astro_set) < 0) {
+            if (date_time.compare (astro_rise) > 0 && date_time.compare (astro_set) < 0) {
                 return "astro";
             }
 
@@ -227,14 +231,14 @@ public class Item : Object, ContentItem {
 
     // When sunrise/sunset happens, at different corrections, in locations
     // timezone for calculating the colour pill
-    private DateTime sun_rise;
-    private DateTime sun_set;
-    private DateTime civil_rise;
-    private DateTime civil_set;
-    private DateTime naut_rise;
-    private DateTime naut_set;
-    private DateTime astro_rise;
-    private DateTime astro_set;
+    private DateTime? sun_rise;
+    private DateTime? sun_set;
+    private DateTime? civil_rise;
+    private DateTime? civil_set;
+    private DateTime? naut_rise;
+    private DateTime? naut_set;
+    private DateTime? astro_rise;
+    private DateTime? astro_set;
     // When we last calculated
     private int last_calc_day = -1;
 
@@ -259,6 +263,12 @@ public class Item : Object, ContentItem {
 
         location.get_coords (out lat, out lon);
 
+        // Some locations, such as UTC, aren't actual locations and don't have
+        // proper coords
+        if (!lat.is_finite () || !lon.is_finite ()) {
+            return;
+        }
+
         var utc = date_time.to_utc ();
         utc.get_ymd (out y, out m, out d);
 
@@ -275,6 +285,8 @@ public class Item : Object, ContentItem {
 
         sun_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
         sun_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
+        if (sun_set.compare (sun_rise) < 0)
+            sun_set = sun_set.add_days (1);
 
         calculate_sunrise_sunset (lat,
                                   lon,
@@ -289,6 +301,8 @@ public class Item : Object, ContentItem {
 
         civil_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
         civil_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
+        if (civil_set.compare (civil_rise) < 0)
+            civil_set = civil_set.add_days (1);
 
         calculate_sunrise_sunset (lat,
                                   lon,
@@ -303,6 +317,8 @@ public class Item : Object, ContentItem {
 
         naut_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
         naut_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
+        if (naut_set.compare (naut_rise) < 0)
+            naut_set = naut_set.add_days (1);
 
         calculate_sunrise_sunset (lat,
                                   lon,
@@ -317,6 +333,8 @@ public class Item : Object, ContentItem {
 
         astro_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
         astro_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
+        if (astro_set.compare (astro_rise) < 0)
+            astro_set = astro_set.add_days (1);
     }
 
     [Signal (run = "first")]
