@@ -119,8 +119,6 @@ public class Face : Gtk.Box, Clocks.Clock {
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NONE; }
     public ViewMode view_mode { get; set; default = NORMAL; }
-    public bool can_select { get; set; default = false; }
-    public bool n_selected { get; set; }
     public string title { get; set; default = _("Clocks"); }
     public string subtitle { get; set; }
     public string new_label { get; default = null; }

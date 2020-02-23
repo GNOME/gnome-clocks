@@ -72,9 +72,6 @@ public class Item : Object, ContentItem {
 
     public bool automatic { get; set; default = false; }
 
-    public bool selectable { get; set; default = false; }
-    public bool selected { get; set; default = false; }
-
     public string name {
         get {
             // We store it in a _name member even if we overwrite it every time
@@ -495,8 +492,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NEW; }
     public ViewMode view_mode { get; set; default = NORMAL; }
-    public bool can_select { get; set; default = false; }
-    public bool n_selected { get; set; }
     public string title { get; set; default = _("Clocks"); }
     public string subtitle { get; set; }
     // Translators: Tooltip for the + button

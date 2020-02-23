@@ -29,9 +29,6 @@ public class Item : Object, ContentItem {
 
     public State state { get; private set; default = State.STOPPED; }
 
-    public bool selectable { get; set; default = false; }
-    public bool selected { get; set; default = false; }
-
     public string name { get ; set; }
     public int hours { get; set; default = 0; }
     public int minutes { get; set; default = 0; }
@@ -407,8 +404,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public ButtonMode button_mode { get; set; default = NONE; }
     public ViewMode view_mode { get; set; default = NORMAL; }
     public bool is_running { get; set; default = false; }
-    public bool can_select { get; set; default = false; }
-    public bool n_selected { get; set; }
     public string title { get; set; default = _("Clocks"); }
     public string subtitle { get; set; }
     // Translators: Tooltip for the + button
