@@ -28,8 +28,6 @@ public interface Clocks.Clock : GLib.Object {
     public abstract PanelId panel_id { get; protected construct set; }
     public abstract ButtonMode button_mode { get; set; }
     public abstract ViewMode view_mode { get; set; }
-    public abstract bool can_select { get; set; }
-    public abstract bool n_selected { get; set; }
     public abstract string title { get; protected set; }
     public abstract string subtitle { get; protected set; }
     public abstract string new_label { get; }
@@ -38,18 +36,6 @@ public interface Clocks.Clock : GLib.Object {
     }
 
     public virtual void activate_back () {
-    }
-
-    public virtual void activate_select () {
-    }
-
-    public virtual void activate_select_cancel () {
-    }
-
-    public virtual void activate_select_all () {
-    }
-
-    public virtual void activate_select_none () {
     }
 
     public virtual bool escape_pressed () {

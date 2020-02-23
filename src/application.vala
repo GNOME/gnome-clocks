@@ -131,7 +131,6 @@ public class Application : Gtk.Application {
         update_theme (settings);
 
         set_accels_for_action ("win.new", { "<Primary>n" });
-        set_accels_for_action ("win.select-all", { "<Primary>a" });
         set_accels_for_action ("win.show-primary-menu", { "F10" });
         set_accels_for_action ("win.show-help-overlay", { "<Primary>question" });
         set_accels_for_action ("win.help", { "F1" });

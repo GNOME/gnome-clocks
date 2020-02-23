@@ -27,12 +27,6 @@ public class Window : Gtk.ApplicationWindow {
         { "back", on_back_activate },
         { "help", on_help_activate },
         { "about", on_about_activate },
-        { "select", on_select_activate },
-        { "select-cancel", on_select_cancel_activate },
-
-        // selection menu
-        { "select-all", on_select_all_activate },
-        { "select-none", on_select_none_activate }
     };
 
     [GtkChild]
@@ -53,8 +47,6 @@ public class Window : Gtk.ApplicationWindow {
     // DIY DzlBindingGroup
     private Binding bind_button_mode = null;
     private Binding bind_view_mode = null;
-    private Binding bind_can_select = null;
-    private Binding bind_selected = null;
     private Binding bind_title = null;
     private Binding bind_subtitle = null;
     private Binding bind_new_label = null;
@@ -193,22 +185,6 @@ public class Window : Gtk.ApplicationWindow {
         ((Clock) stack.visible_child).activate_back ();
     }
 
-    private void on_select_activate () {
-        ((Clock) stack.visible_child).activate_select ();
-    }
-
-    private void on_select_cancel_activate () {
-        ((Clock) stack.visible_child).activate_select_cancel ();
-    }
-
-    private void on_select_all_activate () {
-        ((Clock) stack.visible_child).activate_select_all ();
-    }
-
-    private void on_select_none_activate () {
-        ((Clock) stack.visible_child).activate_select_none ();
-    }
-
     public void show_world () {
         world.reset_view ();
         stack.visible_child = world;
@@ -338,22 +314,6 @@ public class Window : Gtk.ApplicationWindow {
                                               header_bar,
                                               "view-mode",
                                               SYNC_CREATE);
-
-        if (bind_can_select != null) {
-            bind_can_select.unbind ();
-        }
-        bind_can_select = panel.bind_property ("can-select",
-                                               header_bar,
-                                               "can-select",
-                                               SYNC_CREATE);
-
-        if (bind_selected != null) {
-            bind_selected.unbind ();
-        }
-        bind_selected = panel.bind_property ("n-selected",
-                                             header_bar,
-                                             "n-selected",
-                                             SYNC_CREATE);
 
         if (bind_title != null) {
             bind_title.unbind ();

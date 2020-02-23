@@ -79,15 +79,6 @@
           </packing>
         </child>
         <child>
-          <object class="ClocksSelectionMenuButton">
-            <property name="visible">True</property>
-            <property name="n-items" bind-source="ClocksHeaderBar" bind-property="n-selected" bind-flags="sync-create" />
-          </object>
-          <packing>
-            <property name="name">selection</property>
-          </packing>
-        </child>
-        <child>
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="orientation">vertical</property>
@@ -207,65 +198,10 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
-            <property name="label" translatable="yes">_Cancel</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="action_name">win.select-cancel</property>
-            <property name="use_underline">True</property>
-          </object>
-          <packing>
-            <property name="name">cancel</property>
-          </packing>
-        </child>
-        <child>
           <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
-          </object>
-          <packing>
-            <property name="name">empty</property>
-          </packing>
-        </child>
-      </object>
-      <packing>
-        <property name="pack_type">end</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkStack" id="select_stack">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="transition_type">crossfade</property>
-        <child>
-          <object class="GtkButton">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="action_name">win.select</property>
-            <property name="tooltip-text" translatable="yes">Select</property>
-            <child>
-              <object class="GtkImage">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="icon_name">object-select-symbolic</property>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="name">select</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkBox">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="orientation">vertical</property>
-            <child>
-              <placeholder/>
-            </child>
           </object>
           <packing>
             <property name="name">empty</property>
