@@ -2,6 +2,10 @@ include:
   - project: 'gnome/citemplates'
     file: 'flatpak/flatpak_ci_initiative.yml'
 
+stages:
+  - test
+  - deploy
+
 flatpak:
     image: 'registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master'
     variables:
