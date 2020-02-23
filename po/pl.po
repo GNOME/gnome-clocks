@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-02-07 02:14+0000\n"
-"PO-Revision-Date: 2020-02-17 18:24+0100\n"
+"POT-Creation-Date: 2020-02-23 17:18+0000\n"
+"PO-Revision-Date: 2020-02-23 18:55+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -80,27 +80,22 @@ msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Dodanie budzika"
 
-#: data/gtk/help-overlay.ui:96
-msgctxt "shortcut window"
-msgid "Select all alarms"
-msgstr "Zaznaczenie wszystkich budzików"
-
-#: data/gtk/help-overlay.ui:105
+#: data/gtk/help-overlay.ui:98
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Stoper"
 
-#: data/gtk/help-overlay.ui:110
+#: data/gtk/help-overlay.ui:103
 msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Zatrzymanie/resetowanie"
 
-#: data/gtk/help-overlay.ui:119
+#: data/gtk/help-overlay.ui:112
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Minutnik"
 
-#: data/gtk/help-overlay.ui:124
+#: data/gtk/help-overlay.ui:117
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Resetowanie"
@@ -175,7 +170,7 @@ msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/headerbar.ui:24 src/alarm.vala:590 src/alarm.vala:677
+#: data/ui/headerbar.ui:24 src/alarm.vala:794 src/alarm.vala:874
 #: src/main.vala:25 src/stopwatch.vala:124 src/timer.vala:412
 #: src/window.vala:297 src/world.vala:346 src/world.vala:427
 msgid "Clocks"
@@ -246,46 +241,57 @@ msgstr "Stan panelu"
 msgid "Current clock panel."
 msgstr "Bieżący panel zegara."
 
-#: data/ui/alarmringing.ui:41 src/alarm.vala:118
-msgid "Stop"
-msgstr "Zatrzymaj"
+#: data/ui/alarmdaypickerrow.ui:5
+msgid "_Repeat"
+msgstr "_Powtarzanie"
 
-#: data/ui/alarmringing.ui:61 src/alarm.vala:119
-msgid "Snooze"
-msgstr "Drzemka"
-
-#: data/ui/alarmsetupdialog.ui:27 data/ui/worldlocationdialog.ui:17
-msgid "Add a New World Clock"
-msgstr "Dodanie nowego zegara światowego"
-
-#: data/ui/alarmsetupdialog.ui:31 data/ui/headerbar.ui:211
-#: data/ui/worldlocationdialog.ui:21
-msgid "_Cancel"
-msgstr "_Anuluj"
-
-#: data/ui/alarmsetupdialog.ui:47
-msgid "_Done"
-msgstr "_Gotowe"
-
-#: data/ui/alarmsetupdialog.ui:199
-msgid "You already have an alarm for this time."
-msgstr "Istnieje już taki sam budzik."
-
-#: data/ui/alarmsetupdialog.ui:227
-msgid "Name"
-msgstr "Nazwa"
-
-#: data/ui/alarmsetupdialog.ui:241
-msgid "Repeat Every"
-msgstr "Powtarzanie"
-
-#: data/ui/alarmsetupdialog.ui:295
+#: data/ui/alarmrow.ui:25
 msgid "Active"
 msgstr "Aktywny"
 
-#: data/ui/alarm.ui:34
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Kliknięcie przycisku <b>Nowy</b> doda budzik"
+#: data/ui/alarmrow.ui:50
+msgid "Edit"
+msgstr "Modyfikuj"
+
+#: data/ui/alarmrow.ui:77 src/widgets.vala:322
+msgid "Delete"
+msgstr "Usuń"
+
+#: data/ui/alarmrow.ui:106
+msgid "Repeats"
+msgstr "Powtarza się"
+
+#: data/ui/alarmringing.ui:28 src/alarm.vala:121
+msgid "Stop"
+msgstr "Zatrzymaj"
+
+#: data/ui/alarmringing.ui:47 src/alarm.vala:122
+msgid "Snooze"
+msgstr "Drzemka"
+
+#: data/ui/alarmsetupdialog.ui:24 data/ui/worldlocationdialog.ui:17
+msgid "Add a New World Clock"
+msgstr "Dodanie nowego zegara światowego"
+
+#: data/ui/alarmsetupdialog.ui:144
+msgid "Name"
+msgstr "Nazwa"
+
+#: data/ui/alarmsetupdialog.ui:145
+msgid "Optional"
+msgstr "Opcjonalna"
+
+#: data/ui/alarmsetupdialog.ui:165
+msgid "R_emove Alarm"
+msgstr "_Usuń budzik"
+
+#: data/ui/alarmsetupdialog.ui:181
+msgid "You already have an alarm for this time."
+msgstr "Istnieje już taki sam budzik."
+
+#: data/ui/alarm.ui:30
+msgid "Add A_larm"
+msgstr "_Dodaj budzik"
 
 #: data/ui/headerbar.ui:8
 msgid "_Keyboard Shortcuts"
@@ -307,6 +313,10 @@ msgstr "Wstecz"
 msgid "Menu"
 msgstr "Menu"
 
+#: data/ui/headerbar.ui:211 data/ui/worldlocationdialog.ui:21
+msgid "_Cancel"
+msgstr "_Anuluj"
+
 #: data/ui/headerbar.ui:248
 msgid "Select"
 msgstr "Zaznacza"
@@ -323,7 +333,7 @@ msgstr "Różnica"
 msgid "_Start"
 msgstr "_Rozpocznij"
 
-#: data/ui/stopwatch.ui:187 src/stopwatch.vala:248
+#: data/ui/stopwatch.ui:189 src/stopwatch.vala:248
 msgid "Clear"
 msgstr "Wyczyść"
 
@@ -408,18 +418,45 @@ msgstr "Wschód słońca"
 msgid "Sunset"
 msgstr "Zachód słońca"
 
-#: src/alarm.vala:116 src/alarm.vala:416
+#. Prior to 3.36 unamed alarms would just be called "Alarm",
+#. pretend alarms called "Alarm" don't have a name (of course
+#. this fails if the language/translation has since changed)
+#: src/alarm.vala:119 src/alarm.vala:339 src/alarm.vala:923
 msgid "Alarm"
 msgstr "Budzik"
 
-#: src/alarm.vala:350
+#. Translators: The alarm for the time %s titled %s has been "snoozed"
+#: src/alarm.vala:346
+#, c-format
+msgid "Snoozed from %s: %s"
+msgstr "Drzemka od %s: %s"
+
+#. Translators: %s is a time
+#: src/alarm.vala:349
+#, c-format
+msgid "Snoozed from %s"
+msgstr "Drzemka od %s"
+
+#: src/alarm.vala:561
 msgid "Edit Alarm"
 msgstr "Modyfikacja budzika"
 
 #. Translators: Tooltip for the + button
-#: src/alarm.vala:350 src/alarm.vala:593
+#: src/alarm.vala:561 src/alarm.vala:797
 msgid "New Alarm"
 msgstr "Nowy budzik"
+
+#: src/alarm.vala:564 src/timer.vala:148
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: src/alarm.vala:566
+msgid "Done"
+msgstr "Gotowe"
+
+#: src/alarm.vala:568 src/timer.vala:149
+msgid "Add"
+msgstr "Dodaj"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
@@ -450,14 +487,6 @@ msgstr "Rozpocznij"
 #: src/timer.vala:145 src/timer.vala:415
 msgid "New Timer"
 msgstr "Nowy minutnik"
-
-#: src/timer.vala:148
-msgid "Cancel"
-msgstr "Anuluj"
-
-#: src/timer.vala:149
-msgid "Add"
-msgstr "Dodaj"
 
 #: src/timer.vala:377
 #, c-format
@@ -502,61 +531,99 @@ msgstr "Czas minął!"
 msgid "Timer countdown finished"
 msgstr "Ukończono odliczanie minutnika"
 
-#: src/utils.vala:167
-msgid "Mondays"
-msgstr "Poniedziałek"
+#. Translators: This is used in the repeat toggle for Monday
+#: src/utils.vala:162
+msgctxt "Repeat|Monday"
+msgid "M"
+msgstr "M"
 
+#. Translators: This is used in the repeat toggle for Tuesday
+#: src/utils.vala:164
+msgctxt "Repeat|Tuesday"
+msgid "T"
+msgstr "W"
+
+#. Translators: This is used in the repeat toggle for Wednesday
+#: src/utils.vala:166
+msgctxt "Repeat|Wednesday"
+msgid "W"
+msgstr "Ś"
+
+#. Translators: This is used in the repeat toggle for Thursday
 #: src/utils.vala:168
-msgid "Tuesdays"
-msgstr "Wtorek"
+msgctxt "Repeat|Thursday"
+msgid "T"
+msgstr "C"
 
-#: src/utils.vala:169
-msgid "Wednesdays"
-msgstr "Środa"
-
+#. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:170
-msgid "Thursdays"
-msgstr "Czwartek"
+msgctxt "Repeat|Friday"
+msgid "F"
+msgstr "P"
 
-#: src/utils.vala:171
-msgid "Fridays"
-msgstr "Piątek"
-
+#. Translators: This is used in the repeat toggle for Saturday
 #: src/utils.vala:172
+msgctxt "Repeat|Saturday"
+msgid "S"
+msgstr "S"
+
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:174
+msgctxt "Repeat|Sunday"
+msgid "S"
+msgstr "N"
+
+#: src/utils.vala:178
+msgid "Mondays"
+msgstr "Poniedziałki"
+
+#: src/utils.vala:179
+msgid "Tuesdays"
+msgstr "Wtorki"
+
+#: src/utils.vala:180
+msgid "Wednesdays"
+msgstr "Środy"
+
+#: src/utils.vala:181
+msgid "Thursdays"
+msgstr "Czwartki"
+
+#: src/utils.vala:182
+msgid "Fridays"
+msgstr "Piątki"
+
+#: src/utils.vala:183
 msgid "Saturdays"
-msgstr "Sobota"
+msgstr "Soboty"
 
-#: src/utils.vala:173
+#: src/utils.vala:184
 msgid "Sundays"
-msgstr "Niedziela"
+msgstr "Niedziele"
 
-#: src/utils.vala:253
+#: src/utils.vala:310
 msgid "Every Day"
 msgstr "Codziennie"
 
-#: src/utils.vala:255
+#: src/utils.vala:312
 msgid "Weekdays"
 msgstr "Dni robocze"
 
-#: src/utils.vala:257
+#: src/utils.vala:314
 msgid "Weekends"
 msgstr "Weekendy"
 
-#: src/widgets.vala:214 src/widgets.vala:229
+#: src/widgets.vala:232 src/widgets.vala:247
 msgid "Click on items to select them"
 msgstr "Kliknięcie elementu zaznacza go"
 
-#: src/widgets.vala:216
+#: src/widgets.vala:234
 #, c-format
 msgid "%u selected"
 msgid_plural "%u selected"
 msgstr[0] "Zaznaczono: %u"
 msgstr[1] "Zaznaczono: %u"
 msgstr[2] "Zaznaczono: %u"
-
-#: src/widgets.vala:304
-msgid "Delete"
-msgstr "Usuń"
 
 #: src/window.vala:268
 #, c-format
