@@ -199,19 +199,19 @@ public class Item : Object, ContentItem {
     // CSS class for the current time of day
     public string state_class {
         get {
-            if (date_time.compare (sun_rise) > 0 || date_time.compare (sun_set) < 0) {
+            if (date_time.compare (sun_rise) > 0 && date_time.compare (sun_set) < 0) {
                 return "day";
             }
 
-            if (date_time.compare (civil_rise) > 0 || date_time.compare (civil_set) < 0) {
+            if (date_time.compare (civil_rise) > 0 && date_time.compare (civil_set) < 0) {
                 return "civil";
             }
 
-            if (date_time.compare (naut_rise) > 0 || date_time.compare (naut_set) < 0) {
+            if (date_time.compare (naut_rise) > 0 && date_time.compare (naut_set) < 0) {
                 return "naut";
             }
 
-            if (date_time.compare (astro_rise) > 0 || date_time.compare (astro_set) < 0) {
+            if (date_time.compare (astro_rise) > 0 && date_time.compare (astro_set) < 0) {
                 return "astro";
             }
 
