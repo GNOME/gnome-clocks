@@ -199,6 +199,10 @@ public class Item : Object, ContentItem {
     // CSS class for the current time of day
     public string state_class {
         get {
+            if (sun_rise == null || sun_set == null) {
+                return "none";
+            }
+
             if (date_time.compare (sun_rise) > 0 && date_time.compare (sun_set) < 0) {
                 return "day";
             }
@@ -227,14 +231,14 @@ public class Item : Object, ContentItem {
 
     // When sunrise/sunset happens, at different corrections, in locations
     // timezone for calculating the colour pill
-    private DateTime sun_rise;
-    private DateTime sun_set;
-    private DateTime civil_rise;
-    private DateTime civil_set;
-    private DateTime naut_rise;
-    private DateTime naut_set;
-    private DateTime astro_rise;
-    private DateTime astro_set;
+    private DateTime? sun_rise;
+    private DateTime? sun_set;
+    private DateTime? civil_rise;
+    private DateTime? civil_set;
+    private DateTime? naut_rise;
+    private DateTime? naut_set;
+    private DateTime? astro_rise;
+    private DateTime? astro_set;
     // When we last calculated
     private int last_calc_day = -1;
 
@@ -258,6 +262,12 @@ public class Item : Object, ContentItem {
         }
 
         location.get_coords (out lat, out lon);
+
+        // Some locations, such as UTC, aren't actual locations and don't have
+        // proper coords
+        if (!lat.is_finite () || !lon.is_finite ()) {
+            return;
+        }
 
         var utc = date_time.to_utc ();
         utc.get_ymd (out y, out m, out d);
