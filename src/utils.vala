@@ -38,16 +38,7 @@ namespace Utils {
 
 private void load_css (string css, bool required) {
     var provider = new Gtk.CssProvider ();
-    try {
-        var file = File.new_for_uri ("resource:///org/gnome/clocks/css/" + css + ".css");
-        provider.load_from_file (file);
-    } catch (Error e) {
-        if (required) {
-            warning ("loading css: %s", e.message);
-        }
-
-        return;
-    }
+    provider.load_from_resource ("/org/gnome/clocks/css/" + css + ".css");
 
     Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (),
                                               provider,
