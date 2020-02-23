@@ -26,8 +26,8 @@ private struct AlarmTime {
 }
 
 private class Item : Object, ContentItem {
-    const int SNOOZE_MINUTES = 9;
-    const int RING_MINUTES = 3;
+    const int DEFAULT_SNOOZE_MINUTES = 9;
+    const int DEFAULT_ALARM_MINUTES = 3;
 
     // FIXME: should we add a "MISSED" state where the alarm stopped
     // ringing but we keep showing the ringing panel?
@@ -76,6 +76,30 @@ private class Item : Object, ContentItem {
          owned get {
             return days != null ? days.get_label () : null;
          }
+    }
+
+    public static int get_snooze_duration ( ) {
+        string snooze_minutes = Environment.get_variable ("CLOCKS_SNOOZE_DURATION");
+        if (snooze_minutes == null) {
+          return DEFAULT_SNOOZE_MINUTES;
+        }
+        int custom_snooze_minutes = int.parse(snooze_minutes);
+        if (custom_snooze_minutes == 0) {
+            return DEFAULT_SNOOZE_MINUTES;
+        }
+        return custom_snooze_minutes;
+    }
+
+    public static int get_alarm_duration ( ) {
+        string alarm_minutes = Environment.get_variable ("CLOCKS_ALARM_DURATION");
+        if (alarm_minutes == null) {
+            return DEFAULT_ALARM_MINUTES;
+        }
+        int custom_alarm_minutes = int.parse(alarm_minutes);
+        if (custom_alarm_minutes == 0) {
+            return DEFAULT_ALARM_MINUTES;
+        }
+        return custom_alarm_minutes;
     }
 
     [CCode (notify = false)]
@@ -153,7 +177,7 @@ private class Item : Object, ContentItem {
     }
 
     private void update_snooze_time (GLib.DateTime start_time) {
-        snooze_time = start_time.add_minutes (SNOOZE_MINUTES);
+        snooze_time = start_time.add_minutes ( get_snooze_duration() );
     }
 
     public virtual signal void ring () {
@@ -164,7 +188,7 @@ private class Item : Object, ContentItem {
 
     private void start_ringing (GLib.DateTime now) {
         update_snooze_time (now);
-        ring_end_time = now.add_minutes (RING_MINUTES);
+        ring_end_time = now.add_minutes ( get_alarm_duration() );
         state = State.RINGING;
         ring ();
     }
