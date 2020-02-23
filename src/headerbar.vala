@@ -28,7 +28,6 @@ public enum Clocks.ButtonMode {
 
 public enum Clocks.ViewMode {
     NORMAL,
-    SELECTION,
     STANDALONE
 }
 
@@ -46,22 +45,10 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
             var width = get_allocated_width ();
 
             switch (_mode) {
-                case SELECTION:
-                    title_stack.visible_child_name = "selection";
-                    get_style_context ().add_class ("selection-mode");
-                    start_button_stack.hide ();
-                    end_button_stack.show ();
-                    select_stack.hide ();
-                    end_button_stack.visible_child_name = "cancel";
-                    centering_policy = LOOSE;
-                    switcher_bar.reveal = width <= 500;
-                    break;
                 case NORMAL:
                     title_stack.visible_child_name = "switcher";
-                    get_style_context ().remove_class ("selection-mode");
                     start_button_stack.show ();
                     end_button_stack.show ();
-                    select_stack.show ();
                     end_button_stack.visible_child_name = "menu";
                     centering_policy = STRICT;
                     switcher_bar.reveal = width <= 500;
@@ -70,13 +57,10 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
                     title_stack.visible_child_name = "title";
                     start_button_stack.show ();
                     end_button_stack.hide ();
-                    select_stack.hide ();
                     centering_policy = STRICT;
                     switcher_bar.reveal = false;
                     break;
             }
-
-            show_close_button = _mode != SELECTION;
         }
     }
 
@@ -101,34 +85,15 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
         }
     }
 
-    public bool can_select {
-        get {
-            return _can_select;
-        }
-
-        set {
-            _can_select = value;
-            if (_can_select) {
-                select_stack.visible_child_name = "select";
-            } else {
-                select_stack.visible_child_name = "empty";
-            }
-        }
-    }
-
     public Gtk.Stack stack { get; set; }
     public Hdy.ViewSwitcherBar switcher_bar { get; set; }
-    public uint n_selected { get; set; }
     public string new_label { get; set; }
 
-    private bool _can_select;
     private ViewMode _mode;
     private ButtonMode _button_mode;
 
     [GtkChild]
     private Gtk.Stack start_button_stack;
-    [GtkChild]
-    private Gtk.Stack select_stack;
     [GtkChild]
     private Gtk.Stack end_button_stack;
     [GtkChild]
@@ -143,10 +108,6 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
     private Gtk.Stack title_stack;
     [GtkChild]
     private Gtk.Revealer reveal_subtitle;
-
-    class construct {
-        typeof (SelectionMenuButton).ensure ();
-    }
 
     public override void size_allocate (Gtk.Allocation allocation) {
         base.size_allocate (allocation);

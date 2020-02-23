@@ -39,10 +39,6 @@ private class Item : Object, ContentItem {
 
     public string title_icon { get; set; default = null; }
 
-    public bool selectable { get; set; default = true; }
-
-    public bool selected { get; set; default = false; }
-
     public bool editing { get; set; default = false; }
 
     public string id { get; construct set; }
@@ -789,8 +785,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public ViewMode view_mode { get; set; default = NORMAL; }
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NEW; }
-    public bool can_select { get; set; default = false; }
-    public bool n_selected { get; set; }
     public string title { get; set; default = _("Clocks"); }
     public string subtitle { get; set; }
     // Translators: Tooltip for the + button
