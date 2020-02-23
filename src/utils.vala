@@ -145,14 +145,91 @@ public class WallClock : Object {
 }
 
 public class Weekdays {
+    private static string[] abbreviations = null;
+    private static string[] names = null;
+
     public enum Day {
-        MON,
+        MON = 0,
         TUE,
         WED,
         THU,
         FRI,
         SAT,
-        SUN
+        SUN;
+
+        private const string[] symbols = {
+            // Translators: This is used in the repeat toggle for Monday
+            NC_("Repeat|Monday", "M"),
+            // Translators: This is used in the repeat toggle for Tuesday
+            NC_("Repeat|Tuesday", "T"),
+            // Translators: This is used in the repeat toggle for Wednesday
+            NC_("Repeat|Wednesday", "W"),
+            // Translators: This is used in the repeat toggle for Thursday
+            NC_("Repeat|Thursday", "T"),
+            // Translators: This is used in the repeat toggle for Friday
+            NC_("Repeat|Friday", "F"),
+            // Translators: This is used in the repeat toggle for Saturday
+            NC_("Repeat|Saturday", "S"),
+            // Translators: This is used in the repeat toggle for Sunday
+            NC_("Repeat|Sunday", "S")
+        };
+
+        private const string[] plurals = {
+            N_("Mondays"),
+            N_("Tuesdays"),
+            N_("Wednesdays"),
+            N_("Thursdays"),
+            N_("Fridays"),
+            N_("Saturdays"),
+            N_("Sundays")
+        };
+
+        public string symbol () {
+            return _(symbols[this]);
+        }
+
+        public string plural () {
+            return _(plurals[this]);
+        }
+    
+        public string abbreviation () {
+            // lazy init because we cannot rely on class init being
+            // called for us (at least in the current version of vala)
+            if (abbreviations == null) {
+                abbreviations = {
+                     (new GLib.DateTime.utc (1, 1, 1, 0, 0, 0)).format ("%a"),
+                     (new GLib.DateTime.utc (1, 1, 2, 0, 0, 0)).format ("%a"),
+                     (new GLib.DateTime.utc (1, 1, 3, 0, 0, 0)).format ("%a"),
+                     (new GLib.DateTime.utc (1, 1, 4, 0, 0, 0)).format ("%a"),
+                     (new GLib.DateTime.utc (1, 1, 5, 0, 0, 0)).format ("%a"),
+                     (new GLib.DateTime.utc (1, 1, 6, 0, 0, 0)).format ("%a"),
+                     (new GLib.DateTime.utc (1, 1, 7, 0, 0, 0)).format ("%a"),
+                };
+            }
+            return abbreviations[this];
+        }
+
+        public string name () {
+            // lazy init because we cannot rely on class init being
+            // called for us (at least in the current version of vala)
+            if (names == null) {
+                names = {
+                     (new GLib.DateTime.utc (1, 1, 1, 0, 0, 0)).format ("%A"),
+                     (new GLib.DateTime.utc (1, 1, 2, 0, 0, 0)).format ("%A"),
+                     (new GLib.DateTime.utc (1, 1, 3, 0, 0, 0)).format ("%A"),
+                     (new GLib.DateTime.utc (1, 1, 4, 0, 0, 0)).format ("%A"),
+                     (new GLib.DateTime.utc (1, 1, 5, 0, 0, 0)).format ("%A"),
+                     (new GLib.DateTime.utc (1, 1, 6, 0, 0, 0)).format ("%A"),
+                     (new GLib.DateTime.utc (1, 1, 7, 0, 0, 0)).format ("%A"),
+                };
+            }
+            return names[this];
+        }
+
+        public static Day get_first_weekday () {
+            var d = clocks_cutils_get_week_start ();
+            return (Day) ((d + 6) % 7);
+        }
     }
 
     private const bool[] WEEKDAYS = {
@@ -163,57 +240,37 @@ public class Weekdays {
         false, false, false, false, false, true, true
     };
 
-    private const string[] PLURALS = {
-        N_("Mondays"),
-        N_("Tuesdays"),
-        N_("Wednesdays"),
-        N_("Thursdays"),
-        N_("Fridays"),
-        N_("Saturdays"),
-        N_("Sundays")
-    };
-
-    private static string[] abbreviations = null;
-
-    public static Day get_first_weekday () {
-        var d = clocks_cutils_get_week_start ();
-        return (Day) ((d + 6) % 7);
-    }
-
-    public static string plural (Day d) {
-        assert (d >= 0 && d < 7);
-        return _(PLURALS[d]);
-    }
-
-    public static string abbreviation (Day d) {
-        assert (d >= 0 && d < 7);
-
-        // lazy init because we cannot rely on class init being
-        // called for us (at least in the current version of vala)
-        if (abbreviations == null) {
-            abbreviations = {
-                 (new GLib.DateTime.utc (1, 1, 1, 0, 0, 0)).format ("%a"),
-                 (new GLib.DateTime.utc (1, 1, 2, 0, 0, 0)).format ("%a"),
-                 (new GLib.DateTime.utc (1, 1, 3, 0, 0, 0)).format ("%a"),
-                 (new GLib.DateTime.utc (1, 1, 4, 0, 0, 0)).format ("%a"),
-                 (new GLib.DateTime.utc (1, 1, 5, 0, 0, 0)).format ("%a"),
-                 (new GLib.DateTime.utc (1, 1, 6, 0, 0, 0)).format ("%a"),
-                 (new GLib.DateTime.utc (1, 1, 7, 0, 0, 0)).format ("%a"),
-            };
-        }
-        return abbreviations[d];
-    }
-
-    private bool[] days = {
+    const bool[] NONE = {
         false, false, false, false, false, false, false
     };
 
-    public Weekdays () {
-    }
+    const bool[] ALL = {
+        true, true, true, true, true, true, true
+    };
+
+    private bool[] days = NONE;
 
     public bool empty {
         get {
-            return (days_equal ({false, false, false, false, false, false, false}));
+            return (days_equal (NONE));
+        }
+    }
+    
+    public bool is_weekdays {
+        get {
+            return (days_equal (WEEKDAYS));
+        }
+    }
+    
+    public bool is_weekends {
+        get {
+            return (days_equal (WEEKENDS));
+        }
+    }
+
+    public bool is_all {
+        get {
+            return (days_equal (ALL));
         }
     }
 
@@ -248,7 +305,7 @@ public class Weekdays {
         if (n == 0) {
             r = "";
         } else if (n == 1) {
-            r = plural ((Day) first);
+            r = ((Day) first).plural ();
         } else if (n == 7) {
             r = _("Every Day");
         } else if (days_equal (WEEKDAYS)) {
@@ -258,9 +315,9 @@ public class Weekdays {
         } else {
             string[] abbrs = {};
             for (int i = 0; i < 7; i++) {
-                Day d = (get_first_weekday () + i) % 7;
+                Day d = (Day.get_first_weekday () + i) % 7;
                 if (get (d)) {
-                    abbrs += abbreviation (d);
+                    abbrs += d.abbreviation ();
                 }
             }
             r = string.joinv (", ", abbrs);

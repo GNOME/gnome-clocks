@@ -8,6 +8,10 @@ window > stack:backdrop {
     box-shadow: none;
 }
 
+label.destructive-action {
+    color: #e01b24;
+}
+
 /* world */
 
 .world-tile image,
@@ -34,6 +38,11 @@ window > stack:backdrop {
 }
 
 /* alarms */
+
+row.snoozing {
+    background: transparent -gtk-icontheme("alarm-symbolic") 65% 400%/48px 48px no-repeat;
+    font-weight: bold;
+}
 
 .alarm-tile,
 .alarm-tile:backdrop,

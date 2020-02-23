@@ -5,50 +5,60 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="homogeneous">False</property>
-    <property name="n-selected" bind-source="content_view" bind-property="n-selected" bind-flags="sync-create" />
     <signal name="notify::visible-child" handler="visible_child_changed" swapped="no"/>
     <child>
-      <object class="GtkGrid" id="empty_view">
+      <object class="GtkBox" id="empty_view">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
         <property name="halign">center</property>
         <property name="valign">center</property>
-        <property name="row_spacing">6</property>
+        <property name="spacing">24</property>
+        <property name="orientation">vertical</property>
         <child>
           <object class="GtkImage" id="image1">
             <property name="visible">True</property>
-            <property name="sensitive">False</property>
-            <property name="can_focus">False</property>
             <property name="icon_name">alarm-symbolic</property>
-            <property name="icon_size">6</property>
-          </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="label1">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Select &lt;b&gt;New&lt;/b&gt; to add an alarm</property>
-            <property name="use_markup">True</property>
+            <property name="pixel-size">128</property>
             <style>
               <class name="dim-label"/>
             </style>
           </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">1</property>
-          </packing>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <property name="visible">True</property>
+            <property name="action-name">win.new</property>
+            <property name="label" translatable="yes">Add A_larm</property>
+            <property name="use-underline">True</property>
+            <property name="halign">center</property>
+            <style>
+              <class name="suggested-action"/>
+            </style>
+          </object>
         </child>
       </object>
     </child>
     <child>
-      <object class="ClocksContentView" id="content_view">
+      <object class="GtkScrolledWindow" id="list_view">
         <property name="visible">True</property>
-        <property name="mode" bind-source="ClocksAlarmFace" bind-property="view-mode" bind-flags="sync-create|bidirectional" />
-        <signal name="item-activated" handler="item_activated" swapped="no"/>
+        <child>
+          <object class="HdyColumn">
+            <property name="visible">True</property>
+            <property name="maximum-width">600</property>
+            <child>
+              <object class="GtkListBox" id="listbox">
+                <property name="visible">True</property>
+                <property name="margin">12</property>
+                <property name="valign">start</property>
+                <property name="selection-mode">none</property>
+                <property name="activate-on-single-click">False</property>
+                <style>
+                  <class name="frame"/>
+                  <class name="alarm-list"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
       </object>
     </child>
     <child>
