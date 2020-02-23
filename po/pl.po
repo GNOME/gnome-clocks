@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-02-23 17:18+0000\n"
-"PO-Revision-Date: 2020-02-23 18:55+0100\n"
+"POT-Creation-Date: 2020-02-23 18:27+0000\n"
+"PO-Revision-Date: 2020-02-23 19:38+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -65,37 +65,32 @@ msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Dodanie zegara światowego"
 
-#: data/gtk/help-overlay.ui:75
-msgctxt "shortcut window"
-msgid "Select all world clocks"
-msgstr "Zaznaczenie wszystkich zegarów światowych"
-
-#: data/gtk/help-overlay.ui:84
+#: data/gtk/help-overlay.ui:77
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Budzik"
 
-#: data/gtk/help-overlay.ui:89
+#: data/gtk/help-overlay.ui:82
 msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Dodanie budzika"
 
-#: data/gtk/help-overlay.ui:98
+#: data/gtk/help-overlay.ui:91
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Stoper"
 
-#: data/gtk/help-overlay.ui:103
+#: data/gtk/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Zatrzymanie/resetowanie"
 
-#: data/gtk/help-overlay.ui:112
+#: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Minutnik"
 
-#: data/gtk/help-overlay.ui:117
+#: data/gtk/help-overlay.ui:110
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Resetowanie"
@@ -172,7 +167,7 @@ msgstr "Projekt GNOME"
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/ui/headerbar.ui:24 src/alarm.vala:794 src/alarm.vala:874
 #: src/main.vala:25 src/stopwatch.vala:124 src/timer.vala:412
-#: src/window.vala:297 src/world.vala:346 src/world.vala:427
+#: src/window.vala:297 src/world.vala:500 src/world.vala:589
 msgid "Clocks"
 msgstr "Zegar"
 
@@ -269,7 +264,7 @@ msgstr "Zatrzymaj"
 msgid "Snooze"
 msgstr "Drzemka"
 
-#: data/ui/alarmsetupdialog.ui:24 data/ui/worldlocationdialog.ui:17
+#: data/ui/alarmsetupdialog.ui:24 data/ui/worldlocationdialog.ui:16
 msgid "Add a New World Clock"
 msgstr "Dodanie nowego zegara światowego"
 
@@ -313,7 +308,7 @@ msgstr "Wstecz"
 msgid "Menu"
 msgstr "Menu"
 
-#: data/ui/headerbar.ui:211 data/ui/worldlocationdialog.ui:21
+#: data/ui/headerbar.ui:211 data/ui/worldlocationdialog.ui:20
 msgid "_Cancel"
 msgstr "_Anuluj"
 
@@ -398,23 +393,23 @@ msgstr "Stoper"
 msgid "Timer"
 msgstr "Minutnik"
 
-#: data/ui/worldlocationdialog.ui:37
+#: data/ui/worldlocationdialog.ui:36
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: data/ui/worldlocationdialog.ui:76
+#: data/ui/worldlocationdialog.ui:73
 msgid "Search for a city:"
 msgstr "Wyszukiwanie miasta:"
 
-#: data/ui/world.ui:34
+#: data/ui/world.ui:33
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Kliknięcie przycisku <b>Nowy</b> doda zegar światowy"
 
-#: data/ui/world.ui:128
+#: data/ui/world.ui:147
 msgid "Sunrise"
 msgstr "Wschód słońca"
 
-#: data/ui/world.ui:142
+#: data/ui/world.ui:161
 msgid "Sunset"
 msgstr "Zachód słońca"
 
@@ -532,84 +527,84 @@ msgid "Timer countdown finished"
 msgstr "Ukończono odliczanie minutnika"
 
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:162
+#: src/utils.vala:159
 msgctxt "Repeat|Monday"
 msgid "M"
 msgstr "M"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:164
+#: src/utils.vala:161
 msgctxt "Repeat|Tuesday"
 msgid "T"
 msgstr "W"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:166
+#: src/utils.vala:163
 msgctxt "Repeat|Wednesday"
 msgid "W"
 msgstr "Ś"
 
 #. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:168
+#: src/utils.vala:165
 msgctxt "Repeat|Thursday"
 msgid "T"
 msgstr "C"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:170
+#: src/utils.vala:167
 msgctxt "Repeat|Friday"
 msgid "F"
 msgstr "P"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:172
+#: src/utils.vala:169
 msgctxt "Repeat|Saturday"
 msgid "S"
 msgstr "S"
 
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:174
+#: src/utils.vala:171
 msgctxt "Repeat|Sunday"
 msgid "S"
 msgstr "N"
 
-#: src/utils.vala:178
+#: src/utils.vala:175
 msgid "Mondays"
 msgstr "Poniedziałki"
 
-#: src/utils.vala:179
+#: src/utils.vala:176
 msgid "Tuesdays"
 msgstr "Wtorki"
 
-#: src/utils.vala:180
+#: src/utils.vala:177
 msgid "Wednesdays"
 msgstr "Środy"
 
-#: src/utils.vala:181
+#: src/utils.vala:178
 msgid "Thursdays"
 msgstr "Czwartki"
 
-#: src/utils.vala:182
+#: src/utils.vala:179
 msgid "Fridays"
 msgstr "Piątki"
 
-#: src/utils.vala:183
+#: src/utils.vala:180
 msgid "Saturdays"
 msgstr "Soboty"
 
-#: src/utils.vala:184
+#: src/utils.vala:181
 msgid "Sundays"
 msgstr "Niedziele"
 
-#: src/utils.vala:310
+#: src/utils.vala:307
 msgid "Every Day"
 msgstr "Codziennie"
 
-#: src/utils.vala:312
+#: src/utils.vala:309
 msgid "Weekdays"
 msgstr "Dni robocze"
 
-#: src/utils.vala:314
+#: src/utils.vala:311
 msgid "Weekends"
 msgstr "Weekendy"
 
@@ -643,17 +638,47 @@ msgstr ""
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:186 src/world.vala:190
+#: src/world.vala:185 src/world.vala:189
 msgid "Tomorrow"
 msgstr "Jutro"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:186 src/world.vala:190
+#: src/world.vala:185 src/world.vala:189
 msgid "Yesterday"
 msgstr "Wczoraj"
 
+#. Translators: The time is the same as the local time
+#: src/world.vala:410
+msgid "Current timezone"
+msgstr "Obecna strefa czasowa"
+
+#. Translators: The (possibly fractical) number hours in the past
+#. (relative to local) the clock/location is
+#: src/world.vala:415
+#, c-format
+msgid "%s hour earlier"
+msgid_plural "%s hours earlier"
+msgstr[0] "%s godzina temu"
+msgstr[1] "%s godziny temu"
+msgstr[2] "%s godzin temu"
+
+#. Translators: The (possibly fractical) number hours in the
+#. future (relative to local) the clock/location is
+#: src/world.vala:421
+#, c-format
+msgid "%s hour later"
+msgid_plural "%s hours later"
+msgstr[0] "%s godzina później"
+msgstr[1] "%s godziny później"
+msgstr[2] "%s godzin później"
+
+#. Translators: This clock represents the local time
+#: src/world.vala:431
+msgid "Current location"
+msgstr "Obecne położenie"
+
 #. Translators: Tooltip for the + button
-#: src/world.vala:349
+#: src/world.vala:503
 msgid "Add Location"
 msgstr "Dodaje położenie"
