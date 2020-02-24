@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-02-07 02:14+0000\n"
-"PO-Revision-Date: 2020-02-09 14:11+0200\n"
+"POT-Creation-Date: 2020-02-23 19:16+0000\n"
+"PO-Revision-Date: 2020-02-24 19:13+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -62,53 +62,35 @@ msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Lisää maailmankello"
 
-#: data/gtk/help-overlay.ui:75
-msgctxt "shortcut window"
-msgid "Select all world clocks"
-msgstr "Valitse kaikki maailmankellot"
-
-#: data/gtk/help-overlay.ui:84
+#: data/gtk/help-overlay.ui:77
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Hälytys"
 
-#: data/gtk/help-overlay.ui:89
+#: data/gtk/help-overlay.ui:82
 msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Lisää hälytys"
 
-#: data/gtk/help-overlay.ui:96
-msgctxt "shortcut window"
-msgid "Select all alarms"
-msgstr "Valitse kaikki hälytykset"
-
-#: data/gtk/help-overlay.ui:105
+#: data/gtk/help-overlay.ui:91
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Sekuntikello"
 
-#: data/gtk/help-overlay.ui:110
+#: data/gtk/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Lopeta / nollaa"
 
-#: data/gtk/help-overlay.ui:119
+#: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Ajastin"
 
-#: data/gtk/help-overlay.ui:124
+#: data/gtk/help-overlay.ui:110
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Nollaa"
-
-#: data/gtk/menus.ui:8
-msgid "Select All"
-msgstr "Valitse kaikki"
-
-#: data/gtk/menus.ui:12
-msgid "Select None"
-msgstr "Poista valinnat"
 
 #: data/org.gnome.clocks.appdata.xml.in.in:6
 msgid "GNOME Clocks"
@@ -172,9 +154,9 @@ msgid "The GNOME Project"
 msgstr "Gnome-projekti"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/headerbar.ui:24 src/alarm.vala:590 src/alarm.vala:677
-#: src/main.vala:25 src/stopwatch.vala:124 src/timer.vala:412
-#: src/window.vala:297 src/world.vala:346 src/world.vala:427
+#: data/ui/headerbar.ui:24 src/alarm.vala:788 src/alarm.vala:868
+#: src/main.vala:25 src/stopwatch.vala:122 src/timer.vala:407
+#: src/window.vala:273 src/world.vala:495 src/world.vala:584
 msgid "Clocks"
 msgstr "Kellot"
 
@@ -245,46 +227,57 @@ msgstr "Paneelin tila"
 msgid "Current clock panel."
 msgstr "Nykyinen kello -paneeli."
 
-#: data/ui/alarmringing.ui:41 src/alarm.vala:118
-msgid "Stop"
-msgstr "Pysäytä"
+#: data/ui/alarmdaypickerrow.ui:5
+msgid "_Repeat"
+msgstr "T_oisto"
 
-#: data/ui/alarmringing.ui:61 src/alarm.vala:119
-msgid "Snooze"
-msgstr "Torkku"
-
-#: data/ui/alarmsetupdialog.ui:27 data/ui/worldlocationdialog.ui:17
-msgid "Add a New World Clock"
-msgstr "Lisää uusi maailmankello"
-
-#: data/ui/alarmsetupdialog.ui:31 data/ui/headerbar.ui:211
-#: data/ui/worldlocationdialog.ui:21
-msgid "_Cancel"
-msgstr "_Peru"
-
-#: data/ui/alarmsetupdialog.ui:47
-msgid "_Done"
-msgstr "_Valmis"
-
-#: data/ui/alarmsetupdialog.ui:199
-msgid "You already have an alarm for this time."
-msgstr "Olet jo asettanut hälytyksen tähän aikaan."
-
-#: data/ui/alarmsetupdialog.ui:227
-msgid "Name"
-msgstr "Nimi"
-
-#: data/ui/alarmsetupdialog.ui:241
-msgid "Repeat Every"
-msgstr "Toisto"
-
-#: data/ui/alarmsetupdialog.ui:295
+#: data/ui/alarmrow.ui:25
 msgid "Active"
 msgstr "Aktiivinen"
 
-#: data/ui/alarm.ui:34
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Lisää hälytys valitsemalla <b>Uusi</b>"
+#: data/ui/alarmrow.ui:50
+msgid "Edit"
+msgstr "Muokkaa"
+
+#: data/ui/alarmrow.ui:77
+msgid "Delete"
+msgstr "Poista"
+
+#: data/ui/alarmrow.ui:106
+msgid "Repeats"
+msgstr "Toistuu"
+
+#: data/ui/alarmringing.ui:28 src/alarm.vala:117
+msgid "Stop"
+msgstr "Pysäytä"
+
+#: data/ui/alarmringing.ui:47 src/alarm.vala:118
+msgid "Snooze"
+msgstr "Torkku"
+
+#: data/ui/alarmsetupdialog.ui:24 data/ui/worldlocationdialog.ui:16
+msgid "Add a New World Clock"
+msgstr "Lisää uusi maailmankello"
+
+#: data/ui/alarmsetupdialog.ui:144
+msgid "Name"
+msgstr "Nimi"
+
+#: data/ui/alarmsetupdialog.ui:145
+msgid "Optional"
+msgstr "Valinnainen"
+
+#: data/ui/alarmsetupdialog.ui:165
+msgid "R_emove Alarm"
+msgstr "_Poista hälytys"
+
+#: data/ui/alarmsetupdialog.ui:181
+msgid "You already have an alarm for this time."
+msgstr "Olet jo asettanut hälytyksen tähän aikaan."
+
+#: data/ui/alarm.ui:30
+msgid "Add A_larm"
+msgstr "_Lisää hälytys"
 
 #: data/ui/headerbar.ui:8
 msgid "_Keyboard Shortcuts"
@@ -298,17 +291,13 @@ msgstr "_Ohje"
 msgid "_About Clocks"
 msgstr "_Tietoja - Kellot"
 
-#: data/ui/headerbar.ui:158
+#: data/ui/headerbar.ui:149
 msgid "Back"
 msgstr "Takaisin"
 
-#: data/ui/headerbar.ui:195
+#: data/ui/headerbar.ui:186
 msgid "Menu"
 msgstr "Valikko"
-
-#: data/ui/headerbar.ui:248
-msgid "Select"
-msgstr "Valitse"
 
 #: data/ui/stopwatchlapsrow.ui:18
 msgid "Time"
@@ -322,7 +311,7 @@ msgstr "Ero"
 msgid "_Start"
 msgstr "_Käynnistä"
 
-#: data/ui/stopwatch.ui:187 src/stopwatch.vala:248
+#: data/ui/stopwatch.ui:189 src/stopwatch.vala:246
 msgid "Clear"
 msgstr "Tyhjennä"
 
@@ -387,38 +376,69 @@ msgstr "Sekuntikello"
 msgid "Timer"
 msgstr "Ajastin"
 
-#: data/ui/worldlocationdialog.ui:37
+#: data/ui/worldlocationdialog.ui:20
+msgid "_Cancel"
+msgstr "_Peru"
+
+#: data/ui/worldlocationdialog.ui:36
 msgid "_Add"
 msgstr "_Lisää"
 
-#: data/ui/worldlocationdialog.ui:76
+#: data/ui/worldlocationdialog.ui:73
 msgid "Search for a city:"
 msgstr "Etsi kaupunkia:"
 
-#: data/ui/world.ui:34
+#: data/ui/world.ui:33
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Lisää maailmankello valitsemalla <b>Uusi</b>"
 
-#: data/ui/world.ui:128
+#: data/ui/world.ui:147
 msgid "Sunrise"
 msgstr "Auringonnousu"
 
-#: data/ui/world.ui:142
+#: data/ui/world.ui:161
 msgid "Sunset"
 msgstr "Auringonlasku"
 
-#: src/alarm.vala:116 src/alarm.vala:416
+#. Prior to 3.36 unamed alarms would just be called "Alarm",
+#. pretend alarms called "Alarm" don't have a name (of course
+#. this fails if the language/translation has since changed)
+#: src/alarm.vala:115 src/alarm.vala:335 src/alarm.vala:917
 msgid "Alarm"
 msgstr "Hälytys"
 
-#: src/alarm.vala:350
+#. Translators: The alarm for the time %s titled %s has been "snoozed"
+#: src/alarm.vala:342
+#, c-format
+msgid "Snoozed from %s: %s"
+msgstr "Torkutettu %s lähtien: %s"
+
+#. Translators: %s is a time
+#: src/alarm.vala:345
+#, c-format
+msgid "Snoozed from %s"
+msgstr "Torkutettu %s lähtien"
+
+#: src/alarm.vala:557
 msgid "Edit Alarm"
 msgstr "Muokkaa hälytystä"
 
 #. Translators: Tooltip for the + button
-#: src/alarm.vala:350 src/alarm.vala:593
+#: src/alarm.vala:557 src/alarm.vala:791
 msgid "New Alarm"
 msgstr "Uusi hälytys"
+
+#: src/alarm.vala:560 src/timer.vala:145
+msgid "Cancel"
+msgstr "Peru"
+
+#: src/alarm.vala:562
+msgid "Done"
+msgstr "Valmis"
+
+#: src/alarm.vala:564 src/timer.vala:146
+msgid "Add"
+msgstr "Lisää"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
@@ -429,162 +449,240 @@ msgstr "Tulosta versiotiedot ja poistu"
 msgid "Lap %i"
 msgstr "Kierros %i"
 
-#: src/stopwatch.vala:228
+#: src/stopwatch.vala:226
 msgid "Pause"
 msgstr "Keskeytä"
 
-#: src/stopwatch.vala:232 src/stopwatch.vala:269
+#: src/stopwatch.vala:230 src/stopwatch.vala:267
 msgid "Lap"
 msgstr "Kierros"
 
-#: src/stopwatch.vala:244
+#: src/stopwatch.vala:242
 msgid "Resume"
 msgstr "Jatka"
 
-#: src/stopwatch.vala:265
+#: src/stopwatch.vala:263
 msgid "Start"
 msgstr "Käynnistä"
 
 #. Translators: Tooltip for the + button
-#: src/timer.vala:145 src/timer.vala:415
+#: src/timer.vala:142 src/timer.vala:410
 msgid "New Timer"
 msgstr "Uusi ajastin"
 
-#: src/timer.vala:148
-msgid "Cancel"
-msgstr "Peru"
-
-#: src/timer.vala:149
-msgid "Add"
-msgstr "Lisää"
-
-#: src/timer.vala:377
+#: src/timer.vala:374
 #, c-format
 msgid "%i second timer"
 msgstr "%i sekunnin ajastin"
 
-#: src/timer.vala:379
+#: src/timer.vala:376
 #, c-format
 msgid "%i minute timer"
 msgstr "%i minuutin ajastin"
 
-#: src/timer.vala:381
+#: src/timer.vala:378
 #, c-format
 msgid "%i hour timer"
 msgstr "%i tunnin ajastin"
 
-#: src/timer.vala:383
+#: src/timer.vala:380
 #, c-format
 msgid "%i minute %i second timer"
 msgstr "%i minutin ja %i sekunnin ajastin"
 
-#: src/timer.vala:385
+#: src/timer.vala:382
 #, c-format
 msgid "%i hour %i minute timer"
 msgstr "%i tunnin ja %i minuutin ajastin"
 
-#: src/timer.vala:387
+#: src/timer.vala:384
 #, c-format
 msgid "%i hour %i second timer"
 msgstr "%i tunnin ja %i sekunnin ajastin"
 
-#: src/timer.vala:389
+#: src/timer.vala:386
 #, c-format
 msgid "%i hour %i minute %i second timer"
 msgstr "%i tunnin, %i minuutin ja %i sekunnin ajastin"
 
-#: src/timer.vala:454
+#: src/timer.vala:449
 msgid "Time is up!"
 msgstr "Aika loppui!"
 
-#: src/timer.vala:455
+#: src/timer.vala:450
 msgid "Timer countdown finished"
 msgstr "Ajastimen laskenta valmistui"
 
+#. Translators: This is used in the repeat toggle for Monday
+#: src/utils.vala:159
+msgctxt "Repeat|Monday"
+msgid "M"
+msgstr "ma"
+
+#. Translators: This is used in the repeat toggle for Tuesday
+#: src/utils.vala:161
+msgctxt "Repeat|Tuesday"
+msgid "T"
+msgstr "ti"
+
+#. Translators: This is used in the repeat toggle for Wednesday
+#: src/utils.vala:163
+msgctxt "Repeat|Wednesday"
+msgid "W"
+msgstr "ke"
+
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:165
+msgctxt "Repeat|Thursday"
+msgid "T"
+msgstr "to"
+
+#. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:167
+msgctxt "Repeat|Friday"
+msgid "F"
+msgstr "pe"
+
+#. Translators: This is used in the repeat toggle for Saturday
+#: src/utils.vala:169
+msgctxt "Repeat|Saturday"
+msgid "S"
+msgstr "la"
+
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:171
+msgctxt "Repeat|Sunday"
+msgid "S"
+msgstr "su"
+
+#: src/utils.vala:175
 msgid "Mondays"
 msgstr "Maanantaisin"
 
-#: src/utils.vala:168
+#: src/utils.vala:176
 msgid "Tuesdays"
 msgstr "Tiistaisin"
 
-#: src/utils.vala:169
+#: src/utils.vala:177
 msgid "Wednesdays"
 msgstr "Keskiviikkoisin"
 
-#: src/utils.vala:170
+#: src/utils.vala:178
 msgid "Thursdays"
 msgstr "Torstaisin"
 
-#: src/utils.vala:171
+#: src/utils.vala:179
 msgid "Fridays"
 msgstr "Perjantaisin"
 
-#: src/utils.vala:172
+#: src/utils.vala:180
 msgid "Saturdays"
 msgstr "Lauantaisin"
 
-#: src/utils.vala:173
+#: src/utils.vala:181
 msgid "Sundays"
 msgstr "Sunnuntaisin"
 
-#: src/utils.vala:253
+#: src/utils.vala:307
 msgid "Every Day"
 msgstr "Päivittäin"
 
-#: src/utils.vala:255
+#: src/utils.vala:309
 msgid "Weekdays"
 msgstr "Arkisin"
 
-#: src/utils.vala:257
+#: src/utils.vala:311
 msgid "Weekends"
 msgstr "Viikonloppuisin"
 
-#: src/widgets.vala:214 src/widgets.vala:229
-msgid "Click on items to select them"
-msgstr "Napsauta kohteita valitaksesi ne"
-
-#: src/widgets.vala:216
-#, c-format
-msgid "%u selected"
-msgid_plural "%u selected"
-msgstr[0] "%u valittu"
-msgstr[1] "%u valittu"
-
-#: src/widgets.vala:304
-msgid "Delete"
-msgstr "Poista"
-
-#: src/window.vala:268
+#: src/window.vala:244
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Ohjeen näyttäminen epäonnistui: %s"
 
-#: src/window.vala:302
+#: src/window.vala:278
 msgid "Utilities to help you with the time."
 msgstr "Ajan kanssa helpottavat työkalut."
 
-#: src/window.vala:307
+#: src/window.vala:283
 msgid "translator-credits"
 msgstr "Jiri Grönroos"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:186 src/world.vala:190
+#: src/world.vala:182 src/world.vala:186
 msgid "Tomorrow"
 msgstr "Huomenna"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:186 src/world.vala:190
+#: src/world.vala:182 src/world.vala:186
 msgid "Yesterday"
 msgstr "Eilen"
 
+#. Translators: The time is the same as the local time
+#: src/world.vala:407
+msgid "Current timezone"
+msgstr "Nykyinen aikavyöhyke"
+
+#. Translators: The (possibly fractical) number hours in the past
+#. (relative to local) the clock/location is
+#: src/world.vala:412
+#, c-format
+msgid "%s hour earlier"
+msgid_plural "%s hours earlier"
+msgstr[0] "%s tunti aiemmin"
+msgstr[1] "%s tuntia aiemmin"
+
+#. Translators: The (possibly fractical) number hours in the
+#. future (relative to local) the clock/location is
+#: src/world.vala:418
+#, c-format
+msgid "%s hour later"
+msgid_plural "%s hours later"
+msgstr[0] "%s tunti myöhemmin"
+msgstr[1] "%s tuntia myöhemmin"
+
+#. Translators: This clock represents the local time
+#: src/world.vala:428
+msgid "Current location"
+msgstr "Nykyinen sijainti"
+
 #. Translators: Tooltip for the + button
-#: src/world.vala:349
+#: src/world.vala:498
 msgid "Add Location"
 msgstr "Lisää sijainti"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Select all world clocks"
+#~ msgstr "Valitse kaikki maailmankellot"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Select all alarms"
+#~ msgstr "Valitse kaikki hälytykset"
+
+#~ msgid "Select All"
+#~ msgstr "Valitse kaikki"
+
+#~ msgid "Select None"
+#~ msgstr "Poista valinnat"
+
+#~ msgid "_Done"
+#~ msgstr "_Valmis"
+
+#~ msgid "Select <b>New</b> to add an alarm"
+#~ msgstr "Lisää hälytys valitsemalla <b>Uusi</b>"
+
+#~ msgid "Select"
+#~ msgstr "Valitse"
+
+#~ msgid "Click on items to select them"
+#~ msgstr "Napsauta kohteita valitaksesi ne"
+
+#~ msgid "%u selected"
+#~ msgid_plural "%u selected"
+#~ msgstr[0] "%u valittu"
+#~ msgstr[1] "%u valittu"
 
 #~ msgid "Configured timer duration in seconds."
 #~ msgstr "Määritetty ajastimen kesto sekunneissa."
@@ -618,17 +716,11 @@ msgstr "Lisää sijainti"
 #~ msgid "_New"
 #~ msgstr "_Uusi"
 
-#~ msgid "Done"
-#~ msgstr "Valmis"
-
 #~ msgid "Split"
 #~ msgstr "Väliaika"
 
 #~ msgid "Total"
 #~ msgstr "Yhteensä"
-
-#~ msgid "Edit"
-#~ msgstr "Muokkaa"
 
 #~ msgid "Laps"
 #~ msgstr "Kierrokset"
