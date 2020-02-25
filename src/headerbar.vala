@@ -42,25 +42,21 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
         set {
             _mode = value;
 
-            var width = get_allocated_width ();
-
             switch (_mode) {
                 case NORMAL:
                     title_stack.visible_child_name = "switcher";
                     start_button_stack.show ();
                     end_button_stack.show ();
                     end_button_stack.visible_child_name = "menu";
-                    centering_policy = STRICT;
-                    switcher_bar.reveal = width <= 500;
                     break;
                 case STANDALONE:
                     title_stack.visible_child_name = "title";
                     start_button_stack.show ();
                     end_button_stack.hide ();
-                    centering_policy = STRICT;
-                    switcher_bar.reveal = false;
                     break;
             }
+
+            visible_child_changed ();
         }
     }
 
@@ -99,26 +95,19 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
     [GtkChild]
     private Hdy.Squeezer squeezer;
     [GtkChild]
-    private Hdy.ViewSwitcher title_wide_switcher;
-    [GtkChild]
-    private Hdy.ViewSwitcher title_narrow_switcher;
-    [GtkChild]
     private Gtk.Box title_text;
     [GtkChild]
     private Gtk.Stack title_stack;
     [GtkChild]
     private Gtk.Revealer reveal_subtitle;
 
-    public override void size_allocate (Gtk.Allocation allocation) {
-        base.size_allocate (allocation);
-        squeezer.set_child_enabled (title_wide_switcher, allocation.width > 800);
-        squeezer.set_child_enabled (title_narrow_switcher, allocation.width > 500);
-        squeezer.set_child_enabled (title_text, allocation.width <= 500);
-        switcher_bar.reveal = allocation.width <= 500 && view_mode != STANDALONE;
-    }
-
     [GtkCallback]
     private void subtitle_changed () {
         reveal_subtitle.reveal_child = subtitle != null && subtitle.length > 0;
+    }
+
+    [GtkCallback]
+    private void visible_child_changed () {
+        switcher_bar.reveal = squeezer.visible_child == title_text && view_mode == NORMAL;
     }
 }

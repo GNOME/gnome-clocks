@@ -36,21 +36,12 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="transition_type">crossfade</property>
+            <signal name="notify::visible-child" handler="visible_child_changed"/>
             <child>
-              <object class="HdyViewSwitcher" id="title_wide_switcher">
+              <object class="HdyViewSwitcher">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
-                <property name="policy">wide</property>
-                <property name="stack" bind-source="ClocksHeaderBar" bind-property="stack" bind-flags="sync-create">ignore-me</property>
-              </object>
-            </child>
-            <child>
-              <object class="HdyViewSwitcher" id="title_narrow_switcher">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">center</property>
-                <property name="policy">narrow</property>
                 <property name="stack" bind-source="ClocksHeaderBar" bind-property="stack" bind-flags="sync-create">ignore-me</property>
               </object>
             </child>
