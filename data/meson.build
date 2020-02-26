@@ -57,27 +57,27 @@ configure_file(
   install_dir: join_paths(get_option('datadir'), 'dbus-1', 'services'),
 )
 
-appdata_conf = configuration_data()
-appdata_conf.set('appid', app_id)
-appdata_file = i18n.merge_file (
+metainfo_conf = configuration_data()
+metainfo_conf.set('appid', app_id)
+metainfo_file = i18n.merge_file (
   input: configure_file(
-    input: 'org.gnome.clocks.appdata.xml.in.in',
+    input: 'org.gnome.clocks.metainfo.xml.in.in',
     output: '@BASENAME@',
-    configuration: appdata_conf
+    configuration: metainfo_conf
   ),
-  output: '@0@.appdata.xml'.format(app_id),
+  output: '@0@.metainfo.xml'.format(app_id),
   po_dir: podir,
   install: true,
   install_dir: join_paths(get_option('datadir'), 'metainfo')
 )
 
-# Validate Appdata
+# Validate metainfo
 appstream_util = find_program('appstream-util', required: false)
 if appstream_util.found()
   test(
-    'validate-appdata', appstream_util,
+    'validate-metainfo', appstream_util,
     args: [
-      'validate', '--nonet', appdata_file.full_path()
+      'validate', '--nonet', metainfo_file.full_path()
     ]
   )
 endif
