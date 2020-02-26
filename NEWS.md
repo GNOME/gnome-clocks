@@ -1,4 +1,17 @@
+gnome-clocks 3.36.0
+===================
+ * Major redesign of the application
+ * Updated translations
+
+
 gnome-clocks 3.34.0
+===================
+
+ * Updated translations
+gnome-clocks 3.34.0
+===================
+
+ * Updated translationsgnome-clocks 3.34.0
 ===================
 
  * Updated translations
