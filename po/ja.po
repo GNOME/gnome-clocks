@@ -234,10 +234,8 @@ msgid "Current clock panel."
 msgstr "現在のパネルの状態です。"
 
 #: data/ui/alarmdaypickerrow.ui:5
-#, fuzzy
-#| msgid "Repeat Every"
 msgid "_Repeat"
-msgstr "繰り返し"
+msgstr "繰り返し(_R)"
 
 #: data/ui/alarmrow.ui:25
 msgid "Active"
@@ -245,15 +243,13 @@ msgstr "アクティブ"
 
 #: data/ui/alarmrow.ui:50
 msgid "Edit"
-msgstr ""
+msgstr "編集"
 
 #: data/ui/alarmrow.ui:77
 msgid "Delete"
 msgstr "削除"
 
 #: data/ui/alarmrow.ui:106
-#, fuzzy
-#| msgid "Repeat Every"
 msgid "Repeats"
 msgstr "繰り返し"
 
@@ -275,24 +271,19 @@ msgstr "名称"
 
 #: data/ui/alarmsetupdialog.ui:145
 msgid "Optional"
-msgstr ""
+msgstr "オプション"
 
 #: data/ui/alarmsetupdialog.ui:165
-#, fuzzy
-#| msgid "New Alarm"
 msgid "R_emove Alarm"
-msgstr "新しいアラーム"
+msgstr "アラームを削除(_R)"
 
 #: data/ui/alarmsetupdialog.ui:181
 msgid "You already have an alarm for this time."
 msgstr "この時間にはすでにアラームが設定されています。"
 
 #: data/ui/alarm.ui:30
-#, fuzzy
-#| msgctxt "shortcut window"
-#| msgid "Add an alarm"
 msgid "Add A_larm"
-msgstr "アラームを追加する"
+msgstr "アラームを追加(_L)"
 
 #: data/ui/headerbar.ui:8
 msgid "_Keyboard Shortcuts"
@@ -426,13 +417,13 @@ msgstr "アラーム"
 #: src/alarm.vala:342
 #, c-format
 msgid "Snoozed from %s: %s"
-msgstr ""
+msgstr "%s からのスヌーズ: %s"
 
 #. Translators: %s is a time
 #: src/alarm.vala:345
 #, c-format
 msgid "Snoozed from %s"
-msgstr ""
+msgstr "%s からのスヌーズ"
 
 #: src/alarm.vala:557
 msgid "Edit Alarm"
@@ -448,10 +439,8 @@ msgid "Cancel"
 msgstr "キャンセル"
 
 #: src/alarm.vala:562
-#, fuzzy
-#| msgid "_Done"
 msgid "Done"
-msgstr "完了(_D)"
+msgstr "完了"
 
 #: src/alarm.vala:564 src/timer.vala:146
 msgid "Add"
@@ -534,43 +523,43 @@ msgstr "タイマー満了です"
 #: src/utils.vala:159
 msgctxt "Repeat|Monday"
 msgid "M"
-msgstr ""
+msgstr "月"
 
 #. Translators: This is used in the repeat toggle for Tuesday
 #: src/utils.vala:161
 msgctxt "Repeat|Tuesday"
 msgid "T"
-msgstr ""
+msgstr "火"
 
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:163
 msgctxt "Repeat|Wednesday"
 msgid "W"
-msgstr ""
+msgstr "水"
 
 #. Translators: This is used in the repeat toggle for Thursday
 #: src/utils.vala:165
 msgctxt "Repeat|Thursday"
 msgid "T"
-msgstr ""
+msgstr "木"
 
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:167
 msgctxt "Repeat|Friday"
 msgid "F"
-msgstr ""
+msgstr "金"
 
 #. Translators: This is used in the repeat toggle for Saturday
 #: src/utils.vala:169
 msgctxt "Repeat|Saturday"
 msgid "S"
-msgstr ""
+msgstr "土"
 
 #. Translators: This is used in the repeat toggle for Sunday
 #: src/utils.vala:171
 msgctxt "Repeat|Sunday"
 msgid "S"
-msgstr ""
+msgstr "日"
 
 #: src/utils.vala:175
 msgid "Mondays"
@@ -645,60 +634,37 @@ msgstr "昨日"
 
 #. Translators: The time is the same as the local time
 #: src/world.vala:407
-#, fuzzy
-#| msgid "Current clock panel."
 msgid "Current timezone"
-msgstr "現在のパネルの状態です。"
+msgstr "現在のタイムゾーン"
 
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
 #: src/world.vala:412
-#, fuzzy, c-format
-#| msgid "%i hour timer"
+#, c-format
 msgid "%s hour earlier"
 msgid_plural "%s hours earlier"
-msgstr[0] "%i 時間のタイマー"
+msgstr[0] "-%s 時間"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
 #: src/world.vala:418
-#, fuzzy, c-format
-#| msgid "%i hour timer"
+#, c-format
 msgid "%s hour later"
 msgid_plural "%s hours later"
-msgstr[0] "%i 時間のタイマー"
+msgstr[0] "+%s 時間"
 
 #. Translators: This clock represents the local time
 #: src/world.vala:428
-#, fuzzy
-#| msgid "Current clock panel."
 msgid "Current location"
-msgstr "現在のパネルの状態です。"
+msgstr "現在の場所"
 
 #. Translators: Tooltip for the + button
 #: src/world.vala:498
 msgid "Add Location"
 msgstr "場所を追加します"
 
-#~ msgctxt "shortcut window"
-#~ msgid "Select all world clocks"
-#~ msgstr "すべての世界時計を選択する"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Select all alarms"
-#~ msgstr "すべてのアラームを選択する"
-
-#~ msgid "Select All"
-#~ msgstr "すべて選択"
-
-#~ msgid "Select None"
-#~ msgstr "すべて解除"
-
 #~ msgid "Select <b>New</b> to add an alarm"
 #~ msgstr "新しいアラームを追加するには<b>新規</b>を選択してください"
-
-#~ msgid "Select"
-#~ msgstr "選択"
 
 #~ msgid "Click on items to select them"
 #~ msgstr "アイテムをクリックして選択してください"
@@ -710,14 +676,5 @@ msgstr "場所を追加します"
 #~ msgid "Configured timer duration in seconds."
 #~ msgstr "設定したタイマー時間です (秒単位)。"
 
-#~ msgid "Reset"
-#~ msgstr "リセット"
-
 #~ msgid "Continue"
 #~ msgstr "続行"
-
-#~ msgid "_About"
-#~ msgstr "このアプリケーションについて(_A)"
-
-#~ msgid "_Quit"
-#~ msgstr "終了(_Q)"
