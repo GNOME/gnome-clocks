@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-02-07 02:14+0000\n"
-"PO-Revision-Date: 2020-02-16 13:51+0100\n"
+"POT-Creation-Date: 2020-02-23 19:16+0000\n"
+"PO-Revision-Date: 2020-02-26 19:03+0100\n"
 "Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -68,53 +68,35 @@ msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Tilføj et verdensur"
 
-#: data/gtk/help-overlay.ui:75
-msgctxt "shortcut window"
-msgid "Select all world clocks"
-msgstr "Vælg alle verdensure"
-
-#: data/gtk/help-overlay.ui:84
+#: data/gtk/help-overlay.ui:77
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Alarm"
 
-#: data/gtk/help-overlay.ui:89
+#: data/gtk/help-overlay.ui:82
 msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Tilføj en alarm"
 
-#: data/gtk/help-overlay.ui:96
-msgctxt "shortcut window"
-msgid "Select all alarms"
-msgstr "Vælg alle alarmer"
-
-#: data/gtk/help-overlay.ui:105
+#: data/gtk/help-overlay.ui:91
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Stopur"
 
-#: data/gtk/help-overlay.ui:110
+#: data/gtk/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Stop / nulstil"
 
-#: data/gtk/help-overlay.ui:119
+#: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Minutur"
 
-#: data/gtk/help-overlay.ui:124
+#: data/gtk/help-overlay.ui:110
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Nulstil"
-
-#: data/gtk/menus.ui:8
-msgid "Select All"
-msgstr "Vælg alle"
-
-#: data/gtk/menus.ui:12
-msgid "Select None"
-msgstr "Vælg ingen"
 
 #: data/org.gnome.clocks.appdata.xml.in.in:6
 msgid "GNOME Clocks"
@@ -178,9 +160,9 @@ msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/headerbar.ui:24 src/alarm.vala:590 src/alarm.vala:677
-#: src/main.vala:25 src/stopwatch.vala:124 src/timer.vala:412
-#: src/window.vala:297 src/world.vala:346 src/world.vala:427
+#: data/ui/headerbar.ui:24 src/alarm.vala:788 src/alarm.vala:868
+#: src/main.vala:25 src/stopwatch.vala:122 src/timer.vala:407
+#: src/window.vala:273 src/world.vala:495 src/world.vala:584
 msgid "Clocks"
 msgstr "Ure"
 
@@ -249,47 +231,59 @@ msgstr "Paneltilstand"
 msgid "Current clock panel."
 msgstr "Nuværende urpanel."
 
-#: data/ui/alarmringing.ui:41 src/alarm.vala:118
-msgid "Stop"
-msgstr "Stop"
-
-#: data/ui/alarmringing.ui:61 src/alarm.vala:119
-msgid "Snooze"
-msgstr "Slumr"
-
-#: data/ui/alarmsetupdialog.ui:27 data/ui/worldlocationdialog.ui:17
-msgid "Add a New World Clock"
-msgstr "Tilføj et nyt verdensur"
-
-#: data/ui/alarmsetupdialog.ui:31 data/ui/headerbar.ui:211
-#: data/ui/worldlocationdialog.ui:21
-msgid "_Cancel"
-msgstr "_Annullér"
-
-#: data/ui/alarmsetupdialog.ui:47
-msgid "_Done"
-msgstr "_Færdig"
-
-#: data/ui/alarmsetupdialog.ui:199
-msgid "You already have an alarm for this time."
-msgstr "Du har allerede en alarm for dette tidspunkt."
-
-#: data/ui/alarmsetupdialog.ui:227
-msgid "Name"
-msgstr "Navn"
-
 # Strengt taget forkert hvis det f.eks. er hvert minut, men jeg har svært ved at forestille mig hvordan det kan indernationaliseres bedre, så vi må nok nøjes med en lokalisering som ikke er perfekt
-#: data/ui/alarmsetupdialog.ui:241
-msgid "Repeat Every"
-msgstr "Gentagelsesinterval"
+#: data/ui/alarmdaypickerrow.ui:5
+msgid "_Repeat"
+msgstr "_Gentag"
 
-#: data/ui/alarmsetupdialog.ui:295
+#: data/ui/alarmrow.ui:25
 msgid "Active"
 msgstr "Aktiv"
 
-#: data/ui/alarm.ui:34
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Vælg <b>Ny</b> for at tilføje en alarm"
+#: data/ui/alarmrow.ui:50
+msgid "Edit"
+msgstr "Redigér"
+
+#: data/ui/alarmrow.ui:77
+msgid "Delete"
+msgstr "Slet"
+
+# Strengt taget forkert hvis det f.eks. er hvert minut, men jeg har svært ved at forestille mig hvordan det kan indernationaliseres bedre, så vi må nok nøjes med en lokalisering som ikke er perfekt
+#: data/ui/alarmrow.ui:106
+msgid "Repeats"
+msgstr "Gentagelser"
+
+#: data/ui/alarmringing.ui:28 src/alarm.vala:117
+msgid "Stop"
+msgstr "Stop"
+
+#: data/ui/alarmringing.ui:47 src/alarm.vala:118
+msgid "Snooze"
+msgstr "Slumr"
+
+#: data/ui/alarmsetupdialog.ui:24 data/ui/worldlocationdialog.ui:16
+msgid "Add a New World Clock"
+msgstr "Tilføj et nyt verdensur"
+
+#: data/ui/alarmsetupdialog.ui:144
+msgid "Name"
+msgstr "Navn"
+
+#: data/ui/alarmsetupdialog.ui:145
+msgid "Optional"
+msgstr "Valgfri"
+
+#: data/ui/alarmsetupdialog.ui:165
+msgid "R_emove Alarm"
+msgstr "F_jern alarm"
+
+#: data/ui/alarmsetupdialog.ui:181
+msgid "You already have an alarm for this time."
+msgstr "Du har allerede en alarm for dette tidspunkt."
+
+#: data/ui/alarm.ui:30
+msgid "Add A_larm"
+msgstr "Tilføj a_larm"
 
 #: data/ui/headerbar.ui:8
 msgid "_Keyboard Shortcuts"
@@ -303,17 +297,13 @@ msgstr "_Hjælp"
 msgid "_About Clocks"
 msgstr "_Om Verdensure"
 
-#: data/ui/headerbar.ui:158
+#: data/ui/headerbar.ui:149
 msgid "Back"
 msgstr "Tilbage"
 
-#: data/ui/headerbar.ui:195
+#: data/ui/headerbar.ui:186
 msgid "Menu"
 msgstr "Menu"
-
-#: data/ui/headerbar.ui:248
-msgid "Select"
-msgstr "Vælg"
 
 #: data/ui/stopwatchlapsrow.ui:18
 msgid "Time"
@@ -327,7 +317,7 @@ msgstr "Forskel"
 msgid "_Start"
 msgstr "_Start"
 
-#: data/ui/stopwatch.ui:187 src/stopwatch.vala:248
+#: data/ui/stopwatch.ui:189 src/stopwatch.vala:246
 msgid "Clear"
 msgstr "Ryd"
 
@@ -392,38 +382,69 @@ msgstr "Stopur"
 msgid "Timer"
 msgstr "Minutur"
 
-#: data/ui/worldlocationdialog.ui:37
+#: data/ui/worldlocationdialog.ui:20
+msgid "_Cancel"
+msgstr "_Annullér"
+
+#: data/ui/worldlocationdialog.ui:36
 msgid "_Add"
 msgstr "_Tilføj"
 
-#: data/ui/worldlocationdialog.ui:76
+#: data/ui/worldlocationdialog.ui:73
 msgid "Search for a city:"
 msgstr "Søg efter en by:"
 
-#: data/ui/world.ui:34
+#: data/ui/world.ui:33
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Vælg <b>Ny</b> for at tilføje et verdensur"
 
-#: data/ui/world.ui:128
+#: data/ui/world.ui:147
 msgid "Sunrise"
 msgstr "Solopgang"
 
-#: data/ui/world.ui:142
+#: data/ui/world.ui:161
 msgid "Sunset"
 msgstr "Solnedgang"
 
-#: src/alarm.vala:116 src/alarm.vala:416
+#. Prior to 3.36 unamed alarms would just be called "Alarm",
+#. pretend alarms called "Alarm" don't have a name (of course
+#. this fails if the language/translation has since changed)
+#: src/alarm.vala:115 src/alarm.vala:335 src/alarm.vala:917
 msgid "Alarm"
 msgstr "Alarm"
 
-#: src/alarm.vala:350
+#. Translators: The alarm for the time %s titled %s has been "snoozed"
+#: src/alarm.vala:342
+#, c-format
+msgid "Snoozed from %s: %s"
+msgstr "Sat til at slumre fra %s: %s"
+
+#. Translators: %s is a time
+#: src/alarm.vala:345
+#, c-format
+msgid "Snoozed from %s"
+msgstr "Sat til at slumre fra %s"
+
+#: src/alarm.vala:557
 msgid "Edit Alarm"
 msgstr "Redigér alarm"
 
 #. Translators: Tooltip for the + button
-#: src/alarm.vala:350 src/alarm.vala:593
+#: src/alarm.vala:557 src/alarm.vala:791
 msgid "New Alarm"
 msgstr "Ny alarm"
+
+#: src/alarm.vala:560 src/timer.vala:145
+msgid "Cancel"
+msgstr "Annullér"
+
+#: src/alarm.vala:562
+msgid "Done"
+msgstr "Færdig"
+
+#: src/alarm.vala:564 src/timer.vala:146
+msgid "Add"
+msgstr "Tilføj"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
@@ -434,143 +455,162 @@ msgstr "Vis versionsoplysninger og afslut"
 msgid "Lap %i"
 msgstr "Omgang %i"
 
-#: src/stopwatch.vala:228
+#: src/stopwatch.vala:226
 msgid "Pause"
 msgstr "Pause"
 
-#: src/stopwatch.vala:232 src/stopwatch.vala:269
+#: src/stopwatch.vala:230 src/stopwatch.vala:267
 msgid "Lap"
 msgstr "Omgang"
 
-#: src/stopwatch.vala:244
+#: src/stopwatch.vala:242
 msgid "Resume"
 msgstr "Genoptag"
 
-#: src/stopwatch.vala:265
+#: src/stopwatch.vala:263
 msgid "Start"
 msgstr "Start"
 
 #. Translators: Tooltip for the + button
-#: src/timer.vala:145 src/timer.vala:415
+#: src/timer.vala:142 src/timer.vala:410
 msgid "New Timer"
 msgstr "Nyt minutur"
 
-#: src/timer.vala:148
-msgid "Cancel"
-msgstr "Annullér"
-
-#: src/timer.vala:149
-msgid "Add"
-msgstr "Tilføj"
-
-#: src/timer.vala:377
+#: src/timer.vala:374
 #, c-format
 msgid "%i second timer"
 msgstr "%i sekunders minutur"
 
-#: src/timer.vala:379
+#: src/timer.vala:376
 #, c-format
 msgid "%i minute timer"
 msgstr "%i minutters minutur"
 
-#: src/timer.vala:381
+#: src/timer.vala:378
 #, c-format
 msgid "%i hour timer"
 msgstr "%i timers minutur"
 
-#: src/timer.vala:383
+#: src/timer.vala:380
 #, c-format
 msgid "%i minute %i second timer"
 msgstr "%i minut %i sekunders minutur"
 
-#: src/timer.vala:385
+#: src/timer.vala:382
 #, c-format
 msgid "%i hour %i minute timer"
 msgstr "%i time %i minutters minutur"
 
-#: src/timer.vala:387
+#: src/timer.vala:384
 #, c-format
 msgid "%i hour %i second timer"
 msgstr "%i time %i sekunders minutur"
 
-#: src/timer.vala:389
+#: src/timer.vala:386
 #, c-format
 msgid "%i hour %i minute %i second timer"
 msgstr "%i time %i minut %i sekunders minutur"
 
-#: src/timer.vala:454
+#: src/timer.vala:449
 msgid "Time is up!"
 msgstr "Tiden er udløbet!"
 
-#: src/timer.vala:455
+#: src/timer.vala:450
 msgid "Timer countdown finished"
 msgstr "Minuturets nedtælling afsluttet"
 
+#. Translators: This is used in the repeat toggle for Monday
+#: src/utils.vala:159
+msgctxt "Repeat|Monday"
+msgid "M"
+msgstr "M"
+
+#. Translators: This is used in the repeat toggle for Tuesday
+#: src/utils.vala:161
+msgctxt "Repeat|Tuesday"
+msgid "T"
+msgstr "T"
+
+#. Translators: This is used in the repeat toggle for Wednesday
+#: src/utils.vala:163
+msgctxt "Repeat|Wednesday"
+msgid "W"
+msgstr "O"
+
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:165
+msgctxt "Repeat|Thursday"
+msgid "T"
+msgstr "T"
+
+#. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:167
+msgctxt "Repeat|Friday"
+msgid "F"
+msgstr "F"
+
+#. Translators: This is used in the repeat toggle for Saturday
+#: src/utils.vala:169
+msgctxt "Repeat|Saturday"
+msgid "S"
+msgstr "L"
+
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:171
+msgctxt "Repeat|Sunday"
+msgid "S"
+msgstr "S"
+
+#: src/utils.vala:175
 msgid "Mondays"
 msgstr "Mandage"
 
-#: src/utils.vala:168
+#: src/utils.vala:176
 msgid "Tuesdays"
 msgstr "Tirsdage"
 
-#: src/utils.vala:169
+#: src/utils.vala:177
 msgid "Wednesdays"
 msgstr "Onsdage"
 
-#: src/utils.vala:170
+#: src/utils.vala:178
 msgid "Thursdays"
 msgstr "Torsdage"
 
-#: src/utils.vala:171
+#: src/utils.vala:179
 msgid "Fridays"
 msgstr "Fredage"
 
-#: src/utils.vala:172
+#: src/utils.vala:180
 msgid "Saturdays"
 msgstr "Lørdage"
 
-#: src/utils.vala:173
+#: src/utils.vala:181
 msgid "Sundays"
 msgstr "Søndage"
 
-#: src/utils.vala:253
+#: src/utils.vala:307
 msgid "Every Day"
 msgstr "Hver dag"
 
-#: src/utils.vala:255
+#: src/utils.vala:309
 msgid "Weekdays"
 msgstr "Hverdage"
 
-#: src/utils.vala:257
+#: src/utils.vala:311
 msgid "Weekends"
 msgstr "Weekender"
 
-#: src/widgets.vala:214 src/widgets.vala:229
-msgid "Click on items to select them"
-msgstr "Klik på elementer for at markere dem"
-
-#: src/widgets.vala:216
-#, c-format
-msgid "%u selected"
-msgid_plural "%u selected"
-msgstr[0] "%u markeret"
-msgstr[1] "%u markerede"
-
-#: src/widgets.vala:304
-msgid "Delete"
-msgstr "Slet"
-
-#: src/window.vala:268
+#: src/window.vala:244
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Kunne ikke vise hjælp: %s"
 
-#: src/window.vala:302
+#: src/window.vala:278
 msgid "Utilities to help you with the time."
 msgstr "Redskaber til at hjælpe dig med tiden."
 
-#: src/window.vala:307
+#: src/window.vala:283
 msgid "translator-credits"
 msgstr ""
 "Kenneth Nielsen\n"
@@ -585,20 +625,76 @@ msgstr ""
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:186 src/world.vala:190
+#: src/world.vala:182 src/world.vala:186
 msgid "Tomorrow"
 msgstr "I morgen"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:186 src/world.vala:190
+#: src/world.vala:182 src/world.vala:186
 msgid "Yesterday"
 msgstr "I går"
 
+#. Translators: The time is the same as the local time
+#: src/world.vala:407
+msgid "Current timezone"
+msgstr "Nuværende tidszone"
+
+#. Translators: The (possibly fractical) number hours in the past
+#. (relative to local) the clock/location is
+#: src/world.vala:412
+#, c-format
+msgid "%s hour earlier"
+msgid_plural "%s hours earlier"
+msgstr[0] "%s time tidligere"
+msgstr[1] "%s timer tidligere"
+
+#. Translators: The (possibly fractical) number hours in the
+#. future (relative to local) the clock/location is
+#: src/world.vala:418
+#, c-format
+msgid "%s hour later"
+msgid_plural "%s hours later"
+msgstr[0] "%s time senere"
+msgstr[1] "%s timer senere"
+
+#. Translators: This clock represents the local time
+#: src/world.vala:428
+msgid "Current location"
+msgstr "Nuværende placering"
+
 #. Translators: Tooltip for the + button
-#: src/world.vala:349
+#: src/world.vala:498
 msgid "Add Location"
 msgstr "Tilføj placering"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Select all world clocks"
+#~ msgstr "Vælg alle verdensure"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Select all alarms"
+#~ msgstr "Vælg alle alarmer"
+
+#~ msgid "Select All"
+#~ msgstr "Vælg alle"
+
+#~ msgid "Select None"
+#~ msgstr "Vælg ingen"
+
+#~ msgid "Select <b>New</b> to add an alarm"
+#~ msgstr "Vælg <b>Ny</b> for at tilføje en alarm"
+
+#~ msgid "Select"
+#~ msgstr "Vælg"
+
+#~ msgid "Click on items to select them"
+#~ msgstr "Klik på elementer for at markere dem"
+
+#~ msgid "%u selected"
+#~ msgid_plural "%u selected"
+#~ msgstr[0] "%u markeret"
+#~ msgstr[1] "%u markerede"
 
 #~ msgid "Configured timer duration in seconds."
 #~ msgstr "Indstillet minuturs varighed i sekunder."
