@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-01-02 23:31+0000\n"
-"PO-Revision-Date: 2020-01-19 21:43+0100\n"
+"POT-Creation-Date: 2020-02-26 18:35+0000\n"
+"PO-Revision-Date: 2020-02-28 23:16+0100\n"
 "Last-Translator: Jordi Mas <jmas@softcatala.org>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca\n"
@@ -25,76 +25,73 @@ msgstr "General"
 
 #: data/gtk/help-overlay.ui:19
 msgctxt "shortcut window"
-msgid "Go to the next section"
-msgstr "Vés a la secció següent"
+msgid "Show help"
+msgstr "Mostra l'ajuda"
 
 #: data/gtk/help-overlay.ui:26
 msgctxt "shortcut window"
-msgid "Go to the previous section"
-msgstr "Vés a la secció anterior"
+msgid "Open menu"
+msgstr "Obre el menú"
 
 #: data/gtk/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Keyboard shortcuts"
+msgstr "Dreceres del teclat"
+
+#: data/gtk/help-overlay.ui:40
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Surt"
 
-#: data/gtk/help-overlay.ui:42
+#: data/gtk/help-overlay.ui:47
+msgctxt "shortcut window"
+msgid "Go to the next section"
+msgstr "Vés a la secció següent"
+
+#: data/gtk/help-overlay.ui:54
+msgctxt "shortcut window"
+msgid "Go to the previous section"
+msgstr "Vés a la secció anterior"
+
+#: data/gtk/help-overlay.ui:63
 msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Rellotges del món"
 
-#: data/gtk/help-overlay.ui:47
+#: data/gtk/help-overlay.ui:68
 msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Afegeix un rellotge del món"
 
-#: data/gtk/help-overlay.ui:54
-msgctxt "shortcut window"
-msgid "Select all world clocks"
-msgstr "Selecciona tots els rellotges del món"
-
-#: data/gtk/help-overlay.ui:63
+#: data/gtk/help-overlay.ui:77
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Alarma"
 
-#: data/gtk/help-overlay.ui:68
+#: data/gtk/help-overlay.ui:82
 msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Afegeix una alarma"
 
-#: data/gtk/help-overlay.ui:75
-msgctxt "shortcut window"
-msgid "Select all alarms"
-msgstr "Selecciona totes les alarmes"
-
-#: data/gtk/help-overlay.ui:84
+#: data/gtk/help-overlay.ui:91
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Cronòmetre"
 
-#: data/gtk/help-overlay.ui:89
+#: data/gtk/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Atura / Reinicia"
 
-#: data/gtk/help-overlay.ui:98
+#: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Temporitzador"
 
-#: data/gtk/help-overlay.ui:103
+#: data/gtk/help-overlay.ui:110
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Reinicia"
-
-#: data/gtk/menus.ui:8
-msgid "Select All"
-msgstr "Selecciona-ho tot"
-
-#: data/gtk/menus.ui:12
-msgid "Select None"
-msgstr "No en seleccionis cap"
 
 #: data/org.gnome.clocks.appdata.xml.in.in:6
 msgid "GNOME Clocks"
@@ -159,9 +156,9 @@ msgid "The GNOME Project"
 msgstr "El projecte GNOME"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/headerbar.ui:24 src/alarm.vala:590 src/alarm.vala:677
-#: src/main.vala:25 src/stopwatch.vala:120 src/timer.vala:79
-#: src/window.vala:291 src/world.vala:346 src/world.vala:427
+#: data/ui/headerbar.ui:24 src/alarm.vala:788 src/alarm.vala:868
+#: src/main.vala:25 src/stopwatch.vala:122 src/timer.vala:385
+#: src/window.vala:273 src/world.vala:513 src/world.vala:602
 msgid "Clocks"
 msgstr "Rellotges"
 
@@ -190,13 +187,13 @@ msgstr "Alarmes configurades"
 msgid "List of alarms set."
 msgstr "La llista d'alarmes configurades."
 
-#: data/org.gnome.clocks.gschema.xml.in:19 data/ui/window.ui:69
-msgid "Timer"
-msgstr "Temporitzador"
+#: data/org.gnome.clocks.gschema.xml.in:19
+msgid "Configured Timers"
+msgstr "Temporitzadors configurats"
 
 #: data/org.gnome.clocks.gschema.xml.in:20
-msgid "Configured timer duration in seconds."
-msgstr "La durada configurada del temporitzador, en segons."
+msgid "List of timers set."
+msgstr "Llista de temporitzadors configurats."
 
 #: data/org.gnome.clocks.gschema.xml.in:26
 msgid "Geolocation support"
@@ -230,46 +227,57 @@ msgstr "Estat del quadre"
 msgid "Current clock panel."
 msgstr "Quadre de rellotge actual."
 
-#: data/ui/alarmringing.ui:39 src/alarm.vala:118 src/stopwatch.vala:202
-msgid "Stop"
-msgstr "Atura"
+#: data/ui/alarmdaypickerrow.ui:5
+msgid "_Repeat"
+msgstr "_Repeteix"
 
-#: data/ui/alarmringing.ui:59 src/alarm.vala:119
-msgid "Snooze"
-msgstr "Repeteix"
-
-#: data/ui/alarmsetupdialog.ui:27 data/ui/worldlocationdialog.ui:17
-msgid "Add a New World Clock"
-msgstr "Afegeix un rellotge del món nou"
-
-#: data/ui/alarmsetupdialog.ui:31 data/ui/headerbar.ui:211
-#: data/ui/worldlocationdialog.ui:21
-msgid "_Cancel"
-msgstr "_Cancel·la"
-
-#: data/ui/alarmsetupdialog.ui:47
-msgid "_Done"
-msgstr "_Fet"
-
-#: data/ui/alarmsetupdialog.ui:199
-msgid "You already have an alarm for this time."
-msgstr "Ja teniu una alarma per a aquesta hora."
-
-#: data/ui/alarmsetupdialog.ui:227
-msgid "Name"
-msgstr "Nom"
-
-#: data/ui/alarmsetupdialog.ui:241
-msgid "Repeat Every"
-msgstr "Repeteix cada"
-
-#: data/ui/alarmsetupdialog.ui:295
+#: data/ui/alarmrow.ui:25
 msgid "Active"
 msgstr "Activa"
 
-#: data/ui/alarm.ui:34
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Seleccioneu <b>Nova</b> per afegir una alarma"
+#: data/ui/alarmrow.ui:50
+msgid "Edit"
+msgstr "Edita"
+
+#: data/ui/alarmrow.ui:77
+msgid "Delete"
+msgstr "Suprimeix"
+
+#: data/ui/alarmrow.ui:106
+msgid "Repeats"
+msgstr "Repeticions"
+
+#: data/ui/alarmringing.ui:28 src/alarm.vala:117
+msgid "Stop"
+msgstr "Atura"
+
+#: data/ui/alarmringing.ui:47 src/alarm.vala:118
+msgid "Snooze"
+msgstr "Posposa"
+
+#: data/ui/alarmsetupdialog.ui:24 data/ui/worldlocationdialog.ui:16
+msgid "Add a New World Clock"
+msgstr "Afegeix un rellotge del món nou"
+
+#: data/ui/alarmsetupdialog.ui:144
+msgid "Name"
+msgstr "Nom"
+
+#: data/ui/alarmsetupdialog.ui:145
+msgid "Optional"
+msgstr "Opcional"
+
+#: data/ui/alarmsetupdialog.ui:165
+msgid "R_emove Alarm"
+msgstr "_Suprimeix l'alarma"
+
+#: data/ui/alarmsetupdialog.ui:181
+msgid "You already have an alarm for this time."
+msgstr "Ja teniu una alarma per a aquesta hora."
+
+#: data/ui/alarm.ui:30
+msgid "Add A_larm"
+msgstr "_Afegeix una alarma"
 
 #: data/ui/headerbar.ui:8
 msgid "_Keyboard Shortcuts"
@@ -283,29 +291,74 @@ msgstr "A_juda"
 msgid "_About Clocks"
 msgstr "_Quant al Rellotges del món"
 
-#: data/ui/headerbar.ui:158
+#: data/ui/headerbar.ui:140
 msgid "Back"
 msgstr "Enrere"
 
-#: data/ui/headerbar.ui:195
+#: data/ui/headerbar.ui:177
 msgid "Menu"
 msgstr "Menú"
 
-#: data/ui/headerbar.ui:248
-msgid "Select"
-msgstr "Selecciona-ho"
+#: data/ui/stopwatchlapsrow.ui:18
+msgid "Time"
+msgstr "Hora"
 
-#: data/ui/stopwatch.ui:54 data/ui/timer.ui:197 src/stopwatch.vala:224
-msgid "Start"
-msgstr "Inicia"
+#: data/ui/stopwatchlapsrow.ui:39
+msgid "Difference"
+msgstr "Diferència"
 
-#: data/ui/stopwatch.ui:72 data/ui/timer.ui:421 src/stopwatch.vala:216
-msgid "Reset"
-msgstr "Reinicia"
+#: data/ui/stopwatch.ui:167
+msgid "_Start"
+msgstr "_Inicia"
 
-#: data/ui/timer.ui:403 src/timer.vala:224 src/timer.vala:235
-msgid "Pause"
-msgstr "Fes una pausa"
+#: data/ui/stopwatch.ui:189 src/stopwatch.vala:246
+msgid "Clear"
+msgstr "Neteja"
+
+#: data/ui/timer_row.ui:46
+msgid "Title..."
+msgstr "Títol..."
+
+#: data/ui/timer_setup.ui:49
+msgid "1 m"
+msgstr "1 m"
+
+#: data/ui/timer_setup.ui:67
+msgid "2 m"
+msgstr "2 m"
+
+#: data/ui/timer_setup.ui:85
+msgid "3 m"
+msgstr "3 m"
+
+#: data/ui/timer_setup.ui:103
+msgid "5 m"
+msgstr "5 m"
+
+#: data/ui/timer_setup.ui:121
+msgid "30 m"
+msgstr "30 m"
+
+#: data/ui/timer_setup.ui:139
+msgid "15 m"
+msgstr "15 m"
+
+#: data/ui/timer_setup.ui:157
+msgid "45 m"
+msgstr "45 m"
+
+#: data/ui/timer_setup.ui:175
+msgid "1 h"
+msgstr "1 h"
+
+#: data/ui/timer_setup.ui:229 data/ui/timer_setup.ui:269
+#: data/ui/timer_setup.ui:310
+msgid "0"
+msgstr "0"
+
+#: data/ui/timer.ui:21
+msgid "Select Duration"
+msgstr "Seleccioneu la duracció"
 
 #: data/ui/window.ui:39
 msgid "World"
@@ -319,146 +372,282 @@ msgstr "Alarmes"
 msgid "Stopwatch"
 msgstr "Cronòmetre"
 
-#: data/ui/worldlocationdialog.ui:37
+#: data/ui/window.ui:69
+msgid "Timer"
+msgstr "Temporitzador"
+
+#: data/ui/worldlocationdialog.ui:20
+msgid "_Cancel"
+msgstr "_Cancel·la"
+
+#: data/ui/worldlocationdialog.ui:36
 msgid "_Add"
 msgstr "_Afegeix"
 
-#: data/ui/worldlocationdialog.ui:76
+#: data/ui/worldlocationdialog.ui:73
 msgid "Search for a city:"
 msgstr "Cerqueu una ciutat:"
 
-#: data/ui/world.ui:34
+#: data/ui/world.ui:33
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Seleccioneu <b>Nou</b> per afegir un rellotge del món"
 
-#: data/ui/world.ui:126
+#: data/ui/world.ui:148
 msgid "Sunrise"
 msgstr "Alba"
 
-#: data/ui/world.ui:140
+#: data/ui/world.ui:162
 msgid "Sunset"
 msgstr "Posta de sol"
 
-#: src/alarm.vala:116 src/alarm.vala:416
+#. Prior to 3.36 unamed alarms would just be called "Alarm",
+#. pretend alarms called "Alarm" don't have a name (of course
+#. this fails if the language/translation has since changed)
+#: src/alarm.vala:115 src/alarm.vala:335 src/alarm.vala:917
 msgid "Alarm"
 msgstr "Alarma"
 
-#: src/alarm.vala:350
+#. Translators: The alarm for the time %s titled %s has been "snoozed"
+#: src/alarm.vala:342
+#, c-format
+msgid "Snoozed from %s: %s"
+msgstr "Postposa des de %s: %s"
+
+#. Translators: %s is a time
+#: src/alarm.vala:345
+#, c-format
+msgid "Snoozed from %s"
+msgstr "Postposa des de %s"
+
+#: src/alarm.vala:557
 msgid "Edit Alarm"
 msgstr "Edita l'alarma"
 
 #. Translators: Tooltip for the + button
-#: src/alarm.vala:350 src/alarm.vala:593
+#: src/alarm.vala:557 src/alarm.vala:791
 msgid "New Alarm"
 msgstr "Alarma nova"
+
+#: src/alarm.vala:560 src/timer.vala:145
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: src/alarm.vala:562
+msgid "Done"
+msgstr "Acabat"
+
+#: src/alarm.vala:564 src/timer.vala:146
+msgid "Add"
+msgstr "Afegeix"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Mostra la informació de la versió i surt"
 
-#: src/stopwatch.vala:205
+#: src/stopwatch.vala:59
+#, c-format
+msgid "Lap %i"
+msgstr "Volta %i"
+
+#: src/stopwatch.vala:226
+msgid "Pause"
+msgstr "Fes una pausa"
+
+#: src/stopwatch.vala:230 src/stopwatch.vala:267
 msgid "Lap"
 msgstr "Volta"
 
-#: src/stopwatch.vala:212 src/timer.vala:219
-msgid "Continue"
-msgstr "Continua"
+#: src/stopwatch.vala:242
+msgid "Resume"
+msgstr "Reprèn"
+
+#: src/stopwatch.vala:263
+msgid "Start"
+msgstr "Inicia"
 
 #. Translators: Tooltip for the + button
-#: src/timer.vala:82
+#: src/timer.vala:142 src/timer.vala:388
 msgid "New Timer"
 msgstr "Temporitzador nou"
 
-#: src/timer.vala:138
+#: src/timer.vala:427
 msgid "Time is up!"
 msgstr "S'ha acabat el temps"
 
-#: src/timer.vala:139
+#: src/timer.vala:428
 msgid "Timer countdown finished"
 msgstr "S'ha acabat el compte enrere"
 
+#. Translators: This is used in the repeat toggle for Monday
+#: src/utils.vala:159
+msgctxt "Repeat|Monday"
+msgid "M"
+msgstr "Dl."
+
+#. Translators: This is used in the repeat toggle for Tuesday
+#: src/utils.vala:161
+msgctxt "Repeat|Tuesday"
+msgid "T"
+msgstr "Dt."
+
+#. Translators: This is used in the repeat toggle for Wednesday
+#: src/utils.vala:163
+msgctxt "Repeat|Wednesday"
+msgid "W"
+msgstr "Dc."
+
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:165
+msgctxt "Repeat|Thursday"
+msgid "T"
+msgstr "Dj."
+
+#. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:167
+msgctxt "Repeat|Friday"
+msgid "F"
+msgstr "Dv."
+
+#. Translators: This is used in the repeat toggle for Saturday
+#: src/utils.vala:169
+msgctxt "Repeat|Saturday"
+msgid "S"
+msgstr "Ds."
+
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:171
+msgctxt "Repeat|Sunday"
+msgid "S"
+msgstr "Dg."
+
+#: src/utils.vala:175
 msgid "Mondays"
 msgstr "Dilluns"
 
-#: src/utils.vala:168
+#: src/utils.vala:176
 msgid "Tuesdays"
 msgstr "Dimarts"
 
-#: src/utils.vala:169
+#: src/utils.vala:177
 msgid "Wednesdays"
 msgstr "Dimecres"
 
-#: src/utils.vala:170
+#: src/utils.vala:178
 msgid "Thursdays"
 msgstr "Dijous"
 
-#: src/utils.vala:171
+#: src/utils.vala:179
 msgid "Fridays"
 msgstr "Divendres"
 
-#: src/utils.vala:172
+#: src/utils.vala:180
 msgid "Saturdays"
 msgstr "Dissabte"
 
-#: src/utils.vala:173
+#: src/utils.vala:181
 msgid "Sundays"
 msgstr "Diumenge"
 
-#: src/utils.vala:253
+#: src/utils.vala:307
 msgid "Every Day"
 msgstr "Cada dia"
 
-#: src/utils.vala:255
+#: src/utils.vala:309
 msgid "Weekdays"
 msgstr "Dies laborables"
 
-#: src/utils.vala:257
+#: src/utils.vala:311
 msgid "Weekends"
 msgstr "Caps de setmana"
 
-#: src/widgets.vala:194 src/widgets.vala:209
-msgid "Click on items to select them"
-msgstr "Feu clic als elements per seleccionar-los"
-
-#: src/widgets.vala:196
-#, c-format
-msgid "%u selected"
-msgid_plural "%u selected"
-msgstr[0] "%u seleccionat"
-msgstr[1] "%u seleccionats"
-
-#: src/widgets.vala:284
-msgid "Delete"
-msgstr "Suprimeix"
-
-#: src/window.vala:262
+#: src/window.vala:244
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "No s'ha pogut mostrar l'ajuda: %s"
 
-#: src/window.vala:296
+#: src/window.vala:278
 msgid "Utilities to help you with the time."
 msgstr "Utilitats que us ajuden amb el temps."
 
-#: src/window.vala:301
+#: src/window.vala:283
 msgid "translator-credits"
 msgstr "Gil Forcada <gilforcada@guifi.net>"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:186 src/world.vala:190
+#: src/world.vala:182 src/world.vala:186
 msgid "Tomorrow"
 msgstr "Demà"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:186 src/world.vala:190
+#: src/world.vala:182 src/world.vala:186
 msgid "Yesterday"
 msgstr "Ahir"
 
+#. Translators: The time is the same as the local time
+#: src/world.vala:425
+msgid "Current timezone"
+msgstr "Fus horari actual"
+
+#. Translators: The (possibly fractical) number hours in the past
+#. (relative to local) the clock/location is
+#: src/world.vala:430
+#, c-format
+msgid "%s hour earlier"
+msgid_plural "%s hours earlier"
+msgstr[0] "%s hora abans"
+msgstr[1] "%s hores abans"
+
+#. Translators: The (possibly fractical) number hours in the
+#. future (relative to local) the clock/location is
+#: src/world.vala:436
+#, c-format
+msgid "%s hour later"
+msgid_plural "%s hours later"
+msgstr[0] "%s hora després"
+msgstr[1] "%s hores després"
+
+#. Translators: This clock represents the local time
+#: src/world.vala:446
+msgid "Current location"
+msgstr "Ubicació actual"
+
 #. Translators: Tooltip for the + button
-#: src/world.vala:349
+#: src/world.vala:516
 msgid "Add Location"
 msgstr "Afegeix ubicació"
 
+#~ msgctxt "shortcut window"
+#~ msgid "Select all world clocks"
+#~ msgstr "Selecciona tots els rellotges del món"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Select all alarms"
+#~ msgstr "Selecciona totes les alarmes"
+
+#~ msgid "Select All"
+#~ msgstr "Selecciona-ho tot"
+
+#~ msgid "Configured timer duration in seconds."
+#~ msgstr "La durada configurada del temporitzador, en segons."
+
+#~ msgid "Select <b>New</b> to add an alarm"
+#~ msgstr "Seleccioneu <b>Nova</b> per afegir una alarma"
+
+#~ msgid "Select"
+#~ msgstr "Selecciona-ho"
+
+#~ msgid "Reset"
+#~ msgstr "Reinicia"
+
+#~ msgid "Continue"
+#~ msgstr "Continua"
+
+#~ msgid "Click on items to select them"
+#~ msgstr "Feu clic als elements per seleccionar-los"
+
+#~ msgid "%u selected"
+#~ msgid_plural "%u selected"
+#~ msgstr[0] "%u seleccionat"
+#~ msgstr[1] "%u seleccionats"
