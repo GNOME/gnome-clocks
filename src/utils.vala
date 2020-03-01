@@ -154,7 +154,7 @@ public class Weekdays {
         SAT,
         SUN;
 
-        private const string[] symbols = {
+        private const string[] SYMBOLS = {
             // Translators: This is used in the repeat toggle for Monday
             NC_("Repeat|Monday", "M"),
             // Translators: This is used in the repeat toggle for Tuesday
@@ -171,7 +171,7 @@ public class Weekdays {
             NC_("Repeat|Sunday", "S")
         };
 
-        private const string[] plurals = {
+        private const string[] PLURALS = {
             N_("Mondays"),
             N_("Tuesdays"),
             N_("Wednesdays"),
@@ -182,13 +182,13 @@ public class Weekdays {
         };
 
         public string symbol () {
-            return _(symbols[this]);
+            return _(SYMBOLS[this]);
         }
 
         public string plural () {
-            return _(plurals[this]);
+            return _(PLURALS[this]);
         }
-    
+
         public string abbreviation () {
             // lazy init because we cannot rely on class init being
             // called for us (at least in the current version of vala)
@@ -252,13 +252,13 @@ public class Weekdays {
             return (days_equal (NONE));
         }
     }
-    
+
     public bool is_weekdays {
         get {
             return (days_equal (WEEKDAYS));
         }
     }
-    
+
     public bool is_weekends {
         get {
             return (days_equal (WEEKENDS));
