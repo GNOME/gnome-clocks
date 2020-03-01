@@ -1,17 +1,12 @@
 gnome-clocks 3.36.0
 ===================
  * Major redesign of the application
+ * Multiple timers support
+ * Daylight status for World clocks
+ * Adaptive layout: Mobile support
  * Updated translations
 
-
 gnome-clocks 3.34.0
-===================
-
- * Updated translations
-gnome-clocks 3.34.0
-===================
-
- * Updated translationsgnome-clocks 3.34.0
 ===================
 
  * Updated translations
