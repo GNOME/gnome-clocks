@@ -370,7 +370,7 @@ public class DayPickerRow : Hdy.ActionRow {
 
         set {
             days[Utils.Weekdays.Day.MON] = value;
-            update();
+            update ();
         }
     }
 
@@ -381,7 +381,7 @@ public class DayPickerRow : Hdy.ActionRow {
 
         set {
             days[Utils.Weekdays.Day.TUE] = value;
-            update();
+            update ();
         }
     }
 
@@ -392,7 +392,7 @@ public class DayPickerRow : Hdy.ActionRow {
 
         set {
             days[Utils.Weekdays.Day.WED] = value;
-            update();
+            update ();
         }
     }
 
@@ -403,7 +403,7 @@ public class DayPickerRow : Hdy.ActionRow {
 
         set {
             days[Utils.Weekdays.Day.THU] = value;
-            update();
+            update ();
         }
     }
 
@@ -414,7 +414,7 @@ public class DayPickerRow : Hdy.ActionRow {
 
         set {
             days[Utils.Weekdays.Day.FRI] = value;
-            update();
+            update ();
         }
     }
 
@@ -425,7 +425,7 @@ public class DayPickerRow : Hdy.ActionRow {
 
         set {
             days[Utils.Weekdays.Day.SAT] = value;
-            update();
+            update ();
         }
     }
 
@@ -436,13 +436,13 @@ public class DayPickerRow : Hdy.ActionRow {
 
         set {
             days[Utils.Weekdays.Day.SUN] = value;
-            update();
+            update ();
         }
     }
 
     public signal void days_changed ();
 
-    private Utils.Weekdays days = new Utils.Weekdays();
+    private Utils.Weekdays days = new Utils.Weekdays ();
 
     [GtkChild]
     private Gtk.FlowBox flow;
@@ -465,7 +465,7 @@ public class DayPickerRow : Hdy.ActionRow {
         for (int i = 0; i < 7; i++) {
             var day = (Utils.Weekdays.Day) i;
             buttons[i] = new Gtk.ToggleButton.with_label (day.symbol ());
-            buttons[i].action_name = "repeats.day-%i".printf(i);
+            buttons[i].action_name = "repeats.day-%i".printf (i);
             buttons[i].tooltip_text = day.name ();
             buttons[i].get_style_context ().add_class ("circular");
             buttons[i].show ();
@@ -549,7 +549,7 @@ private class SetupDialog : Hdy.Dialog {
     private List<Item> other_alarms;
 
     static construct {
-        typeof(DayPickerRow).ensure();
+        typeof (DayPickerRow).ensure ();
     }
 
     public SetupDialog (Gtk.Window parent, Item? alarm, ListModel all_alarms) {
@@ -566,7 +566,7 @@ private class SetupDialog : Hdy.Dialog {
         set_default_response (Gtk.ResponseType.OK);
 
         delete_button.visible = alarm != null;
-        listbox.set_header_func((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
+        listbox.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
 
         other_alarms = new List<Item> ();
         var n = all_alarms.get_n_items ();
@@ -828,7 +828,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
             }
         });
 
-        listbox.set_header_func((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
+        listbox.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
         listbox.bind_model (alarms, (item) => {
             return new Row ((Item) item, this);
         });
