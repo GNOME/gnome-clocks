@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-02-07 02:14+0000\n"
-"PO-Revision-Date: 2020-02-08 14:45+0200\n"
+"POT-Creation-Date: 2020-02-26 18:35+0000\n"
+"PO-Revision-Date: 2020-03-01 14:53+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -66,53 +66,35 @@ msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Pridėti pasaulio laikrodį"
 
-#: data/gtk/help-overlay.ui:75
-msgctxt "shortcut window"
-msgid "Select all world clocks"
-msgstr "Žymėti visus pasaulio laikrodžius"
-
-#: data/gtk/help-overlay.ui:84
+#: data/gtk/help-overlay.ui:77
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Žadintuvas"
 
-#: data/gtk/help-overlay.ui:89
+#: data/gtk/help-overlay.ui:82
 msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Pridėti žadintuvą"
 
-#: data/gtk/help-overlay.ui:96
-msgctxt "shortcut window"
-msgid "Select all alarms"
-msgstr "Žymėti visus žadintuvus"
-
-#: data/gtk/help-overlay.ui:105
+#: data/gtk/help-overlay.ui:91
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Chronometras"
 
-#: data/gtk/help-overlay.ui:110
+#: data/gtk/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Stabdyti / Atstatyti"
 
-#: data/gtk/help-overlay.ui:119
+#: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Laikmatis"
 
-#: data/gtk/help-overlay.ui:124
+#: data/gtk/help-overlay.ui:110
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Atstatyti"
-
-#: data/gtk/menus.ui:8
-msgid "Select All"
-msgstr "Žymėti visus"
-
-#: data/gtk/menus.ui:12
-msgid "Select None"
-msgstr "Nežymėti nieko"
 
 #: data/org.gnome.clocks.appdata.xml.in.in:6
 msgid "GNOME Clocks"
@@ -177,9 +159,9 @@ msgid "The GNOME Project"
 msgstr "GNOME projektas"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/headerbar.ui:24 src/alarm.vala:590 src/alarm.vala:677
-#: src/main.vala:25 src/stopwatch.vala:124 src/timer.vala:412
-#: src/window.vala:297 src/world.vala:346 src/world.vala:427
+#: data/ui/headerbar.ui:24 src/alarm.vala:788 src/alarm.vala:868
+#: src/main.vala:25 src/stopwatch.vala:122 src/timer.vala:385
+#: src/window.vala:273 src/world.vala:513 src/world.vala:602
 msgid "Clocks"
 msgstr "Laikrodžiai"
 
@@ -249,46 +231,62 @@ msgstr "Skydelio būsena"
 msgid "Current clock panel."
 msgstr "Dabartinis laikrodžio skydelis."
 
-#: data/ui/alarmringing.ui:41 src/alarm.vala:118
-msgid "Stop"
-msgstr "Sustabdyti"
+#: data/ui/alarmdaypickerrow.ui:5
+#| msgid "Repeat Every"
+msgid "_Repeat"
+msgstr "Ka_rtoti kas"
 
-#: data/ui/alarmringing.ui:61 src/alarm.vala:119
-msgid "Snooze"
-msgstr "Atidėti"
-
-#: data/ui/alarmsetupdialog.ui:27 data/ui/worldlocationdialog.ui:17
-msgid "Add a New World Clock"
-msgstr "Pridėti naują pasaulio laikrodį"
-
-#: data/ui/alarmsetupdialog.ui:31 data/ui/headerbar.ui:211
-#: data/ui/worldlocationdialog.ui:21
-msgid "_Cancel"
-msgstr "_Atsisakyti"
-
-#: data/ui/alarmsetupdialog.ui:47
-msgid "_Done"
-msgstr "_Atlikta"
-
-#: data/ui/alarmsetupdialog.ui:199
-msgid "You already have an alarm for this time."
-msgstr "Jau turite žadintuvą šiam laikui."
-
-#: data/ui/alarmsetupdialog.ui:227
-msgid "Name"
-msgstr "Pavadinimas"
-
-#: data/ui/alarmsetupdialog.ui:241
-msgid "Repeat Every"
-msgstr "Kartoti kas"
-
-#: data/ui/alarmsetupdialog.ui:295
+#: data/ui/alarmrow.ui:25
 msgid "Active"
 msgstr "Aktyvus"
 
-#: data/ui/alarm.ui:34
-msgid "Select <b>New</b> to add an alarm"
-msgstr "Pasirinkite <b>Naujas</b> žadintuvui pridėti"
+#: data/ui/alarmrow.ui:50
+msgid "Edit"
+msgstr "Keisti"
+
+#: data/ui/alarmrow.ui:77
+msgid "Delete"
+msgstr "Ištrinti"
+
+#: data/ui/alarmrow.ui:106
+#| msgid "Repeat Every"
+msgid "Repeats"
+msgstr "Kartojama"
+
+#: data/ui/alarmringing.ui:28 src/alarm.vala:117
+msgid "Stop"
+msgstr "Sustabdyti"
+
+#: data/ui/alarmringing.ui:47 src/alarm.vala:118
+msgid "Snooze"
+msgstr "Atidėti"
+
+#: data/ui/alarmsetupdialog.ui:24 data/ui/worldlocationdialog.ui:16
+msgid "Add a New World Clock"
+msgstr "Pridėti naują pasaulio laikrodį"
+
+#: data/ui/alarmsetupdialog.ui:144
+msgid "Name"
+msgstr "Pavadinimas"
+
+#: data/ui/alarmsetupdialog.ui:145
+msgid "Optional"
+msgstr "Papildoma"
+
+#: data/ui/alarmsetupdialog.ui:165
+#| msgid "New Alarm"
+msgid "R_emove Alarm"
+msgstr "_Pašalinti žadintuvą"
+
+#: data/ui/alarmsetupdialog.ui:181
+msgid "You already have an alarm for this time."
+msgstr "Jau turite žadintuvą šiam laikui."
+
+#: data/ui/alarm.ui:30
+#| msgctxt "shortcut window"
+#| msgid "Add an alarm"
+msgid "Add A_larm"
+msgstr "Pridėti ž_adintuvą"
 
 #: data/ui/headerbar.ui:8
 msgid "_Keyboard Shortcuts"
@@ -302,17 +300,13 @@ msgstr "_Žinynas"
 msgid "_About Clocks"
 msgstr "_Apie laikrodžius"
 
-#: data/ui/headerbar.ui:158
+#: data/ui/headerbar.ui:140
 msgid "Back"
 msgstr "Grįžti"
 
-#: data/ui/headerbar.ui:195
+#: data/ui/headerbar.ui:177
 msgid "Menu"
 msgstr "Meniu"
-
-#: data/ui/headerbar.ui:248
-msgid "Select"
-msgstr "Žymėti"
 
 #: data/ui/stopwatchlapsrow.ui:18
 msgid "Time"
@@ -326,11 +320,11 @@ msgstr "Skirtumas"
 msgid "_Start"
 msgstr "Palei_sti"
 
-#: data/ui/stopwatch.ui:187 src/stopwatch.vala:248
+#: data/ui/stopwatch.ui:189 src/stopwatch.vala:246
 msgid "Clear"
 msgstr "Išvalyti"
 
-#: data/ui/timer_row.ui:45
+#: data/ui/timer_row.ui:46
 msgid "Title..."
 msgstr "Pavadinimas..."
 
@@ -363,7 +357,6 @@ msgid "45 m"
 msgstr "45 m"
 
 #: data/ui/timer_setup.ui:175
-#| msgid "1 m"
 msgid "1 h"
 msgstr "1 h"
 
@@ -392,38 +385,70 @@ msgstr "Chronometras"
 msgid "Timer"
 msgstr "Laikmatis"
 
-#: data/ui/worldlocationdialog.ui:37
+#: data/ui/worldlocationdialog.ui:20
+msgid "_Cancel"
+msgstr "_Atsisakyti"
+
+#: data/ui/worldlocationdialog.ui:36
 msgid "_Add"
 msgstr "_Pridėti"
 
-#: data/ui/worldlocationdialog.ui:76
+#: data/ui/worldlocationdialog.ui:73
 msgid "Search for a city:"
 msgstr "Ieškoti miesto:"
 
-#: data/ui/world.ui:34
+#: data/ui/world.ui:33
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Pasirinkite <b>Naujas</b> pasaulio laikrodžiui pridėti"
 
-#: data/ui/world.ui:128
+#: data/ui/world.ui:148
 msgid "Sunrise"
 msgstr "Saulėtekis"
 
-#: data/ui/world.ui:142
+#: data/ui/world.ui:162
 msgid "Sunset"
 msgstr "Saulėlydis"
 
-#: src/alarm.vala:116 src/alarm.vala:416
+#. Prior to 3.36 unamed alarms would just be called "Alarm",
+#. pretend alarms called "Alarm" don't have a name (of course
+#. this fails if the language/translation has since changed)
+#: src/alarm.vala:115 src/alarm.vala:335 src/alarm.vala:917
 msgid "Alarm"
 msgstr "Žadintuvas"
 
-#: src/alarm.vala:350
+#. Translators: The alarm for the time %s titled %s has been "snoozed"
+#: src/alarm.vala:342
+#, c-format
+msgid "Snoozed from %s: %s"
+msgstr "Užmigdyta nuo %s: %s"
+
+#. Translators: %s is a time
+#: src/alarm.vala:345
+#, c-format
+msgid "Snoozed from %s"
+msgstr "Užmigdyta nuo %s"
+
+#: src/alarm.vala:557
 msgid "Edit Alarm"
 msgstr "Redaguoti žadintuvą"
 
 #. Translators: Tooltip for the + button
-#: src/alarm.vala:350 src/alarm.vala:593
+#: src/alarm.vala:557 src/alarm.vala:791
 msgid "New Alarm"
 msgstr "Naujas žadintuvas"
+
+#: src/alarm.vala:560 src/timer.vala:145
+msgid "Cancel"
+msgstr "Atsisakyti"
+
+#: src/alarm.vala:562
+#| msgid "_Done"
+msgid "Done"
+msgstr "Atlikta"
+
+#: src/alarm.vala:564 src/timer.vala:146
+msgid "Add"
+msgstr "Pridėti"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
@@ -434,144 +459,127 @@ msgstr "Atspausdinti versijos informaciją ir išeiti"
 msgid "Lap %i"
 msgstr "Ratas %i"
 
-#: src/stopwatch.vala:228
+#: src/stopwatch.vala:226
 msgid "Pause"
 msgstr "Pristabdyti"
 
-#: src/stopwatch.vala:232 src/stopwatch.vala:269
+#: src/stopwatch.vala:230 src/stopwatch.vala:267
 msgid "Lap"
 msgstr "Ratas"
 
-#: src/stopwatch.vala:244
+#: src/stopwatch.vala:242
 msgid "Resume"
 msgstr "Tęsti"
 
-#: src/stopwatch.vala:265
+#: src/stopwatch.vala:263
 msgid "Start"
 msgstr "Paleisti"
 
 #. Translators: Tooltip for the + button
-#: src/timer.vala:145 src/timer.vala:415
+#: src/timer.vala:142 src/timer.vala:388
 msgid "New Timer"
 msgstr "Naujas laikmatis"
 
-#: src/timer.vala:148
-msgid "Cancel"
-msgstr "Atsisakyti"
-
-#: src/timer.vala:149
-msgid "Add"
-msgstr "Pridėti"
-
-#: src/timer.vala:377
-#, c-format
-msgid "%i second timer"
-msgstr "%i sekundžių laikmatis"
-
-#: src/timer.vala:379
-#, c-format
-msgid "%i minute timer"
-msgstr "%i minučių laikmatis"
-
-#: src/timer.vala:381
-#, c-format
-msgid "%i hour timer"
-msgstr "%i valandų laikmatis"
-
-#: src/timer.vala:383
-#, c-format
-msgid "%i minute %i second timer"
-msgstr "%i minučių %i sekundžių laikmatis"
-
-#: src/timer.vala:385
-#, c-format
-msgid "%i hour %i minute timer"
-msgstr "%i valandų %i minučių laikmatis"
-
-#: src/timer.vala:387
-#, c-format
-msgid "%i hour %i second timer"
-msgstr "%i valandų %i sekundžių laikmatis"
-
-#: src/timer.vala:389
-#, c-format
-msgid "%i hour %i minute %i second timer"
-msgstr "%i valandų %i minučių %i sekundžių laikmatis"
-
-#: src/timer.vala:454
+#: src/timer.vala:427
 msgid "Time is up!"
 msgstr "Laikas!"
 
-#: src/timer.vala:455
+#: src/timer.vala:428
 msgid "Timer countdown finished"
 msgstr "Laikmačio skaičiavimas baigėsi"
 
+#. Translators: This is used in the repeat toggle for Monday
+#: src/utils.vala:159
+msgctxt "Repeat|Monday"
+msgid "M"
+msgstr "Pr"
+
+#. Translators: This is used in the repeat toggle for Tuesday
+#: src/utils.vala:161
+msgctxt "Repeat|Tuesday"
+msgid "T"
+msgstr "A"
+
+#. Translators: This is used in the repeat toggle for Wednesday
+#: src/utils.vala:163
+msgctxt "Repeat|Wednesday"
+msgid "W"
+msgstr "T"
+
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:165
+msgctxt "Repeat|Thursday"
+msgid "T"
+msgstr "K"
+
+#. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:167
+msgctxt "Repeat|Friday"
+msgid "F"
+msgstr "Pn"
+
+#. Translators: This is used in the repeat toggle for Saturday
+#: src/utils.vala:169
+msgctxt "Repeat|Saturday"
+msgid "S"
+msgstr "Š"
+
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:171
+msgctxt "Repeat|Sunday"
+msgid "S"
+msgstr "S"
+
+#: src/utils.vala:175
 msgid "Mondays"
 msgstr "Pirmadieniais"
 
-#: src/utils.vala:168
+#: src/utils.vala:176
 msgid "Tuesdays"
 msgstr "Antradieniais"
 
-#: src/utils.vala:169
+#: src/utils.vala:177
 msgid "Wednesdays"
 msgstr "Trečiadieniais"
 
-#: src/utils.vala:170
+#: src/utils.vala:178
 msgid "Thursdays"
 msgstr "Ketvirtadieniais"
 
-#: src/utils.vala:171
+#: src/utils.vala:179
 msgid "Fridays"
 msgstr "Penktadieniais"
 
-#: src/utils.vala:172
+#: src/utils.vala:180
 msgid "Saturdays"
 msgstr "Šeštadieniais"
 
-#: src/utils.vala:173
+#: src/utils.vala:181
 msgid "Sundays"
 msgstr "Sekmadieniais"
 
-#: src/utils.vala:253
+#: src/utils.vala:307
 msgid "Every Day"
 msgstr "Kasdien"
 
-#: src/utils.vala:255
+#: src/utils.vala:309
 msgid "Weekdays"
 msgstr "Darbo dienomis"
 
-#: src/utils.vala:257
+#: src/utils.vala:311
 msgid "Weekends"
 msgstr "Savaitgaliai"
 
-#: src/widgets.vala:214 src/widgets.vala:229
-msgid "Click on items to select them"
-msgstr "Spustelėkite ant elementų jiems pažymėti"
-
-#: src/widgets.vala:216
-#, c-format
-msgid "%u selected"
-msgid_plural "%u selected"
-msgstr[0] "Pažymėtas %u elementas"
-msgstr[1] "Pažymėti %u elementai"
-msgstr[2] "Pažymėta %u elementų"
-
-#: src/widgets.vala:304
-msgid "Delete"
-msgstr "Ištrinti"
-
-#: src/window.vala:268
+#: src/window.vala:244
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Nepavyko atverti žinyno: %s"
 
-#: src/window.vala:302
+#: src/window.vala:278
 msgid "Utilities to help you with the time."
 msgstr "Pagalbiniai laiko įrankiai."
 
-#: src/window.vala:307
+#: src/window.vala:283
 msgid "translator-credits"
 msgstr ""
 "išvertė:\n"
@@ -579,20 +587,101 @@ msgstr ""
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:186 src/world.vala:190
+#: src/world.vala:182 src/world.vala:186
 msgid "Tomorrow"
 msgstr "Rytoj"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:186 src/world.vala:190
+#: src/world.vala:182 src/world.vala:186
 msgid "Yesterday"
 msgstr "Vakar"
 
+#. Translators: The time is the same as the local time
+#: src/world.vala:425
+#| msgid "Current clock panel."
+msgid "Current timezone"
+msgstr "Dabartinė laiko juosta"
+
+#. Translators: The (possibly fractical) number hours in the past
+#. (relative to local) the clock/location is
+#: src/world.vala:430
+#, c-format
+#| msgid "%i hour timer"
+msgid "%s hour earlier"
+msgid_plural "%s hours earlier"
+msgstr[0] "Prieš %s valandą"
+msgstr[1] "Prieš %s valandas"
+msgstr[2] "Prieš %s valandų"
+
+#. Translators: The (possibly fractical) number hours in the
+#. future (relative to local) the clock/location is
+#: src/world.vala:436
+#, c-format
+#| msgid "%i hour timer"
+msgid "%s hour later"
+msgid_plural "%s hours later"
+msgstr[0] "Po %s valandos"
+msgstr[1] "Po %s valandų"
+msgstr[2] "Po %s valandų"
+
+#. Translators: This clock represents the local time
+#: src/world.vala:446
+#| msgid "Current clock panel."
+msgid "Current location"
+msgstr "Dabartinė vieta"
+
 #. Translators: Tooltip for the + button
-#: src/world.vala:349
+#: src/world.vala:516
 msgid "Add Location"
 msgstr "Pridėti vietą"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Select all world clocks"
+#~ msgstr "Žymėti visus pasaulio laikrodžius"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Select all alarms"
+#~ msgstr "Žymėti visus žadintuvus"
+
+#~ msgid "Select All"
+#~ msgstr "Žymėti visus"
+
+#~ msgid "Select None"
+#~ msgstr "Nežymėti nieko"
+
+#~ msgid "Select <b>New</b> to add an alarm"
+#~ msgstr "Pasirinkite <b>Naujas</b> žadintuvui pridėti"
+
+#~ msgid "Select"
+#~ msgstr "Žymėti"
+
+#~ msgid "%i second timer"
+#~ msgstr "%i sekundžių laikmatis"
+
+#~ msgid "%i minute timer"
+#~ msgstr "%i minučių laikmatis"
+
+#~ msgid "%i minute %i second timer"
+#~ msgstr "%i minučių %i sekundžių laikmatis"
+
+#~ msgid "%i hour %i minute timer"
+#~ msgstr "%i valandų %i minučių laikmatis"
+
+#~ msgid "%i hour %i second timer"
+#~ msgstr "%i valandų %i sekundžių laikmatis"
+
+#~ msgid "%i hour %i minute %i second timer"
+#~ msgstr "%i valandų %i minučių %i sekundžių laikmatis"
+
+#~ msgid "Click on items to select them"
+#~ msgstr "Spustelėkite ant elementų jiems pažymėti"
+
+#~ msgid "%u selected"
+#~ msgid_plural "%u selected"
+#~ msgstr[0] "Pažymėtas %u elementas"
+#~ msgstr[1] "Pažymėti %u elementai"
+#~ msgstr[2] "Pažymėta %u elementų"
 
 #~ msgid "@icon@"
 #~ msgstr "@icon@"
