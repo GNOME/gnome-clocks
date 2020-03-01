@@ -1,4 +1,4 @@
-HACKME
+# Contributing
 ======
 
 This file is intended to help new developers to get started with developing for
@@ -47,24 +47,3 @@ Information about UI-templates:
 The best way to get started is to fix small bugs. If you don't find them, ask
 on IRC.
 
-4. Getting Started With coala
-=============================
-
-coala is a helping tool for developers to check for inconsistencies in the code.
-
-You can install coala from:
-
- https://github.com/coala-analyzer/coala
-
-To use coala, just open terminal and browse to code directory; then type:
-
- $ coala
-
-coala will test for the following things:
-
- * No trailing spaces.
- * No tabs.
- * Line lengths less than 120.
-
-If any of the above tests fail for any line(s) coala will prompt you to fix it
-alongwith the location of that line.
