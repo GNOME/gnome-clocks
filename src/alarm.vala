@@ -856,6 +856,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 if (a.tick ()) {
                     if (a.state == Item.State.RINGING) {
                         show_ringing_panel (a);
+                        //TODO when two alarms are active at the same time the sounds will overlap.
+                        // Need to stop any active alarm before ringing another
                         ring ();
                     } else if (ringing_panel.alarm == a) {
                         ringing_panel.update ();
