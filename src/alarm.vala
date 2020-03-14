@@ -26,8 +26,8 @@ private struct AlarmTime {
 }
 
 private class Item : Object, ContentItem {
-    const int SNOOZE_MINUTES = 9;
-    const int RING_MINUTES = 3;
+    const int SNOOZE_MINUTES = 10;
+    const int RING_MINUTES = 5;
 
     public enum State {
         READY,
