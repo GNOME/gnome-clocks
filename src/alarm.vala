@@ -175,7 +175,6 @@ private class Item : Object, ContentItem {
 
     public void missed () {
         bell.stop ();
-        update_snooze_time (alarm_time);
         state = State.MISSED;
     }
 
