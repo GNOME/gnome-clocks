@@ -608,7 +608,6 @@ private class SetupDialog : Hdy.Dialog {
     // Sets up the dialog to show the values of alarm.
     public void set_from_alarm (Item? alarm) {
         string name;
-        bool active;
         int hour;
         int minute;
         unowned Utils.Weekdays? days;
@@ -620,13 +619,11 @@ private class SetupDialog : Hdy.Dialog {
             hour = wc.date_time.get_hour ();
             minute = wc.date_time.get_minute ();
             days = null;
-            active = true;
         } else {
             name = alarm.name;
             hour = alarm.time.hour;
             minute = alarm.time.minute;
             days = alarm.days;
-            active = alarm.active;
         }
 
         // Set the time.
@@ -937,6 +934,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 var alarm = new Item ();
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
                 alarms.add (alarm);
+                alarm.active = true;
                 save ();
             }
             dialog.destroy ();
