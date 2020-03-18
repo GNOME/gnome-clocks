@@ -418,7 +418,7 @@ private class Tile : Gtk.ListBoxRow {
         var diff_string = "%.0f".printf (diff.abs ());
 
         if (diff != Math.round (diff)) {
-            diff_string = "%.1f".printf (diff.abs ());
+            diff_string = "%.2f".printf (diff.abs ());
         }
 
         // Translators: The time is the same as the local time
