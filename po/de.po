@@ -1,7 +1,7 @@
 # German translation for gnome-clocks.
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-# Wolfgang Stöggl <c72578@yahoo.de>, 2012, 2014, 2017.
+# Wolfgang Stöggl <c72578@yahoo.de>, 2012, 2014, 2017, 2020.
 # Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>, 2012.
 # Christian Kirbach <christian.kirbach@gmail.com>, 2013.
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2013, 2015-2016.
@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-02-26 18:35+0000\n"
-"PO-Revision-Date: 2020-03-01 17:07+0100\n"
-"Last-Translator: Tim Sabsch <tim@sabsch.com>\n"
+"POT-Creation-Date: 2020-03-13 13:57+0000\n"
+"PO-Revision-Date: 2020-03-19 09:28+0100\n"
+"Last-Translator: Wolfgang Stoeggl <c72578@yahoo.de>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +42,7 @@ msgstr "Menü öffnen"
 #: data/gtk/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
-msgstr "Tastenkombinationen"
+msgstr "Tastaturkürzel"
 
 #: data/gtk/help-overlay.ui:40
 msgctxt "shortcut window"
@@ -99,73 +99,17 @@ msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: data/org.gnome.clocks.appdata.xml.in.in:6
-msgid "GNOME Clocks"
-msgstr "GNOME-Uhren"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:7
-#: data/org.gnome.clocks.desktop.in.in:6
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Uhren für die Weltzeit mit Alarm, Stoppuhr und einem Timer"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:9
-msgid ""
-"A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
-msgstr ""
-"Eine einfache und elegante Uhr-Anwendung. Sie beinhaltet Weltuhren, Alarme, "
-"eine Stoppuhr und einen Timer."
-
-#: data/org.gnome.clocks.appdata.xml.in.in:13
-msgid "Goals:"
-msgstr "Ziele:"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:15
-msgid "Show the time in different cities around the world"
-msgstr "Zeit in verschiedenen Städten rund um die Welt anzeigen"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:16
-msgid "Set alarms to wake you up"
-msgstr "Alarme einstellen, um Sie aufzuwecken"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:17
-msgid "Measure elapsed time with an accurate stopwatch"
-msgstr "Messen der verstrichenen Zeit mit einer genauen Stoppuhr"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:18
-msgid "Set timers to properly cook your food"
-msgstr "Timer stellen, um Ihre Speisen passend zu kochen"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:32
-msgid "Initial screen"
-msgstr "Anfangsbildschirm"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:36
-msgid "Alarms screen"
-msgstr "Alarmbildschirm"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:40
-msgid "Alarms setup"
-msgstr "Alarmeinstellung"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:44
-msgid "Stopwatch screen"
-msgstr "Stoppuhr-Bildschirm"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:48
-msgid "Timer screen"
-msgstr "Timer-Bildschirm"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:62
-msgid "The GNOME Project"
-msgstr "Das GNOME-Projekt"
-
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/ui/headerbar.ui:24 src/alarm.vala:788 src/alarm.vala:868
 #: src/main.vala:25 src/stopwatch.vala:122 src/timer.vala:385
 #: src/window.vala:273 src/world.vala:513 src/world.vala:602
 msgid "Clocks"
 msgstr "Uhren"
+
+#: data/org.gnome.clocks.desktop.in.in:6
+#: data/org.gnome.clocks.metainfo.xml.in.in:7
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "Uhren für die Weltzeit, Alarme, Stoppuhr und ein Timer"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in.in:8
@@ -194,7 +138,7 @@ msgstr "Liste eingestellter Alarme."
 
 #: data/org.gnome.clocks.gschema.xml.in:19
 msgid "Configured Timers"
-msgstr "Konfigurierte Timer"
+msgstr "Eingestellte Timer"
 
 #: data/org.gnome.clocks.gschema.xml.in:20
 msgid "List of timers set."
@@ -232,6 +176,62 @@ msgstr "Panel-Status"
 msgid "Current clock panel."
 msgstr "Aktuelles Uhren-Panel."
 
+#: data/org.gnome.clocks.metainfo.xml.in.in:6
+msgid "GNOME Clocks"
+msgstr "GNOME-Uhren"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:9
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"Eine einfache und elegante Uhr-Anwendung. Sie beinhaltet Weltuhren, Alarme, "
+"eine Stoppuhr und einen Timer."
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:13
+msgid "Goals:"
+msgstr "Ziele:"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:15
+msgid "Show the time in different cities around the world"
+msgstr "Zeit in verschiedenen Städten rund um die Welt anzeigen"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:16
+msgid "Set alarms to wake you up"
+msgstr "Alarme einstellen, um Sie aufzuwecken"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:17
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "Messen der verstrichenen Zeit mit einer genauen Stoppuhr"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:18
+msgid "Set timers to properly cook your food"
+msgstr "Timer stellen, um Ihre Speisen passend zu kochen"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:32
+msgid "Initial screen"
+msgstr "Anfangsbildschirm"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:36
+msgid "Alarms screen"
+msgstr "Alarmbildschirm"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:40
+msgid "Alarms setup"
+msgstr "Alarmeinstellung"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:44
+msgid "Stopwatch screen"
+msgstr "Stoppuhr-Bildschirm"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:48
+msgid "Timer screen"
+msgstr "Timer-Bildschirm"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:74
+msgid "The GNOME Project"
+msgstr "Das GNOME-Projekt"
+
 #: data/ui/alarmdaypickerrow.ui:5
 msgid "_Repeat"
 msgstr "_Wiederholen"
@@ -248,9 +248,10 @@ msgstr "Bearbeiten"
 msgid "Delete"
 msgstr "Löschen"
 
+# Angezeigter "Tooltip", wenn man mit der Maus über die eingestellten Wochentage eines Alarms fährt.
 #: data/ui/alarmrow.ui:106
 msgid "Repeats"
-msgstr "Wiederholungen"
+msgstr "Wiederholung am"
 
 #: data/ui/alarmringing.ui:28 src/alarm.vala:117
 msgid "Stop"
@@ -258,7 +259,7 @@ msgstr "Stoppen"
 
 #: data/ui/alarmringing.ui:47 src/alarm.vala:118
 msgid "Snooze"
-msgstr "Einschlummern"
+msgstr "Schlummern"
 
 #: data/ui/alarmsetupdialog.ui:24 data/ui/worldlocationdialog.ui:16
 msgid "Add a New World Clock"
@@ -282,7 +283,7 @@ msgstr "Sie haben bereits einen Alarm zu dieser Zeit eingestellt."
 
 #: data/ui/alarm.ui:30
 msgid "Add A_larm"
-msgstr "Alarm hinzu_fügen"
+msgstr "Alarm _hinzufügen"
 
 #: data/ui/headerbar.ui:8
 msgid "_Keyboard Shortcuts"
@@ -326,31 +327,31 @@ msgstr "Titel …"
 
 #: data/ui/timer_setup.ui:49
 msgid "1 m"
-msgstr "1 min"
+msgstr "1 m"
 
 #: data/ui/timer_setup.ui:67
 msgid "2 m"
-msgstr "2 min"
+msgstr "2 m"
 
 #: data/ui/timer_setup.ui:85
 msgid "3 m"
-msgstr "3 min"
+msgstr "3 m"
 
 #: data/ui/timer_setup.ui:103
 msgid "5 m"
-msgstr "5 min"
+msgstr "5 m"
 
 #: data/ui/timer_setup.ui:121
 msgid "30 m"
-msgstr "30 min"
+msgstr "30 m"
 
 #: data/ui/timer_setup.ui:139
 msgid "15 m"
-msgstr "15 min"
+msgstr "15 m"
 
 #: data/ui/timer_setup.ui:157
 msgid "45 m"
-msgstr "45 min"
+msgstr "45 m"
 
 #: data/ui/timer_setup.ui:175
 msgid "1 h"
@@ -363,7 +364,7 @@ msgstr "0"
 
 #: data/ui/timer.ui:21
 msgid "Select Duration"
-msgstr "Dauer auswählen"
+msgstr "Zeitdauer wählen"
 
 #: data/ui/window.ui:39
 msgid "World"
@@ -412,6 +413,9 @@ msgstr "Sonnenuntergang"
 msgid "Alarm"
 msgstr "Alarm"
 
+# Beispiel:
+# Schlummern von 06:15: Guten Morgen
+# Wobei "Guten Morgen" hier der Titel des Alarms ist.
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
 #: src/alarm.vala:342
 #, c-format
@@ -641,49 +645,17 @@ msgstr "Ort hinzufügen"
 #~ msgid "Select All"
 #~ msgstr "Alle auswählen"
 
-#~ msgid "Select None"
-#~ msgstr "Keine auswählen"
+#~ msgid "@icon@"
+#~ msgstr "@icon@"
+
+#~ msgid "Configured timer duration in seconds."
+#~ msgstr "Festgelegte Dauer des Timers in Sekunden."
 
 #~ msgid "_Done"
 #~ msgstr "_Fertig"
 
 #~ msgid "Select <b>New</b> to add an alarm"
 #~ msgstr "<b>Neu</b> auswählen, um einen Alarm hinzuzufügen"
-
-#~ msgid "Select"
-#~ msgstr "Auswahl"
-
-#~ msgid "%i second timer"
-#~ msgstr "Timer mit %i Sekunden"
-
-#~ msgid "%i minute timer"
-#~ msgstr "Timer mit %i Minuten"
-
-#~ msgid "%i minute %i second timer"
-#~ msgstr "Timer mit %i Minuten und %i Sekunden"
-
-#~ msgid "%i hour %i minute timer"
-#~ msgstr "Timer mit %i Stunden und %i Minuten"
-
-#~ msgid "%i hour %i second timer"
-#~ msgstr "Timer mit %i Stunden und %i Sekunden"
-
-#~ msgid "%i hour %i minute %i second timer"
-#~ msgstr "Timer mit %i Stunden, %i Minuten und %i Sekunden"
-
-#~ msgid "Click on items to select them"
-#~ msgstr "Klicken Sie auf Objekte, um diese auszuwählen"
-
-#~ msgid "%u selected"
-#~ msgid_plural "%u selected"
-#~ msgstr[0] "%u ausgewählt"
-#~ msgstr[1] "%u ausgewählt"
-
-#~ msgid "@icon@"
-#~ msgstr "@icon@"
-
-#~ msgid "Configured timer duration in seconds."
-#~ msgstr "Festgelegte Dauer des Timers in Sekunden."
 
 #~ msgid "Reset"
 #~ msgstr "Zurücksetzen"
@@ -694,6 +666,14 @@ msgstr "Ort hinzufügen"
 
 #~ msgid "Continue"
 #~ msgstr "Fortsetzen"
+
+#~ msgid "Click on items to select them"
+#~ msgstr "Klicken Sie auf Objekte, um diese auszuwählen"
+
+#~ msgid "%u selected"
+#~ msgid_plural "%u selected"
+#~ msgstr[0] "%u ausgewählt"
+#~ msgstr[1] "%u ausgewählt"
 
 #~ msgctxt "World clock"
 #~ msgid "New"
