@@ -111,13 +111,13 @@ public class Application : Gtk.Application {
         string theme_name;
 
         settings.get ("gtk-theme-name", out theme_name);
-        Utils.load_theme_css (theme_name);
+        Utils.load_css ("gnome-clocks." + theme_name.down ());
     }
 
     protected override void startup () {
         base.startup ();
 
-        Utils.load_main_css ();
+        Utils.load_css ("gnome-clocks");
 
         set_resource_base_path ("/org/gnome/clocks/");
 
