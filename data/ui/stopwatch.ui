@@ -221,7 +221,6 @@
                   <object class="GtkScrolledWindow">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="margin">12</property>
                     <child>
                       <object class="GtkViewport">
                         <property name="visible">True</property>
@@ -235,6 +234,7 @@
                             <property name="selection_mode">none</property>
                             <style>
                               <class name="frame"/>
+                              <class name="clocks-list"/>
                             </style>
                           </object>
                         </child>
