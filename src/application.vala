@@ -111,13 +111,15 @@ public class Application : Gtk.Application {
         string theme_name;
 
         settings.get ("gtk-theme-name", out theme_name);
-        Utils.load_theme_css (theme_name);
+
+		if (theme_name.down () == "highcontrast") {
+        	Utils.load_css ("/org/gnome/clocks/css/gnome-clocks.highcontrast.css");
+		}
     }
 
     protected override void startup () {
         base.startup ();
-
-        Utils.load_main_css ();
+        Utils.load_css ("/org/gnome/clocks/css/gnome-clocks.css");
 
         set_resource_base_path ("/org/gnome/clocks/");
 
