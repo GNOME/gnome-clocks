@@ -1,298 +1,238 @@
 window > stack {
-    background-color: mix(@theme_fg_color, @theme_bg_color, 0.95);
-    box-shadow: inset 0 5px 2px -6px black;
+	background-color: mix(@theme_fg_color, @theme_bg_color, 0.95);
+	box-shadow: inset 0 5px 2px -6px black;
 }
 
 window > stack:backdrop {
-    background-color: mix(@theme_unfocused_fg_color, @theme_unfocused_bg_color, 0.95);
-    box-shadow: none;
+	background-color: mix(@theme_unfocused_fg_color, @theme_unfocused_bg_color, 0.95);
+	box-shadow: none;
 }
 
 label.destructive-action {
-    color: #e01b24;
+	color: #e01b24;
 }
 
 /* Shared */
 
 .clocks-list {
-    border-radius: 6px;
-    margin: 18px 6px;
+	border-radius: 6px;
+	margin: 18px 6px;
 }
 
-
-/* content view */
-
-.tile {
-    padding: 12px;
-    background-color: transparent;
-}
-
-.tile .tile-label {
-    font-size: 32pt;
-}
-
-.tile .name-label {
-    padding-top: 0.5em;
-}
-
-.tile .name-icon {
-    padding-top: 0.5em;
-    padding-right: 8px;
+.pill-button {
+	border-radius: 9999px;
+	-gtk-outline-radius: 9999px;
 }
 
 /* alarms */
 
 row.snoozing {
-    background: transparent -gtk-icontheme("alarm-symbolic") 65% 400%/48px 48px no-repeat;
-    font-weight: bold;
+	background: transparent -gtk-icontheme("alarm-symbolic") 65% 400%/48px 48px no-repeat;
+	font-weight: bold;
 }
 
 .alarm-row button, .repeats button {
-    min-width: 24px;
-    min-height: 24px;
+	min-width: 24px;
+	min-height: 24px;
 }
 
 .alarm-name {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .alarm-time {
-    font-size: 2.5em;
+	font-size: 2.5em;
 }
 
 .alarm-repeat {
-    font-size: 9pt;
+	font-size: 9pt;
 }
 
 .clocks-ampm-toggle-button {
-    font-size: 18pt;
+	font-size: 18pt;
 }
 
 .clocks-standalone-label,
 .clocks-ringing-label {
-    font-size: 6em;
+	font-size: 6em;
 }
 
 .clocks-ringing-title {
-    font-size: 1.5em;
-    font-weight: bold;
+	font-size: 1.5em;
+	font-weight: bold;
 }
 
 .clocks-secondary-standalone-label {
-    font-size: 18pt;
+	font-size: 18pt;
 }
 
 .clocks-button {
-    font-size: 14pt;
+	font-size: 14pt;
 }
 
 .clocks-alarm-setup-time {
-    font-size: 32pt;
-}
-
-.clocks-spinbutton {
-    font-size: 48pt;
-}
-
-.clocks-timer-label {
-    font-size: 48pt;
-}
-
-.clocks-analog-frame.trough {
-    color: mix(@theme_fg_color, @theme_bg_color, 0.85);
-}
-
-.clocks-analog-frame.progress {
-    color: mix(@theme_fg_color, @theme_bg_color, 0.5);
-}
-
-.clocks-analog-frame.progress-fast {
-    color: @theme_fg_color;
-}
-
-.clocks-laps-panel:dir(ltr) {
-    border-image: linear-gradient(to bottom,
-                                  mix(@borders,@theme_bg_color,0.5),
-                                  mix(@borders,@theme_bg_color,0.5))
-                  0 0 0 1 / 20px 0px 20px 1px stretch;
-}
-
-.clocks-laps-panel:dir(rtl) {
-    border-image: linear-gradient(to bottom,
-                                  mix(@borders,@theme_bg_color,0.5),
-                                  mix(@borders,@theme_bg_color,0.5))
-                  0 1 0 0 / 20px 1px 20px 0px stretch;
-}
-
-.clocks-laps-panel list,
-.clocks-laps-panel row {
-    background-color: transparent;
-}
-
-.clocks-laps-panel row {
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 14pt;
-    border-image: linear-gradient(to bottom,
-                                  mix(@borders,@theme_bg_color,0.5),
-                                  mix(@borders,@theme_bg_color,0.5))
-                  0 0 1 0 / 0 20px 1px 20px stretch;
-}
-
-.clocks-laps-panel row:last-child {
-    border-image: none;
-    border-color: transparent;
-}
-
-.clocks-laps-panel .lap-time {
-    font-weight: bold;
-    padding-right: 20px;
+	font-size: 32pt;
 }
 
 /* Timer Panel */
-/* disguise insensitive spinbuttons as normal labels */
 
+.clocks-timer-label {
+	font-size: 48pt;
+}
+
+.clocks-spinbutton {
+	font-size: 48pt;
+}
+
+/* disguise insensitive spinbuttons as normal labels */
 
 spinbutton.clocks-timer-label,
 spinbutton.clocks-timer-label button,
 spinbutton.clocks-timer-label entry {
-    border-color: transparent;
-    background-color: transparent;
-    background-image: none;
-    box-shadow: none;
+	border-color: transparent;
+	background-color: transparent;
+	background-image: none;
+	box-shadow: none;
 }
 
 spinbutton.clocks-timer-label {
-    color: @theme_fg_color;
+	color: @theme_fg_color;
 }
 
 spinbutton.clocks-timer-label button {
-    color: transparent;
+	color: transparent;
 }
+
 .timer-panel .small-button {
-  padding: 5px 9px
+	padding: 5px 9px
 }
+
 .timer-panel .large-button {
-  padding: 12px 16px;
+	padding: 12px 16px;
 }
+
 .timer-panel .timer-header {
-  font-size: 20pt;
-  font-weight: 700;
+	font-size: 20pt;
+	font-weight: 700;
 }
+
 .timer-countdown {
-  font-size: 40pt;
-  color: #9E9DA1;
+	font-size: 40pt;
+	color: #9E9DA1;
 }
 
 @keyframes clocks-blink {
-    0% { color: #9E9DA1; }
-    100% { color: #428be5; }
+	0% { color: #9E9DA1; }
+	100% { color: #428be5; }
 }
 
 .timer-countdown.timer-paused {
-  color: #9E9DA1;
-  animation-name: clocks-blink;
-  animation-iteration-count: infinite;
-  animation-timing-function: cubic-bezier(1.0,0,0,1.0);
-  animation-duration: 1s;
+	color: #9E9DA1;
+	animation-name: clocks-blink;
+	animation-iteration-count: infinite;
+	animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+	animation-duration: 1s;
 }
+
 .timer-countdown.timer-running {
-  color: #428be5;
+	color: #428be5;
 }
+
 /* Stopwatch Panel */
+
 .stopwatch-panel .large-button {
-    padding: 6px 32px;
+	padding: 6px 32px;
 }
+
 .lap-time {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 .negative-lap {
-    color: #ED333B;
+	color: #ED333B;
 }
+
 .positive-lap {
-    color: #428be5;
+	color: #428be5;
 }
+
 .stopped-stopwatch label,
 .running-stopwatch label,
 .paused-stopwatch label {
-    font-size: 70px;
-    color: grey;
-    font-weight: 200;
+	font-size: 70px;
+	color: grey;
+	font-weight: 200;
 }
 
 .stopped-stopwatch .seconds-label {
-    font-weight: 300;
+	font-weight: 300;
 }
 
 .running-stopwatch .seconds-label,
 .running-stopwatch .miliseconds-label {
-    color: #428be5;
+	color: #428be5;
 }
+
 .stopped-stopwatch .miliseconds-label,
 .running-stopwatch .miliseconds-label,
 .paused-stopwatch .miliseconds-label {
-    font-size: 50px;
+	font-size: 50px;
 }
+
 .running-stopwatch .seconds-label,
 .paused-stopwatch .seconds-label {
-    font-weight: 500;
+	font-weight: 500;
 }
 
 .stopped-stopwatch .seconds-label,
 .stopped-stopwatch .miliseconds-label,
 .paused-stopwatch .seconds-label,
 .paused-stopwatch .miliseconds-label {
-    color: black;
-}
-
-.pill-button {
-    border-radius: 9999px;
-    -gtk-outline-radius: 9999px;
+	color: black;
 }
 
 /* World */
 
 .clock-title {
-    font-size: 1.1em;
+	font-size: 1.1em;
 }
 
 .clock-desc {
-    font-size: 0.9em;
+	font-size: 0.9em;
 }
 
 .clock-time {
-    font-size: 2em;
-    padding: 0.2em 0.5em;
-    border-radius: 1em;
-    background: #e5a50a;
-    color: #000000;
-    font-weight: lighter;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    transition: 0.4s background ease-in;
+	font-size: 2em;
+	padding: 0.2em 0.5em;
+	border-radius: 1em;
+	background: #e5a50a;
+	color: #000000;
+	font-weight: lighter;
+	border: 1px solid rgba(0, 0, 0, 0.06);
+	transition: 0.4s background ease-in;
 }
 
 .none .clock-time {
-  background: #f6f5f4;
+	background: #f6f5f4;
 }
 
 .night .clock-time {
-  background: #a0a2b7;
+	background: #a0a2b7;
 }
 
 .astro .clock-time {
-  background: #c6adaa;
+	background: #c6adaa;
 }
 
 .naut .clock-time {
-  background: #ecb89c;
+	background: #ecb89c;
 }
 
 .civil .clock-time {
-  background: #FAE189;
+	background: #FAE189;
 }
 
 .day .clock-time {
-  background: #fcf7b0;
+	background: #fcf7b0;
 }
 
