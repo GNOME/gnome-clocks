@@ -1,6 +1,7 @@
 # Turkish translation for gnome-clocks.
 # Copyright (C) 2012-2020 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
+#
 # Osman Karagöz <osmank3@gmail.com>, 2012.
 # Gökhan Gurbetoğlu <ggurbet@gmail.com>, 2014.
 # Muhammet Kara <muhammetk@gmail.com>, 2013, 2014, 2015, 2016.
@@ -12,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-02-23 22:56+0000\n"
-"PO-Revision-Date: 2020-02-24 17:48+0300\n"
+"POT-Creation-Date: 2020-03-03 16:07+0000\n"
+"PO-Revision-Date: 2020-02-29 18:38+0300\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.4\n"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -98,78 +99,24 @@ msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Sıfırla"
 
-#: data/org.gnome.clocks.appdata.xml.in.in:6
-msgid "GNOME Clocks"
-msgstr "GNOME Saatler"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:7
-#: data/org.gnome.clocks.desktop.in.in:6
-msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Dünya saatleri, alarmlar, kronometre ve zamanlayıcı"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:9
-msgid ""
-"A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
-msgstr ""
-"Basit ve şık saat uygulaması. Dünya saatleri, alarm, kronometre ve "
-"zamanlayıcı içerir."
-
-#: data/org.gnome.clocks.appdata.xml.in.in:13
-msgid "Goals:"
-msgstr "Hedefleri:"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:15
-msgid "Show the time in different cities around the world"
-msgstr "Dünya çapında farklı şehirlerdeki saati göstermek"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:16
-msgid "Set alarms to wake you up"
-msgstr "Sizi uyandırmak için alarm kurmak"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:17
-msgid "Measure elapsed time with an accurate stopwatch"
-msgstr "Doğru bir kronometre ile geçen zamanı ölçmek"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:18
-msgid "Set timers to properly cook your food"
-msgstr "Düzgün yemek pişirmek için zamanlayıcı ayarlamak"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:32
-msgid "Initial screen"
-msgstr "İlk ekran"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:36
-msgid "Alarms screen"
-msgstr "Alarmlar ekranı"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:40
-msgid "Alarms setup"
-msgstr "Alarmlar kurulumu"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:44
-msgid "Stopwatch screen"
-msgstr "Kronometre ekranı"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:48
-msgid "Timer screen"
-msgstr "Zamanlayıcı ekranı"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:62
-msgid "The GNOME Project"
-msgstr "GNOME Projesi"
-
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/ui/headerbar.ui:24 src/alarm.vala:788 src/alarm.vala:868
-#: src/main.vala:25 src/stopwatch.vala:122 src/timer.vala:407
+#: src/main.vala:25 src/stopwatch.vala:122 src/timer.vala:385
 #: src/window.vala:273 src/world.vala:513 src/world.vala:602
 msgid "Clocks"
 msgstr "Saatler"
 
+#: data/org.gnome.clocks.desktop.in.in:6
+#: data/org.gnome.clocks.metainfo.xml.in.in:7
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "Dünya saatleri, alarmlar, kronometre ve zamanlayıcı"
+
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "saat;zaman;geri sayım;alarm;dünya saatleri;kronometre;saat dilimi;zaman dilimi;"
+msgstr ""
+"saat;zaman;geri sayım;alarm;dünya saatleri;kronometre;saat dilimi;zaman "
+"dilimi;"
 
 #: data/org.gnome.clocks.desktop.in.in:18
 msgid "Allows world clocks to be displayed for your time zone."
@@ -230,6 +177,62 @@ msgstr "Panel durumu"
 #: data/org.gnome.clocks.gschema.xml.in:59
 msgid "Current clock panel."
 msgstr "Geçerli saat paneli."
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:6
+msgid "GNOME Clocks"
+msgstr "GNOME Saatler"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:9
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"Basit ve şık saat uygulaması. Dünya saatleri, alarm, kronometre ve "
+"zamanlayıcı içerir."
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:13
+msgid "Goals:"
+msgstr "Hedefleri:"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:15
+msgid "Show the time in different cities around the world"
+msgstr "Dünya çapında farklı şehirlerdeki saati göstermek"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:16
+msgid "Set alarms to wake you up"
+msgstr "Sizi uyandırmak için alarm kurmak"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:17
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "Doğru bir kronometre ile geçen zamanı ölçmek"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:18
+msgid "Set timers to properly cook your food"
+msgstr "Düzgün yemek pişirmek için zamanlayıcı ayarlamak"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:32
+msgid "Initial screen"
+msgstr "İlk ekran"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:36
+msgid "Alarms screen"
+msgstr "Alarmlar ekranı"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:40
+msgid "Alarms setup"
+msgstr "Alarmlar kurulumu"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:44
+msgid "Stopwatch screen"
+msgstr "Kronometre ekranı"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:48
+msgid "Timer screen"
+msgstr "Zamanlayıcı ekranı"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:74
+msgid "The GNOME Project"
+msgstr "GNOME Projesi"
 
 #: data/ui/alarmdaypickerrow.ui:5
 msgid "_Repeat"
@@ -295,11 +298,11 @@ msgstr "_Yardım"
 msgid "_About Clocks"
 msgstr "Saatler _Hakkında"
 
-#: data/ui/headerbar.ui:149
+#: data/ui/headerbar.ui:140
 msgid "Back"
 msgstr "Geri"
 
-#: data/ui/headerbar.ui:186
+#: data/ui/headerbar.ui:177
 msgid "Menu"
 msgstr "Menü"
 
@@ -470,50 +473,15 @@ msgid "Start"
 msgstr "Başla"
 
 #. Translators: Tooltip for the + button
-#: src/timer.vala:142 src/timer.vala:410
+#: src/timer.vala:142 src/timer.vala:388
 msgid "New Timer"
 msgstr "Yeni Zamanlayıcı"
 
-#: src/timer.vala:374
-#, c-format
-msgid "%i second timer"
-msgstr "%i saniye zamanlayıcı"
-
-#: src/timer.vala:376
-#, c-format
-msgid "%i minute timer"
-msgstr "%i dakika zamanlayıcı"
-
-#: src/timer.vala:378
-#, c-format
-msgid "%i hour timer"
-msgstr "%i saat zamanlayıcı"
-
-#: src/timer.vala:380
-#, c-format
-msgid "%i minute %i second timer"
-msgstr "%i dakika %i saniye zamanlayıcı"
-
-#: src/timer.vala:382
-#, c-format
-msgid "%i hour %i minute timer"
-msgstr "%i saat %i dakika zamanlayıcı"
-
-#: src/timer.vala:384
-#, c-format
-msgid "%i hour %i second timer"
-msgstr "%i saat %i saniye zamanlayıcı"
-
-#: src/timer.vala:386
-#, c-format
-msgid "%i hour %i minute %i second timer"
-msgstr "%i saat %i dakika %i saniye zamanlayıcı"
-
-#: src/timer.vala:449
+#: src/timer.vala:427
 msgid "Time is up!"
 msgstr "Süre doldu!"
 
-#: src/timer.vala:450
+#: src/timer.vala:428
 msgid "Timer countdown finished"
 msgstr "Geri sayım tamamlandı"
 
@@ -637,7 +605,7 @@ msgstr "Geçerli saat dilimi"
 #, c-format
 msgid "%s hour earlier"
 msgid_plural "%s hours earlier"
-msgstr[0] "%s saat önce"
+msgstr[0] "%s saat geri"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
@@ -645,7 +613,7 @@ msgstr[0] "%s saat önce"
 #, c-format
 msgid "%s hour later"
 msgid_plural "%s hours later"
-msgstr[0] "%s saat sonra"
+msgstr[0] "%s saat ileri"
 
 #. Translators: This clock represents the local time
 #: src/world.vala:446
@@ -656,6 +624,27 @@ msgstr "Geçerli konum"
 #: src/world.vala:516
 msgid "Add Location"
 msgstr "Konum Ekle"
+
+#~ msgid "%i second timer"
+#~ msgstr "%i saniye zamanlayıcı"
+
+#~ msgid "%i minute timer"
+#~ msgstr "%i dakika zamanlayıcı"
+
+#~ msgid "%i hour timer"
+#~ msgstr "%i saat zamanlayıcı"
+
+#~ msgid "%i minute %i second timer"
+#~ msgstr "%i dakika %i saniye zamanlayıcı"
+
+#~ msgid "%i hour %i minute timer"
+#~ msgstr "%i saat %i dakika zamanlayıcı"
+
+#~ msgid "%i hour %i second timer"
+#~ msgstr "%i saat %i saniye zamanlayıcı"
+
+#~ msgid "%i hour %i minute %i second timer"
+#~ msgstr "%i saat %i dakika %i saniye zamanlayıcı"
 
 #~ msgctxt "shortcut window"
 #~ msgid "Select all world clocks"
