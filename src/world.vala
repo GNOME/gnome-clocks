@@ -251,90 +251,119 @@ public class Item : Object, ContentItem {
         tick ();
     }
 
-    private void calculate_riseset () {
-        double lat, lon;
-        int y, m, d;
+    private void calculate_riseset_at_correction (double latitude,
+                                                  double longitude,
+                                                  int year,
+                                                  int month,
+                                                  int day,
+                                                  double correction,
+                                                  out DateTime sunrise,
+                                                  out DateTime sunset) {
         int rise_hour, rise_min;
         int set_hour, set_min;
+
+        calculate_sunrise_sunset (latitude,
+                                  longitude,
+                                  year,
+                                  month,
+                                  day,
+                                  correction,
+                                  out rise_hour,
+                                  out rise_min,
+                                  out set_hour,
+                                  out set_min);
+
+        var utc_sunrise = new DateTime.utc (year, month, day, rise_hour, rise_min, 0);
+        if (utc_sunrise != null) {
+            sunrise = utc_sunrise.to_timezone (time_zone);
+        } else {
+            sunrise = null;
+            warning ("Sunrise for (%f,%f) resulted in %04i-%02i-%02i %02i:%02i",
+                     latitude,
+                     longitude,
+                     year,
+                     month,
+                     day,
+                     rise_hour,
+                     rise_min);
+        }
+
+        var utc_sunset = new DateTime.utc (year, month, day, set_hour, set_min, 0);
+        if (utc_sunset != null) {
+            var local_sunset = utc_sunset.to_timezone (time_zone);
+            if (local_sunset.compare (sun_rise) < 0) {
+                sunset = local_sunset.add_days (1);
+            } else {
+                sunset = local_sunset;
+            }
+        } else {
+            sunset = null;
+            warning ("Sunset for (%f,%f) resulted in %04i-%02i-%02i %02i:%02i",
+                     latitude,
+                     longitude,
+                     year,
+                     month,
+                     day,
+                     rise_hour,
+                     rise_min);
+        }
+    }
+
+    private void calculate_riseset () {
+        // Where we are calculating for
+        double latitude, longitude;
+        // The current UTC day
+        int year, month, day;
 
         if (date_time.get_day_of_year () == last_calc_day) {
             return;
         }
 
-        location.get_coords (out lat, out lon);
+        location.get_coords (out latitude, out longitude);
 
         // Some locations, such as UTC, aren't actual locations and don't have
         // proper coords
-        if (!lat.is_finite () || !lon.is_finite ()) {
+        if (!latitude.is_finite () || !longitude.is_finite ()) {
             return;
         }
 
         var utc = date_time.to_utc ();
-        utc.get_ymd (out y, out m, out d);
+        utc.get_ymd (out year, out month, out day);
 
-        calculate_sunrise_sunset (lat,
-                                  lon,
-                                  y,
-                                  m,
-                                  d,
-                                  RISESET_CORRECTION_NONE,
-                                  out rise_hour,
-                                  out rise_min,
-                                  out set_hour,
-                                  out set_min);
+        calculate_riseset_at_correction (latitude,
+                                         longitude,
+                                         year,
+                                         month,
+                                         day,
+                                         RISESET_CORRECTION_NONE,
+                                         out sun_rise,
+                                         out sun_set);
+        calculate_riseset_at_correction (latitude,
+                                         longitude,
+                                         year,
+                                         month,
+                                         day,
+                                         RISESET_CORRECTION_CIVIL,
+                                         out civil_rise,
+                                         out civil_set);
+        calculate_riseset_at_correction (latitude,
+                                         longitude,
+                                         year,
+                                         month,
+                                         day,
+                                         RISESET_CORRECTION_NAUTICAL,
+                                         out naut_rise,
+                                         out naut_set);
+        calculate_riseset_at_correction (latitude,
+                                         longitude,
+                                         year,
+                                         month,
+                                         day,
+                                         RISESET_CORRECTION_ASTRONOMICAL,
+                                         out astro_rise,
+                                         out astro_set);
 
-        sun_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
-        sun_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
-        if (sun_set.compare (sun_rise) < 0)
-            sun_set = sun_set.add_days (1);
-
-        calculate_sunrise_sunset (lat,
-                                  lon,
-                                  y,
-                                  m,
-                                  d,
-                                  RISESET_CORRECTION_CIVIL,
-                                  out rise_hour,
-                                  out rise_min,
-                                  out set_hour,
-                                  out set_min);
-
-        civil_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
-        civil_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
-        if (civil_set.compare (civil_rise) < 0)
-            civil_set = civil_set.add_days (1);
-
-        calculate_sunrise_sunset (lat,
-                                  lon,
-                                  y,
-                                  m,
-                                  d,
-                                  RISESET_CORRECTION_NAUTICAL,
-                                  out rise_hour,
-                                  out rise_min,
-                                  out set_hour,
-                                  out set_min);
-
-        naut_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
-        naut_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
-        if (naut_set.compare (naut_rise) < 0)
-            naut_set = naut_set.add_days (1);
-
-        calculate_sunrise_sunset (lat,
-                                  lon,
-                                  y,
-                                  m,
-                                  d,
-                                  RISESET_CORRECTION_ASTRONOMICAL,
-                                  out rise_hour,
-                                  out rise_min,
-                                  out set_hour,
-                                  out set_min);
-
-        astro_rise = new DateTime.utc (y, m, d, rise_hour, rise_min, 0).to_timezone (time_zone);
-        astro_set = new DateTime.utc (y, m, d, set_hour, set_min, 0).to_timezone (time_zone);
-        if (astro_set.compare (astro_rise) < 0)
-            astro_set = astro_set.add_days (1);
+        last_calc_day = date_time.get_day_of_year ();
     }
 
     [Signal (run = "first")]
