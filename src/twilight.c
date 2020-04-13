@@ -124,9 +124,10 @@ calculate_sunrise_sunset (double  lat,
 
   // IMPORTANT: for polar circles we can't compute anything for certain dates
 
-  if ((((is_in_north_summer (month) && (lat <= (d - 90))) || (lat >= (90 - d)))) ||
-      (((is_in_north_winter (month) && (lat <= (-d - 90))) || (lat >= (90 + d))))) {
-
+  if ((((is_in_north_summer (month) && (lat <= (d + 0.83 + correction - 90))) ||
+                                       (lat >= (90 - d - 0.83 - correction)))) ||
+      (((is_in_north_winter (month) && (lat <= (-90 - d - 0.83 - correction))) ||
+                                       (lat >= (90 + d + 0.83 + correction))))) {
     sunrise_hour = 0;
     sunrise_minute = 0;
     sunset_hour = 23;
@@ -141,7 +142,7 @@ calculate_sunrise_sunset (double  lat,
     // hour angle
     double w = DEGREES (acos ((sin (RADIANS (-correction)) + sin (RADIANS (-0.83)) -
                                sin (RADIANS (lat)) * sin (RADIANS (d)))
-                              / (cos (RADIANS (lat))) * cos (RADIANS (d))));
+                              / ((cos (RADIANS (lat))) * cos (RADIANS (d)))));
 
     // julian sunrise
     double J_sunrise = (J_transit - w / 360 - 0.5);
