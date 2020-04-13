@@ -17,7 +17,6 @@
  *         Zander Brown <zbrown@gnome.org>
  */
 
-#include <stdbool.h>
 #include <math.h>
 #include <glib.h>
 
@@ -75,7 +74,7 @@ is_in_north_winter (int month)
  *
  * Since: 3.36
  */
-bool
+gboolean
 calculate_sunrise_sunset (double  lat,
                           double  lon,
                           int     year,
@@ -91,7 +90,7 @@ calculate_sunrise_sunset (double  lat,
   double sunrise_minute;
   double sunset_hour;
   double sunset_minute;
-  bool calculatable = TRUE;
+  gboolean calculatable = TRUE;
 
   // first we calculate our current Julian date
   int julian_day_number = ((1461 * (year + 4800 + (month - 14) / 12)) / 4 +
