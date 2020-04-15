@@ -86,10 +86,10 @@ calculate_sunrise_sunset (double  lat,
                           int    *set_hour,
                           int    *set_min)
 {
-  double sunrise_hour;
-  double sunrise_minute;
-  double sunset_hour;
-  double sunset_minute;
+  double sunrise_hour = 0;
+  double sunrise_minute = 0;
+  double sunset_hour = 23;
+  double sunset_minute = 59;
   gboolean calculatable = TRUE;
 
   // first we calculate our current Julian date
@@ -129,11 +129,6 @@ calculate_sunrise_sunset (double  lat,
                                        (lat >= (90 - d - 0.83 - correction)))) ||
       (((is_in_north_winter (month) && (lat <= (-90 - d - 0.83 - correction))) ||
                                        (lat >= (90 + d + 0.83 + correction))))) {
-    sunrise_hour = 0;
-    sunrise_minute = 0;
-    sunset_hour = 23;
-    sunset_minute = 59;
-
     calculatable = FALSE;
   } else {
     double sunrise_days;
@@ -147,19 +142,23 @@ calculate_sunrise_sunset (double  lat,
                                sin (RADIANS (lat)) * sin (RADIANS (d)))
                               / ((cos (RADIANS (lat))) * cos (RADIANS (d)))));
 
-    // julian sunrise
-    double J_sunrise = (J_transit - w / 360 - 0.5);
-    double J_sunset = (J_transit + w / 360 - 0.5);
+    if (w != FP_NAN) {
+      // julian sunrise
+      double J_sunrise = (J_transit - w / 360 - 0.5);
+      double J_sunset = (J_transit + w / 360 - 0.5);
 
-    // convert Julian dates to UTC time (disregarding days in the process)
-    sunrise_days  = modf (J_sunrise, &sunrise_day);
-    sunset_days  = modf (J_sunset, &sunset_day);
+      // convert Julian dates to UTC time (disregarding days in the process)
+      sunrise_days  = modf (J_sunrise, &sunrise_day);
+      sunset_days  = modf (J_sunset, &sunset_day);
 
-    sunrise_hours = modf (sunrise_days * 24, &sunrise_hour);
-    sunset_hours = modf (sunset_days * 24, &sunset_hour);
+      sunrise_hours = modf (sunrise_days * 24, &sunrise_hour);
+      sunset_hours = modf (sunset_days * 24, &sunset_hour);
 
-    modf (sunrise_hours * 60, &sunrise_minute);
-    modf (sunset_hours * 60, &sunset_minute);
+      modf (sunrise_hours * 60, &sunrise_minute);
+      modf (sunset_hours * 60, &sunset_minute);
+    } else {
+      calculatable = FALSE;
+    }
   }
 
   if (rise_hour) {
