@@ -5,9 +5,9 @@
 # Yuri Chornoivan <yurchor@ukr.net>, 2020.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-clocks master\n"
-"POT-Creation-Date: 2020-04-16 13:50+0000\n"
-"PO-Revision-Date: 2020-04-17 16:30+0300\n"
+"Project-Id-Version: gnome-clocks gnome-3-36\n"
+"POT-Creation-Date: 2020-04-13 17:12+0000\n"
+"PO-Revision-Date: 2020-04-17 16:22+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
@@ -71,8 +71,8 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:34
-msgid "Press <gui style=\"button\">Alarms</gui>."
-msgstr "Натисніть кнопку <gui style=\"button\">Будильники</gui>."
+msgid "Press <gui style=\"button\">Alarm</gui>."
+msgstr "Натисніть <gui style=\"button\">Будильник</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:37
@@ -86,26 +86,23 @@ msgstr "Встановіть час, коли має бути завершено
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:43
-msgid ""
-"Select the days on which you want the alarm to be repeated at the set time, "
-"or none if you only want the alarm to go off once."
-msgstr ""
-"Виберіть дні, у вказаний час яких має повторюватися нагадування, або не"
-" вибирайте днів, якщо нагадування має бути виконано лише один раз."
-
-#. (itstool) path: item/p
-#: C/alarm-add.page:47
 msgid "You can give your new alarm a name so that it is easier to identify."
 msgstr ""
 "Ви можете надати вашому новому нагадуванню назву, щоб його було простіше"
 " ідентифікувати."
 
 #. (itstool) path: item/p
+#: C/alarm-add.page:47
+msgid ""
+"Select the days on which you want the alarm to be repeated at the set time."
+msgstr "Виберіть дні, у вказаний час яких має повторюватися нагадування."
+
+#. (itstool) path: item/p
 #: C/alarm-add.page:51
-msgid "Press <gui style=\"button\">Add</gui> to finish adding the alarm."
+msgid "Press <gui style=\"button\">Done</gui> to finish adding the alarm."
 msgstr ""
-"Натисніть кнопку <gui style=\"button\">Додати</gui>, щоб завершити додавання"
-" нагадування."
+"Натисніть кнопку <gui style=\"button\">Завершено</gui>, щоб завершити"
+" додавання нагадування."
 
 #. (itstool) path: page/p
 #: C/alarm-add.page:55
@@ -133,52 +130,30 @@ msgstr "Редагування нагадування"
 
 #. (itstool) path: page/p
 #: C/alarm-edit.page:29
-msgid "Edit your alarm to change when it goes off or to rename it."
-msgstr ""
-"Редагування нагадування з метою зміни часу його показу або перейменування."
-
-#. (itstool) path: item/p
-#: C/alarm-edit.page:33 C/alarm-edit.page:48 C/alarm-remove.page:34
-msgid "Press the <gui style=\"button\">Alarms</gui> button."
-msgstr "Натисніть кнопку <gui style=\"button\">Будильники</gui>."
-
-#. (itstool) path: item/p
-#: C/alarm-edit.page:36
 msgid ""
-"Find the alarm you want to change and press <gui style=\"button\">Edit</gui>."
+"Edit your alarm to change when it goes off, rename it or to deactivate it."
 msgstr ""
-"Позначте пункт нагадування, до якого ви хочете внести зміни, і натисніть"
-" кнопку <gui style=\"button\">Редагувати</gui>."
+"Редагування нагадування з метою зміни часу його показу, перейменування або"
+" вимикання."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:39
+#: C/alarm-edit.page:34 C/alarm-remove.page:34
+msgid "Press the <gui style=\"button\">Alarm</gui> button."
+msgstr "Натисніть кнопку <gui style=\"button\">Будильник</gui>."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:37
+msgid "Press the alarm which you want to edit."
+msgstr "Натисніть пункт нагадування, яке ви хочете редагувати."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:40
 msgid ""
 "Update the alarm and press <gui style=\"button\">Done</gui> to finish "
 "editing it."
 msgstr ""
 "Оновіть дані нагадування і натисніть кнопку <gui style=\"button\">Завершено<"
 "/gui>, щоб завершити редагування."
-
-#. (itstool) path: page/p
-#: C/alarm-edit.page:44
-msgid "You can also temporarily disable an alarm."
-msgstr "Ви можете тимчасово вимкнути нагадування."
-
-#. (itstool) path: item/p
-#: C/alarm-edit.page:51
-msgid "Find the alarm you want to disable or enable and toggle the switch."
-msgstr ""
-"Знайдіть пункт нагадування, яке ви хочете вимкнути або увімкнути, і змініть"
-" стан перемикача."
-
-#. (itstool) path: item/p
-#: C/alarm-edit.page:54
-msgid ""
-"When the alarm is disabled, it will not go off, but it can be enabled again "
-"later."
-msgstr ""
-"Якщо нагадування вимкнено, його не буде показано, але його можна буде"
-" увімкнути згодом."
 
 #. (itstool) path: info/desc
 #: C/alarm-remove.page:25
@@ -197,10 +172,23 @@ msgstr "Ви можете вилучати непотрібні вам нага�
 
 #. (itstool) path: item/p
 #: C/alarm-remove.page:37
-msgid "Press the <gui style=\"button\">Delete</gui> button to remove an alarm."
+msgid ""
+"Right click on the alarm. You can press the button with the tick mark in the "
+"top right corner and select the alarm which you want to delete."
 msgstr ""
-"Натисніть кнопку <gui style=\"button\">Вилучити</gui>, щоб вилучити"
-" нагадування."
+"Клацніть правою кнопкою миші на пункті нагадування. Ви можете натиснути"
+" кнопку із позначкою у верхньому правому куті вікна програми і вибрати"
+" нагадування, яке ви хочете вилучити."
+
+#. (itstool) path: item/p
+#: C/alarm-remove.page:42 C/world-remove.page:41
+msgid "Press the <gui style=\"button\">Delete</gui> button."
+msgstr "Натисніть кнопку <gui style=\"button\">Вилучити</gui>."
+
+#. (itstool) path: page/p
+#: C/alarm-remove.page:46
+msgid "You can select more than one alarm at a time for deletion."
+msgstr "Ви можете одночасно позначати декілька нагадувань для вилучення."
 
 #. (itstool) path: info/desc
 #: C/alarm-snooze-stop.page:24
@@ -287,21 +275,21 @@ msgstr ""
 #. (itstool) path: item/p
 #: C/stopwatch.page:51
 msgid ""
-"Press <gui style=\"button\">Pause</gui> to pause the stopwatch and <gui "
-"style=\"button\">Resume</gui> when you are ready to resume timing the task."
+"Press <gui style=\"button\">Stop</gui> to pause the stopwatch and <gui style="
+"\"button\">Continue</gui> when you are ready to resume timing the task."
 msgstr ""
-"Натисніть кнопку <gui style=\"button\">Призупинити</gui>, щоб призупинити"
-" відлік і кнопку <gui "
-"style=\"button\">Продовжити</gui>, коли ви будете готові відновити відлік"
-" часу виконання завдання."
+"Натисніть кнопку <gui style=\"button\">Зупинити</gui>, щоб призупинити відлік"
+" і кнопку <gui style="
+"\"button\">Продовжити</gui>, коли ви будете готові відновити відлік часу"
+" виконання завдання."
 
 #. (itstool) path: page/p
 #: C/stopwatch.page:59
 msgid ""
-"You can use the <gui style=\"button\">Clear</gui> button to reset the "
-"stopwatch when it is paused."
+"You can use the <gui style=\"button\">Reset</gui> button to reset the "
+"stopwatch when it is stopped."
 msgstr ""
-"Ви можете скористатися кнопкою <gui style=\"button\">Очистити</gui>, щоб"
+"Ви можете скористатися кнопкою <gui style=\"button\">Скинути</gui>, щоб"
 " скинути відлік секундоміра, коли відлік зупинено."
 
 #. (itstool) path: note/p
@@ -492,10 +480,17 @@ msgstr "Ви можете вилучати непотрібні вам годи�
 #. (itstool) path: item/p
 #: C/world-remove.page:36
 msgid ""
-"Press the <gui style=\"button\">Delete</gui> button to remove a world clock."
+"Right click on the world clock. You can press the button with the tick mark "
+"in the top right corner and select the clock which you want to delete."
 msgstr ""
-"Натисніть кнопку <gui style=\"button\">Вилучити</gui>, щоб вилучити годинник"
-" світу."
+"Клацніть правою кнопкою миші на пункті годинника світу. Ви можете натиснути"
+" кнопку із позначкою у верхньому правому куті вікна програми і вибрати"
+" годинник, який ви хочете вилучити."
+
+#. (itstool) path: page/p
+#: C/world-remove.page:45
+msgid "You can select more than one clock at a time for deletion."
+msgstr "Ви можете одночасно позначати декілька годинників для вилучення."
 
 #. (itstool) path: info/title
 #: C/index.page:22
