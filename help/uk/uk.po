@@ -1,0 +1,580 @@
+# Ukrainian translation for gnome-clocks.
+# Copyright (C) 2020 gnome-clocks's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-clocks package.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-clocks gnome-3-36\n"
+"POT-Creation-Date: 2020-04-13 17:12+0000\n"
+"PO-Revision-Date: 2020-04-17 16:22+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.07.70\n"
+
+#. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
+msgctxt "_"
+msgid "translator-credits"
+msgstr "Юрій Чорноіван <yurchor@ukr.net>, 2020"
+
+#. (itstool) path: credit/name
+#: C/alarm-add.page:14 C/alarm-edit.page:14 C/alarm-remove.page:15
+#: C/alarm-snooze-stop.page:14 C/stopwatch.page:14 C/timer.page:14
+#: C/world-add.page:14 C/world-check.page:14 C/world-remove.page:14
+#: C/index.page:12
+msgid "Aruna Sankaranarayanan"
+msgstr "Aruna Sankaranarayanan"
+
+#. (itstool) path: credit/years
+#: C/alarm-add.page:16 C/alarm-add.page:21 C/alarm-edit.page:16
+#: C/alarm-edit.page:21 C/alarm-remove.page:17 C/alarm-remove.page:22
+#: C/alarm-snooze-stop.page:16 C/alarm-snooze-stop.page:21 C/stopwatch.page:16
+#: C/stopwatch.page:21 C/timer.page:16 C/timer.page:21 C/world-add.page:16
+#: C/world-add.page:21 C/world-check.page:16 C/world-check.page:21
+#: C/world-remove.page:16 C/world-remove.page:21 C/index.page:14
+#: C/index.page:19
+msgid "2013"
+msgstr "2013"
+
+#. (itstool) path: credit/name
+#: C/alarm-add.page:19 C/alarm-edit.page:19 C/alarm-remove.page:20
+#: C/alarm-snooze-stop.page:19 C/stopwatch.page:19 C/timer.page:19
+#: C/world-add.page:19 C/world-check.page:19 C/world-remove.page:19
+#: C/index.page:17
+msgid "Ekaterina Gerasimova"
+msgstr "Єкатерина Герасимова (Ekaterina Gerasimova)"
+
+#. (itstool) path: info/desc
+#: C/alarm-add.page:24
+msgid "Use an alarm to set reminder for yourself."
+msgstr "Використання будильника для встановлення нагадування."
+
+#. (itstool) path: page/title
+#: C/alarm-add.page:27
+msgid "Add an alarm"
+msgstr "Додати будильник"
+
+#. (itstool) path: page/p
+#: C/alarm-add.page:29
+msgid ""
+"You can add an alarm for specific days of the week. It will go off "
+"regardless of whether <app>Clocks</app> is open or not."
+msgstr ""
+"Ви можете додати нагадування для певних днів тижня. Нагадування буде виконано"
+" незалежно від того, чи відкрито вікно <app>Годинників</app>."
+
+#. (itstool) path: item/p
+#: C/alarm-add.page:34
+msgid "Press <gui style=\"button\">Alarm</gui>."
+msgstr "Натисніть <gui style=\"button\">Будильник</gui>."
+
+#. (itstool) path: item/p
+#: C/alarm-add.page:37
+msgid "Press <gui style=\"button\">New</gui>."
+msgstr "Натисніть <gui style=\"button\">Створити</gui>."
+
+#. (itstool) path: item/p
+#: C/alarm-add.page:40
+msgid "Set the time when you want the alarm to go off."
+msgstr "Встановіть час, коли має бути завершено відлік будильника."
+
+#. (itstool) path: item/p
+#: C/alarm-add.page:43
+msgid "You can give your new alarm a name so that it is easier to identify."
+msgstr ""
+"Ви можете надати вашому новому нагадуванню назву, щоб його було простіше"
+" ідентифікувати."
+
+#. (itstool) path: item/p
+#: C/alarm-add.page:47
+msgid ""
+"Select the days on which you want the alarm to be repeated at the set time."
+msgstr "Виберіть дні, у вказаний час яких має повторюватися нагадування."
+
+#. (itstool) path: item/p
+#: C/alarm-add.page:51
+msgid "Press <gui style=\"button\">Done</gui> to finish adding the alarm."
+msgstr ""
+"Натисніть кнопку <gui style=\"button\">Завершено</gui>, щоб завершити"
+" додавання нагадування."
+
+#. (itstool) path: page/p
+#: C/alarm-add.page:55
+msgid ""
+"You can <link xref=\"alarm-edit\">temporarily disable your alarm</link> if "
+"you do not want to use it for a while."
+msgstr ""
+"Ви можете <link xref=\"alarm-edit\">тимчасово вимкнути ваше нагадування</link"
+">, якщо певний час не хочете ним користуватися."
+
+#. (itstool) path: page/p
+#: C/alarm-add.page:58
+msgid "Your alarm will not go off if your computer is switched off."
+msgstr "Ваше нагадування не буде здійснено, якщо комп'ютер буде вимкнено."
+
+#. (itstool) path: info/desc
+#: C/alarm-edit.page:24
+msgid "Update your alarm or temporarily disable it."
+msgstr "Оновлення нагадування або тимчасове його вимикання."
+
+#. (itstool) path: page/title
+#: C/alarm-edit.page:27
+msgid "Edit an alarm"
+msgstr "Редагування нагадування"
+
+#. (itstool) path: page/p
+#: C/alarm-edit.page:29
+msgid ""
+"Edit your alarm to change when it goes off, rename it or to deactivate it."
+msgstr ""
+"Редагування нагадування з метою зміни часу його показу, перейменування або"
+" вимикання."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:34 C/alarm-remove.page:34
+msgid "Press the <gui style=\"button\">Alarm</gui> button."
+msgstr "Натисніть кнопку <gui style=\"button\">Будильник</gui>."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:37
+msgid "Press the alarm which you want to edit."
+msgstr "Натисніть пункт нагадування, яке ви хочете редагувати."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:40
+msgid ""
+"Update the alarm and press <gui style=\"button\">Done</gui> to finish "
+"editing it."
+msgstr ""
+"Оновіть дані нагадування і натисніть кнопку <gui style=\"button\">Завершено<"
+"/gui>, щоб завершити редагування."
+
+#. (itstool) path: info/desc
+#: C/alarm-remove.page:25
+msgid "Delete an alarm which you no longer need."
+msgstr "Вилучення непотрібного нагадування."
+
+#. (itstool) path: page/title
+#: C/alarm-remove.page:28
+msgid "Remove an alarm"
+msgstr "Вилучення нагадування"
+
+#. (itstool) path: page/p
+#: C/alarm-remove.page:30
+msgid "You can delete alarms which you no longer need."
+msgstr "Ви можете вилучати непотрібні вам нагадування."
+
+#. (itstool) path: item/p
+#: C/alarm-remove.page:37
+msgid ""
+"Right click on the alarm. You can press the button with the tick mark in the "
+"top right corner and select the alarm which you want to delete."
+msgstr ""
+"Клацніть правою кнопкою миші на пункті нагадування. Ви можете натиснути"
+" кнопку із позначкою у верхньому правому куті вікна програми і вибрати"
+" нагадування, яке ви хочете вилучити."
+
+#. (itstool) path: item/p
+#: C/alarm-remove.page:42 C/world-remove.page:41
+msgid "Press the <gui style=\"button\">Delete</gui> button."
+msgstr "Натисніть кнопку <gui style=\"button\">Вилучити</gui>."
+
+#. (itstool) path: page/p
+#: C/alarm-remove.page:46
+msgid "You can select more than one alarm at a time for deletion."
+msgstr "Ви можете одночасно позначати декілька нагадувань для вилучення."
+
+#. (itstool) path: info/desc
+#: C/alarm-snooze-stop.page:24
+msgid "Stop the alarm or set it to go off nine minutes later."
+msgstr "Зупинення нагадування або перенесення його на дев'ять хвилин."
+
+#. (itstool) path: page/title
+#: C/alarm-snooze-stop.page:27
+msgid "Stop or snooze your alarm"
+msgstr "Зупинення або перенесення вашого нагадування"
+
+#. (itstool) path: page/p
+#: C/alarm-snooze-stop.page:29
+msgid ""
+"When your alarm goes off, you can either stop the alarm or snooze it. When "
+"you snooze the alarm, the alarm is reset to go off nine minutes later."
+msgstr ""
+"Коли настане час вашого нагадування, ви можете зупинити його або перенести"
+" його. Якщо ви перенесете нагадування, його буде увімкнено за дев'ять хвилин."
+
+#. (itstool) path: page/p
+#: C/alarm-snooze-stop.page:32
+msgid ""
+"When your alarm goes off, a notification will pop up from your notification "
+"tray. If you have <app>Clocks</app> open, you will also see the alarm there."
+msgstr ""
+"Коли настане час нагадування, система покаже контекстну панель нагадування у"
+" системному лотку. Якщо буде відкрито вікно <app>Годинників</app>, ви"
+" побачите нагадування і у ньому."
+
+#. (itstool) path: info/desc
+#: C/stopwatch.page:24
+msgid "Use the stopwatch to measure the time that you take to finish a task."
+msgstr ""
+"Секундоміром можна скористатися для вимірювання часу, потрібно для завершення"
+" завдання."
+
+#. (itstool) path: page/title
+#: C/stopwatch.page:28
+msgid "Clock your best times"
+msgstr "Виміряйте свій найкращий час"
+
+#. (itstool) path: page/p
+#: C/stopwatch.page:30
+msgid ""
+"Use the stopwatch to measure the time that it takes to complete different "
+"parts of a task while also keeping track of the total time that it takes to "
+"finish the whole task. It is often used by athletes to measure the time "
+"taken to run each lap and the time taken to cover the entire distance. By "
+"timing each lap, they are able to tell if their speed changes from lap to "
+"lap."
+msgstr ""
+"Секундоміром можна скористатися для вимірювання часу, потрібного для"
+" завершення різних частин завдання, одночасно вимірюючи час, який потрібен"
+" для виконання усього завдання. Секундоміром часто користуються атлети для"
+" вимірювання часу, потрібного на те, щоб пробігти одне коло, і вимірювання"
+" часу, потрібного на те, щоб пробігти усю дистанцію. Вимірюючи час кола,"
+" можна спостерігати за тим, як змінюється швидкість атлета протягом дистанції."
+
+#. (itstool) path: item/p
+#: C/stopwatch.page:38
+msgid "Press the <gui style=\"button\">Stopwatch</gui> button."
+msgstr "Натисніть кнопку <gui style=\"button\">Хронометр</gui>."
+
+#. (itstool) path: item/p
+#: C/stopwatch.page:41
+msgid "Press <gui style=\"button\">Start</gui> to start the stopwatch."
+msgstr "Натисніть кнопку <gui style=\"button\">Запустити</gui>."
+
+#. (itstool) path: item/p
+#: C/stopwatch.page:44
+msgid "After completing one phase of the task:"
+msgstr "Після завершення певної фази завдання:"
+
+#. (itstool) path: item/p
+#: C/stopwatch.page:47
+msgid ""
+"Press <gui style=\"button\">Lap</gui> to record the end of the first phase "
+"and to start timing the next phase."
+msgstr ""
+"Натисніть кнопку <gui style=\"button\">Оберт</gui>, щоб записати час"
+" завершення першої фази і розпочати відлік для наступної фази."
+
+#. (itstool) path: item/p
+#: C/stopwatch.page:51
+msgid ""
+"Press <gui style=\"button\">Stop</gui> to pause the stopwatch and <gui style="
+"\"button\">Continue</gui> when you are ready to resume timing the task."
+msgstr ""
+"Натисніть кнопку <gui style=\"button\">Зупинити</gui>, щоб призупинити відлік"
+" і кнопку <gui style="
+"\"button\">Продовжити</gui>, коли ви будете готові відновити відлік часу"
+" виконання завдання."
+
+#. (itstool) path: page/p
+#: C/stopwatch.page:59
+msgid ""
+"You can use the <gui style=\"button\">Reset</gui> button to reset the "
+"stopwatch when it is stopped."
+msgstr ""
+"Ви можете скористатися кнопкою <gui style=\"button\">Скинути</gui>, щоб"
+" скинути відлік секундоміра, коли відлік зупинено."
+
+#. (itstool) path: note/p
+#: C/stopwatch.page:63
+msgid ""
+"Your lap times and total time will be lost when you reset the stopwatch or "
+"restart <app>Clocks</app>."
+msgstr ""
+"Час кіл і загальний час буде втрачено, якщо ви скинете відлік секундоміра або"
+" перезапустите <app>Годинники</app>."
+
+#. (itstool) path: info/desc
+#: C/timer.page:24
+msgid "Use a countdown to be notified when a time period has elapsed."
+msgstr ""
+"Використання відліку для сповіщення про те, що сплив певний період часу."
+
+#. (itstool) path: page/title
+#: C/timer.page:27
+msgid "Set the timer"
+msgstr "Встановлення таймера"
+
+#. (itstool) path: page/p
+#: C/timer.page:29
+msgid ""
+"Set the time for a second by second countdown to zero. You will be notified "
+"when the countdown has finished."
+msgstr ""
+"Встановіть час посекундного відліку до нуля. Програма сповістить вас, коли"
+" відлік буде завершено."
+
+#. (itstool) path: item/p
+#: C/timer.page:34
+msgid "Press the <gui style=\"button\">Timer</gui> button."
+msgstr "Натисніть кнопку <gui style=\"button\">Таймер</gui>."
+
+#. (itstool) path: item/p
+#: C/timer.page:37
+msgid "Set your time for the countdown."
+msgstr "Встановіть час для відліку."
+
+#. (itstool) path: item/p
+#: C/timer.page:40
+msgid "Press <gui style=\"button\">Start</gui> to commence the countdown."
+msgstr ""
+"Натисніть кнопку <gui style=\"button\">Запустити</gui>, щоб почати відлік."
+
+#. (itstool) path: page/p
+#: C/timer.page:44
+msgid "You will be notified when the countdown reaches zero."
+msgstr "Програма сповістить вас про завершення відліку."
+
+#. (itstool) path: note/p
+#: C/timer.page:47
+msgid ""
+"Once the timer has started its countdown, you can press the <gui style="
+"\"button\">Pause</gui> button to pause the timer. To reset the timer, press "
+"the <gui style=\"button\">Reset</gui> button."
+msgstr ""
+"Щойно таймер почне відлік, ви зможете натиснути кнопку <gui style=\"button\""
+">Призупинити</gui>, щоб призупинити відлік. Щоб скинути таймер, натисніть"
+" кнопку <gui style=\"button\">Скинути</gui>."
+
+#. (itstool) path: credit/name
+#: C/world-add.page:24
+msgid "Michael Hill"
+msgstr "Майкл Гілл (Michael Hill)"
+
+#. (itstool) path: info/desc
+#: C/world-add.page:28
+msgid "Add a clock for a new city to your world clocks list."
+msgstr "Додавання годинника для нового міста у списку годинників світу."
+
+#. (itstool) path: page/title
+#: C/world-add.page:31
+msgid "Add a new city clock"
+msgstr "Додавання годинника нового міста"
+
+#. (itstool) path: page/p
+#: C/world-add.page:33
+msgid ""
+"Add a city to your world clocks to see the time of day or night in that "
+"city. You will also be able to <link xref=\"world-check\">check the sunrise "
+"and sunset times</link> for each of the cities that you have added."
+msgstr ""
+"Додайте пункт міста до ваших годинників світу, щоб бачити поточний час дня"
+" або ночі у цьому місті. Ви також можете <link xref=\"world-check\""
+">переглянути час сходу або заходу сонця</link> для кожного з міст, які ви"
+" додали."
+
+#. (itstool) path: item/p
+#: C/world-add.page:39 C/world-check.page:35 C/world-remove.page:33
+msgid "Press the <gui style=\"button\">World</gui> button."
+msgstr "Натисніть кнопку <gui style=\"button\">Світ</gui>."
+
+#. (itstool) path: item/p
+#: C/world-add.page:42
+msgid ""
+"Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> to add a new city."
+msgstr ""
+"Натисніть кнопку <gui style=\"button\">Створити</gui> або комбінацію клавіш <"
+"keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> для додавання нового пункту міста."
+
+#. (itstool) path: item/p
+#: C/world-add.page:46
+msgid "Start typing the name of the city into the search."
+msgstr "Почніть вводити назву міста до поля для пошуку."
+
+#. (itstool) path: item/p
+#: C/world-add.page:49
+msgid "Select the correct city or the closest location to you from the list."
+msgstr "Виберіть належний пункт міста або найближче із міст у списку."
+
+#. (itstool) path: item/p
+#: C/world-add.page:53
+msgid "Press <gui style=\"button\">Add</gui> to finish adding the city."
+msgstr ""
+"Натисніть кнопку <gui style=\"button\">Додати</gui>, щоб завершити додавання"
+" міста."
+
+#. (itstool) path: page/p
+#: C/world-add.page:57
+msgid ""
+"If you do not see your city in the list, it is probably not available at "
+"this time. You should try adding the closest bigger city or the capital of "
+"your country instead."
+msgstr ""
+"Якщо потрібного вам міста у списку немає, ймовірно, підтримку додавання"
+" такого міста не передбачено. Вам слід спробувати додати найближче велике"
+" місто або столицю відповідної країни."
+
+#. (itstool) path: note/p
+#: C/world-add.page:62
+msgid ""
+"The clock for your current location will automatically be added to your "
+"world clocks when you are connected to the Internet. It will not be shown if "
+"you disconnect from the Internet and it will automatically update if you "
+"take your computer to a different city."
+msgstr ""
+"Годинник вашого поточного місця перебування буде автоматично додано до списку"
+" годинників світу, коли ви з'єднаєте ваш комп'ютер із інтернетом. Його не"
+" буде показано, якщо комп'ютер не з'єднано із інтернетом. Якщо ви переїдете"
+" разом із вашим комп'ютером до іншого міста, пункт міста буде автоматично"
+" оновлено."
+
+#. (itstool) path: info/desc
+#: C/world-check.page:24
+msgid "Check the sunrise and sunset times for a city."
+msgstr "Показ даних щодо сходу і заходу сонця для певної місцевості."
+
+#. (itstool) path: page/title
+#: C/world-check.page:27
+msgid "What else do world clocks show?"
+msgstr "Які ще дані може бути показано для годинників світу?"
+
+#. (itstool) path: page/p
+#: C/world-check.page:29
+msgid ""
+"Apart from checking the time, you can also view the sunrise and sunset times "
+"for today. You will also see if the city is a day behind or ahead of you."
+msgstr ""
+"Окрім показу часу, ви можете переглядати дані щодо сходу і заходу сонці"
+" поточної доби. Також ви зможете бачити, випереджає чи відстає час доби у"
+" певній місцевості ваш місцевий час."
+
+#. (itstool) path: item/p
+#: C/world-check.page:38
+msgid "Select a city to view more information about it."
+msgstr "Виберіть місто, щоб переглянути додаткові відомості щодо нього."
+
+#. (itstool) path: info/desc
+#: C/world-remove.page:24
+msgid "Delete a world clock which you no longer need."
+msgstr "Вилучення непотрібного годинника світу."
+
+#. (itstool) path: page/title
+#: C/world-remove.page:27
+msgid "Remove a world clock"
+msgstr "Вилучення годинника світу"
+
+#. (itstool) path: page/p
+#: C/world-remove.page:29
+msgid "You can delete clocks which you no longer need."
+msgstr "Ви можете вилучати непотрібні вам годинники."
+
+#. (itstool) path: item/p
+#: C/world-remove.page:36
+msgid ""
+"Right click on the world clock. You can press the button with the tick mark "
+"in the top right corner and select the clock which you want to delete."
+msgstr ""
+"Клацніть правою кнопкою миші на пункті годинника світу. Ви можете натиснути"
+" кнопку із позначкою у верхньому правому куті вікна програми і вибрати"
+" годинник, який ви хочете вилучити."
+
+#. (itstool) path: page/p
+#: C/world-remove.page:45
+msgid "You can select more than one clock at a time for deletion."
+msgstr "Ви можете одночасно позначати декілька годинників для вилучення."
+
+#. (itstool) path: info/title
+#: C/index.page:22
+msgctxt "link:seealso"
+msgid "Clocks Help"
+msgstr "Довідка з «Годинників»"
+
+#. (itstool) path: info/desc
+#: C/index.page:24
+msgid ""
+"Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
+"the time in different cities around the world."
+msgstr ""
+"Використання <app>Годинників</app> як секундоміра, таймера, для встановлення"
+" нагадувань та перегляду часу у різних містах в усьому світі."
+
+#. (itstool) path: page/title
+#: C/index.page:28
+msgid "<_:media-1/>Clocks"
+msgstr "<_:media-1/>Годинники"
+
+#. (itstool) path: page/p
+#: C/index.page:30
+msgid ""
+"Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
+"the time in different cities."
+msgstr ""
+"Використання <app>Годинників</app> як секундоміра, таймера, для встановлення"
+" нагадувань та перегляду часу у різних містах."
+
+#. (itstool) path: section/title
+#: C/index.page:34
+msgid "World clocks"
+msgstr "Світові годинники"
+
+#. (itstool) path: section/p
+#: C/index.page:36
+msgid ""
+"View the time in cities around the world on the same screen. You can also "
+"check if it is still the same day in those cities, and the sunrise and "
+"sunset times."
+msgstr ""
+"Ви можете переглядати час у різних містах світу на одному екрані. Ви також"
+" можете визначати, чи триває поточна доба у цих містах, і бачити час сходу і"
+" заходу сонця у них."
+
+#. (itstool) path: section/title
+#: C/index.page:43
+msgid "Alarm clocks"
+msgstr "Годинники нагадування"
+
+#. (itstool) path: section/p
+#: C/index.page:45
+msgid "Set customisable alarms to go off on specific days every week."
+msgstr ""
+"Встановіть придатні до налаштовування нагадування для вказаних моментів часу"
+" для визначених вами днів тижня."
+
+#. (itstool) path: section/title
+#: C/index.page:50
+msgid "Stopwatch"
+msgstr "Хронометр"
+
+#. (itstool) path: section/p
+#: C/index.page:52
+msgid "Use the stopwatch to time how long something takes."
+msgstr "Використання таймера для визначення тривалості процесів."
+
+#. (itstool) path: section/title
+#: C/index.page:57
+msgid "Timer"
+msgstr "Таймер"
+
+#. (itstool) path: section/p
+#: C/index.page:59
+msgid "Set a countdown in seconds, minutes or hours."
+msgstr "Встановлення відліку у секундах, хвилинах або годинах."
+
+#. (itstool) path: p/link
+#: C/legal.xml:4
+msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+
+#. (itstool) path: license/p
+#: C/legal.xml:3
+msgid "This work is licensed under a <_:link-1/>."
+msgstr "Ця робота розповсюджується за умов дотримання <_:link-1/>."
