@@ -443,7 +443,7 @@ private class Tile : Gtk.ListBoxRow {
         ctx.remove_class ("day");
         ctx.add_class (location.state_class);
 
-        string message = get_time_difference_message((double) location.local_offset);
+        string message = get_time_difference_message ((double) location.local_offset);
 
         if (location.day_label != null && location.day_label != "") {
             desc.label = "%s • %s".printf (location.day_label, message);
@@ -537,47 +537,47 @@ private class LocationDialog : Hdy.Dialog {
         ThreadFunc<bool> run = () => {
             var world = GWeather.Location.get_world ();
             query_locations (world, ref results, search);
-            results.sort((a, b)=>{
-                return strcmp(a.get_sort_name(), b.get_sort_name());
+            results.sort ((a, b)=>{
+                return strcmp (a.get_sort_name (), b.get_sort_name ());
             });
             // Pass back result and schedule callback
             Idle.add ((owned) callback);
             return true;
         };
-        new Thread<bool>("search-thread", (owned)run);
+        new Thread<bool> ("search-thread", (owned)run);
 
         // Wait for search results
         yield;
 
-        if (results.length() == 0) {
-            stack.set_visible_child(no_results_label);
+        if (results.length () == 0) {
+            stack.set_visible_child (no_results_label);
             return;
         }
         stack.set_visible_child (list_view);
 
         // Remove old results
-        foreach (var child in listbox.get_children()) {
-            child.destroy();
+        foreach (var child in listbox.get_children ()) {
+            child.destroy ();
         }
         // Add new results
         foreach (var city in results) {
-            var widget = new AddClockTile(city, world);
-            listbox.add(widget);
+            var widget = new AddClockTile (city, world);
+            listbox.add (widget);
         }
     }
 
     private void query_locations (GWeather.Location location, ref List<GWeather.Location> output, string search) {
-        if (output.length() >= RESULT_COUNT_LIMIT) return;
+        if (output.length () >= RESULT_COUNT_LIMIT) return;
 
-        if (location.get_level() == GWeather.LocationLevel.CITY) {
-            if (location.get_name().casefold().contains(search)) {
-                output.append(location);
+        if (location.get_level () == GWeather.LocationLevel.CITY) {
+            if (location.get_name ().casefold ().contains (search)) {
+                output.append (location);
             }
             return;
         }
-        foreach (var child in location.get_children()) {
-            query_locations(child, ref output, search);
-            if (output.length() >= RESULT_COUNT_LIMIT) return;
+        foreach (var child in location.get_children ()) {
+            query_locations (child, ref output, search);
+            if (output.length () >= RESULT_COUNT_LIMIT) return;
         }
     }
 }
@@ -604,8 +604,8 @@ private class AddClockTile : Gtk.ListBoxRow {
         Object (location: location);
         world = world_face;
 
-        name_label.label = location.get_name();
-        country_label.label = location.get_country_name();
+        name_label.label = location.get_name ();
+        country_label.label = location.get_country_name ();
 
         var wallclock = Utils.WallClock.get_default ();
         var local_time = wallclock.date_time;
@@ -614,9 +614,9 @@ private class AddClockTile : Gtk.ListBoxRow {
         var date_time = local_time.to_timezone (time_zone);
         var local_offset = local_time.get_utc_offset () - date_time.get_utc_offset ();
 
-        string time_diff_message = Tile.get_time_difference_message(local_offset);
+        string time_diff_message = Tile.get_time_difference_message (local_offset);
 
-        var time_zone_name = weather_time_zone.get_name();
+        var time_zone_name = weather_time_zone.get_name ();
 
         if (time_zone_name != null) {
             desc.label = "%s - %s".printf (time_zone_name, time_diff_message);
@@ -625,7 +625,7 @@ private class AddClockTile : Gtk.ListBoxRow {
             desc.label = "%s".printf (time_diff_message);
         }
 
-        if (!world.location_exists(location)) {
+        if (!world.location_exists (location)) {
             button_stack.visible_child = add_button;
         } else {
             button_stack.visible_child = delete_button;
@@ -634,13 +634,13 @@ private class AddClockTile : Gtk.ListBoxRow {
 
     [GtkCallback]
     private void clock_add () {
-        world.add_location(location);
+        world.add_location (location);
         button_stack.visible_child = delete_button;
     }
 
     [GtkCallback]
     private void clock_delete () {
-        world.remove_location(location);
+        world.remove_location (location);
         button_stack.visible_child = add_button;
     }
 }
@@ -828,7 +828,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     public void remove_location (GWeather.Location location) {
         if (location_exists (location)) {
-            var item = (Item)locations.find((item)=>{
+            var item = (Item)locations.find ((item)=>{
                 return ((Item)item).location == location;
             });
             remove_location_item (item);
