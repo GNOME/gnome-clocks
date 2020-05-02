@@ -930,6 +930,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 var alarm = new Item ();
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
                 alarms.add (alarm);
+                alarm.active = true;
                 save ();
             }
             dialog.destroy ();
