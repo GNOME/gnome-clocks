@@ -27,14 +27,13 @@ private struct AlarmTime {
 
 private class Item : Object, ContentItem {
     const int SNOOZE_MINUTES = 9;
-    const int RING_MINUTES = 3;
+    const int RING_MINUTES = 4;
 
-    // FIXME: should we add a "MISSED" state where the alarm stopped
-    // ringing but we keep showing the ringing panel?
     public enum State {
         READY,
         RINGING,
-        SNOOZING
+        SNOOZING,
+        MISSED
     }
 
     public string title_icon { get; set; default = null; }
@@ -174,6 +173,11 @@ private class Item : Object, ContentItem {
         state = State.SNOOZING;
     }
 
+    public void missed () {
+        bell.stop ();
+        state = State.MISSED;
+    }
+
     public void stop () {
         bell.stop ();
         update_snooze_time (alarm_time);
@@ -209,14 +213,14 @@ private class Item : Object, ContentItem {
         var now = wallclock.date_time;
 
         if (state == State.RINGING && now.compare (ring_end_time) > 0) {
-            stop ();
+            missed ();
         }
 
-        if (state == State.SNOOZING && now.compare (snooze_time) > 0) {
+        else if (state == State.SNOOZING && now.compare (snooze_time) > 0) {
             start_ringing (now);
         }
 
-        if (state == State.READY && now.compare (alarm_time) > 0) {
+        else if (now.compare (alarm_time) > 0) {
             start_ringing (now);
             update_alarm_time (); // reschedule for the next repeat
         }
@@ -604,7 +608,6 @@ private class SetupDialog : Hdy.Dialog {
     // Sets up the dialog to show the values of alarm.
     public void set_from_alarm (Item? alarm) {
         string name;
-        bool active;
         int hour;
         int minute;
         unowned Utils.Weekdays? days;
@@ -616,13 +619,11 @@ private class SetupDialog : Hdy.Dialog {
             hour = wc.date_time.get_hour ();
             minute = wc.date_time.get_minute ();
             days = null;
-            active = true;
         } else {
             name = alarm.name;
             hour = alarm.time.hour;
             minute = alarm.time.minute;
             days = alarm.days;
-            active = alarm.active;
         }
 
         // Set the time.
@@ -731,7 +732,8 @@ private class RingingPanel : Gtk.Grid {
 
             if (_alarm != null) {
                 alarm_state_handler = _alarm.notify["state"].connect (() => {
-                    if (alarm.state != Item.State.RINGING) {
+                    if (alarm.state != Item.State.RINGING &&
+                        alarm.state != Item.State.MISSED) {
                         dismiss ();
                     }
                 });
@@ -850,6 +852,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 if (a.tick ()) {
                     if (a.state == Item.State.RINGING) {
                         show_ringing_panel (a);
+                        //TODO when two alarms are active at the same time the sounds will overlap.
+                        // Need to stop any active alarm before ringing another
                         ring ();
                     } else if (ringing_panel.alarm == a) {
                         ringing_panel.update ();
@@ -930,6 +934,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 var alarm = new Item ();
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
                 alarms.add (alarm);
+                alarm.active = true;
                 save ();
             }
             dialog.destroy ();
