@@ -129,7 +129,6 @@
                   <object class="GtkListBox" id="listbox">
                     <property name="visible">True</property>
                     <property name="selection_mode">none</property>
-                    <property name="margin">6</property>
                     <child>
                       <object class="ClocksAlarmDayPickerRow" id="repeats">
                         <property name="visible">True</property>
@@ -156,6 +155,7 @@
                     </child>
                     <style>
                       <class name="frame"/>
+                      <class name="clocks-list"/>
                     </style>
                   </object>
                 </child>

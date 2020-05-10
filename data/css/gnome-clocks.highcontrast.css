@@ -1,58 +1,28 @@
 window > stack {
-    background-color: @theme_bg_color;
-    box-shadow: none;
+	background-color: @theme_bg_color;
+	box-shadow: none;
 }
 
 window > stack:backdrop {
-    background-color: @theme_unfocused_bg_color;
-    box-shadow: none;
+	background-color: @theme_unfocused_bg_color;
+	box-shadow: none;
 }
 
 label.destructive-action {
-    color: #e01b24;
+	color: #e01b24;
 }
 
 /* alarms */
 
 row.snoozing {
-    background: transparent -gtk-icontheme("alarm-symbolic") 65% 400%/48px 48px no-repeat;
-    font-weight: bold;
-}
-
-.alarm-tile,
-.alarm-tile:backdrop,
-.tile.prelight .alarm-tile,
-.tile.prelight .alarm-tile:backdrop {
-    color: @theme_fg_color;
-    text-shadow: none;
-    background-image: none;
-    background-color: @theme_bg_color;
-    border: 2px solid rgb(141, 141, 141);
-}
-
-.active .alarm-tile,
-.active .alarm-tile:backdrop,
-.tile.prelight .active .alarm-tile,
-.tile.prelight .active .alarm-tile:backdrop {
-    color: @theme_selected_fg_color;
-    background-image: none;
-    background-color: @theme_selected_bg_color;
-}
-
-.snoozing .alarm-tile,
-.snoozing .alarm-tile:backdrop,
-.tile.prelight .snoozing .alarm-tile,
-.tile.prelight .snoozing .alarm-tile:backdrop {
-    color: @theme_fg_color;
-    text-shadow: none;
-    background-image: none;
-    background-color: @warning_color;
+	background: transparent -gtk-icontheme("alarm-symbolic") 65% 400%/48px 48px no-repeat;
+	font-weight: bold;
 }
 
 /* World */
 
 .clock-time {
-    background: transparent;
-    color: #000000;
-    font-weight: normal;
+	background: transparent;
+	color: #000000;
+	font-weight: normal;
 }

@@ -19,13 +19,13 @@
 namespace Clocks {
 
 public interface ContentItem : GLib.Object {
-    public abstract string name { get; set; }
+    public abstract string? name { get; set; }
     public abstract void serialize (GLib.VariantBuilder builder);
 }
 
 public class ContentStore : GLib.Object, GLib.ListModel {
     private ListStore store;
-    private CompareDataFunc sort_func;
+    private CompareDataFunc? sort_func;
 
 
     public ContentStore () {
@@ -88,7 +88,7 @@ public class ContentStore : GLib.Object, GLib.ListModel {
     public void foreach (ForeachFunc func) {
         var n = store.get_n_items ();
         for (int i = 0; i < n; i++) {
-            func (store.get_object (i) as ContentItem);
+            func ((ContentItem) store.get_object (i));
         }
     }
 
@@ -97,7 +97,7 @@ public class ContentStore : GLib.Object, GLib.ListModel {
     public ContentItem? find (FindFunc func) {
         var n = store.get_n_items ();
         for (int i = 0; i < n; i++) {
-            var item = store.get_object (i) as ContentItem;
+            var item = (ContentItem) store.get_object (i);
             if (func (item)) {
                 return item;
             }
@@ -125,8 +125,7 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         var builder = new GLib.VariantBuilder (new VariantType ("aa{sv}"));
         var n = store.get_n_items ();
         for (int i = 0; i < n; i++) {
-            var item = store.get_object (i) as ContentItem;
-            item.serialize (builder);
+            ((ContentItem) store.get_object (i)).serialize (builder);
         }
         return builder.end ();
     }
@@ -134,10 +133,12 @@ public class ContentStore : GLib.Object, GLib.ListModel {
     public delegate ContentItem? DeserializeItemFunc (Variant v);
 
     public void deserialize (Variant variant, DeserializeItemFunc deserialize_item) {
-        foreach (var v in variant) {
-            ContentItem? i = deserialize_item (v);
+        Variant item;
+        var iter = variant.iterator ();
+        while (iter.next ("@a{sv}", out item)) {
+            ContentItem? i = deserialize_item (item);
             if (i != null) {
-                add (i);
+                add ((ContentItem) i);
             }
         }
     }
@@ -192,78 +193,6 @@ public class AmPmToggleButton : Gtk.Button {
     }
 }
 
-public class AnalogFrame : Gtk.Bin {
-    protected const int LINE_WIDTH = 6;
-    protected const int RADIUS_PAD = 48;
-
-    private int calculate_diameter () {
-        int ret = 2 * RADIUS_PAD;
-        var child = get_child ();
-        if (child != null && child.visible) {
-            int w, h;
-            child.get_preferred_width (out w, null);
-            child.get_preferred_height (out h, null);
-            ret += (int) Math.sqrt (w * w + h * h);
-        }
-
-        return ret;
-    }
-
-    public override void get_preferred_width (out int min_w, out int natural_w) {
-        var d = calculate_diameter ();
-        min_w = d;
-        natural_w = d;
-    }
-
-    public override void get_preferred_height (out int min_h, out int natural_h) {
-        var d = calculate_diameter ();
-        min_h = d;
-        natural_h = d;
-    }
-
-    public override void size_allocate (Gtk.Allocation allocation) {
-        base.size_allocate (allocation);
-    }
-
-    public override bool draw (Cairo.Context cr) {
-        var context = get_style_context ();
-
-        Gtk.Allocation allocation;
-        get_allocation (out allocation);
-        var center_x = allocation.width / 2;
-        var center_y = allocation.height / 2;
-
-        var radius = calculate_diameter () / 2;
-
-        cr.save ();
-        cr.move_to (center_x + radius, center_y);
-
-        context.save ();
-        context.add_class ("clocks-analog-frame");
-
-        context.save ();
-        context.add_class (Gtk.STYLE_CLASS_TROUGH);
-
-        var color = context.get_color (context.get_state ());
-
-        cr.set_line_width (LINE_WIDTH);
-        Gdk.cairo_set_source_rgba (cr, color);
-        cr.arc (center_x, center_y, radius - LINE_WIDTH / 2, 0, 2 * Math.PI);
-        cr.stroke ();
-
-        context.restore ();
-
-        draw_progress (cr, center_x, center_y, radius);
-
-        context.restore ();
-        cr.restore ();
-
-        return base.draw (cr);
-    }
-
-    public virtual void draw_progress (Cairo.Context cr, int center_x, int center_y, int radius) {
-    }
-}
 
 } // namespace Clocks
 

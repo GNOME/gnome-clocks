@@ -17,7 +17,7 @@
  */
 
 extern int clocks_cutils_get_week_start ();
-extern void calculate_sunrise_sunset (double lat,
+extern bool calculate_sunrise_sunset (double lat,
                                       double lon,
                                       int year,
                                       int month,
@@ -36,21 +36,19 @@ const double RISESET_CORRECTION_ASTRONOMICAL = 18.0;
 namespace Clocks {
 namespace Utils {
 
-private void load_css (string css, bool required) {
+public void load_css (string css) {
     var provider = new Gtk.CssProvider ();
-    provider.load_from_resource ("/org/gnome/clocks/css/" + css + ".css");
-
-    Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (),
-                                              provider,
-                                              Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-}
-
-public void load_main_css () {
-    load_css ("gnome-clocks", true);
-}
-
-public void load_theme_css (string theme_name) {
-    load_css ("gnome-clocks." + theme_name.down (), false);
+    try {
+        var data = resources_lookup_data ("/org/gnome/clocks/css/" + css + ".css", NONE);
+        provider.load_from_data ((string) data.get_data ());
+        Gtk.StyleContext.add_provider_for_screen ((Gdk.Screen) Gdk.Screen.get_default (),
+                                                  provider,
+                                                  Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+    } catch (ResourceError.NOT_FOUND e) {
+        /* Ignore */
+    } catch (Error e) {
+        warning ("Didn't load css for %s: %s".printf (css, e.message));
+    }
 }
 
 public void time_to_hms (double t, out int h, out int m, out int s, out double remainder) {
@@ -72,13 +70,14 @@ public class WallClock : Object {
         TWENTYFOUR
     }
 
-    private static WallClock instance;
+    private static WallClock? instance;
 
     public static WallClock get_default () {
         if (instance == null) {
             instance = new WallClock ();
         }
-        return instance;
+        // If it's still null something has gone horribly wrong
+        return (WallClock) instance;
     }
 
     public GLib.DateTime date_time { get; private set; }
@@ -142,8 +141,8 @@ public class WallClock : Object {
 }
 
 public class Weekdays {
-    private static string[] abbreviations = null;
-    private static string[] names = null;
+    private static string[]? abbreviations = null;
+    private static string[]? names = null;
 
     public enum Day {
         MON = 0,
@@ -287,7 +286,7 @@ public class Weekdays {
     }
 
     public string get_label () {
-        string r = null;
+        string? r = null;
         int n = 0;
         int first = -1;
         for (int i = 0; i < 7; i++) {
@@ -310,7 +309,7 @@ public class Weekdays {
         } else if (days_equal (WEEKENDS)) {
             r = _("Weekends");
         } else {
-            string[] abbrs = {};
+            string?[]? abbrs = {};
             for (int i = 0; i < 7; i++) {
                 Day d = (Day.get_first_weekday () + i) % 7;
                 if (get (d)) {
@@ -319,7 +318,7 @@ public class Weekdays {
             }
             r = string.joinv (", ", abbrs);
         }
-        return r;
+        return (string) r;
     }
 
     // Note that we serialze days according to ISO 8601
@@ -340,7 +339,7 @@ public class Weekdays {
     public static Weekdays deserialize (GLib.Variant days_variant) {
         Weekdays d = new Weekdays ();
         foreach (var v in days_variant) {
-            int32 i = v.get_int32 ();
+            var i = (int32) v;
             if (i > 0 && i <= 7) {
                 d.set ((Day) (i - 1), true);
             } else {
@@ -381,10 +380,10 @@ public class Bell : Object {
 
         try {
             do {
-                yield gsound.play_full (cancellable,
-                                        GSound.Attribute.EVENT_ID, sound,
-                                        GSound.Attribute.CANBERRA_XDG_THEME_NAME, soundtheme,
-                                        GSound.Attribute.MEDIA_ROLE, "alarm");
+                yield ((GSound.Context) gsound).play_full (cancellable,
+                                                           GSound.Attribute.EVENT_ID, sound,
+                                                           GSound.Attribute.CANBERRA_XDG_THEME_NAME, soundtheme,
+                                                           GSound.Attribute.MEDIA_ROLE, "alarm");
             } while (repeat);
         } catch (GLib.IOError.CANCELLED e) {
             // ignore

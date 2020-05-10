@@ -31,9 +31,10 @@ clocks_sources = [
 ]
 
 clocks_vala_args = [
-  '--target-glib', '2.44',
+  '--target-glib', '2.58',
   '--vapidir', meson.current_source_dir(),
   '--gresources', resource_files,
+  '--enable-experimental-non-null',
 ]
 
 clocks_c_args = [

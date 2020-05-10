@@ -74,7 +74,7 @@ is_in_north_winter (int month)
  *
  * Since: 3.36
  */
-void
+gboolean
 calculate_sunrise_sunset (double  lat,
                           double  lon,
                           int     year,
@@ -90,6 +90,7 @@ calculate_sunrise_sunset (double  lat,
   double sunrise_minute;
   double sunset_hour;
   double sunset_minute;
+  gboolean calculatable = TRUE;
 
   // first we calculate our current Julian date
   int julian_day_number = ((1461 * (year + 4800 + (month - 14) / 12)) / 4 +
@@ -124,13 +125,16 @@ calculate_sunrise_sunset (double  lat,
 
   // IMPORTANT: for polar circles we can't compute anything for certain dates
 
-  if ((((is_in_north_summer (month) && (lat <= (d - 90))) || (lat >= (90 - d)))) ||
-      (((is_in_north_winter (month) && (lat <= (-d - 90))) || (lat >= (90 + d))))) {
-
+  if ((((is_in_north_summer (month) && (lat <= (d + 0.83 + correction - 90))) ||
+                                       (lat >= (90 - d - 0.83 - correction)))) ||
+      (((is_in_north_winter (month) && (lat <= (-90 - d - 0.83 - correction))) ||
+                                       (lat >= (90 + d + 0.83 + correction))))) {
     sunrise_hour = 0;
     sunrise_minute = 0;
     sunset_hour = 23;
     sunset_minute = 59;
+
+    calculatable = FALSE;
   } else {
     double sunrise_days;
     double sunrise_day;
@@ -141,7 +145,7 @@ calculate_sunrise_sunset (double  lat,
     // hour angle
     double w = DEGREES (acos ((sin (RADIANS (-correction)) + sin (RADIANS (-0.83)) -
                                sin (RADIANS (lat)) * sin (RADIANS (d)))
-                              / (cos (RADIANS (lat))) * cos (RADIANS (d))));
+                              / ((cos (RADIANS (lat))) * cos (RADIANS (d)))));
 
     // julian sunrise
     double J_sunrise = (J_transit - w / 360 - 0.5);
@@ -173,5 +177,7 @@ calculate_sunrise_sunset (double  lat,
   if (set_min) {
     *set_min = sunset_minute;
   }
+
+  return calculatable;
 }
 
