@@ -1,3 +1,8 @@
+gnome-clocks 3.36.2
+===================
+ * World: Handle impossible places
+ * Timer: Fix signal for updating the duration
+
 gnome-clocks 3.36.0
 ===================
  * Major redesign of the application
