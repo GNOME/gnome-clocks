@@ -22,14 +22,25 @@ namespace World {
 // Export world clock locations to GNOME Shell
 [DBus (name = "org.gnome.Shell.ClocksIntegration")]
 public class ShellWorldClocks : Object {
-    public GLib.Variant[] locations {
+    [DBus (signature = "av")]
+    public Variant locations {
         owned get {
-            GLib.Variant[] rv = {};
-            GLib.Variant locations = settings.get_value ("world-clocks");
+            Variant dict;
+            Variant[] rv = {};
+            var locations = settings.get_value ("world-clocks");
+            var iter = locations.iterator ();
 
-            for (int i = 0; i < locations.n_children (); i++) {
-                rv += locations.get_child_value (i).lookup_value ("location", null);
+            while (iter.next ("@a{sv}", out dict)) {
+                string key;
+                Variant val;
+                var dict_iter = dict.iterator ();
+                while (dict_iter.next ("{sv}", out key, out val)) {
+                    if (key == "location") {
+                        rv += val;
+                    }
+                }
             }
+
             return rv;
         }
     }
@@ -72,15 +83,15 @@ public class Item : Object, ContentItem {
 
     public bool automatic { get; set; default = false; }
 
-    public string name {
+    public string? name {
         get {
             // We store it in a _name member even if we overwrite it every time
             // since the abstract name property does not return an owned string
             if (country_name != null) {
                 if (state_name != null) {
-                    _name = "%s, %s, %s".printf (city_name, state_name, country_name);
+                    _name = "%s, %s, %s".printf (city_name, (string) state_name, (string) country_name);
                 } else {
-                    _name = "%s, %s".printf (city_name, country_name);
+                    _name = "%s, %s".printf (city_name, (string) country_name);
                 }
             } else {
                 _name = city_name;
@@ -100,7 +111,7 @@ public class Item : Object, ContentItem {
             if (city_name == null) {
                 city_name = location.get_name ();
             }
-            return city_name;
+            return (string) city_name;
         }
     }
 
@@ -109,8 +120,8 @@ public class Item : Object, ContentItem {
             GWeather.Location? parent = location.get_parent ();
 
             if (parent != null) {
-                if (parent.get_level () == GWeather.LocationLevel.ADM1) {
-                    return parent.get_name ();
+                if (((GWeather.Location) parent).get_level () == ADM1) {
+                    return ((GWeather.Location) parent).get_name ();
                 }
             }
 
@@ -127,7 +138,7 @@ public class Item : Object, ContentItem {
     public bool is_daytime {
          get {
             if (weather_info != null) {
-                return weather_info.is_daytime ();
+                return ((GWeather.Info) weather_info).is_daytime ();
             }
             return true;
         }
@@ -140,11 +151,16 @@ public class Item : Object, ContentItem {
             }
 
             ulong sunrise;
-            if (!weather_info.get_value_sunrise (out sunrise)) {
+            if (!((GWeather.Info) weather_info).get_value_sunrise (out sunrise)) {
                 return "-";
             }
+
+            if (time_zone == null) {
+                return "-";
+            }
+
             var sunrise_time = new GLib.DateTime.from_unix_local (sunrise);
-            sunrise_time = sunrise_time.to_timezone (time_zone);
+            sunrise_time = sunrise_time.to_timezone ((TimeZone) time_zone);
             return Utils.WallClock.get_default ().format_time (sunrise_time);
         }
     }
@@ -156,11 +172,16 @@ public class Item : Object, ContentItem {
             }
 
             ulong sunset;
-            if (!weather_info.get_value_sunset (out sunset)) {
+            if (!((GWeather.Info) weather_info).get_value_sunset (out sunset)) {
                 return "-";
             }
+
+            if (time_zone == null) {
+                return "-";
+            }
+
             var sunset_time = new GLib.DateTime.from_unix_local (sunset);
-            sunset_time = sunset_time.to_timezone (time_zone);
+            sunset_time = sunset_time.to_timezone ((TimeZone) time_zone);
             return Utils.WallClock.get_default ().format_time (sunset_time);
         }
     }
@@ -203,19 +224,19 @@ public class Item : Object, ContentItem {
                 return "none";
             }
 
-            if (date_time.compare (sun_rise) > 0 && date_time.compare (sun_set) < 0) {
+            if (date_time.compare ((DateTime) sun_rise) > 0 && date_time.compare ((DateTime) sun_set) < 0) {
                 return "day";
             }
 
-            if (date_time.compare (civil_rise) > 0 && date_time.compare (civil_set) < 0) {
+            if (date_time.compare ((DateTime) civil_rise) > 0 && date_time.compare ((DateTime) civil_set) < 0) {
                 return "civil";
             }
 
-            if (date_time.compare (naut_rise) > 0 && date_time.compare (naut_set) < 0) {
+            if (date_time.compare ((DateTime) naut_rise) > 0 && date_time.compare ((DateTime) naut_set) < 0) {
                 return "naut";
             }
 
-            if (date_time.compare (astro_rise) > 0 && date_time.compare (astro_set) < 0) {
+            if (date_time.compare ((DateTime) astro_rise) > 0 && date_time.compare ((DateTime) astro_set) < 0) {
                 return "astro";
             }
 
@@ -224,10 +245,10 @@ public class Item : Object, ContentItem {
     }
 
     private string _name;
-    private GLib.TimeZone time_zone;
+    private GLib.TimeZone? time_zone;
     private GLib.DateTime local_time;
     private GLib.DateTime date_time;
-    private GWeather.Info weather_info;
+    private GWeather.Info? weather_info;
 
     // When sunrise/sunset happens, at different corrections, in locations
     // timezone for calculating the colour pill
@@ -245,8 +266,15 @@ public class Item : Object, ContentItem {
     public Item (GWeather.Location location) {
         Object (location: location);
 
-        var weather_time_zone = location.get_timezone ();
-        time_zone = new GLib.TimeZone (weather_time_zone.get_tzid ());
+        var weather_time_zone = location.get_timezone_str ();
+        if (weather_time_zone != null) {
+            time_zone = new GLib.TimeZone ((string) weather_time_zone);
+            if (time_zone == null) {
+                warning ("Unrecognised timezone %s", (string) weather_time_zone);
+            }
+        } else {
+            warning ("Failed to get a timezone for %s", location.get_name ());
+        }
 
         tick ();
     }
@@ -257,8 +285,8 @@ public class Item : Object, ContentItem {
                                                   int month,
                                                   int day,
                                                   double correction,
-                                                  out DateTime sunrise,
-                                                  out DateTime sunset) {
+                                                  out DateTime? sunrise,
+                                                  out DateTime? sunset) requires (time_zone != null) {
         int rise_hour, rise_min;
         int set_hour, set_min;
 
@@ -273,9 +301,9 @@ public class Item : Object, ContentItem {
                                   out set_hour,
                                   out set_min);
 
-        var utc_sunrise = new DateTime.utc (year, month, day, rise_hour, rise_min, 0);
+        var utc_sunrise = (DateTime?) new DateTime.utc (year, month, day, rise_hour, rise_min, 0);
         if (utc_sunrise != null) {
-            sunrise = utc_sunrise.to_timezone (time_zone);
+            sunrise = ((DateTime) utc_sunrise).to_timezone ((TimeZone) time_zone);
         } else {
             sunrise = null;
             warning ("Sunrise for (%f,%f) resulted in %04i-%02i-%02i %02i:%02i",
@@ -288,10 +316,10 @@ public class Item : Object, ContentItem {
                      rise_min);
         }
 
-        var utc_sunset = new DateTime.utc (year, month, day, set_hour, set_min, 0);
-        if (utc_sunset != null) {
-            var local_sunset = utc_sunset.to_timezone (time_zone);
-            if (local_sunset.compare (sun_rise) < 0) {
+        var utc_sunset = (DateTime?) new DateTime.utc (year, month, day, set_hour, set_min, 0);
+        if (utc_sunset != null && sunrise != null) {
+            var local_sunset = ((DateTime) utc_sunset).to_timezone ((TimeZone) time_zone);
+            if (local_sunset.compare ((DateTime) sunrise) < 0) {
                 sunset = local_sunset.add_days (1);
             } else {
                 sunset = local_sunset;
@@ -370,7 +398,12 @@ public class Item : Object, ContentItem {
     public virtual signal void tick () {
         var wallclock = Utils.WallClock.get_default ();
         local_time = wallclock.date_time;
-        date_time = local_time.to_timezone (time_zone);
+
+        if (time_zone == null) {
+            return;
+        }
+
+        date_time = local_time.to_timezone ((TimeZone) time_zone);
 
         calculate_riseset ();
 
@@ -391,18 +424,24 @@ public class Item : Object, ContentItem {
         }
     }
 
-    public static ContentItem? deserialize (GLib.Variant location_variant) {
+    public static ContentItem? deserialize (Variant location_variant) {
         GWeather.Location? location = null;
-
+        string key;
+        Variant val;
         var world = GWeather.Location.get_world ();
 
-        foreach (var v in location_variant) {
-            var key = v.get_child_value (0).get_string ();
+        if (world == null) {
+            return null;
+        }
+
+        var iter = location_variant.iterator ();
+        while (iter.next ("{sv}", out key, out val)) {
             if (key == "location") {
-                location = world.deserialize (v.get_child_value (1).get_child_value (0));
+                location = ((GWeather.Location) world).deserialize (val);
             }
         }
-        return location != null ? new Item (location) : null;
+
+        return location == null ? null : (Item?) new Item ((GWeather.Location) location);
     }
 }
 
@@ -468,7 +507,7 @@ private class Tile : Gtk.ListBoxRow {
         }
 
         if (location.day_label != null && location.day_label != "") {
-            desc.label = "%s • %s".printf (location.day_label, message);
+            desc.label = "%s • %s".printf ((string) location.day_label, message);
             delete_stack.visible_child = delete_button;
         } else if (location.automatic) {
             // Translators: This clock represents the local time
@@ -515,12 +554,12 @@ private class LocationDialog : Hdy.Dialog {
         if (location_entry.get_text () != "") {
             l = location_entry.get_location ();
 
-            if (l != null && !world.location_exists (l)) {
-                t = l.get_timezone ();
+            if (l != null && !world.location_exists ((GWeather.Location) l)) {
+                t = ((GWeather.Location) l).get_timezone ();
 
                 if (t == null) {
-                    GLib.warning ("Timezone not defined for %s. This is a bug in libgweather database",
-                                  l.get_city_name ());
+                    warning ("Timezone not defined for %s. This is a bug in libgweather database",
+                             (string) ((GWeather.Location) l).get_city_name ());
                 }
             }
         }
@@ -530,7 +569,7 @@ private class LocationDialog : Hdy.Dialog {
 
     public Item? get_location () {
         var location = location_entry.get_location ();
-        return location != null ? new Item (location) : null;
+        return location != null ? (Item?) new Item ((GWeather.Location) location) : null;
     }
 }
 
@@ -542,11 +581,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public string title { get; set; default = _("Clocks"); }
     public string subtitle { get; set; }
     // Translators: Tooltip for the + button
-    public string new_label { get; default = _("Add Location"); }
+    public string? new_label { get; default = _("Add Location"); }
 
     private ContentStore locations;
     private GLib.Settings settings;
-    private Item standalone_location;
+    private Item? standalone_location;
     [GtkChild]
     private Gtk.Widget empty_view;
     [GtkChild]
@@ -572,8 +611,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
         settings = new GLib.Settings ("org.gnome.clocks");
 
         locations.set_sorting ((item1, item2) => {
-            var offset1 = ((Item) item1).location.get_timezone ().get_offset ();
-            var offset2 = ((Item) item2).location.get_timezone ().get_offset ();
+            var offset1 = ((GWeather.Timezone) ((Item) item1).location.get_timezone ()).get_offset ();
+            var offset2 = ((GWeather.Timezone) ((Item) item2).location.get_timezone ()).get_offset ();
             if (offset1 < offset2)
                 return -1;
             if (offset1 > offset2)
@@ -629,7 +668,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
             view_mode = NORMAL;
             button_mode = NEW;
             title = _("Clocks");
-            subtitle = null;
+            subtitle = (string) null;
         } else if (visible_child == standalone) {
             view_mode = STANDALONE;
             button_mode = BACK;
@@ -638,10 +677,10 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     private void update_standalone () {
         if (standalone_location != null) {
-            standalone_time_label.label = standalone_location.time_label;
-            standalone_day_label.label = standalone_location.day_label;
-            standalone_sunrise_label.label = standalone_location.sunrise_label;
-            standalone_sunset_label.label = standalone_location.sunset_label;
+            standalone_time_label.label = ((Item) standalone_location).time_label;
+            standalone_day_label.label = (string) ((Item) standalone_location).day_label;
+            standalone_sunrise_label.label = ((Item) standalone_location).sunrise_label;
+            standalone_sunset_label.label = ((Item) standalone_location).sunset_label;
         }
     }
 
@@ -649,12 +688,12 @@ public class Face : Gtk.Stack, Clocks.Clock {
         standalone_location = location;
         update_standalone ();
         visible_child = standalone;
-        if (standalone_location.state_name != null) {
-            title = "%s, %s".printf (standalone_location.city_name, standalone_location.state_name);
+        if (location.state_name != null) {
+            title = "%s, %s".printf (location.city_name, (string) location.state_name);
         } else {
-            title = standalone_location.city_name;
+            title = location.city_name;
         }
-        subtitle = standalone_location.country_name;
+        subtitle = (string) location.country_name;
     }
 
     private void load () {
@@ -669,17 +708,17 @@ public class Face : Gtk.Stack, Clocks.Clock {
         Geo.Info geo_info = new Geo.Info ();
 
         geo_info.location_changed.connect ((found_location) => {
-            var item = (Item)locations.find ((l) => {
-                return geo_info.is_location_similar (((Item)l).location);
+            var item = (Item?) locations.find ((l) => {
+                return geo_info.is_location_similar (((Item) l).location);
             });
 
             if (item != null) {
                 return;
             }
 
-            item = new Item (found_location);
-            item.automatic = true;
-            locations.add (item);
+            var auto_item = new Item (found_location);
+            auto_item.automatic = true;
+            locations.add (auto_item);
         });
 
         yield geo_info.seek ();
@@ -694,7 +733,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         var exists = false;
         var n = locations.get_n_items ();
         for (int i = 0; i < n; i++) {
-            var l = locations.get_object (i) as Item;
+            var l = (Item) locations.get_object (i);
             if (l.location.equal (location)) {
                 exists = true;
                 break;
@@ -716,7 +755,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         dialog.response.connect ((dialog, response) => {
             if (response == 1) {
                 var location = ((LocationDialog) dialog).get_location ();
-                add_location_item (location);
+                add_location_item ((Item) location);
             }
             dialog.destroy ();
         });
