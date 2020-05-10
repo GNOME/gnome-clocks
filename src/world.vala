@@ -217,6 +217,15 @@ public class Item : Object, ContentItem {
         }
     }
 
+    private bool is_current (DateTime? sunrise, DateTime? sunset) {
+        if (sunrise == null || sunset == null) {
+            return false;
+        }
+
+        return (date_time.compare ((DateTime) sunrise) > 0) &&
+                        (date_time.compare ((DateTime) sunset) < 0);
+    }
+
     // CSS class for the current time of day
     public string state_class {
         get {
@@ -224,19 +233,19 @@ public class Item : Object, ContentItem {
                 return "none";
             }
 
-            if (date_time.compare ((DateTime) sun_rise) > 0 && date_time.compare ((DateTime) sun_set) < 0) {
+            if (is_current (sun_rise, sun_set)) {
                 return "day";
             }
 
-            if (date_time.compare ((DateTime) civil_rise) > 0 && date_time.compare ((DateTime) civil_set) < 0) {
+            if (is_current (civil_rise, civil_set)) {
                 return "civil";
             }
 
-            if (date_time.compare ((DateTime) naut_rise) > 0 && date_time.compare ((DateTime) naut_set) < 0) {
+            if (is_current (naut_rise, naut_set)) {
                 return "naut";
             }
 
-            if (date_time.compare ((DateTime) astro_rise) > 0 && date_time.compare ((DateTime) astro_set) < 0) {
+            if (is_current (astro_rise, astro_set)) {
                 return "astro";
             }
 
@@ -290,16 +299,23 @@ public class Item : Object, ContentItem {
         int rise_hour, rise_min;
         int set_hour, set_min;
 
-        calculate_sunrise_sunset (latitude,
-                                  longitude,
-                                  year,
-                                  month,
-                                  day,
-                                  correction,
-                                  out rise_hour,
-                                  out rise_min,
-                                  out set_hour,
-                                  out set_min);
+        if (!calculate_sunrise_sunset (latitude,
+                                       longitude,
+                                       year,
+                                       month,
+                                       day,
+                                       correction,
+                                       out rise_hour,
+                                       out rise_min,
+                                       out set_hour,
+                                       out set_min)) {
+            sunrise = null;
+            sunset = null;
+            debug ("Location (%f,%f) has incalculable sunset/sunrise",
+                   latitude,
+                   longitude);
+            return;
+        }
 
         var utc_sunrise = (DateTime?) new DateTime.utc (year, month, day, rise_hour, rise_min, 0);
         if (utc_sunrise != null) {
