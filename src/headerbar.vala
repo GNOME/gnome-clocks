@@ -83,7 +83,7 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
 
     public Gtk.Stack stack { get; set; }
     public Hdy.ViewSwitcherBar switcher_bar { get; set; }
-    public string new_label { get; set; }
+    public string? new_label { get; set; }
 
     private ViewMode _mode;
     private ButtonMode _button_mode;
@@ -103,7 +103,7 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
 
     [GtkCallback]
     private void subtitle_changed () {
-        reveal_subtitle.reveal_child = subtitle != null && subtitle.length > 0;
+        reveal_subtitle.reveal_child = ((string?) subtitle) != null && subtitle.length > 0;
     }
 
     [GtkCallback]

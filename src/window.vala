@@ -45,11 +45,11 @@ public class Window : Gtk.ApplicationWindow {
     private GLib.Settings settings;
 
     // DIY DzlBindingGroup
-    private Binding bind_button_mode = null;
-    private Binding bind_view_mode = null;
-    private Binding bind_title = null;
-    private Binding bind_subtitle = null;
-    private Binding bind_new_label = null;
+    private Binding? bind_button_mode = null;
+    private Binding? bind_view_mode = null;
+    private Binding? bind_title = null;
+    private Binding? bind_subtitle = null;
+    private Binding? bind_new_label = null;
 
     private bool inited = false;
 
@@ -213,7 +213,7 @@ public class Window : Gtk.ApplicationWindow {
         const uint BUTTON_BACK = 8;
         uint button;
 
-        if (((Gdk.Event)(event)).get_button (out button) && button == BUTTON_BACK) {
+        if (((Gdk.Event) (event)).get_button (out button) && button == BUTTON_BACK) {
             ((Clock) stack.visible_child).activate_back ();
             return true;
         }
@@ -222,7 +222,7 @@ public class Window : Gtk.ApplicationWindow {
     }
 
     protected override bool configure_event (Gdk.EventConfigure event) {
-        if (get_realized () && !(Gdk.WindowState.MAXIMIZED in get_window ().get_state ())) {
+        if (get_realized () && !(Gdk.WindowState.MAXIMIZED in ((Gdk.Window) get_window ()).get_state ())) {
             int width, height;
 
             get_size (out width, out height);
@@ -251,7 +251,7 @@ public class Window : Gtk.ApplicationWindow {
                                  "Eslam Mostafa, Paolo Borelli, Volker Sobek\n" +
                                  "Copyright \xc2\xa9 2019 Bilal Elmoussaoui & Zander Brown et al";
 
-        const string AUTHORS[] = {
+        const string? AUTHORS[] = {
             "Alex Anthony",
             "Paolo Borelli",
             "Allan Day",
@@ -293,14 +293,14 @@ public class Window : Gtk.ApplicationWindow {
             return;
         }
 
-        help_overlay.view_name = Type.from_instance (panel).name ();
+        ((Gtk.ShortcutsWindow) help_overlay).view_name = Type.from_instance (panel).name ();
 
         if (inited) {
             settings.set_enum ("panel-id", panel.panel_id);
         }
 
         if (bind_button_mode != null) {
-            bind_button_mode.unbind ();
+            ((Binding) bind_button_mode).unbind ();
         }
         bind_button_mode = panel.bind_property ("button-mode",
                                                 header_bar,
@@ -308,7 +308,7 @@ public class Window : Gtk.ApplicationWindow {
                                                 SYNC_CREATE);
 
         if (bind_view_mode != null) {
-            bind_view_mode.unbind ();
+            ((Binding) bind_view_mode).unbind ();
         }
         bind_view_mode = panel.bind_property ("view-mode",
                                               header_bar,
@@ -316,7 +316,7 @@ public class Window : Gtk.ApplicationWindow {
                                               SYNC_CREATE);
 
         if (bind_title != null) {
-            bind_title.unbind ();
+            ((Binding) bind_title).unbind ();
         }
         bind_title = panel.bind_property ("title",
                                           header_bar,
@@ -324,7 +324,7 @@ public class Window : Gtk.ApplicationWindow {
                                           SYNC_CREATE);
 
         if (bind_subtitle != null) {
-            bind_subtitle.unbind ();
+            ((Binding) bind_subtitle).unbind ();
         }
         bind_subtitle = panel.bind_property ("subtitle",
                                              header_bar,
@@ -332,7 +332,7 @@ public class Window : Gtk.ApplicationWindow {
                                              SYNC_CREATE);
 
         if (bind_new_label != null) {
-            bind_new_label.unbind ();
+            ((Binding) bind_new_label).unbind ();
         }
         bind_new_label = panel.bind_property ("new-label",
                                               header_bar,

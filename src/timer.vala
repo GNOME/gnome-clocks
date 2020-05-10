@@ -29,7 +29,7 @@ public class Item : Object, ContentItem {
 
     public State state { get; private set; default = State.STOPPED; }
 
-    public string name { get ; set; }
+    public string? name { get ; set; }
     public int hours { get; set; default = 0; }
     public int minutes { get; set; default = 0; }
     public int seconds { get; set; default = 0; }
@@ -49,27 +49,30 @@ public class Item : Object, ContentItem {
         builder.open (new GLib.VariantType ("a{sv}"));
         builder.add ("{sv}", "duration", new GLib.Variant.int32 (get_total_seconds ()));
         if (name != null) {
-            builder.add ("{sv}", "name", new GLib.Variant.string (name));
+            builder.add ("{sv}", "name", new GLib.Variant.string ((string) name));
         }
         builder.close ();
     }
 
-    public static Item? deserialize (GLib.Variant time_variant) {
+    public static Item? deserialize (Variant time_variant) {
+        string key;
+        Variant val;
         int duration = 0;
         string? name = null;
 
-        foreach (var v in time_variant) {
-            var key = v.get_child_value (0).get_string ();
+        var iter = time_variant.iterator ();
+        while (iter.next ("{sv}", out key, out val)) {
             switch (key) {
                 case "duration":
-                    duration = v.get_child_value (1).get_child_value (0).get_int32 ();
+                    duration = (int32) val;
                     break;
                 case "name":
-                    name = v.get_child_value (1).get_child_value (0).get_string ();
+                    name = (string) val;
                     break;
             }
         }
-        return duration != 0 ? new Item.from_seconds (duration, name) : null;
+
+        return duration != 0 ? (Item?) new Item.from_seconds (duration, name) : null;
     }
 
     public Item.from_seconds (int seconds, string? name) {
@@ -171,7 +174,7 @@ public class Setup : Gtk.Box {
         var duration_type = new GLib.VariantType ("i");
         var set_duration_action = new SimpleAction ("set-duration", duration_type);
         set_duration_action.activate.connect ((action, param) => {
-            var total_minutes = param.get_int32 ();
+            var total_minutes = (int32) param;
             var hours = total_minutes / 60;
             var minutes = total_minutes - hours * 60;
             this.h_spinbutton.value = hours;
@@ -256,15 +259,15 @@ public class Row : Gtk.ListBoxRow {
         construct set {
             _item = value;
 
-            title.text = _item.name;
+            title.text = (string) _item.name;
             title.bind_property ("text", _item, "name");
-            timer_name.label = _item.name;
+            timer_name.label = (string) _item.name;
             title.bind_property ("text", timer_name, "label");
 
             _item.notify["name"].connect (() => edited ());
         }
     }
-    private Item _item = null;
+    private Item _item;
 
 
     [GtkChild]
@@ -385,7 +388,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public string title { get; set; default = _("Clocks"); }
     public string subtitle { get; set; }
     // Translators: Tooltip for the + button
-    public string new_label { get; default = _("New Timer"); }
+    public string? new_label { get; default = _("New Timer"); }
 
     private ContentStore timers;
     private GLib.Settings settings;
@@ -480,7 +483,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     public virtual signal void ring () {
-        var app = GLib.Application.get_default () as Clocks.Application;
+        var app = (Clocks.Application) GLib.Application.get_default ();
         app.send_notification ("timer-is-up", notification);
         bell.ring_once ();
     }
