@@ -34,15 +34,16 @@ public class SearchProvider : Object {
     }
 
     private bool location_matches (GWeather.Location location, string[] normalized_terms) {
-        string city = location.get_city_name ();
-        string country = location.get_country_name ();
+        var city = location.get_city_name ();
+        var country = location.get_country_name ();
+
         if (city == null || country == null) {
             return false;
         }
 
         foreach (string t in normalized_terms) {
-            if (!city.normalize ().casefold ().contains (t) &&
-                !country.normalize ().casefold ().contains (t)) {
+            if (!((string) city).normalize ().casefold ().contains (t) &&
+                !((string) country).normalize ().casefold ().contains (t)) {
                 return false;
             }
         }
@@ -55,7 +56,7 @@ public class SearchProvider : Object {
     }
 
     private GWeather.Location? deserialize_location (string str) {
-        Variant? variant;
+        Variant variant;
 
         try {
             variant = Variant.parse (new VariantType ("(uv)"), str, null, null);
@@ -65,24 +66,25 @@ public class SearchProvider : Object {
         }
 
         var world = GWeather.Location.get_world ();
-        return world.deserialize (variant);
+        if (world != null) {
+            return ((GWeather.Location) world).deserialize (variant);
+        } else {
+            return null;
+        }
     }
 
     private async void search_locations_recurse (GWeather.Location location, string[] normalized_terms,
-                                                    GenericArray<GWeather.Location> matches) {
-        GWeather.Location? []locations = location.get_children ();
-        if (locations != null) {
-            for (int i = 0; i < locations.length; i++) {
-                var level = locations[i].get_level ();
-                if (level == GWeather.LocationLevel.CITY ||
-                    level == GWeather.LocationLevel.NAMED_TIMEZONE) {
-                    if (location_matches (locations[i], normalized_terms)) {
-                        matches.add (locations[i]);
-                    }
+                                                 GenericArray<GWeather.Location> matches) {
+        var locations = location.get_children ();
+        foreach (var child_location in locations) {
+            var level = child_location.get_level ();
+            if (level == CITY || level == NAMED_TIMEZONE) {
+                if (location_matches (child_location, normalized_terms)) {
+                    matches.add (child_location);
                 }
-
-                yield search_locations_recurse (locations[i], normalized_terms, matches);
             }
+
+            yield search_locations_recurse (child_location, normalized_terms, matches);
         }
     }
 
@@ -90,7 +92,13 @@ public class SearchProvider : Object {
         var world = GWeather.Location.get_world ();
         var matches = new GenericArray<GWeather.Location> ();
 
-        yield search_locations_recurse (world, normalized_terms, matches);
+        if (world == null) {
+            return {};
+        }
+
+        yield search_locations_recurse ((GWeather.Location) world,
+                                        normalized_terms,
+                                        matches);
 
         string[] result = {};
         matches.foreach ((location) => {
@@ -121,7 +129,8 @@ public class SearchProvider : Object {
         foreach (var str in previous_results) {
             var location = deserialize_location (str);
 
-            if (location != null && location_matches (location, normalized_terms)) {
+            if (location != null &&
+                location_matches ((GWeather.Location) location, normalized_terms)) {
                 result += (str);
             }
         }
@@ -141,16 +150,16 @@ public class SearchProvider : Object {
             }
 
             var meta = new HashTable<string, Variant> (str_hash, str_equal);
-            var item = new World.Item (location);
-            string time_label = item.time_label;
-            string day = item.day_label;
+            var item = new World.Item ((GWeather.Location) location);
+            var time_label = item.time_label;
+            var day = item.day_label;
             if (day != null) {
-                time_label += " " + day;
+                time_label += " " + (string) day;
             }
             count++;
             meta.insert ("id", count.to_string ());
             meta.insert ("name", time_label);
-            meta.insert ("description", item.name);
+            meta.insert ("description", (string) item.name);
 
             result.add (meta);
         }

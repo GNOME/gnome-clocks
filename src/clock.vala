@@ -30,7 +30,7 @@ public interface Clocks.Clock : GLib.Object {
     public abstract ViewMode view_mode { get; set; }
     public abstract string title { get; protected set; }
     public abstract string subtitle { get; protected set; }
-    public abstract string new_label { get; }
+    public abstract string? new_label { get; }
 
     public virtual void activate_new () {
     }
