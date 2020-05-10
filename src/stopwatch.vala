@@ -60,7 +60,9 @@ private class LapsRow : Gtk.ListBoxRow {
         duration_label.label = this.get_duration_label ();
 
         if (this.before != null) {
-            difference_label.label = this.get_delta_label ();
+            // So get_delta_label() can be null, but Vala doesn't
+            // know that .label can be as well
+            difference_label.label = (string) this.get_delta_label ();
 
             var difference = this.get_delta_duration ();
             if (difference > 0) {
@@ -77,14 +79,14 @@ private class LapsRow : Gtk.ListBoxRow {
 
     private double get_delta_duration () {
         if (this.before != null) {
-            return this.current.duration - this.before.duration;
+            return this.current.duration - ((Lap) this.before).duration;
         }
         return 0;
     }
 
     private string? get_delta_label () {
         if (this.before != null) {
-            var difference = this.current.duration - this.before.duration;
+            var difference = this.current.duration - ((Lap) this.before).duration;
             var delta_label = render_duration (difference);
             string sign = "+";
             if (difference < 0) {
@@ -121,7 +123,7 @@ public class Face : Gtk.Box, Clocks.Clock {
     public ViewMode view_mode { get; set; default = NORMAL; }
     public string title { get; set; default = _("Clocks"); }
     public string subtitle { get; set; }
-    public string new_label { get; default = null; }
+    public string? new_label { get; default = null; }
 
     public State state { get; private set; default = State.RESET; }
 
