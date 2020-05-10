@@ -55,19 +55,20 @@ public class Info : Object {
 
         yield seek_country_code ();
 
-        yield search_locations (GWeather.Location.get_world ());
+        yield search_locations ((GWeather.Location) GWeather.Location.get_world ());
 
         if (found_location != null) {
-            location_changed (found_location);
+            location_changed ((GWeather.Location) found_location);
         }
     }
 
-    private async void seek_country_code () {
-        Geocode.Location location = new Geocode.Location (geo_location.latitude, geo_location.longitude);
-        Geocode.Reverse reverse = new Geocode.Reverse.for_location (location);
+    private async void seek_country_code () requires (geo_location != null) {
+        var location = new Geocode.Location (((GClue.Location) geo_location).latitude,
+                                             ((GClue.Location) geo_location).longitude);
+        var reverse = new Geocode.Reverse.for_location (location);
 
         try {
-            Geocode.Place place = yield reverse.resolve_async ();
+            var place = yield reverse.resolve_async ();
 
             country_code = place.get_country_code ();
         } catch (Error e) {
@@ -91,7 +92,7 @@ public class Info : Object {
                           Math.sin (lat1) * Math.sin (lat2)) * EARTH_RADIUS;
     }
 
-    private async void search_locations (GWeather.Location location) {
+    private async void search_locations (GWeather.Location location) requires (geo_location != null) {
         if (this.country_code != null) {
             string? loc_country_code = location.get_country ();
             if (loc_country_code != null) {
@@ -101,39 +102,40 @@ public class Info : Object {
             }
         }
 
-        GWeather.Location? [] locations = location.get_children ();
-        if (locations != null) {
-            for (int i = 0; i < locations.length; i++) {
-                if (locations[i].get_level () == GWeather.LocationLevel.CITY) {
-                    if (locations[i].has_coords ()) {
-                        double latitude, longitude, distance;
+        var locations = location.get_children ();
+        for (int i = 0; i < locations.length; i++) {
+            if (locations[i].get_level () == GWeather.LocationLevel.CITY) {
+                if (locations[i].has_coords ()) {
+                    double latitude, longitude, distance;
 
-                        locations[i].get_coords (out latitude, out longitude);
-                        distance = get_distance (geo_location.latitude, geo_location.longitude, latitude, longitude);
+                    locations[i].get_coords (out latitude, out longitude);
+                    distance = get_distance (((GClue.Location) geo_location).latitude,
+                                             ((GClue.Location) geo_location).longitude,
+                                             latitude,
+                                             longitude);
 
-                        if (distance < minimal_distance) {
-                            found_location = locations[i];
-                            minimal_distance = distance;
-                        }
+                    if (distance < minimal_distance) {
+                        found_location = locations[i];
+                        minimal_distance = distance;
                     }
                 }
-
-                yield search_locations (locations[i]);
             }
+
+            yield search_locations (locations[i]);
         }
     }
 
     public bool is_location_similar (GWeather.Location location) {
         if (this.found_location != null) {
-            string? country_code = location.get_country ();
-            string? found_country_code = found_location.get_country ();
+            var country_code = location.get_country ();
+            var found_country_code = ((GWeather.Location) found_location).get_country ();
             if (country_code != null && country_code == found_country_code) {
-                GWeather.Timezone? timezone = location.get_timezone ();
-                GWeather.Timezone? found_timezone = found_location.get_timezone ();
+                var timezone = location.get_timezone ();
+                var found_timezone = ((GWeather.Location) found_location).get_timezone ();
 
                 if (timezone != null && found_timezone != null) {
-                    string? tzid = timezone.get_tzid ();
-                    string? found_tzid = found_timezone.get_tzid ();
+                    var tzid = ((GWeather.Timezone) timezone).get_tzid ();
+                    var found_tzid = ((GWeather.Timezone) found_timezone).get_tzid ();
                     if (tzid == found_tzid) {
                         return true;
                     }

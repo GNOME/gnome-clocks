@@ -21,7 +21,7 @@ namespace Clocks {
 public class Application : Gtk.Application {
     const OptionEntry[] OPTION_ENTRIES = {
         { "version", 'v', 0, OptionArg.NONE, null, N_("Print version information and exit"), null },
-        { null }
+        { (string) null }
     };
 
     const GLib.ActionEntry[] ACTION_ENTRIES = {
@@ -35,16 +35,17 @@ public class Application : Gtk.Application {
     private uint search_provider_id = 0;
     private World.ShellWorldClocks world_clocks;
     private uint world_clocks_id = 0;
-    private Window window;
+    private Window? window;
     private List<string> system_notifications;
 
-    private void ensure_window () {
+    private Window ensure_window () ensures (window != null) {
         if (window == null) {
             window = new Window (this);
-            window.delete_event.connect (() => {
-               return window.hide_on_delete ();
+            ((Window) window).delete_event.connect (() => {
+               return ((Window) window).hide_on_delete ();
             });
         }
+        return (Window) window;
     }
 
     public Application () {
@@ -57,9 +58,9 @@ public class Application : Gtk.Application {
 
         search_provider = new SearchProvider ();
         search_provider.activate.connect ((timestamp) => {
-            ensure_window ();
-            window.show_world ();
-            window.present_with_time (timestamp);
+            var win = ensure_window ();
+            win.show_world ();
+            win.present_with_time (timestamp);
         });
 
         system_notifications = new List<string> ();
@@ -97,10 +98,10 @@ public class Application : Gtk.Application {
     protected override void activate () {
         base.activate ();
 
-        ensure_window ();
-        window.present ();
+        var win = ensure_window ();
+        win.present ();
 
-        window.focus_in_event.connect (() => {
+        win.focus_in_event.connect (() => {
             withdraw_notifications ();
 
             return false;
@@ -124,7 +125,7 @@ public class Application : Gtk.Application {
         var theme = Gtk.IconTheme.get_default ();
         theme.add_resource_path ("/org/gnome/clocks/icons");
 
-        var settings = Gtk.Settings.get_default ();
+        var settings = (Gtk.Settings) Gtk.Settings.get_default ();
         settings.notify["gtk-theme-name"].connect (() => {
             update_theme (settings);
         });
@@ -139,7 +140,7 @@ public class Application : Gtk.Application {
 
     protected override int handle_local_options (GLib.VariantDict options) {
         if (options.contains ("version")) {
-            print ("%s %s\n", Environment.get_application_name (), Config.VERSION);
+            print ("%s %s\n", (string) Environment.get_application_name (), Config.VERSION);
             return 0;
         }
 
@@ -151,14 +152,19 @@ public class Application : Gtk.Application {
             return;
         }
 
-        ensure_window ();
-        window.show_world ();
-        window.present ();
+        var win = ensure_window ();
+        win.show_world ();
+        win.present ();
 
         var world = GWeather.Location.get_world ();
-        var location = world.deserialize (parameter.get_child_value (0));
-        if (location != null) {
-            window.add_world_location (location);
+        if (world != null) {
+            // The result is actually nullable
+            var location = (GWeather.Location?) ((GWeather.Location) world).deserialize ((Variant) parameter);
+            if (location != null) {
+                win.add_world_location ((GWeather.Location) location);
+            }
+        } else {
+            warning ("the world is missing");
         }
     }
 
@@ -181,7 +187,9 @@ public class Application : Gtk.Application {
     }
 
     void on_quit_activate () {
-        window.destroy ();
+        if (window != null) {
+            ((Window) window).destroy ();
+        }
         quit ();
     }
 }

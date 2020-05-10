@@ -37,26 +37,24 @@ private class Item : Object, ContentItem {
         SNOOZING
     }
 
-    public string title_icon { get; set; default = null; }
-
     public bool editing { get; set; default = false; }
 
     public string id { get; construct set; }
 
-    public string name {
+    public string? name {
         get {
             return _name;
         }
 
         set {
-            _name = value;
+            _name = (string) value;
             setup_bell ();
         }
     }
 
     public AlarmTime time { get; set; }
 
-    public Utils.Weekdays days { get; set; }
+    public Utils.Weekdays? days { get; set; }
 
     public State state { get; private set; }
 
@@ -72,9 +70,9 @@ private class Item : Object, ContentItem {
          }
     }
 
-    public string days_label {
+    public string? days_label {
          owned get {
-            return days != null ? days.get_label () : null;
+            return days != null ? (string?) ((Utils.Weekdays) days).get_label () : null;
          }
     }
 
@@ -106,7 +104,7 @@ private class Item : Object, ContentItem {
     private GLib.Notification notification;
 
     public Item (string? id = null) {
-        var guid = id != null ? id : GLib.DBus.generate_guid ();
+        var guid = id != null ? (string) id : GLib.DBus.generate_guid ();
         Object (id: guid);
     }
 
@@ -135,7 +133,7 @@ private class Item : Object, ContentItem {
                                     time.minute,
                                     0);
 
-        if (days == null || days.empty) {
+        if (days == null || ((Utils.Weekdays) days).empty) {
             // Alarm without days.
             if (dt.compare (now) <= 0) {
                 // Time already passed, ring tomorrow.
@@ -144,7 +142,7 @@ private class Item : Object, ContentItem {
         } else {
             // Alarm with at least one day set.
             // Find the next possible day for ringing
-            while (dt.compare (now) <= 0 || ! days.get ((Utils.Weekdays.Day) (dt.get_day_of_week () - 1))) {
+            while (dt.compare (now) <= 0 || ! ((Utils.Weekdays) days).get ((Utils.Weekdays.Day) (dt.get_day_of_week () - 1))) {
                 dt = dt.add_days (1);
             }
         }
@@ -157,7 +155,7 @@ private class Item : Object, ContentItem {
     }
 
     public virtual signal void ring () {
-        var app = GLib.Application.get_default () as Clocks.Application;
+        var app = (Clocks.Application) GLib.Application.get_default ();
         app.send_notification ("alarm-clock-elapsed", notification);
         bell.ring ();
     }
@@ -226,39 +224,43 @@ private class Item : Object, ContentItem {
 
     public void serialize (GLib.VariantBuilder builder) {
         builder.open (new GLib.VariantType ("a{sv}"));
-        builder.add ("{sv}", "name", new GLib.Variant.string (name));
+        builder.add ("{sv}", "name", new GLib.Variant.string ((string) name));
         builder.add ("{sv}", "id", new GLib.Variant.string (id));
         builder.add ("{sv}", "active", new GLib.Variant.boolean (active));
         builder.add ("{sv}", "hour", new GLib.Variant.int32 (time.hour));
         builder.add ("{sv}", "minute", new GLib.Variant.int32 (time.minute));
-        builder.add ("{sv}", "days", days.serialize ());
+        builder.add ("{sv}", "days", ((Utils.Weekdays) days).serialize ());
         builder.close ();
     }
 
-    public static ContentItem? deserialize (GLib.Variant alarm_variant) {
+    public static ContentItem? deserialize (Variant alarm_variant) {
+        string key;
+        Variant val;
         string? name = null;
         string? id = null;
         bool active = true;
         int hour = -1;
         int minute = -1;
-        Utils.Weekdays days = null;
-        foreach (var v in alarm_variant) {
-            var key = v.get_child_value (0).get_string ();
+        Utils.Weekdays? days = null;
+
+        var iter = alarm_variant.iterator ();
+        while (iter.next ("{sv}", out key, out val)) {
             if (key == "name") {
-                name = v.get_child_value (1).get_child_value (0).get_string ();
+                name = (string) val;
             } else if (key == "id") {
-                id = v.get_child_value (1).get_child_value (0).get_string ();
+                id = (string) val;
             } else if (key == "active") {
-                active = v.get_child_value (1).get_child_value (0).get_boolean ();
+                active = (bool) val;
             } else if (key == "hour") {
-                hour = v.get_child_value (1).get_child_value (0).get_int32 ();
+                hour = (int32) val;
             } else if (key == "minute") {
-                minute = v.get_child_value (1).get_child_value (0).get_int32 ();
+                minute = (int32) val;
             } else if (key == "days") {
-                days = Utils.Weekdays.deserialize (v.get_child_value (1).get_child_value (0));
+                days = Utils.Weekdays.deserialize (val);
             }
         }
-        if (name != null && hour >= 0 && minute >= 0) {
+
+        if (hour >= 0 && minute >= 0) {
             Item alarm = new Item (id);
             alarm.name = name;
             alarm.active = active;
@@ -267,8 +269,9 @@ private class Item : Object, ContentItem {
             alarm.reset ();
             return alarm;
         } else {
-            warning ("Invalid alarm %s", name != null ? name : "name missing");
+            warning ("Invalid alarm %s", name != null ? (string) name : "[unnamed]");
         }
+
         return null;
     }
 }
@@ -308,8 +311,8 @@ private class Row : Gtk.ListBoxRow {
     }
 
     private void update_repeats () {
-        repeats_reveal.reveal_child = !alarm.days.empty;
-        repeats.label = alarm.days_label;
+        repeats_reveal.reveal_child = !((Utils.Weekdays) alarm.days).empty;
+        repeats.label = (string) alarm.days_label;
     }
 
     private void update () {
@@ -337,17 +340,17 @@ private class Row : Gtk.ListBoxRow {
         }
 
         if (alarm.state == Item.State.SNOOZING) {
-            if (label != null && label.length > 0) {
+            if (label != null && ((string) label).length > 0) {
                 // Translators: The alarm for the time %s titled %s has been "snoozed"
-                label = _("Snoozed from %s: %s").printf (alarm.time_label, label);
+                label = _("Snoozed from %s: %s").printf (alarm.time_label, (string) label);
             } else {
                 // Translators: %s is a time
                 label = _("Snoozed from %s").printf (alarm.time_label);
             }
         }
 
-        title_reveal.reveal_child = label != null && label.length > 0;
-        title.label = label;
+        title_reveal.reveal_child = label != null && ((string) label).length > 0;
+        title.label = (string) label;
     }
 
     [GtkCallback]
@@ -571,9 +574,9 @@ private class SetupDialog : Hdy.Dialog {
         other_alarms = new List<Item> ();
         var n = all_alarms.get_n_items ();
         for (int i = 0; i < n; i++) {
-            var item = all_alarms.get_object (i) as Item;
+            var item = (Item) all_alarms.get_object (i);
             if (alarm != item) {
-                other_alarms.prepend (all_alarms.get_object (i) as Item);
+                other_alarms.prepend ((Item) all_alarms.get_object (i));
             }
         }
 
@@ -603,7 +606,7 @@ private class SetupDialog : Hdy.Dialog {
 
     // Sets up the dialog to show the values of alarm.
     public void set_from_alarm (Item? alarm) {
-        string name;
+        string? name;
         bool active;
         int hour;
         int minute;
@@ -618,11 +621,11 @@ private class SetupDialog : Hdy.Dialog {
             days = null;
             active = true;
         } else {
-            name = alarm.name;
-            hour = alarm.time.hour;
-            minute = alarm.time.minute;
-            days = alarm.days;
-            active = alarm.active;
+            name = ((Item) alarm).name;
+            hour = ((Item) alarm).time.hour;
+            minute = ((Item) alarm).time.minute;
+            days = ((Item) alarm).days;
+            active = ((Item) alarm).active;
         }
 
         // Set the time.
@@ -642,10 +645,10 @@ private class SetupDialog : Hdy.Dialog {
         m_spinbutton.set_value (minute);
 
         // Set the name.
-        name_entry.set_text (name);
+        name_entry.set_text ((string) name);
 
         if (days != null) {
-            repeats.load (days);
+            repeats.load ((Utils.Weekdays) days);
         }
     }
 
@@ -718,20 +721,20 @@ private class SetupDialog : Hdy.Dialog {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarmringing.ui")]
 private class RingingPanel : Gtk.Grid {
-    public Item alarm {
+    public Item? alarm {
         get {
             return _alarm;
         }
         set {
             if (_alarm != null) {
-                _alarm.disconnect (alarm_state_handler);
+                ((Item) _alarm).disconnect (alarm_state_handler);
             }
 
             _alarm = value;
 
             if (_alarm != null) {
-                alarm_state_handler = _alarm.notify["state"].connect (() => {
-                    if (alarm.state != Item.State.RINGING) {
+                alarm_state_handler = ((Item) _alarm).notify["state"].connect (() => {
+                    if (((Item) _alarm).state != Item.State.RINGING) {
                         dismiss ();
                     }
                 });
@@ -747,14 +750,14 @@ private class RingingPanel : Gtk.Grid {
     private Gtk.Label time_label;
 
     [GtkCallback]
-    private void stop_clicked () {
-        alarm.stop ();
+    private void stop_clicked () requires (alarm != null) {
+        ((Item) alarm).stop ();
     }
 
     [GtkCallback]
-    private void snooze_clicked () {
-        if (alarm.state != Item.State.SNOOZING) {
-            alarm.snooze ();
+    private void snooze_clicked () requires (alarm != null) {
+        if (((Item) alarm).state != Item.State.SNOOZING) {
+            ((Item) alarm).snooze ();
         } else {
             // The alarm is already snoozed, simply dismiss the panel.
             dismiss ();
@@ -767,11 +770,11 @@ private class RingingPanel : Gtk.Grid {
 
     public void update () {
         if (alarm != null) {
-            title_label.label = alarm.name;
-            if (alarm.state == Item.State.SNOOZING) {
-                time_label.label = alarm.snooze_time_label;
+            title_label.label = (string) ((Item) alarm).name;
+            if (((Item) alarm).state == SNOOZING) {
+                time_label.label = ((Item) alarm).snooze_time_label;
             } else {
-                time_label.label = alarm.time_label;
+                time_label.label = ((Item) alarm).time_label;
             }
         } else {
             title_label.label = "";
@@ -788,7 +791,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     public string title { get; set; default = _("Clocks"); }
     public string subtitle { get; set; }
     // Translators: Tooltip for the + button
-    public string new_label { get; default = _("New Alarm"); }
+    public string? new_label { get; default = _("New Alarm"); }
 
     private ContentStore alarms;
     private GLib.Settings settings;
@@ -808,23 +811,25 @@ public class Face : Gtk.Stack, Clocks.Clock {
         settings = new GLib.Settings ("org.gnome.clocks");
 
         var app = GLib.Application.get_default ();
-        var action = app.lookup_action ("stop-alarm");
-        ((GLib.SimpleAction)action).activate.connect ((action, param) => {
-            var a = (Item)alarms.find ((a) => {
-                return ((Item)a).id == param.get_string ();
+        var action = (GLib.SimpleAction) app.lookup_action ("stop-alarm");
+        action.activate.connect ((action, param) => {
+            var a = alarms.find ((a) => {
+                return ((Item) a).id == (string) param;
             });
+
             if (a != null) {
-                a.stop ();
+                ((Item) a).stop ();
             }
         });
 
-        action = app.lookup_action ("snooze-alarm");
-        ((GLib.SimpleAction)action).activate.connect ((action, param) => {
-            var a = (Item)alarms.find ((a) => {
-                return ((Item)a).id == param.get_string ();
+        action = (GLib.SimpleAction) app.lookup_action ("snooze-alarm");
+        action.activate.connect ((action, param) => {
+            var a = alarms.find ((a) => {
+                return ((Item) a).id == (string) param;
             });
+
             if (a != null) {
-                a.snooze ();
+                ((Item) a).stop ();
             }
         });
 
