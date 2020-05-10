@@ -19,13 +19,13 @@
 namespace Clocks {
 
 public interface ContentItem : GLib.Object {
-    public abstract string name { get; set; }
+    public abstract string? name { get; set; }
     public abstract void serialize (GLib.VariantBuilder builder);
 }
 
 public class ContentStore : GLib.Object, GLib.ListModel {
     private ListStore store;
-    private CompareDataFunc sort_func;
+    private CompareDataFunc? sort_func;
 
 
     public ContentStore () {
@@ -88,7 +88,7 @@ public class ContentStore : GLib.Object, GLib.ListModel {
     public void foreach (ForeachFunc func) {
         var n = store.get_n_items ();
         for (int i = 0; i < n; i++) {
-            func (store.get_object (i) as ContentItem);
+            func ((ContentItem) store.get_object (i));
         }
     }
 
@@ -97,7 +97,7 @@ public class ContentStore : GLib.Object, GLib.ListModel {
     public ContentItem? find (FindFunc func) {
         var n = store.get_n_items ();
         for (int i = 0; i < n; i++) {
-            var item = store.get_object (i) as ContentItem;
+            var item = (ContentItem) store.get_object (i);
             if (func (item)) {
                 return item;
             }
@@ -125,8 +125,7 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         var builder = new GLib.VariantBuilder (new VariantType ("aa{sv}"));
         var n = store.get_n_items ();
         for (int i = 0; i < n; i++) {
-            var item = store.get_object (i) as ContentItem;
-            item.serialize (builder);
+            ((ContentItem) store.get_object (i)).serialize (builder);
         }
         return builder.end ();
     }
@@ -134,10 +133,12 @@ public class ContentStore : GLib.Object, GLib.ListModel {
     public delegate ContentItem? DeserializeItemFunc (Variant v);
 
     public void deserialize (Variant variant, DeserializeItemFunc deserialize_item) {
-        foreach (var v in variant) {
-            ContentItem? i = deserialize_item (v);
+        Variant item;
+        var iter = variant.iterator ();
+        while (iter.next ("@a{sv}", out item)) {
+            ContentItem? i = deserialize_item (item);
             if (i != null) {
-                add (i);
+                add ((ContentItem) i);
             }
         }
     }
