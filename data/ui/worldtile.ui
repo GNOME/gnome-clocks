@@ -61,10 +61,16 @@
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="label">12:34</property>
+            <property name="hexpand">True</property>
+             <property name="use_underline">True</property>
             <property name="use_markup">True</property>
             <property name="ellipsize">end</property>
+
+
+
+
             <attributes>
-              <attribute name="font-features" value="tnum=1"/>
+              <attribute name="weight" value="bold"/>
             </attributes>
             <style>
               <class name="clock-time"/>
