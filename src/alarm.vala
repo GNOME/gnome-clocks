@@ -546,8 +546,6 @@ private class SetupDialog : Gtk.Dialog {
     [GtkChild]
     private Gtk.Revealer label_revealer;
     [GtkChild]
-    private Gtk.ListBox listbox;
-    [GtkChild]
     private Gtk.Button delete_button;
     private List<Item> other_alarms;
 
@@ -569,7 +567,6 @@ private class SetupDialog : Gtk.Dialog {
         set_default_response (Gtk.ResponseType.OK);
 
         delete_button.visible = alarm != null;
-        listbox.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
 
         other_alarms = new List<Item> ();
         var n = all_alarms.get_n_items ();
@@ -833,7 +830,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
             }
         });
 
-        listbox.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
         listbox.bind_model (alarms, (item) => {
             return new Row ((Item) item, this);
         });

@@ -160,7 +160,6 @@ public class Face : Gtk.Box, Clocks.Clock {
         timer = new GLib.Timer ();
         tick_id = 0;
 
-        laps_list.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
         laps_list.bind_model (laps, (lap) => {
             var total_items = laps.get_n_items ();
             Lap? before = null;
