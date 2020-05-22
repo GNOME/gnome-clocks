@@ -837,7 +837,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
         });
 
         load ();
-        show_all ();
 
         alarms.items_changed.connect ((position, removed, added) => {
             save ();
