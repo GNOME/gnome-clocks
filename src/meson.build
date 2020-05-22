@@ -25,8 +25,11 @@ clocks_vala_sources = [
   'utils.vala',
   'widgets.vala',
   'window.vala',
-  'world.vala',
-  'world-standalone.vala'
+  'world-item.vala',
+  'world-location-dialog.vala',
+  'world-row.vala',
+  'world-shell-world-clocks.vala',
+  'world-standalone.vala',
 ]
 
 clocks_c_sources = [
