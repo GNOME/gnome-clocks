@@ -645,7 +645,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
         });
 
         load ();
-        show_all ();
 
         if (settings.get_boolean ("geolocation")) {
             use_geolocation.begin ((obj, res) => {
