@@ -19,7 +19,7 @@
 namespace Clocks {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/window.ui")]
-public class Window : Gtk.ApplicationWindow {
+public class Window : Hdy.ApplicationWindow {
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
         // primary menu
         { "show-primary-menu", on_show_primary_menu_activate, null, "false", null },
