@@ -32,38 +32,11 @@
         <property name="homogeneous">False</property>
         <property name="transition_type">none</property>
         <child>
-          <object class="HdySqueezer" id="squeezer">
+          <object class="HdyViewSwitcherTitle" id="view_switcher_title">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="transition_type">crossfade</property>
-            <signal name="notify::visible-child" handler="visible_child_changed"/>
-            <child>
-              <object class="HdyViewSwitcher">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">center</property>
-                <property name="stack" bind-source="ClocksHeaderBar" bind-property="stack" bind-flags="sync-create">ignore-me</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkBox" id="title_text">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="halign">center</property>
-                <property name="valign">center</property>
-                <property name="orientation">vertical</property>
-                <child>
-                  <object class="GtkLabel" id="title_label">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" bind-source="ClocksHeaderBar" bind-property="title" bind-flags="sync-create" />
-                    <style>
-                      <class name="title"/>
-                    </style>
-                  </object>
-                </child>
-              </object>
-            </child>
+            <property name="stack" bind-source="ClocksHeaderBar" bind-property="stack" bind-flags="sync-create">ignore-me</property>
+            <property name="title" bind-source="ClocksHeaderBar" bind-property="title" bind-flags="sync-create" />
+            <signal name="notify::title-visible" handler="title_visible_changed"/>
           </object>
           <packing>
             <property name="name">switcher</property>
