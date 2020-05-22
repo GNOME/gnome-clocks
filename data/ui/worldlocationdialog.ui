@@ -2,7 +2,7 @@
 <interface>
   <!-- interface-requires libgweather 3.0 -->
   <!-- interface-requires gtk+ 3.12 -->
-  <template class="ClocksWorldLocationDialog" parent="HdyDialog">
+  <template class="ClocksWorldLocationDialog" parent="GtkDialog">
     <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
