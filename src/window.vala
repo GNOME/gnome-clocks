@@ -56,9 +56,6 @@ public class Window : Hdy.ApplicationWindow {
 
     // DIY DzlBindingGroup
     private Binding? bind_button_mode = null;
-    private Binding? bind_view_mode = null;
-    private Binding? bind_title = null;
-    private Binding? bind_subtitle = null;
     private Binding? bind_new_label = null;
 
     private bool inited = false;
@@ -326,30 +323,6 @@ public class Window : Hdy.ApplicationWindow {
                                                 header_bar,
                                                 "button-mode",
                                                 SYNC_CREATE);
-
-        if (bind_view_mode != null) {
-            ((Binding) bind_view_mode).unbind ();
-        }
-        bind_view_mode = panel.bind_property ("view-mode",
-                                              header_bar,
-                                              "view-mode",
-                                              SYNC_CREATE);
-
-        if (bind_title != null) {
-            ((Binding) bind_title).unbind ();
-        }
-        bind_title = panel.bind_property ("title",
-                                          header_bar,
-                                          "title",
-                                          SYNC_CREATE);
-
-        if (bind_subtitle != null) {
-            ((Binding) bind_subtitle).unbind ();
-        }
-        bind_subtitle = panel.bind_property ("subtitle",
-                                             header_bar,
-                                             "subtitle",
-                                             SYNC_CREATE);
 
         if (bind_new_label != null) {
             ((Binding) bind_new_label).unbind ();

@@ -595,9 +595,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NEW; }
-    public ViewMode view_mode { get; set; default = NORMAL; }
-    public string title { get; set; default = _("Clocks"); }
-    public string subtitle { get; set; }
     // Translators: Tooltip for the + button
     public string? new_label { get; default = _("Add Location"); }
 
