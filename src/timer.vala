@@ -403,7 +403,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
         settings = new GLib.Settings ("org.gnome.clocks");
         timers = new ContentStore ();
 
-        timers_list.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
         timers_list.bind_model (timers, (timer) => {
             var row = new Row ((Item) timer);
             row.deleted.connect (() => remove_timer ((Item) timer));

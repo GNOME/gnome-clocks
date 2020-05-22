@@ -636,8 +636,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
             return 0;
         });
 
-        listbox.set_header_func ((Gtk.ListBoxUpdateHeaderFunc) Hdy.list_box_separator_header);
-
         listbox.bind_model (locations, (item) => {
             var tile = new Tile ((Item) item);
 
