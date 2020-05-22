@@ -544,7 +544,7 @@ private class Tile : Gtk.ListBoxRow {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/worldlocationdialog.ui")]
-private class LocationDialog : Hdy.Dialog {
+private class LocationDialog : Gtk.Dialog {
     [GtkChild]
     private GWeather.LocationEntry location_entry;
     private Face world;
