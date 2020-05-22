@@ -2,7 +2,7 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <template class="ClocksWorldTile" parent="GtkListBoxRow">
+  <template class="ClocksWorldRow" parent="GtkListBoxRow">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <child>
@@ -88,7 +88,7 @@
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="relief">none</property>
-                <signal name="clicked" handler="delete" object="ClocksWorldTile" swapped="no"/>
+                <signal name="clicked" handler="delete" object="ClocksWorldRow" swapped="no"/>
                 <child>
                   <object class="GtkImage">
                     <property name="visible">True</property>
