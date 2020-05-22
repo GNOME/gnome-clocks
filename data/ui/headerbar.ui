@@ -21,63 +21,14 @@
   <template class="ClocksHeaderBar" parent="HdyHeaderBar">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="title" translatable="yes">Clocks</property>
     <property name="centering_policy">strict</property>
     <property name="show_close_button">True</property>
-    <signal name="notify::subtitle" handler="subtitle_changed" swapped="no"/>
     <child type="title">
-      <object class="GtkStack" id="title_stack">
+      <object class="HdyViewSwitcherTitle" id="view_switcher_title">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="homogeneous">False</property>
-        <property name="transition_type">none</property>
-        <child>
-          <object class="HdyViewSwitcherTitle" id="view_switcher_title">
-            <property name="visible">True</property>
-            <property name="stack" bind-source="ClocksHeaderBar" bind-property="stack" bind-flags="sync-create">ignore-me</property>
-            <property name="title" bind-source="ClocksHeaderBar" bind-property="title" bind-flags="sync-create" />
-            <signal name="notify::title-visible" handler="title_visible_changed"/>
-          </object>
-          <packing>
-            <property name="name">switcher</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkBox">
-            <property name="visible">True</property>
-            <property name="orientation">vertical</property>
-            <property name="valign">center</property>
-            <child>
-              <object class="GtkLabel">
-                <property name="visible">True</property>
-                <property name="label" bind-source="ClocksHeaderBar" bind-property="title" bind-flags="sync-create" />
-                <property name="ellipsize">end</property>
-                <style>
-                  <class name="title"/>
-                </style>
-              </object>
-            </child>
-            <child>
-              <object class="GtkRevealer" id="reveal_subtitle">
-                <property name="visible">True</property>
-                <property name="reveal-child">False</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="visible">True</property>
-                    <property name="label" bind-source="ClocksHeaderBar" bind-property="subtitle" bind-flags="sync-create" />
-                    <property name="ellipsize">end</property>
-                    <style>
-                      <class name="subtitle"/>
-                    </style>
-                  </object>
-                </child>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="name">title</property>
-          </packing>
-        </child>
+        <property name="title" translatable="yes">Clocks</property>
+        <property name="stack" bind-source="ClocksHeaderBar" bind-property="stack" bind-flags="sync-create">ignore-me</property>
+        <signal name="notify::title-visible" handler="title_visible_changed"/>
       </object>
     </child>
     <child>
@@ -136,40 +87,19 @@
       </object>
     </child>
     <child>
-      <object class="GtkStack" id="end_button_stack">
+      <object class="GtkMenuButton">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="hhomogeneous">False</property>
-        <property name="transition_type">crossfade</property>
+        <property name="can_focus">True</property>
+        <property name="receives_default">True</property>
+        <property name="action_name">win.show-primary-menu</property>
+        <property name="tooltip-text" translatable="yes">Menu</property>
+        <property name="menu_model">primary-menu</property>
         <child>
-          <object class="GtkMenuButton">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="action_name">win.show-primary-menu</property>
-            <property name="tooltip-text" translatable="yes">Menu</property>
-            <property name="menu_model">primary-menu</property>
-            <child>
-              <object class="GtkImage">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="icon_name">open-menu-symbolic</property>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="name">menu</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkBox">
+          <object class="GtkImage">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="orientation">vertical</property>
+            <property name="icon_name">open-menu-symbolic</property>
           </object>
-          <packing>
-            <property name="name">empty</property>
-          </packing>
         </child>
       </object>
       <packing>
