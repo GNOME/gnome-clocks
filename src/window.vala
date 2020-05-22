@@ -126,8 +126,6 @@ public class Window : Hdy.ApplicationWindow {
         if (Config.PROFILE == "Devel") {
             style.add_class ("devel");
         }
-
-        show_all ();
     }
 
     [Signal (action = true)]
