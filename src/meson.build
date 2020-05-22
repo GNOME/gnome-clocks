@@ -3,7 +3,12 @@ vapi_sources = [
 ]
 
 clocks_vala_sources = [
-  'alarm.vala',
+  'alarm-day-picker-row.vala',
+  'alarm-face.vala',
+  'alarm-item.vala',
+  'alarm-ringing-panel.vala',
+  'alarm-row.vala',
+  'alarm-setup-dialog.vala',
   'application.vala',
   'clock.vala',
   'geocoding.vala',
