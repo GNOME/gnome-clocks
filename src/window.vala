@@ -363,6 +363,17 @@ public class Window : Hdy.ApplicationWindow {
     }
 
     [GtkCallback]
+    private void visible_child_changed () {
+        if (alarm_deck.visible_child == alarm_ringing_panel) {
+            title = _("Alarm");
+        } else if (world_deck.visible_child == world_standalone) {
+            title = world_standalone.title;
+        } else {
+            title = _("Clocks");
+        }
+    }
+
+    [GtkCallback]
     private void alarm_dismissed () {
         alarm_deck.visible_child = world_deck;
     }
