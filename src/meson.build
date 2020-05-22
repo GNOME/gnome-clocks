@@ -35,6 +35,7 @@ clocks_vala_args = [
   '--vapidir', meson.current_source_dir(),
   '--gresources', resource_files,
   '--enable-experimental-non-null',
+  '--disable-since-check',
 ]
 
 clocks_c_args = [
