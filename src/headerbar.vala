@@ -56,7 +56,7 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
                     break;
             }
 
-            visible_child_changed ();
+            title_visible_changed ();
         }
     }
 
@@ -93,9 +93,7 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
     [GtkChild]
     private Gtk.Stack end_button_stack;
     [GtkChild]
-    private Hdy.Squeezer squeezer;
-    [GtkChild]
-    private Gtk.Box title_text;
+    private Hdy.ViewSwitcherTitle view_switcher_title;
     [GtkChild]
     private Gtk.Stack title_stack;
     [GtkChild]
@@ -107,7 +105,7 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
     }
 
     [GtkCallback]
-    private void visible_child_changed () {
-        switcher_bar.reveal = squeezer.visible_child == title_text && view_mode == NORMAL;
+    private void title_visible_changed () {
+        switcher_bar.reveal = view_switcher_title.title_visible && view_mode == NORMAL;
     }
 }
