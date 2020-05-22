@@ -32,11 +32,21 @@ public class Window : Hdy.ApplicationWindow {
     [GtkChild]
     private HeaderBar header_bar;
     [GtkChild]
+    private Hdy.Deck alarm_deck;
+    [GtkChild]
+    private Hdy.Deck world_deck;
+    [GtkChild]
+    private Gtk.Box main_view;
+    [GtkChild]
     private Gtk.Stack stack;
     [GtkChild]
     private World.Face world;
     [GtkChild]
     private Alarm.Face alarm;
+    [GtkChild]
+    private World.Standalone world_standalone;
+    [GtkChild]
+    private Alarm.RingingPanel alarm_ringing_panel;
     [GtkChild]
     private Stopwatch.Face stopwatch;
     [GtkChild]
@@ -46,9 +56,6 @@ public class Window : Hdy.ApplicationWindow {
 
     // DIY DzlBindingGroup
     private Binding? bind_button_mode = null;
-    private Binding? bind_view_mode = null;
-    private Binding? bind_title = null;
-    private Binding? bind_subtitle = null;
     private Binding? bind_new_label = null;
 
     private bool inited = false;
@@ -84,9 +91,17 @@ public class Window : Hdy.ApplicationWindow {
         settings.get ("size", "(ii)", out width, out height);
         resize (width, height);
 
-        alarm.ring.connect ((w) => {
-            world.reset_view ();
+        world.show_standalone.connect ((w, l) => {
             stack.visible_child = w;
+            world_standalone.location = l;
+            world_deck.navigate (Hdy.NavigationDirection.FORWARD);
+        });
+
+        alarm.ring.connect ((w, a) => {
+            stack.visible_child = w;
+            alarm_ringing_panel.alarm = a;
+            alarm_deck.visible_child = alarm_ringing_panel;
+            deletable = false;
         });
 
         stopwatch.notify["state"].connect ((w) => {
@@ -94,7 +109,7 @@ public class Window : Hdy.ApplicationWindow {
         });
 
         timer.ring.connect ((w) => {
-            world.reset_view ();
+            close_standalone ();
             stack.visible_child = w;
         });
 
@@ -182,11 +197,11 @@ public class Window : Hdy.ApplicationWindow {
     }
 
     private void on_back_activate () {
-        ((Clock) stack.visible_child).activate_back ();
+        world_deck.navigate (Hdy.NavigationDirection.BACK);
     }
 
     public void show_world () {
-        world.reset_view ();
+        close_standalone ();
         stack.visible_child = world;
     }
 
@@ -199,7 +214,11 @@ public class Window : Hdy.ApplicationWindow {
         bool handled = false;
 
         if (((Gdk.Event)(event)).get_keyval (out keyval) && keyval == Gdk.Key.Escape) {
-            handled = ((Clock) stack.visible_child).escape_pressed ();
+            if (world_deck.visible_child == main_view) {
+                handled = ((Clock) stack.visible_child).escape_pressed ();
+            } else {
+                world_deck.navigate (Hdy.NavigationDirection.BACK);
+            }
         }
 
         if (handled) {
@@ -214,7 +233,7 @@ public class Window : Hdy.ApplicationWindow {
         uint button;
 
         if (((Gdk.Event) (event)).get_button (out button) && button == BUTTON_BACK) {
-            ((Clock) stack.visible_child).activate_back ();
+            on_back_activate ();
             return true;
         }
 
@@ -307,30 +326,6 @@ public class Window : Hdy.ApplicationWindow {
                                                 "button-mode",
                                                 SYNC_CREATE);
 
-        if (bind_view_mode != null) {
-            ((Binding) bind_view_mode).unbind ();
-        }
-        bind_view_mode = panel.bind_property ("view-mode",
-                                              header_bar,
-                                              "view-mode",
-                                              SYNC_CREATE);
-
-        if (bind_title != null) {
-            ((Binding) bind_title).unbind ();
-        }
-        bind_title = panel.bind_property ("title",
-                                          header_bar,
-                                          "title",
-                                          SYNC_CREATE);
-
-        if (bind_subtitle != null) {
-            ((Binding) bind_subtitle).unbind ();
-        }
-        bind_subtitle = panel.bind_property ("subtitle",
-                                             header_bar,
-                                             "subtitle",
-                                             SYNC_CREATE);
-
         if (bind_new_label != null) {
             ((Binding) bind_new_label).unbind ();
         }
@@ -340,6 +335,27 @@ public class Window : Hdy.ApplicationWindow {
                                               SYNC_CREATE);
 
         stack.visible_child.grab_focus ();
+    }
+
+    [GtkCallback]
+    private void visible_child_changed () {
+        if (alarm_deck.visible_child == alarm_ringing_panel) {
+            title = _("Alarm");
+        } else if (world_deck.visible_child == world_standalone) {
+            title = world_standalone.title;
+        } else {
+            title = _("Clocks");
+        }
+    }
+
+    [GtkCallback]
+    private void alarm_dismissed () {
+        alarm_deck.visible_child = world_deck;
+        deletable = true;
+    }
+
+    private void close_standalone () {
+        world_deck.visible_child = main_view;
     }
 }
 

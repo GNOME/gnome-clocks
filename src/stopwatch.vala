@@ -120,9 +120,6 @@ public class Face : Gtk.Box, Clocks.Clock {
     public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NONE; }
-    public ViewMode view_mode { get; set; default = NORMAL; }
-    public string title { get; set; default = _("Clocks"); }
-    public string subtitle { get; set; }
     public string? new_label { get; default = null; }
 
     public State state { get; private set; default = State.RESET; }

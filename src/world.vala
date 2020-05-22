@@ -591,33 +591,21 @@ private class LocationDialog : Gtk.Dialog {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world.ui")]
 public class Face : Gtk.Stack, Clocks.Clock {
+    public signal void show_standalone (Item location);
+
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NEW; }
-    public ViewMode view_mode { get; set; default = NORMAL; }
-    public string title { get; set; default = _("Clocks"); }
-    public string subtitle { get; set; }
     // Translators: Tooltip for the + button
     public string? new_label { get; default = _("Add Location"); }
 
     private ContentStore locations;
     private GLib.Settings settings;
-    private Item? standalone_location;
     [GtkChild]
     private Gtk.Widget empty_view;
     [GtkChild]
     private Gtk.ScrolledWindow list_view;
     [GtkChild]
     private Gtk.ListBox listbox;
-    [GtkChild]
-    private Gtk.Widget standalone;
-    [GtkChild]
-    private Gtk.Label standalone_time_label;
-    [GtkChild]
-    private Gtk.Label standalone_day_label;
-    [GtkChild]
-    private Gtk.Label standalone_sunrise_label;
-    [GtkChild]
-    private Gtk.Label standalone_sunset_label;
 
     construct {
         panel_id = WORLD;
@@ -667,47 +655,12 @@ public class Face : Gtk.Stack, Clocks.Clock {
             });
             // TODO Only need to queue what changed
             listbox.queue_draw ();
-            update_standalone ();
         });
     }
 
     [GtkCallback]
     private void item_activated (Gtk.ListBox list, Gtk.ListBoxRow row) {
         show_standalone (((Tile) row).location);
-    }
-
-    [GtkCallback]
-    private void visible_child_changed () {
-        if (visible_child == empty_view || visible_child == list_view) {
-            view_mode = NORMAL;
-            button_mode = NEW;
-            title = _("Clocks");
-            subtitle = (string) null;
-        } else if (visible_child == standalone) {
-            view_mode = STANDALONE;
-            button_mode = BACK;
-        }
-    }
-
-    private void update_standalone () {
-        if (standalone_location != null) {
-            standalone_time_label.label = ((Item) standalone_location).time_label;
-            standalone_day_label.label = (string) ((Item) standalone_location).day_label;
-            standalone_sunrise_label.label = ((Item) standalone_location).sunrise_label;
-            standalone_sunset_label.label = ((Item) standalone_location).sunset_label;
-        }
-    }
-
-    private void show_standalone (Item location) {
-        standalone_location = location;
-        update_standalone ();
-        visible_child = standalone;
-        if (location.state_name != null) {
-            title = "%s, %s".printf (location.city_name, (string) location.state_name);
-        } else {
-            title = location.city_name;
-        }
-        subtitle = (string) location.country_name;
     }
 
     private void load () {
@@ -776,22 +729,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         dialog.show ();
     }
 
-    public void activate_back () {
-        reset_view ();
-    }
-
-
-    public bool escape_pressed () {
-        if (visible_child == standalone) {
-            reset_view ();
-            return true;
-        }
-
-        return false;
-    }
-
-    public void reset_view () {
-        standalone_location = null;
+    private void reset_view () {
         visible_child = locations.get_n_items () == 0 ? empty_view : list_view;
     }
 }
