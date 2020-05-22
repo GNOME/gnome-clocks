@@ -12,7 +12,7 @@ clocks_vala_sources = [
   'application.vala',
   'clock.vala',
   'geocoding.vala',
-  'headerbar.vala',
+  'header-bar.vala',
   'main.vala',
   'search-provider.vala',
   'stopwatch-face.vala',
