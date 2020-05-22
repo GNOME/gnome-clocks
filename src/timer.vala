@@ -138,11 +138,11 @@ public class Item : Object, ContentItem {
     }
 }
 
-public class SetupDialog: Hdy.Dialog {
+public class SetupDialog: Gtk.Dialog {
     public Setup timer_setup;
 
     public SetupDialog (Gtk.Window parent) {
-        Object (transient_for: parent, title: _("New Timer"), use_header_bar: 1);
+        Object (modal: true, transient_for: parent, title: _("New Timer"), use_header_bar: 1);
         this.set_default_size (640, 360);
 
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
