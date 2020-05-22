@@ -27,15 +27,9 @@ public enum Clocks.PanelId {
 public interface Clocks.Clock : GLib.Object {
     public abstract PanelId panel_id { get; protected construct set; }
     public abstract ButtonMode button_mode { get; set; }
-    public abstract ViewMode view_mode { get; set; }
-    public abstract string title { get; protected set; }
-    public abstract string subtitle { get; protected set; }
     public abstract string? new_label { get; }
 
     public virtual void activate_new () {
-    }
-
-    public virtual void activate_back () {
     }
 
     public virtual bool escape_pressed () {

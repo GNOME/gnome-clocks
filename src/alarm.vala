@@ -20,12 +20,12 @@
 namespace Clocks {
 namespace Alarm {
 
-private struct AlarmTime {
+public struct AlarmTime {
     public int hour;
     public int minute;
 }
 
-private class Item : Object, ContentItem {
+public class Item : Object, ContentItem {
     const int SNOOZE_MINUTES = 9;
     const int RING_MINUTES = 3;
 
@@ -717,7 +717,7 @@ private class SetupDialog : Gtk.Dialog {
 
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarmringing.ui")]
-private class RingingPanel : Gtk.Grid {
+private class RingingPanel : Gtk.Bin {
     public Item? alarm {
         get {
             return _alarm;
@@ -736,6 +736,8 @@ private class RingingPanel : Gtk.Grid {
                     }
                 });
             }
+
+            update ();
         }
     }
 
@@ -745,6 +747,11 @@ private class RingingPanel : Gtk.Grid {
     private Gtk.Label title_label;
     [GtkChild]
     private Gtk.Label time_label;
+
+    construct {
+        // Start ticking...
+        Utils.WallClock.get_default ().tick.connect (update);
+    }
 
     [GtkCallback]
     private void stop_clicked () requires (alarm != null) {
@@ -765,7 +772,7 @@ private class RingingPanel : Gtk.Grid {
         alarm = null;
     }
 
-    public void update () {
+    private void update () {
         if (alarm != null) {
             title_label.label = (string) ((Item) alarm).name;
             if (((Item) alarm).state == SNOOZING) {
@@ -782,11 +789,8 @@ private class RingingPanel : Gtk.Grid {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm.ui")]
 public class Face : Gtk.Stack, Clocks.Clock {
-    public ViewMode view_mode { get; set; default = NORMAL; }
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NEW; }
-    public string title { get; set; default = _("Clocks"); }
-    public string subtitle { get; set; }
     // Translators: Tooltip for the + button
     public string? new_label { get; default = _("New Alarm"); }
 
@@ -798,8 +802,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private Gtk.ListBox listbox;
     [GtkChild]
     private Gtk.ScrolledWindow list_view;
-    [GtkChild]
-    private RingingPanel ringing_panel;
 
     construct {
         panel_id = ALARM;
@@ -850,33 +852,14 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 var a = (Item)i;
                 if (a.tick ()) {
                     if (a.state == Item.State.RINGING) {
-                        show_ringing_panel (a);
-                        ring ();
-                    } else if (ringing_panel.alarm == a) {
-                        ringing_panel.update ();
+                        ring (a);
                     }
                 }
             });
         });
     }
 
-    public signal void ring ();
-
-    [GtkCallback]
-    private void dismiss_ringing_panel () {
-       reset_view ();
-       button_mode = NEW;
-       title = _("Clocks");
-    }
-
-    [GtkCallback]
-    private void visible_child_changed () {
-        if (visible_child == empty_view || visible_child == list_view) {
-            view_mode = NORMAL;
-        } else if (visible_child == ringing_panel) {
-            view_mode = STANDALONE;
-        }
-    }
+    public signal void ring (Item item);
 
     private void load () {
         alarms.deserialize (settings.get_value ("alarms"), Item.deserialize);
@@ -909,15 +892,6 @@ public class Face : Gtk.Stack, Clocks.Clock {
     internal void delete (Item alarm) {
         alarms.delete_item (alarm);
         save ();
-    }
-
-    private void show_ringing_panel (Item alarm) {
-        ringing_panel.alarm = alarm;
-        ringing_panel.update ();
-        visible_child = ringing_panel;
-        title = _("Alarm");
-        view_mode = STANDALONE;
-        button_mode = NONE;
     }
 
     private void reset_view () {
