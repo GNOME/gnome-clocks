@@ -383,10 +383,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NONE; }
-    public ViewMode view_mode { get; set; default = NORMAL; }
     public bool is_running { get; set; default = false; }
-    public string title { get; set; default = _("Clocks"); }
-    public string subtitle { get; set; }
     // Translators: Tooltip for the + button
     public string? new_label { get; default = _("New Timer"); }
 
