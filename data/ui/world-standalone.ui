@@ -11,9 +11,6 @@
         <property name="show-close-button">True</property>
         <property name="title" bind-source="ClocksWorldStandalone" bind-property="title" bind-flags="sync-create" />
         <property name="subtitle" bind-source="ClocksWorldStandalone" bind-property="subtitle" bind-flags="sync-create" />
-        <style>
-          <class name="titlebar"/>
-        </style>
         <child>
           <object class="GtkButton">
             <property name="visible">True</property>
