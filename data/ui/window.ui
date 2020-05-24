@@ -42,6 +42,7 @@
                     <property name="hexpand">True</property>
                     <property name="vexpand">True</property>
                     <property name="homogeneous">True</property>
+                    <property name="transition-type">crossfade</property>
                     <signal name="notify::visible-child" handler="pane_changed" swapped="no"/>
                     <child>
                       <object class="ClocksWorldFace" id="world">
