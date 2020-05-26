@@ -371,6 +371,8 @@ public class Window : Hdy.ApplicationWindow {
         } else {
             title = _("Clocks");
         }
+
+        deletable = (alarm_deck.visible_child != alarm_ringing_panel);
     }
 
     [GtkCallback]
