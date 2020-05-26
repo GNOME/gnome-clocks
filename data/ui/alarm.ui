@@ -5,7 +5,6 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="homogeneous">False</property>
-    <signal name="notify::visible-child" handler="visible_child_changed" swapped="no"/>
     <child>
       <object class="GtkBox" id="empty_view">
         <property name="visible">True</property>
@@ -59,12 +58,6 @@
             </child>
           </object>
         </child>
-      </object>
-    </child>
-    <child>
-      <object class="ClocksAlarmRingingPanel" id="ringing_panel">
-        <property name="visible">True</property>
-        <signal name="dismiss" handler="dismiss_ringing_panel" swapped="no"/>
       </object>
     </child>
   </template>
