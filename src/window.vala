@@ -32,6 +32,8 @@ public class Window : Hdy.ApplicationWindow {
     [GtkChild]
     private HeaderBar header_bar;
     [GtkChild]
+    private Hdy.Deck alarm_deck;
+    [GtkChild]
     private Hdy.Deck world_deck;
     [GtkChild]
     private Gtk.Box main_view;
@@ -43,6 +45,8 @@ public class Window : Hdy.ApplicationWindow {
     private Alarm.Face alarm;
     [GtkChild]
     private World.Standalone world_standalone;
+    [GtkChild]
+    private Alarm.RingingPanel alarm_ringing_panel;
     [GtkChild]
     private Stopwatch.Face stopwatch;
     [GtkChild]
@@ -96,9 +100,11 @@ public class Window : Hdy.ApplicationWindow {
             world_deck.navigate (Hdy.NavigationDirection.FORWARD);
         });
 
-        alarm.ring.connect ((w) => {
+        alarm.ring.connect ((w, a) => {
             close_standalone ();
             stack.visible_child = w;
+            alarm_ringing_panel.alarm = a;
+            alarm_deck.visible_child = alarm_ringing_panel;
         });
 
         stopwatch.notify["state"].connect ((w) => {
@@ -192,11 +198,7 @@ public class Window : Hdy.ApplicationWindow {
     }
 
     private void on_back_activate () {
-        if (world_deck.visible_child == main_view) {
-            ((Clock) stack.visible_child).activate_back ();
-        } else {
-            world_deck.navigate (Hdy.NavigationDirection.BACK);
-        }
+        world_deck.navigate (Hdy.NavigationDirection.BACK);
     }
 
     public void show_world () {
@@ -358,6 +360,11 @@ public class Window : Hdy.ApplicationWindow {
                                               SYNC_CREATE);
 
         stack.visible_child.grab_focus ();
+    }
+
+    [GtkCallback]
+    private void alarm_dismissed () {
+        alarm_deck.visible_child = world_deck;
     }
 
     private void close_standalone () {
