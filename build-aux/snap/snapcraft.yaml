@@ -28,9 +28,8 @@ slots:
 apps:
   gnome-clocks:
     command: usr/bin/gnome-clocks
-    extensions: [gnome-3-28]
+    extensions: [ gnome-3-34 ]
     plugs:
-      - gsettings
       - pulseaudio
       - location-observe
     desktop: usr/share/applications/org.gnome.clocks.desktop
@@ -39,31 +38,7 @@ apps:
       LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/lib/gnome-clocks
 
 parts:
-  libcanberra:
-    source: git://git.0pointer.de/libcanberra
-    source-type: git
-    plugin: autotools
-    configflags:
-      - --prefix=/snap/gnome-clocks/current/usr
-      - --enable-pulse
-      - --enable-gstreamer
-      - --enable-gtk3
-      - --enable-alsa
-      - --disable-oss
-    organize:
-      snap/gnome-clocks/current/usr: usr
-    build-packages:
-      - libltdl-dev
-      - libasound2-dev
-      - libvorbis-dev
-      - libgtk-3-dev
-      - libtdb-dev
-      - libpulse-dev
-      - libgstreamer1.0-dev
-      - gtk-doc-tools
-
   gsound:
-    after: [libcanberra]
     source: https://gitlab.gnome.org/GNOME/gsound.git
     source-type: git
     plugin: autotools
@@ -74,8 +49,6 @@ parts:
       - autoconf-archive
       - intltool
       - libgirepository1.0-dev
-      - libglib2.0-dev
-      - valac
 
   libgweather:
     source: https://git.gnome.org/browse/libgweather
@@ -84,18 +57,10 @@ parts:
     meson-parameters: 
       - --prefix=/usr
     build-packages:
-      - libxml2-dev
-      - libglib2.0-dev
-      - libgtk-3-dev
-      - libsoup2.4-dev
-      - libxml2-utils
       - gtk-doc-tools
-      - libglib2.0-doc
-      - libgtk-3-doc
-      - libgirepository1.0-dev
-      - gobject-introspection
+      - libxml2-dev
+      - libxml2-utils
       - tzdata
-      - valac
       - libgeocode-glib-dev
       - libgladeui-dev
 
@@ -115,25 +80,21 @@ parts:
       cp ../src/data/icons/hicolor/scalable/apps/org.gnome.clocks.svg $SNAPCRAFT_PART_INSTALL/meta/gui/
       cp snapbuild/data/org.gnome.clocks.desktop $SNAPCRAFT_PART_INSTALL/meta/gui/
     build-packages:
+      - itstool
       - gettext
       - gsettings-desktop-schemas-dev
-      - itstool
+      - desktop-file-utils
+      - appstream-util
+      - appstream
       - libgeoclue-2-dev
       - libgeocode-glib-dev
-      - libgirepository1.0-dev
-      - libglib2.0-dev
       - libgnome-desktop-3-dev
-      - libgsound-dev
-      - libgtk-3-dev
-      - valac
 
   libraries:
     plugin: nil
     stage-packages:
-      - libgsound0
       - libgeocode-glib0
       - libgeoclue-2-0
     prime:
-      - "usr/lib/*/libgsound.so.*"
       - "usr/lib/*/libgeocode-glib.so.*"
       - "usr/lib/*/libgeoclue-2.so.*"
