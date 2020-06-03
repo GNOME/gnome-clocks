@@ -35,7 +35,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <signal name="clicked" handler="stop_clicked" swapped="no"/>
+                    <property name="action_name">app.stop-alarm</property>
                     <style>
                       <class name="clocks-button"/>
                       <class name="clocks-stop"/>
@@ -55,7 +55,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="relief">none</property>
-                    <signal name="clicked" handler="snooze_clicked" swapped="no"/>
+                    <property name="action_name">app.snooze-alarm</property>
                     <style>
                       <class name="clocks-button"/>
                       <class name="clocks-snooze"/>
