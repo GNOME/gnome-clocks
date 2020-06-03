@@ -735,6 +735,12 @@ private class RingingPanel : Gtk.Bin {
                         dismiss ();
                     }
                 });
+
+                stop_button.action_target = ((Item) _alarm).id;
+                stop_button.action_name = "app.stop-alarm";
+
+                snooze_button.action_target = ((Item) _alarm).id;
+                snooze_button.action_name = "app.snooze-alarm";
             }
 
             update ();
@@ -747,25 +753,14 @@ private class RingingPanel : Gtk.Bin {
     private Gtk.Label title_label;
     [GtkChild]
     private Gtk.Label time_label;
+    [GtkChild]
+    private Gtk.Button stop_button;
+    [GtkChild]
+    private Gtk.Button snooze_button;
 
     construct {
         // Start ticking...
         Utils.WallClock.get_default ().tick.connect (update);
-    }
-
-    [GtkCallback]
-    private void stop_clicked () requires (alarm != null) {
-        ((Item) alarm).stop ();
-    }
-
-    [GtkCallback]
-    private void snooze_clicked () requires (alarm != null) {
-        if (((Item) alarm).state != Item.State.SNOOZING) {
-            ((Item) alarm).snooze ();
-        } else {
-            // The alarm is already snoozed, simply dismiss the panel.
-            dismiss ();
-        }
     }
 
     public virtual signal void dismiss () {
