@@ -828,7 +828,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
             });
 
             if (a != null) {
-                ((Item) a).stop ();
+                ((Item) a).snooze ();
             }
         });
 
