@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-02-23 19:16+0000\n"
-"PO-Revision-Date: 2020-02-25 13:30+0100\n"
+"POT-Creation-Date: 2020-06-03 23:01+0000\n"
+"PO-Revision-Date: 2020-06-04 09:52+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 3.34.0\n"
+"X-Generator: Gtranslator 3.36.0\n"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -94,74 +94,18 @@ msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: data/org.gnome.clocks.appdata.xml.in.in:6
-msgid "GNOME Clocks"
-msgstr "Relojes de GNOME"
+#: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
+#: data/ui/headerbar.ui:24 src/alarm.vala:791 src/alarm.vala:873
+#: src/main.vala:25 src/stopwatch.vala:124 src/timer.vala:388
+#: src/window.vala:273 src/world.vala:597 src/world.vala:686
+msgid "Clocks"
+msgstr "Relojes"
 
-#: data/org.gnome.clocks.appdata.xml.in.in:7
 #: data/org.gnome.clocks.desktop.in.in:6
+#: data/org.gnome.clocks.metainfo.xml.in.in:7
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr ""
 "Relojes de horas mundiales, además de alarmas, cronómetro y un temporizador"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:9
-msgid ""
-"A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
-msgstr ""
-"Una sencilla y elegante aplicación de relojes. Incluye relojes del mundo, "
-"alarmas, un cronómetro y un temporizador."
-
-#: data/org.gnome.clocks.appdata.xml.in.in:13
-msgid "Goals:"
-msgstr "Objetivos:"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:15
-msgid "Show the time in different cities around the world"
-msgstr "Mostrar la hora en diferentes ciudades de todo el mundo"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:16
-msgid "Set alarms to wake you up"
-msgstr "Configurar alarmas para despertarse"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:17
-msgid "Measure elapsed time with an accurate stopwatch"
-msgstr "Medir el tiempo con precisión usando un cronómetro"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:18
-msgid "Set timers to properly cook your food"
-msgstr "Configurar temporizadores para cocinar adecuadamente"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:32
-msgid "Initial screen"
-msgstr "Pantalla inicial"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:36
-msgid "Alarms screen"
-msgstr "Pantalla de alarmas"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:40
-msgid "Alarms setup"
-msgstr "Configuración de alarmas"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:44
-msgid "Stopwatch screen"
-msgstr "Pantalla de cronómetro"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:48
-msgid "Timer screen"
-msgstr "Pantalla de temporizador"
-
-#: data/org.gnome.clocks.appdata.xml.in.in:62
-msgid "The GNOME Project"
-msgstr "El Proyecto GNOME"
-
-#: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/headerbar.ui:24 src/alarm.vala:788 src/alarm.vala:868
-#: src/main.vala:25 src/stopwatch.vala:122 src/timer.vala:407
-#: src/window.vala:273 src/world.vala:495 src/world.vala:584
-msgid "Clocks"
-msgstr "Relojes"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in.in:8
@@ -228,8 +172,63 @@ msgstr "Panel de estado"
 msgid "Current clock panel."
 msgstr "Panel del reloj actual."
 
+#: data/org.gnome.clocks.metainfo.xml.in.in:6
+msgid "GNOME Clocks"
+msgstr "Relojes de GNOME"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:9
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+"Una sencilla y elegante aplicación de relojes. Incluye relojes del mundo, "
+"alarmas, un cronómetro y un temporizador."
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:13
+msgid "Goals:"
+msgstr "Objetivos:"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:15
+msgid "Show the time in different cities around the world"
+msgstr "Mostrar la hora en diferentes ciudades de todo el mundo"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:16
+msgid "Set alarms to wake you up"
+msgstr "Configurar alarmas para despertarse"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:17
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "Medir el tiempo con precisión usando un cronómetro"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:18
+msgid "Set timers to properly cook your food"
+msgstr "Configurar temporizadores para cocinar adecuadamente"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:32
+msgid "Initial screen"
+msgstr "Pantalla inicial"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:36
+msgid "Alarms screen"
+msgstr "Pantalla de alarmas"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:40
+msgid "Alarms setup"
+msgstr "Configuración de alarmas"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:44
+msgid "Stopwatch screen"
+msgstr "Pantalla de cronómetro"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:48
+msgid "Timer screen"
+msgstr "Pantalla de temporizador"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:83
+msgid "The GNOME Project"
+msgstr "El Proyecto GNOME"
+
 #: data/ui/alarmdaypickerrow.ui:5
-#| msgid "Repeat Every"
 msgid "_Repeat"
 msgstr "_Repetir"
 
@@ -246,15 +245,14 @@ msgid "Delete"
 msgstr "Eliminar"
 
 #: data/ui/alarmrow.ui:106
-#| msgid "Repeat Every"
 msgid "Repeats"
 msgstr "Repeticiones"
 
-#: data/ui/alarmringing.ui:28 src/alarm.vala:117
+#: data/ui/alarmringing.ui:28 src/alarm.vala:115
 msgid "Stop"
 msgstr "Detener"
 
-#: data/ui/alarmringing.ui:47 src/alarm.vala:118
+#: data/ui/alarmringing.ui:47 src/alarm.vala:116
 msgid "Snooze"
 msgstr "Posponer"
 
@@ -262,16 +260,15 @@ msgstr "Posponer"
 msgid "Add a New World Clock"
 msgstr "Añadir un nuevo reloj mundial"
 
-#: data/ui/alarmsetupdialog.ui:144
+#: data/ui/alarmsetupdialog.ui:143
 msgid "Name"
 msgstr "Nombre"
 
-#: data/ui/alarmsetupdialog.ui:145
+#: data/ui/alarmsetupdialog.ui:144
 msgid "Optional"
 msgstr "Opcional"
 
 #: data/ui/alarmsetupdialog.ui:165
-#| msgid "New Alarm"
 msgid "R_emove Alarm"
 msgstr "Q_uitar alarma"
 
@@ -280,8 +277,6 @@ msgid "You already have an alarm for this time."
 msgstr "Ya tiene una alarma para esta hora."
 
 #: data/ui/alarm.ui:30
-#| msgctxt "shortcut window"
-#| msgid "Add an alarm"
 msgid "Add A_larm"
 msgstr "Añadir a_larma"
 
@@ -297,11 +292,11 @@ msgstr "_Ayuda"
 msgid "_About Clocks"
 msgstr "_Acerca de Relojes"
 
-#: data/ui/headerbar.ui:149
+#: data/ui/headerbar.ui:140
 msgid "Back"
 msgstr "Atrás"
 
-#: data/ui/headerbar.ui:186
+#: data/ui/headerbar.ui:177
 msgid "Menu"
 msgstr "Menú"
 
@@ -313,15 +308,15 @@ msgstr "Tiempo"
 msgid "Difference"
 msgstr "Diferencia"
 
-#: data/ui/stopwatch.ui:167
+#: data/ui/stopwatch.ui:177
 msgid "_Start"
 msgstr "_Iniciar"
 
-#: data/ui/stopwatch.ui:189 src/stopwatch.vala:246
+#: data/ui/stopwatch.ui:198 src/stopwatch.vala:248
 msgid "Clear"
 msgstr "Limpiar"
 
-#: data/ui/timer_row.ui:45
+#: data/ui/timer_row.ui:46
 msgid "Title..."
 msgstr "Título…"
 
@@ -409,40 +404,40 @@ msgstr "Atardecer"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm.vala:115 src/alarm.vala:335 src/alarm.vala:917
+#: src/alarm.vala:113 src/alarm.vala:338 src/alarm.vala:922
 msgid "Alarm"
 msgstr "Alarma"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
-#: src/alarm.vala:342
+#: src/alarm.vala:345
 #, c-format
 msgid "Snoozed from %s: %s"
 msgstr "Pospuesta desde %s: %s"
 
 #. Translators: %s is a time
-#: src/alarm.vala:345
+#: src/alarm.vala:348
 #, c-format
 msgid "Snoozed from %s"
 msgstr "Pospuesta desde %s:"
 
-#: src/alarm.vala:557
+#: src/alarm.vala:560
 msgid "Edit Alarm"
 msgstr "Editar alarma"
 
 #. Translators: Tooltip for the + button
-#: src/alarm.vala:557 src/alarm.vala:791
+#: src/alarm.vala:560 src/alarm.vala:794
 msgid "New Alarm"
 msgstr "Alarma nueva"
 
-#: src/alarm.vala:560 src/timer.vala:145
+#: src/alarm.vala:563 src/timer.vala:148
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/alarm.vala:562
+#: src/alarm.vala:565
 msgid "Done"
 msgstr "Hecho"
 
-#: src/alarm.vala:564 src/timer.vala:146
+#: src/alarm.vala:567 src/timer.vala:149
 msgid "Add"
 msgstr "Añadir"
 
@@ -455,149 +450,114 @@ msgstr "Mostrar información de la versión y salir"
 msgid "Lap %i"
 msgstr "Vuelta %i"
 
-#: src/stopwatch.vala:226
+#: src/stopwatch.vala:228
 msgid "Pause"
 msgstr "Pausar"
 
-#: src/stopwatch.vala:230 src/stopwatch.vala:267
+#: src/stopwatch.vala:232 src/stopwatch.vala:269
 msgid "Lap"
 msgstr "Vuelta"
 
-#: src/stopwatch.vala:242
+#: src/stopwatch.vala:244
 msgid "Resume"
 msgstr "Reanudar"
 
-#: src/stopwatch.vala:263
+#: src/stopwatch.vala:265
 msgid "Start"
 msgstr "Iniciar"
 
 #. Translators: Tooltip for the + button
-#: src/timer.vala:142 src/timer.vala:410
+#: src/timer.vala:145 src/timer.vala:391
 msgid "New Timer"
 msgstr "Nuevo temporizador"
 
-#: src/timer.vala:374
-#, c-format
-msgid "%i second timer"
-msgstr "temporizador de %i segundo"
-
-#: src/timer.vala:376
-#, c-format
-msgid "%i minute timer"
-msgstr "temporizador de %i minuto"
-
-#: src/timer.vala:378
-#, c-format
-msgid "%i hour timer"
-msgstr "temporizador de %i hora"
-
-#: src/timer.vala:380
-#, c-format
-msgid "%i minute %i second timer"
-msgstr "temporizador de %i minuto %i segundo"
-
-#: src/timer.vala:382
-#, c-format
-msgid "%i hour %i minute timer"
-msgstr "temporizador de %i hora %i minuto"
-
-#: src/timer.vala:384
-#, c-format
-msgid "%i hour %i second timer"
-msgstr "temporizador de %i hora %i segundo"
-
-#: src/timer.vala:386
-#, c-format
-msgid "%i hour %i minute %i second timer"
-msgstr "temporizador de %i hora %i minuto %i segundo"
-
-#: src/timer.vala:449
+#: src/timer.vala:430
 msgid "Time is up!"
 msgstr "¡Se acabó el tiempo!"
 
-#: src/timer.vala:450
+#: src/timer.vala:431
 msgid "Timer countdown finished"
 msgstr "La cuenta atrás ha terminado"
 
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:159
-msgctxt "Repeat|Monday"
+#: src/utils.vala:158
+#| msgctxt "Repeat|Monday"
+#| msgid "M"
+msgctxt "Alarm|Repeat-On"
 msgid "M"
 msgstr "L"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:161
-msgctxt "Repeat|Tuesday"
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:160 src/utils.vala:164
+#| msgctxt "Repeat|Tuesday"
+#| msgid "T"
+msgctxt "Alarm|Repeat-On"
 msgid "T"
 msgstr "M"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:163
-msgctxt "Repeat|Wednesday"
+#: src/utils.vala:162
+#| msgctxt "Repeat|Wednesday"
+#| msgid "W"
+msgctxt "Alarm|Repeat-On"
 msgid "W"
 msgstr "X"
 
-#. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:165
-msgctxt "Repeat|Thursday"
-msgid "T"
-msgstr "J"
-
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:167
-msgctxt "Repeat|Friday"
+#: src/utils.vala:166
+#| msgctxt "Repeat|Friday"
+#| msgid "F"
+msgctxt "Alarm|Repeat-On"
 msgid "F"
 msgstr "V"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:169
-msgctxt "Repeat|Saturday"
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:168 src/utils.vala:170
+#| msgctxt "Repeat|Saturday"
+#| msgid "S"
+msgctxt "Alarm|Repeat-On"
 msgid "S"
 msgstr "S"
 
-#. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:171
-msgctxt "Repeat|Sunday"
-msgid "S"
-msgstr "D"
-
-#: src/utils.vala:175
+#: src/utils.vala:174
 msgid "Mondays"
 msgstr "Lunes"
 
-#: src/utils.vala:176
+#: src/utils.vala:175
 msgid "Tuesdays"
 msgstr "Martes"
 
-#: src/utils.vala:177
+#: src/utils.vala:176
 msgid "Wednesdays"
 msgstr "Miércoles"
 
-#: src/utils.vala:178
+#: src/utils.vala:177
 msgid "Thursdays"
 msgstr "Jueves"
 
-#: src/utils.vala:179
+#: src/utils.vala:178
 msgid "Fridays"
 msgstr "Viernes"
 
-#: src/utils.vala:180
+#: src/utils.vala:179
 msgid "Saturdays"
 msgstr "Sábados"
 
-#: src/utils.vala:181
+#: src/utils.vala:180
 msgid "Sundays"
 msgstr "Domingos"
 
-#: src/utils.vala:307
+#: src/utils.vala:306
 msgid "Every Day"
 msgstr "Cada día"
 
-#: src/utils.vala:309
+#: src/utils.vala:308
 msgid "Weekdays"
 msgstr "Días de la semana"
 
-#: src/utils.vala:311
+#: src/utils.vala:310
 msgid "Weekends"
 msgstr "Fines de semana"
 
@@ -618,27 +578,25 @@ msgstr ""
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:182 src/world.vala:186
+#: src/world.vala:203 src/world.vala:207
 msgid "Tomorrow"
 msgstr "Mañana"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:182 src/world.vala:186
+#: src/world.vala:203 src/world.vala:207
 msgid "Yesterday"
 msgstr "Ayer"
 
 #. Translators: The time is the same as the local time
-#: src/world.vala:407
-#| msgid "Current clock panel."
+#: src/world.vala:509
 msgid "Current timezone"
 msgstr "Zona horaria actual"
 
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
-#: src/world.vala:412
+#: src/world.vala:514
 #, c-format
-#| msgid "%i hour timer"
 msgid "%s hour earlier"
 msgid_plural "%s hours earlier"
 msgstr[0] "%s hora antes"
@@ -646,24 +604,51 @@ msgstr[1] "%s horas antes"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
-#: src/world.vala:418
+#: src/world.vala:520
 #, c-format
-#| msgid "%i hour timer"
 msgid "%s hour later"
 msgid_plural "%s hours later"
 msgstr[0] "%s hora después"
 msgstr[1] "%s horas después"
 
 #. Translators: This clock represents the local time
-#: src/world.vala:428
-#| msgid "Current clock panel."
+#: src/world.vala:530
 msgid "Current location"
 msgstr "Ubicación actual"
 
 #. Translators: Tooltip for the + button
-#: src/world.vala:498
+#: src/world.vala:600
 msgid "Add Location"
 msgstr "Añadir ubicación"
+
+#~ msgid "%i second timer"
+#~ msgstr "temporizador de %i segundo"
+
+#~ msgid "%i minute timer"
+#~ msgstr "temporizador de %i minuto"
+
+#~ msgid "%i hour timer"
+#~ msgstr "temporizador de %i hora"
+
+#~ msgid "%i minute %i second timer"
+#~ msgstr "temporizador de %i minuto %i segundo"
+
+#~ msgid "%i hour %i minute timer"
+#~ msgstr "temporizador de %i hora %i minuto"
+
+#~ msgid "%i hour %i second timer"
+#~ msgstr "temporizador de %i hora %i segundo"
+
+#~ msgid "%i hour %i minute %i second timer"
+#~ msgstr "temporizador de %i hora %i minuto %i segundo"
+
+#~ msgctxt "Repeat|Thursday"
+#~ msgid "T"
+#~ msgstr "J"
+
+#~ msgctxt "Repeat|Sunday"
+#~ msgid "S"
+#~ msgstr "D"
 
 #~ msgctxt "shortcut window"
 #~ msgid "Select all world clocks"
