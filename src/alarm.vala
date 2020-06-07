@@ -528,7 +528,7 @@ public class DayPickerRow : Hdy.ActionRow {
 const int DELETE_ALARM = 2;
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarmsetupdialog.ui")]
-private class SetupDialog : Hdy.Dialog {
+private class SetupDialog : Gtk.Dialog {
     private Utils.WallClock.Format format;
     [GtkChild]
     private Gtk.Grid time_grid;
