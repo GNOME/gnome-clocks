@@ -96,7 +96,7 @@ private class Item : Object, ContentItem {
     }
 
     private string _name;
-    private bool _active;
+    private bool _active = true;
     private GLib.DateTime alarm_time;
     private GLib.DateTime snooze_time;
     private GLib.DateTime ring_end_time;
