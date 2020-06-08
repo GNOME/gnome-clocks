@@ -249,7 +249,7 @@ public class Window : Gtk.ApplicationWindow {
         const string COPYRIGHT = "Copyright \xc2\xa9 2011 Collabora Ltd.\n" +
                                  "Copyright \xc2\xa9 2012-2013 Collabora Ltd., Seif Lotfy, Emily Gonyer\n" +
                                  "Eslam Mostafa, Paolo Borelli, Volker Sobek\n" +
-                                 "Copyright \xc2\xa9 2019 Bilal Elmoussaoui & Zander Brown et al";
+                                 "Copyright \xc2\xa9 2019-2020 Bilal Elmoussaoui & Zander Brown et al";
 
         const string? AUTHORS[] = {
             "Alex Anthony",
