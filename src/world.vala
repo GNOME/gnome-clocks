@@ -279,7 +279,8 @@ public class Item : Object, ContentItem {
         if (weather_time_zone != null) {
             time_zone = new GLib.TimeZone ((string) weather_time_zone);
             if (time_zone == null) {
-                warning ("Unrecognised timezone %s", (string) weather_time_zone);
+                warning ("Unrecognised timezone %s",
+                         (string) weather_time_zone);
             }
         } else {
             warning ("Failed to get a timezone for %s", location.get_name ());
@@ -457,7 +458,15 @@ public class Item : Object, ContentItem {
             }
         }
 
-        return location == null ? null : (Item?) new Item ((GWeather.Location) location);
+        if (location == null) {
+            return null;
+        } else if (((GWeather.Location) location).get_timezone_str () == null) {
+            warning ("Invalid location “%s” – timezone unknown. Ignoring.",
+                     ((GWeather.Location) location).get_name ());
+            return null;
+        } else {
+            return new Item ((GWeather.Location) location);
+        }
     }
 }
 
