@@ -68,10 +68,6 @@ public class Window : Hdy.ApplicationWindow {
         settings = new Settings ("org.gnome.clocks.state.window");
         settings.delay ();
 
-        destroy.connect (() => {
-            settings.apply ();
-        });
-
         // GSettings gives us the nick, which matches the stack page name
         stack.visible_child_name = settings.get_string ("panel-id");
 
@@ -82,14 +78,14 @@ public class Window : Hdy.ApplicationWindow {
         pane_changed ();
 
         // Setup window geometry saving
-        Gdk.WindowState window_state = (Gdk.WindowState)settings.get_int ("state");
+        var window_state = (Gdk.WindowState) settings.get_int ("state");
         if (Gdk.WindowState.MAXIMIZED in window_state) {
             maximize ();
+        } else {
+            int width, height;
+            settings.get ("size", "(ii)", out width, out height);
+            resize (width, height);
         }
-
-        int width, height;
-        settings.get ("size", "(ii)", out width, out height);
-        resize (width, height);
 
         world.show_standalone.connect ((w, l) => {
             stack.visible_child = w;
@@ -207,6 +203,16 @@ public class Window : Hdy.ApplicationWindow {
         world.add_location (location);
     }
 
+    public override void destroy () {
+        settings.apply ();
+    }
+
+    public override bool delete_event (Gdk.EventAny event) {
+        settings.apply ();
+
+        return hide_on_delete ();
+    }
+
     public override bool key_press_event (Gdk.EventKey event) {
         uint keyval;
         bool handled = false;
@@ -251,6 +257,7 @@ public class Window : Hdy.ApplicationWindow {
 
     protected override bool window_state_event (Gdk.EventWindowState event) {
         settings.set_int ("state", event.new_window_state);
+
         return base.window_state_event (event);
     }
 
