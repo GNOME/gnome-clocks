@@ -21,45 +21,11 @@
 
 public enum Clocks.ButtonMode {
     NEW,
-    BACK,
     NONE
 }
 
-
-public enum Clocks.ViewMode {
-    NORMAL,
-    STANDALONE
-}
-
-
 [GtkTemplate (ui = "/org/gnome/clocks/ui/headerbar.ui")]
 public class Clocks.HeaderBar : Hdy.HeaderBar {
-    public ViewMode view_mode {
-        get {
-            return _mode;
-        }
-
-        set {
-            _mode = value;
-
-            switch (_mode) {
-                case NORMAL:
-                    title_stack.visible_child_name = "switcher";
-                    start_button_stack.show ();
-                    end_button_stack.show ();
-                    end_button_stack.visible_child_name = "menu";
-                    break;
-                case STANDALONE:
-                    title_stack.visible_child_name = "title";
-                    start_button_stack.show ();
-                    end_button_stack.hide ();
-                    break;
-            }
-
-            visible_child_changed ();
-        }
-    }
-
     public ButtonMode button_mode {
         get {
             return _button_mode;
@@ -69,9 +35,6 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
             switch (value) {
                 case NEW:
                     start_button_stack.visible_child_name = "new";
-                    break;
-                case BACK:
-                    start_button_stack.visible_child_name = "back";
                     break;
                 case NONE:
                     start_button_stack.visible_child_name = "empty";
@@ -85,29 +48,15 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
     public Hdy.ViewSwitcherBar switcher_bar { get; set; }
     public string? new_label { get; set; }
 
-    private ViewMode _mode;
     private ButtonMode _button_mode;
 
     [GtkChild]
     private Gtk.Stack start_button_stack;
     [GtkChild]
-    private Gtk.Stack end_button_stack;
-    [GtkChild]
-    private Hdy.Squeezer squeezer;
-    [GtkChild]
-    private Gtk.Box title_text;
-    [GtkChild]
-    private Gtk.Stack title_stack;
-    [GtkChild]
-    private Gtk.Revealer reveal_subtitle;
+    private Hdy.ViewSwitcherTitle view_switcher_title;
 
     [GtkCallback]
-    private void subtitle_changed () {
-        reveal_subtitle.reveal_child = ((string?) subtitle) != null && subtitle.length > 0;
-    }
-
-    [GtkCallback]
-    private void visible_child_changed () {
-        switcher_bar.reveal = squeezer.visible_child == title_text && view_mode == NORMAL;
+    private void title_visible_changed () {
+        switcher_bar.reveal = view_switcher_title.title_visible;
     }
 }
