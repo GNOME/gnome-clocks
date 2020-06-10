@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-04-05 20:11+0000\n"
-"PO-Revision-Date: 2020-04-05 22:46+0200\n"
+"POT-Creation-Date: 2020-06-08 10:36+0000\n"
+"PO-Revision-Date: 2020-06-09 22:22+0200\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 
 #: data/gtk/help-overlay.ui:14
 msgctxt "shortcut window"
@@ -97,9 +97,9 @@ msgid "Reset"
 msgstr "Ponastavi"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/headerbar.ui:24 src/alarm.vala:788 src/alarm.vala:868
-#: src/main.vala:25 src/stopwatch.vala:122 src/timer.vala:385
-#: src/window.vala:273 src/world.vala:513 src/world.vala:602
+#: data/ui/headerbar.ui:24 src/alarm.vala:788 src/alarm.vala:869
+#: src/main.vala:25 src/stopwatch.vala:124 src/timer.vala:388
+#: src/window.vala:273 src/world.vala:597 src/world.vala:684
 msgid "Clocks"
 msgstr "Ure"
 
@@ -225,7 +225,7 @@ msgstr "Štoparica"
 msgid "Timer screen"
 msgstr "Časomer"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:74
+#: data/org.gnome.clocks.metainfo.xml.in.in:83
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -249,11 +249,11 @@ msgstr "Izbriši"
 msgid "Repeats"
 msgstr "Ponovi"
 
-#: data/ui/alarmringing.ui:28 src/alarm.vala:117
+#: data/ui/alarmringing.ui:28 src/alarm.vala:115
 msgid "Stop"
 msgstr "Ustavi"
 
-#: data/ui/alarmringing.ui:47 src/alarm.vala:118
+#: data/ui/alarmringing.ui:47 src/alarm.vala:116
 msgid "Snooze"
 msgstr "Zadremaj"
 
@@ -261,11 +261,11 @@ msgstr "Zadremaj"
 msgid "Add a New World Clock"
 msgstr "Dodaj nov svetovni čas"
 
-#: data/ui/alarmsetupdialog.ui:144
+#: data/ui/alarmsetupdialog.ui:143
 msgid "Name"
 msgstr "Ime"
 
-#: data/ui/alarmsetupdialog.ui:145
+#: data/ui/alarmsetupdialog.ui:144
 msgid "Optional"
 msgstr "Izbirno"
 
@@ -309,11 +309,11 @@ msgstr "Čas"
 msgid "Difference"
 msgstr "Razlika"
 
-#: data/ui/stopwatch.ui:167
+#: data/ui/stopwatch.ui:177
 msgid "_Start"
 msgstr "_Začni"
 
-#: data/ui/stopwatch.ui:189 src/stopwatch.vala:246
+#: data/ui/stopwatch.ui:198 src/stopwatch.vala:247
 msgid "Clear"
 msgstr "Počisti"
 
@@ -394,51 +394,51 @@ msgstr "Iskanje mesta:"
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Za prikaz kateregakoli časa je treba najprej določiti <b>kraj</b>."
 
-#: data/ui/world.ui:148
+#: data/ui/world.ui:147
 msgid "Sunrise"
 msgstr "Sončni vzhod"
 
-#: data/ui/world.ui:162
+#: data/ui/world.ui:161
 msgid "Sunset"
 msgstr "Sončni zahod"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm.vala:115 src/alarm.vala:335 src/alarm.vala:917
+#: src/alarm.vala:113 src/alarm.vala:338 src/alarm.vala:918
 msgid "Alarm"
 msgstr "Alarm"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
-#: src/alarm.vala:342
+#: src/alarm.vala:345
 #, c-format
 msgid "Snoozed from %s: %s"
 msgstr "Dremanje od %s: %s"
 
 #. Translators: %s is a time
-#: src/alarm.vala:345
+#: src/alarm.vala:348
 #, c-format
 msgid "Snoozed from %s"
 msgstr "Dremanje od %s"
 
-#: src/alarm.vala:557
+#: src/alarm.vala:558
 msgid "Edit Alarm"
 msgstr "Uredi alarm"
 
 #. Translators: Tooltip for the + button
-#: src/alarm.vala:557 src/alarm.vala:791
+#: src/alarm.vala:558 src/alarm.vala:791
 msgid "New Alarm"
 msgstr "Dodaj alarm"
 
-#: src/alarm.vala:560 src/timer.vala:145
+#: src/alarm.vala:561 src/timer.vala:148
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: src/alarm.vala:562
+#: src/alarm.vala:563
 msgid "Done"
 msgstr "Končano"
 
-#: src/alarm.vala:564 src/timer.vala:146
+#: src/alarm.vala:565 src/timer.vala:149
 msgid "Add"
 msgstr "Dodaj"
 
@@ -451,114 +451,104 @@ msgstr "Izpiši podatke o različici in končaj"
 msgid "Lap %i"
 msgstr "Krog %i"
 
-#: src/stopwatch.vala:226
+#: src/stopwatch.vala:227
 msgid "Pause"
 msgstr "Premor"
 
-#: src/stopwatch.vala:230 src/stopwatch.vala:267
+#: src/stopwatch.vala:231 src/stopwatch.vala:268
 msgid "Lap"
 msgstr "Krog"
 
-#: src/stopwatch.vala:242
+#: src/stopwatch.vala:243
 msgid "Resume"
 msgstr "Nadaljuj"
 
-#: src/stopwatch.vala:263
+#: src/stopwatch.vala:264
 msgid "Start"
 msgstr "Začni"
 
 #. Translators: Tooltip for the + button
-#: src/timer.vala:142 src/timer.vala:388
+#: src/timer.vala:145 src/timer.vala:391
 msgid "New Timer"
 msgstr "Nov časomer"
 
-#: src/timer.vala:427
+#: src/timer.vala:429
 msgid "Time is up!"
 msgstr "Čas je potekel!"
 
-#: src/timer.vala:428
+#: src/timer.vala:430
 msgid "Timer countdown finished"
 msgstr "Odštevanje je končano."
 
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:159
-msgctxt "Repeat|Monday"
+#: src/utils.vala:158
+msgctxt "Alarm|Repeat-On"
 msgid "M"
 msgstr "P"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:161
-msgctxt "Repeat|Tuesday"
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:160 src/utils.vala:164
+msgctxt "Alarm|Repeat-On"
 msgid "T"
 msgstr "T"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:163
-msgctxt "Repeat|Wednesday"
+#: src/utils.vala:162
+msgctxt "Alarm|Repeat-On"
 msgid "W"
 msgstr "S"
 
-#. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:165
-msgctxt "Repeat|Thursday"
-msgid "T"
-msgstr "Č"
-
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:167
-msgctxt "Repeat|Friday"
+#: src/utils.vala:166
+msgctxt "Alarm|Repeat-On"
 msgid "F"
 msgstr "P"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:169
-msgctxt "Repeat|Saturday"
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:168 src/utils.vala:170
+msgctxt "Alarm|Repeat-On"
 msgid "S"
 msgstr "S"
 
-#. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:171
-msgctxt "Repeat|Sunday"
-msgid "S"
-msgstr "N"
-
-#: src/utils.vala:175
+#: src/utils.vala:174
 msgid "Mondays"
 msgstr "Ponedeljki"
 
-#: src/utils.vala:176
+#: src/utils.vala:175
 msgid "Tuesdays"
 msgstr "Torki"
 
-#: src/utils.vala:177
+#: src/utils.vala:176
 msgid "Wednesdays"
 msgstr "Srede"
 
-#: src/utils.vala:178
+#: src/utils.vala:177
 msgid "Thursdays"
 msgstr "Četrtki"
 
-#: src/utils.vala:179
+#: src/utils.vala:178
 msgid "Fridays"
 msgstr "Petki"
 
-#: src/utils.vala:180
+#: src/utils.vala:179
 msgid "Saturdays"
 msgstr "Sobote"
 
-#: src/utils.vala:181
+#: src/utils.vala:180
 msgid "Sundays"
 msgstr "Nedelje"
 
-#: src/utils.vala:307
+#: src/utils.vala:306
 msgid "Every Day"
 msgstr "Vsak dan"
 
-#: src/utils.vala:309
+#: src/utils.vala:308
 msgid "Weekdays"
 msgstr "Dnevi tedna"
 
-#: src/utils.vala:311
+#: src/utils.vala:310
 msgid "Weekends"
 msgstr "Vikendi"
 
@@ -577,24 +567,24 @@ msgstr "Matej Urbančič <mateju@svn@gnome.org>"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world.vala:182 src/world.vala:186
+#: src/world.vala:203 src/world.vala:207
 msgid "Tomorrow"
 msgstr "Jutri"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world.vala:182 src/world.vala:186
+#: src/world.vala:203 src/world.vala:207
 msgid "Yesterday"
 msgstr "Včeraj"
 
 #. Translators: The time is the same as the local time
-#: src/world.vala:425
+#: src/world.vala:509
 msgid "Current timezone"
 msgstr "Časovni pas "
 
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
-#: src/world.vala:430
+#: src/world.vala:514
 #, c-format
 msgid "%s hour earlier"
 msgid_plural "%s hours earlier"
@@ -605,7 +595,7 @@ msgstr[3] "%s ure prej"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
-#: src/world.vala:436
+#: src/world.vala:520
 #, c-format
 msgid "%s hour later"
 msgid_plural "%s hours later"
@@ -615,14 +605,22 @@ msgstr[2] "%s uri kasneje"
 msgstr[3] "%s ure kasneje"
 
 #. Translators: This clock represents the local time
-#: src/world.vala:446
+#: src/world.vala:530
 msgid "Current location"
 msgstr "Trenutno mesto"
 
 #. Translators: Tooltip for the + button
-#: src/world.vala:516
+#: src/world.vala:600
 msgid "Add Location"
 msgstr "Dodaj mesto"
+
+#~ msgctxt "Repeat|Thursday"
+#~ msgid "T"
+#~ msgstr "Č"
+
+#~ msgctxt "Repeat|Sunday"
+#~ msgid "S"
+#~ msgstr "N"
 
 #~ msgctxt "shortcut window"
 #~ msgid "Select all world clocks"
