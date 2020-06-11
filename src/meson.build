@@ -3,20 +3,35 @@ vapi_sources = [
 ]
 
 clocks_vala_sources = [
-  'alarm.vala',
+  'alarm-day-picker-row.vala',
+  'alarm-face.vala',
+  'alarm-item.vala',
+  'alarm-ringing-panel.vala',
+  'alarm-row.vala',
+  'alarm-setup-dialog.vala',
   'application.vala',
   'clock.vala',
   'geocoding.vala',
-  'headerbar.vala',
+  'header-bar.vala',
   'main.vala',
   'search-provider.vala',
-  'stopwatch.vala',
-  'timer.vala',
+  'stopwatch-face.vala',
+  'stopwatch-lap.vala',
+  'stopwatch-laps-row.vala',
+  'timer-face.vala',
+  'timer-item.vala',
+  'timer-row.vala',
+  'timer-setup.vala',
+  'timer-setup-dialog.vala',
   'utils.vala',
   'widgets.vala',
   'window.vala',
-  'world.vala',
-  'world-standalone.vala'
+  'world-face.vala',
+  'world-item.vala',
+  'world-location-dialog.vala',
+  'world-row.vala',
+  'world-shell-world-clocks.vala',
+  'world-standalone.vala',
 ]
 
 clocks_c_sources = [
