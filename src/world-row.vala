@@ -56,15 +56,29 @@ private class Row : Gtk.ListBoxRow {
         ctx.remove_class ("day");
         ctx.add_class (location.state_class);
 
-        var diff = ((double) location.local_offset / (double) TimeSpan.HOUR);
+        string message = get_time_difference_message ((double) location.local_offset);
+
+        if (location.day_label != null && location.day_label != "") {
+            desc.label = "%s • %s".printf ((string) location.day_label, message);
+            delete_stack.visible_child = delete_button;
+        } else if (location.automatic) {
+            // Translators: This clock represents the local time
+            desc.label = _("Current location");
+            delete_stack.visible_child = delete_empty;
+        } else {
+            desc.label = "%s".printf (message);
+            delete_stack.visible_child = delete_button;
+        }
+
+        time_label.label = location.time_label;
+    }
+
+   public static string get_time_difference_message (double offset) {
+        var diff = (offset / (double) TimeSpan.HOUR);
         var diff_string = "%.0f".printf (diff.abs ());
 
         if (diff != Math.round (diff)) {
-            if (diff * 2 != Math.round (diff * 2)) {
-                diff_string = "%.2f".printf (diff.abs ());
-            } else {
-                diff_string = "%.1f".printf (diff.abs ());
-            }
+            diff_string = "%.1f".printf (diff.abs ());
         }
 
         // Translators: The time is the same as the local time
@@ -83,20 +97,7 @@ private class Row : Gtk.ListBoxRow {
                                 "%s hours later",
                                 ((int) diff).abs ()).printf (diff_string);
         }
-
-        if (location.day_label != null && location.day_label != "") {
-            desc.label = "%s • %s".printf ((string) location.day_label, message);
-            delete_stack.visible_child = delete_button;
-        } else if (location.automatic) {
-            // Translators: This clock represents the local time
-            desc.label = _("Current location");
-            delete_stack.visible_child = delete_empty;
-        } else {
-            desc.label = "%s".printf (message);
-            delete_stack.visible_child = delete_button;
-        }
-
-        time_label.label = location.time_label;
+        return message;
     }
 
     [GtkCallback]
