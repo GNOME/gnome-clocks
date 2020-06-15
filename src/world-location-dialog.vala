@@ -19,49 +19,101 @@
 namespace Clocks {
 namespace World {
 
+private class AddClockRowData : Object {
+    public GWeather.Location location { get; construct set; }
+    public bool added { get; set; }
+
+    public AddClockRowData (GWeather.Location location, bool added) {
+        this.location = location;
+        this.added = added;
+    }
+}
+
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world-location-dialog.ui")]
 private class LocationDialog : Gtk.Dialog {
     [GtkChild]
-    private GWeather.LocationEntry location_entry;
+    private Gtk.Stack stack;
+    [GtkChild]
+    private Gtk.Box empty_search_box;
+    [GtkChild]
+    private Gtk.ScrolledWindow list_view;
+    [GtkChild]
+    private Gtk.SearchEntry location_entry;
+    [GtkChild]
+    private Gtk.ListBox listbox;
     private Face world;
+    private ListStore locations;
+
+    private const int RESULT_COUNT_LIMIT = 12;
 
     public LocationDialog (Gtk.Window parent, Face world_face) {
         Object (transient_for: parent, use_header_bar: 1);
 
         world = world_face;
+
+        locations = new ListStore (typeof (AddClockRowData));
+        listbox.bind_model (locations, (data) => {
+            var row = new AddClockRow ((AddClockRowData)data);
+            row.added.connect ((location) => world.add_location (location));
+            row.deleted.connect ((location) => world.remove_location (location));
+            return row;
+        });
     }
 
     [GtkCallback]
     private void icon_released () {
         if (location_entry.secondary_icon_name == "edit-clear-symbolic") {
-            location_entry.set_text ("");
+            location_entry.text = "";
         }
     }
 
     [GtkCallback]
-    private void location_changed () {
-        GWeather.Location? l = null;
-        GWeather.Timezone? t = null;
-
-        if (location_entry.get_text () != "") {
-            l = location_entry.get_location ();
-
-            if (l != null && !world.location_exists ((GWeather.Location) l)) {
-                t = ((GWeather.Location) l).get_timezone ();
-
-                if (t == null) {
-                    warning ("Timezone not defined for %s. This is a bug in libgweather database",
-                             (string) ((GWeather.Location) l).get_city_name ());
-                }
-            }
+    private void on_search_changed () {
+        if (location_entry.get_text () == "") {
+            stack.visible_child = empty_search_box;
+            return;
         }
 
-        set_response_sensitive (1, l != null && t != null);
+        string search = location_entry.get_text ().casefold ();
+        List<GWeather.Location> results = new List<GWeather.Location> ();
+        var world_location = GWeather.Location.get_world ();
+        if (world_location == null) {
+            return;
+        }
+
+        query_locations ((GWeather.Location)world_location, ref results, search);
+        results.sort ((a, b)=>{
+            return strcmp (a.get_sort_name (), b.get_sort_name ());
+        });
+
+        if (results.length () == 0) {
+            stack.visible_child = empty_search_box;
+            return;
+        }
+        stack.visible_child = list_view;
+
+        // Remove old results
+        locations.remove_all ();
+        // Add new results
+        foreach (var city in results) {
+            bool added = world.location_exists (city);
+            locations.append (new AddClockRowData (city, added));
+        }
     }
 
-    public Item? get_location () {
-        var location = location_entry.get_location ();
-        return location != null ? (Item?) new Item ((GWeather.Location) location) : null;
+    private void query_locations (GWeather.Location location, ref List<GWeather.Location> output, string search) {
+        if (output.length () >= RESULT_COUNT_LIMIT) return;
+
+        if (location.get_level () == GWeather.LocationLevel.CITY) {
+            if (location.get_name ().casefold ().contains (search)) {
+                output.append (location);
+            }
+            return;
+        }
+        foreach (var child in location.get_children ()) {
+            query_locations (child, ref output, search);
+            if (output.length () >= RESULT_COUNT_LIMIT) return;
+        }
     }
 }
 
