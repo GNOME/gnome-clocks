@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-06-09 22:45+0000\n"
+"POT-Creation-Date: 2020-06-10 15:10+0000\n"
 "PO-Revision-Date: 2020-06-10 09:21+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<"
-"=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 20.07.70\n"
 "X-Project-Style: gnome\n"
 
@@ -95,14 +95,13 @@ msgid "Reset"
 msgstr "Скинути"
 
 #: data/gtk/help-overlay.ui:117
-#| msgid "New Timer"
 msgctxt "shortcut window"
 msgid "New Timer"
 msgstr "Новий таймер"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/ui/headerbar.ui:29 src/main.vala:25 src/window.vala:297
-#: src/window.vala:352
+#: src/window.vala:352 src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Годинники"
 
@@ -296,7 +295,7 @@ msgstr "_Довідка"
 msgid "_About Clocks"
 msgstr "_Про Годинники"
 
-#: data/ui/headerbar.ui:64
+#: data/ui/headerbar.ui:64 data/ui/worldstandalone.ui:23
 msgid "Back"
 msgstr "Назад"
 
@@ -392,6 +391,14 @@ msgstr "_Додати"
 #: data/ui/worldlocationdialog.ui:73
 msgid "Search for a city:"
 msgstr "Пошук за містом:"
+
+#: data/ui/worldstandalone.ui:104
+msgid "Sunrise"
+msgstr "Схід"
+
+#: data/ui/worldstandalone.ui:118
+msgid "Sunset"
+msgstr "Захід"
 
 #: data/ui/world.ui:32
 msgid "Select <b>New</b> to add a world clock"
@@ -573,13 +580,13 @@ msgid "Yesterday"
 msgstr "Учора"
 
 #. Translators: The time is the same as the local time
-#: src/world.vala:509
+#: src/world.vala:522
 msgid "Current timezone"
 msgstr "Поточний часовий пояс"
 
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
-#: src/world.vala:514
+#: src/world.vala:527
 #, c-format
 msgid "%s hour earlier"
 msgid_plural "%s hours earlier"
@@ -589,7 +596,7 @@ msgstr[2] "%s годин раніше"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
-#: src/world.vala:520
+#: src/world.vala:533
 #, c-format
 msgid "%s hour later"
 msgid_plural "%s hours later"
@@ -598,20 +605,14 @@ msgstr[1] "%s години пізніше"
 msgstr[2] "%s годин пізніше"
 
 #. Translators: This clock represents the local time
-#: src/world.vala:530
+#: src/world.vala:543
 msgid "Current location"
 msgstr "Поточне місце"
 
 #. Translators: Tooltip for the + button
-#: src/world.vala:599
+#: src/world.vala:612
 msgid "Add Location"
 msgstr "Додати місце"
-
-#~ msgid "Sunrise"
-#~ msgstr "Схід"
-
-#~ msgid "Sunset"
-#~ msgstr "Захід"
 
 #~ msgctxt "Repeat|Thursday"
 #~ msgid "T"
