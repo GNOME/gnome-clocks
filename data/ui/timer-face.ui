@@ -72,11 +72,9 @@
             <property name="can_focus">False</property>
             <property name="shadow_type">none</property>
             <child>
-              <object class="HdyColumn">
+              <object class="HdyClamp">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="maximum_width">600</property>
-                <property name="linear_growth_width">600</property>
                 <child>
                   <object class="GtkListBox" id="timers_list">
                     <property name="visible">True</property>
