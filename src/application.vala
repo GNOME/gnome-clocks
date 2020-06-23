@@ -115,6 +115,8 @@ public class Application : Gtk.Application {
     protected override void startup () {
         base.startup ();
 
+        Hdy.init ();
+
         Utils.load_css ("gnome-clocks");
 
         set_resource_base_path ("/org/gnome/clocks/");
