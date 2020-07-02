@@ -155,19 +155,19 @@ public class Weekdays {
 
         private const string[] SYMBOLS = {
             // Translators: This is used in the repeat toggle for Monday
-            NC_("Alarm|Repeat-On|Monday", "M"),
+            NC_("Alarm|Repeat-On", "M"),
             // Translators: This is used in the repeat toggle for Tuesday
-            NC_("Alarm|Repeat-On|Tuesday", "T"),
+            NC_("Alarm|Repeat-On", "T"),
             // Translators: This is used in the repeat toggle for Wednesday
-            NC_("Alarm|Repeat-On|Wednesday", "W"),
+            NC_("Alarm|Repeat-On", "W"),
             // Translators: This is used in the repeat toggle for Thursday
-            NC_("Alarm|Repeat-On|Thursday", "T"),
+            NC_("Alarm|Repeat-On", "T"),
             // Translators: This is used in the repeat toggle for Friday
-            NC_("Alarm|Repeat-On|Friday", "F"),
+            NC_("Alarm|Repeat-On", "F"),
             // Translators: This is used in the repeat toggle for Saturday
-            NC_("Alarm|Repeat-On|Saturday", "S"),
+            NC_("Alarm|Repeat-On", "S"),
             // Translators: This is used in the repeat toggle for Sunday
-            NC_("Alarm|Repeat-On|Sunday", "S")
+            NC_("Alarm|Repeat-On", "S")
         };
 
         private const string[] PLURALS = {
