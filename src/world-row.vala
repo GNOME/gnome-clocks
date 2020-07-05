@@ -56,33 +56,7 @@ private class Row : Gtk.ListBoxRow {
         ctx.remove_class ("day");
         ctx.add_class (location.state_class);
 
-        var diff = ((double) location.local_offset / (double) TimeSpan.HOUR);
-        var diff_string = "%.0f".printf (diff.abs ());
-
-        if (diff != Math.round (diff)) {
-            if (diff * 2 != Math.round (diff * 2)) {
-                diff_string = "%.2f".printf (diff.abs ());
-            } else {
-                diff_string = "%.1f".printf (diff.abs ());
-            }
-        }
-
-        // Translators: The time is the same as the local time
-        var message = _("Current timezone");
-
-        if (diff > 0) {
-            // Translators: The (possibly fractical) number hours in the past
-            // (relative to local) the clock/location is
-            message = ngettext ("%s hour earlier",
-                                "%s hours earlier",
-                                ((int) diff).abs ()).printf (diff_string);
-        } else if (diff < 0) {
-            // Translators: The (possibly fractical) number hours in the
-            // future (relative to local) the clock/location is
-            message = ngettext ("%s hour later",
-                                "%s hours later",
-                                ((int) diff).abs ()).printf (diff_string);
-        }
+        var message = Utils.get_time_difference_message ((double) location.local_offset);
 
         if (location.day_label != null && location.day_label != "") {
             desc.label = "%s • %s".printf ((string) location.day_label, message);

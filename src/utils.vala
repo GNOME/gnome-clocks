@@ -60,6 +60,37 @@ public void time_to_hms (double t, out int h, out int m, out int s, out double r
     remainder = t - s;
 }
 
+public string get_time_difference_message (double offset) {
+    var diff = (double) offset / (double) TimeSpan.HOUR;
+    var diff_string = "%.0f".printf (diff.abs ());
+
+    if (diff != Math.round (diff)) {
+        if (diff * 2 != Math.round (diff * 2)) {
+            diff_string = "%.2f".printf (diff.abs ());
+        } else {
+            diff_string = "%.1f".printf (diff.abs ());
+        }
+    }
+
+    // Translators: The time is the same as the local time
+    var message = _("Current timezone");
+
+    if (diff > 0) {
+        // Translators: The (possibly fractical) number hours in the past
+        // (relative to local) the clock/location is
+        message = ngettext ("%s hour earlier",
+                            "%s hours earlier",
+                            ((int) diff).abs ()).printf (diff_string);
+    } else if (diff < 0) {
+        // Translators: The (possibly fractical) number hours in the
+        // future (relative to local) the clock/location is
+        message = ngettext ("%s hour later",
+                            "%s hours later",
+                            ((int) diff).abs ()).printf (diff_string);
+    }
+    return message;
+}
+
 // TODO: For now we are wrapping Gnome's clock, but we should probably
 // implement our own class, maybe using gnome-datetime-source
 // Especially if we want to try to use CLOCK_REALTIME_ALARM
