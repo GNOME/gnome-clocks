@@ -145,14 +145,26 @@ public class Face : Gtk.Stack, Clocks.Clock {
         }
     }
 
+    public void remove_location (GWeather.Location location) {
+        if (location_exists (location)) {
+            var item = (Item) locations.find ((item) => {
+                return ((Item) item).location == location;
+            });
+            locations.delete_item (item);
+            save ();
+        }
+    }
+
     public void activate_new () {
         var dialog = new LocationDialog ((Gtk.Window) get_toplevel (), this);
 
-        dialog.response.connect ((dialog, response) => {
+        dialog.response.connect ((_, response) => {
             if (response == 1) {
-                var location = ((LocationDialog) dialog).get_location ();
-                add_location_item ((Item) location);
+                var location = dialog.get_selected_location ();
+                if (location != null)
+                    add_location ((GWeather.Location) location);
             }
+
             dialog.destroy ();
         });
         dialog.show ();
