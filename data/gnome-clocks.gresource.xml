@@ -23,7 +23,11 @@
     <file preprocess="xml-stripblanks">ui/world-standalone.ui</file>
   </gresource>
   <gresource prefix="/org/gnome/clocks/icons">
-    <file alias="globe-symbolic.svg">gtk/icons/globe-symbolic.svg</file>
+    <!-- The symbolic icons correctly centered, used in empty views -->
+    <file alias="alarm-centered-symbolic.svg">gtk/icons/alarm-centered-symbolic.svg</file>
+    <file alias="globe-centered-symbolic.svg">gtk/icons/globe-centered-symbolic.svg</file>
+
+        <file alias="globe-symbolic.svg">gtk/icons/globe-symbolic.svg</file>
     <file alias="stopwatch-symbolic.svg">gtk/icons/stopwatch-symbolic.svg</file>
     <file alias="timer-symbolic.svg">gtk/icons/timer-symbolic.svg</file>
   </gresource>
