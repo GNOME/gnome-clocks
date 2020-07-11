@@ -130,30 +130,39 @@ private class LocationDialog : Gtk.Dialog {
     private void query_locations (GWeather.Location location, string search) {
         if (locations.get_n_items () >= RESULT_COUNT_LIMIT) return;
 
-        if (location.get_level () == GWeather.LocationLevel.CITY) {
-            var contains_name = location.get_sort_name ().contains (search);
+        switch (location.get_level ()) {
+            case CITY:
+                var contains_name = location.get_sort_name ().contains (search);
 
-            var country_name = location.get_country_name ();
-            if (country_name != null) {
-                country_name = ((string) country_name).normalize ().casefold ();
-            }
-            var contains_country_name = country_name != null && ((string) country_name).contains (search);
-
-            string? timezone_name = null;
-            var timezone = location.get_timezone ();
-            if (timezone != null) {
-                timezone_name = ((GWeather.Timezone) timezone).get_name ();
-                if (timezone_name != null) {
-                    timezone_name = ((string) timezone_name).normalize ().casefold ();
+                var country_name = location.get_country_name ();
+                if (country_name != null) {
+                    country_name = ((string) country_name).normalize ().casefold ();
                 }
-            }
-            var contains_timezone_name = timezone_name != null && ((string) timezone_name).contains (search);
+                var contains_country_name = country_name != null && ((string) country_name).contains (search);
 
-            if (contains_name || contains_country_name || contains_timezone_name) {
-                bool selected = world.location_exists (location);
-                locations.append (new ClockLocation (location, selected));
-            }
-            return;
+                string? timezone_name = null;
+                var timezone = location.get_timezone ();
+                if (timezone != null) {
+                    timezone_name = ((GWeather.Timezone) timezone).get_name ();
+                    if (timezone_name != null) {
+                        timezone_name = ((string) timezone_name).normalize ().casefold ();
+                    }
+                }
+                var contains_timezone_name = timezone_name != null && ((string) timezone_name).contains (search);
+
+                if (contains_name || contains_country_name || contains_timezone_name) {
+                    bool selected = world.location_exists (location);
+                    locations.append (new ClockLocation (location, selected));
+                }
+                return;
+            case NAMED_TIMEZONE:
+                if (location.get_sort_name ().contains (search)) {
+                    bool selected = world.location_exists (location);
+                    locations.append (new ClockLocation (location, selected));
+                }
+                return;
+            default:
+                break;
         }
         foreach (var child in location.get_children ()) {
             query_locations (child, search);
