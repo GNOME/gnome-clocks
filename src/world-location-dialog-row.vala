@@ -20,27 +20,19 @@ namespace Clocks {
 namespace World {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world-location-dialog-row.ui")]
-private class AddClockRow : Gtk.ListBoxRow {
+private class LocationDialogRow : Gtk.ListBoxRow {
     public ClockLocation data { get; construct set; }
 
-    [GtkChild]
-    private Gtk.Label name_label;
-    [GtkChild]
-    private Gtk.Label country_label;
-    [GtkChild]
-    private Gtk.Label desc;
-    [GtkChild]
-    private Gtk.Widget checkmark;
+    public string? clock_name { get; set; default = null; }
+    public string? clock_location { get; set; default = null; }
+    public string? clock_description { get; set; default = null; }
+    public bool clock_selected { get; set; default = false; }
 
-    public AddClockRow (ClockLocation data) {
+    public LocationDialogRow (ClockLocation data) {
         Object (data: data);
 
-        name_label.label = data.location.get_name ();
-
-        var country_name = data.location.get_country_name ();
-        if (country_name != null) {
-            country_label.label = (string) country_name;
-        }
+        clock_name = data.location.get_name ();
+        clock_location = data.location.get_country_name ();
 
         var wallclock = Utils.WallClock.get_default ();
         var local_time = wallclock.date_time;
@@ -53,23 +45,17 @@ private class AddClockRow : Gtk.ListBoxRow {
             var time_zone_name = ((GWeather.Timezone) weather_time_zone).get_name ();
 
             if ((string?) time_zone_name != null) {
-                desc.label = "%s • %s".printf (time_zone_name, time_diff_message);
+                clock_description = "%s • %s".printf (time_zone_name, time_diff_message);
             } else {
-                desc.label = "%s".printf (time_diff_message);
+                clock_description = "%s".printf (time_diff_message);
             }
-
-
         } else {
-            desc.hide ();
+            clock_description = null;
         }
 
         sensitive = !data.selected;
 
-        data.notify["selected"].connect (on_selected_changed);
-    }
-
-    private void on_selected_changed () {
-        checkmark.visible = data.selected;
+        data.bind_property ("selected", this, "clock-selected", SYNC_CREATE);
     }
 }
 

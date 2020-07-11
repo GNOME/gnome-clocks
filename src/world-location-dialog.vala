@@ -43,8 +43,8 @@ private class LocationDialog : Gtk.Dialog {
 
     private Face world;
     private ListStore locations;
-    private AddClockRow? _selected_row = null;
-    private AddClockRow? selected_row {
+    private LocationDialogRow? _selected_row = null;
+    private LocationDialogRow? selected_row {
         get {
             return _selected_row;
         } set {
@@ -68,22 +68,22 @@ private class LocationDialog : Gtk.Dialog {
 
         locations = new ListStore (typeof (ClockLocation));
         listbox.bind_model (locations, (data) => {
-            return new AddClockRow ((ClockLocation) data);
+            return new LocationDialogRow ((ClockLocation) data);
         });
     }
 
     public GWeather.Location? get_selected_location () {
         if (selected_row == null)
             return null;
-        return ((AddClockRow) selected_row).data.location;
+        return ((LocationDialogRow) selected_row).data.location;
     }
 
     [GtkCallback]
     private void item_activated (Gtk.ListBoxRow listbox_row) {
-        var row = (AddClockRow) listbox_row;
+        var row = (LocationDialogRow) listbox_row;
 
         if (selected_row != null && selected_row != row) {
-            ((AddClockRow) selected_row).data.selected = false;
+            ((LocationDialogRow) selected_row).data.selected = false;
         }
 
         row.data.selected = !row.data.selected;
