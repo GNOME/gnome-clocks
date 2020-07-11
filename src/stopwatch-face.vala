@@ -64,6 +64,9 @@ public class Face : Gtk.Box, Clocks.Clock {
     private Gtk.Revealer laps_revealer;
 
     [GtkChild]
+    private Gtk.Box container;
+
+    [GtkChild]
     private Gtk.Button start_btn;
     [GtkChild]
     private Gtk.Button clear_btn;
@@ -86,6 +89,16 @@ public class Face : Gtk.Box, Clocks.Clock {
             }
             var lap_row = new LapsRow ((Lap)lap, before);
             return lap_row;
+        });
+
+        laps.items_changed.connect (() => {
+            if (laps.get_n_items () == 0) {
+                this.container.valign = CENTER;
+                this.container.margin_top = 0;
+            } else {
+                this.container.valign = FILL;
+                this.container.margin_top = 36;
+            }
         });
 
         map.connect ((w) => {

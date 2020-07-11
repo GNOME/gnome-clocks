@@ -6,38 +6,43 @@
     <property name="can_focus">False</property>
     <property name="homogeneous">False</property>
     <child>
-      <object class="GtkGrid" id="empty_view">
+      <object class="GtkBox" id="empty_view">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
         <property name="halign">center</property>
         <property name="valign">center</property>
-        <property name="row_spacing">6</property>
+        <property name="spacing">36</property>
         <child>
-          <object class="GtkImage" id="image1">
+          <object class="GtkImage">
             <property name="visible">True</property>
             <property name="sensitive">False</property>
             <property name="can_focus">False</property>
-            <property name="icon_name">document-open-recent-symbolic</property>
-            <property name="icon-size">6</property>
-          </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="label1">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Select &lt;b&gt;New&lt;/b&gt; to add a world clock</property>
-            <property name="use_markup">True</property>
+            <property name="icon_name">globe-symbolic</property>
+            <property name="pixel_size">128</property>
             <style>
               <class name="dim-label"/>
             </style>
           </object>
           <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">1</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton">
+            <property name="visible">True</property>
+            <property name="action-name">win.new</property>
+            <property name="label" translatable="yes">Add World Clock</property>
+            <property name="use-underline">True</property>
+            <property name="halign">center</property>
+            <style>
+              <class name="suggested-action"/>
+              <class name="large-button"/>
+              <class name="pill-button"/>
+            </style>
+          </object>
+          <packing>
+            <property name="position">1</property>
           </packing>
         </child>
       </object>
