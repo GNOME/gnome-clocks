@@ -10,12 +10,12 @@
         <property name="visible">True</property>
         <property name="halign">center</property>
         <property name="valign">center</property>
-        <property name="spacing">24</property>
+        <property name="spacing">36</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkImage" id="image1">
+          <object class="GtkImage">
             <property name="visible">True</property>
-            <property name="icon_name">alarm-symbolic</property>
+            <property name="icon_name">alarm-centered-symbolic</property>
             <property name="pixel-size">128</property>
             <style>
               <class name="dim-label"/>
@@ -31,6 +31,8 @@
             <property name="halign">center</property>
             <style>
               <class name="suggested-action"/>
+              <class name="large-button"/>
+              <class name="pill-button"/>
             </style>
           </object>
         </child>
