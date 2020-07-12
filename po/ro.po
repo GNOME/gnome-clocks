@@ -7,10 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-06-17 12:33+0000\n"
-"PO-Revision-Date: 2020-06-17 18:21+0300\n"
-"Last-Translator: Florentina Mușat <florentina [dot] musat [dot] 28 [at] "
-"gmail [dot] com>\n"
+"POT-Creation-Date: 2020-07-11 15:26+0000\n"
+"PO-Revision-Date: 2020-07-12 13:30+0300\n"
+"Last-Translator: Florentina Mușat <florentina.musat.28@gmail.com>\n"
 "Language-Team: Română <>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -266,7 +265,7 @@ msgstr "Șterge"
 msgid "Repeats"
 msgstr "Repetă"
 
-#: data/ui/alarm-setup-dialog.ui:24 data/ui/world-location-dialog.ui:16
+#: data/ui/alarm-setup-dialog.ui:24 data/ui/world-location-dialog.ui:20
 msgid "Add a New World Clock"
 msgstr "Adaugă un fus orar nou"
 
@@ -387,17 +386,21 @@ msgstr "Temporizator"
 msgid "Select <b>New</b> to add a world clock"
 msgstr "Selectează <b>Nou</b> pentru a adăuga un fus orar nou"
 
-#: data/ui/world-location-dialog.ui:20
+#: data/ui/world-location-dialog.ui:8
+msgid "Add World Clock"
+msgstr "Adaugă un ceas global"
+
+#: data/ui/world-location-dialog.ui:24
 msgid "_Cancel"
 msgstr "_Anulează"
 
-#: data/ui/world-location-dialog.ui:36
+#: data/ui/world-location-dialog.ui:40
 msgid "_Add"
 msgstr "_Adaugă"
 
-#: data/ui/world-location-dialog.ui:73
-msgid "Search for a city:"
-msgstr "Caută un oraș:"
+#: data/ui/world-location-dialog.ui:139
+msgid "Search for a city"
+msgstr "Caută pentru un oraș"
 
 #: data/ui/world-standalone.ui:104
 msgid "Sunrise"
@@ -485,75 +488,100 @@ msgstr "Timpul a expirat!"
 msgid "Timer countdown finished"
 msgstr "Timpul alocat s-a scurs"
 
+#. Translators: The time is the same as the local time
+#: src/utils.vala:76
+msgid "Current timezone"
+msgstr "Fusul orar curent"
+
+#. Translators: The (possibly fractical) number hours in the past
+#. (relative to local) the clock/location is
+#: src/utils.vala:81
+#, c-format
+msgid "%s hour earlier"
+msgid_plural "%s hours earlier"
+msgstr[0] "%s oră mai devreme"
+msgstr[1] "%s ore mai devreme"
+msgstr[2] "%s de ore mai devreme"
+
+#. Translators: The (possibly fractical) number hours in the
+#. future (relative to local) the clock/location is
+#: src/utils.vala:87
+#, c-format
+msgid "%s hour later"
+msgid_plural "%s hours later"
+msgstr[0] "%s oră mai târziu"
+msgstr[1] "%s ore mai târziu"
+msgstr[2] "%s de ore mai târziu"
+
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:158
+#: src/utils.vala:189
 msgctxt "Alarm|Repeat-On"
 msgid "M"
 msgstr "Lu"
 
 #. Translators: This is used in the repeat toggle for Tuesday
 #. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:160 src/utils.vala:164
+#: src/utils.vala:191 src/utils.vala:195
 msgctxt "Alarm|Repeat-On"
 msgid "T"
 msgstr "Ma"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:162
+#: src/utils.vala:193
 msgctxt "Alarm|Repeat-On"
 msgid "W"
 msgstr "Mi"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:166
+#: src/utils.vala:197
 msgctxt "Alarm|Repeat-On"
 msgid "F"
 msgstr "Vi"
 
 #. Translators: This is used in the repeat toggle for Saturday
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:168 src/utils.vala:170
+#: src/utils.vala:199 src/utils.vala:201
 msgctxt "Alarm|Repeat-On"
 msgid "S"
 msgstr "Sâ"
 
-#: src/utils.vala:174
+#: src/utils.vala:205
 msgid "Mondays"
 msgstr "Zilele de Luni"
 
-#: src/utils.vala:175
+#: src/utils.vala:206
 msgid "Tuesdays"
 msgstr "Zilele de Marți"
 
-#: src/utils.vala:176
+#: src/utils.vala:207
 msgid "Wednesdays"
 msgstr "Zilele de Miercuri"
 
-#: src/utils.vala:177
+#: src/utils.vala:208
 msgid "Thursdays"
 msgstr "Zilele de Joi"
 
-#: src/utils.vala:178
+#: src/utils.vala:209
 msgid "Fridays"
 msgstr "Zilele de Vineri"
 
-#: src/utils.vala:179
+#: src/utils.vala:210
 msgid "Saturdays"
 msgstr "Zilele de Sâmbătă"
 
-#: src/utils.vala:180
+#: src/utils.vala:211
 msgid "Sundays"
 msgstr "Zilele de Duminică"
 
-#: src/utils.vala:306
+#: src/utils.vala:337
 msgid "Every Day"
 msgstr "În fiecare zi"
 
-#: src/utils.vala:308
+#: src/utils.vala:339
 msgid "Weekdays"
 msgstr "Zilele lucrătoare"
 
-#: src/utils.vala:310
+#: src/utils.vala:341
 msgid "Weekends"
 msgstr "Sfârșiturile de săptămână"
 
@@ -590,33 +618,8 @@ msgstr "Mâine"
 msgid "Yesterday"
 msgstr "Ieri"
 
-#. Translators: The time is the same as the local time
-#: src/world-row.vala:71
-msgid "Current timezone"
-msgstr "Fusul orar curent"
-
-#. Translators: The (possibly fractical) number hours in the past
-#. (relative to local) the clock/location is
-#: src/world-row.vala:76
-#, c-format
-msgid "%s hour earlier"
-msgid_plural "%s hours earlier"
-msgstr[0] "%s oră mai devreme"
-msgstr[1] "%s ore mai devreme"
-msgstr[2] "%s de ore mai devreme"
-
-#. Translators: The (possibly fractical) number hours in the
-#. future (relative to local) the clock/location is
-#: src/world-row.vala:82
-#, c-format
-msgid "%s hour later"
-msgid_plural "%s hours later"
-msgstr[0] "%s oră mai târziu"
-msgstr[1] "%s ore mai târziu"
-msgstr[2] "%s de ore mai târziu"
-
 #. Translators: This clock represents the local time
-#: src/world-row.vala:92
+#: src/world-row.vala:66
 msgid "Current location"
 msgstr "Locația curentă"
 
