@@ -186,19 +186,29 @@ public class Weekdays {
 
         private const string[] SYMBOLS = {
             // Translators: This is used in the repeat toggle for Monday
-            NC_("Alarm|Repeat-On", "M"),
+            NC_("Alarm|Repeat-On|Monday", "M"),
             // Translators: This is used in the repeat toggle for Tuesday
-            NC_("Alarm|Repeat-On", "T"),
+            NC_("Alarm|Repeat-On|Tuesday", "T"),
             // Translators: This is used in the repeat toggle for Wednesday
-            NC_("Alarm|Repeat-On", "W"),
+            NC_("Alarm|Repeat-On|Wednesday", "W"),
             // Translators: This is used in the repeat toggle for Thursday
-            NC_("Alarm|Repeat-On", "T"),
+            NC_("Alarm|Repeat-On|Thursday", "T"),
             // Translators: This is used in the repeat toggle for Friday
-            NC_("Alarm|Repeat-On", "F"),
+            NC_("Alarm|Repeat-On|Friday", "F"),
             // Translators: This is used in the repeat toggle for Saturday
-            NC_("Alarm|Repeat-On", "S"),
+            NC_("Alarm|Repeat-On|Saturday", "S"),
             // Translators: This is used in the repeat toggle for Sunday
-            NC_("Alarm|Repeat-On", "S")
+            NC_("Alarm|Repeat-On|Sunday", "S")
+        };
+
+        private const string[] EN_DAYS = {
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
         };
 
         private const string[] PLURALS = {
@@ -212,7 +222,7 @@ public class Weekdays {
         };
 
         public string symbol () {
-            return dpgettext2 (null, "Alarm|Repeat-On", SYMBOLS[this]);
+            return dpgettext2 (null, "Alarm|Repeat-On|" + EN_DAYS[this], SYMBOLS[this]);
         }
 
         public string plural () {
