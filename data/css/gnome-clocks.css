@@ -45,6 +45,7 @@ row.snoozing {
 
 .alarm-time {
 	font-size: 2.5em;
+	font-weight: 300;
 }
 
 .alarm-repeat {
@@ -116,11 +117,12 @@ spinbutton.clocks-timer-label button {
 
 .timer-panel .timer-header {
 	font-size: 20pt;
-	font-weight: 700;
+	font-weight: 300;
 }
 
 .timer-countdown {
 	font-size: 40pt;
+	font-weight: 300;
 	color: #9E9DA1;
 }
 
@@ -159,7 +161,7 @@ spinbutton.clocks-timer-label button {
 .paused-stopwatch label {
 	font-size: 70px;
 	color: grey;
-	font-weight: 200;
+	font-weight: lighter;
 }
 
 .stopped-stopwatch .seconds-label {
@@ -179,7 +181,7 @@ spinbutton.clocks-timer-label button {
 
 .running-stopwatch .seconds-label,
 .paused-stopwatch .seconds-label {
-	font-weight: 500;
+	font-weight: 300;
 }
 
 .stopped-stopwatch .seconds-label,
@@ -205,7 +207,7 @@ spinbutton.clocks-timer-label button {
 	border-radius: 1em;
 	background: #e5a50a;
 	color: #000000;
-	font-weight: lighter;
+	font-weight: 300;
 	border: 1px solid rgba(0, 0, 0, 0.06);
 	transition: 0.4s background ease-in;
 }
