@@ -43,8 +43,8 @@ private class LocationDialog : Gtk.Dialog {
 
     private Face world;
     private ListStore locations;
-    private AddClockRow? _selected_row = null;
-    private AddClockRow? selected_row {
+    private LocationDialogRow? _selected_row = null;
+    private LocationDialogRow? selected_row {
         get {
             return _selected_row;
         } set {
@@ -68,22 +68,22 @@ private class LocationDialog : Gtk.Dialog {
 
         locations = new ListStore (typeof (ClockLocation));
         listbox.bind_model (locations, (data) => {
-            return new AddClockRow ((ClockLocation) data);
+            return new LocationDialogRow ((ClockLocation) data);
         });
     }
 
     public GWeather.Location? get_selected_location () {
         if (selected_row == null)
             return null;
-        return ((AddClockRow) selected_row).data.location;
+        return ((LocationDialogRow) selected_row).data.location;
     }
 
     [GtkCallback]
     private void item_activated (Gtk.ListBoxRow listbox_row) {
-        var row = (AddClockRow) listbox_row;
+        var row = (LocationDialogRow) listbox_row;
 
         if (selected_row != null && selected_row != row) {
-            ((AddClockRow) selected_row).data.selected = false;
+            ((LocationDialogRow) selected_row).data.selected = false;
         }
 
         row.data.selected = !row.data.selected;
@@ -130,30 +130,39 @@ private class LocationDialog : Gtk.Dialog {
     private void query_locations (GWeather.Location location, string search) {
         if (locations.get_n_items () >= RESULT_COUNT_LIMIT) return;
 
-        if (location.get_level () == GWeather.LocationLevel.CITY) {
-            var contains_name = location.get_sort_name ().contains (search);
+        switch (location.get_level ()) {
+            case CITY:
+                var contains_name = location.get_sort_name ().contains (search);
 
-            var country_name = location.get_country_name ();
-            if (country_name != null) {
-                country_name = ((string) country_name).normalize ().casefold ();
-            }
-            var contains_country_name = country_name != null && ((string) country_name).contains (search);
-
-            string? timezone_name = null;
-            var timezone = location.get_timezone ();
-            if (timezone != null) {
-                timezone_name = ((GWeather.Timezone) timezone).get_name ();
-                if (timezone_name != null) {
-                    timezone_name = ((string) timezone_name).normalize ().casefold ();
+                var country_name = location.get_country_name ();
+                if (country_name != null) {
+                    country_name = ((string) country_name).normalize ().casefold ();
                 }
-            }
-            var contains_timezone_name = timezone_name != null && ((string) timezone_name).contains (search);
+                var contains_country_name = country_name != null && ((string) country_name).contains (search);
 
-            if (contains_name || contains_country_name || contains_timezone_name) {
-                bool selected = world.location_exists (location);
-                locations.append (new ClockLocation (location, selected));
-            }
-            return;
+                string? timezone_name = null;
+                var timezone = location.get_timezone ();
+                if (timezone != null) {
+                    timezone_name = ((GWeather.Timezone) timezone).get_name ();
+                    if (timezone_name != null) {
+                        timezone_name = ((string) timezone_name).normalize ().casefold ();
+                    }
+                }
+                var contains_timezone_name = timezone_name != null && ((string) timezone_name).contains (search);
+
+                if (contains_name || contains_country_name || contains_timezone_name) {
+                    bool selected = world.location_exists (location);
+                    locations.append (new ClockLocation (location, selected));
+                }
+                return;
+            case NAMED_TIMEZONE:
+                if (location.get_sort_name ().contains (search)) {
+                    bool selected = world.location_exists (location);
+                    locations.append (new ClockLocation (location, selected));
+                }
+                return;
+            default:
+                break;
         }
         foreach (var child in location.get_children ()) {
             query_locations (child, search);
