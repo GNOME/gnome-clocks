@@ -98,11 +98,6 @@ private class Row : Gtk.ListBoxRow {
     }
 
     [GtkCallback]
-    private void edit () {
-        face.edit (alarm);
-    }
-
-    [GtkCallback]
     private void delete () {
         face.delete (alarm);
     }
