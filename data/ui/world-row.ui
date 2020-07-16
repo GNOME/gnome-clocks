@@ -84,10 +84,12 @@
               <object class="GtkButton" id="delete_button">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="width_request">34</property>
                 <property name="receives_default">True</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="relief">none</property>
+                <property name="tooltip_text" translatable="yes">Delete</property>
                 <signal name="clicked" handler="delete" object="ClocksWorldRow" swapped="no"/>
                 <child>
                   <object class="GtkImage">
@@ -97,8 +99,7 @@
                   </object>
                 </child>
                 <style>
-                  <class name="round-button"/>
-                  <class name="small-button"/>
+                  <class name="circular"/>
                 </style>
               </object>
             </child>

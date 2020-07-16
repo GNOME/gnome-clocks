@@ -69,6 +69,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
             return new Row ((Item) item, this);
         });
 
+        listbox.row_activated.connect ((row) => {
+           var alarm = ((Row) row).alarm;
+           this.edit (alarm);
+        });
+
         load ();
 
         alarms.items_changed.connect ((position, removed, added) => {
