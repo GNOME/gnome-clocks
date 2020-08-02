@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"POT-Creation-Date: 2019-09-28 12:51+0000\n"
-"PO-Revision-Date: 2020-03-02 21:15+0100\n"
+"POT-Creation-Date: 2020-06-30 10:45+0000\n"
+"PO-Revision-Date: 2020-08-02 14:46+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.3.1\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -70,13 +70,13 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:34
-msgid "Press <gui style=\"button\">Alarm</gui>."
-msgstr "Tryck <gui style=\"button\">Alarm</gui>."
+msgid "Press <gui style=\"button\">Alarms</gui>."
+msgstr "Tryck på <gui style=\"button\">Alarm</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:37
-msgid "Press <gui style=\"button\">New</gui>."
-msgstr "Tryck på <gui style=\"button\">Nytt</gui>."
+msgid "Press <gui style=\"button\">+</gui>."
+msgstr "Tryck på <gui style=\"button\">+</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:40
@@ -85,21 +85,23 @@ msgstr "Ställ in tiden då du vill att alarmet ska ljuda."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:43
+msgid ""
+"Select the days on which you want the alarm to be repeated at the set time, "
+"or none if you only want the alarm to go off once."
+msgstr ""
+"Välj vilka dagar du vill att alarmet ska upprepas vid den angivna tiden, "
+"eller ingen om du vill att alarmet endast ska ljuda en gång."
+
+#. (itstool) path: item/p
+#: C/alarm-add.page:47
 msgid "You can give your new alarm a name so that it is easier to identify."
 msgstr "Du kan ge ditt nya alarm ett namn så det är lättare att känna igen."
 
 #. (itstool) path: item/p
-#: C/alarm-add.page:47
-msgid ""
-"Select the days on which you want the alarm to be repeated at the set time."
-msgstr ""
-"Välj vilka dagar du vill att alarmet ska upprepas vid den angivna tiden."
-
-#. (itstool) path: item/p
 #: C/alarm-add.page:51
-msgid "Press <gui style=\"button\">Done</gui> to finish adding the alarm."
+msgid "Press <gui style=\"button\">Add</gui> to finish adding the alarm."
 msgstr ""
-"Tryck på <gui style=\"button\">Färdig</gui> för att lägga till alarmet."
+"Tryck på <gui style=\"button\">Lägg till</gui> för att lägga till alarmet."
 
 #. (itstool) path: page/p
 #: C/alarm-add.page:55
@@ -127,30 +129,51 @@ msgstr "Redigera ett alarm"
 
 #. (itstool) path: page/p
 #: C/alarm-edit.page:29
-msgid ""
-"Edit your alarm to change when it goes off, rename it or to deactivate it."
+msgid "Edit your alarm to change when it goes off or to rename it."
 msgstr ""
-"Redigera ditt alarm för att ändra när det ljuder, byta namn på det eller "
-"inaktivera det."
+"Redigera ditt alarm för att ändra när det ska ljuda eller byta namn på det."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:34 C/alarm-remove.page:34
-msgid "Press the <gui style=\"button\">Alarm</gui> button."
+#: C/alarm-edit.page:33 C/alarm-edit.page:48 C/alarm-remove.page:34
+msgid "Press the <gui style=\"button\">Alarms</gui> button."
 msgstr "Tryck på knappen <gui style=\"button\">Alarm</gui>."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:37
-msgid "Press the alarm which you want to edit."
-msgstr "Tryck på alarmet som du vill redigera."
+#: C/alarm-edit.page:36
+msgid ""
+"Find the alarm you want to change and press <gui style=\"button\">Edit</gui>."
+msgstr ""
+"Hitta alarmet du vill ändra och tryck på <gui style=\"button\">Redigera</"
+"gui>."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:40
+#: C/alarm-edit.page:39
 msgid ""
 "Update the alarm and press <gui style=\"button\">Done</gui> to finish "
 "editing it."
 msgstr ""
 "Uppdatera alarmet och tryck på <gui style=\"button\">Färdig</gui> för att "
 "avsluta redigeringen av det."
+
+#. (itstool) path: page/p
+#: C/alarm-edit.page:44
+msgid "You can also temporarily disable an alarm."
+msgstr "Du kan också tillfälligt inaktivera ett alarm."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:51
+msgid "Find the alarm you want to disable or enable and toggle the switch."
+msgstr ""
+"Hitta alarmet du vill aktivera eller inaktivera och tryck på växelknappen."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:54
+msgid ""
+"When the alarm is disabled, it will not go off, but it can be enabled again "
+"later."
+msgstr ""
+"När alarmet är inaktiverat kommer det inte att ljuda, men det kan aktiveras "
+"igen senare."
 
 #. (itstool) path: info/desc
 #: C/alarm-remove.page:25
@@ -169,22 +192,10 @@ msgstr "Du kan ta bort alarm som du inte längre behöver."
 
 #. (itstool) path: item/p
 #: C/alarm-remove.page:37
-msgid ""
-"Right click on the alarm. You can press the button with the tick mark in the "
-"top right corner and select the alarm which you want to delete."
+msgid "Press the <gui style=\"button\">Delete</gui> button to remove an alarm."
 msgstr ""
-"Högerklicka på alarmet. Du kan trycka på knappen med bocken i det övre högra "
-"hörnet och markera alarmet som du vill ta bort."
-
-#. (itstool) path: item/p
-#: C/alarm-remove.page:42 C/world-remove.page:41
-msgid "Press the <gui style=\"button\">Delete</gui> button."
-msgstr "Tryck på knappen <gui style=\"button\">Ta bort</gui>."
-
-#. (itstool) path: page/p
-#: C/alarm-remove.page:46
-msgid "You can select more than one alarm at a time for deletion."
-msgstr "Du kan markera mer än ett alarm åt gången för borttagning."
+"Tryck på knappen <gui style=\"button\">Ta bort</gui> för att ta bort ett "
+"alarm."
 
 #. (itstool) path: info/desc
 #: C/alarm-snooze-stop.page:24
@@ -269,21 +280,21 @@ msgstr ""
 #. (itstool) path: item/p
 #: C/stopwatch.page:51
 msgid ""
-"Press <gui style=\"button\">Stop</gui> to pause the stopwatch and <gui style="
-"\"button\">Continue</gui> when you are ready to resume timing the task."
+"Press <gui style=\"button\">Pause</gui> to pause the stopwatch and <gui "
+"style=\"button\">Resume</gui> when you are ready to resume timing the task."
 msgstr ""
-"Tryck på <gui style=\"button\">Stopp</gui> för att pausa stoppuret och <gui "
+"Tryck på <gui style=\"button\">Paus</gui> för att pausa stoppuret och <gui "
 "style=\"button\">Fortsätt</gui> då du är redo att fortsätta ta tid på "
 "uppgiften."
 
 #. (itstool) path: page/p
 #: C/stopwatch.page:59
 msgid ""
-"You can use the <gui style=\"button\">Reset</gui> button to reset the "
-"stopwatch when it is stopped."
+"You can use the <gui style=\"button\">Clear</gui> button to reset the "
+"stopwatch when it is paused."
 msgstr ""
-"Du kan använda knappen <gui style=\"button\">Återställ</gui> för att "
-"nollställa stoppuret då det har stoppats."
+"Du kan använda knappen <gui style=\"button\">Rensa</gui> för att nollställa "
+"stoppuret då det har pausats."
 
 #. (itstool) path: note/p
 #: C/stopwatch.page:63
@@ -381,10 +392,10 @@ msgstr "Tryck på knappen <gui style=\"button\">Världen</gui>."
 #. (itstool) path: item/p
 #: C/world-add.page:42
 msgid ""
-"Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
+"Press the <gui style=\"button\">+</gui> button or <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> to add a new city."
 msgstr ""
-"Tryck på knappen <gui style=\"button\">Nytt</gui> eller <keyseq><key>Ctrl</"
+"Tryck på knappen <gui style=\"button\">+</gui> eller <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> för att lägga till en ny stad."
 
 #. (itstool) path: item/p
@@ -469,16 +480,10 @@ msgstr "Du kan ta bort klockor som du inte längre behöver."
 #. (itstool) path: item/p
 #: C/world-remove.page:36
 msgid ""
-"Right click on the world clock. You can press the button with the tick mark "
-"in the top right corner and select the clock which you want to delete."
+"Press the <gui style=\"button\">Delete</gui> button to remove a world clock."
 msgstr ""
-"Högerklicka på världsklockan. Du kan trycka på knappen med bocken i det övre "
-"högra hörnet och markera klockan som du vill ta bort."
-
-#. (itstool) path: page/p
-#: C/world-remove.page:45
-msgid "You can select more than one clock at a time for deletion."
-msgstr "Du kan markera mer än en klocka åt gången för borttagning."
+"Tryck på knappen <gui style=\"button\">Ta bort</gui> för att ta bort en "
+"världsklocka."
 
 #. (itstool) path: info/title
 #: C/index.page:22
@@ -564,3 +569,27 @@ msgstr "licensen Creative Commons Erkännande-DelaLika 3.0 Unported"
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Detta verk är licensierat under <_:link-1/>."
+
+#~ msgid "Press the alarm which you want to edit."
+#~ msgstr "Tryck på alarmet som du vill redigera."
+
+#~ msgid ""
+#~ "Right click on the alarm. You can press the button with the tick mark in "
+#~ "the top right corner and select the alarm which you want to delete."
+#~ msgstr ""
+#~ "Högerklicka på alarmet. Du kan trycka på knappen med bocken i det övre "
+#~ "högra hörnet och markera alarmet som du vill ta bort."
+
+#~ msgid "You can select more than one alarm at a time for deletion."
+#~ msgstr "Du kan markera mer än ett alarm åt gången för borttagning."
+
+#~ msgid ""
+#~ "Right click on the world clock. You can press the button with the tick "
+#~ "mark in the top right corner and select the clock which you want to "
+#~ "delete."
+#~ msgstr ""
+#~ "Högerklicka på världsklockan. Du kan trycka på knappen med bocken i det "
+#~ "övre högra hörnet och markera klockan som du vill ta bort."
+
+#~ msgid "You can select more than one clock at a time for deletion."
+#~ msgstr "Du kan markera mer än en klocka åt gången för borttagning."
