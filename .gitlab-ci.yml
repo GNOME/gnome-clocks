@@ -7,7 +7,6 @@ flatpak:
     variables:
         BUNDLE: "gnome-clocks-dev.flatpak"
         MANIFEST_PATH: "build-aux/flatpak/org.gnome.clocks.json"
-        MESON_ARGS: "-Dprofile=development"
         FLATPAK_MODULE: "gnome-clocks"
         RUNTIME_REPO: "https://nightly.gnome.org/gnome-nightly.flatpakrepo"
         APP_ID: "org.gnome.clocksDevel"
