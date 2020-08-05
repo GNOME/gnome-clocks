@@ -26,9 +26,6 @@ private struct AlarmTime {
 }
 
 private class Item : Object, ContentItem {
-    const int SNOOZE_MINUTES = 9;
-    const int RING_MINUTES = 3;
-
     // FIXME: should we add a "MISSED" state where the alarm stopped
     // ringing but we keep showing the ringing panel?
     public enum State {
@@ -40,6 +37,10 @@ private class Item : Object, ContentItem {
     public bool editing { get; set; default = false; }
 
     public string id { get; construct set; }
+
+    public int snooze_minutes { get; set; default = 10; }
+
+    public int ring_minutes { get; set; default = 5; }
 
     public string? name {
         get {
@@ -151,7 +152,7 @@ private class Item : Object, ContentItem {
     }
 
     private void update_snooze_time (GLib.DateTime start_time) {
-        snooze_time = start_time.add_minutes (SNOOZE_MINUTES);
+        snooze_time = start_time.add_minutes (snooze_minutes);
     }
 
     public virtual signal void ring () {
@@ -162,7 +163,7 @@ private class Item : Object, ContentItem {
 
     private void start_ringing (GLib.DateTime now) {
         update_snooze_time (now);
-        ring_end_time = now.add_minutes (RING_MINUTES);
+        ring_end_time = now.add_minutes (ring_minutes);
         state = State.RINGING;
         ring ();
     }
@@ -230,6 +231,8 @@ private class Item : Object, ContentItem {
         builder.add ("{sv}", "hour", new GLib.Variant.int32 (time.hour));
         builder.add ("{sv}", "minute", new GLib.Variant.int32 (time.minute));
         builder.add ("{sv}", "days", ((Utils.Weekdays) days).serialize ());
+        builder.add ("{sv}", "snooze_minutes", new GLib.Variant.int32 (snooze_minutes));
+        builder.add ("{sv}", "ring_minutes", new GLib.Variant.int32 (ring_minutes));
         builder.close ();
     }
 
@@ -241,6 +244,8 @@ private class Item : Object, ContentItem {
         bool active = true;
         int hour = -1;
         int minute = -1;
+        int snooze_minutes = 10;
+        int ring_minutes = 5;
         Utils.Weekdays? days = null;
 
         var iter = alarm_variant.iterator ();
@@ -257,6 +262,10 @@ private class Item : Object, ContentItem {
                 minute = (int32) val;
             } else if (key == "days") {
                 days = Utils.Weekdays.deserialize (val);
+            } else if (key == "snooze_minutes") {
+                snooze_minutes = (int32) val;
+            } else if (key == "ring_minutes") {
+                ring_minutes = (int32) val;
             }
         }
 
@@ -266,6 +275,8 @@ private class Item : Object, ContentItem {
             alarm.active = active;
             alarm.time = { hour, minute };
             alarm.days = days;
+            alarm.ring_minutes = ring_minutes;
+            alarm.snooze_minutes = snooze_minutes;
             alarm.reset ();
             return alarm;
         } else {

@@ -16,12 +16,61 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+using Hdy;
 
 namespace Clocks {
 namespace Alarm {
 
 // Response used for the "Delete Alarm" button in the edit dialogue
 const int DELETE_ALARM = 2;
+
+private class Duration : Object {
+    public int minutes { get; set ; default = 0; }
+    public string label { get; set; }
+
+    public Duration (int minutes, string label) {
+        this.minutes = minutes;
+        this.label = label;
+    }
+}
+
+private class DurationModel : ListModel, Object {
+    Duration store[6];
+
+    construct {
+        store[0] = new Duration (1, _("1 minute"));
+        store[1] = new Duration (5, _("5 minutes"));
+        store[2] = new Duration (10, _("10 minutes"));
+        store[3] = new Duration (15, _("15 minutes"));
+        store[4] = new Duration (20, _("20 minutes"));
+        store[5] = new Duration (30, _("30 minutes"));
+    }
+
+    public Type get_item_type () {
+        return typeof (Duration);
+    }
+
+    public uint get_n_items () {
+        return 6;
+    }
+
+    public Object? get_item (uint n) {
+        if (n > 5) {
+            return null;
+        }
+        return store[n];
+    }
+
+    public int find_by_duration (int minutes) {
+        for (var i = 0; i < get_n_items (); i++) {
+            var d = (Duration) get_item (i);
+            if (d.minutes == minutes) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm-setup-dialog.ui")]
 private class SetupDialog : Gtk.Dialog {
@@ -34,6 +83,10 @@ private class SetupDialog : Gtk.Dialog {
     private Gtk.SpinButton m_spinbutton;
     [GtkChild]
     private Gtk.Entry name_entry;
+    [GtkChild]
+    private Hdy.ComboRow snooze_duration;
+    [GtkChild]
+    private Hdy.ComboRow ring_duration;
     private AmPmToggleButton am_pm_button;
     [GtkChild]
     private DayPickerRow repeats;
@@ -44,6 +97,7 @@ private class SetupDialog : Gtk.Dialog {
     [GtkChild]
     private Gtk.Button delete_button;
     private List<Item> other_alarms;
+    private DurationModel duration_model;
 
     static construct {
         typeof (DayPickerRow).ensure ();
@@ -72,6 +126,16 @@ private class SetupDialog : Gtk.Dialog {
                 other_alarms.prepend ((Item) all_alarms.get_object (i));
             }
         }
+
+        duration_model = new DurationModel ();
+
+        ring_duration.bind_name_model (duration_model, (item) => {
+            return ((Duration) item).label;
+        });
+
+        snooze_duration.bind_name_model (duration_model, (item) => {
+            return ((Duration) item).label;
+        });
 
         // Force LTR since we do not want to reverse [hh] : [mm]
         time_grid.set_direction (Gtk.TextDirection.LTR);
@@ -103,6 +167,8 @@ private class SetupDialog : Gtk.Dialog {
         bool active;
         int hour;
         int minute;
+        int snooze_minutes;
+        int ring_minutes;
         unowned Utils.Weekdays? days;
 
         if (alarm == null) {
@@ -113,12 +179,16 @@ private class SetupDialog : Gtk.Dialog {
             minute = wc.date_time.get_minute ();
             days = null;
             active = true;
+            ring_minutes = 5;
+            snooze_minutes = 10;
         } else {
             name = ((Item) alarm).name;
             hour = ((Item) alarm).time.hour;
             minute = ((Item) alarm).time.minute;
             days = ((Item) alarm).days;
             active = ((Item) alarm).active;
+            ring_minutes = ((Item) alarm).ring_minutes;
+            snooze_minutes = ((Item) alarm).snooze_minutes;
         }
 
         // Set the time.
@@ -134,6 +204,9 @@ private class SetupDialog : Gtk.Dialog {
                 hour = 12;
             }
         }
+        ring_duration.set_selected_index (duration_model.find_by_duration (ring_minutes));
+        snooze_duration.set_selected_index (duration_model.find_by_duration (snooze_minutes));
+
         h_spinbutton.set_value (hour);
         m_spinbutton.set_value (minute);
 
@@ -150,6 +223,9 @@ private class SetupDialog : Gtk.Dialog {
         var name = name_entry.get_text ();
         var hour = h_spinbutton.get_value_as_int ();
         var minute = m_spinbutton.get_value_as_int ();
+        var snooze_item = (Duration) duration_model.get_item (snooze_duration.get_selected_index ());
+        var ring_item = (Duration) duration_model.get_item (ring_duration.get_selected_index ());
+
         if (format == Utils.WallClock.Format.TWELVE) {
             var choice = am_pm_button.choice;
             if (choice == AmPmToggleButton.AmPm.AM && hour == 12) {
@@ -168,6 +244,8 @@ private class SetupDialog : Gtk.Dialog {
         alarm.name = name;
         alarm.time = time;
         alarm.days = days;
+        alarm.snooze_minutes = snooze_item.minutes;
+        alarm.ring_minutes = ring_item.minutes;
 
         // Force update of alarm_time before notifying the changes
         alarm.reset ();
