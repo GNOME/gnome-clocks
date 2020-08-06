@@ -36,8 +36,8 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <style>
-                      <class name="clocks-button"/>
-                      <class name="clocks-stop"/>
+                      <class name="pill-button"/>
+                      <class name="large-button"/>
                       <class name="destructive-action"/>
                     </style>
                   </object>
@@ -53,10 +53,9 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="relief">none</property>
                     <style>
-                      <class name="clocks-button"/>
-                      <class name="clocks-snooze"/>
+                      <class name="pill-button"/>
+                      <class name="large-button"/>
                     </style>
                   </object>
                   <packing>
@@ -80,16 +79,17 @@
                 <property name="vexpand">True</property>
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkLabel" id="title_label">
+                  <object class="GtkLabel" id="time_label">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="justify">center</property>
                     <property name="wrap">True</property>
+                    <property name="xalign">0.5</property>
                     <attributes>
                       <attribute name="font-features" value="tnum=1"/>
                     </attributes>
                     <style>
-                      <class name="clocks-ringing-title"/>
+                      <class name="clocks-ringing-label"/>
                     </style>
                   </object>
                   <packing>
@@ -99,14 +99,14 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="time_label">
+                  <object class="GtkLabel" id="title_label">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="justify">center</property>
                     <property name="wrap">True</property>
-                    <property name="xalign">0.5</property>
+                    <property name="margin_top">24</property>
                     <style>
-                      <class name="clocks-ringing-label"/>
+                      <class name="clocks-ringing-title"/>
                     </style>
                   </object>
                   <packing>
