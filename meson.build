@@ -19,7 +19,7 @@ gweather = dependency('gweather-3.0', version: '>=3.32.0')
 gnomedesktop = dependency('gnome-desktop-3.0', version: '>=3.8')
 geocodeglib = dependency('geocode-glib-1.0', version: '>=1.0')
 libgeoclue = dependency('libgeoclue-2.0', version: '>=2.4')
-libhandy = dependency ('libhandy-1', version: '>= 0.80.0', required: false)
+libhandy = dependency ('libhandy-1', version: '>= 0.90.0', required: false)
 
 if not libhandy.found()
   libhandy_subproj = subproject(
