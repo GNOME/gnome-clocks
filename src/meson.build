@@ -59,7 +59,6 @@ clocks_c_args = [
   '-include', 'config.h',
   '-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE',
   '-DGNOME_DESKTOP_USE_UNSTABLE_API',
-  '-DHANDY_USE_UNSTABLE_API',
 ]
 
 clocks_dependencies = [
