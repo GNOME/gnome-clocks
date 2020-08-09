@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-07-12 15:46+0000\n"
+"POT-Creation-Date: 2020-08-07 13:53+0000\n"
 "PO-Revision-Date: 2020-02-28 23:16+0100\n"
 "Last-Translator: Jordi Mas <jmas@softcatala.org>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -30,7 +30,8 @@ msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr ""
 "Rellotges de tot el món, a més d'alarmes, de cronòmetres i de temporitzadors"
 
-#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or
+#. localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "temps;temporitzador;alarma;rellotge global;cronòmetre;zona horària;"
@@ -125,7 +126,8 @@ msgstr "Mesureu el temps emprat amb un cronòmetre precís"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:18
 msgid "Set timers to properly cook your food"
-msgstr "Establiu els temporitzadors per a cuinar el vostre menjar adequadament"
+msgstr ""
+"Establiu els temporitzadors per a cuinar el vostre menjar adequadament"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:32
 msgid "Initial screen"
@@ -239,11 +241,11 @@ msgstr "_Repeteix"
 msgid "Add A_larm"
 msgstr "_Afegeix una alarma"
 
-#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:115
+#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:116
 msgid "Stop"
 msgstr "Atura"
 
-#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:116
+#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:117
 msgid "Snooze"
 msgstr "Posposa"
 
@@ -251,15 +253,11 @@ msgstr "Posposa"
 msgid "Active"
 msgstr "Activa"
 
-#: data/ui/alarm-row.ui:50
-msgid "Edit"
-msgstr "Edita"
-
-#: data/ui/alarm-row.ui:77
+#: data/ui/alarm-row.ui:39
 msgid "Delete"
 msgstr "Suprimeix"
 
-#: data/ui/alarm-row.ui:106
+#: data/ui/alarm-row.ui:69
 msgid "Repeats"
 msgstr "Repeticions"
 
@@ -275,11 +273,19 @@ msgstr "Nom"
 msgid "Optional"
 msgstr "Opcional"
 
-#: data/ui/alarm-setup-dialog.ui:165
+#: data/ui/alarm-setup-dialog.ui:161
+msgid "Ring Duration"
+msgstr "Durada de to"
+
+#: data/ui/alarm-setup-dialog.ui:169
+msgid "Snooze Duration"
+msgstr "Durada de la repetició"
+
+#: data/ui/alarm-setup-dialog.ui:181
 msgid "R_emove Alarm"
 msgstr "_Suprimeix l'alarma"
 
-#: data/ui/alarm-setup-dialog.ui:181
+#: data/ui/alarm-setup-dialog.ui:197
 msgid "You already have an alarm for this time."
 msgstr "Ja teniu una alarma per a aquesta hora."
 
@@ -405,14 +411,14 @@ msgid "Sunset"
 msgstr "Posta de sol"
 
 #. Translators: Tooltip for the + button
-#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:54
+#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:108
 msgid "New Alarm"
 msgstr "Alarma nova"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:113 src/alarm-row.vala:82 src/window.vala:348
+#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:348
 msgid "Alarm"
 msgstr "Alarma"
 
@@ -428,19 +434,43 @@ msgstr "Postposa des de %s: %s"
 msgid "Snoozed from %s"
 msgstr "Postposa des de %s"
 
-#: src/alarm-setup-dialog.vala:54
+#: src/alarm-setup-dialog.vala:41
+msgid "1 minute"
+msgstr "1 minut"
+
+#: src/alarm-setup-dialog.vala:42
+msgid "5 minutes"
+msgstr "5 minuts"
+
+#: src/alarm-setup-dialog.vala:43
+msgid "10 minutes"
+msgstr "10 minuts"
+
+#: src/alarm-setup-dialog.vala:44
+msgid "15 minutes"
+msgstr "15 minuts"
+
+#: src/alarm-setup-dialog.vala:45
+msgid "20 minutes"
+msgstr "20 minuts"
+
+#: src/alarm-setup-dialog.vala:46
+msgid "30 minutes"
+msgstr "30 minuts"
+
+#: src/alarm-setup-dialog.vala:108
 msgid "Edit Alarm"
 msgstr "Edita l'alarma"
 
-#: src/alarm-setup-dialog.vala:57 src/timer-setup-dialog.vala:30
+#: src/alarm-setup-dialog.vala:111 src/timer-setup-dialog.vala:30
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/alarm-setup-dialog.vala:59
+#: src/alarm-setup-dialog.vala:113
 msgid "Done"
 msgstr "Fet"
 
-#: src/alarm-setup-dialog.vala:61 src/timer-setup-dialog.vala:31
+#: src/alarm-setup-dialog.vala:115 src/timer-setup-dialog.vala:31
 msgid "Add"
 msgstr "Afegeix"
 
@@ -611,6 +641,9 @@ msgstr "Ahir"
 #: src/world-row.vala:66
 msgid "Current location"
 msgstr "Ubicació actual"
+
+#~ msgid "Edit"
+#~ msgstr "Edita"
 
 #~ msgid "Select <b>New</b> to add a world clock"
 #~ msgstr "Seleccioneu <b>Nou</b> per a afegir un rellotge del món"
