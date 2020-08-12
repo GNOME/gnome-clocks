@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-07-12 15:46+0000\n"
-"PO-Revision-Date: 2020-07-13 20:52-0400\n"
+"POT-Creation-Date: 2020-08-07 13:53+0000\n"
+"PO-Revision-Date: 2020-08-11 18:01+0800\n"
 "Last-Translator: 王滋涵 Zephyr Wang <wi24rd@fedoraproject.org>\n"
 "Language-Team: Chinese - China <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:297
@@ -244,11 +244,11 @@ msgstr "重复(_R)"
 msgid "Add A_larm"
 msgstr "添加闹钟(_L)"
 
-#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:115
+#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:116
 msgid "Stop"
 msgstr "停止"
 
-#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:116
+#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:117
 msgid "Snooze"
 msgstr "贪睡"
 
@@ -256,15 +256,11 @@ msgstr "贪睡"
 msgid "Active"
 msgstr "活动"
 
-#: data/ui/alarm-row.ui:50
-msgid "Edit"
-msgstr "编辑"
-
-#: data/ui/alarm-row.ui:77
+#: data/ui/alarm-row.ui:39
 msgid "Delete"
 msgstr "删除"
 
-#: data/ui/alarm-row.ui:106
+#: data/ui/alarm-row.ui:69
 msgid "Repeats"
 msgstr "重复"
 
@@ -280,11 +276,19 @@ msgstr "名称"
 msgid "Optional"
 msgstr "可选项"
 
-#: data/ui/alarm-setup-dialog.ui:165
+#: data/ui/alarm-setup-dialog.ui:161
+msgid "Ring Duration"
+msgstr "响铃时长"
+
+#: data/ui/alarm-setup-dialog.ui:169
+msgid "Snooze Duration"
+msgstr "睡眠时长"
+
+#: data/ui/alarm-setup-dialog.ui:181
 msgid "R_emove Alarm"
 msgstr "删除闹钟(_E)"
 
-#: data/ui/alarm-setup-dialog.ui:181
+#: data/ui/alarm-setup-dialog.ui:197
 msgid "You already have an alarm for this time."
 msgstr "您在该时间已经设置了闹钟。"
 
@@ -410,14 +414,14 @@ msgid "Sunset"
 msgstr "日落"
 
 #. Translators: Tooltip for the + button
-#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:54
+#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:108
 msgid "New Alarm"
 msgstr "新建闹钟"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:113 src/alarm-row.vala:82 src/window.vala:348
+#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:348
 msgid "Alarm"
 msgstr "闹钟"
 
@@ -433,19 +437,43 @@ msgstr "从 %s: %s 打盹"
 msgid "Snoozed from %s"
 msgstr "从 %s 打盹"
 
-#: src/alarm-setup-dialog.vala:54
+#: src/alarm-setup-dialog.vala:41
+msgid "1 minute"
+msgstr "１　分钟"
+
+#: src/alarm-setup-dialog.vala:42
+msgid "5 minutes"
+msgstr "５　分钟"
+
+#: src/alarm-setup-dialog.vala:43
+msgid "10 minutes"
+msgstr "１０　分钟"
+
+#: src/alarm-setup-dialog.vala:44
+msgid "15 minutes"
+msgstr "１５　分钟"
+
+#: src/alarm-setup-dialog.vala:45
+msgid "20 minutes"
+msgstr "２０　分钟"
+
+#: src/alarm-setup-dialog.vala:46
+msgid "30 minutes"
+msgstr "３０　分钟"
+
+#: src/alarm-setup-dialog.vala:108
 msgid "Edit Alarm"
 msgstr "编辑闹钟"
 
-#: src/alarm-setup-dialog.vala:57 src/timer-setup-dialog.vala:30
+#: src/alarm-setup-dialog.vala:111 src/timer-setup-dialog.vala:30
 msgid "Cancel"
 msgstr "取消"
 
-#: src/alarm-setup-dialog.vala:59
+#: src/alarm-setup-dialog.vala:113
 msgid "Done"
 msgstr "完成"
 
-#: src/alarm-setup-dialog.vala:61 src/timer-setup-dialog.vala:31
+#: src/alarm-setup-dialog.vala:115 src/timer-setup-dialog.vala:31
 msgid "Add"
 msgstr "添加"
 
@@ -623,6 +651,9 @@ msgstr "昨天"
 msgid "Current location"
 msgstr "当前位置"
 
+#~ msgid "Edit"
+#~ msgstr "编辑"
+
 #~ msgid "Select <b>New</b> to add a world clock"
 #~ msgstr "选择<b>新建</b>以添加世界时钟"
 
@@ -659,9 +690,6 @@ msgstr "当前位置"
 
 #~ msgid "%i second timer"
 #~ msgstr "%i秒定时器"
-
-#~ msgid "%i minute timer"
-#~ msgstr "%i分定时器"
 
 #~ msgid "%i minute %i second timer"
 #~ msgstr "%i分%i秒定时器"
