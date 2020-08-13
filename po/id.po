@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-07-12 15:46+0000\n"
-"PO-Revision-Date: 2020-07-19 10:44+0700\n"
+"POT-Creation-Date: 2020-08-07 13:53+0000\n"
+"PO-Revision-Date: 2020-08-10 21:07+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome@i15n.org>\n"
 "Language: id\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:297
@@ -241,11 +241,11 @@ msgstr "_Ulangi"
 msgid "Add A_larm"
 msgstr "Tambah A_larm"
 
-#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:115
+#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:116
 msgid "Stop"
 msgstr "Berhenti"
 
-#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:116
+#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:117
 msgid "Snooze"
 msgstr "Jeda"
 
@@ -253,15 +253,11 @@ msgstr "Jeda"
 msgid "Active"
 msgstr "Aktif"
 
-#: data/ui/alarm-row.ui:50
-msgid "Edit"
-msgstr "Sunting"
-
-#: data/ui/alarm-row.ui:77
+#: data/ui/alarm-row.ui:39
 msgid "Delete"
 msgstr "Hapus"
 
-#: data/ui/alarm-row.ui:106
+#: data/ui/alarm-row.ui:69
 msgid "Repeats"
 msgstr "Ulangi"
 
@@ -277,11 +273,19 @@ msgstr "Nama"
 msgid "Optional"
 msgstr "Opsional"
 
-#: data/ui/alarm-setup-dialog.ui:165
+#: data/ui/alarm-setup-dialog.ui:161
+msgid "Ring Duration"
+msgstr "Durasi Dering"
+
+#: data/ui/alarm-setup-dialog.ui:169
+msgid "Snooze Duration"
+msgstr "Durasi Tunda"
+
+#: data/ui/alarm-setup-dialog.ui:181
 msgid "R_emove Alarm"
 msgstr "H_apus Baru"
 
-#: data/ui/alarm-setup-dialog.ui:181
+#: data/ui/alarm-setup-dialog.ui:197
 msgid "You already have an alarm for this time."
 msgstr "Anda telah memiliki suatu alarm untuk waktu ini."
 
@@ -407,14 +411,14 @@ msgid "Sunset"
 msgstr "Matahari terbenam"
 
 #. Translators: Tooltip for the + button
-#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:54
+#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:108
 msgid "New Alarm"
 msgstr "Alarm Baru"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:113 src/alarm-row.vala:82 src/window.vala:348
+#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:348
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -430,19 +434,43 @@ msgstr "Ditunda dari %s: %s"
 msgid "Snoozed from %s"
 msgstr "Ditunda dari %s"
 
-#: src/alarm-setup-dialog.vala:54
+#: src/alarm-setup-dialog.vala:41
+msgid "1 minute"
+msgstr "1 menit"
+
+#: src/alarm-setup-dialog.vala:42
+msgid "5 minutes"
+msgstr "5 menit"
+
+#: src/alarm-setup-dialog.vala:43
+msgid "10 minutes"
+msgstr "10 menit"
+
+#: src/alarm-setup-dialog.vala:44
+msgid "15 minutes"
+msgstr "15 menit"
+
+#: src/alarm-setup-dialog.vala:45
+msgid "20 minutes"
+msgstr "20 menit"
+
+#: src/alarm-setup-dialog.vala:46
+msgid "30 minutes"
+msgstr "30 menit"
+
+#: src/alarm-setup-dialog.vala:108
 msgid "Edit Alarm"
 msgstr "Sunting Alarm"
 
-#: src/alarm-setup-dialog.vala:57 src/timer-setup-dialog.vala:30
+#: src/alarm-setup-dialog.vala:111 src/timer-setup-dialog.vala:30
 msgid "Cancel"
 msgstr "Batal"
 
-#: src/alarm-setup-dialog.vala:59
+#: src/alarm-setup-dialog.vala:113
 msgid "Done"
 msgstr "Selesai"
 
-#: src/alarm-setup-dialog.vala:61 src/timer-setup-dialog.vala:31
+#: src/alarm-setup-dialog.vala:115 src/timer-setup-dialog.vala:31
 msgid "Add"
 msgstr "Tambah"
 
@@ -618,6 +646,9 @@ msgstr "Kemarin"
 msgid "Current location"
 msgstr "Lokasi saat ini"
 
+#~ msgid "Edit"
+#~ msgstr "Sunting"
+
 #~ msgid "Select <b>New</b> to add a world clock"
 #~ msgstr "Klik <b>Baru</b> untuk menambahkan jam dunia"
 
@@ -631,9 +662,6 @@ msgstr "Lokasi saat ini"
 
 #~ msgid "%i second timer"
 #~ msgstr "%i detik penghitung waktu"
-
-#~ msgid "%i minute timer"
-#~ msgstr "%i menit penghitung waktu"
 
 #~ msgid "%i hour timer"
 #~ msgstr "%i jam penghitung waktu"
