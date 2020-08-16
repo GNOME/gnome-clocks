@@ -1,14 +1,14 @@
 # Polish translation for gnome-clocks help.
-# Copyright © 2017-2019 the gnome-clocks authors.
+# Copyright © 2017-2020 the gnome-clocks authors.
 # This file is distributed under the same license as the gnome-clocks help.
-# Piotr Drąg <piotrdrag@gmail.com>, 2017-2019.
-# Aviary.pl <community-poland@mozilla.org>, 2017-2019.
+# Piotr Drąg <piotrdrag@gmail.com>, 2017-2020.
+# Aviary.pl <community-poland@mozilla.org>, 2017-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks-help\n"
-"POT-Creation-Date: 2019-09-27 19:47+0000\n"
-"PO-Revision-Date: 2019-09-28 14:49+0200\n"
+"POT-Creation-Date: 2020-06-30 10:45+0000\n"
+"PO-Revision-Date: 2020-08-16 12:28+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -22,8 +22,8 @@ msgstr ""
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
-"Piotr Drąg <piotrdrag@gmail.com>, 2017-2019\n"
-"Aviary.pl <community-poland@mozilla.org>, 2017-2019"
+"Piotr Drąg <piotrdrag@gmail.com>, 2017-2020\n"
+"Aviary.pl <community-poland@mozilla.org>, 2017-2020"
 
 #. (itstool) path: credit/name
 #: C/alarm-add.page:14 C/alarm-edit.page:14 C/alarm-remove.page:15
@@ -73,13 +73,13 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:34
-msgid "Press <gui style=\"button\">Alarm</gui>."
-msgstr "Kliknij przycisk <gui style=\"button\">Budzik</gui>."
+msgid "Press <gui style=\"button\">Alarms</gui>."
+msgstr "Kliknij przycisk <gui style=\"button\">Budziki</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:37
-msgid "Press <gui style=\"button\">New</gui>."
-msgstr "Kliknij przycisk <gui style=\"button\">Nowy</gui>."
+msgid "Press <gui style=\"button\">+</gui>."
+msgstr "Kliknij przycisk <gui style=\"button\">+</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:40
@@ -88,20 +88,23 @@ msgstr "Ustaw czas, kiedy budzik ma się włączyć."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:43
+msgid ""
+"Select the days on which you want the alarm to be repeated at the set time, "
+"or none if you only want the alarm to go off once."
+msgstr ""
+"Zaznacz dni, w których budzik ma być powtarzany o ustawionej godzinie, albo "
+"odznacz wszystkie, jeśli budzik ma włączyć się tylko raz."
+
+#. (itstool) path: item/p
+#: C/alarm-add.page:47
 msgid "You can give your new alarm a name so that it is easier to identify."
 msgstr "Można nazwać dodany budzik, aby łatwiej go identyfikować."
 
 #. (itstool) path: item/p
-#: C/alarm-add.page:47
-msgid ""
-"Select the days on which you want the alarm to be repeated at the set time."
-msgstr "Zaznacz dni, w których budzik ma być powtarzany o ustawionej godzinie."
-
-#. (itstool) path: item/p
 #: C/alarm-add.page:51
-msgid "Press <gui style=\"button\">Done</gui> to finish adding the alarm."
+msgid "Press <gui style=\"button\">Add</gui> to finish adding the alarm."
 msgstr ""
-"Kliknij przycisk <gui style=\"button\">Gotowe</gui>, aby ukończyć dodawanie "
+"Kliknij przycisk <gui style=\"button\">Dodaj</gui>, aby ukończyć dodawanie "
 "budzika."
 
 #. (itstool) path: page/p
@@ -130,29 +133,49 @@ msgstr "Modyfikowanie budzika"
 
 #. (itstool) path: page/p
 #: C/alarm-edit.page:29
+msgid "Edit your alarm to change when it goes off or to rename it."
+msgstr "Można zmodyfikować budzik, aby zmienić czas włączenia lub nazwę."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:33 C/alarm-edit.page:48 C/alarm-remove.page:34
+msgid "Press the <gui style=\"button\">Alarms</gui> button."
+msgstr "Kliknij przycisk <gui style=\"button\">Budziki</gui>."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:36
 msgid ""
-"Edit your alarm to change when it goes off, rename it or to deactivate it."
+"Find the alarm you want to change and press <gui style=\"button\">Edit</gui>."
 msgstr ""
-"Można zmodyfikować budzik, aby zmienić czas włączenia, nazwę lub go wyłączyć."
+"Znajdź budzik do zmiany i kliknij przycisk <gui style=\"button\">Modyfikuj</"
+"gui>."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:34 C/alarm-remove.page:34
-msgid "Press the <gui style=\"button\">Alarm</gui> button."
-msgstr "Kliknij przycisk <gui style=\"button\">Budzik</gui>."
-
-#. (itstool) path: item/p
-#: C/alarm-edit.page:37
-msgid "Press the alarm which you want to edit."
-msgstr "Kliknij budzik do modyfikacji."
-
-#. (itstool) path: item/p
-#: C/alarm-edit.page:40
+#: C/alarm-edit.page:39
 msgid ""
 "Update the alarm and press <gui style=\"button\">Done</gui> to finish "
 "editing it."
 msgstr ""
 "Zaktualizuj budzik i kliknij przycisk <gui style=\"button\">Gotowe</gui>, "
 "aby ukończyć modyfikowanie."
+
+#. (itstool) path: page/p
+#: C/alarm-edit.page:44
+msgid "You can also temporarily disable an alarm."
+msgstr "Można także tymczasowo wyłączyć budzik."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:51
+msgid "Find the alarm you want to disable or enable and toggle the switch."
+msgstr "Znajdź budzik do wyłączenia lub włączenia i przełącz go."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:54
+msgid ""
+"When the alarm is disabled, it will not go off, but it can be enabled again "
+"later."
+msgstr ""
+"Po wyłączeniu budzik nie będzie działał, ale można go włączyć z powrotem "
+"później."
 
 #. (itstool) path: info/desc
 #: C/alarm-remove.page:25
@@ -171,22 +194,8 @@ msgstr "Można usuwać niepotrzebne budziki."
 
 #. (itstool) path: item/p
 #: C/alarm-remove.page:37
-msgid ""
-"Right click on the alarm. You can press the button with the tick mark in the "
-"top right corner and select the alarm which you want to delete."
-msgstr ""
-"Kliknij budzik prawym przyciskiem myszy. Można kliknąć przycisk z haczykiem "
-"w górnym prawym rogu i wybrać budzik do usunięcia."
-
-#. (itstool) path: item/p
-#: C/alarm-remove.page:42 C/world-remove.page:41
-msgid "Press the <gui style=\"button\">Delete</gui> button."
-msgstr "Kliknij przycisk <gui style=\"button\">Usuń</gui>."
-
-#. (itstool) path: page/p
-#: C/alarm-remove.page:46
-msgid "You can select more than one alarm at a time for deletion."
-msgstr "Można wybrać więcej niż jeden budzik do usunięcia na raz."
+msgid "Press the <gui style=\"button\">Delete</gui> button to remove an alarm."
+msgstr "Kliknij przycisk <gui style=\"button\">Usuń</gui>, aby usunąć budzik."
 
 #. (itstool) path: info/desc
 #: C/alarm-snooze-stop.page:24
@@ -271,21 +280,20 @@ msgstr ""
 #. (itstool) path: item/p
 #: C/stopwatch.page:51
 msgid ""
-"Press <gui style=\"button\">Stop</gui> to pause the stopwatch and <gui style="
-"\"button\">Continue</gui> when you are ready to resume timing the task."
+"Press <gui style=\"button\">Pause</gui> to pause the stopwatch and <gui "
+"style=\"button\">Resume</gui> when you are ready to resume timing the task."
 msgstr ""
-"Kliknij przycisk <gui style=\"button\">Zatrzymaj</gui>, aby wstrzymać stoper "
-"i przycisk <gui style=\"button\">Kontynuuj</gui>, aby wznowić mierzenie "
-"czasu."
+"Kliknij przycisk <gui style=\"button\">Wstrzymaj</gui>, aby wstrzymać stoper "
+"i przycisk <gui style=\"button\">Wznów</gui>, aby wznowić mierzenie czasu."
 
 #. (itstool) path: page/p
 #: C/stopwatch.page:59
 msgid ""
-"You can use the <gui style=\"button\">Reset</gui> button to reset the "
-"stopwatch when it is stopped."
+"You can use the <gui style=\"button\">Clear</gui> button to reset the "
+"stopwatch when it is paused."
 msgstr ""
-"Można użyć przycisku <gui style=\"button\">Resetuj</gui>, aby zresetować "
-"stoper po jego zatrzymaniu."
+"Można użyć przycisku <gui style=\"button\">Wyczyść</gui>, aby zresetować "
+"stoper po jego wstrzymaniu."
 
 #. (itstool) path: note/p
 #: C/stopwatch.page:63
@@ -382,10 +390,10 @@ msgstr "Kliknij przycisk <gui style=\"button\">Świat</gui>."
 #. (itstool) path: item/p
 #: C/world-add.page:42
 msgid ""
-"Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
+"Press the <gui style=\"button\">+</gui> button or <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> to add a new city."
 msgstr ""
-"Kliknij przycisk <gui style=\"button\">Nowy</gui> lub klawisze "
+"Kliknij przycisk <gui style=\"button\">+</gui> lub klawisze "
 "<keyseq><key>Ctrl</key><key>N</key></keyseq>, aby dodać nowe miasto."
 
 #. (itstool) path: item/p
@@ -470,16 +478,9 @@ msgstr "Można usuwać niepotrzebne zegary światowe."
 #. (itstool) path: item/p
 #: C/world-remove.page:36
 msgid ""
-"Right click on the world clock. You can press the button with the tick mark "
-"in the top right corner and select the clock which you want to delete."
+"Press the <gui style=\"button\">Delete</gui> button to remove a world clock."
 msgstr ""
-"Kliknij zegar światowy prawym przyciskiem myszy. Można kliknąć przycisk "
-"z haczykiem w prawym górnym rogu i wybrać zegar do usunięcia."
-
-#. (itstool) path: page/p
-#: C/world-remove.page:45
-msgid "You can select more than one clock at a time for deletion."
-msgstr "Można wybrać więcej niż jeden zegar do usunięcia na raz."
+"Kliknij przycisk <gui style=\"button\">Usuń</gui>, aby usunąć zegar światowy."
 
 #. (itstool) path: info/title
 #: C/index.page:22
