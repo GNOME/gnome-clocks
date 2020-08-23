@@ -1,8 +1,8 @@
 # Japanese translation for gnome-clocks.
-# Copyright (C) 2012-2020 gnome-clocks's COPYRIGHT HOLDER
+# Copyright (C) 2012-2016, 2019-2020 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Takeshi AIHANA <takeshi.aihana@gmail.com>, 2012.
-# Jiro Matsuzawa <jmatsuzawa@gnome.org>, 2012, 2013, 2015, 2016.
+# Jiro Matsuzawa <jmatsuzawa@gnome.org>, 2012-2013, 2015-2016.
 # Ikuya Awashiro <ikuya@fruitsbasket.info>, 2014.
 # Hajime Taira <htaira@redhat.com>, 2015.
 # sicklylife <translation@sicklylife.jp>, 2019-2020.
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
 "POT-Creation-Date: 2020-08-07 13:53+0000\n"
-"PO-Revision-Date: 2020-02-12 12:45+0900\n"
+"PO-Revision-Date: 2020-08-23 23:30+0900\n"
 "Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
@@ -233,11 +233,9 @@ msgid "Reset"
 msgstr "リセットする"
 
 #: data/gtk/help-overlay.ui:117
-#, fuzzy
-#| msgid "New Timer"
 msgctxt "shortcut window"
 msgid "New Timer"
-msgstr "新しいタイマー"
+msgstr "新しいタイマーを開始する"
 
 #: data/ui/alarm-day-picker-row.ui:5
 msgid "_Repeat"
@@ -280,16 +278,12 @@ msgid "Optional"
 msgstr "オプション"
 
 #: data/ui/alarm-setup-dialog.ui:161
-#, fuzzy
-#| msgid "Select Duration"
 msgid "Ring Duration"
-msgstr "時間を選択してください"
+msgstr "アラームの長さ"
 
 #: data/ui/alarm-setup-dialog.ui:169
-#, fuzzy
-#| msgid "Select Duration"
 msgid "Snooze Duration"
-msgstr "時間を選択してください"
+msgstr "スヌーズの長さ"
 
 #: data/ui/alarm-setup-dialog.ui:181
 msgid "R_emove Alarm"
@@ -333,7 +327,7 @@ msgstr "タイム"
 
 #: data/ui/stopwatch-laps-row.ui:39
 msgid "Difference"
-msgstr ""
+msgstr "タイム差"
 
 #: data/ui/timer-face.ui:21
 msgid "Select Duration"
@@ -397,10 +391,8 @@ msgid "Timer"
 msgstr "タイマー"
 
 #: data/ui/world-face.ui:35 data/ui/world-location-dialog.ui:8
-#, fuzzy
-#| msgid "Add a New World Clock"
 msgid "Add World Clock"
-msgstr "世界時計の新規追加"
+msgstr "世界時計の追加"
 
 #: data/ui/world-location-dialog.ui:24
 msgid "_Cancel"
@@ -411,10 +403,8 @@ msgid "_Add"
 msgstr "追加(_A)"
 
 #: data/ui/world-location-dialog.ui:139
-#, fuzzy
-#| msgid "Search for a city:"
 msgid "Search for a city"
-msgstr "都市の検索:"
+msgstr "都市の検索"
 
 #: data/ui/world-standalone.ui:104
 msgid "Sunrise"
@@ -449,30 +439,28 @@ msgid "Snoozed from %s"
 msgstr "%s からのスヌーズ"
 
 #: src/alarm-setup-dialog.vala:41
-#, fuzzy
-#| msgid "%i minute timer"
 msgid "1 minute"
-msgstr "%i 分のタイマー"
+msgstr "1 分"
 
 #: src/alarm-setup-dialog.vala:42
 msgid "5 minutes"
-msgstr ""
+msgstr "5 分"
 
 #: src/alarm-setup-dialog.vala:43
 msgid "10 minutes"
-msgstr ""
+msgstr "10 分"
 
 #: src/alarm-setup-dialog.vala:44
 msgid "15 minutes"
-msgstr ""
+msgstr "15 分"
 
 #: src/alarm-setup-dialog.vala:45
 msgid "20 minutes"
-msgstr ""
+msgstr "20 分"
 
 #: src/alarm-setup-dialog.vala:46
 msgid "30 minutes"
-msgstr ""
+msgstr "30 分"
 
 #: src/alarm-setup-dialog.vala:108
 msgid "Edit Alarm"
@@ -551,50 +539,35 @@ msgstr[0] "+%s 時間"
 
 #. Translators: This is used in the repeat toggle for Monday
 #: src/utils.vala:189
-#, fuzzy
-#| msgctxt "Repeat|Monday"
-#| msgid "M"
 msgctxt "Alarm|Repeat-On"
 msgid "M"
-msgstr "月"
+msgstr "M"
 
 #. Translators: This is used in the repeat toggle for Tuesday
 #. Translators: This is used in the repeat toggle for Thursday
 #: src/utils.vala:191 src/utils.vala:195
-#, fuzzy
-#| msgctxt "Repeat|Tuesday"
-#| msgid "T"
 msgctxt "Alarm|Repeat-On"
 msgid "T"
-msgstr "火"
+msgstr "T"
 
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:193
-#, fuzzy
-#| msgctxt "Repeat|Wednesday"
-#| msgid "W"
 msgctxt "Alarm|Repeat-On"
 msgid "W"
-msgstr "水"
+msgstr "W"
 
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:197
-#, fuzzy
-#| msgctxt "Repeat|Friday"
-#| msgid "F"
 msgctxt "Alarm|Repeat-On"
 msgid "F"
-msgstr "金"
+msgstr "F"
 
 #. Translators: This is used in the repeat toggle for Saturday
 #. Translators: This is used in the repeat toggle for Sunday
 #: src/utils.vala:199 src/utils.vala:201
-#, fuzzy
-#| msgctxt "Repeat|Saturday"
-#| msgid "S"
 msgctxt "Alarm|Repeat-On"
 msgid "S"
-msgstr "土"
+msgstr "S"
 
 #: src/utils.vala:205
 msgid "Mondays"
@@ -700,14 +673,6 @@ msgstr "現在の場所"
 
 #~ msgid "%i hour %i minute %i second timer"
 #~ msgstr "%i 時間 %i 分 %i 秒のタイマー"
-
-#~ msgctxt "Repeat|Thursday"
-#~ msgid "T"
-#~ msgstr "木"
-
-#~ msgctxt "Repeat|Sunday"
-#~ msgid "S"
-#~ msgstr "日"
 
 #~ msgid "Select <b>New</b> to add an alarm"
 #~ msgstr "新しいアラームを追加するには<b>新規</b>を選択してください"
