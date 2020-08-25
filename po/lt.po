@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-07-12 15:46+0000\n"
-"PO-Revision-Date: 2020-07-13 16:29+0300\n"
+"POT-Creation-Date: 2020-08-17 00:35+0000\n"
+"PO-Revision-Date: 2020-08-25 22:42+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -151,7 +151,7 @@ msgstr "Chronometro ekranas"
 msgid "Timer screen"
 msgstr "Laikmačio ekranas"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:83
+#: data/org.gnome.clocks.metainfo.xml.in.in:84
 msgid "The GNOME Project"
 msgstr "GNOME projektas"
 
@@ -231,7 +231,6 @@ msgid "Reset"
 msgstr "Atstatyti"
 
 #: data/gtk/help-overlay.ui:117
-#| msgid "New Timer"
 msgctxt "shortcut window"
 msgid "New Timer"
 msgstr "Naujas laikmatis"
@@ -244,11 +243,11 @@ msgstr "Ka_rtoti kas"
 msgid "Add A_larm"
 msgstr "Pridėti ž_adintuvą"
 
-#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:115
+#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:116
 msgid "Stop"
 msgstr "Sustabdyti"
 
-#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:116
+#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:117
 msgid "Snooze"
 msgstr "Atidėti"
 
@@ -256,15 +255,11 @@ msgstr "Atidėti"
 msgid "Active"
 msgstr "Aktyvus"
 
-#: data/ui/alarm-row.ui:50
-msgid "Edit"
-msgstr "Keisti"
-
-#: data/ui/alarm-row.ui:77
+#: data/ui/alarm-row.ui:39 data/ui/world-row.ui:92
 msgid "Delete"
 msgstr "Ištrinti"
 
-#: data/ui/alarm-row.ui:106
+#: data/ui/alarm-row.ui:69
 msgid "Repeats"
 msgstr "Kartojama"
 
@@ -280,11 +275,21 @@ msgstr "Pavadinimas"
 msgid "Optional"
 msgstr "Papildoma"
 
-#: data/ui/alarm-setup-dialog.ui:165
+#: data/ui/alarm-setup-dialog.ui:161
+#| msgid "Select Duration"
+msgid "Ring Duration"
+msgstr "Skambėjimo trukmė"
+
+#: data/ui/alarm-setup-dialog.ui:169
+#| msgid "Select Duration"
+msgid "Snooze Duration"
+msgstr "Nutildymo trukmė"
+
+#: data/ui/alarm-setup-dialog.ui:181
 msgid "R_emove Alarm"
 msgstr "_Pašalinti žadintuvą"
 
-#: data/ui/alarm-setup-dialog.ui:181
+#: data/ui/alarm-setup-dialog.ui:197
 msgid "You already have an alarm for this time."
 msgstr "Jau turite žadintuvą šiam laikui."
 
@@ -386,7 +391,6 @@ msgid "Timer"
 msgstr "Laikmatis"
 
 #: data/ui/world-face.ui:35 data/ui/world-location-dialog.ui:8
-#| msgid "Add a New World Clock"
 msgid "Add World Clock"
 msgstr "Pridėti naują pasaulio laikrodį"
 
@@ -399,7 +403,6 @@ msgid "_Add"
 msgstr "_Pridėti"
 
 #: data/ui/world-location-dialog.ui:139
-#| msgid "Search for a city:"
 msgid "Search for a city"
 msgstr "Ieškoti miesto"
 
@@ -412,14 +415,14 @@ msgid "Sunset"
 msgstr "Saulėlydis"
 
 #. Translators: Tooltip for the + button
-#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:54
+#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:108
 msgid "New Alarm"
 msgstr "Naujas žadintuvas"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:113 src/alarm-row.vala:82 src/window.vala:348
+#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:348
 msgid "Alarm"
 msgstr "Žadintuvas"
 
@@ -435,19 +438,44 @@ msgstr "Užmigdyta nuo %s: %s"
 msgid "Snoozed from %s"
 msgstr "Užmigdyta nuo %s"
 
-#: src/alarm-setup-dialog.vala:54
+#: src/alarm-setup-dialog.vala:41
+#| msgid "%i minute timer"
+msgid "1 minute"
+msgstr "1 minutė"
+
+#: src/alarm-setup-dialog.vala:42
+msgid "5 minutes"
+msgstr "5 minutės"
+
+#: src/alarm-setup-dialog.vala:43
+msgid "10 minutes"
+msgstr "10 minučių"
+
+#: src/alarm-setup-dialog.vala:44
+msgid "15 minutes"
+msgstr "15 minučių"
+
+#: src/alarm-setup-dialog.vala:45
+msgid "20 minutes"
+msgstr "20 minučių"
+
+#: src/alarm-setup-dialog.vala:46
+msgid "30 minutes"
+msgstr "30 minučių"
+
+#: src/alarm-setup-dialog.vala:108
 msgid "Edit Alarm"
 msgstr "Redaguoti žadintuvą"
 
-#: src/alarm-setup-dialog.vala:57 src/timer-setup-dialog.vala:30
+#: src/alarm-setup-dialog.vala:111 src/timer-setup-dialog.vala:30
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: src/alarm-setup-dialog.vala:59
+#: src/alarm-setup-dialog.vala:113
 msgid "Done"
 msgstr "Atlikta"
 
-#: src/alarm-setup-dialog.vala:61 src/timer-setup-dialog.vala:31
+#: src/alarm-setup-dialog.vala:115 src/timer-setup-dialog.vala:31
 msgid "Add"
 msgstr "Pridėti"
 
@@ -516,8 +544,6 @@ msgstr[2] "Po %s valandų"
 
 #. Translators: This is used in the repeat toggle for Monday
 #: src/utils.vala:189
-#| msgctxt "Repeat|Monday"
-#| msgid "M"
 msgctxt "Alarm|Repeat-On"
 msgid "M"
 msgstr "Pr"
@@ -525,24 +551,18 @@ msgstr "Pr"
 #. Translators: This is used in the repeat toggle for Tuesday
 #. Translators: This is used in the repeat toggle for Thursday
 #: src/utils.vala:191 src/utils.vala:195
-#| msgctxt "Repeat|Tuesday"
-#| msgid "T"
 msgctxt "Alarm|Repeat-On"
 msgid "T"
 msgstr "A"
 
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:193
-#| msgctxt "Repeat|Wednesday"
-#| msgid "W"
 msgctxt "Alarm|Repeat-On"
 msgid "W"
 msgstr "T"
 
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:197
-#| msgctxt "Repeat|Friday"
-#| msgid "F"
 msgctxt "Alarm|Repeat-On"
 msgid "F"
 msgstr "Pn"
@@ -550,8 +570,6 @@ msgstr "Pn"
 #. Translators: This is used in the repeat toggle for Saturday
 #. Translators: This is used in the repeat toggle for Sunday
 #: src/utils.vala:199 src/utils.vala:201
-#| msgctxt "Repeat|Saturday"
-#| msgid "S"
 msgctxt "Alarm|Repeat-On"
 msgid "S"
 msgstr "Š"
@@ -633,6 +651,9 @@ msgstr "Vakar"
 msgid "Current location"
 msgstr "Dabartinė vieta"
 
+#~ msgid "Edit"
+#~ msgstr "Keisti"
+
 #~ msgid "Select <b>New</b> to add a world clock"
 #~ msgstr "Pasirinkite <b>Naujas</b> pasaulio laikrodžiui pridėti"
 
@@ -666,9 +687,6 @@ msgstr "Dabartinė vieta"
 
 #~ msgid "%i second timer"
 #~ msgstr "%i sekundžių laikmatis"
-
-#~ msgid "%i minute timer"
-#~ msgstr "%i minučių laikmatis"
 
 #~ msgid "%i minute %i second timer"
 #~ msgstr "%i minučių %i sekundžių laikmatis"
