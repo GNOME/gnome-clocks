@@ -4,23 +4,23 @@
 # Djavan Fagundes <djavan@comum.org>, 2012.
 # Edson Silva <edsonlead@gmail.com>, 2013.
 # Fábio Nogueira <fnogueira@gnome.org>, 2016.
-# Enrico Nicoletto <liverig@gmail.com>, 2012, 2013, 2014, 2016.
 # Rafael Fontenelle <rafaelff@gnome.org>, 2017-2020.
+# Enrico Nicoletto <liverig@gmail.com>, 2012, 2013, 2014, 2016, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-08-07 13:53+0000\n"
-"PO-Revision-Date: 2020-08-19 10:23-0300\n"
-"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"POT-Creation-Date: 2020-08-19 13:26+0000\n"
+"PO-Revision-Date: 2020-08-26 08:54-0300\n"
+"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Gtranslator 3.36.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
@@ -152,7 +152,7 @@ msgstr "Tela de cronômetro"
 msgid "Timer screen"
 msgstr "Tela de temporizador"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:83
+#: data/org.gnome.clocks.metainfo.xml.in.in:84
 msgid "The GNOME Project"
 msgstr "O Projeto GNOME"
 
@@ -232,7 +232,6 @@ msgid "Reset"
 msgstr "Reiniciar"
 
 #: data/gtk/help-overlay.ui:117
-#| msgid "New Timer"
 msgctxt "shortcut window"
 msgid "New Timer"
 msgstr "Novo temporizador"
@@ -257,7 +256,7 @@ msgstr "Cochilar mais um pouco"
 msgid "Active"
 msgstr "Ativo"
 
-#: data/ui/alarm-row.ui:39
+#: data/ui/alarm-row.ui:39 data/ui/world-row.ui:92
 msgid "Delete"
 msgstr "Excluir"
 
@@ -278,12 +277,10 @@ msgid "Optional"
 msgstr "Opcional"
 
 #: data/ui/alarm-setup-dialog.ui:161
-#| msgid "Select Duration"
 msgid "Ring Duration"
 msgstr "Duração do toque"
 
 #: data/ui/alarm-setup-dialog.ui:169
-#| msgid "Select Duration"
 msgid "Snooze Duration"
 msgstr "Duração do adiamento"
 
@@ -393,7 +390,6 @@ msgid "Timer"
 msgstr "Temporizador"
 
 #: data/ui/world-face.ui:35 data/ui/world-location-dialog.ui:8
-#| msgid "Add a New World Clock"
 msgid "Add World Clock"
 msgstr "Adicionar relógio mundial"
 
@@ -406,7 +402,6 @@ msgid "_Add"
 msgstr "_Adicionar"
 
 #: data/ui/world-location-dialog.ui:139
-#| msgid "Search for a city:"
 msgid "Search for a city"
 msgstr "Pesquise por uma cidade"
 
@@ -443,7 +438,6 @@ msgid "Snoozed from %s"
 msgstr "Adiado de %s"
 
 #: src/alarm-setup-dialog.vala:41
-#| msgid "%i minute timer"
 msgid "1 minute"
 msgstr "1 minuto"
 
@@ -546,47 +540,35 @@ msgstr[1] "%s horas depois"
 
 #. Translators: This is used in the repeat toggle for Monday
 #: src/utils.vala:189
-#| msgctxt "Repeat|Monday"
-#| msgid "M"
 msgctxt "Alarm|Repeat-On"
 msgid "M"
-msgstr "S"
+msgstr "Seg"
 
 #. Translators: This is used in the repeat toggle for Tuesday
 #. Translators: This is used in the repeat toggle for Thursday
 #: src/utils.vala:191 src/utils.vala:195
-#, fuzzy
-#| msgctxt "Repeat|Tuesday"
-#| msgid "T"
 msgctxt "Alarm|Repeat-On"
 msgid "T"
-msgstr "T"
+msgstr "Ter/Qui"
 
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:193
-#| msgctxt "Repeat|Wednesday"
-#| msgid "W"
 msgctxt "Alarm|Repeat-On"
 msgid "W"
-msgstr "Q"
+msgstr "Qua"
 
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:197
-#| msgctxt "Repeat|Friday"
-#| msgid "F"
 msgctxt "Alarm|Repeat-On"
 msgid "F"
-msgstr "S"
+msgstr "Sexta"
 
 #. Translators: This is used in the repeat toggle for Saturday
 #. Translators: This is used in the repeat toggle for Sunday
 #: src/utils.vala:199 src/utils.vala:201
-#, fuzzy
-#| msgctxt "Repeat|Saturday"
-#| msgid "S"
 msgctxt "Alarm|Repeat-On"
 msgid "S"
-msgstr "S"
+msgstr "Sáb/Dom"
 
 #: src/utils.vala:205
 msgid "Mondays"
