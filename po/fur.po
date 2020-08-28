@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-07-12 15:46+0000\n"
-"PO-Revision-Date: 2020-07-14 14:23+0200\n"
+"POT-Creation-Date: 2020-08-17 00:35+0000\n"
+"PO-Revision-Date: 2020-08-28 12:50+0200\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:297
@@ -146,7 +146,7 @@ msgstr "Videade cronometri"
 msgid "Timer screen"
 msgstr "Videade temporizadôr"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:83
+#: data/org.gnome.clocks.metainfo.xml.in.in:84
 msgid "The GNOME Project"
 msgstr "Il progjet GNOME"
 
@@ -238,27 +238,23 @@ msgstr "_Ripet"
 msgid "Add A_larm"
 msgstr "Zonte s_vee"
 
-#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:115
+#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:116
 msgid "Stop"
 msgstr "Ferme"
 
-#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:116
+#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:117
 msgid "Snooze"
-msgstr "Ripet"
+msgstr "Polse"
 
 #: data/ui/alarm-row.ui:25
 msgid "Active"
 msgstr "Ativade"
 
-#: data/ui/alarm-row.ui:50
-msgid "Edit"
-msgstr "Modifiche"
-
-#: data/ui/alarm-row.ui:77
+#: data/ui/alarm-row.ui:39 data/ui/world-row.ui:92
 msgid "Delete"
 msgstr "Elimine"
 
-#: data/ui/alarm-row.ui:106
+#: data/ui/alarm-row.ui:69
 msgid "Repeats"
 msgstr "Ripetizions"
 
@@ -274,11 +270,19 @@ msgstr "Non"
 msgid "Optional"
 msgstr "Opzionâl"
 
-#: data/ui/alarm-setup-dialog.ui:165
+#: data/ui/alarm-setup-dialog.ui:161
+msgid "Ring Duration"
+msgstr "Durade sunarie"
+
+#: data/ui/alarm-setup-dialog.ui:169
+msgid "Snooze Duration"
+msgstr "Durade polse"
+
+#: data/ui/alarm-setup-dialog.ui:181
 msgid "R_emove Alarm"
 msgstr "G_jave svee"
 
-#: data/ui/alarm-setup-dialog.ui:181
+#: data/ui/alarm-setup-dialog.ui:197
 msgid "You already have an alarm for this time."
 msgstr "Tu âs za une svee par cheste ore."
 
@@ -404,14 +408,14 @@ msgid "Sunset"
 msgstr "Amont"
 
 #. Translators: Tooltip for the + button
-#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:54
+#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:108
 msgid "New Alarm"
 msgstr "Gnove svee"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:113 src/alarm-row.vala:82 src/window.vala:348
+#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:348
 msgid "Alarm"
 msgstr "Svee"
 
@@ -419,27 +423,51 @@ msgstr "Svee"
 #: src/alarm-row.vala:89
 #, c-format
 msgid "Snoozed from %s: %s"
-msgstr "Posticipât des %s: %s"
+msgstr "In polse des %s: %s"
 
 #. Translators: %s is a time
 #: src/alarm-row.vala:92
 #, c-format
 msgid "Snoozed from %s"
-msgstr "Posticipât des %s"
+msgstr "In polse des %s"
 
-#: src/alarm-setup-dialog.vala:54
+#: src/alarm-setup-dialog.vala:41
+msgid "1 minute"
+msgstr "1 minût"
+
+#: src/alarm-setup-dialog.vala:42
+msgid "5 minutes"
+msgstr "5 minûts"
+
+#: src/alarm-setup-dialog.vala:43
+msgid "10 minutes"
+msgstr "10 minûts"
+
+#: src/alarm-setup-dialog.vala:44
+msgid "15 minutes"
+msgstr "15 minûts"
+
+#: src/alarm-setup-dialog.vala:45
+msgid "20 minutes"
+msgstr "20 minûts"
+
+#: src/alarm-setup-dialog.vala:46
+msgid "30 minutes"
+msgstr "30 minûts"
+
+#: src/alarm-setup-dialog.vala:108
 msgid "Edit Alarm"
 msgstr "Cambie svee"
 
-#: src/alarm-setup-dialog.vala:57 src/timer-setup-dialog.vala:30
+#: src/alarm-setup-dialog.vala:111 src/timer-setup-dialog.vala:30
 msgid "Cancel"
 msgstr "Anule"
 
-#: src/alarm-setup-dialog.vala:59
+#: src/alarm-setup-dialog.vala:113
 msgid "Done"
 msgstr "Fat"
 
-#: src/alarm-setup-dialog.vala:61 src/timer-setup-dialog.vala:31
+#: src/alarm-setup-dialog.vala:115 src/timer-setup-dialog.vala:31
 msgid "Add"
 msgstr "Zonte"
 
@@ -515,8 +543,6 @@ msgstr "L"
 #. Translators: This is used in the repeat toggle for Thursday
 #: src/utils.vala:191 src/utils.vala:195
 #, fuzzy
-#| msgctxt "Repeat|Tuesday"
-#| msgid "T"
 msgctxt "Alarm|Repeat-On"
 msgid "T"
 msgstr "M"
@@ -524,8 +550,6 @@ msgstr "M"
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:193
 #, fuzzy
-#| msgctxt "Repeat|Wednesday"
-#| msgid "W"
 msgctxt "Alarm|Repeat-On"
 msgid "W"
 msgstr "M"
@@ -533,8 +557,6 @@ msgstr "M"
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:197
 #, fuzzy
-#| msgctxt "Repeat|Friday"
-#| msgid "F"
 msgctxt "Alarm|Repeat-On"
 msgid "F"
 msgstr "V"
@@ -543,8 +565,6 @@ msgstr "V"
 #. Translators: This is used in the repeat toggle for Sunday
 #: src/utils.vala:199 src/utils.vala:201
 #, fuzzy
-#| msgctxt "Repeat|Saturday"
-#| msgid "S"
 msgctxt "Alarm|Repeat-On"
 msgid "S"
 msgstr "S"
@@ -623,6 +643,9 @@ msgstr "Îr"
 #: src/world-row.vala:66
 msgid "Current location"
 msgstr "Posizion atuâl"
+
+#~ msgid "Edit"
+#~ msgstr "Modifiche"
 
 #~ msgid "Select <b>New</b> to add a world clock"
 #~ msgstr "Selezione <b>Gnûf</b> par zontâ un orloi par une localitât tal mont"
