@@ -6,21 +6,24 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"POT-Creation-Date: 2015-07-04 06:23+0000\n"
-"PO-Revision-Date: 2015-07-04 18:03+0200\n"
-"Last-Translator: Carles Ferrando Garcia <carles.ferrando@gmail.com>\n"
+"POT-Creation-Date: 2020-09-06 15:18+0000\n"
+"PO-Revision-Date: 2020-09-06 18:55+0200\n"
+"Last-Translator: Miquel-Àngel Burgos i Fradeja <miquel.angel.burgos@gmail."
+"com>\n"
 "Language-Team: Catalan <Catalan <info@softcatala.org>>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Poedit 2.3\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Carles Ferrando Garcia <carles.ferrando@gmail.com>, 2015"
+msgstr ""
+"Carles Ferrando Garcia <carles.ferrando@gmail.com>, 2015\n"
+"Miquel-Àngel Burgos i Fradeja <miquel.angel.burgos@gmail.com>, 2020"
 
 #. (itstool) path: credit/name
 #: C/alarm-add.page:14 C/alarm-edit.page:14 C/alarm-remove.page:15
@@ -70,13 +73,13 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:34
-msgid "Press <gui style=\"button\">Alarm</gui>."
-msgstr "Premeu <gui style=\"button\">Alarma</gui>."
+msgid "Press <gui style=\"button\">Alarms</gui>."
+msgstr "Premeu <gui style=\"button\">Alarmes</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:37
-msgid "Press <gui style=\"button\">New</gui>."
-msgstr "Premeu <gui style=\"button\">Nou</gui>."
+msgid "Press <gui style=\"button\">+</gui>."
+msgstr "Premeu <gui style=\"button\">+</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:40
@@ -85,21 +88,23 @@ msgstr "Configureu l'hora en la qual voleu que l'alarma soni."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:43
+msgid ""
+"Select the days on which you want the alarm to be repeated at the set time, "
+"or none if you only want the alarm to go off once."
+msgstr ""
+"Seleccioneu els dies en què voleu que l'alarma es repeteixi a l'hora "
+"configurada o res si només voleu que l'alarma soni un cop."
+
+#. (itstool) path: item/p
+#: C/alarm-add.page:47
 msgid "You can give your new alarm a name so that it is easier to identify."
 msgstr ""
 "Podeu donar a la nova alarma un nom per a fer-la més fàcil d'identificar."
 
 #. (itstool) path: item/p
-#: C/alarm-add.page:47
-msgid ""
-"Select the days on which you want the alarm to be repeated at the set time."
-msgstr ""
-"Seleccioneu els dies en els quals l'alarma es repetirà i configureu l'hora."
-
-#. (itstool) path: item/p
 #: C/alarm-add.page:51
-msgid "Press <gui style=\"button\">Done</gui> to finish adding the alarm."
-msgstr "Premeu <gui style=\"button\">Fet</gui> per a acabar d'afegir l'alarma."
+msgid "Press <gui style=\"button\">Add</gui> to finish adding the alarm."
+msgstr "Premeu <gui style=\"button\">Afegeix</gui> per a afegir l'alarma."
 
 #. (itstool) path: page/p
 #: C/alarm-add.page:55
@@ -127,30 +132,50 @@ msgstr "Editar una alarma"
 
 #. (itstool) path: page/p
 #: C/alarm-edit.page:29
-msgid ""
-"Edit your alarm to change when it goes off, rename it or to deactivate it."
+msgid "Edit your alarm to change when it goes off or to rename it."
 msgstr ""
-"Editeu la vostra alarma per canviar l'hora de sonar, canviar-li el nom o "
-"desactivar-la."
+"Editeu la vostra alarma per a canviar quan sona o per a canviar-ne el nom."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:34 C/alarm-remove.page:34
-msgid "Press the <gui style=\"button\">Alarm</gui> button."
-msgstr "Premeu el botó <gui style=\"button\">Alarma</gui>."
+#: C/alarm-edit.page:33 C/alarm-edit.page:48 C/alarm-remove.page:34
+msgid "Press the <gui style=\"button\">Alarms</gui> button."
+msgstr "Premeu el botó <gui style=\"button\">Alarmes</gui>."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:37
-msgid "Press the alarm which you want to edit."
-msgstr "Premeu sobre l'alarma que voleu editar."
+#: C/alarm-edit.page:36
+msgid ""
+"Find the alarm you want to change and press <gui style=\"button\">Edit</gui>."
+msgstr ""
+"Trobeu l'alarma que voleu canviar i premeu <gui style=\"button\">Edita</gui>."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:40
+#: C/alarm-edit.page:39
 msgid ""
 "Update the alarm and press <gui style=\"button\">Done</gui> to finish "
 "editing it."
 msgstr ""
 "Actualitzeu l'alarma i premeu <gui style=\"button\">Fet</gui> per a acabar "
 "l'edició."
+
+#. (itstool) path: page/p
+#: C/alarm-edit.page:44
+msgid "You can also temporarily disable an alarm."
+msgstr "També podeu inhabilitar una alarma temporalment."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:51
+msgid "Find the alarm you want to disable or enable and toggle the switch."
+msgstr ""
+"Trobeu l'alarma que voleu inhabilitar o habilitar i canvieu el commutador."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:54
+msgid ""
+"When the alarm is disabled, it will not go off, but it can be enabled again "
+"later."
+msgstr ""
+"Si l'alarma està inhabilitada, no sonarà, però es pot tornar a habilitar més "
+"endavant."
 
 #. (itstool) path: info/desc
 #: C/alarm-remove.page:25
@@ -169,22 +194,10 @@ msgstr "Podeu suprimir alarmes que no necessiteu més."
 
 #. (itstool) path: item/p
 #: C/alarm-remove.page:37
-msgid ""
-"Right click on the alarm. You can press the button with the tick mark in the "
-"top right corner and select the alarm which you want to delete."
+msgid "Press the <gui style=\"button\">Delete</gui> button to remove an alarm."
 msgstr ""
-"Premeu el botó dret sobre l'alarma. Podeu prémer el botó amb la marca del "
-"senyal a la part superior dreta i seleccioneu l'alarma que voleu suprimir."
-
-#. (itstool) path: item/p
-#: C/alarm-remove.page:42 C/world-remove.page:41
-msgid "Press the <gui style=\"button\">Delete</gui> button."
-msgstr "Premeu el botó <gui style=\"button\">Suprimeix</gui>."
-
-#. (itstool) path: page/p
-#: C/alarm-remove.page:46
-msgid "You can select more than one alarm at a time for deletion."
-msgstr "Podeu seleccionar més d'una alarma al mateix temps per suprimir-les."
+"Premeu el botó <gui style=\"button\">Suprimeix</gui> per a eliminar una "
+"alarma."
 
 #. (itstool) path: info/desc
 #: C/alarm-snooze-stop.page:24
@@ -269,21 +282,21 @@ msgstr ""
 #. (itstool) path: item/p
 #: C/stopwatch.page:51
 msgid ""
-"Press <gui style=\"button\">Stop</gui> to pause the stopwatch and <gui style="
-"\"button\">Continue</gui> when you are ready to resume timing the task."
+"Press <gui style=\"button\">Pause</gui> to pause the stopwatch and <gui "
+"style=\"button\">Resume</gui> when you are ready to resume timing the task."
 msgstr ""
-"Premeu <gui style=\"button\">Atura</gui> per fer una pausa en el cronòmetre "
-"i <gui style=\"button\">Continua</gui> quan estigueu a punt per a continuar el "
-"cronometratge."
+"Premeu <gui style=\"button\">Fes una pausa</gui> per a fer una pausa al "
+"cronòmetre i <gui style=\"button\">Reprèn</gui> quan estigueu a punt per a "
+"reprendre el cronometratge de la tasca."
 
 #. (itstool) path: page/p
 #: C/stopwatch.page:59
 msgid ""
-"You can use the <gui style=\"button\">Reset</gui> button to reset the "
-"stopwatch when it is stopped."
+"You can use the <gui style=\"button\">Clear</gui> button to reset the "
+"stopwatch when it is paused."
 msgstr ""
-"Podeu usar el botó <gui style=\"button\">Reinicia</gui> per reiniciar el "
-"cronòmetre quan estigui aturat."
+"Podeu utilitzar el botó <gui style=\"button\">Neteja</gui> per a reiniciar "
+"el cronòmetre quan estigui en pausa."
 
 #. (itstool) path: note/p
 #: C/stopwatch.page:63
@@ -348,82 +361,87 @@ msgstr ""
 "reiniciar el temporitzador, premeu el botó <gui style=\"button\">Reinicia</"
 "gui>."
 
-#. (itstool) path: info/desc
+#. (itstool) path: credit/name
 #: C/world-add.page:24
+msgid "Michael Hill"
+msgstr "Michael Hill"
+
+#. (itstool) path: info/desc
+#: C/world-add.page:28
 msgid "Add a clock for a new city to your world clocks list."
 msgstr "Afegiu un rellotge d'una ciutat nova a la llista de rellotges del món."
 
 #. (itstool) path: page/title
-#: C/world-add.page:27
+#: C/world-add.page:31
 msgid "Add a new city clock"
 msgstr "Afegir un rellotge d'una ciutat nova"
 
 #. (itstool) path: page/p
-#: C/world-add.page:29
+#: C/world-add.page:33
 msgid ""
 "Add a city to your world clocks to see the time of day or night in that "
 "city. You will also be able to <link xref=\"world-check\">check the sunrise "
 "and sunset times</link> for each of the cities that you have added."
 msgstr ""
-"Afegiu una ciutat als rellotges del món per a veure l'hora del dia o la nit a "
-"cada ciutat. També podeu <link xref=\"world-check\">comprovar les hores de "
+"Afegiu una ciutat als rellotges del món per a veure l'hora del dia o la nit "
+"a cada ciutat. També podeu <link xref=\"world-check\">comprovar les hores de "
 "sortida i posta del sol</link> per cadascuna de les ciutats que heu afegit."
 
 #. (itstool) path: item/p
-#: C/world-add.page:35 C/world-check.page:35 C/world-remove.page:33
+#: C/world-add.page:39 C/world-check.page:35 C/world-remove.page:33
 msgid "Press the <gui style=\"button\">World</gui> button."
 msgstr "Premeu el botó <gui style=\"button\">Món</gui>."
 
 #. (itstool) path: item/p
-#: C/world-add.page:38
+#: C/world-add.page:42
 msgid ""
-"Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
+"Press the <gui style=\"button\">+</gui> button or <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> to add a new city."
 msgstr ""
-"Premeu el botó <gui style=\"button\">Nou</gui> o <keyseq><key>Ctrl</"
-"key><key>N</key></keyseq> per afegir una ciutat nova."
+"Premeu el botó <gui style=\"button\">+</gui> o <keyseq><key>Ctrl</"
+"key><key>N</key></keyseq> per a afegir una ciutat nova."
 
 #. (itstool) path: item/p
-#: C/world-add.page:42
+#: C/world-add.page:46
 msgid "Start typing the name of the city into the search."
 msgstr "Comenceu a escriure el nom de la ciutat a cercar."
 
 #. (itstool) path: item/p
-#: C/world-add.page:45
+#: C/world-add.page:49
 msgid "Select the correct city or the closest location to you from the list."
 msgstr ""
 "Seleccioneu la ciutat correcta o la ubicació de la llista més propera a "
 "vosaltres."
 
 #. (itstool) path: item/p
-#: C/world-add.page:49
+#: C/world-add.page:53
 msgid "Press <gui style=\"button\">Add</gui> to finish adding the city."
 msgstr ""
 "Premeu <gui style=\"button\">Afegeix</gui> per a acabar d'afegir la ciutat."
 
 #. (itstool) path: page/p
-#: C/world-add.page:53
+#: C/world-add.page:57
 msgid ""
 "If you do not see your city in the list, it is probably not available at "
 "this time. You should try adding the closest bigger city or the capital of "
 "your country instead."
 msgstr ""
-"Si no veieu la ciutat a la llista, és probable que no està disponible "
-"en aquest moment. Heu d'afegir la ciutat propera més gran o la capital "
-"del vostre país."
+"Si no veieu la ciutat a la llista, és probable que no està disponible en "
+"aquest moment. Heu d'afegir la ciutat propera més gran o la capital del "
+"vostre país."
 
 #. (itstool) path: note/p
-#: C/world-add.page:58
+#: C/world-add.page:62
 msgid ""
 "The clock for your current location will automatically be added to your "
-"world clocks when you are connected to the Internet. Not be shown if you "
-"disconnect from the Internet and will automatically update if you take your "
-"computer to a different city."
+"world clocks when you are connected to the Internet. It will not be shown if "
+"you disconnect from the Internet and it will automatically update if you "
+"take your computer to a different city."
 msgstr ""
 "El rellotge de la ubicació actual s'afegirà automàticament al rellotges del "
-"món quan estigui connectat a Internet. No es mostrarà si us "
-"desconnecteu d'Internet i s'actualitzarà automàticament si preneu el vostre "
-"ordinador i el connecteu a una ciutat diferent."
+"món quan estigui connectat a Internet. No es mostrarà si us desconnecteu "
+"d'Internet i s'actualitzarà automàticament si us emporteu el vostre "
+"ordinador a una ciutat diferent."
 
 #. (itstool) path: info/desc
 #: C/world-check.page:24
@@ -442,8 +460,8 @@ msgid ""
 "for today. You will also see if the city is a day behind or ahead of you."
 msgstr ""
 "A més de comprovar l'hora, també podreu veure les hores de sortida i posta "
-"del sol d'avui. També podreu veure si la ciutat duu l'horari un dia endarrere "
-"o per davant."
+"del sol d'avui. També podreu veure si la ciutat duu l'horari un dia "
+"endarrere o per davant."
 
 #. (itstool) path: item/p
 #: C/world-check.page:38
@@ -468,86 +486,87 @@ msgstr "Podeu suprimir rellotges que no necessiteu més."
 #. (itstool) path: item/p
 #: C/world-remove.page:36
 msgid ""
-"Right click on the world clock. You can press the button with the tick mark "
-"in the top right corner and select the clock which you want to delete."
+"Press the <gui style=\"button\">Delete</gui> button to remove a world clock."
 msgstr ""
-"Premeu el botó dret sobre el rellotge del món. Premeu el botó amb la marca del senyal "
-"a la cantonada superior dreta i seleccioneu el rellotge que voleu eliminar."
+"Premeu el botó <gui style=\"button\">Suprimeix</gui> per a eliminar un "
+"rellotge del món."
 
-#. (itstool) path: page/p
-#: C/world-remove.page:45
-msgid "You can select more than one clock at a time for deletion."
-msgstr "Podeu seleccionar més d'un rellotge al mateix temps per a suprimir-los."
+#. (itstool) path: info/title
+#: C/index.page:22
+msgctxt "link:seealso"
+msgid "Clocks Help"
+msgstr "Ajuda del Rellotges"
 
 #. (itstool) path: info/desc
-#: C/index.page:22
+#: C/index.page:24
 msgid ""
 "Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
 "the time in different cities around the world."
 msgstr ""
-"Utilitzeu <app>Rellotges</app> com a cronòmetre, temporitzador, per a configurar "
-"alarmes, i comprovar els horaris de diferents ciutats al voltant del món."
+"Utilitzeu <app>Rellotges</app> com a cronòmetre, temporitzador, per a "
+"configurar alarmes, i comprovar els horaris de diferents ciutats al voltant "
+"del món."
 
 #. (itstool) path: page/title
-#: C/index.page:26
+#: C/index.page:28
 msgid "<_:media-1/>Clocks"
 msgstr "<_:media-1/>Rellotges"
 
 #. (itstool) path: page/p
-#: C/index.page:28
+#: C/index.page:30
 msgid ""
 "Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
 "the time in different cities."
 msgstr ""
-"Utilitzeu <app>Rellotges</app> com a cronòmetre, temporitzador, per a configurar "
-"alarmes, i comprovar els horaris de diferents ciutats."
+"Utilitzeu <app>Rellotges</app> com a cronòmetre, temporitzador, per a "
+"configurar alarmes, i comprovar els horaris de diferents ciutats."
 
 #. (itstool) path: section/title
-#: C/index.page:32
+#: C/index.page:34
 msgid "World clocks"
 msgstr "Rellotges del món"
 
 #. (itstool) path: section/p
-#: C/index.page:34
+#: C/index.page:36
 msgid ""
 "View the time in cities around the world on the same screen. You can also "
 "check if it is still the same day in those cities, and the sunrise and "
 "sunset times."
 msgstr ""
 "Visualitzeu l'hora en ciutats al voltant del món a la mateixa pantalla. "
-"També podeu comprovar si és el mateix dia en aquestes ciutats, i la sortida i "
-"la posta del sol."
+"També podeu comprovar si és el mateix dia en aquestes ciutats, i la sortida "
+"i la posta del sol."
 
 #. (itstool) path: section/title
-#: C/index.page:41
+#: C/index.page:43
 msgid "Alarm clocks"
 msgstr "Despertadors"
 
 #. (itstool) path: section/p
-#: C/index.page:43
+#: C/index.page:45
 msgid "Set customisable alarms to go off on specific days every week."
 msgstr ""
 "Configureu alarmes personalitzables perquè sonin en dies específics cada "
 "setmana."
 
 #. (itstool) path: section/title
-#: C/index.page:48
+#: C/index.page:50
 msgid "Stopwatch"
 msgstr "Cronòmetre"
 
 #. (itstool) path: section/p
-#: C/index.page:50
+#: C/index.page:52
 msgid "Use the stopwatch to time how long something takes."
 msgstr ""
 "Utilitzeu el cronòmetre per a mesurar el temps que tardeu en alguna cosa."
 
 #. (itstool) path: section/title
-#: C/index.page:55
+#: C/index.page:57
 msgid "Timer"
 msgstr "Temporitzador"
 
 #. (itstool) path: section/p
-#: C/index.page:57
+#: C/index.page:59
 msgid "Set a countdown in seconds, minutes or hours."
 msgstr "Configureu un compte enrere en segons, minuts, o hores."
 
@@ -560,3 +579,30 @@ msgstr "Creative Commons Atribució Compartir Igual 3.0 Llicència no portada"
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Aquest treball està sota una llicència <_:link-1/>."
+
+#~ msgid "Press the alarm which you want to edit."
+#~ msgstr "Premeu sobre l'alarma que voleu editar."
+
+#~ msgid ""
+#~ "Right click on the alarm. You can press the button with the tick mark in "
+#~ "the top right corner and select the alarm which you want to delete."
+#~ msgstr ""
+#~ "Premeu el botó dret sobre l'alarma. Podeu prémer el botó amb la marca del "
+#~ "senyal a la part superior dreta i seleccioneu l'alarma que voleu suprimir."
+
+#~ msgid "You can select more than one alarm at a time for deletion."
+#~ msgstr ""
+#~ "Podeu seleccionar més d'una alarma al mateix temps per suprimir-les."
+
+#~ msgid ""
+#~ "Right click on the world clock. You can press the button with the tick "
+#~ "mark in the top right corner and select the clock which you want to "
+#~ "delete."
+#~ msgstr ""
+#~ "Premeu el botó dret sobre el rellotge del món. Premeu el botó amb la "
+#~ "marca del senyal a la cantonada superior dreta i seleccioneu el rellotge "
+#~ "que voleu eliminar."
+
+#~ msgid "You can select more than one clock at a time for deletion."
+#~ msgstr ""
+#~ "Podeu seleccionar més d'un rellotge al mateix temps per a suprimir-los."
