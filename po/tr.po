@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-07-12 15:46+0000\n"
-"PO-Revision-Date: 2020-07-18 23:15+0300\n"
+"POT-Creation-Date: 2020-09-12 05:18+0000\n"
+"PO-Revision-Date: 2020-09-12 08:29+0300\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.2.3\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:297
@@ -154,7 +154,7 @@ msgstr "Kronometre ekranı"
 msgid "Timer screen"
 msgstr "Zamanlayıcı ekranı"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:83
+#: data/org.gnome.clocks.metainfo.xml.in.in:85
 msgid "The GNOME Project"
 msgstr "GNOME Projesi"
 
@@ -246,11 +246,11 @@ msgstr "_Yinele"
 msgid "Add A_larm"
 msgstr "Alarm _Ekle"
 
-#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:115
+#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:116
 msgid "Stop"
 msgstr "Dur"
 
-#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:116
+#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:117
 msgid "Snooze"
 msgstr "Ertele"
 
@@ -258,21 +258,19 @@ msgstr "Ertele"
 msgid "Active"
 msgstr "Etkin"
 
-#: data/ui/alarm-row.ui:50
-msgid "Edit"
-msgstr "Düzenle"
-
-#: data/ui/alarm-row.ui:77
+#: data/ui/alarm-row.ui:39 data/ui/world-row.ui:92
 msgid "Delete"
 msgstr "Sil"
 
-#: data/ui/alarm-row.ui:106
+#: data/ui/alarm-row.ui:69
 msgid "Repeats"
 msgstr "Yinelemeler"
 
-#: data/ui/alarm-setup-dialog.ui:24 data/ui/world-location-dialog.ui:20
-msgid "Add a New World Clock"
-msgstr "Yeni Dünya Saati Ekle"
+#. Translators: Tooltip for the + button
+#: data/ui/alarm-setup-dialog.ui:24 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:108
+msgid "New Alarm"
+msgstr "Yeni Alarm"
 
 #: data/ui/alarm-setup-dialog.ui:143
 msgid "Name"
@@ -282,11 +280,19 @@ msgstr "Ad"
 msgid "Optional"
 msgstr "İsteğe Bağlı"
 
-#: data/ui/alarm-setup-dialog.ui:165
+#: data/ui/alarm-setup-dialog.ui:161
+msgid "Ring Duration"
+msgstr "Çalma Süresi"
+
+#: data/ui/alarm-setup-dialog.ui:169
+msgid "Snooze Duration"
+msgstr "Erteleme Süresi"
+
+#: data/ui/alarm-setup-dialog.ui:181
 msgid "R_emove Alarm"
 msgstr "Alarmı _Kaldır"
 
-#: data/ui/alarm-setup-dialog.ui:181
+#: data/ui/alarm-setup-dialog.ui:197
 msgid "You already have an alarm for this time."
 msgstr "Zaten bu saate kurulmuş alarmınız var."
 
@@ -391,6 +397,10 @@ msgstr "Zamanlayıcı"
 msgid "Add World Clock"
 msgstr "Dünya Saati Ekle"
 
+#: data/ui/world-location-dialog.ui:20
+msgid "Add a New World Clock"
+msgstr "Yeni Dünya Saati Ekle"
+
 #: data/ui/world-location-dialog.ui:24
 msgid "_Cancel"
 msgstr "_Vazgeç"
@@ -411,15 +421,10 @@ msgstr "Gün doğumu"
 msgid "Sunset"
 msgstr "Gün batımı"
 
-#. Translators: Tooltip for the + button
-#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:54
-msgid "New Alarm"
-msgstr "Yeni Alarm"
-
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:113 src/alarm-row.vala:82 src/window.vala:348
+#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:348
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -435,19 +440,43 @@ msgstr "%s saatinden beri ertelendi: %s"
 msgid "Snoozed from %s"
 msgstr "%s saatinden beri ertelendi"
 
-#: src/alarm-setup-dialog.vala:54
+#: src/alarm-setup-dialog.vala:41
+msgid "1 minute"
+msgstr "1 dakika"
+
+#: src/alarm-setup-dialog.vala:42
+msgid "5 minutes"
+msgstr "5 dakika"
+
+#: src/alarm-setup-dialog.vala:43
+msgid "10 minutes"
+msgstr "10 dakika"
+
+#: src/alarm-setup-dialog.vala:44
+msgid "15 minutes"
+msgstr "15 dakika"
+
+#: src/alarm-setup-dialog.vala:45
+msgid "20 minutes"
+msgstr "20 dakika"
+
+#: src/alarm-setup-dialog.vala:46
+msgid "30 minutes"
+msgstr "30 dakika"
+
+#: src/alarm-setup-dialog.vala:108
 msgid "Edit Alarm"
 msgstr "Alarmı Düzenle"
 
-#: src/alarm-setup-dialog.vala:57 src/timer-setup-dialog.vala:30
+#: src/alarm-setup-dialog.vala:111 src/timer-setup-dialog.vala:30
 msgid "Cancel"
 msgstr "Vazgeç"
 
-#: src/alarm-setup-dialog.vala:59
+#: src/alarm-setup-dialog.vala:113
 msgid "Done"
 msgstr "Tamam"
 
-#: src/alarm-setup-dialog.vala:61 src/timer-setup-dialog.vala:31
+#: src/alarm-setup-dialog.vala:115 src/timer-setup-dialog.vala:31
 msgid "Add"
 msgstr "Ekle"
 
@@ -519,12 +548,9 @@ msgstr "Pt"
 #. Translators: This is used in the repeat toggle for Tuesday
 #. Translators: This is used in the repeat toggle for Thursday
 #: src/utils.vala:191 src/utils.vala:195
-#, fuzzy
-#| msgctxt "Repeat|Tuesday"
-#| msgid "T"
 msgctxt "Alarm|Repeat-On"
 msgid "T"
-msgstr "S"
+msgstr ""
 
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:193
@@ -541,12 +567,9 @@ msgstr "Cu"
 #. Translators: This is used in the repeat toggle for Saturday
 #. Translators: This is used in the repeat toggle for Sunday
 #: src/utils.vala:199 src/utils.vala:201
-#, fuzzy
-#| msgctxt "Repeat|Saturday"
-#| msgid "S"
 msgctxt "Alarm|Repeat-On"
 msgid "S"
-msgstr "Ct"
+msgstr ""
 
 #: src/utils.vala:205
 msgid "Mondays"
@@ -582,7 +605,7 @@ msgstr "Her Gün"
 
 #: src/utils.vala:339
 msgid "Weekdays"
-msgstr "Hafta İçi"
+msgstr "Hafta İçleri"
 
 #: src/utils.vala:341
 msgid "Weekends"
@@ -601,7 +624,8 @@ msgstr "Zaman konusunda yardımcı olacak donatılar."
 msgid "translator-credits"
 msgstr ""
 "Osman Karagöz <osmank3@gmail.com>\n"
-"Muhammet Kara <muhammetk@gmail.com>"
+"Muhammet Kara <muhammetk@gmail.com>\n"
+"Emin Tufan Çetin <etcetin@gmail.com>"
 
 #. Translators: Tooltip for the + button
 #: src/world-face.vala:29
@@ -625,6 +649,9 @@ msgstr "Dün"
 msgid "Current location"
 msgstr "Geçerli konum"
 
+#~ msgid "Edit"
+#~ msgstr "Düzenle"
+
 #~ msgid "Select <b>New</b> to add a world clock"
 #~ msgstr "Dünya saati eklemek için <b>Yeni</b>’yi seç"
 
@@ -638,9 +665,6 @@ msgstr "Geçerli konum"
 
 #~ msgid "%i second timer"
 #~ msgstr "%i saniye zamanlayıcı"
-
-#~ msgid "%i minute timer"
-#~ msgstr "%i dakika zamanlayıcı"
 
 #~ msgid "%i hour timer"
 #~ msgstr "%i saat zamanlayıcı"
