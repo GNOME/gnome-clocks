@@ -5,13 +5,13 @@
 # Yoann Fievez <yoann.fievez@gmail.com>, 2013
 # Julien Hardelin <jhardlin@orange.fr>, 2013
 # Jean-Baptiste Holcroft <jean-baptiste@holcroft.fr>, 2019.
-# Charles Monzat <charles.monzat@free.fr>, 2019.
+# Charles Monzat <charles.monzat@free.fr>, 2019-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"POT-Creation-Date: 2019-09-28 12:51+0000\n"
-"PO-Revision-Date: 2019-10-13 18:01+0200\n"
+"POT-Creation-Date: 2020-06-30 10:45+0000\n"
+"PO-Revision-Date: 2020-09-08 23:02+0200\n"
 "Last-Translator: Charles Monzat <charles.monzat@free.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Gtranslator 3.32.1\n"
+"X-Generator: Gtranslator 3.36.0\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -28,7 +28,7 @@ msgstr ""
 "Jean-Baptiste Holcroft <jean-baptiste@holcroft.fr>, 2016\n"
 "Fievez Yoann <yoann.fievez@gmail.com>, 2013\n"
 "Julien Hardelin <jhardlin@orange.fr>, 2013\n"
-"Charles Monzat <charles.monzat@free.fr>, 2019"
+"Charles Monzat <charles.monzat@free.fr>, 2019-2020"
 
 #. (itstool) path: credit/name
 #: C/alarm-add.page:14 C/alarm-edit.page:14 C/alarm-remove.page:15
@@ -79,13 +79,15 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:34
-msgid "Press <gui style=\"button\">Alarm</gui>."
-msgstr "Cliquez sur <gui style=\"button\">Alarme</gui>."
+#| msgid "Press <gui style=\"button\">Alarm</gui>."
+msgid "Press <gui style=\"button\">Alarms</gui>."
+msgstr "Cliquez sur <gui style=\"button\">Alarmes</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:37
-msgid "Press <gui style=\"button\">New</gui>."
-msgstr "Cliquez sur <gui style=\"button\">Nouvelle</gui>."
+#| msgid "Press <gui style=\"button\">New</gui>."
+msgid "Press <gui style=\"button\">+</gui>."
+msgstr "Cliquez sur <gui style=\"button\">+</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:40
@@ -95,24 +97,30 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:43
+#| msgid ""
+#| "Select the days on which you want the alarm to be repeated at the set "
+#| "time."
+msgid ""
+"Select the days on which you want the alarm to be repeated at the set time, "
+"or none if you only want the alarm to go off once."
+msgstr ""
+"Sélectionnez les jours pour lesquels vous voulez que l’alarme se répète à "
+"l’heure fixée, ou aucun si vous souhaitez que l’alarme ne se déclenche "
+"qu’une seule fois."
+
+#. (itstool) path: item/p
+#: C/alarm-add.page:47
 msgid "You can give your new alarm a name so that it is easier to identify."
 msgstr ""
 "Vous pouvez donner un nom à la nouvelle alarme pour qu’elle soit plus facile "
 "à identifier."
 
 #. (itstool) path: item/p
-#: C/alarm-add.page:47
-msgid ""
-"Select the days on which you want the alarm to be repeated at the set time."
-msgstr ""
-"Sélectionnez les jours pour lesquels vous voulez que l’alarme se répète à "
-"l’heure fixée."
-
-#. (itstool) path: item/p
 #: C/alarm-add.page:51
-msgid "Press <gui style=\"button\">Done</gui> to finish adding the alarm."
+#| msgid "Press <gui style=\"button\">Done</gui> to finish adding the alarm."
+msgid "Press <gui style=\"button\">Add</gui> to finish adding the alarm."
 msgstr ""
-"Cliquez sur <gui style=\"button\">Terminé</gui> pour finir d’ajouter "
+"Cliquez sur <gui style=\"button\">Ajouter</gui> pour finir d’ajouter "
 "l’alarme."
 
 #. (itstool) path: page/p
@@ -127,7 +135,7 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/alarm-add.page:58
 msgid "Your alarm will not go off if your computer is switched off."
-msgstr "L’alarme ne se déclenchera pas si votre ordinateur est éteint."
+msgstr "L’alarme ne se déclenche pas si votre ordinateur est éteint."
 
 #. (itstool) path: info/desc
 #: C/alarm-edit.page:24
@@ -141,30 +149,60 @@ msgstr "Modification d’une alarme"
 
 #. (itstool) path: page/p
 #: C/alarm-edit.page:29
-msgid ""
-"Edit your alarm to change when it goes off, rename it or to deactivate it."
+#| msgid ""
+#| "Edit your alarm to change when it goes off, rename it or to deactivate it."
+msgid "Edit your alarm to change when it goes off or to rename it."
 msgstr ""
-"Modifiez l’alarme pour changer le moment où elle se déclenche, la renommer "
-"ou la désactiver."
+"Modifiez l’alarme pour changer le moment où elle se déclenche ou pour la "
+"renommer."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:34 C/alarm-remove.page:34
-msgid "Press the <gui style=\"button\">Alarm</gui> button."
-msgstr "Cliquez sur le bouton <gui style=\"button\">Alarme</gui>."
+#: C/alarm-edit.page:33 C/alarm-edit.page:48 C/alarm-remove.page:34
+#| msgid "Press the <gui style=\"button\">Alarm</gui> button."
+msgid "Press the <gui style=\"button\">Alarms</gui> button."
+msgstr "Cliquez sur le bouton <gui style=\"button\">Alarmes</gui>."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:37
-msgid "Press the alarm which you want to edit."
-msgstr "Cliquez sur l’alarme que vous souhaitez modifier."
+#: C/alarm-edit.page:36
+#| msgid ""
+#| "Update the alarm and press <gui style=\"button\">Done</gui> to finish "
+#| "editing it."
+msgid ""
+"Find the alarm you want to change and press <gui style=\"button\">Edit</gui>."
+msgstr ""
+"Sélectionnez l’alarme que vous souhaitez modifier et cliquez sur <gui style="
+"\"button\">Modifier</gui>."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:40
+#: C/alarm-edit.page:39
 msgid ""
 "Update the alarm and press <gui style=\"button\">Done</gui> to finish "
 "editing it."
 msgstr ""
 "Mettez à jour l’alarme et cliquez sur <gui style=\"button\">Terminé</gui> "
 "pour valider la modification."
+
+#. (itstool) path: page/p
+#: C/alarm-edit.page:44
+#| msgid "Update your alarm or temporarily disable it."
+msgid "You can also temporarily disable an alarm."
+msgstr "Vous pouvez également désactiver temporairement une alarme."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:51
+msgid "Find the alarm you want to disable or enable and toggle the switch."
+msgstr ""
+"Sélectionnez l’alarme que vous souhaitez activer ou désactiver et basculez "
+"l’interrupteur."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:54
+msgid ""
+"When the alarm is disabled, it will not go off, but it can be enabled again "
+"later."
+msgstr ""
+"Lorsque l’alarme est désactivée, elle ne se déclenche pas, mais elle peut "
+"être réactivée ultérieurement."
 
 #. (itstool) path: info/desc
 #: C/alarm-remove.page:25
@@ -183,24 +221,11 @@ msgstr "Vous pouvez supprimer les alarmes dont vous n’avez plus besoin."
 
 #. (itstool) path: item/p
 #: C/alarm-remove.page:37
-msgid ""
-"Right click on the alarm. You can press the button with the tick mark in the "
-"top right corner and select the alarm which you want to delete."
+#| msgid "Press the <gui style=\"button\">Delete</gui> button."
+msgid "Press the <gui style=\"button\">Delete</gui> button to remove an alarm."
 msgstr ""
-"Cliquez avec le bouton droit sur l’alarme. Vous pouvez cliquer sur le bouton "
-"avec la coche dans le coin en haut à droite et sélectionner l’alarme que "
-"vous souhaitez supprimer."
-
-#. (itstool) path: item/p
-#: C/alarm-remove.page:42 C/world-remove.page:41
-msgid "Press the <gui style=\"button\">Delete</gui> button."
-msgstr "Cliquez sur le bouton <gui style=\"button\">Supprimer</gui>."
-
-#. (itstool) path: page/p
-#: C/alarm-remove.page:46
-msgid "You can select more than one alarm at a time for deletion."
-msgstr ""
-"Vous pouvez sélectionner plus d’une alarme à la fois pour la suppression."
+"Cliquez sur le bouton <gui style=\"button\">Supprimer</gui> pour supprimer "
+"une alarme."
 
 #. (itstool) path: info/desc
 #: C/alarm-snooze-stop.page:24
@@ -290,22 +315,29 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/stopwatch.page:51
+#| msgid ""
+#| "Press <gui style=\"button\">Stop</gui> to pause the stopwatch and <gui "
+#| "style=\"button\">Continue</gui> when you are ready to resume timing the "
+#| "task."
 msgid ""
-"Press <gui style=\"button\">Stop</gui> to pause the stopwatch and <gui style="
-"\"button\">Continue</gui> when you are ready to resume timing the task."
+"Press <gui style=\"button\">Pause</gui> to pause the stopwatch and <gui "
+"style=\"button\">Resume</gui> when you are ready to resume timing the task."
 msgstr ""
-"Cliquez sur <gui style=\"button\">Arrêter</gui> pour mettre en pause le "
-"chronomètre et sur <gui style=\"button\">Continuer</gui> quand vous êtes "
+"Cliquez sur <gui style=\"button\">Pause</gui> pour mettre en pause le "
+"chronomètre et sur <gui style=\"button\">Reprendre</gui> quand vous êtes "
 "prêt à reprendre le chronométrage de la tâche."
 
 #. (itstool) path: page/p
 #: C/stopwatch.page:59
+#| msgid ""
+#| "You can use the <gui style=\"button\">Reset</gui> button to reset the "
+#| "stopwatch when it is stopped."
 msgid ""
-"You can use the <gui style=\"button\">Reset</gui> button to reset the "
-"stopwatch when it is stopped."
+"You can use the <gui style=\"button\">Clear</gui> button to reset the "
+"stopwatch when it is paused."
 msgstr ""
-"Vous pouvez utiliser le bouton <gui style=\"button\">Réinitialiser</gui> "
-"pour réinitialiser le chronomètre quand il est arrêté."
+"Vous pouvez utiliser le bouton <gui style=\"button\">Effacer</gui> pour "
+"réinitialiser le chronomètre quand il est en pause."
 
 #. (itstool) path: note/p
 #: C/stopwatch.page:63
@@ -407,11 +439,14 @@ msgstr "Cliquez sur le bouton <gui style=\"button\">Monde</gui>."
 
 #. (itstool) path: item/p
 #: C/world-add.page:42
+#| msgid ""
+#| "Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
+#| "key><key>N</key></keyseq> to add a new city."
 msgid ""
-"Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
+"Press the <gui style=\"button\">+</gui> button or <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> to add a new city."
 msgstr ""
-"Cliquez sur le bouton <gui style=\"button\">Nouvelle</gui> ou appuyez sur "
+"Cliquez sur le bouton <gui style=\"button\">+</gui> ou appuyez sur "
 "<keyseq><key>Ctrl</key><key>N</key></keyseq> pour ajouter une nouvelle ville."
 
 #. (itstool) path: item/p
@@ -498,19 +533,12 @@ msgstr "Vous pouvez supprimer les horloges dont vous n’avez plus besoin."
 
 #. (itstool) path: item/p
 #: C/world-remove.page:36
+#| msgid "Press the <gui style=\"button\">Delete</gui> button."
 msgid ""
-"Right click on the world clock. You can press the button with the tick mark "
-"in the top right corner and select the clock which you want to delete."
+"Press the <gui style=\"button\">Delete</gui> button to remove a world clock."
 msgstr ""
-"Faites un clic droit sur l’horloge mondiale. Vous pouvez cliquer sur le "
-"bouton avec la coche dans le coin supérieur droit et sélectionner l’horloge "
-"que vous souhaitez supprimer."
-
-#. (itstool) path: page/p
-#: C/world-remove.page:45
-msgid "You can select more than one clock at a time for deletion."
-msgstr ""
-"Vous pouvez sélectionner plus d’une d’horloge à la fois pour la suppression."
+"Cliquez sur le bouton <gui style=\"button\">Supprimer</gui> pour supprimer "
+"une horloge mondiale."
 
 #. (itstool) path: info/title
 #: C/index.page:22
@@ -594,9 +622,40 @@ msgstr "Paramétrer un compte à rebours en secondes, minutes ou heures."
 #. (itstool) path: p/link
 #: C/legal.xml:4
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
-msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr ""
+"Licence Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 "
+"non transposé"
 
 #. (itstool) path: license/p
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
-msgstr "Ce document est placé sous licence <_:link-1/>."
+msgstr "Cette œuvre est distribuée sous <_:link-1/>."
+
+#~ msgid "Press the alarm which you want to edit."
+#~ msgstr "Cliquez sur l’alarme que vous souhaitez modifier."
+
+#~ msgid ""
+#~ "Right click on the alarm. You can press the button with the tick mark in "
+#~ "the top right corner and select the alarm which you want to delete."
+#~ msgstr ""
+#~ "Cliquez avec le bouton droit sur l’alarme. Vous pouvez cliquer sur le "
+#~ "bouton avec la coche dans le coin en haut à droite et sélectionner "
+#~ "l’alarme que vous souhaitez supprimer."
+
+#~ msgid "You can select more than one alarm at a time for deletion."
+#~ msgstr ""
+#~ "Vous pouvez sélectionner plus d’une alarme à la fois pour la suppression."
+
+#~ msgid ""
+#~ "Right click on the world clock. You can press the button with the tick "
+#~ "mark in the top right corner and select the clock which you want to "
+#~ "delete."
+#~ msgstr ""
+#~ "Faites un clic droit sur l’horloge mondiale. Vous pouvez cliquer sur le "
+#~ "bouton avec la coche dans le coin supérieur droit et sélectionner "
+#~ "l’horloge que vous souhaitez supprimer."
+
+#~ msgid "You can select more than one clock at a time for deletion."
+#~ msgstr ""
+#~ "Vous pouvez sélectionner plus d’une d’horloge à la fois pour la "
+#~ "suppression."
