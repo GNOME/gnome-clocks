@@ -30,7 +30,7 @@ apps:
     command: usr/bin/gnome-clocks
     extensions: [ gnome-3-34 ]
     plugs:
-      - pulseaudio
+      - audio-playback
       - location-observe
     desktop: usr/share/applications/org.gnome.clocks.desktop
     environment:
