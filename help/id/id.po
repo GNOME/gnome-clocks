@@ -6,20 +6,20 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks gnome-3-20\n"
-"POT-Creation-Date: 2019-09-28 12:51+0000\n"
-"PO-Revision-Date: 2019-11-15 12:03+0700\n"
+"POT-Creation-Date: 2020-06-30 10:45+0000\n"
+"PO-Revision-Date: 2020-10-04 23:01+0700\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "Andika Triwidada <andika@gmail.com>, 2013, 2016, 2019."
+msgstr "Andika Triwidada <andika@gmail.com>, 2013, 2016, 2019, 2020."
 
 #. (itstool) path: credit/name
 #: C/alarm-add.page:14 C/alarm-edit.page:14 C/alarm-remove.page:15
@@ -69,13 +69,13 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:34
-msgid "Press <gui style=\"button\">Alarm</gui>."
+msgid "Press <gui style=\"button\">Alarms</gui>."
 msgstr "Tekan <gui style=\"button\">Alarm</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:37
-msgid "Press <gui style=\"button\">New</gui>."
-msgstr "Tekan <gui style=\"button\">Baru</gui>."
+msgid "Press <gui style=\"button\">+</gui>."
+msgstr "Tekan <gui style=\"button\">+</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:40
@@ -84,22 +84,25 @@ msgstr "Atur waktu yang Anda inginkan untuk membunyikan alarm."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:43
+msgid ""
+"Select the days on which you want the alarm to be repeated at the set time, "
+"or none if you only want the alarm to go off once."
+msgstr ""
+"Pilih hari-hari kapan Anda ingin alarm diulang pada waktu yang ditata, atau "
+"nihil jika Anda ingin alarm hanya berbunyi sekali."
+
+#. (itstool) path: item/p
+#: C/alarm-add.page:47
 msgid "You can give your new alarm a name so that it is easier to identify."
 msgstr ""
 "Anda dapat memberi alarm baru Anda suatu nama sehingga lebih mudah "
 "diidentifikasi."
 
 #. (itstool) path: item/p
-#: C/alarm-add.page:47
-msgid ""
-"Select the days on which you want the alarm to be repeated at the set time."
-msgstr "Pilih hari-hari kapan Anda ingin alarm diulang pada waktu yang ditata."
-
-#. (itstool) path: item/p
 #: C/alarm-add.page:51
-msgid "Press <gui style=\"button\">Done</gui> to finish adding the alarm."
+msgid "Press <gui style=\"button\">Add</gui> to finish adding the alarm."
 msgstr ""
-"Tekan <gui style=\"button\">Selesai</gui> untuk mengakhiri menambah alarm."
+"Tekan <gui style=\"button\">Tambah</gui> untuk mengakhiri menambah alarm."
 
 #. (itstool) path: page/p
 #: C/alarm-add.page:55
@@ -127,30 +130,51 @@ msgstr "Sunting alarm"
 
 #. (itstool) path: page/p
 #: C/alarm-edit.page:29
-msgid ""
-"Edit your alarm to change when it goes off, rename it or to deactivate it."
+msgid "Edit your alarm to change when it goes off or to rename it."
 msgstr ""
-"Sunting alarm Anda untuk mengubah kapan mati, mengubah namanya, atau "
-"menonaktifkannya."
+"Sunting alarm Anda untuk mengubah kapan berbunyi atau untuk mengubah namanya."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:34 C/alarm-remove.page:34
-msgid "Press the <gui style=\"button\">Alarm</gui> button."
+#: C/alarm-edit.page:33 C/alarm-edit.page:48 C/alarm-remove.page:34
+msgid "Press the <gui style=\"button\">Alarms</gui> button."
 msgstr "Tekan tombol <gui style=\"button\">Alarm</gui>."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:37
-msgid "Press the alarm which you want to edit."
-msgstr "Tekan alarm mana yang ingin Anda sunting."
+#: C/alarm-edit.page:36
+msgid ""
+"Find the alarm you want to change and press <gui style=\"button\">Edit</gui>."
+msgstr ""
+"Temukan alarm yang ingin Anda ubah dan tekan <gui style=\"button\">Sunting</"
+"gui>."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:40
+#: C/alarm-edit.page:39
 msgid ""
 "Update the alarm and press <gui style=\"button\">Done</gui> to finish "
 "editing it."
 msgstr ""
 "Mutakhirkan alarm dan tekan <gui style=\"button\">Selesai</gui> untuk "
 "mengakhiri menyunting."
+
+#. (itstool) path: page/p
+#: C/alarm-edit.page:44
+msgid "You can also temporarily disable an alarm."
+msgstr "Anda juga dapat menonaktifkan alarm untuk sementara."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:51
+msgid "Find the alarm you want to disable or enable and toggle the switch."
+msgstr ""
+"Temukan alarm yang ingin Anda nonaktifkan atau aktifkan dan alihkan tombol."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:54
+msgid ""
+"When the alarm is disabled, it will not go off, but it can be enabled again "
+"later."
+msgstr ""
+"Ketika alarm dinonaktifkan, alarm tidak akan berbunyi, tetapi dapat "
+"diaktifkan lagi nanti."
 
 #. (itstool) path: info/desc
 #: C/alarm-remove.page:25
@@ -169,22 +193,8 @@ msgstr "Anda dapat menghapus alarm yang tak Anda perlukan lagi."
 
 #. (itstool) path: item/p
 #: C/alarm-remove.page:37
-msgid ""
-"Right click on the alarm. You can press the button with the tick mark in the "
-"top right corner and select the alarm which you want to delete."
-msgstr ""
-"Klik kanan pada alarm. Anda dapat menekan tombol dengan tanda contreng pada "
-"pojok kanan atas dan memilih alarm yang ingin Anda hapus."
-
-#. (itstool) path: item/p
-#: C/alarm-remove.page:42 C/world-remove.page:41
-msgid "Press the <gui style=\"button\">Delete</gui> button."
-msgstr "Tekan tombol <gui style=\"button\">Hapus</gui>."
-
-#. (itstool) path: page/p
-#: C/alarm-remove.page:46
-msgid "You can select more than one alarm at a time for deletion."
-msgstr "Anda dapat memilih lebih dari satu alarm setiap saat untuk dihapus."
+msgid "Press the <gui style=\"button\">Delete</gui> button to remove an alarm."
+msgstr "Tekan tombol <gui style=\"button\">Hapus</gui> untuk menghapus alarm."
 
 #. (itstool) path: info/desc
 #: C/alarm-snooze-stop.page:24
@@ -272,21 +282,21 @@ msgstr ""
 #. (itstool) path: item/p
 #: C/stopwatch.page:51
 msgid ""
-"Press <gui style=\"button\">Stop</gui> to pause the stopwatch and <gui style="
-"\"button\">Continue</gui> when you are ready to resume timing the task."
+"Press <gui style=\"button\">Pause</gui> to pause the stopwatch and <gui "
+"style=\"button\">Resume</gui> when you are ready to resume timing the task."
 msgstr ""
-"Tekan <gui style=\"button\">Berhenti</gui> untuk mengistirahatkan stopwatch "
-"dan <gui style=\"button\">Lanjutkan</gui> ketika Anda siap untuk meneruskan "
+"Tekan <gui style=\"button\">Jeda</gui> untuk mengistirahatkan stopwatch dan "
+"<gui style=\"button\">Lanjutkan</gui> ketika Anda siap untuk meneruskan "
 "mengukur waktu pelaksanaan tugas."
 
 #. (itstool) path: page/p
 #: C/stopwatch.page:59
 msgid ""
-"You can use the <gui style=\"button\">Reset</gui> button to reset the "
-"stopwatch when it is stopped."
+"You can use the <gui style=\"button\">Clear</gui> button to reset the "
+"stopwatch when it is paused."
 msgstr ""
-"Anda dapat memakai tombol <gui style=\"button\">Reset</gui> untuk mereset "
-"stopwatch ketika sedang dihentikan."
+"Anda dapat memakai tombol <gui style=\"button\">Bersihkan</gui> untuk "
+"mereset stopwatch ketika sedang dijeda."
 
 #. (itstool) path: note/p
 #: C/stopwatch.page:63
@@ -384,10 +394,10 @@ msgstr "Tekan tombol <gui style=\"button\">Dunia</gui>."
 #. (itstool) path: item/p
 #: C/world-add.page:42
 msgid ""
-"Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
+"Press the <gui style=\"button\">+</gui> button or <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> to add a new city."
 msgstr ""
-"Tekan tombol <gui style=\"button\">Baru</gui> atau <keyseq><key>Ctrl</"
+"Tekan tombol <gui style=\"button\">+</gui> atau <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> untuk menambah kota baru."
 
 #. (itstool) path: item/p
@@ -473,16 +483,9 @@ msgstr "Anda bisa menghapus jam yang tak Anda perlukan lagi."
 #. (itstool) path: item/p
 #: C/world-remove.page:36
 msgid ""
-"Right click on the world clock. You can press the button with the tick mark "
-"in the top right corner and select the clock which you want to delete."
+"Press the <gui style=\"button\">Delete</gui> button to remove a world clock."
 msgstr ""
-"Klik kanan pada jam dunia. Anda dapat menekan tombol dengan tanda contreng "
-"di pojok kanan atas dan memilih jam yang ingin Anda hapus."
-
-#. (itstool) path: page/p
-#: C/world-remove.page:45
-msgid "You can select more than one clock at a time for deletion."
-msgstr "Anda dapat memilih lebih dari satu jam sekaligus untuk dihapus."
+"Tekan tombol <gui style=\"button\">Hapus</gui> untuk menghapus jam dunia."
 
 #. (itstool) path: info/title
 #: C/index.page:22
