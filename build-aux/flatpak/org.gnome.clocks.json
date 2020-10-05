@@ -132,7 +132,8 @@
             "name": "gnome-clocks",
             "buildsystem": "meson",
             "config-opts": [
-                "-Dprofile=development"
+                "-Dprofile=development",
+                "-Ddocs=false"
             ],
             "sources": [
                 {
