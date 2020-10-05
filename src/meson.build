@@ -1,8 +1,8 @@
-vapi_sources = [
+vapi_sources = files(
   'config.vapi',
-]
+)
 
-clocks_vala_sources = [
+clocks_vala_sources = files(
   'alarm-day-picker-row.vala',
   'alarm-face.vala',
   'alarm-item.vala',
@@ -33,12 +33,12 @@ clocks_vala_sources = [
   'world-row.vala',
   'world-shell-world-clocks.vala',
   'world-standalone.vala',
-]
+)
 
-clocks_c_sources = [
+clocks_c_sources = files(
   'cutils.c',
   'twilight.c',
-]
+)
 
 clocks_sources = [
   vapi_sources,
