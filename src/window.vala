@@ -263,7 +263,7 @@ public class Window : Hdy.ApplicationWindow {
 
     private void on_help_activate () {
         try {
-            Gtk.show_uri (get_screen (), "help:gnome-clocks", Gtk.get_current_event_time ());
+            Gtk.show_uri_on_window (this, "help:gnome-clocks", Gtk.get_current_event_time ());
         } catch (Error e) {
             warning (_("Failed to show help: %s"), e.message);
         }
