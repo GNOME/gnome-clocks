@@ -68,6 +68,11 @@ public class Window : Hdy.ApplicationWindow {
         settings = new Settings ("org.gnome.clocks.state.window");
         settings.delay ();
 
+        // We need to set this manually, otherwise it fails in the devel version
+        var builder = new Gtk.Builder.from_resource ("/org/gnome/clocks/gtk/help-overlay.ui");
+        var dialog = (Gtk.ShortcutsWindow)builder.get_object ("help_overlay");
+        set_help_overlay (dialog);
+
         // GSettings gives us the nick, which matches the stack page name
         stack.visible_child_name = settings.get_string ("panel-id");
 
@@ -113,11 +118,6 @@ public class Window : Hdy.ApplicationWindow {
         timer.notify["is-running"].connect ((w) => {
             stack.child_set_property (timer, "needs-attention", timer.is_running);
         });
-
-        // We need to set this manually, otherwise it fails in the devel version
-        var builder = new Gtk.Builder.from_resource ("/org/gnome/clocks/gtk/help-overlay.ui");
-        var dialog = (Gtk.ShortcutsWindow)builder.get_object ("help_overlay");
-        set_help_overlay (dialog);
 
         unowned Gtk.BindingSet binding_set = Gtk.BindingSet.by_class (get_class ());
 
