@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"POT-Creation-Date: 2020-06-30 10:45+0000\n"
-"PO-Revision-Date: 2020-06-30 17:16+0300\n"
+"POT-Creation-Date: 2020-11-08 02:45+0000\n"
+"PO-Revision-Date: 2020-11-08 11:45+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.07.70\n"
+"X-Generator: Lokalize 20.11.70\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -76,7 +76,6 @@ msgstr "Натисніть кнопку <gui style=\"button\">Будильник
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:37
-#| msgid "Press <gui style=\"button\">New</gui>."
 msgid "Press <gui style=\"button\">+</gui>."
 msgstr "Натисніть кнопку <gui style=\"button\">+</gui>."
 
@@ -326,11 +325,14 @@ msgstr "Встановлення таймера"
 
 #. (itstool) path: page/p
 #: C/timer.page:29
+#| msgid ""
+#| "Set the time for a second by second countdown to zero. You will be "
+#| "notified when the countdown has finished."
 msgid ""
-"Set the time for a second by second countdown to zero. You will be notified "
-"when the countdown has finished."
+"Set the amount of time for the timer countdown. You will be notified when "
+"the countdown has finished."
 msgstr ""
-"Встановіть час посекундного відліку до нуля. Програма сповістить вас, коли "
+"Встановіть час для зворотного відліку. Програма сповістить вас, коли "
 "відлік буде завершено."
 
 #. (itstool) path: item/p
@@ -399,9 +401,6 @@ msgstr "Натисніть кнопку <gui style=\"button\">Світ</gui>."
 
 #. (itstool) path: item/p
 #: C/world-add.page:42
-#| msgid ""
-#| "Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
-#| "key><key>N</key></keyseq> to add a new city."
 msgid ""
 "Press the <gui style=\"button\">+</gui> button or <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> to add a new city."
