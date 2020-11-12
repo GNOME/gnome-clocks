@@ -66,6 +66,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         });
 
         listbox.bind_model (alarms, (item) => {
+            item.notify["active"].connect (save);
             return new Row ((Item) item, this);
         });
 
