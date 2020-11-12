@@ -104,9 +104,12 @@ private class Item : Object, ContentItem {
     private Utils.Bell bell;
     private GLib.Notification notification;
 
-    public Item (string? id = null) {
+    public Item (AlarmTime time, bool active = true, Utils.Weekdays? days = null, string? id = null) {
         var guid = id != null ? (string) id : GLib.DBus.generate_guid ();
-        Object (id: guid);
+        Object (id: guid,
+                active: active,
+                time: time,
+                days: days);
     }
 
     private void setup_bell () {
@@ -270,11 +273,8 @@ private class Item : Object, ContentItem {
         }
 
         if (hour >= 0 && minute >= 0) {
-            Item alarm = new Item (id);
+            Item alarm = new Item ({ hour, minute }, active, days, id);
             alarm.name = name;
-            alarm.active = active;
-            alarm.time = { hour, minute };
-            alarm.days = days;
             alarm.ring_minutes = ring_minutes;
             alarm.snooze_minutes = snooze_minutes;
             alarm.reset ();
