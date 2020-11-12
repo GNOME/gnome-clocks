@@ -75,6 +75,7 @@ private class DurationModel : ListModel, Object {
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm-setup-dialog.ui")]
 private class SetupDialog : Gtk.Dialog {
     private Utils.WallClock.Format format;
+    public Item alarm { get; set; }
     [GtkChild]
     private Gtk.Grid time_grid;
     [GtkChild]
@@ -103,20 +104,21 @@ private class SetupDialog : Gtk.Dialog {
         typeof (DayPickerRow).ensure ();
     }
 
-    public SetupDialog (Gtk.Window parent, Item? alarm, ListModel all_alarms) {
+    public SetupDialog (Gtk.Window parent, Item alarm, ListModel all_alarms, bool edit_alarm = false) {
         Object (transient_for: parent,
-                title: alarm != null ? _("Edit Alarm") : _("New Alarm"),
+                alarm: alarm,
+                title: edit_alarm ? _("Edit Alarm") : _("New Alarm"),
                 use_header_bar: 1);
 
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
-        if (alarm != null) {
+        if (edit_alarm) {
             add_button (_("Done"), Gtk.ResponseType.OK);
         } else {
             add_button (_("Add"), Gtk.ResponseType.OK);
         }
         set_default_response (Gtk.ResponseType.OK);
 
-        delete_button.visible = alarm != null;
+        delete_button.visible = edit_alarm;
 
         other_alarms = new List<Item> ();
         var n = all_alarms.get_n_items ();
@@ -158,39 +160,13 @@ private class SetupDialog : Gtk.Dialog {
             am_pm_stack.visible_child = am_pm_button;
         }
 
-        set_from_alarm (alarm);
+        set_from_alarm ();
     }
 
     // Sets up the dialog to show the values of alarm.
-    public void set_from_alarm (Item? alarm) {
-        string? name;
-        bool active;
-        int hour;
-        int minute;
-        int snooze_minutes;
-        int ring_minutes;
-        unowned Utils.Weekdays? days;
-
-        if (alarm == null) {
-            var wc = Utils.WallClock.get_default ();
-            // Not great but we can't null it
-            name = "";
-            hour = wc.date_time.get_hour ();
-            minute = wc.date_time.get_minute ();
-            days = null;
-            active = true;
-            ring_minutes = 5;
-            snooze_minutes = 10;
-        } else {
-            name = ((Item) alarm).name;
-            hour = ((Item) alarm).time.hour;
-            minute = ((Item) alarm).time.minute;
-            days = ((Item) alarm).days;
-            active = ((Item) alarm).active;
-            ring_minutes = ((Item) alarm).ring_minutes;
-            snooze_minutes = ((Item) alarm).snooze_minutes;
-        }
-
+    public void set_from_alarm () {
+      var hour = alarm.time.hour;
+      var minute = alarm.time.minute;
         // Set the time.
         if (format == Utils.WallClock.Format.TWELVE) {
             if (hour < 12) {
@@ -204,22 +180,22 @@ private class SetupDialog : Gtk.Dialog {
                 hour = 12;
             }
         }
-        ring_duration.set_selected_index (duration_model.find_by_duration (ring_minutes));
-        snooze_duration.set_selected_index (duration_model.find_by_duration (snooze_minutes));
+        ring_duration.set_selected_index (duration_model.find_by_duration (alarm.ring_minutes));
+        snooze_duration.set_selected_index (duration_model.find_by_duration (alarm.snooze_minutes));
 
         h_spinbutton.set_value (hour);
         m_spinbutton.set_value (minute);
 
         // Set the name.
-        name_entry.set_text ((string) name);
+        name_entry.set_text ((string) alarm.name);
 
-        if (days != null) {
-            repeats.load ((Utils.Weekdays) days);
+        if (alarm.days != null) {
+            repeats.load ((Utils.Weekdays) alarm.days);
         }
     }
 
     // Sets alarm according to the current dialog settings.
-    public void apply_to_alarm (Item alarm) {
+    public void apply_to_alarm () {
         var name = name_entry.get_text ();
         var hour = h_spinbutton.get_value_as_int ();
         var minute = m_spinbutton.get_value_as_int ();
@@ -254,8 +230,7 @@ private class SetupDialog : Gtk.Dialog {
     }
 
     private void avoid_duplicate_alarm () {
-        var alarm = new Item ();
-        apply_to_alarm (alarm);
+        apply_to_alarm ();
 
         var duplicate = alarm.check_duplicate_alarm (other_alarms);
         this.set_response_sensitive (Gtk.ResponseType.OK, !duplicate);
