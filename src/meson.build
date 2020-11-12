@@ -18,6 +18,7 @@ clocks_vala_sources = files(
   'stopwatch-face.vala',
   'stopwatch-lap.vala',
   'stopwatch-laps-row.vala',
+  'systemd-utils.vala',
   'timer-face.vala',
   'timer-item.vala',
   'timer-row.vala',

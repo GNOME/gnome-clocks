@@ -104,7 +104,17 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     private void save () {
+        var systemd_timer = SystemdUtils.Timer.get_default ();
         settings.set_value ("alarms", alarms.serialize ());
+        // Update systemd files
+        systemd_timer.clear ();
+        alarms.foreach ((item) => {
+          var alarm = item as Alarm.Item;
+          if (alarm != null)
+              ((!) alarm).save_to_systemd (systemd_timer);
+        });
+        // FIXME: this could cause a race condition when save () is called multible times
+        systemd_timer.commit.begin ();
     }
 
     internal void edit (Item alarm) {
@@ -115,6 +125,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
                 ((SetupDialog) dialog).apply_to_alarm ();
                 save ();
             } else if (response == DELETE_ALARM) {
+                alarm.active = false;
                 alarms.delete_item (alarm);
                 save ();
             }
@@ -124,6 +135,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     internal void delete (Item alarm) {
+        alarm.active = false;
         alarms.delete_item (alarm);
         save ();
     }

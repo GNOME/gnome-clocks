@@ -132,6 +132,25 @@ private class Item : Object, ContentItem {
                 days: days);
     }
 
+    public void save_to_systemd (SystemdUtils.Timer systemd_timer) {
+        var wallclock = Utils.WallClock.get_default ();
+        var now = wallclock.date_time;
+        if (snooze_time != null) {
+            // Add timer only if the snooze time is in the future
+            if (this.active && now.compare ((!) snooze_time) <= 0) {
+                systemd_timer.add_time (((!) snooze_time).get_hour (),
+                                        ((!) snooze_time).get_minute ());
+            }
+        }
+
+        // Add the timer only if the alarm needs to go off in the future
+        if (this.active && (now.compare (time) <= 0 || recurring)) {
+            systemd_timer.add_time (time.get_hour (),
+                                    time.get_minute (),
+                                    days);
+        }
+    }
+
     private void setup_bell () {
         bell = new Utils.Bell ("alarm-clock-elapsed");
         notification = new GLib.Notification (_("Alarm"));
