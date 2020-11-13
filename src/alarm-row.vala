@@ -74,6 +74,12 @@ private class Row : Gtk.ListBoxRow {
             time.label = alarm.time_label;
         }
 
+        if (alarm.missed) {
+            get_style_context ().add_class ("missed");
+        } else {
+            get_style_context ().add_class ("missed");
+        }
+
         var label = alarm.name;
 
         // Prior to 3.36 unamed alarms would just be called "Alarm",
@@ -90,6 +96,16 @@ private class Row : Gtk.ListBoxRow {
             } else {
                 // Translators: %s is a time
                 label = _("Snoozed from %s").printf (alarm.time_label);
+            }
+        }
+
+        if (alarm.missed) {
+            if (label != null && ((string) label).length > 0) {
+                // Translators: The alarm for the time %s titled %s was "missed"
+                label = _("Alarm at %s was missed: %s").printf (alarm.time_label, (string) label);
+            } else {
+                // Translators: %s is a time
+                label = _("Alarm at %s was missed").printf (alarm.time_label);
             }
         }
 

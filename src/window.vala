@@ -137,6 +137,9 @@ public class Window : Hdy.ApplicationWindow {
         if (Config.PROFILE == "Devel") {
             style.add_class ("devel");
         }
+
+        // Immidiatly check if we need to notifiy the user about alarms
+        Utils.WallClock.get_default ().tick ();
     }
 
     [Signal (action = true)]

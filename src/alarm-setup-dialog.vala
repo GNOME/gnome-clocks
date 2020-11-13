@@ -165,8 +165,8 @@ private class SetupDialog : Gtk.Dialog {
 
     // Sets up the dialog to show the values of alarm.
     public void set_from_alarm () {
-      var hour = alarm.time.hour;
-      var minute = alarm.time.minute;
+      var hour = alarm.time.get_hour ();
+      var minute = alarm.time.get_minute ();
         // Set the time.
         if (format == Utils.WallClock.Format.TWELVE) {
             if (hour < 12) {
@@ -211,20 +211,14 @@ private class SetupDialog : Gtk.Dialog {
             }
         }
 
-        AlarmTime time = { hour, minute };
-
         var days = repeats.store ();
 
         alarm.freeze_notify ();
 
         alarm.name = name;
-        alarm.time = time;
-        alarm.days = days;
+        alarm.set_alarm_time (hour, minute, days);
         alarm.snooze_minutes = snooze_item.minutes;
         alarm.ring_minutes = ring_item.minutes;
-
-        // Force update of alarm_time before notifying the changes
-        alarm.reset ();
 
         alarm.thaw_notify ();
     }
