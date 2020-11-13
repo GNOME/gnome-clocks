@@ -66,7 +66,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         });
 
         listbox.bind_model (alarms, (item) => {
-            item.notify["active"].connect (save);
+            item.notify["state"].connect (save);
             return new Row ((Item) item, this);
         });
 
@@ -138,7 +138,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     public void activate_new () {
         var wc = Utils.WallClock.get_default ();
-        var alarm = new Item ({ wc.date_time.get_hour (), wc.date_time.get_minute () }, false);
+        var alarm = new Item (wc.date_time.get_hour (), wc.date_time.get_minute ());
         var dialog = new SetupDialog ((Gtk.Window) get_toplevel (), alarm, alarms);
 
         // Disable alarm while editing it and remember the original active state.
@@ -148,6 +148,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
           alarm.editing = false;
           // Enable the newly created alarm
           alarm.active = true;
+
             if (response == Gtk.ResponseType.OK) {
                 ((SetupDialog) dialog).apply_to_alarm ();
                 alarms.add (alarm);
