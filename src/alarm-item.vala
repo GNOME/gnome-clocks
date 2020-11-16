@@ -34,7 +34,8 @@ private class Item : Object, ContentItem {
         SNOOZING
     }
 
-    public bool editing { get; set; default = false; }
+    // Missed can't be a state because we couldn't scheduale next alarms without override missed
+    public bool missed { get; set; default = false; }
 
     public string id { get; construct set; }
 
@@ -183,7 +184,7 @@ private class Item : Object, ContentItem {
     }
 
     private bool compare_with_item (Item i) {
-        return (this.alarm_time.compare (i.alarm_time) == 0 && (this.active || this.editing) && i.active);
+        return (this.time.compare (i.time) == 0);
     }
 
     public bool check_duplicate_alarm (List<Item> alarms) {

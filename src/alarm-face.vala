@@ -110,11 +110,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     internal void edit (Item alarm) {
         var dialog = new SetupDialog ((Gtk.Window) get_toplevel (), alarm, alarms, true);
 
-        // Disable alarm while editing it and remember the original active state.
-        alarm.editing = true;
-
         dialog.response.connect ((dialog, response) => {
-            alarm.editing = false;
             if (response == Gtk.ResponseType.OK) {
                 ((SetupDialog) dialog).apply_to_alarm ();
                 save ();
@@ -141,11 +137,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         var alarm = new Item ({ wc.date_time.get_hour (), wc.date_time.get_minute () }, false);
         var dialog = new SetupDialog ((Gtk.Window) get_toplevel (), alarm, alarms);
 
-        // Disable alarm while editing it and remember the original active state.
-        alarm.editing = true;
-
         dialog.response.connect ((dialog, response) => {
-          alarm.editing = false;
           // Enable the newly created alarm
           alarm.active = true;
             if (response == Gtk.ResponseType.OK) {
