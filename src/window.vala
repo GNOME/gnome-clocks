@@ -213,7 +213,8 @@ public class Window : Hdy.ApplicationWindow {
     public override bool delete_event (Gdk.EventAny event) {
         settings.apply ();
 
-        return hide_on_delete ();
+        ( (!) ((!) application).lookup_action ("quit")).activate (null);
+        return false;
     }
 
     public override bool key_press_event (Gdk.EventKey event) {
