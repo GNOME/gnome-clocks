@@ -42,7 +42,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         alarms = new ContentStore ();
         settings = new GLib.Settings ("org.gnome.clocks");
 
-        var app = GLib.Application.get_default ();
+        var app = (!) GLib.Application.get_default ();
         var action = (GLib.SimpleAction) app.lookup_action ("stop-alarm");
         action.activate.connect ((action, param) => {
             var a = alarms.find ((a) => {

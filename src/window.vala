@@ -182,7 +182,7 @@ public class Window : Hdy.ApplicationWindow {
     }
 
     private void on_show_primary_menu_activate (SimpleAction action) {
-        var state = action.get_state ().get_boolean ();
+        var state = ((!) action.get_state ()).get_boolean ();
         action.set_state (new Variant.boolean (!state));
     }
 
