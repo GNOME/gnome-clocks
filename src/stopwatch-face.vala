@@ -47,6 +47,10 @@ public class Face : Gtk.Box, Clocks.Clock {
 
     private GLib.Timer timer;
     private uint tick_id;
+    private int stored_hour;
+    private int stored_minute;
+    private int stored_second;
+    double stored_milisecond;
     private int current_lap;
 
     [GtkChild]
@@ -251,10 +255,22 @@ public class Face : Gtk.Box, Clocks.Clock {
 
         // Note that the format uses unicode RATIO character
         // We also prepend the LTR mark to make sure text is always in this direction
-        hours_label.set_text ("%02i\u200E".printf (h));
-        minutes_label.set_text ("%02i\u200E".printf (m));
-        seconds_label.set_text ("%02i".printf (s));
-        miliseconds_label.set_text ("%i".printf (ds));
+        if (stored_hour != h) {
+            hours_label.label = "%02i\u200E".printf (h);
+            stored_hour = h;
+        }
+        if (stored_minute != m) {
+            minutes_label.label = "%02i\u200E".printf (m);
+            stored_minute = m;
+        }
+        if (stored_second != s) {
+            seconds_label.label = "%02i".printf (s);
+            stored_second = s;
+        }
+        if (stored_milisecond != ds) {
+            miliseconds_label.label = "%i".printf (ds);
+            stored_milisecond = ds;
+        }
 
         return true;
     }
