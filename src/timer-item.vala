@@ -37,6 +37,10 @@ public class Item : Object, ContentItem {
     private double span;
     private GLib.Timer timer;
     private uint timeout_id;
+    private int stored_hour;
+    private int stored_minute;
+    private int stored_second;
+
 
     public signal void ring ();
     public signal void countdown_updated (int hours, int minutes, int seconds);
@@ -100,7 +104,7 @@ public class Item : Object, ContentItem {
 
     public virtual signal void start () {
         state = State.RUNNING;
-        timeout_id = GLib.Timeout.add (40, () => {
+        timeout_id = GLib.Timeout.add (100, () => {
             var e = timer.elapsed ();
             if (state != State.RUNNING) {
                 return false;
@@ -118,7 +122,12 @@ public class Item : Object, ContentItem {
             double r;
             Utils.time_to_hms (elapsed, out h, out m, out s, out r);
 
-            countdown_updated (h, m, s);
+            if (stored_hour != h || stored_minute != m || stored_second != s) {
+                stored_hour = h;
+                stored_minute = m;
+                stored_second = s;
+                countdown_updated (h, m, s);
+            }
             return true;
         });
         timer.start ();
