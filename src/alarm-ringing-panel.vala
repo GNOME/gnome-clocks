@@ -21,7 +21,7 @@ namespace Clocks {
 namespace Alarm {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm-ringing-panel.ui")]
-private class RingingPanel : Gtk.Bin {
+private class RingingPanel : Adw.Bin {
     public Item? alarm {
         get {
             return _alarm;
