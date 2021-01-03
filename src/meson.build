@@ -71,7 +71,7 @@ clocks_dependencies = [
   gnomedesktop,
   geocodeglib,
   libgeoclue,
-  libhandy,
+  libadwaita,
   math
 ]
 
