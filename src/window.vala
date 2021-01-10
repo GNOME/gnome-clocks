@@ -60,6 +60,32 @@ public class Window : Adw.ApplicationWindow {
 
     private bool inited = false;
 
+    construct {
+        // plain ctrl+page_up/down is easten by the scrolled window...
+        add_binding_action (Gdk.Key.Page_Up,
+                            Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.ALT_MASK,
+                            "change-page", "(i)", 0);
+
+        add_binding_action (Gdk.Key.Page_Down,
+                            Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.ALT_MASK,
+                            "change-page", "(i)", 1);
+
+        add_binding_action (Gdk.Key.@1,
+                            Gdk.ModifierType.ALT_MASK,
+                            "set-page", "(s)", "world");
+        add_binding_action (Gdk.Key.@2,
+                            Gdk.ModifierType.ALT_MASK,
+                            "set-page", "(s)", "alarm");
+        add_binding_action (Gdk.Key.@3,
+                            Gdk.ModifierType.ALT_MASK,
+                            "set-page", "(s)", "stopwatch");
+        add_binding_action (Gdk.Key.@4,
+                            Gdk.ModifierType.ALT_MASK,
+                            "set-page", "(s)", "timer");
+
+        add_binding (Gdk.Key.Escape, 0, escape_key_pressed, null);
+    }
+
     public Window (Application app) {
         Object (application: app);
 
@@ -118,41 +144,6 @@ public class Window : Adw.ApplicationWindow {
         timer.notify["is-running"].connect ((w) => {
             stack.child_set_property (timer, "needs-attention", timer.is_running);
         });
-
-        unowned Gtk.BindingSet binding_set = Gtk.BindingSet.by_class (get_class ());
-
-        // plain ctrl+page_up/down is easten by the scrolled window...
-        Gtk.BindingEntry.add_signal (binding_set,
-                                     Gdk.Key.Page_Up,
-                                     Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.MOD1_MASK,
-                                     "change-page", 1,
-                                     typeof (int), 0);
-        Gtk.BindingEntry.add_signal (binding_set,
-                                     Gdk.Key.Page_Down,
-                                     Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.MOD1_MASK,
-                                     "change-page", 1,
-                                     typeof (int), 1);
-
-        Gtk.BindingEntry.add_signal (binding_set,
-                                     Gdk.Key.@1,
-                                     Gdk.ModifierType.MOD1_MASK,
-                                     "set-page", 1,
-                                     typeof (string), "world");
-        Gtk.BindingEntry.add_signal (binding_set,
-                                     Gdk.Key.@2,
-                                     Gdk.ModifierType.MOD1_MASK,
-                                     "set-page", 1,
-                                     typeof (string), "alarm");
-        Gtk.BindingEntry.add_signal (binding_set,
-                                     Gdk.Key.@3,
-                                     Gdk.ModifierType.MOD1_MASK,
-                                     "set-page", 1,
-                                     typeof (string), "stopwatch");
-        Gtk.BindingEntry.add_signal (binding_set,
-                                     Gdk.Key.@4,
-                                     Gdk.ModifierType.MOD1_MASK,
-                                     "set-page", 1,
-                                     typeof (string), "timer");
 
         Gtk.StyleContext style = get_style_context ();
         if (Config.PROFILE == "Devel") {
@@ -239,23 +230,16 @@ public class Window : Adw.ApplicationWindow {
         return hide_on_delete ();
     }
 
-    public override bool key_press_event (Gdk.EventKey event) {
-        uint keyval;
+    private bool escape_key_pressed () {
         bool handled = false;
 
-        if (((Gdk.Event)(event)).get_keyval (out keyval) && keyval == Gdk.Key.Escape) {
-            if (world_leaflet.visible_child == main_view) {
-                handled = ((Clock) stack.visible_child).escape_pressed ();
-            } else {
-                world_leaflet.navigate (Adw.NavigationDirection.BACK);
-            }
+        if (world_leaflet.visible_child == main_view) {
+            handled = ((Clock) stack.visible_child).escape_pressed ();
+        } else {
+            world_leaflet.navigate (Adw.NavigationDirection.BACK);
         }
 
-        if (handled) {
-            return true;
-        }
-
-        return base.key_press_event (event);
+        return handled;
     }
 
     public override bool button_release_event (Gdk.EventButton event) {
