@@ -253,7 +253,7 @@ public class Window : Adw.ApplicationWindow {
 
     private void on_help_activate () {
         try {
-            Gtk.show_uri_on_window (this, "help:gnome-clocks", Gtk.get_current_event_time ());
+            Gtk.show_uri (this, "help:gnome-clocks", Gdk.CURRENT_TIME);
         } catch (Error e) {
             warning (_("Failed to show help: %s"), e.message);
         }
