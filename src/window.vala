@@ -136,7 +136,8 @@ public class Window : Adw.ApplicationWindow {
         });
 
         stopwatch.notify["state"].connect ((w) => {
-            stack.child_set_property (stopwatch, "needs-attention", stopwatch.state == Stopwatch.Face.State.RUNNING);
+            var stopwatch_stack_page = stack.get_page (stopwatch);
+            stopwatch_stack_page.needs_attention = (stopwatch.state == Stopwatch.Face.State.RUNNING);
         });
 
         timer.ring.connect ((w) => {
@@ -146,7 +147,8 @@ public class Window : Adw.ApplicationWindow {
 
 
         timer.notify["is-running"].connect ((w) => {
-            stack.child_set_property (timer, "needs-attention", timer.is_running);
+            var timer_stack_page = stack.get_page (timer);
+            timer_stack_page.needs_attention = timer.is_running;
         });
 
         Gtk.StyleContext style = get_style_context ();
