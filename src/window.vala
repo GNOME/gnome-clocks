@@ -134,25 +134,25 @@ public class Window : Hdy.ApplicationWindow {
                                      typeof (int), 1);
 
         Gtk.BindingEntry.add_signal (binding_set,
-                                    Gdk.Key.@1,
-                                    Gdk.ModifierType.MOD1_MASK,
-                                    "set-page", 1,
-                                    typeof (int), 1);
+                                     Gdk.Key.@1,
+                                     Gdk.ModifierType.MOD1_MASK,
+                                     "set-page", 1,
+                                     typeof (int), 1);
         Gtk.BindingEntry.add_signal (binding_set,
-                                    Gdk.Key.@2,
-                                    Gdk.ModifierType.MOD1_MASK,
-                                    "set-page", 1,
-                                    typeof (int), 2);
+                                     Gdk.Key.@2,
+                                     Gdk.ModifierType.MOD1_MASK,
+                                     "set-page", 1,
+                                     typeof (int), 2);
         Gtk.BindingEntry.add_signal (binding_set,
-                                    Gdk.Key.@3,
-                                    Gdk.ModifierType.MOD1_MASK,
-                                    "set-page", 1,
-                                    typeof (int), 3);
+                                     Gdk.Key.@3,
+                                     Gdk.ModifierType.MOD1_MASK,
+                                     "set-page", 1,
+                                     typeof (int), 3);
         Gtk.BindingEntry.add_signal (binding_set,
-                                    Gdk.Key.@4,
-                                    Gdk.ModifierType.MOD1_MASK,
-                                    "set-page", 1,
-                                    typeof (int), 4);
+                                     Gdk.Key.@4,
+                                     Gdk.ModifierType.MOD1_MASK,
+                                     "set-page", 1,
+                                     typeof (int), 4);
 
         Gtk.StyleContext style = get_style_context ();
         if (Config.PROFILE == "Devel") {
