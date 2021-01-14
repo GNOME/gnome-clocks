@@ -138,7 +138,7 @@ public class DayPickerRow : Adw.ActionRow {
 
             var wrap = new Gtk.FlowBoxChild ();
             wrap.can_focus = false;
-            wrap.add (buttons[day_number]);
+            wrap.set_child (buttons[day_number]);
             wrap.show ();
 
             flow.add (wrap);
