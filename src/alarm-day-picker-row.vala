@@ -141,7 +141,7 @@ public class DayPickerRow : Adw.ActionRow {
             wrap.set_child (buttons[day_number]);
             wrap.show ();
 
-            flow.add (wrap);
+            flow.insert (wrap, -1);
         }
 
         update ();
