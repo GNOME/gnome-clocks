@@ -109,14 +109,18 @@ public class Window : Adw.ApplicationWindow {
         pane_changed ();
 
         // Setup window geometry saving
-        var window_state = (Gdk.WindowState) settings.get_int ("state");
-        if (Gdk.WindowState.MAXIMIZED in window_state) {
+        var window_maximized = settings.get_boolean ("maximized");
+        if (window_maximized) {
             maximize ();
         } else {
             int width, height;
-            settings.get ("size", "(ii)", out width, out height);
+            width = settings.get_int ("width");
+            height = settings.get_int ("height");
             resize (width, height);
         }
+        settings.bind ("maximized", this, "maximized", SettingsBindFlags.SET);
+        settings.bind ("width", this, "default-width", SettingsBindFlags.SET);
+        settings.bind ("height", this, "default-height", SettingsBindFlags.SET);
 
         world.show_standalone.connect ((w, l) => {
             stack.visible_child = w;
@@ -249,23 +253,6 @@ public class Window : Adw.ApplicationWindow {
 
     private void button_back_released (int n_press, double x, double y) {
         on_back_activate ();
-    }
-
-    protected override bool configure_event (Gdk.EventConfigure event) {
-        if (get_realized () && !(Gdk.WindowState.MAXIMIZED in ((Gdk.Window) get_window ()).get_state ())) {
-            int width, height;
-
-            get_size (out width, out height);
-            settings.set ("size", "(ii)", width, height);
-        }
-
-        return base.configure_event (event);
-    }
-
-    protected override bool window_state_event (Gdk.EventWindowState event) {
-        settings.set_int ("state", event.new_window_state);
-
-        return base.window_state_event (event);
     }
 
     private void on_help_activate () {

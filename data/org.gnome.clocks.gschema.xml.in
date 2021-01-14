@@ -39,18 +39,25 @@
     <child schema="org.gnome.clocks.state.window" name="window"/>
   </schema>
   <schema id="org.gnome.clocks.state.window" path="/org/gnome/clocks/state/window/">
-    <key type="i" name="state">
-      <default>0</default>
-      <summary>Window state</summary>
+    <key type="b" name="maximized">
+      <default>false</default>
+      <summary>Window maximized</summary>
       <description>
-        State of the window, e.g. maximized.
+        Whether the window is maximized.
       </description>
     </key>
-    <key type="(ii)" name="size">
-      <default>(870, 690)</default>
-      <summary>Window width and height</summary>
+    <key type="i" name="width">
+      <default>870</default>
+      <summary>Window width</summary>
       <description>
-        Width and height of the window.
+        Width of the window.
+      </description>
+    </key>
+    <key type="i" name="height">
+      <default>690</default>
+      <summary>Window height</summary>
+      <description>
+        Height of the window.
       </description>
     </key>
     <key enum="org.gnome.clocks.panelid" name="panel-id">
