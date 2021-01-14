@@ -116,7 +116,7 @@ public class Window : Adw.ApplicationWindow {
             int width, height;
             width = settings.get_int ("width");
             height = settings.get_int ("height");
-            resize (width, height);
+            set_default_size (width, height);
         }
         settings.bind ("maximized", this, "maximized", SettingsBindFlags.SET);
         settings.bind ("width", this, "default-width", SettingsBindFlags.SET);
