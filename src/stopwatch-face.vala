@@ -275,8 +275,9 @@ public class Face : Gtk.Box, Clocks.Clock {
         return true;
     }
 
-    public override void grab_focus () {
+    public override bool grab_focus () {
         start_btn.grab_focus ();
+        return true;
     }
 
     public bool escape_pressed () {
