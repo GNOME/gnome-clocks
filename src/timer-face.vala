@@ -134,10 +134,13 @@ public class Face : Gtk.Stack, Clocks.Clock {
         bell.ring_once ();
     }
 
-    public override void grab_focus () {
+    public override bool grab_focus () {
         if (timers.get_n_items () == 0) {
             start_button.grab_focus ();
+            return true;
         }
+
+        return false;
     }
 }
 
