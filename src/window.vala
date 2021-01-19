@@ -137,22 +137,22 @@ public class Window : Hdy.ApplicationWindow {
                                      Gdk.Key.@1,
                                      Gdk.ModifierType.MOD1_MASK,
                                      "set-page", 1,
-                                     typeof (int), 1);
+                                     typeof (string), "world");
         Gtk.BindingEntry.add_signal (binding_set,
                                      Gdk.Key.@2,
                                      Gdk.ModifierType.MOD1_MASK,
                                      "set-page", 1,
-                                     typeof (int), 2);
+                                     typeof (string), "alarm");
         Gtk.BindingEntry.add_signal (binding_set,
                                      Gdk.Key.@3,
                                      Gdk.ModifierType.MOD1_MASK,
                                      "set-page", 1,
-                                     typeof (int), 3);
+                                     typeof (string), "stopwatch");
         Gtk.BindingEntry.add_signal (binding_set,
                                      Gdk.Key.@4,
                                      Gdk.ModifierType.MOD1_MASK,
                                      "set-page", 1,
-                                     typeof (int), 4);
+                                     typeof (string), "timer");
 
         Gtk.StyleContext style = get_style_context ();
         if (Config.PROFILE == "Devel") {
@@ -203,24 +203,8 @@ public class Window : Hdy.ApplicationWindow {
     }
 
     [Signal (action = true)]
-    public virtual signal void set_page (int index) {
-        switch (index) {
-            case 1:
-                stack.visible_child = world;
-                break;
-            case 2:
-                stack.visible_child = alarm;
-                break;
-            case 3:
-                stack.visible_child = stopwatch;
-                break;
-            case 4:
-                stack.visible_child = timer;
-                break;
-            default:
-                stack.error_bell ();
-                break;
-        }
+    public virtual signal void set_page (string page) {
+        stack.visible_child_name = page;
     }
 
     private void on_show_primary_menu_activate (SimpleAction action) {
