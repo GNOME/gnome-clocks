@@ -2,14 +2,14 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 #
-# Matej Urbančič <mateju@svn.gnome.org>, + 2012–2020.
+# Matej Urbančič <mateju@svn.gnome.org>, + 2012–2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-08-21 18:00+0000\n"
-"PO-Revision-Date: 2020-08-21 20:27+0200\n"
+"POT-Creation-Date: 2021-01-20 16:58+0000\n"
+"PO-Revision-Date: 2021-01-20 20:16+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:297
-#: src/window.vala:352 src/world-standalone.vala:24
+#: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:323
+#: src/window.vala:378 src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Ure"
 
@@ -149,7 +149,7 @@ msgstr "Štoparica"
 msgid "Timer screen"
 msgstr "Časomer"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:84
+#: data/org.gnome.clocks.metainfo.xml.in.in:95
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -188,47 +188,67 @@ msgctxt "shortcut window"
 msgid "Go to the previous section"
 msgstr "Skoči na predhodni razdelek"
 
-#: data/gtk/help-overlay.ui:63
+#: data/gtk/help-overlay.ui:61
+msgctxt "shortcut window"
+msgid "Go to the World section"
+msgstr "Skoči na razdelek sveta"
+
+#: data/gtk/help-overlay.ui:68
+msgctxt "shortcut window"
+msgid "Go to the Alarms section"
+msgstr "Skoči na razdelek alarmov"
+
+#: data/gtk/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch section"
+msgstr "Skoči na razdelek štoparice"
+
+#: data/gtk/help-overlay.ui:82
+msgctxt "shortcut window"
+msgid "Go to the Timer section"
+msgstr "Skoči na razdelek časomera"
+
+#: data/gtk/help-overlay.ui:91
 msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Svetovni časi"
 
-#: data/gtk/help-overlay.ui:68
+#: data/gtk/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Doda svetovni čas"
 
-#: data/gtk/help-overlay.ui:77
+#: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Alarm"
 
-#: data/gtk/help-overlay.ui:82
+#: data/gtk/help-overlay.ui:110
 msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Doda alarm"
 
-#: data/gtk/help-overlay.ui:91
+#: data/gtk/help-overlay.ui:119
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Štoparica"
 
-#: data/gtk/help-overlay.ui:96
+#: data/gtk/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Zaustavi / Ponastavi"
 
-#: data/gtk/help-overlay.ui:105
+#: data/gtk/help-overlay.ui:133
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Časomer"
 
-#: data/gtk/help-overlay.ui:110
+#: data/gtk/help-overlay.ui:138
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Ponastavi"
 
-#: data/gtk/help-overlay.ui:117
+#: data/gtk/help-overlay.ui:145
 msgctxt "shortcut window"
 msgid "New Timer"
 msgstr "Nov časomer"
@@ -261,9 +281,11 @@ msgstr "Izbriši"
 msgid "Repeats"
 msgstr "Ponovi"
 
-#: data/ui/alarm-setup-dialog.ui:24 data/ui/world-location-dialog.ui:20
-msgid "Add a New World Clock"
-msgstr "Dodaj nov svetovni čas"
+#. Translators: Tooltip for the + button
+#: data/ui/alarm-setup-dialog.ui:24 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:108
+msgid "New Alarm"
+msgstr "Dodaj alarm"
 
 #: data/ui/alarm-setup-dialog.ui:143
 msgid "Name"
@@ -313,7 +335,7 @@ msgstr "Meni"
 msgid "_Start"
 msgstr "_Začni"
 
-#: data/ui/stopwatch-face.ui:192 src/stopwatch-face.vala:178
+#: data/ui/stopwatch-face.ui:192 src/stopwatch-face.vala:182
 msgid "Clear"
 msgstr "Počisti"
 
@@ -390,6 +412,10 @@ msgstr "Časomer"
 msgid "Add World Clock"
 msgstr "Dodaj nov svetovni čas"
 
+#: data/ui/world-location-dialog.ui:20
+msgid "Add a New World Clock"
+msgstr "Dodaj nov svetovni čas"
+
 #: data/ui/world-location-dialog.ui:24
 msgid "_Cancel"
 msgstr "_Prekliči"
@@ -410,15 +436,10 @@ msgstr "Sončni vzhod"
 msgid "Sunset"
 msgstr "Sončni zahod"
 
-#. Translators: Tooltip for the + button
-#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:108
-msgid "New Alarm"
-msgstr "Dodaj alarm"
-
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:348
+#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:374
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -478,19 +499,19 @@ msgstr "Dodaj"
 msgid "Print version information and exit"
 msgstr "Izpiši podatke o različici in končaj"
 
-#: src/stopwatch-face.vala:158
+#: src/stopwatch-face.vala:162
 msgid "Pause"
 msgstr "Premor"
 
-#: src/stopwatch-face.vala:162 src/stopwatch-face.vala:199
+#: src/stopwatch-face.vala:166 src/stopwatch-face.vala:203
 msgid "Lap"
 msgstr "Krog"
 
-#: src/stopwatch-face.vala:174
+#: src/stopwatch-face.vala:178
 msgid "Resume"
 msgstr "Nadaljuj"
 
-#: src/stopwatch-face.vala:195
+#: src/stopwatch-face.vala:199
 msgid "Start"
 msgstr "Začni"
 
@@ -611,16 +632,16 @@ msgstr "Dnevi tedna"
 msgid "Weekends"
 msgstr "Vikendi"
 
-#: src/window.vala:268
+#: src/window.vala:294
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Ni mogoče prikazati pomoči: %s"
 
-#: src/window.vala:302
+#: src/window.vala:328
 msgid "Utilities to help you with the time."
 msgstr "Programska orodja za pomoč s časom."
 
-#: src/window.vala:307
+#: src/window.vala:333
 msgid "translator-credits"
 msgstr "Matej Urbančič <mateju@svn@gnome.org>"
 
