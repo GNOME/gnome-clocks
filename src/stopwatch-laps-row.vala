@@ -33,11 +33,11 @@ private string render_duration (double duration) {
 [GtkTemplate (ui = "/org/gnome/clocks/ui/stopwatch-laps-row.ui")]
 private class LapsRow : Gtk.ListBoxRow {
     [GtkChild]
-    private Gtk.Label index_label;
+    private unowned Gtk.Label index_label;
     [GtkChild]
-    private Gtk.Label difference_label;
+    private unowned Gtk.Label difference_label;
     [GtkChild]
-    private Gtk.Label duration_label;
+    private unowned Gtk.Label duration_label;
 
     private Lap current;
     private Lap? before;

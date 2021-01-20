@@ -24,17 +24,17 @@ private class Row : Gtk.ListBoxRow {
     public Item location { get; construct set; }
 
     [GtkChild]
-    private Gtk.Label time_label;
+    private unowned Gtk.Label time_label;
     [GtkChild]
-    private Gtk.Widget name_label;
+    private unowned Gtk.Widget name_label;
     [GtkChild]
-    private Gtk.Label desc;
+    private unowned Gtk.Label desc;
     [GtkChild]
-    private Gtk.Stack delete_stack;
+    private unowned Gtk.Stack delete_stack;
     [GtkChild]
-    private Gtk.Widget delete_button;
+    private unowned Gtk.Widget delete_button;
     [GtkChild]
-    private Gtk.Widget delete_empty;
+    private unowned Gtk.Widget delete_empty;
 
     internal signal void remove_clock ();
 

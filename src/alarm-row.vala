@@ -26,17 +26,17 @@ private class Row : Gtk.ListBoxRow {
     public Face face { get; construct set; }
 
     [GtkChild]
-    private Gtk.Switch toggle;
+    private unowned Gtk.Switch toggle;
     [GtkChild]
-    private Gtk.Label title;
+    private unowned Gtk.Label title;
     [GtkChild]
-    private Gtk.Revealer title_reveal;
+    private unowned Gtk.Revealer title_reveal;
     [GtkChild]
-    private Gtk.Label time;
+    private unowned Gtk.Label time;
     [GtkChild]
-    private Gtk.Label repeats;
+    private unowned Gtk.Label repeats;
     [GtkChild]
-    private Gtk.Revealer repeats_reveal;
+    private unowned Gtk.Revealer repeats_reveal;
 
     public Row (Item alarm, Face face) {
         Object (alarm: alarm, face: face);

@@ -51,9 +51,9 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
     private ButtonMode _button_mode;
 
     [GtkChild]
-    private Gtk.Stack start_button_stack;
+    private unowned Gtk.Stack start_button_stack;
     [GtkChild]
-    private Hdy.ViewSwitcherTitle view_switcher_title;
+    private unowned Hdy.ViewSwitcherTitle view_switcher_title;
 
     [GtkCallback]
     private void title_visible_changed () {

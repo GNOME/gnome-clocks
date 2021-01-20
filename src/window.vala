@@ -30,27 +30,27 @@ public class Window : Hdy.ApplicationWindow {
     };
 
     [GtkChild]
-    private HeaderBar header_bar;
+    private unowned HeaderBar header_bar;
     [GtkChild]
-    private Hdy.Deck alarm_deck;
+    private unowned Hdy.Deck alarm_deck;
     [GtkChild]
-    private Hdy.Deck world_deck;
+    private unowned Hdy.Deck world_deck;
     [GtkChild]
-    private Gtk.Box main_view;
+    private unowned Gtk.Box main_view;
     [GtkChild]
-    private Gtk.Stack stack;
+    private unowned Gtk.Stack stack;
     [GtkChild]
-    private World.Face world;
+    private unowned World.Face world;
     [GtkChild]
-    private Alarm.Face alarm;
+    private unowned Alarm.Face alarm;
     [GtkChild]
-    private World.Standalone world_standalone;
+    private unowned World.Standalone world_standalone;
     [GtkChild]
-    private Alarm.RingingPanel alarm_ringing_panel;
+    private unowned Alarm.RingingPanel alarm_ringing_panel;
     [GtkChild]
-    private Stopwatch.Face stopwatch;
+    private unowned Stopwatch.Face stopwatch;
     [GtkChild]
-    private Timer.Face timer;
+    private unowned Timer.Face timer;
 
     private GLib.Settings settings;
 

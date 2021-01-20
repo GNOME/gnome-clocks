@@ -26,13 +26,13 @@ public class Standalone : Gtk.Box {
     public Item? location { get; set; }
 
     [GtkChild]
-    private Gtk.Label time_label;
+    private unowned Gtk.Label time_label;
     [GtkChild]
-    private Gtk.Label day_label;
+    private unowned Gtk.Label day_label;
     [GtkChild]
-    private Gtk.Label sunrise_label;
+    private unowned Gtk.Label sunrise_label;
     [GtkChild]
-    private Gtk.Label sunset_label;
+    private unowned Gtk.Label sunset_label;
 
     construct {
         // Start ticking...

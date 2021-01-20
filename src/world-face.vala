@@ -31,11 +31,11 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private ContentStore locations;
     private GLib.Settings settings;
     [GtkChild]
-    private Gtk.Widget empty_view;
+    private unowned Gtk.Widget empty_view;
     [GtkChild]
-    private Gtk.ScrolledWindow list_view;
+    private unowned Gtk.ScrolledWindow list_view;
     [GtkChild]
-    private Gtk.ListBox listbox;
+    private unowned Gtk.ListBox listbox;
 
     construct {
         panel_id = WORLD;

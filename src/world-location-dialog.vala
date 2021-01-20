@@ -31,15 +31,15 @@ private class ClockLocation : Object {
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world-location-dialog.ui")]
 private class LocationDialog : Gtk.Dialog {
     [GtkChild]
-    private Gtk.Stack stack;
+    private unowned Gtk.Stack stack;
     [GtkChild]
-    private Gtk.Box empty_search_box;
+    private unowned Gtk.Box empty_search_box;
     [GtkChild]
-    private Gtk.SearchEntry location_entry;
+    private unowned Gtk.SearchEntry location_entry;
     [GtkChild]
-    private Gtk.ListBox listbox;
+    private unowned Gtk.ListBox listbox;
     [GtkChild]
-    private Gtk.Button button_add;
+    private unowned Gtk.Button button_add;
 
     private Face world;
     private ListStore locations;

@@ -104,7 +104,7 @@ public class DayPickerRow : Hdy.ActionRow {
     private Utils.Weekdays days = new Utils.Weekdays ();
 
     [GtkChild]
-    private Gtk.FlowBox flow;
+    private unowned Gtk.FlowBox flow;
 
     construct {
         // Create actions to control propeties from menu items

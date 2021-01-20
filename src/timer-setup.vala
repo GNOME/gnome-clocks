@@ -24,11 +24,11 @@ namespace Timer {
 public class Setup : Gtk.Box {
     public signal void duration_changed (int seconds);
     [GtkChild]
-    private Gtk.SpinButton h_spinbutton;
+    private unowned Gtk.SpinButton h_spinbutton;
     [GtkChild]
-    private Gtk.SpinButton m_spinbutton;
+    private unowned Gtk.SpinButton m_spinbutton;
     [GtkChild]
-    private Gtk.SpinButton s_spinbutton;
+    private unowned Gtk.SpinButton s_spinbutton;
 
     public Setup () {
         var actions = new SimpleActionGroup ();

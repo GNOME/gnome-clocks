@@ -76,26 +76,26 @@ private class DurationModel : ListModel, Object {
 private class SetupDialog : Gtk.Dialog {
     private Utils.WallClock.Format format;
     [GtkChild]
-    private Gtk.Grid time_grid;
+    private unowned Gtk.Grid time_grid;
     [GtkChild]
-    private Gtk.SpinButton h_spinbutton;
+    private unowned Gtk.SpinButton h_spinbutton;
     [GtkChild]
-    private Gtk.SpinButton m_spinbutton;
+    private unowned Gtk.SpinButton m_spinbutton;
     [GtkChild]
-    private Gtk.Entry name_entry;
+    private unowned Gtk.Entry name_entry;
     [GtkChild]
-    private Hdy.ComboRow snooze_duration;
+    private unowned Hdy.ComboRow snooze_duration;
     [GtkChild]
-    private Hdy.ComboRow ring_duration;
+    private unowned Hdy.ComboRow ring_duration;
     private AmPmToggleButton am_pm_button;
     [GtkChild]
-    private DayPickerRow repeats;
+    private unowned DayPickerRow repeats;
     [GtkChild]
-    private Gtk.Stack am_pm_stack;
+    private unowned Gtk.Stack am_pm_stack;
     [GtkChild]
-    private Gtk.Revealer label_revealer;
+    private unowned Gtk.Revealer label_revealer;
     [GtkChild]
-    private Gtk.Button delete_button;
+    private unowned Gtk.Button delete_button;
     private List<Item> other_alarms;
     private DurationModel duration_model;
 

@@ -24,11 +24,11 @@ namespace Timer {
 public class Face : Gtk.Stack, Clocks.Clock {
     private Setup timer_setup;
     [GtkChild]
-    private Gtk.ListBox timers_list;
+    private unowned Gtk.ListBox timers_list;
     [GtkChild]
-    private Gtk.Box no_timer_container;
+    private unowned Gtk.Box no_timer_container;
     [GtkChild]
-    private Gtk.Button start_button;
+    private unowned Gtk.Button start_button;
 
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NONE; }

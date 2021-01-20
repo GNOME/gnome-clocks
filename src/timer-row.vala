@@ -42,25 +42,25 @@ public class Row : Gtk.ListBoxRow {
 
 
     [GtkChild]
-    private Gtk.Label countdown_label;
+    private unowned Gtk.Label countdown_label;
 
     [GtkChild]
-    private Gtk.Label timer_name;
+    private unowned Gtk.Label timer_name;
 
     [GtkChild]
-    private Gtk.Stack name_stack;
+    private unowned Gtk.Stack name_stack;
 
     [GtkChild]
-    private Gtk.Stack start_stack;
+    private unowned Gtk.Stack start_stack;
     [GtkChild]
-    private Gtk.Stack reset_stack;
+    private unowned Gtk.Stack reset_stack;
     [GtkChild]
-    private Gtk.Stack delete_stack;
+    private unowned Gtk.Stack delete_stack;
 
     [GtkChild]
-    private Gtk.Button delete_button;
+    private unowned Gtk.Button delete_button;
     [GtkChild]
-    private Gtk.Entry title;
+    private unowned Gtk.Entry title;
 
     public signal void deleted ();
     public signal void edited ();

@@ -54,28 +54,28 @@ public class Face : Gtk.Box, Clocks.Clock {
     private int current_lap;
 
     [GtkChild]
-    private Gtk.Label hours_label;
+    private unowned Gtk.Label hours_label;
     [GtkChild]
-    private Gtk.Label minutes_label;
+    private unowned Gtk.Label minutes_label;
     [GtkChild]
-    private Gtk.Label seconds_label;
+    private unowned Gtk.Label seconds_label;
     [GtkChild]
-    private Gtk.Label miliseconds_label;
+    private unowned Gtk.Label miliseconds_label;
     [GtkChild]
-    private Gtk.Box time_container;
+    private unowned Gtk.Box time_container;
 
     [GtkChild]
-    private Gtk.Revealer laps_revealer;
+    private unowned Gtk.Revealer laps_revealer;
 
     [GtkChild]
-    private Gtk.Box container;
+    private unowned Gtk.Box container;
 
     [GtkChild]
-    private Gtk.Button start_btn;
+    private unowned Gtk.Button start_btn;
     [GtkChild]
-    private Gtk.Button clear_btn;
+    private unowned Gtk.Button clear_btn;
     [GtkChild]
-    private Gtk.ListBox laps_list;
+    private unowned Gtk.ListBox laps_list;
 
     construct {
         panel_id = STOPWATCH;

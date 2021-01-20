@@ -54,13 +54,13 @@ private class RingingPanel : Gtk.Bin {
     private Item? _alarm;
     private ulong alarm_state_handler;
     [GtkChild]
-    private Gtk.Label title_label;
+    private unowned Gtk.Label title_label;
     [GtkChild]
-    private Gtk.Label time_label;
+    private unowned Gtk.Label time_label;
     [GtkChild]
-    private Gtk.Button stop_button;
+    private unowned Gtk.Button stop_button;
     [GtkChild]
-    private Gtk.Button snooze_button;
+    private unowned Gtk.Button snooze_button;
 
     construct {
         // Start ticking...
