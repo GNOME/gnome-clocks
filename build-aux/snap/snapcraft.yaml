@@ -7,7 +7,7 @@ description: |
 
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict
-base: core18
+base: core20
 
 layout:
   /usr/share/libgweather:
@@ -28,7 +28,7 @@ slots:
 apps:
   gnome-clocks:
     command: usr/bin/gnome-clocks
-    extensions: [ gnome-3-34 ]
+    extensions: [ gnome-3-38 ]
     plugs:
       - audio-playback
       - location-observe
@@ -38,47 +38,13 @@ apps:
       LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/lib/gnome-clocks
 
 parts:
-  gsound:
-    source: https://gitlab.gnome.org/GNOME/gsound.git
-    source-type: git
-    plugin: autotools
-    configflags: [--prefix=/snap/gnome-clocks/current/usr, --disable-Werror]
-    organize:
-      snap/gnome-clocks/current/usr: usr
-    build-packages:
-      - autoconf-archive
-      - intltool
-      - libgirepository1.0-dev
-
-  libgweather:
-    source: https://git.gnome.org/browse/libgweather
-    source-type: git
-    plugin: meson
-    meson-parameters: 
-      - --prefix=/usr
-    build-packages:
-      - gtk-doc-tools
-      - libxml2-dev
-      - libxml2-utils
-      - tzdata
-      - libgeocode-glib-dev
-      - libgladeui-dev
-
   gnome-clocks:
-    after: [gsound, libgweather]
     source: .
     source-type: git
     plugin: meson
     meson-parameters: [--prefix=/snap/gnome-clocks/current/usr]
     organize:
       snap/gnome-clocks/current/usr: usr
-    override-build: |
-      sed -i.bak -e "s|'--vapidir'|'--vapidir', '$SNAPCRAFT_STAGE/usr/share/vala/vapi', '--vapidir'|g" src/meson.build
-      sed -i.bak -e 's|=org.gnome.clocks$|=${SNAP}/meta/gui/org.gnome.clocks.svg|g' data/org.gnome.clocks.desktop.in.in
-      snapcraftctl build
-      mkdir -p $SNAPCRAFT_PART_INSTALL/meta/gui/
-      cp ../src/data/icons/hicolor/scalable/apps/org.gnome.clocks.svg $SNAPCRAFT_PART_INSTALL/meta/gui/
-      cp snapbuild/data/org.gnome.clocks.desktop $SNAPCRAFT_PART_INSTALL/meta/gui/
     build-packages:
       - itstool
       - gettext
@@ -89,12 +55,17 @@ parts:
       - libgeoclue-2-dev
       - libgeocode-glib-dev
       - libgnome-desktop-3-dev
+      - libgweather-3-dev
 
   libraries:
     plugin: nil
     stage-packages:
       - libgeocode-glib0
       - libgeoclue-2-0
+      - libgweather-3-16
     prime:
       - "usr/lib/*/libgeocode-glib.so.*"
       - "usr/lib/*/libgeoclue-2.so.*"
+      - "usr/lib/*/libgweather*.so.*"
+      - "usr/share/libgweather"
+      - "usr/share/glib-2.0/schemas"
