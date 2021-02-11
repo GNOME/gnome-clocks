@@ -67,7 +67,7 @@ public class Row : Gtk.ListBoxRow {
 
     public Row (Item item) {
         Object (item: item);
-        
+
         // Force LTR since we do not want to reverse [hh] : [mm] : [ss]
         countdown_label.set_direction (Gtk.TextDirection.LTR);
 

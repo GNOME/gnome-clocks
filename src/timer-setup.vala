@@ -30,6 +30,9 @@ public class Setup : Gtk.Box {
     [GtkChild]
     private unowned Gtk.SpinButton s_spinbutton;
 
+    [GtkChild]
+    private unowned Gtk.Grid time_grid;
+
     public Setup () {
         var actions = new SimpleActionGroup ();
         // The duration here represends a number of minutes
@@ -44,6 +47,8 @@ public class Setup : Gtk.Box {
         });
         actions.add_action (set_duration_action);
         insert_action_group ("timer-setup", actions);
+
+        time_grid.set_direction (Gtk.TextDirection.LTR);
     }
 
     private int get_duration () {
