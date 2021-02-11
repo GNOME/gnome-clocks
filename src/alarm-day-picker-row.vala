@@ -21,7 +21,7 @@ namespace Clocks {
 namespace Alarm {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm-day-picker-row.ui")]
-public class DayPickerRow : Hdy.ActionRow {
+public class DayPickerRow : Adw.ActionRow {
     public bool monday {
         get {
             return days[Utils.Weekdays.Day.MON];

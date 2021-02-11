@@ -16,7 +16,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-using Hdy;
+using Adw;
 
 namespace Clocks {
 namespace Alarm {
@@ -84,9 +84,9 @@ private class SetupDialog : Gtk.Dialog {
     [GtkChild]
     private unowned Gtk.Entry name_entry;
     [GtkChild]
-    private unowned Hdy.ComboRow snooze_duration;
+    private unowned Adw.ComboRow snooze_duration;
     [GtkChild]
-    private unowned Hdy.ComboRow ring_duration;
+    private unowned Adw.ComboRow ring_duration;
     private AmPmToggleButton am_pm_button;
     [GtkChild]
     private unowned DayPickerRow repeats;

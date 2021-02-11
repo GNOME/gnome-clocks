@@ -25,7 +25,7 @@ public enum Clocks.ButtonMode {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/header-bar.ui")]
-public class Clocks.HeaderBar : Hdy.HeaderBar {
+public class Clocks.HeaderBar : Adw.HeaderBar {
     public ButtonMode button_mode {
         get {
             return _button_mode;
@@ -45,7 +45,7 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
     }
 
     public Gtk.Stack stack { get; set; }
-    public Hdy.ViewSwitcherBar switcher_bar { get; set; }
+    public Adw.ViewSwitcherBar switcher_bar { get; set; }
     public string? new_label { get; set; }
 
     private ButtonMode _button_mode;
@@ -53,7 +53,7 @@ public class Clocks.HeaderBar : Hdy.HeaderBar {
     [GtkChild]
     private unowned Gtk.Stack start_button_stack;
     [GtkChild]
-    private unowned Hdy.ViewSwitcherTitle view_switcher_title;
+    private unowned Adw.ViewSwitcherTitle view_switcher_title;
 
     [GtkCallback]
     private void title_visible_changed () {

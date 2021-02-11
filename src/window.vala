@@ -19,7 +19,7 @@
 namespace Clocks {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/window.ui")]
-public class Window : Hdy.ApplicationWindow {
+public class Window : Adw.ApplicationWindow {
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
         // primary menu
         { "show-primary-menu", on_show_primary_menu_activate, null, "false", null },
@@ -32,9 +32,9 @@ public class Window : Hdy.ApplicationWindow {
     [GtkChild]
     private unowned HeaderBar header_bar;
     [GtkChild]
-    private unowned Hdy.Deck alarm_deck;
+    private unowned Adw.Deck alarm_deck;
     [GtkChild]
-    private unowned Hdy.Deck world_deck;
+    private unowned Adw.Deck world_deck;
     [GtkChild]
     private unowned Gtk.Box main_view;
     [GtkChild]
@@ -95,7 +95,7 @@ public class Window : Hdy.ApplicationWindow {
         world.show_standalone.connect ((w, l) => {
             stack.visible_child = w;
             world_standalone.location = l;
-            world_deck.navigate (Hdy.NavigationDirection.FORWARD);
+            world_deck.navigate (Adw.NavigationDirection.FORWARD);
         });
 
         alarm.ring.connect ((w, a) => {
@@ -217,7 +217,7 @@ public class Window : Hdy.ApplicationWindow {
     }
 
     private void on_back_activate () {
-        world_deck.navigate (Hdy.NavigationDirection.BACK);
+        world_deck.navigate (Adw.NavigationDirection.BACK);
     }
 
     public void show_world () {
@@ -247,7 +247,7 @@ public class Window : Hdy.ApplicationWindow {
             if (world_deck.visible_child == main_view) {
                 handled = ((Clock) stack.visible_child).escape_pressed ();
             } else {
-                world_deck.navigate (Hdy.NavigationDirection.BACK);
+                world_deck.navigate (Adw.NavigationDirection.BACK);
             }
         }
 

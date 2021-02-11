@@ -115,7 +115,7 @@ public class Application : Gtk.Application {
     protected override void startup () {
         base.startup ();
 
-        Hdy.init ();
+        Adw.init ();
 
         Utils.load_css ("gnome-clocks");
 
