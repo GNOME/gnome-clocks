@@ -32,9 +32,9 @@ public class Window : Adw.ApplicationWindow {
     [GtkChild]
     private unowned HeaderBar header_bar;
     [GtkChild]
-    private unowned Adw.Deck alarm_deck;
+    private unowned Adw.Leaflet alarm_leaflet;
     [GtkChild]
-    private unowned Adw.Deck world_deck;
+    private unowned Adw.Leaflet world_leaflet;
     [GtkChild]
     private unowned Gtk.Box main_view;
     [GtkChild]
@@ -95,14 +95,14 @@ public class Window : Adw.ApplicationWindow {
         world.show_standalone.connect ((w, l) => {
             stack.visible_child = w;
             world_standalone.location = l;
-            world_deck.navigate (Adw.NavigationDirection.FORWARD);
+            world_leaflet.navigate (Adw.NavigationDirection.FORWARD);
         });
 
         alarm.ring.connect ((w, a) => {
             close_standalone ();
             stack.visible_child = w;
             alarm_ringing_panel.alarm = a;
-            alarm_deck.visible_child = alarm_ringing_panel;
+            alarm_leaflet.visible_child = alarm_ringing_panel;
         });
 
         stopwatch.notify["state"].connect ((w) => {
@@ -217,7 +217,7 @@ public class Window : Adw.ApplicationWindow {
     }
 
     private void on_back_activate () {
-        world_deck.navigate (Adw.NavigationDirection.BACK);
+        world_leaflet.navigate (Adw.NavigationDirection.BACK);
     }
 
     public void show_world () {
@@ -244,10 +244,10 @@ public class Window : Adw.ApplicationWindow {
         bool handled = false;
 
         if (((Gdk.Event)(event)).get_keyval (out keyval) && keyval == Gdk.Key.Escape) {
-            if (world_deck.visible_child == main_view) {
+            if (world_leaflet.visible_child == main_view) {
                 handled = ((Clock) stack.visible_child).escape_pressed ();
             } else {
-                world_deck.navigate (Adw.NavigationDirection.BACK);
+                world_leaflet.navigate (Adw.NavigationDirection.BACK);
             }
         }
 
@@ -370,24 +370,24 @@ public class Window : Adw.ApplicationWindow {
 
     [GtkCallback]
     private void visible_child_changed () {
-        if (alarm_deck.visible_child == alarm_ringing_panel) {
+        if (alarm_leaflet.visible_child == alarm_ringing_panel) {
             title = _("Alarm");
-        } else if (world_deck.visible_child == world_standalone) {
+        } else if (world_leaflet.visible_child == world_standalone) {
             title = world_standalone.title;
         } else {
             title = _("Clocks");
         }
 
-        deletable = (alarm_deck.visible_child != alarm_ringing_panel);
+        deletable = (alarm_leaflet.visible_child != alarm_ringing_panel);
     }
 
     [GtkCallback]
     private void alarm_dismissed () {
-        alarm_deck.visible_child = world_deck;
+        alarm_leaflet.visible_child = world_leaflet;
     }
 
     private void close_standalone () {
-        world_deck.visible_child = main_view;
+        world_leaflet.visible_child = main_view;
     }
 }
 
