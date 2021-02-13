@@ -122,6 +122,7 @@
                                 <property name="can_focus">False</property>
                                 <property name="pixel_size">128</property>
                                 <property name="icon_name">edit-find-symbolic</property>
+                                <property name="margin_bottom">36</property>
                                 <style>
                                   <class name="dim-label"/>
                                 </style>
@@ -136,10 +137,9 @@
                               <object class="GtkLabel">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">Search for a city</property>
+                                <property name="label" translatable="yes">Search for a City</property>
                                 <style>
-                                  <class name="dim-label"/>
-                                  <class name="title-4"/>
+                                  <class name="large-title"/>
                                 </style>
                               </object>
                               <packing>
