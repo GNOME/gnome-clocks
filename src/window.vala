@@ -158,6 +158,8 @@ public class Window : Adw.ApplicationWindow {
         var gesture_click = new Gtk.GestureClick ();
         gesture_click.button = BUTTON_BACK;
         gesture_click.released.connect (button_back_released);
+
+        this.hide_on_close = true;
     }
 
     [Signal (action = true)]
@@ -231,12 +233,6 @@ public class Window : Adw.ApplicationWindow {
 
     public override void destroy () {
         settings.apply ();
-    }
-
-    public override bool delete_event (Gdk.EventAny event) {
-        settings.apply ();
-
-        return hide_on_delete ();
     }
 
     private bool escape_key_pressed () {
