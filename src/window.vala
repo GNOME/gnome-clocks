@@ -233,10 +233,6 @@ public class Window : Adw.ApplicationWindow {
         world.add_location (location);
     }
 
-    public override void destroy () {
-        settings.apply ();
-    }
-
     private bool escape_key_pressed () {
         bool handled = false;
 
