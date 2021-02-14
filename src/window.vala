@@ -149,6 +149,11 @@ public class Window : Adw.ApplicationWindow {
         if (Config.PROFILE == "Devel") {
             style.add_class ("devel");
         }
+
+        const uint BUTTON_BACK = 8;
+        var gesture_click = new Gtk.GestureClick ();
+        gesture_click.button = BUTTON_BACK;
+        gesture_click.released.connect (button_back_released);
     }
 
     [Signal (action = true)]
@@ -242,16 +247,8 @@ public class Window : Adw.ApplicationWindow {
         return handled;
     }
 
-    public override bool button_release_event (Gdk.EventButton event) {
-        const uint BUTTON_BACK = 8;
-        uint button;
-
-        if (((Gdk.Event) (event)).get_button (out button) && button == BUTTON_BACK) {
-            on_back_activate ();
-            return true;
-        }
-
-        return base.button_release_event (event);
+    private void button_back_released (int n_press, double x, double y) {
+        on_back_activate ();
     }
 
     protected override bool configure_event (Gdk.EventConfigure event) {
