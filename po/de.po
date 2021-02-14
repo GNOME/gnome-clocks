@@ -8,25 +8,27 @@
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2013, 2015-2016, 2020.
 # Benjamin Steinwender <b@stbe.at>, 2013.
 # Paul Seyfert <pseyfert@mathphys.fsk.uni-heidelberg.de>, 2016.
-# Tim Sabsch <tim@sabsch.com>, 2020.
+# Philipp Kiemle <philipp.kiemle@gmail.com>, 2021.
+# Tim Sabsch <tim@sabsch.com>, 2020-2021.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-08-17 00:35+0000\n"
-"PO-Revision-Date: 2020-08-17 20:42+0200\n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
-"Language-Team: Deutsch <gnome-de@gnome.org>\n"
+"POT-Creation-Date: 2021-02-13 11:58+0000\n"
+"PO-Revision-Date: 2021-02-14 13:42+0100\n"
+"Last-Translator: Tim Sabsch <tim@sabsch.com>\n"
+"Language-Team: German <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.08.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Generator: Gtranslator 3.38.0\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:297
-#: src/window.vala:352 src/world-standalone.vala:24
+#: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:323
+#: src/window.vala:378 src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Uhren"
 
@@ -38,7 +40,7 @@ msgstr "Uhren für die Weltzeit mit Alarm, Stoppuhr und einem Timer"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "Zeit;Uhrzeit;Alarm;Weltuhr;Stoppuhr;Zeitzone;"
+msgstr "Zeit;Timer;Uhrzeit;Alarm;Weltuhr;Stoppuhr;Zeitzone;"
 
 #: data/org.gnome.clocks.desktop.in.in:18
 msgid "Allows world clocks to be displayed for your time zone."
@@ -152,7 +154,7 @@ msgstr "Stoppuhr-Bildschirm"
 msgid "Timer screen"
 msgstr "Timer-Bildschirm"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:84
+#: data/org.gnome.clocks.metainfo.xml.in.in:95
 msgid "The GNOME Project"
 msgstr "Das GNOME-Projekt"
 
@@ -184,55 +186,74 @@ msgstr "Beenden"
 #: data/gtk/help-overlay.ui:47
 msgctxt "shortcut window"
 msgid "Go to the next section"
-msgstr "Zum nächsten Abschnitt gehen"
+msgstr "Zum nächsten Abschnitt wechseln"
 
 #: data/gtk/help-overlay.ui:54
 msgctxt "shortcut window"
 msgid "Go to the previous section"
-msgstr "Zum vorherigen Abschnitt gehen"
+msgstr "Zum vorherigen Abschnitt wechseln"
 
-#: data/gtk/help-overlay.ui:63
+#: data/gtk/help-overlay.ui:61
+msgctxt "shortcut window"
+msgid "Go to the World section"
+msgstr "Zum Welt-Abschnitt wechseln"
+
+#: data/gtk/help-overlay.ui:68
+msgctxt "shortcut window"
+msgid "Go to the Alarms section"
+msgstr "Zum Wecker-Abschnitt wechseln"
+
+#: data/gtk/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch section"
+msgstr "Zum Stoppuhr-Abschnitt wechseln"
+
+#: data/gtk/help-overlay.ui:82
+msgctxt "shortcut window"
+msgid "Go to the Timer section"
+msgstr "Zum Timer-Abschnitt wechseln"
+
+#: data/gtk/help-overlay.ui:91
 msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Weltuhren"
 
-#: data/gtk/help-overlay.ui:68
+#: data/gtk/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Eine Weltuhr hinzufügen"
 
-#: data/gtk/help-overlay.ui:77
+#: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Alarm"
 
-#: data/gtk/help-overlay.ui:82
+#: data/gtk/help-overlay.ui:110
 msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Einen Alarm hinzufügen"
 
-#: data/gtk/help-overlay.ui:91
+#: data/gtk/help-overlay.ui:119
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Stoppuhr"
 
-#: data/gtk/help-overlay.ui:96
+#: data/gtk/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Stoppen / Zurücksetzen"
 
-#: data/gtk/help-overlay.ui:105
+#: data/gtk/help-overlay.ui:133
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Timer"
 
-#: data/gtk/help-overlay.ui:110
+#: data/gtk/help-overlay.ui:138
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: data/gtk/help-overlay.ui:117
-#| msgid "New Timer"
+#: data/gtk/help-overlay.ui:145
 msgctxt "shortcut window"
 msgid "New Timer"
 msgstr "Neuer Timer"
@@ -265,9 +286,11 @@ msgstr "Löschen"
 msgid "Repeats"
 msgstr "Wiederholungen"
 
-#: data/ui/alarm-setup-dialog.ui:24 data/ui/world-location-dialog.ui:20
-msgid "Add a New World Clock"
-msgstr "Eine neue Weltuhr hinzufügen"
+#. Translators: Tooltip for the + button
+#: data/ui/alarm-setup-dialog.ui:24 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:108
+msgid "New Alarm"
+msgstr "Neuer Alarm"
 
 #: data/ui/alarm-setup-dialog.ui:143
 msgid "Name"
@@ -278,12 +301,10 @@ msgid "Optional"
 msgstr "Optional"
 
 #: data/ui/alarm-setup-dialog.ui:161
-#| msgid "Select Duration"
 msgid "Ring Duration"
 msgstr "Klingeldauer"
 
 #: data/ui/alarm-setup-dialog.ui:169
-#| msgid "Select Duration"
 msgid "Snooze Duration"
 msgstr "Schlummerdauer"
 
@@ -319,7 +340,7 @@ msgstr "Menü"
 msgid "_Start"
 msgstr "_Start"
 
-#: data/ui/stopwatch-face.ui:192 src/stopwatch-face.vala:178
+#: data/ui/stopwatch-face.ui:192 src/stopwatch-face.vala:182
 msgid "Clear"
 msgstr "Leeren"
 
@@ -393,9 +414,12 @@ msgid "Timer"
 msgstr "Timer"
 
 #: data/ui/world-face.ui:35 data/ui/world-location-dialog.ui:8
-#| msgid "Add a New World Clock"
 msgid "Add World Clock"
 msgstr "Weltuhr hinzufügen"
+
+#: data/ui/world-location-dialog.ui:20
+msgid "Add a New World Clock"
+msgstr "Eine neue Weltuhr hinzufügen"
 
 #: data/ui/world-location-dialog.ui:24
 msgid "_Cancel"
@@ -405,9 +429,9 @@ msgstr "A_bbrechen"
 msgid "_Add"
 msgstr "_Hinzufügen"
 
-#: data/ui/world-location-dialog.ui:139
-#| msgid "Search for a city:"
-msgid "Search for a city"
+#: data/ui/world-location-dialog.ui:140
+#| msgid "Search for a city"
+msgid "Search for a City"
 msgstr "Nach einer Stadt suchen"
 
 #: data/ui/world-standalone.ui:104
@@ -418,15 +442,10 @@ msgstr "Sonnenaufgang"
 msgid "Sunset"
 msgstr "Sonnenuntergang"
 
-#. Translators: Tooltip for the + button
-#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:108
-msgid "New Alarm"
-msgstr "Neuer Alarm"
-
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:348
+#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:374
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -443,7 +462,6 @@ msgid "Snoozed from %s"
 msgstr "Schlummern von %s"
 
 #: src/alarm-setup-dialog.vala:41
-#| msgid "%i minute timer"
 msgid "1 minute"
 msgstr "1 Minute"
 
@@ -487,19 +505,19 @@ msgstr "Hinzufügen"
 msgid "Print version information and exit"
 msgstr "Versionsnummer anzeigen und beenden"
 
-#: src/stopwatch-face.vala:158
+#: src/stopwatch-face.vala:162
 msgid "Pause"
 msgstr "Pausieren"
 
-#: src/stopwatch-face.vala:162 src/stopwatch-face.vala:199
+#: src/stopwatch-face.vala:166 src/stopwatch-face.vala:203
 msgid "Lap"
 msgstr "Runde"
 
-#: src/stopwatch-face.vala:174
+#: src/stopwatch-face.vala:178
 msgid "Resume"
 msgstr "Fortsetzen"
 
-#: src/stopwatch-face.vala:195
+#: src/stopwatch-face.vala:199
 msgid "Start"
 msgstr "Starten"
 
@@ -546,8 +564,6 @@ msgstr[1] "%s Stunden später"
 
 #. Translators: This is used in the repeat toggle for Monday
 #: src/utils.vala:189
-#| msgctxt "Repeat|Monday"
-#| msgid "M"
 msgctxt "Alarm|Repeat-On"
 msgid "M"
 msgstr "M"
@@ -555,24 +571,18 @@ msgstr "M"
 #. Translators: This is used in the repeat toggle for Tuesday
 #. Translators: This is used in the repeat toggle for Thursday
 #: src/utils.vala:191 src/utils.vala:195
-#| msgctxt "Repeat|Tuesday"
-#| msgid "T"
 msgctxt "Alarm|Repeat-On"
 msgid "T"
 msgstr "D"
 
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:193
-#| msgctxt "Repeat|Wednesday"
-#| msgid "W"
 msgctxt "Alarm|Repeat-On"
 msgid "W"
 msgstr "M"
 
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:197
-#| msgctxt "Repeat|Friday"
-#| msgid "F"
 msgctxt "Alarm|Repeat-On"
 msgid "F"
 msgstr "F"
@@ -580,8 +590,6 @@ msgstr "F"
 #. Translators: This is used in the repeat toggle for Saturday
 #. Translators: This is used in the repeat toggle for Sunday
 #: src/utils.vala:199 src/utils.vala:201
-#| msgctxt "Repeat|Saturday"
-#| msgid "S"
 msgctxt "Alarm|Repeat-On"
 msgid "S"
 msgstr "S"
@@ -627,16 +635,16 @@ msgstr "Wochentags"
 msgid "Weekends"
 msgstr "An Wochenenden"
 
-#: src/window.vala:268
+#: src/window.vala:294
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Die Hilfe konnte nicht angezeigt werden: %s"
 
-#: src/window.vala:302
+#: src/window.vala:328
 msgid "Utilities to help you with the time."
 msgstr "Dienstprogramme, die Sie bei der Zeit unterstützen."
 
-#: src/window.vala:307
+#: src/window.vala:333
 msgid "translator-credits"
 msgstr ""
 "Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>\n"
@@ -644,7 +652,8 @@ msgstr ""
 "Benjamin Steinwender <b@stbe.at>\n"
 "Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Paul Seyfert <pseyfert@mathphys.fsk.uni-heidelberg.de>\n"
-"Tim Sabsch <tim@sabsch.com>"
+"Tim Sabsch <tim@sabsch.com>\n"
+"Philipp Kiemle <philipp.kiemle@gmail.com>"
 
 #. Translators: Tooltip for the + button
 #: src/world-face.vala:29
