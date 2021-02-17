@@ -108,7 +108,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     public void activate_new () {
-        var dialog = new SetupDialog ((Gtk.Window) get_toplevel ());
+        var dialog = new SetupDialog ((Gtk.Window) get_root ());
         dialog.response.connect ((dialog, response) => {
             if (response == Gtk.ResponseType.ACCEPT) {
                 var timer = ((SetupDialog) dialog).timer_setup.get_timer ();

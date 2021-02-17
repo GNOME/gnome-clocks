@@ -146,7 +146,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     public void activate_new () {
-        var dialog = new LocationDialog ((Gtk.Window) get_toplevel (), this);
+        var dialog = new LocationDialog ((Gtk.Window) get_root (), this);
 
         dialog.response.connect ((_, response) => {
             if (response == 1) {
