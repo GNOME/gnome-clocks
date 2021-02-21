@@ -1,14 +1,14 @@
 # Hungarian translation of gnome-clocks_help
-# Copyright (C) 2013, 2015, 2020. Free Software Foundation, Inc.
+# Copyright (C) 2013, 2015, 2020, 2021. Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-clocks help.
 #
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2013, 2015.
-# Balázs Úr <ur.balazs at fsf dot hu>, 2020.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks_help master\n"
-"POT-Creation-Date: 2020-03-05 17:04+0000\n"
-"PO-Revision-Date: 2020-03-07 22:17+0100\n"
+"POT-Creation-Date: 2021-01-24 12:00+0000\n"
+"PO-Revision-Date: 2021-02-21 01:39+0100\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 19.04.3\n"
+"X-Generator: Lokalize 19.12.3\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -71,13 +71,15 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:34
-msgid "Press <gui style=\"button\">Alarm</gui>."
-msgstr "Nyomja meg a <gui style=\"button\">Figyelmeztetés</gui> gombot."
+#| msgid "Press <gui style=\"button\">Alarm</gui>."
+msgid "Press <gui style=\"button\">Alarms</gui>."
+msgstr "Nyomja meg a <gui style=\"button\">Riasztások</gui> gombot."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:37
-msgid "Press <gui style=\"button\">New</gui>."
-msgstr "Kattintson az <gui style=\"button\">Új</gui> gombra."
+#| msgid "Press <gui style=\"button\">New</gui>."
+msgid "Press <gui style=\"button\">+</gui>."
+msgstr "Nyomja meg a <gui style=\"button\">+</gui> gombot."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:40
@@ -86,24 +88,30 @@ msgstr "Állítsa be az időt, amikor a figyelmeztetést meg szeretné kapni."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:43
+#| msgid ""
+#| "Select the days on which you want the alarm to be repeated at the set "
+#| "time."
+msgid ""
+"Select the days on which you want the alarm to be repeated at the set time, "
+"or none if you only want the alarm to go off once."
+msgstr ""
+"Válassza ki azokat a napokat, amelyeken a figyelmeztetés a beállított időben"
+" ismétlődjön, vagy semmit, ha a figyelmeztetést csak egyszer szeretné"
+" megkapni."
+
+#. (itstool) path: item/p
+#: C/alarm-add.page:47
 msgid "You can give your new alarm a name so that it is easier to identify."
 msgstr ""
 "Az új figyelmeztetést elnevezheti, hogy egyszerű legyen később azonosítani."
 
 #. (itstool) path: item/p
-#: C/alarm-add.page:47
-msgid ""
-"Select the days on which you want the alarm to be repeated at the set time."
-msgstr ""
-"Válassza ki azokat a napokat, amelyeken a figyelmeztetés a beállított időben "
-"ismétlődjön."
-
-#. (itstool) path: item/p
 #: C/alarm-add.page:51
-msgid "Press <gui style=\"button\">Done</gui> to finish adding the alarm."
+#| msgid "Press <gui style=\"button\">Done</gui> to finish adding the alarm."
+msgid "Press <gui style=\"button\">Add</gui> to finish adding the alarm."
 msgstr ""
-"Kattintson a <gui style=\"button\">Kész</gui> gombra a figyelmeztetés "
-"felvételének befejezéséhez."
+"Nyomja meg a <gui style=\"button\">Hozzáadás</gui> gombot a figyelmeztetés"
+" felvételének befejezéséhez."
 
 #. (itstool) path: page/p
 #: C/alarm-add.page:55
@@ -133,30 +141,59 @@ msgstr "Figyelmeztetés szerkesztése"
 
 #. (itstool) path: page/p
 #: C/alarm-edit.page:29
-msgid ""
-"Edit your alarm to change when it goes off, rename it or to deactivate it."
+#| msgid ""
+#| "Edit your alarm to change when it goes off, rename it or to deactivate it."
+msgid "Edit your alarm to change when it goes off or to rename it."
 msgstr ""
-"A figyelmeztetés szerkesztésével módosítható az időpontja, átnevezhető vagy "
-"kikapcsolható."
+"A figyelmeztetés szerkesztésével módosítható az időpontja vagy átnevezhető."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:34 C/alarm-remove.page:34
-msgid "Press the <gui style=\"button\">Alarm</gui> button."
-msgstr "Nyomja meg a <gui style=\"button\">Figyelmeztetés</gui> gombot."
+#: C/alarm-edit.page:33 C/alarm-edit.page:48 C/alarm-remove.page:34
+#| msgid "Press the <gui style=\"button\">Alarm</gui> button."
+msgid "Press the <gui style=\"button\">Alarms</gui> button."
+msgstr "Nyomja meg a <gui style=\"button\">Riasztások</gui> gombot."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:37
-msgid "Press the alarm which you want to edit."
-msgstr "Kattintson a szerkeszteni kívánt figyelmeztetésre."
+#: C/alarm-edit.page:36
+#| msgid ""
+#| "Update the alarm and press <gui style=\"button\">Done</gui> to finish "
+#| "editing it."
+msgid ""
+"Find the alarm you want to change and press <gui style=\"button\">Edit</gui>."
+msgstr ""
+"Keresse meg azt a figyelmeztetést, amelyet módosítani szeretne, és nyomja meg"
+" a <gui style=\"button\">Szerkesztés</gui> gombot."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:40
+#: C/alarm-edit.page:39
 msgid ""
 "Update the alarm and press <gui style=\"button\">Done</gui> to finish "
 "editing it."
 msgstr ""
 "Frissítse a figyelmeztetést, és nyomja meg a <gui style=\"button\">Kész</"
 "gui> gombot a szerkesztés befejezéséhez."
+
+#. (itstool) path: page/p
+#: C/alarm-edit.page:44
+#| msgid "Update your alarm or temporarily disable it."
+msgid "You can also temporarily disable an alarm."
+msgstr "Ideiglenes le is tilthat egy figyelmeztetést."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:51
+msgid "Find the alarm you want to disable or enable and toggle the switch."
+msgstr ""
+"Keresse meg azt a figyelmeztetést, amelyet le szeretne tiltani vagy"
+" engedélyezni szeretne, és kapcsolja át a kapcsolót."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:54
+msgid ""
+"When the alarm is disabled, it will not go off, but it can be enabled again "
+"later."
+msgstr ""
+"Ha a figyelmeztetés le van tiltva, akkor nem fogja megkapni, de később újra"
+" engedélyezhető."
 
 #. (itstool) path: info/desc
 #: C/alarm-remove.page:25
@@ -175,23 +212,11 @@ msgstr "A már fölösleges figyelmeztetéseket törölheti."
 
 #. (itstool) path: item/p
 #: C/alarm-remove.page:37
-msgid ""
-"Right click on the alarm. You can press the button with the tick mark in the "
-"top right corner and select the alarm which you want to delete."
+#| msgid "Press the <gui style=\"button\">Delete</gui> button."
+msgid "Press the <gui style=\"button\">Delete</gui> button to remove an alarm."
 msgstr ""
-"Kattintson a jobb egérgombbal a figyelmeztetésre. Megnyomhatja a jobb felső "
-"sarokban lévő, pipa ikonnal rendelkező gombot is, és kiválaszthatja a "
-"törölni kívánt figyelmeztetést."
-
-#. (itstool) path: item/p
-#: C/alarm-remove.page:42 C/world-remove.page:41
-msgid "Press the <gui style=\"button\">Delete</gui> button."
-msgstr "Nyomja meg a <gui style=\"button\">Törlés</gui> gombot."
-
-#. (itstool) path: page/p
-#: C/alarm-remove.page:46
-msgid "You can select more than one alarm at a time for deletion."
-msgstr "Egyszerre több figyelmeztetést is kiválaszthat törlésre."
+"Nyomja meg a <gui style=\"button\">Törlés</gui> gombot egy figyelmeztetés"
+" eltávolításához."
 
 #. (itstool) path: info/desc
 #: C/alarm-snooze-stop.page:24
@@ -274,22 +299,29 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/stopwatch.page:51
+#| msgid ""
+#| "Press <gui style=\"button\">Stop</gui> to pause the stopwatch and <gui "
+#| "style=\"button\">Continue</gui> when you are ready to resume timing the "
+#| "task."
 msgid ""
-"Press <gui style=\"button\">Stop</gui> to pause the stopwatch and <gui style="
-"\"button\">Continue</gui> when you are ready to resume timing the task."
+"Press <gui style=\"button\">Pause</gui> to pause the stopwatch and <gui "
+"style=\"button\">Resume</gui> when you are ready to resume timing the task."
 msgstr ""
-"Nyomja meg a <gui style=\"button\">Leállítás</gui> gombot a stopper "
-"leállításához és a <gui style=\"button\">Folytatás</gui> gombot a feladat "
-"mérésének folytatásához."
+"Nyomja meg a <gui style=\"button\">Szünet</gui> gombot a stopper"
+" leállításához és a <gui style=\"button\">Folytatás</gui> gombot a feladat"
+" mérésének folytatásához."
 
 #. (itstool) path: page/p
 #: C/stopwatch.page:59
+#| msgid ""
+#| "You can use the <gui style=\"button\">Reset</gui> button to reset the "
+#| "stopwatch when it is stopped."
 msgid ""
-"You can use the <gui style=\"button\">Reset</gui> button to reset the "
-"stopwatch when it is stopped."
+"You can use the <gui style=\"button\">Clear</gui> button to reset the "
+"stopwatch when it is paused."
 msgstr ""
-"A <gui style=\"button\">Visszaállítás</gui> gombbal törölheti a stopper "
-"állását."
+"A <gui style=\"button\">Törlés</gui> gombot használhatja a stopper"
+" visszaállításához, ha az szüneteltetve van."
 
 #. (itstool) path: note/p
 #: C/stopwatch.page:63
@@ -386,13 +418,15 @@ msgstr "Nyomja meg a <gui style=\"button\">Világ</gui> gombot."
 
 #. (itstool) path: item/p
 #: C/world-add.page:42
+#| msgid ""
+#| "Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
+#| "key><key>N</key></keyseq> to add a new city."
 msgid ""
-"Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
+"Press the <gui style=\"button\">+</gui> button or <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> to add a new city."
 msgstr ""
-"Nyomja meg az <gui style=\"button\">Új</gui> gombot, vagy a "
-"<keyseq><key>Ctrl</key><key>N</key></keyseq> kombinációt egy új város "
-"felvételéhez."
+"Nyomja meg a <gui style=\"button\">+</gui> gombot vagy a <keyseq><key>Ctrl<"
+"/key><key>N</key></keyseq> billentyűkombinációt egy új város hozzáadásához."
 
 #. (itstool) path: item/p
 #: C/world-add.page:46
@@ -478,18 +512,12 @@ msgstr "A már fölösleges órákat törölheti."
 
 #. (itstool) path: item/p
 #: C/world-remove.page:36
+#| msgid "Press the <gui style=\"button\">Delete</gui> button."
 msgid ""
-"Right click on the world clock. You can press the button with the tick mark "
-"in the top right corner and select the clock which you want to delete."
+"Press the <gui style=\"button\">Delete</gui> button to remove a world clock."
 msgstr ""
-"Kattintson a jobb egérgombbal a világórára. Megnyomhatja a jobb felső "
-"sarokban lévő, pipa ikonnal rendelkező gombot is, és kiválaszthatja a "
-"törölni kívánt órát."
-
-#. (itstool) path: page/p
-#: C/world-remove.page:45
-msgid "You can select more than one clock at a time for deletion."
-msgstr "Egyszerre több órát is kiválaszthat törlésre."
+"Nyomja meg a <gui style=\"button\">Törlés</gui> gombot egy világóra"
+" eltávolításához."
 
 #. (itstool) path: info/title
 #: C/index.page:22
