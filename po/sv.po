@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2021-02-13 11:58+0000\n"
-"PO-Revision-Date: 2021-02-13 20:45+0100\n"
+"POT-Creation-Date: 2021-02-21 14:13+0000\n"
+"PO-Revision-Date: 2021-02-21 17:02+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -151,7 +151,7 @@ msgstr "Stoppursskärm"
 msgid "Timer screen"
 msgstr "Timerskärm"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:95
+#: data/org.gnome.clocks.metainfo.xml.in.in:96
 msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
@@ -560,74 +560,83 @@ msgstr[1] "%s timmar senare"
 
 #. Translators: This is used in the repeat toggle for Monday
 #: src/utils.vala:189
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "M"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:191 src/utils.vala:195
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:191
+msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "T"
 
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:193
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "O"
 
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:195
+msgctxt "Alarm|Repeat-On|Thursday"
+msgid "T"
+msgstr "T"
+
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:197
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "F"
 
-# https://gitlab.gnome.org/GNOME/gnome-clocks/-/issues/118
 #. Translators: This is used in the repeat toggle for Saturday
+#: src/utils.vala:199
+msgctxt "Alarm|Repeat-On|Saturday"
+msgid "S"
+msgstr "L"
+
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:199 src/utils.vala:201
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:201
+msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
 msgstr "S"
 
-#: src/utils.vala:205
+#: src/utils.vala:215
 msgid "Mondays"
 msgstr "Måndagar"
 
-#: src/utils.vala:206
+#: src/utils.vala:216
 msgid "Tuesdays"
 msgstr "Tisdagar"
 
-#: src/utils.vala:207
+#: src/utils.vala:217
 msgid "Wednesdays"
 msgstr "Onsdagar"
 
-#: src/utils.vala:208
+#: src/utils.vala:218
 msgid "Thursdays"
 msgstr "Torsdagar"
 
-#: src/utils.vala:209
+#: src/utils.vala:219
 msgid "Fridays"
 msgstr "Fredagar"
 
-#: src/utils.vala:210
+#: src/utils.vala:220
 msgid "Saturdays"
 msgstr "Lördagar"
 
-#: src/utils.vala:211
+#: src/utils.vala:221
 msgid "Sundays"
 msgstr "Söndagar"
 
-#: src/utils.vala:337
+#: src/utils.vala:347
 msgid "Every Day"
 msgstr "Varje dag"
 
-#: src/utils.vala:339
+#: src/utils.vala:349
 msgid "Weekdays"
 msgstr "Veckodagar"
 
-#: src/utils.vala:341
+#: src/utils.vala:351
 msgid "Weekends"
 msgstr "Helger"
 
