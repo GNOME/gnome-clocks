@@ -3,24 +3,24 @@
 # This file is distributed under the same license as the gnome-clocks package.
 # Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas
 # colaborar connosco, podes atopar máis información en http://www.trasno.net
+#
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2012.
 # Fran Diéguez <frandieguez@gnome.org>, 2012.
 # Fran Dieguez <frandieguez@gnome.org>, 2012-2021.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2021-02-13 11:58+0000\n"
-"PO-Revision-Date: 2021-02-18 18:28+0100\n"
-"Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
-"Language-Team: Galician <proxecto@trasno.gal>\n"
+"POT-Creation-Date: 2021-02-21 14:13+0000\n"
+"PO-Revision-Date: 2021-02-24 12:23+0100\n"
+"Last-Translator: Fran Diéguez <frandieguez@gnome.org>\n"
+"Language-Team: Galician\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Gtranslator 3.38.0\n"
+"X-Generator: Lokalize 20.12.2\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
@@ -43,7 +43,7 @@ msgstr ""
 
 #: data/org.gnome.clocks.desktop.in.in:18
 msgid "Allows world clocks to be displayed for your time zone."
-msgstr "Permítelle mostrar reloxos do mundio para o seu fuso horario."
+msgstr "Permítelle mostrar reloxos do mundo para o seu fuso horario."
 
 #: data/org.gnome.clocks.gschema.xml.in:5
 msgid "Configured world clocks"
@@ -123,7 +123,7 @@ msgstr "Mostrar o tempo en varias cidades de todo o mundo"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:16
 msgid "Set alarms to wake you up"
-msgstr "Estabelecer alarmas para despertalo"
+msgstr "Estabelecer alarmas para espertalo"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:17
 msgid "Measure elapsed time with an accurate stopwatch"
@@ -153,7 +153,7 @@ msgstr "Pantalla do cronómetro"
 msgid "Timer screen"
 msgstr "Pantalla do Temporizador"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:95
+#: data/org.gnome.clocks.metainfo.xml.in.in:96
 msgid "The GNOME Project"
 msgstr "O Proxecto GNOME"
 
@@ -429,7 +429,6 @@ msgid "_Add"
 msgstr "_Engadir"
 
 #: data/ui/world-location-dialog.ui:140
-#| msgid "Search for a city"
 msgid "Search for a City"
 msgstr "Buscar unha cidade"
 
@@ -563,73 +562,97 @@ msgstr[1] "%s horas despois"
 
 #. Translators: This is used in the repeat toggle for Monday
 #: src/utils.vala:189
-msgctxt "Alarm|Repeat-On"
+#| msgctxt "Alarm|Repeat-On"
+#| msgid "M"
+msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "L"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:191 src/utils.vala:195
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:191
+#| msgctxt "Alarm|Repeat-On"
+#| msgid "T"
+msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "M"
 
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:193
-msgctxt "Alarm|Repeat-On"
+#| msgctxt "Alarm|Repeat-On"
+#| msgid "W"
+msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "X"
 
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:195
+#| msgctxt "Alarm|Repeat-On"
+#| msgid "T"
+msgctxt "Alarm|Repeat-On|Thursday"
+msgid "T"
+msgstr "M"
+
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:197
-msgctxt "Alarm|Repeat-On"
+#| msgctxt "Alarm|Repeat-On"
+#| msgid "F"
+msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "V"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:199 src/utils.vala:201
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:199
+#| msgctxt "Alarm|Repeat-On"
+#| msgid "S"
+msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "S"
 
-#: src/utils.vala:205
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:201
+#| msgctxt "Alarm|Repeat-On"
+#| msgid "S"
+msgctxt "Alarm|Repeat-On|Sunday"
+msgid "S"
+msgstr "D"
+
+#: src/utils.vala:215
 msgid "Mondays"
 msgstr "Luns"
 
-#: src/utils.vala:206
+#: src/utils.vala:216
 msgid "Tuesdays"
 msgstr "Martes"
 
-#: src/utils.vala:207
+#: src/utils.vala:217
 msgid "Wednesdays"
 msgstr "Mércores"
 
-#: src/utils.vala:208
+#: src/utils.vala:218
 msgid "Thursdays"
 msgstr "Xoves"
 
-#: src/utils.vala:209
+#: src/utils.vala:219
 msgid "Fridays"
 msgstr "Venres"
 
-#: src/utils.vala:210
+#: src/utils.vala:220
 msgid "Saturdays"
 msgstr "Sábados"
 
-#: src/utils.vala:211
+#: src/utils.vala:221
 msgid "Sundays"
 msgstr "Domingos"
 
-#: src/utils.vala:337
+#: src/utils.vala:347
 msgid "Every Day"
 msgstr "Cada día"
 
-#: src/utils.vala:339
+#: src/utils.vala:349
 msgid "Weekdays"
 msgstr "Días laborábeis"
 
-#: src/utils.vala:341
+#: src/utils.vala:351
 msgid "Weekends"
 msgstr "Fins de semana"
 
