@@ -2,29 +2,29 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 #
-# Wolfgang Stöggl <c72578@yahoo.de>, 2012, 2014, 2017.
 # Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>, 2012.
 # Christian Kirbach <christian.kirbach@gmail.com>, 2013.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2013, 2015-2016, 2020.
 # Benjamin Steinwender <b@stbe.at>, 2013.
 # Paul Seyfert <pseyfert@mathphys.fsk.uni-heidelberg.de>, 2016.
-# Philipp Kiemle <philipp.kiemle@gmail.com>, 2021.
+# Wolfgang Stöggl <c72578@yahoo.de>, 2012, 2014, 2017.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2013, 2015-2016, 2020.
 # Tim Sabsch <tim@sabsch.com>, 2020-2021.
+# Philipp Kiemle <philipp.kiemle@gmail.com>, 2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2021-02-13 11:58+0000\n"
-"PO-Revision-Date: 2021-02-14 13:42+0100\n"
-"Last-Translator: Tim Sabsch <tim@sabsch.com>\n"
+"POT-Creation-Date: 2021-02-21 14:13+0000\n"
+"PO-Revision-Date: 2021-02-26 09:21+0100\n"
+"Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Gtranslator 3.38.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:323
@@ -40,7 +40,9 @@ msgstr "Uhren für die Weltzeit mit Alarm, Stoppuhr und einem Timer"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "Zeit;Timer;Uhrzeit;Alarm;Weltuhr;Stoppuhr;Zeitzone;"
+msgstr ""
+"time;timer;alarm;world clock;stopwatch;time zone;Zeit;Uhrzeit;Timer;Alarm;"
+"Wecker;Weltuhr;Stoppuhr;Zeitzone;"
 
 #: data/org.gnome.clocks.desktop.in.in:18
 msgid "Allows world clocks to be displayed for your time zone."
@@ -154,7 +156,7 @@ msgstr "Stoppuhr-Bildschirm"
 msgid "Timer screen"
 msgstr "Timer-Bildschirm"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:95
+#: data/org.gnome.clocks.metainfo.xml.in.in:96
 msgid "The GNOME Project"
 msgstr "Das GNOME-Projekt"
 
@@ -430,7 +432,6 @@ msgid "_Add"
 msgstr "_Hinzufügen"
 
 #: data/ui/world-location-dialog.ui:140
-#| msgid "Search for a city"
 msgid "Search for a City"
 msgstr "Nach einer Stadt suchen"
 
@@ -564,74 +565,84 @@ msgstr[1] "%s Stunden später"
 
 #. Translators: This is used in the repeat toggle for Monday
 #: src/utils.vala:189
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
-msgstr "M"
+msgstr "Mo"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:191 src/utils.vala:195
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:191
+msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
-msgstr "D"
+msgstr "Do"
 
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:193
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
-msgstr "M"
+msgstr "Mi"
+
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:195
+msgctxt "Alarm|Repeat-On|Thursday"
+msgid "T"
+msgstr "Di"
 
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:197
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
-msgstr "F"
+msgstr "Fr"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:199 src/utils.vala:201
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:199
+msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
-msgstr "S"
+msgstr "Sa"
 
-#: src/utils.vala:205
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:201
+msgctxt "Alarm|Repeat-On|Sunday"
+msgid "S"
+msgstr "So"
+
+#: src/utils.vala:215
 msgid "Mondays"
 msgstr "Montags"
 
-#: src/utils.vala:206
+#: src/utils.vala:216
 msgid "Tuesdays"
 msgstr "Dienstags"
 
-#: src/utils.vala:207
+#: src/utils.vala:217
 msgid "Wednesdays"
 msgstr "Mittwochs"
 
-#: src/utils.vala:208
+#: src/utils.vala:218
 msgid "Thursdays"
 msgstr "Donnerstags"
 
-#: src/utils.vala:209
+#: src/utils.vala:219
 msgid "Fridays"
 msgstr "Freitags"
 
-#: src/utils.vala:210
+#: src/utils.vala:220
 msgid "Saturdays"
 msgstr "Samstags"
 
-#: src/utils.vala:211
+#: src/utils.vala:221
 msgid "Sundays"
 msgstr "Sonntags"
 
-#: src/utils.vala:337
+#: src/utils.vala:347
 msgid "Every Day"
 msgstr "Täglich"
 
 # An Wochentagen
-#: src/utils.vala:339
+#: src/utils.vala:349
 msgid "Weekdays"
 msgstr "Wochentags"
 
-#: src/utils.vala:341
+#: src/utils.vala:351
 msgid "Weekends"
 msgstr "An Wochenenden"
 
