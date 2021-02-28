@@ -4,12 +4,12 @@
 #
 # Christian Kirbach <Christian.Kirbach@gmail.com>, 2013-2015.
 # Benjamin Steinwender <b@stbe.at>, 2013-2014.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2020.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2020, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"POT-Creation-Date: 2020-06-30 10:45+0000\n"
-"PO-Revision-Date: 2020-08-17 21:02+0200\n"
+"POT-Creation-Date: 2021-02-11 15:59+0000\n"
+"PO-Revision-Date: 2021-02-28 15:50+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.08.0\n"
+"X-Generator: Lokalize 20.12.2\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
@@ -41,7 +41,8 @@ msgstr "Aruna Sankaranarayanan"
 #: C/alarm-snooze-stop.page:16 C/alarm-snooze-stop.page:21 C/stopwatch.page:16
 #: C/stopwatch.page:21 C/timer.page:16 C/timer.page:21 C/world-add.page:16
 #: C/world-add.page:21 C/world-check.page:16 C/world-check.page:21
-#: C/world-remove.page:16 C/world-remove.page:21 C/index.page:14 C/index.page:19
+#: C/world-remove.page:16 C/world-remove.page:21 C/index.page:14
+#: C/index.page:19
 msgid "2013"
 msgstr "2013"
 
@@ -66,21 +67,19 @@ msgstr "Einen Alarm hinzufügen"
 #. (itstool) path: page/p
 #: C/alarm-add.page:29
 msgid ""
-"You can add an alarm for specific days of the week. It will go off regardless "
-"of whether <app>Clocks</app> is open or not."
+"You can add an alarm for specific days of the week. It will go off "
+"regardless of whether <app>Clocks</app> is open or not."
 msgstr ""
 "Sie können einen Alarm für bestimmte Wochentage hinzufügen. Er wird aktiv "
 "unabhängig davon, ob <app>Uhren</app> geöffnet ist oder nicht."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:34
-#| msgid "Press <gui style=\"button\">Alarm</gui>."
 msgid "Press <gui style=\"button\">Alarms</gui>."
 msgstr "Klicken Sie auf <gui style=\"button\">Alarme</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:37
-#| msgid "Press <gui style=\"button\">New</gui>."
 msgid "Press <gui style=\"button\">+</gui>."
 msgstr "Klicken Sie auf <gui style=\"button\">+</gui>."
 
@@ -91,8 +90,6 @@ msgstr "Legen Sie die Uhrzeit fest, wann der Alarm auslösen soll."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:43
-#| msgid ""
-#| "Select the days on which you want the alarm to be repeated at the set time."
 msgid ""
 "Select the days on which you want the alarm to be repeated at the set time, "
 "or none if you only want the alarm to go off once."
@@ -107,7 +104,6 @@ msgstr "Benennen Sie Ihren neuen Alarm, um ihn einfacher erkennen zu können."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:51
-#| msgid "Press <gui style=\"button\">Done</gui> to finish adding the alarm."
 msgid "Press <gui style=\"button\">Add</gui> to finish adding the alarm."
 msgstr ""
 "Klicken Sie auf <gui style=\"button\">Hinzufügen</gui>, um den Alarm "
@@ -139,8 +135,6 @@ msgstr "Einen Alarm bearbeiten"
 
 #. (itstool) path: page/p
 #: C/alarm-edit.page:29
-#| msgid ""
-#| "Edit your alarm to change when it goes off, rename it or to deactivate it."
 msgid "Edit your alarm to change when it goes off or to rename it."
 msgstr ""
 "Bearbeiten Sie den Alarm, um den Zeitpunkt der Auslösung anzupassen oder den "
@@ -148,15 +142,11 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/alarm-edit.page:33 C/alarm-edit.page:48 C/alarm-remove.page:34
-#| msgid "Press the <gui style=\"button\">Alarm</gui> button."
 msgid "Press the <gui style=\"button\">Alarms</gui> button."
 msgstr "Klicken Sie auf den Knopf <gui style=\"button\">Alarme</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-edit.page:36
-#| msgid ""
-#| "Update the alarm and press <gui style=\"button\">Done</gui> to finish "
-#| "editing it."
 msgid ""
 "Find the alarm you want to change and press <gui style=\"button\">Edit</gui>."
 msgstr ""
@@ -166,15 +156,14 @@ msgstr ""
 #. (itstool) path: item/p
 #: C/alarm-edit.page:39
 msgid ""
-"Update the alarm and press <gui style=\"button\">Done</gui> to finish editing "
-"it."
+"Update the alarm and press <gui style=\"button\">Done</gui> to finish "
+"editing it."
 msgstr ""
-"Aktualisieren Sie den Alarm und klicken Sie auf <gui style=\"button\">Fertig</"
-"gui>, um das Bearbeiten zu beenden."
+"Aktualisieren Sie den Alarm und klicken Sie auf <gui style=\"button"
+"\">Fertig</gui>, um das Bearbeiten zu beenden."
 
 #. (itstool) path: page/p
 #: C/alarm-edit.page:44
-#| msgid "Update your alarm or temporarily disable it."
 msgid "You can also temporarily disable an alarm."
 msgstr "Sie können einen Alarm vorübergehend abschalten."
 
@@ -211,7 +200,6 @@ msgstr "Sie können Alarme löschen, die Sie nicht mehr benötigen."
 
 #. (itstool) path: item/p
 #: C/alarm-remove.page:37
-#| msgid "Press the <gui style=\"button\">Delete</gui> button."
 msgid "Press the <gui style=\"button\">Delete</gui> button to remove an alarm."
 msgstr ""
 "Klicken Sie auf den Knopf <gui style=\"button\">Löschen</gui>, um den Alarm "
@@ -246,8 +234,8 @@ msgid ""
 "tray. If you have <app>Clocks</app> open, you will also see the alarm there."
 msgstr ""
 "Wenn Ihr Alarm auslöst, wird eine Benachrichtigung im Benachrichtigungsfeld "
-"eingeblendet. Wenn <app>Uhren</app> geöffnet ist, so sehen Sie den Alarm auch "
-"dort."
+"eingeblendet. Wenn <app>Uhren</app> geöffnet ist, so sehen Sie den Alarm "
+"auch dort."
 
 #. (itstool) path: info/desc
 #: C/stopwatch.page:24
@@ -266,14 +254,15 @@ msgstr "Stoppen Sie Ihre Bestzeiten"
 msgid ""
 "Use the stopwatch to measure the time that it takes to complete different "
 "parts of a task while also keeping track of the total time that it takes to "
-"finish the whole task. It is often used by athletes to measure the time taken "
-"to run each lap and the time taken to cover the entire distance. By timing "
-"each lap, they are able to tell if their speed changes from lap to lap."
+"finish the whole task. It is often used by athletes to measure the time "
+"taken to run each lap and the time taken to cover the entire distance. By "
+"timing each lap, they are able to tell if their speed changes from lap to "
+"lap."
 msgstr ""
 "Verwenden Sie die Stoppuhr, um die Zeit zum Abschließen unterschiedlicher "
-"Teile einer Aufgabe zu messen, wobei gleichzeitig auch die Gesamtzeit für die "
-"gesamte Aufgabe verfolgt wird. Sie wird oft von Athleten verwendet, um die "
-"Zeit für jede Runde zu nehmen und gleichzeitig die Zeit für die gesamte "
+"Teile einer Aufgabe zu messen, wobei gleichzeitig auch die Gesamtzeit für "
+"die gesamte Aufgabe verfolgt wird. Sie wird oft von Athleten verwendet, um "
+"die Zeit für jede Runde zu nehmen und gleichzeitig die Zeit für die gesamte "
 "Distanz. Durch Zeitnahme jeder Runde kann man Geschwindigkeitsänderungen "
 "zwischen Runden erkennen."
 
@@ -306,13 +295,9 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/stopwatch.page:51
-#| msgid ""
-#| "Press <gui style=\"button\">Stop</gui> to pause the stopwatch and <gui "
-#| "style=\"button\">Continue</gui> when you are ready to resume timing the "
-#| "task."
 msgid ""
-"Press <gui style=\"button\">Pause</gui> to pause the stopwatch and <gui style="
-"\"button\">Resume</gui> when you are ready to resume timing the task."
+"Press <gui style=\"button\">Pause</gui> to pause the stopwatch and <gui "
+"style=\"button\">Resume</gui> when you are ready to resume timing the task."
 msgstr ""
 "Klicken Sie auf den <gui style=\"button\">Stopp</gui>-Knopf, um die Stoppuhr "
 "anzuhalten und den <gui style=\"button\">Fortsetzen</gui>-Knopf, wenn Sie "
@@ -320,9 +305,6 @@ msgstr ""
 
 #. (itstool) path: page/p
 #: C/stopwatch.page:59
-#| msgid ""
-#| "You can use the <gui style=\"button\">Reset</gui> button to reset the "
-#| "stopwatch when it is stopped."
 msgid ""
 "You can use the <gui style=\"button\">Clear</gui> button to reset the "
 "stopwatch when it is paused."
@@ -353,12 +335,15 @@ msgstr "Den Rückwärtszähler einstellen"
 
 #. (itstool) path: page/p
 #: C/timer.page:29
+#| msgid ""
+#| "Set the time for a second by second countdown to zero. You will be "
+#| "notified when the countdown has finished."
 msgid ""
-"Set the time for a second by second countdown to zero. You will be notified "
-"when the countdown has finished."
+"Set the amount of time for the timer countdown. You will be notified when "
+"the countdown has finished."
 msgstr ""
-"Die Zeit für einen sekundenweisen Rückwärtszähler auf Null setzen. Sie werden "
-"benachrichtigt, sobald der Rückwärtszähler endet."
+"Die Zeit für einen Rückwärtszähler festlegen. Sie "
+"werden benachrichtigt, sobald der Rückwärtszähler endet."
 
 #. (itstool) path: item/p
 #: C/timer.page:34
@@ -390,8 +375,9 @@ msgid ""
 "the <gui style=\"button\">Reset</gui> button."
 msgstr ""
 "Sobald der Zähler rückwärts zählt, können Sie auf den Knopf <gui style="
-"\"button\">Pause</gui> klicken, um den Zähler anzuhalten. Klicken Sie auf den "
-"Knopf <gui style=\"button\">Zurücksetzen</gui>, um den Zähler zurückzusetzen."
+"\"button\">Pause</gui> klicken, um den Zähler anzuhalten. Klicken Sie auf "
+"den Knopf <gui style=\"button\">Zurücksetzen</gui>, um den Zähler "
+"zurückzusetzen."
 
 #. (itstool) path: credit/name
 #: C/world-add.page:24
@@ -411,14 +397,14 @@ msgstr "Eine neue Stadtuhr hinzufügen"
 #. (itstool) path: page/p
 #: C/world-add.page:33
 msgid ""
-"Add a city to your world clocks to see the time of day or night in that city. "
-"You will also be able to <link xref=\"world-check\">check the sunrise and "
-"sunset times</link> for each of the cities that you have added."
+"Add a city to your world clocks to see the time of day or night in that "
+"city. You will also be able to <link xref=\"world-check\">check the sunrise "
+"and sunset times</link> for each of the cities that you have added."
 msgstr ""
 "Fügen Sie Ihren Weltuhren eine Stadt hinzu, um die Tages- oder Nachtzeit in "
-"dieser Stadt zu sehen. Sie sind auch in der Lage, für jede hinzugefügte Stadt "
-"die <link xref=\"world-check\">Zeiten von Sonnenaufgang und -untergang zu "
-"prüfen</link>."
+"dieser Stadt zu sehen. Sie sind auch in der Lage, für jede hinzugefügte "
+"Stadt die <link xref=\"world-check\">Zeiten von Sonnenaufgang und -untergang "
+"zu prüfen</link>."
 
 #. (itstool) path: item/p
 #: C/world-add.page:39 C/world-check.page:35 C/world-remove.page:33
@@ -427,15 +413,13 @@ msgstr "Klicken Sie auf den Knopf <gui style=\"button\">Welt</gui>."
 
 #. (itstool) path: item/p
 #: C/world-add.page:42
-#| msgid ""
-#| "Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
-#| "key><key>N</key></keyseq> to add a new city."
 msgid ""
 "Press the <gui style=\"button\">+</gui> button or <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> to add a new city."
 msgstr ""
 "Klicken Sie auf den <gui style=\"button\">+</gui>-Knopf oder drücken Sie "
-"<keyseq><key>Strg</key><key>N</key></keyseq>, um einen neuen Ort hinzuzufügen."
+"<keyseq><key>Strg</key><key>N</key></keyseq>, um einen neuen Ort "
+"hinzuzufügen."
 
 #. (itstool) path: item/p
 #: C/world-add.page:46
@@ -459,9 +443,9 @@ msgstr ""
 #. (itstool) path: page/p
 #: C/world-add.page:57
 msgid ""
-"If you do not see your city in the list, it is probably not available at this "
-"time. You should try adding the closest bigger city or the capital of your "
-"country instead."
+"If you do not see your city in the list, it is probably not available at "
+"this time. You should try adding the closest bigger city or the capital of "
+"your country instead."
 msgstr ""
 "Wenn Sie Ihren Ort nicht in der Liste sehen, ist er vermutlich noch nicht "
 "verfügbar. Sie können den nächst größeren Ort oder die Hauptstadt Ihres "
@@ -470,10 +454,10 @@ msgstr ""
 #. (itstool) path: note/p
 #: C/world-add.page:62
 msgid ""
-"The clock for your current location will automatically be added to your world "
-"clocks when you are connected to the Internet. It will not be shown if you "
-"disconnect from the Internet and it will automatically update if you take "
-"your computer to a different city."
+"The clock for your current location will automatically be added to your "
+"world clocks when you are connected to the Internet. It will not be shown if "
+"you disconnect from the Internet and it will automatically update if you "
+"take your computer to a different city."
 msgstr ""
 "Die Uhr für Ihren lokalen Standort wird automatisch den Weltuhren "
 "hinzugefügt, sobald Sie mit dem Internet verbunden sind. Sie wird nicht "
@@ -498,9 +482,9 @@ msgid ""
 "Apart from checking the time, you can also view the sunrise and sunset times "
 "for today. You will also see if the city is a day behind or ahead of you."
 msgstr ""
-"Abgesehen vom Nachschauen der Uhrzeit können Sie auch die heutigen Zeiten für "
-"Sonnenaufgang und Sonnenuntergang nachsehen. Sie sehen ebenso, ob die Stadt "
-"einen Tag vor oder nach Ihnen ist."
+"Abgesehen vom Nachschauen der Uhrzeit können Sie auch die heutigen Zeiten "
+"für Sonnenaufgang und Sonnenuntergang nachsehen. Sie sehen ebenso, ob die "
+"Stadt einen Tag vor oder nach Ihnen ist."
 
 #. (itstool) path: item/p
 #: C/world-check.page:38
@@ -524,7 +508,6 @@ msgstr "Sie können Uhren löschen, die Sie nicht mehr benötigen."
 
 #. (itstool) path: item/p
 #: C/world-remove.page:36
-#| msgid "Press the <gui style=\"button\">Delete</gui> button."
 msgid ""
 "Press the <gui style=\"button\">Delete</gui> button to remove a world clock."
 msgstr ""
@@ -540,8 +523,8 @@ msgstr "Hilfe zu Uhren"
 #. (itstool) path: info/desc
 #: C/index.page:24
 msgid ""
-"Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check the "
-"time in different cities around the world."
+"Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
+"the time in different cities around the world."
 msgstr ""
 "Nutzen Sie <app>Uhren</app> als Stoppuhr, als Rückwärtszähler, um Alarme "
 "einzustellen und die Zeitdifferenz zwischen Städten rund um den Globus zu "
@@ -549,14 +532,15 @@ msgstr ""
 
 #. (itstool) path: page/title
 #: C/index.page:28
-msgid "<_:media-1/>Clocks"
-msgstr "<_:media-1/>Uhren"
+#| msgid "<_:media-1/>Clocks"
+msgid "<_:media-1/> Clocks"
+msgstr "<_:media-1/> Uhren"
 
 #. (itstool) path: page/p
 #: C/index.page:30
 msgid ""
-"Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check the "
-"time in different cities."
+"Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
+"the time in different cities."
 msgstr ""
 "Nutzen Sie <app>Uhren</app> als Stoppuhr, als Rückwärtszähler, um Alarme "
 "einzustellen und die Zeitdifferenz zwischen Städten zu prüfen."
@@ -570,8 +554,8 @@ msgstr "Weltuhren"
 #: C/index.page:36
 msgid ""
 "View the time in cities around the world on the same screen. You can also "
-"check if it is still the same day in those cities, and the sunrise and sunset "
-"times."
+"check if it is still the same day in those cities, and the sunrise and "
+"sunset times."
 msgstr ""
 "Vergleichen Sie die Uhrzeiten in Städten rund um den Globus auf dem gleichen "
 "Bildschirm. Sie können nachsehen, ob es immer noch der gleiche Tag in diesen "
@@ -635,7 +619,8 @@ msgstr "Dieses Werk wird unter folgender Lizenz verbreitet: <_:link-1/>."
 
 #~ msgid ""
 #~ "Right click on the world clock. You can press the button with the tick "
-#~ "mark in the top right corner and select the clock which you want to delete."
+#~ "mark in the top right corner and select the clock which you want to "
+#~ "delete."
 #~ msgstr ""
 #~ "Klicken Sie mit der rechten Maustaste auf die Weltuhr. Sie können den "
 #~ "Knopf mit dem Hacken in der rechten oberen Ecke klicken und die zu "
