@@ -74,6 +74,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
         bell = new Utils.Bell ("complete");
         notification = new GLib.Notification (_("Time is up!"));
         notification.set_body (_("Timer countdown finished"));
+        notification.set_priority (HIGH);
 
         no_timer_container.add (timer_setup);
         no_timer_container.reorder_child (timer_setup, 1);

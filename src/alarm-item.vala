@@ -113,6 +113,7 @@ private class Item : Object, ContentItem {
         bell = new Utils.Bell ("alarm-clock-elapsed");
         notification = new GLib.Notification (_("Alarm"));
         notification.set_body (name);
+        notification.set_priority (HIGH);
         notification.add_button (_("Stop"), "app.stop-alarm::".concat (id));
         notification.add_button (_("Snooze"), "app.snooze-alarm::".concat (id));
     }
