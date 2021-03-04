@@ -1,15 +1,15 @@
 # Persian translation for gnome-clocks.
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-# Arash Mousavi <mousavi.arash@gmail.com> 2012, 2013, 2014, 2015, 2016, 2017.
-# Danial Behzadi <dani.behzi@ubuntu.com>, 2018, 2019, 2020.
+# Arash Mousavi <mousavi.arash@gmail.com> 2012-2017.
+# Danial Behzadi <dani.behzi@ubuntu.com>, 2018-2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-08-07 13:53+0000\n"
-"PO-Revision-Date: 2020-08-25 14:34+0000\n"
+"POT-Creation-Date: 2021-02-21 14:13+0000\n"
+"PO-Revision-Date: 2021-03-04 00:28+0000\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:297
-#: src/window.vala:352 src/world-standalone.vala:24
+#: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:323
+#: src/window.vala:378 src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "ساعت‌ها"
 
@@ -147,7 +147,7 @@ msgstr "صفحهٔ زمان‌سنج"
 msgid "Timer screen"
 msgstr "صفحهٔ شمارشگر"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:83
+#: data/org.gnome.clocks.metainfo.xml.in.in:96
 msgid "The GNOME Project"
 msgstr "پروژهٔ گنوم"
 
@@ -186,47 +186,67 @@ msgctxt "shortcut window"
 msgid "Go to the previous section"
 msgstr "رفتن به قسمت پیشین"
 
-#: data/gtk/help-overlay.ui:63
+#: data/gtk/help-overlay.ui:61
+msgctxt "shortcut window"
+msgid "Go to the World section"
+msgstr "رفتن به بخش جهان"
+
+#: data/gtk/help-overlay.ui:68
+msgctxt "shortcut window"
+msgid "Go to the Alarms section"
+msgstr "رفتن به بخش زنگ‌ها"
+
+#: data/gtk/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch section"
+msgstr "رفتن به بخش زمان‌سنج"
+
+#: data/gtk/help-overlay.ui:82
+msgctxt "shortcut window"
+msgid "Go to the Timer section"
+msgstr "رفتن به بخش شمارشگر"
+
+#: data/gtk/help-overlay.ui:91
 msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "ساعت‌های جهانی"
 
-#: data/gtk/help-overlay.ui:68
+#: data/gtk/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "افزودن یک ساعت جهانی"
 
-#: data/gtk/help-overlay.ui:77
+#: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "زنگ"
 
-#: data/gtk/help-overlay.ui:82
+#: data/gtk/help-overlay.ui:110
 msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "افزودن یک زنگ"
 
-#: data/gtk/help-overlay.ui:91
+#: data/gtk/help-overlay.ui:119
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "زمان‌سنج"
 
-#: data/gtk/help-overlay.ui:96
+#: data/gtk/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "توقف / بازنشانی"
 
-#: data/gtk/help-overlay.ui:105
+#: data/gtk/help-overlay.ui:133
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "شمارشگر"
 
-#: data/gtk/help-overlay.ui:110
+#: data/gtk/help-overlay.ui:138
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "بازنشانی"
 
-#: data/gtk/help-overlay.ui:117
+#: data/gtk/help-overlay.ui:145
 msgctxt "shortcut window"
 msgid "New Timer"
 msgstr "شمارشگر جدید"
@@ -251,7 +271,7 @@ msgstr "چُرت"
 msgid "Active"
 msgstr "فعّال"
 
-#: data/ui/alarm-row.ui:39
+#: data/ui/alarm-row.ui:39 data/ui/world-row.ui:92
 msgid "Delete"
 msgstr "حذف"
 
@@ -259,9 +279,11 @@ msgstr "حذف"
 msgid "Repeats"
 msgstr "تکرارها"
 
-#: data/ui/alarm-setup-dialog.ui:24 data/ui/world-location-dialog.ui:20
-msgid "Add a New World Clock"
-msgstr "افزودن یک ساعت جهانی جدید"
+#. Translators: Tooltip for the + button
+#: data/ui/alarm-setup-dialog.ui:24 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:108
+msgid "New Alarm"
+msgstr "زنگ جدید"
 
 #: data/ui/alarm-setup-dialog.ui:143
 msgid "Name"
@@ -311,7 +333,7 @@ msgstr "فهرست"
 msgid "_Start"
 msgstr "_شروع"
 
-#: data/ui/stopwatch-face.ui:192 src/stopwatch-face.vala:178
+#: data/ui/stopwatch-face.ui:192 src/stopwatch-face.vala:182
 msgid "Clear"
 msgstr "پاک‌سازی"
 
@@ -388,6 +410,10 @@ msgstr "شمارشگر"
 msgid "Add World Clock"
 msgstr "افزودن ساعت جهانی"
 
+#: data/ui/world-location-dialog.ui:20
+msgid "Add a New World Clock"
+msgstr "افزودن یک ساعت جهانی جدید"
+
 #: data/ui/world-location-dialog.ui:24
 msgid "_Cancel"
 msgstr "_لغو"
@@ -396,9 +422,9 @@ msgstr "_لغو"
 msgid "_Add"
 msgstr "_افزودن"
 
-#: data/ui/world-location-dialog.ui:139
-msgid "Search for a city"
-msgstr "جست‌وجو برای یک شهر"
+#: data/ui/world-location-dialog.ui:140
+msgid "Search for a City"
+msgstr "جست‌وجوی یک شهر"
 
 #: data/ui/world-standalone.ui:104
 msgid "Sunrise"
@@ -408,15 +434,10 @@ msgstr "طلوع"
 msgid "Sunset"
 msgstr "غروب"
 
-#. Translators: Tooltip for the + button
-#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:108
-msgid "New Alarm"
-msgstr "زنگ جدید"
-
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:348
+#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:374
 msgid "Alarm"
 msgstr "زنگ"
 
@@ -476,19 +497,19 @@ msgstr "افزودن"
 msgid "Print version information and exit"
 msgstr "چاپ اطلاعات نگارش و خروج"
 
-#: src/stopwatch-face.vala:158
+#: src/stopwatch-face.vala:162
 msgid "Pause"
 msgstr "مکث"
 
-#: src/stopwatch-face.vala:162 src/stopwatch-face.vala:199
+#: src/stopwatch-face.vala:166 src/stopwatch-face.vala:203
 msgid "Lap"
 msgstr "دور"
 
-#: src/stopwatch-face.vala:174
+#: src/stopwatch-face.vala:178
 msgid "Resume"
 msgstr "از سر گیری"
 
-#: src/stopwatch-face.vala:195
+#: src/stopwatch-face.vala:199
 msgid "Start"
 msgstr "شروع"
 
@@ -513,7 +534,7 @@ msgstr "شمارش معکوس زمان پایان یافت"
 #. Translators: The time is the same as the local time
 #: src/utils.vala:76
 msgid "Current timezone"
-msgstr "منظقهٔ زمانی کنونی"
+msgstr "منطقهٔ زمانی کنونی"
 
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
@@ -521,7 +542,7 @@ msgstr "منظقهٔ زمانی کنونی"
 #, c-format
 msgid "%s hour earlier"
 msgid_plural "%s hours earlier"
-msgstr[0] "%s ساعت پیش"
+msgstr[0] "%s ساعت جلوتر"
 msgstr[1] "%s ساعت پیش"
 
 #. Translators: The (possibly fractical) number hours in the
@@ -530,91 +551,101 @@ msgstr[1] "%s ساعت پیش"
 #, c-format
 msgid "%s hour later"
 msgid_plural "%s hours later"
-msgstr[0] "%s ساعت بعد"
+msgstr[0] "%s ساعت عقب‌تر"
 msgstr[1] "%s ساعت بعد"
 
 #. Translators: This is used in the repeat toggle for Monday
 #: src/utils.vala:189
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "د"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:191 src/utils.vala:195
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:191
+msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "س"
 
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:193
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "چ"
 
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:195
+msgctxt "Alarm|Repeat-On|Thursday"
+msgid "T"
+msgstr "پ"
+
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:197
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "آ"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:199 src/utils.vala:201
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:199
+msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "ش"
 
-#: src/utils.vala:205
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:201
+msgctxt "Alarm|Repeat-On|Sunday"
+msgid "S"
+msgstr "ی"
+
+#: src/utils.vala:215
 msgid "Mondays"
 msgstr "دوشنبه‌ها"
 
-#: src/utils.vala:206
+#: src/utils.vala:216
 msgid "Tuesdays"
 msgstr "سه‌شنبه‌ها"
 
-#: src/utils.vala:207
+#: src/utils.vala:217
 msgid "Wednesdays"
 msgstr "چهارشنبه‌ها"
 
-#: src/utils.vala:208
+#: src/utils.vala:218
 msgid "Thursdays"
 msgstr "پنج‌شنبه‌ها"
 
-#: src/utils.vala:209
+#: src/utils.vala:219
 msgid "Fridays"
 msgstr "آدینه‌ها"
 
-#: src/utils.vala:210
+#: src/utils.vala:220
 msgid "Saturdays"
 msgstr "شنبه‌ها"
 
-#: src/utils.vala:211
+#: src/utils.vala:221
 msgid "Sundays"
 msgstr "یک‌شنبه‌ها"
 
-#: src/utils.vala:337
+#: src/utils.vala:347
 msgid "Every Day"
 msgstr "هر روز"
 
-#: src/utils.vala:339
+#: src/utils.vala:349
 msgid "Weekdays"
 msgstr "روزهای هفته"
 
-#: src/utils.vala:341
+#: src/utils.vala:351
 msgid "Weekends"
 msgstr "پایان‌هفته‌ها"
 
-#: src/window.vala:268
+#: src/window.vala:294
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "شکست در نمایش راهنما: %s"
 
-#: src/window.vala:302
+#: src/window.vala:328
 msgid "Utilities to help you with the time."
 msgstr "ابزارهایی برای کمک به شما درباره زمان."
 
-#: src/window.vala:307
+#: src/window.vala:333
 msgid "translator-credits"
 msgstr ""
 "آرش موسوی <mousavi.arash@gmail.com>\n"
