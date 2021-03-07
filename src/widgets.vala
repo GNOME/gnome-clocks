@@ -189,7 +189,6 @@ public class AmPmToggleButton : Gtk.Button {
 
         choice = AmPm.AM;
         stack.visible_child = am_label;
-        show_all ();
     }
 }
 
