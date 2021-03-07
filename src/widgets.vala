@@ -181,7 +181,7 @@ public class AmPmToggleButton : Gtk.Button {
 
         stack.add_child (am_label);
         stack.add_child (pm_label);
-        add (stack);
+        set_child (stack);
 
         clicked.connect (() => {
             choice = choice == AmPm.AM ? AmPm.PM : AmPm.AM;
