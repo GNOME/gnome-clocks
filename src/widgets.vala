@@ -179,8 +179,8 @@ public class AmPmToggleButton : Gtk.Button {
         str = (new GLib.DateTime.utc (1, 1, 1, 12, 0, 0)).format ("%p");
         pm_label = new Gtk.Label (str);
 
-        stack.add (am_label);
-        stack.add (pm_label);
+        stack.add_child (am_label);
+        stack.add_child (pm_label);
         add (stack);
 
         clicked.connect (() => {
