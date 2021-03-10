@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2021-01-19 19:32+0000\n"
-"PO-Revision-Date: 2021-01-21 07:31+0100\n"
+"POT-Creation-Date: 2021-03-09 20:36+0000\n"
+"PO-Revision-Date: 2021-03-10 14:29+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -146,7 +146,7 @@ msgstr "Videade cronometri"
 msgid "Timer screen"
 msgstr "Videade temporizadôr"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:95
+#: data/org.gnome.clocks.metainfo.xml.in.in:96
 msgid "The GNOME Project"
 msgstr "Il progjet GNOME"
 
@@ -258,11 +258,11 @@ msgstr "_Ripet"
 msgid "Add A_larm"
 msgstr "Zonte s_vee"
 
-#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:116
+#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:117
 msgid "Stop"
 msgstr "Ferme"
 
-#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:117
+#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:118
 msgid "Snooze"
 msgstr "Polse"
 
@@ -421,8 +421,8 @@ msgstr "_Anule"
 msgid "_Add"
 msgstr "_Zonte"
 
-#: data/ui/world-location-dialog.ui:139
-msgid "Search for a city"
+#: data/ui/world-location-dialog.ui:140
+msgid "Search for a City"
 msgstr "Cîr une citât"
 
 #: data/ui/world-standalone.ui:104
@@ -555,78 +555,83 @@ msgstr[1] "%s oris dopo"
 
 #. Translators: This is used in the repeat toggle for Monday
 #: src/utils.vala:189
-#, fuzzy
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "L"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:191 src/utils.vala:195
-#, fuzzy
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:191
+msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "M"
 
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:193
-#, fuzzy
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "M"
 
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:195
+msgctxt "Alarm|Repeat-On|Thursday"
+msgid "T"
+msgstr "J"
+
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:197
-#, fuzzy
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "V"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:199 src/utils.vala:201
-#, fuzzy
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:199
+msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "S"
 
-#: src/utils.vala:205
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:201
+msgctxt "Alarm|Repeat-On|Sunday"
+msgid "S"
+msgstr "D"
+
+#: src/utils.vala:215
 msgid "Mondays"
 msgstr "Lunis"
 
-#: src/utils.vala:206
+#: src/utils.vala:216
 msgid "Tuesdays"
 msgstr "Martars"
 
-#: src/utils.vala:207
+#: src/utils.vala:217
 msgid "Wednesdays"
 msgstr "Miercus"
 
-#: src/utils.vala:208
+#: src/utils.vala:218
 msgid "Thursdays"
 msgstr "Joibe"
 
-#: src/utils.vala:209
+#: src/utils.vala:219
 msgid "Fridays"
 msgstr "Vinars"
 
-#: src/utils.vala:210
+#: src/utils.vala:220
 msgid "Saturdays"
 msgstr "Sabide"
 
-#: src/utils.vala:211
+#: src/utils.vala:221
 msgid "Sundays"
 msgstr "Domenie"
 
-#: src/utils.vala:337
+#: src/utils.vala:347
 msgid "Every Day"
 msgstr "Ogni dì"
 
-#: src/utils.vala:339
+#: src/utils.vala:349
 msgid "Weekdays"
 msgstr "Dîs de vore"
 
-#: src/utils.vala:341
+#: src/utils.vala:351
 msgid "Weekends"
 msgstr "Dîs di fieste"
 
