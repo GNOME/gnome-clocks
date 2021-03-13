@@ -1,14 +1,14 @@
 # Korean translation for gnome-clocks.
 # This file is distributed under the same license as the gnome-clocks package.
-# Seong-ho Cho <shcho@gnome.org>, 2016.
+# Seong-ho Cho <shcho@gnome.org>, 2016, 2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-03 11:08+0000\n"
-"PO-Revision-Date: 2016-03-03 22:56+0900\n"
+"POT-Creation-Date: 2021-02-11 15:59+0000\n"
+"PO-Revision-Date: 2021-03-12 11:34+0900\n"
 "Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
@@ -16,12 +16,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "조성호 <shcho@gnome.org>, 2016."
+msgstr "조성호 <shcho@gnome.org>, 2016, 2021."
 
 #. (itstool) path: credit/name
 #: C/alarm-add.page:14 C/alarm-edit.page:14 C/alarm-remove.page:15
@@ -71,13 +71,13 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:34
-msgid "Press <gui style=\"button\">Alarm</gui>."
-msgstr "<gui style=\"button\">알림</gui>을 누르십시오."
+msgid "Press <gui style=\"button\">Alarms</gui>."
+msgstr "<gui style=\"button\">알림</gui> 단추를 누르십시오."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:37
-msgid "Press <gui style=\"button\">New</gui>."
-msgstr "<gui style=\"button\">새로 만들기</gui>를 누르십시오."
+msgid "Press <gui style=\"button\">+</gui>."
+msgstr "<gui style=\"button\">+</gui> 단추를 누르십시오."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:40
@@ -86,19 +86,22 @@ msgstr "알림을 울릴 시간을 설정하십시오."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:43
+msgid ""
+"Select the days on which you want the alarm to be repeated at the set time, "
+"or none if you only want the alarm to go off once."
+msgstr ""
+"설정한 시간의 알림을 반복할 날짜(요일)을 선택하든지, 한번만 알리고 끄려면 없"
+"음을 선택하십시오."
+
+#. (itstool) path: item/p
+#: C/alarm-add.page:47
 msgid "You can give your new alarm a name so that it is easier to identify."
 msgstr "알아보기 쉬운 이름을 새 알림에 지정할 수 있습니다."
 
 #. (itstool) path: item/p
-#: C/alarm-add.page:47
-msgid ""
-"Select the days on which you want the alarm to be repeated at the set time."
-msgstr "지정한 알림을 반복할 날짜를 선택하십시오."
-
-#. (itstool) path: item/p
 #: C/alarm-add.page:51
-msgid "Press <gui style=\"button\">Done</gui> to finish adding the alarm."
-msgstr "<gui style=\"button\">완료</gui>를 눌러 알림 추가를 끝내십시오."
+msgid "Press <gui style=\"button\">Add</gui> to finish adding the alarm."
+msgstr "<gui style=\"button\">완료</gui>단추를 눌러 알림 추가를 끝내십시오."
 
 #. (itstool) path: page/p
 #: C/alarm-add.page:55
@@ -126,28 +129,46 @@ msgstr "알림 편집"
 
 #. (itstool) path: page/p
 #: C/alarm-edit.page:29
-msgid ""
-"Edit your alarm to change when it goes off, rename it or to deactivate it."
-msgstr "알림을 설정하거나, 이름을 바꾸거나, 끄려면 알림을 편집하십시오."
+msgid "Edit your alarm to change when it goes off or to rename it."
+msgstr "알림을 설정하거나, 끄거나, 이름을 바꾸려면 알림을 편집하십시오."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:34 C/alarm-remove.page:34
-msgid "Press the <gui style=\"button\">Alarm</gui> button."
+#: C/alarm-edit.page:33 C/alarm-edit.page:48 C/alarm-remove.page:34
+msgid "Press the <gui style=\"button\">Alarms</gui> button."
 msgstr "<gui style=\"button\">알림</gui> 단추를 누르십시오."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:37
-msgid "Press the alarm which you want to edit."
-msgstr "편집할 알림을 누르십시오."
+#: C/alarm-edit.page:36
+msgid ""
+"Find the alarm you want to change and press <gui style=\"button\">Edit</gui>."
+msgstr ""
+"바꿀 알림 설정을 찾을 후 <gui style=\"button\">편집</gui>을 누르십시오."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:40
+#: C/alarm-edit.page:39
 msgid ""
 "Update the alarm and press <gui style=\"button\">Done</gui> to finish "
 "editing it."
 msgstr ""
 "알림 설정을 업데이트하고 <gui style=\"button\">완료</gui>를 눌러 알림 설정 편"
 "집을 끝내십시오."
+
+#. (itstool) path: page/p
+#: C/alarm-edit.page:44
+msgid "You can also temporarily disable an alarm."
+msgstr "알림 설정을 잠시 끌 수도 있습니다."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:51
+msgid "Find the alarm you want to disable or enable and toggle the switch."
+msgstr "알림 설정을 켜고 끄는 방법, 스위치 상태를 전환하는 방법을 알아봅니다."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:54
+msgid ""
+"When the alarm is disabled, it will not go off, but it can be enabled again "
+"later."
+msgstr "알림을 끄면, 알림 동작이 끝나진 않지만 나중에 다시 켤 수 있습니다."
 
 #. (itstool) path: info/desc
 #: C/alarm-remove.page:25
@@ -166,22 +187,8 @@ msgstr "더 이상 필요하지 않은 알림을 삭제할 수 있습니다."
 
 #. (itstool) path: item/p
 #: C/alarm-remove.page:37
-msgid ""
-"Right click on the alarm. You can press the button with the tick mark in the "
-"top right corner and select the alarm which you want to delete."
-msgstr ""
-"알림에 마우스 커서를 올려두고 마우스 오른쪽 단추를 누르십시오. 우측 상단 구석"
-"의 틱 표시가 있는 단추를 눌러 삭제하려는 알림을 선택할 수 있습니다."
-
-#. (itstool) path: item/p
-#: C/alarm-remove.page:42 C/world-remove.page:41
-msgid "Press the <gui style=\"button\">Delete</gui> button."
-msgstr "<gui style=\"button\">삭제</gui> 단추를 누르십시오."
-
-#. (itstool) path: page/p
-#: C/alarm-remove.page:46
-msgid "You can select more than one alarm at a time for deletion."
-msgstr "삭제하려는 알림을 하나 이상 선택할 수 있습니다."
+msgid "Press the <gui style=\"button\">Delete</gui> button to remove an alarm."
+msgstr "<gui style=\"button\">삭제</gui> 단추를 눌러 알림 설정을 제거십시오."
 
 #. (itstool) path: info/desc
 #: C/alarm-snooze-stop.page:24
@@ -263,19 +270,19 @@ msgstr ""
 #. (itstool) path: item/p
 #: C/stopwatch.page:51
 msgid ""
-"Press <gui style=\"button\">Stop</gui> to pause the stopwatch and <gui style="
-"\"button\">Continue</gui> when you are ready to resume timing the task."
+"Press <gui style=\"button\">Pause</gui> to pause the stopwatch and <gui "
+"style=\"button\">Resume</gui> when you are ready to resume timing the task."
 msgstr ""
-"<gui style=\"button\">멈춤</gui>을 눌러 스톱워치를 잠시 멈추고 일을 계속할 준"
-"비가 됐으면 <gui style=\"button\">계속</gui>을 누르십시오."
+"<gui style=\"button\">멈춤</gui>단추를 눌러 스톱워치를 잠시 멈추고 일을 계속"
+"할 준비가 됐으면 <gui style=\"button\">계속</gui>단추를 누르십시오."
 
 #. (itstool) path: page/p
 #: C/stopwatch.page:59
 msgid ""
-"You can use the <gui style=\"button\">Reset</gui> button to reset the "
-"stopwatch when it is stopped."
+"You can use the <gui style=\"button\">Clear</gui> button to reset the "
+"stopwatch when it is paused."
 msgstr ""
-"스톱워치를 멈췄을 때 <gui style=\"button\">초기화</gui> 단추를 눌러 값을 초기"
+"스톱워치를 멈췄을 때 <gui style=\"button\">지우기</gui> 단추를 눌러 값을 초기"
 "화할 수 있습니다."
 
 #. (itstool) path: note/p
@@ -300,11 +307,10 @@ msgstr "타이머 설정"
 #. (itstool) path: page/p
 #: C/timer.page:29
 msgid ""
-"Set the time for a second by second countdown to zero. You will be notified "
-"when the countdown has finished."
+"Set the amount of time for the timer countdown. You will be notified when "
+"the countdown has finished."
 msgstr ""
-"0 까지 시간을 거꾸로 셀 초를 초단위로 설정하십시오. 초세기가 끝나면 알림을 받"
-"습니다."
+"0 까지 시간을 거꾸로 셀 시간을 설정하십시오. 초세기가 끝나면 알림을 받습니다."
 
 #. (itstool) path: item/p
 #: C/timer.page:34
@@ -370,11 +376,11 @@ msgstr "<gui style=\"button\">세계</gui> 단추를 누르십시오."
 #. (itstool) path: item/p
 #: C/world-add.page:42
 msgid ""
-"Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
+"Press the <gui style=\"button\">+</gui> button or <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> to add a new city."
 msgstr ""
-"<gui style=\"button\">새로 만들기</gui> 단추를 누르거나 <keyseq><key>Ctrl</"
-"key><key>N</key></keyseq> 단축키를 눌러 새 도시를 추가하십시오."
+"<gui style=\"button\">+</gui> 단추를 누르거나 <keyseq><key>Ctrl</key><key>N</"
+"key></keyseq> 단축키를 눌러 새 도시를 추가하십시오."
 
 #. (itstool) path: item/p
 #: C/world-add.page:46
@@ -456,19 +462,17 @@ msgstr "더 이상 필요하지 않은 시계를 삭제할 수 있습니다."
 #. (itstool) path: item/p
 #: C/world-remove.page:36
 msgid ""
-"Right click on the world clock. You can press the button with the tick mark "
-"in the top right corner and select the clock which you want to delete."
-msgstr ""
-"세계 시계에 마우스 커서를 두고 마우스 오른쪽 단추를 누르십시오. 우측 상단 구"
-"석에 있는 단추를 눌러 삭제하려는 시계를 선택할 수 있습니다."
+"Press the <gui style=\"button\">Delete</gui> button to remove a world clock."
+msgstr "<gui style=\"button\">삭제</gui> 단추를 눌러 세계 시계를 제거하십시오."
 
-#. (itstool) path: page/p
-#: C/world-remove.page:45
-msgid "You can select more than one clock at a time for deletion."
-msgstr "삭제할 시계를 하나 이상 선택할 수 있습니다."
+#. (itstool) path: info/title
+#: C/index.page:22
+msgctxt "link:seealso"
+msgid "Clocks Help"
+msgstr "시계 도움말"
 
 #. (itstool) path: info/desc
-#: C/index.page:22
+#: C/index.page:24
 msgid ""
 "Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
 "the time in different cities around the world."
@@ -477,12 +481,12 @@ msgstr ""
 "을 확인합니다."
 
 #. (itstool) path: page/title
-#: C/index.page:26
-msgid "<_:media-1/>Clocks"
-msgstr "<_:media-1/>시계"
+#: C/index.page:28
+msgid "<_:media-1/> Clocks"
+msgstr "<_:media-1/> 시계"
 
 #. (itstool) path: page/p
-#: C/index.page:28
+#: C/index.page:30
 msgid ""
 "Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
 "the time in different cities."
@@ -491,12 +495,12 @@ msgstr ""
 "니다."
 
 #. (itstool) path: section/title
-#: C/index.page:32
+#: C/index.page:34
 msgid "World clocks"
 msgstr "세계 시계"
 
 #. (itstool) path: section/p
-#: C/index.page:34
+#: C/index.page:36
 msgid ""
 "View the time in cities around the world on the same screen. You can also "
 "check if it is still the same day in those cities, and the sunrise and "
@@ -506,32 +510,32 @@ msgstr ""
 "일출, 일몰 시간이 언제인지 확인할 수 있습니다."
 
 #. (itstool) path: section/title
-#: C/index.page:41
+#: C/index.page:43
 msgid "Alarm clocks"
 msgstr "알림 시계"
 
 #. (itstool) path: section/p
-#: C/index.page:43
+#: C/index.page:45
 msgid "Set customisable alarms to go off on specific days every week."
 msgstr "매주 지정일에 대해 개별 알림을 설정합니다."
 
 #. (itstool) path: section/title
-#: C/index.page:48
+#: C/index.page:50
 msgid "Stopwatch"
 msgstr "스톱워치"
 
 #. (itstool) path: section/p
-#: C/index.page:50
+#: C/index.page:52
 msgid "Use the stopwatch to time how long something takes."
 msgstr "스톱워치를 활용하여 일 하는 시간이 얼마나 걸리는지 잽니다."
 
 #. (itstool) path: section/title
-#: C/index.page:55
+#: C/index.page:57
 msgid "Timer"
 msgstr "타이머"
 
 #. (itstool) path: section/p
-#: C/index.page:57
+#: C/index.page:59
 msgid "Set a countdown in seconds, minutes or hours."
 msgstr "초, 분, 시간 단위로 카운트다운을 설정합니다."
 
@@ -544,3 +548,27 @@ msgstr "크리에이티브 커먼즈 저작자표시-동일조건변경허락 3.
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "이 문서는  <_:link-1/>에 따른 활용을 허가합니다."
+
+#~ msgid "Press the alarm which you want to edit."
+#~ msgstr "편집할 알림을 누르십시오."
+
+#~ msgid ""
+#~ "Right click on the alarm. You can press the button with the tick mark in "
+#~ "the top right corner and select the alarm which you want to delete."
+#~ msgstr ""
+#~ "알림에 마우스 커서를 올려두고 마우스 오른쪽 단추를 누르십시오. 우측 상단 "
+#~ "구석의 틱 표시가 있는 단추를 눌러 삭제하려는 알림을 선택할 수 있습니다."
+
+#~ msgid "You can select more than one alarm at a time for deletion."
+#~ msgstr "삭제하려는 알림을 하나 이상 선택할 수 있습니다."
+
+#~ msgid ""
+#~ "Right click on the world clock. You can press the button with the tick "
+#~ "mark in the top right corner and select the clock which you want to "
+#~ "delete."
+#~ msgstr ""
+#~ "세계 시계에 마우스 커서를 두고 마우스 오른쪽 단추를 누르십시오. 우측 상단 "
+#~ "구석에 있는 단추를 눌러 삭제하려는 시계를 선택할 수 있습니다."
+
+#~ msgid "You can select more than one clock at a time for deletion."
+#~ msgstr "삭제할 시계를 하나 이상 선택할 수 있습니다."
