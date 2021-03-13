@@ -1,14 +1,14 @@
-# Danish translation for gnome-clocks-help.
+# Danish translation for gnome-clocks.
 # Copyright (C) 2015 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
-#
-# scootergrisen, 2015.
+# scootergrisen, 2015, 2020.
 # Gennemgået Ask Hjorth Larsen <asklarsen@gmail.com>, 2016.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-clocks-help master\n"
-"POT-Creation-Date: 2016-03-18 08:50+0000\n"
-"PO-Revision-Date: 2016-09-29 14:12+0200\n"
+"Project-Id-Version: gnome-clocks master\n"
+"POT-Creation-Date: 2020-12-28 20:14+0000\n"
+"PO-Revision-Date: 2020-12-30 00:00+0200\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -21,10 +21,11 @@ msgstr ""
 msgctxt "_"
 msgid "translator-credits"
 msgstr ""
-"scootergrisen, 2015\n"
+"scootergrisen <>, 2015, 2020\n"
 "\n"
-"Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
-"Mere info: http://www.dansk-gruppen.dk"
+"Dansk-gruppen\n"
+"Websted http://dansk-gruppen.dk\n"
+"E-mail <dansk@dansk-gruppen.dk>"
 
 #. (itstool) path: credit/name
 #: C/alarm-add.page:14 C/alarm-edit.page:14 C/alarm-remove.page:15
@@ -74,13 +75,13 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:34
-msgid "Press <gui style=\"button\">Alarm</gui>."
-msgstr "Tryk på <gui style=\"button\">Alarm</gui>."
+msgid "Press <gui style=\"button\">Alarms</gui>."
+msgstr "Tryk på <gui style=\"button\">Alarmer</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:37
-msgid "Press <gui style=\"button\">New</gui>."
-msgstr "Tryk på <gui style=\"button\">Ny</gui>."
+msgid "Press <gui style=\"button\">+</gui>."
+msgstr "Tryk på <gui style=\"button\">+</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:40
@@ -89,20 +90,23 @@ msgstr "Sæt tidspunktet, hvor du vil have alarmen til at blive udløst."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:43
+msgid ""
+"Select the days on which you want the alarm to be repeated at the set time, "
+"or none if you only want the alarm to go off once."
+msgstr ""
+"Vælg de dage, du vil have alarmen til at blive gentaget på det valgte "
+"klokkeslæt eller ingen hvis alarmen kun skal udløses én gang."
+
+#. (itstool) path: item/p
+#: C/alarm-add.page:47
 msgid "You can give your new alarm a name so that it is easier to identify."
 msgstr "Du kan give din alarm et navn, så den er lettere at genkende."
 
 #. (itstool) path: item/p
-#: C/alarm-add.page:47
-msgid ""
-"Select the days on which you want the alarm to be repeated at the set time."
-msgstr "Vælg de dage, du vil have alarmen til at blive gentaget på det valgte klokkeslæt."
-
-#. (itstool) path: item/p
 #: C/alarm-add.page:51
-msgid "Press <gui style=\"button\">Done</gui> to finish adding the alarm."
+msgid "Press <gui style=\"button\">Add</gui> to finish adding the alarm."
 msgstr ""
-"Tryk på <gui style=\"button\">Færdig</gui> for at afslutte tilføjelsen af "
+"Tryk på <gui style=\"button\">Tilføj</gui> for at afslutte tilføjelsen af "
 "alarmen."
 
 #. (itstool) path: page/p
@@ -110,7 +114,9 @@ msgstr ""
 msgid ""
 "You can <link xref=\"alarm-edit\">temporarily disable your alarm</link> if "
 "you do not want to use it for a while."
-msgstr "Du kan <link xref=\"alarm-edit\">deaktivere din alarm midlertidigt</link>, hvis ikke du vil bruge den i en periode."
+msgstr ""
+"Du kan <link xref=\"alarm-edit\">deaktivere din alarm midlertidigt</link>, "
+"hvis ikke du vil bruge den i en periode."
 
 #. (itstool) path: page/p
 #: C/alarm-add.page:58
@@ -129,30 +135,50 @@ msgstr "Redigér en alarm"
 
 #. (itstool) path: page/p
 #: C/alarm-edit.page:29
-msgid ""
-"Edit your alarm to change when it goes off, rename it or to deactivate it."
+msgid "Edit your alarm to change when it goes off or to rename it."
 msgstr ""
-"Redigér din alarm for at ændre hvordan den bliver udløst, omdøb den eller "
-"deaktivér den."
+"Redigér din alarm for at ændre, hvornår den bliver udløst eller omdøb den."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:34 C/alarm-remove.page:34
-msgid "Press the <gui style=\"button\">Alarm</gui> button."
-msgstr "Tryk på knappen <gui style=\"button\">Alarm</gui>."
+#: C/alarm-edit.page:33 C/alarm-edit.page:48 C/alarm-remove.page:34
+msgid "Press the <gui style=\"button\">Alarms</gui> button."
+msgstr "Tryk på knappen <gui style=\"button\">Alarmer</gui>."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:37
-msgid "Press the alarm which you want to edit."
-msgstr "Tryk på den alarm, du vil redigere."
+#: C/alarm-edit.page:36
+msgid ""
+"Find the alarm you want to change and press <gui style=\"button\">Edit</gui>."
+msgstr ""
+"Find den alarm du vil ændre og tryk på <gui style=\"button\">Redigér</gui>."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:40
+#: C/alarm-edit.page:39
 msgid ""
 "Update the alarm and press <gui style=\"button\">Done</gui> to finish "
 "editing it."
 msgstr ""
 "Opdatér alarmen og tryk på <gui style=\"button\">Færdig</gui> for at "
 "afslutte redigeringen."
+
+#. (itstool) path: page/p
+#: C/alarm-edit.page:44
+msgid "You can also temporarily disable an alarm."
+msgstr "Du kan også deaktivere en alarm midlertidigt."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:51
+msgid "Find the alarm you want to disable or enable and toggle the switch."
+msgstr ""
+"Find den alarm du vil deaktivere eller aktivere og slå kontakten til/fra."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:54
+msgid ""
+"When the alarm is disabled, it will not go off, but it can be enabled again "
+"later."
+msgstr ""
+"Når alarmen er deaktiveret, så udløses den ikke, men den kan aktiveres igen "
+"senere."
 
 #. (itstool) path: info/desc
 #: C/alarm-remove.page:25
@@ -171,20 +197,9 @@ msgstr "Du kan slette alarmer, du ikke længere har brug for."
 
 #. (itstool) path: item/p
 #: C/alarm-remove.page:37
-msgid ""
-"Right click on the alarm. You can press the button with the tick mark in the "
-"top right corner and select the alarm which you want to delete."
-msgstr "Højreklik på alarmen. Du kan trykke på knappen med afkrydsningsmærket i øverste højre hjørne og vælge den alarm, du vil slette."
-
-#. (itstool) path: item/p
-#: C/alarm-remove.page:42 C/world-remove.page:41
-msgid "Press the <gui style=\"button\">Delete</gui> button."
-msgstr "Tryk på knappen <gui style=\"button\">Slet</gui>."
-
-#. (itstool) path: page/p
-#: C/alarm-remove.page:46
-msgid "You can select more than one alarm at a time for deletion."
-msgstr "Du kan vælge mere end en alarm til sletning på samme tid."
+msgid "Press the <gui style=\"button\">Delete</gui> button to remove an alarm."
+msgstr ""
+"Tryk på knappen <gui style=\"button\">Slet</gui> for at fjerne en alarm."
 
 #. (itstool) path: info/desc
 #: C/alarm-snooze-stop.page:24
@@ -194,14 +209,17 @@ msgstr "Stop alarmen eller sæt den til at blive udløst ni minutter senere."
 #. (itstool) path: page/title
 #: C/alarm-snooze-stop.page:27
 msgid "Stop or snooze your alarm"
-msgstr "Stop eller snooze din alarm"
+msgstr "Stop eller sæt din alarm til at slumre"
 
 #. (itstool) path: page/p
 #: C/alarm-snooze-stop.page:29
 msgid ""
 "When your alarm goes off, you can either stop the alarm or snooze it. When "
 "you snooze the alarm, the alarm is reset to go off nine minutes later."
-msgstr "Når din alarm bliver udløst, kan du enten stoppe alarmen eller snooze den. Når du bruger snooze på alarmen, vil alarmen nulstilles så den udløses ni minutter senere."
+msgstr ""
+"Når din alarm bliver udløst, kan du enten stoppe alarmen eller sætte den til "
+"at slumre. Når du sætter alarmen til at slumre, nulstilles alarmen så den "
+"udløses ni minutter senere."
 
 #. (itstool) path: page/p
 #: C/alarm-snooze-stop.page:32
@@ -231,7 +249,13 @@ msgid ""
 "taken to run each lap and the time taken to cover the entire distance. By "
 "timing each lap, they are able to tell if their speed changes from lap to "
 "lap."
-msgstr "Brug stopuret til at måle den tid, det tager at gennemføre forskellige dele af en opgave, mens der holdes styr på den samlede tid, det tager at afslutte hele opgaven. Dette bruges ofte af sportsfolk til at måle den tid, det tager at løbe hver omgang, og den tid, det tager at dække hele distancen. Ved at måle hver omgang, er de i stand til at se om deres hastighed ændrer sig fra omgang til omgang."
+msgstr ""
+"Brug stopuret til at måle den tid, det tager at gennemføre forskellige dele "
+"af en opgave, mens der holdes styr på den samlede tid, det tager at afslutte "
+"hele opgaven. Dette bruges ofte af sportsfolk til at måle den tid, det tager "
+"at løbe hver omgang, og den tid, det tager at dække hele distancen. Ved "
+"tidtagning hver omgang, er de i stand til at se om deres hastighed ændrer "
+"sig fra omgang til omgang."
 
 #. (itstool) path: item/p
 #: C/stopwatch.page:38
@@ -253,52 +277,61 @@ msgstr "Efter fuldførelse af en fase af opgaven:"
 msgid ""
 "Press <gui style=\"button\">Lap</gui> to record the end of the first phase "
 "and to start timing the next phase."
-msgstr "Tryk på <gui style=\"button\">Omgang</gui> for at markere slutningen af den første fase, og for at starte tidstagning af den næste fase."
+msgstr ""
+"Tryk på <gui style=\"button\">Omgang</gui> for at markere slutningen af den "
+"første fase, og for at starte tidtagning af den næste fase."
 
 #. (itstool) path: item/p
 #: C/stopwatch.page:51
 msgid ""
-"Press <gui style=\"button\">Stop</gui> to pause the stopwatch and <gui style="
-"\"button\">Continue</gui> when you are ready to resume timing the task."
-msgstr "Tryk på <gui style=\"button\">Stop</gui> for at sætte stopuret på pause, og <gui style=\"button\">Fortsæt</gui>, når du er klar til at genoptage måling af opgaven."
+"Press <gui style=\"button\">Pause</gui> to pause the stopwatch and <gui "
+"style=\"button\">Resume</gui> when you are ready to resume timing the task."
+msgstr ""
+"Tryk på <gui style=\"button\">Pause</gui> for at sætte stopuret på pause, og "
+"<gui style=\"button\">Genoptag</gui>, når du er klar til at genoptage "
+"tidtagning af opgaven."
 
 #. (itstool) path: page/p
 #: C/stopwatch.page:59
 msgid ""
-"You can use the <gui style=\"button\">Reset</gui> button to reset the "
-"stopwatch when it is stopped."
+"You can use the <gui style=\"button\">Clear</gui> button to reset the "
+"stopwatch when it is paused."
 msgstr ""
-"Du kan bruge knappen <gui style=\"button\">Nulstil</gui> til at nulstille "
-"stopuret når det er stoppet."
+"Du kan bruge knappen <gui style=\"button\">Ryd</gui> til at nulstille "
+"stopuret når det er pauset."
 
 #. (itstool) path: note/p
 #: C/stopwatch.page:63
 msgid ""
 "Your lap times and total time will be lost when you reset the stopwatch or "
 "restart <app>Clocks</app>."
-msgstr "Dine omgangstider og samlede tid vil gå tabt, når du nulstiller stopuret eller genstarter <app>Ure</app>."
+msgstr ""
+"Dine omgangstider og samlede tid vil gå tabt, når du nulstiller stopuret "
+"eller genstarter <app>Ure</app>."
 
 #. (itstool) path: info/desc
 #: C/timer.page:24
 msgid "Use a countdown to be notified when a time period has elapsed."
-msgstr "Brug en nedtælling til at modtage en påmindelse, når en tidsperiode er gået."
+msgstr "Brug en nedtælling til at få besked, når en tidsperiode er gået."
 
 #. (itstool) path: page/title
 #: C/timer.page:27
 msgid "Set the timer"
-msgstr "Sæt en timer"
+msgstr "Sæt minuturet"
 
 #. (itstool) path: page/p
 #: C/timer.page:29
 msgid ""
-"Set the time for a second by second countdown to zero. You will be notified "
-"when the countdown has finished."
-msgstr "Sæt tiden til en sekundvis nedtælling til nul. Du vil få en påmindelse når nedtællingen er afsluttet."
+"Set the amount of time for the timer countdown. You will be notified when "
+"the countdown has finished."
+msgstr ""
+"Sæt tiden til minuturets nedtælling. Du vil få besked når nedtællingen er "
+"færdig."
 
 #. (itstool) path: item/p
 #: C/timer.page:34
 msgid "Press the <gui style=\"button\">Timer</gui> button."
-msgstr "Tryk på knappen <gui style=\"button\">Timer</gui>."
+msgstr "Tryk på knappen <gui style=\"button\">Minutur</gui>."
 
 #. (itstool) path: item/p
 #: C/timer.page:37
@@ -313,7 +346,7 @@ msgstr "Tryk på <gui style=\"button\">Start</gui> for at begynde nedtællingen.
 #. (itstool) path: page/p
 #: C/timer.page:44
 msgid "You will be notified when the countdown reaches zero."
-msgstr "Du vil få en påmindelse når nedtællingen når til nul."
+msgstr "Du vil få besked når nedtællingen når nul."
 
 #. (itstool) path: note/p
 #: C/timer.page:47
@@ -321,7 +354,11 @@ msgid ""
 "Once the timer has started its countdown, you can press the <gui style="
 "\"button\">Pause</gui> button to pause the timer. To reset the timer, press "
 "the <gui style=\"button\">Reset</gui> button."
-msgstr "Når timeren har startet sin nedtælling, kan du trykke på knappen <gui style=\"button\">Pause</gui> for at sætte timeren på pause. For at nulstille timeren, kan du trykke på knappen <gui style=\"button\">Nulstil</gui>."
+msgstr ""
+"Når minuturet har startet sin nedtælling, kan du trykke på knappen <gui "
+"style=\"button\">Pause</gui> for at sætte minuturet på pause. For at "
+"nulstille minuturet, kan du trykke på knappen <gui style=\"button\">Nulstil</"
+"gui>."
 
 #. (itstool) path: credit/name
 #: C/world-add.page:24
@@ -336,7 +373,7 @@ msgstr "Tilføj et ur for en ny by til din liste med verdensure."
 #. (itstool) path: page/title
 #: C/world-add.page:31
 msgid "Add a new city clock"
-msgstr "Tilføj et nyt by-ur"
+msgstr "Tilføj et nyt byur"
 
 #. (itstool) path: page/p
 #: C/world-add.page:33
@@ -344,7 +381,10 @@ msgid ""
 "Add a city to your world clocks to see the time of day or night in that "
 "city. You will also be able to <link xref=\"world-check\">check the sunrise "
 "and sunset times</link> for each of the cities that you have added."
-msgstr "Tilføj en by til dine verdensure for at se klokkeslættet på dagen eller natten i den by. Du vil også kunne <link xref=\"world-check\">tjekke solopgangs- og solnedgangstider</link> for hver by, du har tilføjet."
+msgstr ""
+"Tilføj en by til dine verdensure for at se klokkeslættet på dagen eller "
+"natten i den by. Du vil også kunne <link xref=\"world-check\">tjekke tider "
+"for solopgang og solnedgang</link> for hver by, du har tilføjet."
 
 #. (itstool) path: item/p
 #: C/world-add.page:39 C/world-check.page:35 C/world-remove.page:33
@@ -354,10 +394,10 @@ msgstr "Tryk på knappen <gui style=\"button\">Verden</gui>."
 #. (itstool) path: item/p
 #: C/world-add.page:42
 msgid ""
-"Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
+"Press the <gui style=\"button\">+</gui> button or <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> to add a new city."
 msgstr ""
-"Tryk på knappen <gui style=\"button\">Ny</gui> eller <keyseq><key>Ctrl</"
+"Tryk på knappen <gui style=\"button\">+</gui> eller <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> for at tilføje en ny by."
 
 #. (itstool) path: item/p
@@ -368,7 +408,8 @@ msgstr "Begynd at skrive navnet på byen i søgningen."
 #. (itstool) path: item/p
 #: C/world-add.page:49
 msgid "Select the correct city or the closest location to you from the list."
-msgstr "Vælg den korrekte by, eller den placering som er nærmest dig, fra listen."
+msgstr ""
+"Vælg den korrekte by, eller den placering som er nærmest dig, fra listen."
 
 #. (itstool) path: item/p
 #: C/world-add.page:53
@@ -395,12 +436,16 @@ msgid ""
 "world clocks when you are connected to the Internet. It will not be shown if "
 "you disconnect from the Internet and it will automatically update if you "
 "take your computer to a different city."
-msgstr "Uret til din nuværende placering vil automatisk blive tilføjet til dine verdensure, når du er forbundet til internettet. Det vises ikke, hvis du afbryder forbindelsen til internettet, og det vil opdatere automatisk, hvis du tager din computer til en anden by."
+msgstr ""
+"Uret til din nuværende placering vil automatisk blive tilføjet til dine "
+"verdensure, når du er forbundet til internettet. Det vises ikke, hvis du "
+"afbryder forbindelsen til internettet, og det vil opdatere automatisk, hvis "
+"du tager din computer til en anden by."
 
 #. (itstool) path: info/desc
 #: C/world-check.page:24
 msgid "Check the sunrise and sunset times for a city."
-msgstr "Tjek solopgangs- og solnedgangstider for en by."
+msgstr "Tjek tider for solopgang og solnedgang for en by."
 
 #. (itstool) path: page/title
 #: C/world-check.page:27
@@ -412,7 +457,10 @@ msgstr "Hvad viser verdensure ellers?"
 msgid ""
 "Apart from checking the time, you can also view the sunrise and sunset times "
 "for today. You will also see if the city is a day behind or ahead of you."
-msgstr "Ud over at tjekke klokkeslættet, kan du også vise dagens solopgangs- og solnedgangstider. Du kan også se hvis byen er en dag foran eller bagud i forhold til dig."
+msgstr ""
+"Ud over at tjekke klokkeslættet, kan du også vise dagens tider for solopgang "
+"og solnedgang. Du kan også se hvis byen er en dag foran eller bagud i "
+"forhold til dig."
 
 #. (itstool) path: item/p
 #: C/world-check.page:38
@@ -437,91 +485,93 @@ msgstr "Du kan slette ure som du ikke længere har brug for."
 #. (itstool) path: item/p
 #: C/world-remove.page:36
 msgid ""
-"Right click on the world clock. You can press the button with the tick mark "
-"in the top right corner and select the clock which you want to delete."
-msgstr "Højreklik på verdensuret. Du kan trykke på knappen med afkrydsningsmærket i øverste højre hjørne og vælge det ur, du vil slette."
+"Press the <gui style=\"button\">Delete</gui> button to remove a world clock."
+msgstr ""
+"Tryk på knappen <gui style=\"button\">Slet</gui> for at fjerne et verdensur."
 
-#. (itstool) path: page/p
-#: C/world-remove.page:45
-msgid "You can select more than one clock at a time for deletion."
-msgstr "Du kan vælge mere end et ur til sletning på samme tid."
+#. (itstool) path: info/title
+#: C/index.page:22
+msgctxt "link:seealso"
+msgid "Clocks Help"
+msgstr "Hjælp til Ure"
 
 #. (itstool) path: info/desc
-#: C/index.page:22
+#: C/index.page:24
 msgid ""
 "Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
 "the time in different cities around the world."
 msgstr ""
-"Brug <app>Ure</app> som et stopur, en timer, til at sætte alarmer og til at "
-"tjekke klokkeslættet i forskellige byer verden over."
+"Brug <app>Ure</app> som et stopur, et minutur, til at sætte alarmer og til "
+"at tjekke klokkeslættet i forskellige byer verden over."
 
 #. (itstool) path: page/title
-#: C/index.page:26
+#: C/index.page:28
 msgid "<_:media-1/>Clocks"
 msgstr "<_:media-1/>Ure"
 
 #. (itstool) path: page/p
-#: C/index.page:28
+#: C/index.page:30
 msgid ""
 "Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
 "the time in different cities."
 msgstr ""
-"Brug <app>Ure</app> som et stopur, en timer, til at sætte alarmer og til at "
-"tjekke klokkeslættet i forskellige byer."
+"Brug <app>Ure</app> som et stopur, et minutur, til at sætte alarmer og til "
+"at tjekke klokkeslættet i forskellige byer."
 
 #. (itstool) path: section/title
-#: C/index.page:32
+#: C/index.page:34
 msgid "World clocks"
 msgstr "Verdensure"
 
 #. (itstool) path: section/p
-#: C/index.page:34
+#: C/index.page:36
 msgid ""
 "View the time in cities around the world on the same screen. You can also "
 "check if it is still the same day in those cities, and the sunrise and "
 "sunset times."
 msgstr ""
 "Vis klokkeslættet i byer verden over på samme skærm. Du kan også tjekke om "
-"det stadigvæk er den samme dag i disse byer, og solopgangs- og "
-"solnedgangstiderne."
+"det stadigvæk er den samme dag i disse byer, og klokkeslæt for solopgang og "
+"solnedgang."
 
 #. (itstool) path: section/title
-#: C/index.page:41
+#: C/index.page:43
 msgid "Alarm clocks"
 msgstr "Alarmure"
 
 #. (itstool) path: section/p
-#: C/index.page:43
+#: C/index.page:45
 msgid "Set customisable alarms to go off on specific days every week."
 msgstr ""
 "Sæt brugerdefinerede alarmer til at blive udløst på bestemte dage hver uge."
 
 #. (itstool) path: section/title
-#: C/index.page:48
+#: C/index.page:50
 msgid "Stopwatch"
 msgstr "Stopur"
 
 #. (itstool) path: section/p
-#: C/index.page:50
+#: C/index.page:52
 msgid "Use the stopwatch to time how long something takes."
 msgstr "Brug stopuret til at tage tid på hvor længe noget tager."
 
 #. (itstool) path: section/title
-#: C/index.page:55
+#: C/index.page:57
 msgid "Timer"
-msgstr "Timer"
+msgstr "Minutur"
 
 #. (itstool) path: section/p
-#: C/index.page:57
+#: C/index.page:59
 msgid "Set a countdown in seconds, minutes or hours."
 msgstr "Sæt en nedtælling i sekunder, minutter eller timer."
 
 #. (itstool) path: p/link
 #: C/legal.xml:4
 msgid "Creative Commons Attribution-ShareAlike 3.0 Unported License"
-msgstr "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+msgstr ""
+"Creative Commons Kreditering-Deling på samme vilkår 3.0 Ikke porteret-licens"
 
 #. (itstool) path: license/p
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
-msgstr "Dette værk er licenseret under <_:link-1/>."
+msgstr "Værket er licenseret under en <_:link-1/>."
