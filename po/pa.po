@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2021-02-13 11:58+0000\n"
-"PO-Revision-Date: 2021-02-13 17:36-0800\n"
+"POT-Creation-Date: 2021-03-09 20:36+0000\n"
+"PO-Revision-Date: 2021-03-14 10:59-0700\n"
 "Last-Translator: A S Alam <aalam@satluj.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
 "Language: pa\n"
@@ -148,7 +148,7 @@ msgstr "ਸਟਾਪਵਾਚ ਸਕਰੀਨ"
 msgid "Timer screen"
 msgstr "ਟਾਈਮਰ ਸਕਰੀਨ"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:95
+#: data/org.gnome.clocks.metainfo.xml.in.in:96
 msgid "The GNOME Project"
 msgstr "ਗਨੋਮ ਪਰੋਜੈੱਕਟ"
 
@@ -188,29 +188,21 @@ msgid "Go to the previous section"
 msgstr "ਪਿਛਲੀ ਚੋਣ ਉੱਤੇ ਜਾਓ"
 
 #: data/gtk/help-overlay.ui:61
-#| msgctxt "shortcut window"
-#| msgid "Go to the next section"
 msgctxt "shortcut window"
 msgid "Go to the World section"
 msgstr "ਸੰਸਾਰ ਭਾਗ ਉੱਤੇ ਜਾਓ"
 
 #: data/gtk/help-overlay.ui:68
-#| msgctxt "shortcut window"
-#| msgid "Go to the previous section"
 msgctxt "shortcut window"
 msgid "Go to the Alarms section"
 msgstr "ਅਲਾਰਮ ਭਾਗ ਉੱਤੇ ਜਾਓ"
 
 #: data/gtk/help-overlay.ui:75
-#| msgctxt "shortcut window"
-#| msgid "Go to the next section"
 msgctxt "shortcut window"
 msgid "Go to the Stopwatch section"
 msgstr "ਸਟਾਪ-ਵਾਚ ਭਾਗ ਉੱਤੇ ਜਾਓ"
 
 #: data/gtk/help-overlay.ui:82
-#| msgctxt "shortcut window"
-#| msgid "Go to the next section"
 msgctxt "shortcut window"
 msgid "Go to the Timer section"
 msgstr "ਟਾਈਮਰ ਭਾਗ ਉੱਤੇ ਜਾਓ"
@@ -256,7 +248,6 @@ msgid "Reset"
 msgstr "ਮੁੜ-ਸੈੱਟ ਕਰੋ"
 
 #: data/gtk/help-overlay.ui:145
-#| msgid "New Timer"
 msgctxt "shortcut window"
 msgid "New Timer"
 msgstr "ਨਵਾਂ ਟਾਈਮਰ"
@@ -269,11 +260,11 @@ msgstr "ਦੁਹਰਾਓ(_R)"
 msgid "Add A_larm"
 msgstr "ਅਲਾਰਮ ਜੋੜੋ(_l)"
 
-#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:116
+#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:117
 msgid "Stop"
 msgstr "ਰੋਕੋ"
 
-#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:117
+#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:118
 msgid "Snooze"
 msgstr "ਟਾਲੋ"
 
@@ -304,12 +295,10 @@ msgid "Optional"
 msgstr "ਚੋਣਵਾਂ"
 
 #: data/ui/alarm-setup-dialog.ui:161
-#| msgid "Select Duration"
 msgid "Ring Duration"
 msgstr "ਘੰਟੀ ਦਾ ਅੰਤਰਾਲ"
 
 #: data/ui/alarm-setup-dialog.ui:169
-#| msgid "Select Duration"
 msgid "Snooze Duration"
 msgstr "ਟਾਲਣ ਦਾ ਅੰਤਰਾਲ"
 
@@ -419,7 +408,6 @@ msgid "Timer"
 msgstr "ਟਾਈਮਰ"
 
 #: data/ui/world-face.ui:35 data/ui/world-location-dialog.ui:8
-#| msgid "Add a New World Clock"
 msgid "Add World Clock"
 msgstr "ਸੰਸਾਰ ਘੜੀ ਜੋੜੋ"
 
@@ -436,7 +424,6 @@ msgid "_Add"
 msgstr "ਜੋੜੋ(_A)"
 
 #: data/ui/world-location-dialog.ui:140
-#| msgid "Search for a city:"
 msgid "Search for a City"
 msgstr "ਸ਼ਹਿਰ ਲੱਭੋ"
 
@@ -570,83 +557,97 @@ msgstr[1] "%s ਘੰਟੇ ਬਾਅਦ"
 
 #. Translators: This is used in the repeat toggle for Monday
 #: src/utils.vala:189
-#| msgctxt "Repeat|Monday"
+#| msgctxt "Alarm|Repeat-On"
 #| msgid "M"
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "ਸੋ"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:191 src/utils.vala:195
-#| msgctxt "Repeat|Tuesday"
+#: src/utils.vala:191
+#| msgctxt "Alarm|Repeat-On"
 #| msgid "T"
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "ਮੰ"
 
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:193
-#| msgctxt "Repeat|Wednesday"
+#| msgctxt "Alarm|Repeat-On"
 #| msgid "W"
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "ਬੁੱ"
 
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:195
+#| msgctxt "Alarm|Repeat-On"
+#| msgid "T"
+msgctxt "Alarm|Repeat-On|Thursday"
+msgid "T"
+msgstr "ਵੀ"
+
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:197
-#| msgctxt "Repeat|Friday"
+#| msgctxt "Alarm|Repeat-On"
 #| msgid "F"
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "ਸ਼ੁ"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:199 src/utils.vala:201
-#| msgctxt "Repeat|Saturday"
+#: src/utils.vala:199
+#| msgctxt "Alarm|Repeat-On"
 #| msgid "S"
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "ਸ਼"
 
-#: src/utils.vala:205
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:201
+#| msgctxt "Alarm|Repeat-On"
+#| msgid "S"
+msgctxt "Alarm|Repeat-On|Sunday"
+msgid "S"
+msgstr "ਐ"
+
+#: src/utils.vala:215
 msgid "Mondays"
 msgstr "ਸੋਮਵਾਰ"
 
-#: src/utils.vala:206
+#: src/utils.vala:216
 msgid "Tuesdays"
 msgstr "ਮੰਗਲਵਾਰ"
 
-#: src/utils.vala:207
+#: src/utils.vala:217
 msgid "Wednesdays"
 msgstr "ਬੁੱਧਵਾਰ"
 
-#: src/utils.vala:208
+#: src/utils.vala:218
 msgid "Thursdays"
 msgstr "ਵੀਰਵਾਰ"
 
-#: src/utils.vala:209
+#: src/utils.vala:219
 msgid "Fridays"
 msgstr "ਸ਼ੁੱਕਰਵਾਰ"
 
-#: src/utils.vala:210
+#: src/utils.vala:220
 msgid "Saturdays"
 msgstr "ਸ਼ਨਿੱਚਰਵਾਰ"
 
-#: src/utils.vala:211
+#: src/utils.vala:221
 msgid "Sundays"
 msgstr "ਐਤਵਾਰ"
 
-#: src/utils.vala:337
+#: src/utils.vala:347
 msgid "Every Day"
 msgstr "ਹਰ ਰੋਜ਼"
 
-#: src/utils.vala:339
+#: src/utils.vala:349
 msgid "Weekdays"
 msgstr "ਹਫ਼ਤੇ ਦੇ ਦਿਨ"
 
-#: src/utils.vala:341
+#: src/utils.vala:351
 msgid "Weekends"
 msgstr "ਹਫ਼ਤੇ ਚ ਛੁੱਟੀ ਦੇ ਦਿਨ"
 
