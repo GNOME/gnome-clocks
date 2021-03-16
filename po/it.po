@@ -1,15 +1,15 @@
 # Italian translations for gnome-clocks package
-# Copyright (C) 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020 the gnome-clocks copyright holder
+# Copyright (C) 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021 the gnome-clocks copyright holder
 # This file is distributed under the same license as the gnome-clocks package.
 # Paolo Borelli <pborelli@gnome.org>, 2012.
-# Milo Casagrande <milo@milo.name>, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020.
+# Milo Casagrande <milo@milo.name>, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-08-07 13:53+0000\n"
-"PO-Revision-Date: 2020-09-03 09:26+0200\n"
+"POT-Creation-Date: 2021-02-21 14:13+0000\n"
+"PO-Revision-Date: 2021-03-15 09:42+0100\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:297
-#: src/window.vala:352 src/world-standalone.vala:24
+#: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:323
+#: src/window.vala:378 src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Orologi"
 
@@ -147,7 +147,7 @@ msgstr "Vista cronometro"
 msgid "Timer screen"
 msgstr "Vista timer"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:83
+#: data/org.gnome.clocks.metainfo.xml.in.in:96
 msgid "The GNOME Project"
 msgstr "Il progetto GNOME"
 
@@ -186,47 +186,67 @@ msgctxt "shortcut window"
 msgid "Go to the previous section"
 msgstr "Va alla sezione precedente"
 
-#: data/gtk/help-overlay.ui:63
+#: data/gtk/help-overlay.ui:61
+msgctxt "shortcut window"
+msgid "Go to the World section"
+msgstr "Va alla sezione mondo"
+
+#: data/gtk/help-overlay.ui:68
+msgctxt "shortcut window"
+msgid "Go to the Alarms section"
+msgstr "Va alla sezione sveglie"
+
+#: data/gtk/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch section"
+msgstr "Va alla sezione cronometro"
+
+#: data/gtk/help-overlay.ui:82
+msgctxt "shortcut window"
+msgid "Go to the Timer section"
+msgstr "Va alla sezione timer"
+
+#: data/gtk/help-overlay.ui:91
 msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Orologi mondiali"
 
-#: data/gtk/help-overlay.ui:68
+#: data/gtk/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Aggiunge un nuovo orologio"
 
-#: data/gtk/help-overlay.ui:77
+#: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Sveglia"
 
-#: data/gtk/help-overlay.ui:82
+#: data/gtk/help-overlay.ui:110
 msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Aggiunge una sveglia"
 
-#: data/gtk/help-overlay.ui:91
+#: data/gtk/help-overlay.ui:119
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Cronometro"
 
-#: data/gtk/help-overlay.ui:96
+#: data/gtk/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Interrompe / Azzera"
 
-#: data/gtk/help-overlay.ui:105
+#: data/gtk/help-overlay.ui:133
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Timer"
 
-#: data/gtk/help-overlay.ui:110
+#: data/gtk/help-overlay.ui:138
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Azzera"
 
-#: data/gtk/help-overlay.ui:117
+#: data/gtk/help-overlay.ui:145
 msgctxt "shortcut window"
 msgid "New Timer"
 msgstr "Nuovo timer"
@@ -252,7 +272,7 @@ msgstr "Ripeti"
 msgid "Active"
 msgstr "Attivata"
 
-#: data/ui/alarm-row.ui:39
+#: data/ui/alarm-row.ui:39 data/ui/world-row.ui:92
 msgid "Delete"
 msgstr "Elimina"
 
@@ -260,9 +280,11 @@ msgstr "Elimina"
 msgid "Repeats"
 msgstr "Si ripete"
 
-#: data/ui/alarm-setup-dialog.ui:24 data/ui/world-location-dialog.ui:20
-msgid "Add a New World Clock"
-msgstr "Aggiungi un nuovo orologio"
+#. Translators: Tooltip for the + button
+#: data/ui/alarm-setup-dialog.ui:24 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:108
+msgid "New Alarm"
+msgstr "Nuova sveglia"
 
 #: data/ui/alarm-setup-dialog.ui:143
 msgid "Name"
@@ -312,7 +334,7 @@ msgstr "Menù"
 msgid "_Start"
 msgstr "_Avvia"
 
-#: data/ui/stopwatch-face.ui:192 src/stopwatch-face.vala:178
+#: data/ui/stopwatch-face.ui:192 src/stopwatch-face.vala:182
 msgid "Clear"
 msgstr "Pulisci"
 
@@ -389,6 +411,10 @@ msgstr "Timer"
 msgid "Add World Clock"
 msgstr "Aggiungi orologio"
 
+#: data/ui/world-location-dialog.ui:20
+msgid "Add a New World Clock"
+msgstr "Aggiungi un nuovo orologio"
+
 #: data/ui/world-location-dialog.ui:24
 msgid "_Cancel"
 msgstr "A_nnulla"
@@ -397,8 +423,8 @@ msgstr "A_nnulla"
 msgid "_Add"
 msgstr "_Aggiungi"
 
-#: data/ui/world-location-dialog.ui:139
-msgid "Search for a city"
+#: data/ui/world-location-dialog.ui:140
+msgid "Search for a City"
 msgstr "Cerca una città"
 
 #: data/ui/world-standalone.ui:104
@@ -409,15 +435,10 @@ msgstr "Alba"
 msgid "Sunset"
 msgstr "Tramonto"
 
-#. Translators: Tooltip for the + button
-#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:108
-msgid "New Alarm"
-msgstr "Nuova sveglia"
-
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:348
+#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:374
 msgid "Alarm"
 msgstr "Sveglia"
 
@@ -477,19 +498,19 @@ msgstr "Aggiungi"
 msgid "Print version information and exit"
 msgstr "Stampa informazioni di versione ed esce"
 
-#: src/stopwatch-face.vala:158
+#: src/stopwatch-face.vala:162
 msgid "Pause"
 msgstr "Pausa"
 
-#: src/stopwatch-face.vala:162 src/stopwatch-face.vala:199
+#: src/stopwatch-face.vala:166 src/stopwatch-face.vala:203
 msgid "Lap"
 msgstr "Giro"
 
-#: src/stopwatch-face.vala:174
+#: src/stopwatch-face.vala:178
 msgid "Resume"
 msgstr "Riprendi"
 
-#: src/stopwatch-face.vala:195
+#: src/stopwatch-face.vala:199
 msgid "Start"
 msgstr "Avvia"
 
@@ -536,86 +557,96 @@ msgstr[1] "%s ore dopo"
 
 #. Translators: This is used in the repeat toggle for Monday
 #: src/utils.vala:189
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "L"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:191 src/utils.vala:195
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:191
+msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "M"
 
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:193
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "M"
 
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:195
+msgctxt "Alarm|Repeat-On|Thursday"
+msgid "T"
+msgstr "G"
+
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:197
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "V"
 
 #. Translators: This is used in the repeat toggle for Saturday
+#: src/utils.vala:199
+msgctxt "Alarm|Repeat-On|Saturday"
+msgid "S"
+msgstr "S"
+
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:199 src/utils.vala:201
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:201
+msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
 msgstr "D"
 
-#: src/utils.vala:205
+#: src/utils.vala:215
 msgid "Mondays"
 msgstr "Lunedì"
 
-#: src/utils.vala:206
+#: src/utils.vala:216
 msgid "Tuesdays"
 msgstr "Martedì"
 
-#: src/utils.vala:207
+#: src/utils.vala:217
 msgid "Wednesdays"
 msgstr "Mercoledì"
 
-#: src/utils.vala:208
+#: src/utils.vala:218
 msgid "Thursdays"
 msgstr "Giovedì"
 
-#: src/utils.vala:209
+#: src/utils.vala:219
 msgid "Fridays"
 msgstr "Venerdì"
 
-#: src/utils.vala:210
+#: src/utils.vala:220
 msgid "Saturdays"
 msgstr "Sabati"
 
-#: src/utils.vala:211
+#: src/utils.vala:221
 msgid "Sundays"
 msgstr "Domeniche"
 
-#: src/utils.vala:337
+#: src/utils.vala:347
 msgid "Every Day"
 msgstr "Tutti i giorni"
 
-#: src/utils.vala:339
+#: src/utils.vala:349
 msgid "Weekdays"
 msgstr "Giorni lavorativi"
 
-#: src/utils.vala:341
+#: src/utils.vala:351
 msgid "Weekends"
 msgstr "Giorni non lavorativi"
 
-#: src/window.vala:268
+#: src/window.vala:294
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Visualizzazione della guida non riuscita: %s"
 
-#: src/window.vala:302
+#: src/window.vala:328
 msgid "Utilities to help you with the time."
 msgstr "Strumenti per controllare l'ora."
 
-#: src/window.vala:307
+#: src/window.vala:333
 msgid "translator-credits"
 msgstr ""
 "Milo Casagrande (milo@milo.name)\n"
