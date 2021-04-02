@@ -38,7 +38,7 @@ private class LocationDialogRow : Gtk.ListBoxRow {
         var local_time = wallclock.date_time;
         var weather_time_zone = data.location.get_timezone ();
         if (weather_time_zone != null) {
-            var time_zone = new TimeZone (((GWeather.Timezone) weather_time_zone).get_tzid ());
+            var time_zone = new TimeZone.identifier (((GWeather.Timezone) weather_time_zone).get_tzid ());
             var date_time = local_time.to_timezone (time_zone);
             var local_offset = local_time.get_utc_offset () - date_time.get_utc_offset ();
             var time_diff_message = Utils.get_time_difference_message (local_offset);

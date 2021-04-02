@@ -218,7 +218,7 @@ public class Item : Object, ContentItem {
 
         var weather_time_zone = location.get_timezone_str ();
         if (weather_time_zone != null) {
-            time_zone = new GLib.TimeZone ((string) weather_time_zone);
+            time_zone = new GLib.TimeZone.identifier ((string) weather_time_zone);
             if (time_zone == null) {
                 warning ("Unrecognised timezone %s",
                          (string) weather_time_zone);
