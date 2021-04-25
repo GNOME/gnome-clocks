@@ -1,18 +1,18 @@
 # Brazilian Portuguese translation for gnome-clocks.
-# Copyright (C) 2020 gnome-clocks's COPYRIGHT HOLDER
+# Copyright (C) 2021 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Djavan Fagundes <djavan@comum.org>, 2012.
 # Edson Silva <edsonlead@gmail.com>, 2013.
 # Fábio Nogueira <fnogueira@gnome.org>, 2016.
 # Enrico Nicoletto <liverig@gmail.com>, 2012, 2013, 2014, 2016, 2020.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2017-2020.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2017-2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-08-26 11:58+0000\n"
-"PO-Revision-Date: 2020-08-26 09:35-0300\n"
+"POT-Creation-Date: 2021-03-09 20:34+0000\n"
+"PO-Revision-Date: 2021-04-25 16:10-0300\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Gtranslator 3.36.0\n"
+"X-Generator: Gtranslator 40.0\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
@@ -152,7 +152,7 @@ msgstr "Tela de cronômetro"
 msgid "Timer screen"
 msgstr "Tela de temporizador"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:85
+#: data/org.gnome.clocks.metainfo.xml.in.in:95
 msgid "The GNOME Project"
 msgstr "O Projeto GNOME"
 
@@ -264,9 +264,11 @@ msgstr "Excluir"
 msgid "Repeats"
 msgstr "Repetições"
 
-#: data/ui/alarm-setup-dialog.ui:24 data/ui/world-location-dialog.ui:20
-msgid "Add a New World Clock"
-msgstr "Adicionar um novo relógio mundial"
+#. Translators: Tooltip for the + button
+#: data/ui/alarm-setup-dialog.ui:24 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:108
+msgid "New Alarm"
+msgstr "Novo alarme"
 
 #: data/ui/alarm-setup-dialog.ui:143
 msgid "Name"
@@ -393,6 +395,10 @@ msgstr "Temporizador"
 msgid "Add World Clock"
 msgstr "Adicionar relógio mundial"
 
+#: data/ui/world-location-dialog.ui:20
+msgid "Add a New World Clock"
+msgstr "Adicionar um novo relógio mundial"
+
 #: data/ui/world-location-dialog.ui:24
 msgid "_Cancel"
 msgstr "_Cancelar"
@@ -412,11 +418,6 @@ msgstr "Nascer do sol"
 #: data/ui/world-standalone.ui:118
 msgid "Sunset"
 msgstr "Pôr-do-sol"
-
-#. Translators: Tooltip for the + button
-#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:108
-msgid "New Alarm"
-msgstr "Novo alarme"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
@@ -538,52 +539,47 @@ msgid_plural "%s hours later"
 msgstr[0] "%s hora depois"
 msgstr[1] "%s horas depois"
 
-# Manter tudo em inglês enquanto não estiver resolvido:
+# Keep this in English
 # https://gitlab.gnome.org/GNOME/gnome-clocks/-/issues/118
 #. Translators: This is used in the repeat toggle for Monday
 #: src/utils.vala:189
-#, fuzzy
 msgctxt "Alarm|Repeat-On"
 msgid "M"
-msgstr "S"
+msgstr "M"
 
-# Manter tudo em inglês enquanto não estiver resolvido:
+# Keep this in English
 # https://gitlab.gnome.org/GNOME/gnome-clocks/-/issues/118
 #. Translators: This is used in the repeat toggle for Tuesday
 #. Translators: This is used in the repeat toggle for Thursday
 #: src/utils.vala:191 src/utils.vala:195
-#, fuzzy
 msgctxt "Alarm|Repeat-On"
 msgid "T"
-msgstr "T/Q"
+msgstr "T"
 
-# Manter tudo em inglês enquanto não estiver resolvido:
+# Keep this in English
 # https://gitlab.gnome.org/GNOME/gnome-clocks/-/issues/118
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:193
-#, fuzzy
 msgctxt "Alarm|Repeat-On"
 msgid "W"
-msgstr "Q"
+msgstr "W"
 
-# Manter tudo em inglês enquanto não estiver resolvido:
+# Keep this in English
 # https://gitlab.gnome.org/GNOME/gnome-clocks/-/issues/118
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:197
-#, fuzzy
 msgctxt "Alarm|Repeat-On"
 msgid "F"
-msgstr "S"
+msgstr "F"
 
-# Manter tudo em inglês enquanto não estiver resolvido:
+# Keep this in English
 # https://gitlab.gnome.org/GNOME/gnome-clocks/-/issues/118
 #. Translators: This is used in the repeat toggle for Saturday
 #. Translators: This is used in the repeat toggle for Sunday
 #: src/utils.vala:199 src/utils.vala:201
-#, fuzzy
 msgctxt "Alarm|Repeat-On"
 msgid "S"
-msgstr "S/D"
+msgstr "S"
 
 #: src/utils.vala:205
 msgid "Mondays"
