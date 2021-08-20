@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2021-05-09 16:26+0000\n"
-"PO-Revision-Date: 2021-05-27 09:36+0700\n"
+"POT-Creation-Date: 2021-05-27 02:40+0000\n"
+"PO-Revision-Date: 2021-08-20 09:58+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome@i15n.org>\n"
 "Language: id\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
-"X-Generator: Poedit 2.4.3\n"
+"X-Generator: Poedit 3.0\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:323
@@ -30,12 +30,12 @@ msgstr "Jam"
 #: data/org.gnome.clocks.desktop.in.in:6
 #: data/org.gnome.clocks.metainfo.xml.in.in:7
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Jam untuk waktu dunia, alarm, stopwatch dan penghitung waktu"
+msgstr "Jam untuk waktu dunia, alarm, stopwatch dan pewaktu"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "time;penghitung waktu;alarm;jam dunia;stopwatch;zona waktu;jam;waktu;"
+msgstr "time;pewaktu;alarm;jam dunia;stopwatch;zona waktu;jam;waktu;"
 
 #: data/org.gnome.clocks.desktop.in.in:18
 msgid "Allows world clocks to be displayed for your time zone."
@@ -59,11 +59,11 @@ msgstr "Daftar alarm yang telah disetel."
 
 #: data/org.gnome.clocks.gschema.xml.in:19
 msgid "Configured Timers"
-msgstr "Penghitung waktu yang telah disetel"
+msgstr "Pewaktu yang telah disetel"
 
 #: data/org.gnome.clocks.gschema.xml.in:20
 msgid "List of timers set."
-msgstr "Daftar penghitung waktu yang telah disetel."
+msgstr "Daftar pewaktu yang telah disetel."
 
 #: data/org.gnome.clocks.gschema.xml.in:26
 msgid "Geolocation support"
@@ -107,7 +107,7 @@ msgid ""
 "stopwatch and a timer."
 msgstr ""
 "Aplikasi jam yang sederhana dan elegan. Ini termasuk jam dunia, alarm, "
-"stopwatch, dan penghitung waktu."
+"stopwatch, dan pewaktu."
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:13
 msgid "Goals:"
@@ -147,7 +147,7 @@ msgstr "Layar stopwatch"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:48
 msgid "Timer screen"
-msgstr "Layar penghitung waktu"
+msgstr "Layar pewaktu"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:104
 msgid "The GNOME Project"
@@ -206,7 +206,7 @@ msgstr "Pergi ke bagian Stopwatch"
 #: data/gtk/help-overlay.ui:82
 msgctxt "shortcut window"
 msgid "Go to the Timer section"
-msgstr "Pergi ke bagian Penghitung Waktu"
+msgstr "Pergi ke bagian Pewaktu"
 
 #: data/gtk/help-overlay.ui:91
 msgctxt "shortcut window"
@@ -241,7 +241,7 @@ msgstr "Berhenti / Reset"
 #: data/gtk/help-overlay.ui:133
 msgctxt "shortcut window"
 msgid "Timer"
-msgstr "Penghitung Waktu"
+msgstr "Pewaktu"
 
 #: data/gtk/help-overlay.ui:138
 msgctxt "shortcut window"
@@ -251,7 +251,7 @@ msgstr "Atur ulang"
 #: data/gtk/help-overlay.ui:145
 msgctxt "shortcut window"
 msgid "New Timer"
-msgstr "Penghitung Waktu Baru"
+msgstr "Pewaktu Baru"
 
 #: data/ui/alarm-day-picker-row.ui:5
 msgid "_Repeat"
@@ -406,7 +406,7 @@ msgstr "Stopwatch"
 
 #: data/ui/window.ui:83
 msgid "Timer"
-msgstr "Penghitung Waktu"
+msgstr "Pewaktu"
 
 #: data/ui/world-face.ui:35 data/ui/world-location-dialog.ui:8
 msgid "Add World Clock"
@@ -523,7 +523,7 @@ msgstr "Putaran %i"
 #. Translators: Tooltip for the + button
 #: src/timer-face.vala:37 src/timer-setup-dialog.vala:27
 msgid "New Timer"
-msgstr "Penghitung Waktu Baru"
+msgstr "Pewaktu Baru"
 
 #: src/timer-face.vala:75
 msgid "Time is up!"
@@ -531,7 +531,7 @@ msgstr "Waktu habis!"
 
 #: src/timer-face.vala:76
 msgid "Timer countdown finished"
-msgstr "Penghitung waktu sudah selesai"
+msgstr "Hitung mundur pewaktu selesai"
 
 #. Translators: The time is the same as the local time
 #: src/utils.vala:76
