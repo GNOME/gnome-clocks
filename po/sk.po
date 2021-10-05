@@ -1,27 +1,27 @@
 # Slovak translation for gnome-clocks.
 # Copyright (C) 2012, 2013 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-clocks package.
-# Dušan Kazik <prescott66@gmail.com>, 2012, 2013.
+# Dušan Kazik <prescott66@gmail.com>, 2012-2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-08-07 13:53+0000\n"
-"PO-Revision-Date: 2020-09-03 13:49+0200\n"
+"POT-Creation-Date: 2021-05-09 16:26+0000\n"
+"PO-Revision-Date: 2021-10-05 13:33+0200\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Generator: Poedit 2.4.1\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0\n"
+"X-Generator: Gtranslator 40.0\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:297
-#: src/window.vala:352 src/world-standalone.vala:24
+#: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:323
+#: src/window.vala:378 src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Hodiny"
 
@@ -161,7 +161,7 @@ msgstr "Obrazovka so stopkami"
 msgid "Timer screen"
 msgstr "Obrazovka s časovačmi"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:83
+#: data/org.gnome.clocks.metainfo.xml.in.in:104
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -200,47 +200,75 @@ msgctxt "shortcut window"
 msgid "Go to the previous section"
 msgstr "Prejdenie na predchádzajúcu sekciu"
 
-#: data/gtk/help-overlay.ui:63
+#: data/gtk/help-overlay.ui:61
+#| msgctxt "shortcut window"
+#| msgid "Go to the next section"
+msgctxt "shortcut window"
+msgid "Go to the World section"
+msgstr "Prejdenie na sekciu so svetom"
+
+#: data/gtk/help-overlay.ui:68
+#| msgctxt "shortcut window"
+#| msgid "Go to the previous section"
+msgctxt "shortcut window"
+msgid "Go to the Alarms section"
+msgstr "Prejdenie na sekciu s budíkmi"
+
+#: data/gtk/help-overlay.ui:75
+#| msgctxt "shortcut window"
+#| msgid "Go to the next section"
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch section"
+msgstr "Prejdenie na sekciu so stopkami"
+
+#: data/gtk/help-overlay.ui:82
+#| msgctxt "shortcut window"
+#| msgid "Go to the next section"
+msgctxt "shortcut window"
+msgid "Go to the Timer section"
+msgstr "Prejdenie na sekciu s časovačom"
+
+#: data/gtk/help-overlay.ui:91
 msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Svetové hodiny"
 
-#: data/gtk/help-overlay.ui:68
+#: data/gtk/help-overlay.ui:96
 msgctxt "shortcut window"
 msgid "Add a world clock"
 msgstr "Pridanie svetových hodín"
 
-#: data/gtk/help-overlay.ui:77
+#: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Budík"
 
-#: data/gtk/help-overlay.ui:82
+#: data/gtk/help-overlay.ui:110
 msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "Pridanie budíku"
 
-#: data/gtk/help-overlay.ui:91
+#: data/gtk/help-overlay.ui:119
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Stopky"
 
-#: data/gtk/help-overlay.ui:96
+#: data/gtk/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "Zastavenie alebo vynulovanie"
 
-#: data/gtk/help-overlay.ui:105
+#: data/gtk/help-overlay.ui:133
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Časovač"
 
-#: data/gtk/help-overlay.ui:110
+#: data/gtk/help-overlay.ui:138
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Vynulovanie"
 
-#: data/gtk/help-overlay.ui:117
+#: data/gtk/help-overlay.ui:145
 msgctxt "shortcut window"
 msgid "New Timer"
 msgstr "Nový časovač"
@@ -254,11 +282,11 @@ msgstr "O_pakovať"
 msgid "Add A_larm"
 msgstr "Pridať _budík"
 
-#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:116
+#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:117
 msgid "Stop"
 msgstr "Zastaviť"
 
-#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:117
+#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:118
 msgid "Snooze"
 msgstr "Odložiť"
 
@@ -267,18 +295,21 @@ msgstr "Odložiť"
 msgid "Active"
 msgstr "Aktívny"
 
-#: data/ui/alarm-row.ui:39
+# tooltipy
+#: data/ui/alarm-row.ui:39 data/ui/world-row.ui:92
 msgid "Delete"
-msgstr "Odstrániť"
+msgstr "Odstráni"
 
 # Pondelok, Utorok, ...
 #: data/ui/alarm-row.ui:69
 msgid "Repeats"
 msgstr "Opakovania"
 
-#: data/ui/alarm-setup-dialog.ui:24 data/ui/world-location-dialog.ui:20
-msgid "Add a New World Clock"
-msgstr "Pridanie nových svetových hodín"
+#. Translators: Tooltip for the + button
+#: data/ui/alarm-setup-dialog.ui:24 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:108
+msgid "New Alarm"
+msgstr "Nový budík"
 
 #: data/ui/alarm-setup-dialog.ui:143
 msgid "Name"
@@ -329,7 +360,7 @@ msgstr "Ponuka"
 msgid "_Start"
 msgstr "_Spustiť"
 
-#: data/ui/stopwatch-face.ui:192 src/stopwatch-face.vala:178
+#: data/ui/stopwatch-face.ui:192 src/stopwatch-face.vala:182
 msgid "Clear"
 msgstr "Vymazať"
 
@@ -406,6 +437,10 @@ msgstr "Časovač"
 msgid "Add World Clock"
 msgstr "Pridanie svetových hodín"
 
+#: data/ui/world-location-dialog.ui:20
+msgid "Add a New World Clock"
+msgstr "Pridanie nových svetových hodín"
+
 #: data/ui/world-location-dialog.ui:24
 msgid "_Cancel"
 msgstr "_Zrušiť"
@@ -414,8 +449,9 @@ msgstr "_Zrušiť"
 msgid "_Add"
 msgstr "Prid_ať"
 
-#: data/ui/world-location-dialog.ui:139
-msgid "Search for a city"
+#: data/ui/world-location-dialog.ui:140
+#| msgid "Search for a city"
+msgid "Search for a City"
 msgstr "Vyhľadajte mesto"
 
 #: data/ui/world-standalone.ui:104
@@ -426,15 +462,10 @@ msgstr "Východ slnka"
 msgid "Sunset"
 msgstr "Západ slnka"
 
-#. Translators: Tooltip for the + button
-#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:108
-msgid "New Alarm"
-msgstr "Nový budík"
-
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:348
+#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:374
 msgid "Alarm"
 msgstr "Budík"
 
@@ -495,19 +526,19 @@ msgstr "Pridať"
 msgid "Print version information and exit"
 msgstr "Zobrazí informácie o verzii a skončí"
 
-#: src/stopwatch-face.vala:158
+#: src/stopwatch-face.vala:162
 msgid "Pause"
 msgstr "Pozastaviť"
 
-#: src/stopwatch-face.vala:162 src/stopwatch-face.vala:199
+#: src/stopwatch-face.vala:166 src/stopwatch-face.vala:203
 msgid "Lap"
 msgstr "Okruh"
 
-#: src/stopwatch-face.vala:174
+#: src/stopwatch-face.vala:178
 msgid "Resume"
 msgstr "Pokračovať"
 
-#: src/stopwatch-face.vala:195
+#: src/stopwatch-face.vala:199
 msgid "Start"
 msgstr "Spustiť"
 
@@ -557,92 +588,110 @@ msgstr[2] "O %s hodiny neskôr"
 
 #. Translators: This is used in the repeat toggle for Monday
 #: src/utils.vala:189
-msgctxt "Alarm|Repeat-On"
+#| msgctxt "Alarm|Repeat-On"
+#| msgid "M"
+msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "P"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:191 src/utils.vala:195
-#, fuzzy
+#: src/utils.vala:191
 #| msgctxt "Repeat|Tuesday"
 #| msgid "T"
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "U"
 
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:193
-msgctxt "Alarm|Repeat-On"
+#| msgctxt "Alarm|Repeat-On"
+#| msgid "W"
+msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "S"
 
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:195
+#| msgctxt "Repeat|Tuesday"
+#| msgid "T"
+msgctxt "Alarm|Repeat-On|Thursday"
+msgid "T"
+msgstr "Š"
+
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:197
-msgctxt "Alarm|Repeat-On"
+#| msgctxt "Alarm|Repeat-On"
+#| msgid "F"
+msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "P"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:199 src/utils.vala:201
-#, fuzzy
+#: src/utils.vala:199
 #| msgctxt "Repeat|Saturday"
 #| msgid "S"
-msgctxt "Alarm|Repeat-On"
+msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "S"
 
-#: src/utils.vala:205
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:201
+#| msgctxt "Repeat|Saturday"
+#| msgid "S"
+msgctxt "Alarm|Repeat-On|Sunday"
+msgid "S"
+msgstr "N"
+
+#: src/utils.vala:215
 msgid "Mondays"
 msgstr "Každý pondelok"
 
-#: src/utils.vala:206
+#: src/utils.vala:216
 msgid "Tuesdays"
 msgstr "Každý utorok"
 
-#: src/utils.vala:207
+#: src/utils.vala:217
 msgid "Wednesdays"
 msgstr "Každú stredu"
 
-#: src/utils.vala:208
+#: src/utils.vala:218
 msgid "Thursdays"
 msgstr "Každý štvrtok"
 
-#: src/utils.vala:209
+#: src/utils.vala:219
 msgid "Fridays"
 msgstr "Každý piatok"
 
-#: src/utils.vala:210
+#: src/utils.vala:220
 msgid "Saturdays"
 msgstr "Každú sobotu"
 
-#: src/utils.vala:211
+#: src/utils.vala:221
 msgid "Sundays"
 msgstr "Každú nedeľu"
 
-#: src/utils.vala:337
+#: src/utils.vala:347
 msgid "Every Day"
 msgstr "Každý deň"
 
-#: src/utils.vala:339
+#: src/utils.vala:349
 msgid "Weekdays"
 msgstr "Pracovné dni"
 
-#: src/utils.vala:341
+#: src/utils.vala:351
 msgid "Weekends"
 msgstr "Víkendy"
 
-#: src/window.vala:268
+#: src/window.vala:294
 #, c-format
 msgid "Failed to show help: %s"
 msgstr "Zlyhalo zobrazenie pomocníka: %s"
 
-#: src/window.vala:302
+#: src/window.vala:328
 msgid "Utilities to help you with the time."
 msgstr "Nástroje na pomoc s časom."
 
-#: src/window.vala:307
+#: src/window.vala:333
 msgid "translator-credits"
 msgstr "Dušan Kazik <prescott66@gmail.com>"
 
