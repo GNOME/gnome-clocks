@@ -20,16 +20,16 @@ lint:
   script:
     - io.elementary.vala-lint src
 
-docs:
-  image: "fedora:latest"
-  script:
-    - dnf install -y git valadoc vala meson glib2-devel gtk3-devel libhandy1-devel gsound-devel gnome-desktop3-devel libgweather-devel geoclue2-devel
-    - meson -Ddocs=true _build
-    - meson compile -C _build
-    - rm -rf public
-    - mv _build/docs public
-  artifacts:
-    paths:
-      - public
-  rules:
-    - if: '$CI_COMMIT_BRANCH == "master"'
+# docs:
+#   image: "fedora:latest"
+#   script:
+#     - dnf install -y git valadoc vala meson glib2-devel gtk3-devel libhandy1-devel gsound-devel gnome-desktop3-devel libgweather-devel geoclue2-devel
+#     - meson -Ddocs=true _build
+#     - meson compile -C _build
+#     - rm -rf public
+#     - mv _build/docs public
+#   artifacts:
+#     paths:
+#       - public
+#   rules:
+#     - if: '$CI_COMMIT_BRANCH == "master"'
