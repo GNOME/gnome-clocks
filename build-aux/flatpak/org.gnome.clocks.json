@@ -93,21 +93,6 @@
             ]
         },
         {
-            "name": "libhandy",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Dtests=false",
-                "-Dexamples=false",
-                "-Dglade_catalog=disabled"
-            ],
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/libhandy.git"
-                }
-            ]
-        },
-        {
             "name": "sound-theme-freedesktop",
             "sources": [
                 {
