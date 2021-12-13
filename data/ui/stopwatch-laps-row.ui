@@ -5,16 +5,18 @@
     <child>
       <object class="GtkBox">
         <property name="spacing">18</property>
+        <property name="margin-top">18</property>
+        <property name="margin-bottom">18</property>
+        <property name="margin-start">18</property>
+        <property name="margin-end">18</property>
         <child>
           <object class="GtkLabel" id="duration_label">
             <property name="tooltip_text" translatable="yes">Time</property>
             <property name="halign">start</property>
             <property name="valign">center</property>
-            <attributes>
-              <attribute name="font-features" value="tnum=1"/>
-            </attributes>
             <style>
               <class name="lap-time"/>
+              <class name="numeric"/>
             </style>
           </object>
         </child>
@@ -22,10 +24,11 @@
           <object class="GtkLabel" id="difference_label">
             <property name="tooltip_text" translatable="yes">Difference</property>
             <property name="halign">start</property>
+            <property name="hexpand">True</property>
             <property name="valign">center</property>
-            <attributes>
-              <attribute name="font-features" value="tnum=1"/>
-            </attributes>
+            <style>
+              <class name="numeric"/>
+            </style>
           </object>
         </child>
         <child>
