@@ -6,29 +6,16 @@
         <property name="hhomogeneous">False</property>
         <property name="vhomogeneous">False</property>
         <child>
-          <object class="GtkBox" id="empty_view">
-            <property name="orientation">vertical</property>
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="spacing">36</property>
-            <child>
-              <object class="GtkImage">
-                <property name="sensitive">False</property>
-                <property name="icon_name">globe-centered-symbolic</property>
-                <property name="pixel_size">128</property>
-                <style>
-                  <class name="dim-label"/>
-                </style>
-              </object>
-            </child>
+          <object class="AdwStatusPage" id="empty_view">
+            <property name="icon_name">globe-centered-symbolic</property>
             <child>
               <object class="GtkButton">
                 <property name="action-name">win.new</property>
-                <property name="label" translatable="yes">Add World Clock</property>
+                <property name="label" translatable="yes">_Add World Clock</property>
+                <property name="use-underline">True</property>
                 <property name="halign">center</property>
                 <style>
                   <class name="suggested-action"/>
-                  <class name="large-button"/>
                   <class name="pill"/>
                 </style>
               </object>
