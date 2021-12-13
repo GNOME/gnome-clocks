@@ -1,25 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <object class="GtkAdjustment" id="h_adjustment">
-    <property name="upper">100</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">10</property>
-  </object>
-  <object class="GtkAdjustment" id="m_adjustment">
-    <property name="upper">59</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">10</property>
-  </object>
   <template class="ClocksAlarmSetupDialog" parent="GtkDialog">
     <property name="modal">True</property>
-    <property name="window_position">center-on-parent</property>
     <property name="destroy_with_parent">True</property>
     <property name="default-height">350</property>
     <property name="height-request">350</property>
-    <property name="type_hint">dialog</property>
-    <property name="gravity">center</property>
     <property name="title" translatable="yes">New Alarm</property>
-    <child internal-child="vbox">
+    <child internal-child="content_area">
       <object class="GtkBox">
         <child>
           <object class="AdwClamp">
@@ -29,86 +16,63 @@
                 <property name="spacing">12</property>
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkGrid" id="time_grid">
+                  <object class="GtkBox" id="time_box">
                     <property name="halign">center</property>
                     <property name="margin_top">12</property>
-                    <property name="column_spacing">6</property>
+                    <property name="spacing">6</property>
+                    <style>
+                      <class name="clocks-alarm-setup-time"/>
+                    </style>
                     <child>
-                      <object class="GtkLabel" id="dummy_label1">
-                        <property name="margin_start">6</property>
-                        <property name="margin_end">6</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="row">0</property>
-                        </layout>
+                      <object class="GtkSpinButton" id="h_spinbutton">
+                        <property name="text">0</property>
+                        <property name="xalign">0.5</property>
+                        <property name="orientation">vertical</property>
+                        <property name="numeric">True</property>
+                        <property name="wrap">True</property>
+                        <property name="width-request">60</property>
+                        <signal name="changed" handler="spinbuttons_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
+                        <signal name="output" handler="show_leading_zeros"/>
+                        <property name="adjustment">
+                          <object class="GtkAdjustment">
+                            <property name="upper">23</property>
+                            <property name="step_increment">1</property>
+                            <property name="page_increment">10</property>
+                          </object>
+                        </property>
                       </object>
                     </child>
                     <child>
                       <object class="GtkLabel" id="label2">
                         <property name="label">∶</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="row">0</property>
-                        </layout>
                       </object>
                     </child>
                     <child>
                       <object class="GtkSpinButton" id="m_spinbutton">
-                        <!-- TODO GTK 4 -->
-                        <!-- <property name="max_length">2</property> -->
-                        <property name="activates_default">False</property>
                         <property name="text">0</property>
                         <property name="xalign">0.5</property>
                         <property name="orientation">vertical</property>
-                        <property name="adjustment">m_adjustment</property>
                         <property name="numeric">True</property>
                         <property name="wrap">True</property>
                         <property name="width-request">60</property>
-                        <signal name="changed" handler="spinbuttons_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
-                        <signal name="output" handler="show_leading_zeros" object="ClocksAlarmSetupDialog" swapped="no"/>
-                        <layout>
-                          <property name="column">3</property>
-                          <property name="row">0</property>
-                        </layout>
+                        <signal name="output" handler="show_leading_zeros"/>
+                        <signal name="changed" handler="spinbuttons_changed"/>
+                        <property name="adjustment">
+                          <object class="GtkAdjustment">
+                            <property name="upper">59</property>
+                            <property name="step_increment">1</property>
+                            <property name="page_increment">10</property>
+                          </object>
+                        </property>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkStack" id="am_pm_stack">
+                      <object class="AdwBin" id="am_pm_bin">
+                        <property name="visible">False</property>
                         <property name="margin_start">6</property>
                         <property name="margin_end">6</property>
-                        <child>
-                          <object class="GtkLabel" id="dummy_label2">
-                          </object>
-                        </child>
-                        <layout>
-                          <property name="column">4</property>
-                          <property name="row">0</property>
-                        </layout>
                       </object>
                     </child>
-                    <child>
-                      <object class="GtkSpinButton" id="h_spinbutton">
-                        <!-- TODO GTK 4 -->
-                        <!-- <property name="max_length">2</property> -->
-                        <property name="activates_default">False</property>
-                        <property name="text">0</property>
-                        <property name="xalign">0.5</property>
-                        <property name="orientation">vertical</property>
-                        <property name="adjustment">h_adjustment</property>
-                        <property name="numeric">True</property>
-                        <property name="wrap">True</property>
-                        <property name="width-request">60</property>
-                        <signal name="changed" handler="spinbuttons_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
-                        <signal name="output" handler="show_leading_zeros" object="ClocksAlarmSetupDialog" swapped="no"/>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="row">0</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <style>
-                      <class name="clocks-alarm-setup-time"/>
-                    </style>
                   </object>
                 </child>
                 <child>
@@ -129,7 +93,6 @@
                           <object class="GtkEntry" id="name_entry">
                             <property name="valign">center</property>
                             <property name="hexpand">True</property>
-                            <property name="activates_default">True</property>
                             <signal name="changed" handler="entry_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
                           </object>
                         </child>
@@ -159,7 +122,10 @@
                   <object class="GtkButton" id="delete_button">
                     <property name="label" translatable="yes">R_emove Alarm</property>
                     <property name="use-underline">True</property>
-                    <property name="margin">6</property>
+                    <property name="margin-top">6</property>
+                    <property name="margin-bottom">6</property>
+                    <property name="margin-start">6</property>
+                    <property name="margin-top">6</property>
                     <property name="halign">start</property>
                     <signal name="clicked" handler="delete" swapped="no" />
                     <style>
@@ -183,10 +149,4 @@
       </object>
     </child>
   </template>
-  <object class="GtkSizeGroup" id="am_pm_sizegroup">
-    <widgets>
-      <widget name="dummy_label1"/>
-      <widget name="am_pm_stack"/>
-    </widgets>
-  </object>
 </interface>

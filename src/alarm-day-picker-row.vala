@@ -126,7 +126,7 @@ public class DayPickerRow : Adw.ActionRow {
             buttons[i] = new Gtk.ToggleButton.with_label (day.symbol ());
             buttons[i].action_name = "repeats.day-%i".printf (i);
             buttons[i].tooltip_text = day.name ();
-            buttons[i].get_style_context ().add_class ("circular");
+            buttons[i].add_css_class ("circular");
             buttons[i].show ();
         }
 

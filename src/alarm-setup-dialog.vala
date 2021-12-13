@@ -76,7 +76,7 @@ private class DurationModel : ListModel, Object {
 private class SetupDialog : Gtk.Dialog {
     private Utils.WallClock.Format format;
     [GtkChild]
-    private unowned Gtk.Grid time_grid;
+    private unowned Gtk.Box time_box;
     [GtkChild]
     private unowned Gtk.SpinButton h_spinbutton;
     [GtkChild]
@@ -91,7 +91,7 @@ private class SetupDialog : Gtk.Dialog {
     [GtkChild]
     private unowned DayPickerRow repeats;
     [GtkChild]
-    private unowned Gtk.Stack am_pm_stack;
+    private unowned Adw.Bin am_pm_bin;
     [GtkChild]
     private unowned Gtk.Revealer label_revealer;
     [GtkChild]
@@ -101,6 +101,7 @@ private class SetupDialog : Gtk.Dialog {
 
     static construct {
         typeof (DayPickerRow).ensure ();
+        typeof (Duration).ensure ();
     }
 
     public SetupDialog (Gtk.Window parent, Item? alarm, ListModel all_alarms) {
@@ -129,19 +130,19 @@ private class SetupDialog : Gtk.Dialog {
 
         duration_model = new DurationModel ();
 
-        ring_duration.set_model (duration_model);
+        var expression = new Gtk.CClosureExpression (typeof (string),
+                                                     null, {},
+                                                     (Callback) duration_label,
+                                                     null, null);
+
+        snooze_duration.set_expression (expression);
         snooze_duration.set_model (duration_model);
 
-        // ring_duration.bind_name_model (duration_model, (item) => {
-        //     return ((Duration) item).label;
-        // });
-
-        // snooze_duration.bind_name_model (duration_model, (item) => {
-        //     return ((Duration) item).label;
-        // });
+        ring_duration.set_expression (expression);
+        ring_duration.set_model (duration_model);
 
         // Force LTR since we do not want to reverse [hh] : [mm]
-        time_grid.set_direction (Gtk.TextDirection.LTR);
+        time_box.set_direction (Gtk.TextDirection.LTR);
 
         format = Utils.WallClock.get_default ().format;
         am_pm_button = new AmPmToggleButton ();
@@ -151,17 +152,22 @@ private class SetupDialog : Gtk.Dialog {
 
         if (format == Utils.WallClock.Format.TWENTYFOUR) {
             h_spinbutton.set_range (0, 23);
+            am_pm_bin.hide ();
         } else {
             h_spinbutton.set_range (1, 12);
             am_pm_button.hexpand = false;
             am_pm_button.vexpand = false;
             am_pm_button.halign = Gtk.Align.CENTER;
             am_pm_button.valign = Gtk.Align.CENTER;
-            am_pm_stack.add_child (am_pm_button);
-            am_pm_stack.visible_child = am_pm_button;
+            am_pm_bin.show ();
+            am_pm_bin.set_child (am_pm_button);
         }
 
         set_from_alarm (alarm);
+    }
+
+    private static string duration_label (Duration item) {
+        return item.label;
     }
 
     // Sets up the dialog to show the values of alarm.
