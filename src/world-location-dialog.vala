@@ -58,12 +58,7 @@ private class LocationDialog : Gtk.Window {
     public LocationDialog (Gtk.Window parent, Face world_face) {
         Object (transient_for: parent);
 
-        // TODO GTK 4
-        // key_press_event.connect ((event) => {
-        //     if (event.keyval == Gdk.Key.Tab)
-        //         return Gdk.EVENT_PROPAGATE;
-        //     return location_entry.handle_event (event);
-        // });
+        location_entry.set_key_capture_widget (this);
 
         world = world_face;
 

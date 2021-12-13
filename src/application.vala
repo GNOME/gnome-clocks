@@ -98,11 +98,11 @@ public class Application : Gtk.Application {
         var win = ensure_window ();
         win.present ();
 
-        // TODO GTK 4
-        // win.focus_in_event.connect (() => {
-        //     withdraw_notifications ();
-        //     return false;
-        // });
+        var controller = new Gtk.EventControllerFocus ();
+        controller.enter.connect (() => {
+                withdraw_notifications ();
+            });
+        ((Gtk.Widget) win).add_controller (controller);
     }
 
     private void update_theme (Gtk.Settings settings) {
