@@ -34,7 +34,6 @@
                 <property name="name">new</property>
                 <property name="child">
                   <object class="GtkButton">
-                    <property name="receives_default">True</property>
                     <property name="action_name">win.new</property>
                     <property name="tooltip-text" bind-source="ClocksHeaderBar" bind-property="new-label" bind-flags="sync-create" />
                     <property name="icon_name">list-add-symbolic</property>
@@ -47,7 +46,6 @@
                 <property name="name">back</property>
                 <property name="child">
                   <object class="GtkButton">
-                    <property name="receives_default">True</property>
                     <property name="action_name">win.back</property>
                     <property name="tooltip-text" translatable="yes">Back</property>
                     <property name="icon_name">go-previous-symbolic</property>
@@ -69,7 +67,6 @@
         </child>
         <child type="end">
           <object class="GtkMenuButton">
-            <property name="receives_default">True</property>
             <property name="tooltip-text" translatable="yes">Menu</property>
             <property name="menu_model">primary-menu</property>
             <property name="icon_name">open-menu-symbolic</property>
