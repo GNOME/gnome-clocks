@@ -29,11 +29,11 @@ private class ClockLocation : Object {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world-location-dialog.ui")]
-private class LocationDialog : Gtk.Dialog {
+private class LocationDialog : Gtk.Window {
     [GtkChild]
     private unowned Gtk.Stack stack;
     [GtkChild]
-    private unowned Gtk.Box empty_search_box;
+    private unowned Gtk.Widget empty_search;
     [GtkChild]
     private unowned Gtk.SearchEntry location_entry;
     [GtkChild]
@@ -56,7 +56,7 @@ private class LocationDialog : Gtk.Dialog {
     private const int RESULT_COUNT_LIMIT = 12;
 
     public LocationDialog (Gtk.Window parent, Face world_face) {
-        Object (transient_for: parent, use_header_bar: 1);
+        Object (transient_for: parent);
 
         // TODO GTK 4
         // key_press_event.connect ((event) => {
@@ -103,7 +103,7 @@ private class LocationDialog : Gtk.Dialog {
         locations.remove_all ();
 
         if (location_entry.text == "") {
-            stack.visible_child = empty_search_box;
+            stack.visible_child = empty_search;
             return;
         }
 
@@ -116,7 +116,7 @@ private class LocationDialog : Gtk.Dialog {
         query_locations ((GWeather.Location) world_location, search);
 
         if (locations.get_n_items () == 0) {
-            stack.visible_child = empty_search_box;
+            stack.visible_child = empty_search;
             return;
         }
         locations.sort ((a, b) => {
@@ -126,6 +126,15 @@ private class LocationDialog : Gtk.Dialog {
         });
 
         stack.visible_child = listbox;
+    }
+
+    public signal void location_added ();
+
+    [GtkCallback]
+    private void add_button_clicked () {
+        // emit ("location-added");
+        location_added ();
+        close ();
     }
 
     private void query_locations (GWeather.Location location, string search) {
