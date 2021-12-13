@@ -127,7 +127,6 @@ private class LocationDialog : Gtk.Window {
 
     [GtkCallback]
     private void add_button_clicked () {
-        // emit ("location-added");
         location_added ();
         close ();
     }
