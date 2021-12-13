@@ -224,6 +224,11 @@ public class Window : Adw.ApplicationWindow {
     }
 
     [GtkCallback]
+    private void enter_cb (Gtk.EventControllerFocus controller) {
+        ((Application) application).withdraw_notifications ();
+    }
+
+    [GtkCallback]
     private bool key_press_cb (Gtk.EventControllerKey controller, uint keyval, uint keycode, Gdk.ModifierType mod_state) {
         bool handled = false;
         var state = mod_state & (Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.ALT_MASK);

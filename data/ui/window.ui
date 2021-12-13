@@ -7,6 +7,11 @@
       </object>
     </child>
     <child>
+      <object class="GtkEventControllerFocus">
+        <signal name="enter" handler="enter_cb"/>
+      </object>
+    </child>
+    <child>
       <object class="AdwLeaflet" id="alarm_leaflet">
         <property name="orientation">vertical</property>
         <property name="visible-child">world_leaflet</property>

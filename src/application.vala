@@ -98,12 +98,6 @@ public class Application : Adw.Application {
 
         var win = ensure_window ();
         win.present ();
-
-        var controller = new Gtk.EventControllerFocus ();
-        controller.enter.connect (() => {
-                withdraw_notifications ();
-            });
-        ((Gtk.Widget) win).add_controller (controller);
     }
 
     protected override void startup () {
@@ -152,7 +146,7 @@ public class Application : Adw.Application {
         system_notifications.append (notification_id);
     }
 
-    private void withdraw_notifications () {
+    public void withdraw_notifications () {
         foreach (var notification in system_notifications) {
             withdraw_notification (notification);
         }
