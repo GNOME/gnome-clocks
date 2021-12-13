@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <template class="ClocksWindow" parent="AdwApplicationWindow">
-    <!-- TODO GTK 4 -->
-    <!-- <property name="title" bind-source="header_bar" bind-property="title" bind-flags="sync-create" /> -->
     <child>
       <object class="AdwLeaflet" id="alarm_leaflet">
         <property name="orientation">vertical</property>

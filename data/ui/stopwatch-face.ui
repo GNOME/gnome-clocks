@@ -6,6 +6,7 @@
       <object class="GtkScrolledWindow">
         <property name="min_content_width">300</property>
         <property name="vexpand">True</property>
+        <property name="hscrollbar_policy">never</property>
         <child>
           <object class="AdwClamp">
             <property name="maximum_size">380</property>
@@ -73,9 +74,8 @@
                     </child>
                     <child>
                       <object class="GtkLabel" id="miliseconds_label">
+                        <property name="margin-bottom">4</property>
                         <property name="valign">end</property>
-                        <!-- TODO GTK 4 -->
-                        <!-- <property name="ypad">6</property> -->
                         <property name="label">0</property>
                         <property name="xalign">0</property>
                         <property name="yalign">0</property>
@@ -93,6 +93,8 @@
                 <child>
                   <object class="GtkBox">
                     <property name="spacing">12</property>
+                    <property name="margin-end">18</property>
+                    <property name="margin-start">18</property>
                     <child>
                       <object class="GtkButton" id="start_btn">
                         <property name="label" translatable="yes">_Start</property>

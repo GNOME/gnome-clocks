@@ -182,9 +182,6 @@
                     </child>
                     <child>
                       <object class="GtkSpinButton" id="h_spinbutton">
-                        <!-- TODO GTK 4 -->
-                        <!-- <property name="max_length">2</property> -->
-                        <!-- <property name="invisible_char">●</property> -->
                         <property name="width_chars">2</property>
                         <property name="text" translatable="yes">0</property>
                         <property name="xalign">0.5</property>
@@ -196,7 +193,6 @@
                         <signal name="output" handler="show_leading_zeros" swapped="no"/>
                         <style>
                           <class name="clocks-spinbutton"/>
-                          <class name="flat"/>
                         </style>
                         <layout>
                           <property name="column">1</property>
@@ -218,9 +214,6 @@
                     </child>
                     <child>
                       <object class="GtkSpinButton" id="m_spinbutton">
-                        <!-- TODO GTK 4 -->
-                        <!-- <property name="max_length">2</property> -->
-                        <!-- <property name="invisible_char">●</property> -->
                         <property name="width_chars">2</property>
                         <property name="text" translatable="yes">0</property>
                         <property name="xalign">0.5</property>
@@ -233,7 +226,6 @@
                         <signal name="output" handler="show_leading_zeros" swapped="no"/>
                         <style>
                           <class name="clocks-spinbutton"/>
-                          <class name="flat"/>
                         </style>
                         <layout>
                           <property name="column">3</property>
@@ -255,9 +247,6 @@
                     </child>
                     <child>
                       <object class="GtkSpinButton" id="s_spinbutton">
-                        <!-- TODO GTK 4 -->
-                        <!-- <property name="max_length">2</property> -->
-                        <!-- <property name="invisible_char">●</property> -->
                         <property name="width_chars">2</property>
                         <property name="text" translatable="yes">0</property>
                         <property name="xalign">0.5</property>
@@ -270,7 +259,6 @@
                         <signal name="output" handler="show_leading_zeros" swapped="no"/>
                         <style>
                           <class name="clocks-spinbutton"/>
-                          <class name="flat"/>
                         </style>
                         <layout>
                           <property name="column">5</property>

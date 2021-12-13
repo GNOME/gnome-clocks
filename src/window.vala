@@ -104,9 +104,6 @@ public class Window : Adw.ApplicationWindow {
 
         inited = true;
 
-        // TODO GTK 4
-        // header_bar.bind_property ("title", this, "title", SYNC_CREATE);
-
         pane_changed ();
 
         // Setup window geometry saving
