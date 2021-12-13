@@ -82,8 +82,6 @@ public class Window : Adw.ApplicationWindow {
         add_binding_action (Gdk.Key.@4,
                             Gdk.ModifierType.ALT_MASK,
                             "set-page", "(s)", "timer");
-
-        add_binding (Gdk.Key.Escape, 0, escape_key_pressed, null);
     }
 
     public Window (Application app) {
@@ -226,13 +224,17 @@ public class Window : Adw.ApplicationWindow {
         world.add_location (location);
     }
 
-    private bool escape_key_pressed () {
+    [GtkCallback]
+    private bool key_press_cb (Gtk.EventControllerKey controller, uint keyval, uint keycode, Gdk.ModifierType mod_state) {
         bool handled = false;
+        var state = mod_state & (Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.ALT_MASK);
 
-        if (world_leaflet.visible_child == main_view) {
-            handled = ((Clock) stack.visible_child).escape_pressed ();
-        } else {
-            world_leaflet.navigate (Adw.NavigationDirection.BACK);
+        if (keyval == Gdk.Key.Escape && state == 0) {
+            if (world_leaflet.visible_child == main_view) {
+                handled = ((Clock) stack.visible_child).escape_pressed ();
+            } else {
+                world_leaflet.navigate (Adw.NavigationDirection.BACK);
+            }
         }
 
         return handled;

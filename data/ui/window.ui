@@ -2,6 +2,11 @@
 <interface>
   <template class="ClocksWindow" parent="AdwApplicationWindow">
     <child>
+      <object class="GtkEventControllerKey">
+        <signal name="key-pressed" handler="key_press_cb"/>
+      </object>
+    </child>
+    <child>
       <object class="AdwLeaflet" id="alarm_leaflet">
         <property name="orientation">vertical</property>
         <property name="visible-child">world_leaflet</property>
