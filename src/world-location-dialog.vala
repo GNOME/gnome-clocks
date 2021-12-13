@@ -153,11 +153,10 @@ private class LocationDialog : Gtk.Window {
                 string? timezone_name = null;
                 var timezone = location.get_timezone ();
                 if (timezone != null) {
-                    // TODO GTK 4
-                    // timezone_name = ((GWeather.Timezone) timezone).get_name ();
-                    // if (timezone_name != null) {
-                    //     timezone_name = ((string) timezone_name).normalize ().casefold ();
-                    // }
+                    timezone_name = timezone.get_identifier ();
+                    if (timezone_name != null) {
+                        timezone_name = ((string) timezone_name).normalize ().casefold ();
+                    }
                 }
                 var contains_timezone_name = timezone_name != null && ((string) timezone_name).contains (search);
 

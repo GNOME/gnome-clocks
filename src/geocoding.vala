@@ -134,14 +134,13 @@ public class Info : Object {
                 var timezone = location.get_timezone ();
                 var found_timezone = ((GWeather.Location) found_location).get_timezone ();
 
-                // TODO GTK 4
-                // if (timezone != null && found_timezone != null) {
-                //     var tzid = ((GWeather.Timezone) timezone).get_tzid ();
-                //     var found_tzid = ((GWeather.Timezone) found_timezone).get_tzid ();
-                //     if (tzid == found_tzid) {
-                //         return true;
-                //     }
-                // }
+                if (timezone != null && found_timezone != null) {
+                    var tzid = timezone.get_identifier ();
+                    var found_tzid = found_timezone.get_identifier ();
+                    if (tzid == found_tzid) {
+                        return true;
+                    }
+                }
             }
         }
 
