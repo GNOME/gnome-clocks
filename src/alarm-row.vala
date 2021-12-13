@@ -61,16 +61,16 @@ private class Row : Gtk.ListBoxRow {
 
     private void update () {
         if (alarm.active) {
-            get_style_context ().add_class ("active");
+            add_css_class ("active");
         } else {
-            get_style_context ().remove_class ("active");
+            remove_css_class ("active");
         }
 
         if (alarm.state == Item.State.SNOOZING) {
-            get_style_context ().add_class ("snoozing");
+            add_css_class ("snoozing");
             time.label = alarm.snooze_time_label;
         } else {
-            get_style_context ().remove_class ("snoozing");
+            remove_css_class ("snoozing");
             time.label = alarm.time_label;
         }
 

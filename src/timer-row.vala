@@ -100,9 +100,9 @@ public class Row : Gtk.ListBoxRow {
         reset_stack.visible_child_name = "empty";
         delete_stack.visible_child_name = "button";
 
-        countdown_label.get_style_context ().remove_class ("timer-paused");
-        countdown_label.get_style_context ().remove_class ("timer-ringing");
-        countdown_label.get_style_context ().remove_class ("timer-running");
+        countdown_label.remove_css_class ("timer-paused");
+        countdown_label.remove_css_class ("timer-ringing");
+        countdown_label.remove_css_class ("timer-running");
         start_stack.visible_child_name = "start";
         name_stack.visible_child_name = "edit";
 
@@ -110,9 +110,9 @@ public class Row : Gtk.ListBoxRow {
     }
 
     private void start () {
-        countdown_label.get_style_context ().add_class ("timer-running");
-        countdown_label.get_style_context ().remove_class ("timer-ringing");
-        countdown_label.get_style_context ().remove_class ("timer-paused");
+        countdown_label.add_css_class ("timer-running");
+        countdown_label.remove_css_class ("timer-ringing");
+        countdown_label.remove_css_class ("timer-paused");
 
         reset_stack.visible_child_name = "empty";
         delete_stack.visible_child_name = "empty";
@@ -122,15 +122,15 @@ public class Row : Gtk.ListBoxRow {
     }
 
     private void ring () {
-        countdown_label.get_style_context ().add_class ("timer-ringing");
-        countdown_label.get_style_context ().remove_class ("timer-paused");
-        countdown_label.get_style_context ().remove_class ("timer-running");
+        countdown_label.add_css_class ("timer-ringing");
+        countdown_label.remove_css_class ("timer-paused");
+        countdown_label.remove_css_class ("timer-running");
     }
 
     private void pause () {
-        countdown_label.get_style_context ().add_class ("timer-paused");
-        countdown_label.get_style_context ().remove_class ("timer-ringing");
-        countdown_label.get_style_context ().remove_class ("timer-running");
+        countdown_label.add_css_class ("timer-paused");
+        countdown_label.remove_css_class ("timer-ringing");
+        countdown_label.remove_css_class ("timer-running");
 
         reset_stack.visible_child_name = "button";
         delete_stack.visible_child_name = "button";

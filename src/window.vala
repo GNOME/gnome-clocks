@@ -142,9 +142,8 @@ public class Window : Adw.ApplicationWindow {
             timer_stack_page.needs_attention = timer.is_running;
         });
 
-        Gtk.StyleContext style = get_style_context ();
         if (Config.PROFILE == "Devel") {
-            style.add_class ("devel");
+            add_css_class ("devel");
         }
 
         const uint BUTTON_BACK = 8;

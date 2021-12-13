@@ -40,13 +40,12 @@ private class Row : Adw.ActionRow {
     }
 
     private void update () {
-        var ctx = get_style_context ();
-        ctx.remove_class ("night");
-        ctx.remove_class ("astro");
-        ctx.remove_class ("naut");
-        ctx.remove_class ("civil");
-        ctx.remove_class ("day");
-        ctx.add_class (location.state_class);
+        remove_css_class ("night");
+        remove_css_class ("astro");
+        remove_css_class ("naut");
+        remove_css_class ("civil");
+        remove_css_class ("day");
+        add_css_class (location.state_class);
 
         var message = Utils.get_time_difference_message ((double) location.local_offset);
 

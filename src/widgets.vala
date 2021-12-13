@@ -171,7 +171,7 @@ public class AmPmToggleButton : Gtk.Button {
     public AmPmToggleButton () {
         stack = new Gtk.Stack ();
 
-        get_style_context ().add_class ("clocks-ampm-toggle-button");
+        add_css_class ("clocks-ampm-toggle-button");
 
         var str = (new GLib.DateTime.utc (1, 1, 1, 0, 0, 0)).format ("%p");
         am_label = new Gtk.Label (str);
