@@ -21,7 +21,7 @@ namespace Clocks {
 namespace Alarm {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm-day-picker-row.ui")]
-public class DayPickerRow : Adw.ActionRow {
+public class DayPickerRow : Gtk.ListBoxRow {
     public bool monday {
         get {
             return days[Utils.Weekdays.Day.MON];
@@ -127,6 +127,7 @@ public class DayPickerRow : Adw.ActionRow {
             buttons[i].action_name = "repeats.day-%i".printf (i);
             buttons[i].tooltip_text = day.name ();
             buttons[i].add_css_class ("circular");
+            buttons[i].halign = Gtk.Align.START;
             buttons[i].show ();
         }
 
