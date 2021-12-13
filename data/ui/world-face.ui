@@ -3,23 +3,17 @@
   <template class="ClocksWorldFace" parent="AdwBin">
     <child>
       <object class="GtkStack" id="stack">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
         <property name="hhomogeneous">False</property>
         <property name="vhomogeneous">False</property>
         <child>
           <object class="GtkBox" id="empty_view">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="spacing">36</property>
             <child>
               <object class="GtkImage">
-                <property name="visible">True</property>
                 <property name="sensitive">False</property>
-                <property name="can_focus">False</property>
                 <property name="icon_name">globe-centered-symbolic</property>
                 <property name="pixel_size">128</property>
                 <style>
@@ -29,7 +23,6 @@
             </child>
             <child>
               <object class="GtkButton">
-                <property name="visible">True</property>
                 <property name="action-name">win.new</property>
                 <property name="label" translatable="yes">Add World Clock</property>
                 <property name="halign">center</property>
@@ -44,13 +37,10 @@
         </child>
         <child>
           <object class="GtkScrolledWindow" id="list_view">
-            <property name="visible">True</property>
             <child>
               <object class="AdwClamp">
-                <property name="visible">True</property>
                 <child>
                   <object class="GtkListBox" id="listbox">
-                    <property name="visible">True</property>
                     <property name="valign">start</property>
                     <property name="selection-mode">none</property>
                     <signal name="row-activated" handler="item_activated" swapped="no"/>

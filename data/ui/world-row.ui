@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
 <interface>
   <template class="ClocksWorldRow" parent="GtkListBoxRow">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
     <child>
       <object class="GtkGrid">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
         <property name="valign">start</property>
         <property name="margin_start">12</property>
         <property name="margin_end">12</property>
@@ -18,8 +13,6 @@
         <property name="column_spacing">12</property>
         <child>
           <object class="GtkLabel" id="name_label">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="hexpand">True</property>
             <property name="label">label</property>
             <property name="ellipsize">end</property>
@@ -36,8 +29,6 @@
         </child>
         <child>
           <object class="GtkLabel" id="desc">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="hexpand">True</property>
             <property name="label">label</property>
             <property name="ellipsize">end</property>
@@ -55,8 +46,6 @@
         </child>
         <child>
           <object class="GtkLabel" id="time_label">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="label">12:34</property>
@@ -76,12 +65,8 @@
         </child>
         <child>
           <object class="GtkStack" id="delete_stack">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <child>
               <object class="GtkButton" id="delete_button">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
                 <property name="width_request">34</property>
                 <property name="receives_default">True</property>
                 <property name="halign">center</property>
@@ -97,8 +82,6 @@
             </child>
             <child>
               <object class="GtkLabel" id="delete_empty">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
               </object>
             </child>
             <layout>

@@ -19,8 +19,6 @@
   <template class="ClocksHeaderBar" parent="AdwBin">
     <child>
       <object class="AdwHeaderBar">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
         <property name="centering_policy">strict</property>
         <child type="title">
           <object class="AdwViewSwitcherTitle" id="view_switcher_title">
@@ -35,15 +33,11 @@
                 <property name="name">new</property>
                 <property name="child">
                   <object class="GtkButton">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="action_name">win.new</property>
                     <property name="tooltip-text" bind-source="ClocksHeaderBar" bind-property="new-label" bind-flags="sync-create" />
                     <child>
                       <object class="GtkImage">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="icon_name">list-add-symbolic</property>
                       </object>
                     </child>
@@ -56,15 +50,11 @@
                 <property name="name">back</property>
                 <property name="child">
                   <object class="GtkButton">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="action_name">win.back</property>
                     <property name="tooltip-text" translatable="yes">Back</property>
                     <child>
                       <object class="GtkImage">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="icon_name">go-previous-symbolic</property>
                       </object>
                     </child>
@@ -77,8 +67,6 @@
                 <property name="name">empty</property>
                 <property name="child">
                   <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="orientation">vertical</property>
                   </object>
                 </property>
@@ -88,8 +76,6 @@
         </child>
         <child type="end">
           <object class="GtkMenuButton">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="tooltip-text" translatable="yes">Menu</property>
             <property name="menu_model">primary-menu</property>

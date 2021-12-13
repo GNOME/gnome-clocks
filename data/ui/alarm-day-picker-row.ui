@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <template class="ClocksAlarmDayPickerRow" parent="AdwActionRow">
-    <property name="visible">True</property>
     <property name="title" translatable="yes">_Repeat</property>
     <property name="use-underline">True</property>
     <property name="activatable">False</property>
     <property name="selectable">False</property>
     <child>
      <object class="GtkFlowBox" id="flow">
-        <property name="visible">True</property>
         <property name="valign">center</property>
         <property name="halign">end</property>
         <property name="hexpand">True</property>

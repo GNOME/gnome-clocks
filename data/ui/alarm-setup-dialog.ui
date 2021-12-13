@@ -11,7 +11,6 @@
     <property name="page_increment">10</property>
   </object>
   <template class="ClocksAlarmSetupDialog" parent="GtkDialog">
-    <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-on-parent</property>
     <property name="destroy_with_parent">True</property>
@@ -22,25 +21,20 @@
     <property name="title" translatable="yes">New Alarm</property>
     <child internal-child="vbox">
       <object class="GtkBox">
-        <property name="visible">True</property>
         <child>
           <object class="AdwClamp">
-            <property name="visible">True</property>
             <property name="maximum-size">450</property>
             <child>
               <object class="GtkBox">
-                <property name="visible">True</property>
                 <property name="spacing">12</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkGrid" id="time_grid">
-                    <property name="visible">True</property>
                     <property name="halign">center</property>
                     <property name="margin_top">12</property>
                     <property name="column_spacing">6</property>
                     <child>
                       <object class="GtkLabel" id="dummy_label1">
-                        <property name="visible">True</property>
                         <property name="margin_start">6</property>
                         <property name="margin_end">6</property>
                         <layout>
@@ -51,7 +45,6 @@
                     </child>
                     <child>
                       <object class="GtkLabel" id="label2">
-                        <property name="visible">True</property>
                         <property name="label">∶</property>
                         <layout>
                           <property name="column">2</property>
@@ -61,7 +54,6 @@
                     </child>
                     <child>
                       <object class="GtkSpinButton" id="m_spinbutton">
-                        <property name="visible">True</property>
                         <!-- TODO GTK 4 -->
                         <!-- <property name="max_length">2</property> -->
                         <property name="activates_default">False</property>
@@ -82,13 +74,10 @@
                     </child>
                     <child>
                       <object class="GtkStack" id="am_pm_stack">
-                        <property name="visible">True</property>
                         <property name="margin_start">6</property>
                         <property name="margin_end">6</property>
                         <child>
                           <object class="GtkLabel" id="dummy_label2">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
                           </object>
                         </child>
                         <layout>
@@ -99,7 +88,6 @@
                     </child>
                     <child>
                       <object class="GtkSpinButton" id="h_spinbutton">
-                        <property name="visible">True</property>
                         <!-- TODO GTK 4 -->
                         <!-- <property name="max_length">2</property> -->
                         <property name="activates_default">False</property>
@@ -125,24 +113,20 @@
                 </child>
                 <child>
                   <object class="GtkListBox" id="listbox">
-                    <property name="visible">True</property>
                     <property name="selection_mode">none</property>
                     <child>
                       <object class="ClocksAlarmDayPickerRow" id="repeats">
-                        <property name="visible">True</property>
                         <signal name="days_changed" handler="days_changed" swapped="no" />
                       </object>
                     </child>
                     <child>
                       <object class="AdwActionRow">
-                        <property name="visible">True</property>
                         <property name="activatable">False</property>
                         <property name="selectable">False</property>
                         <property name="title" translatable="yes">Name</property>
                         <property name="subtitle" translatable="yes">Optional</property>
                         <child>
                           <object class="GtkEntry" id="name_entry">
-                            <property name="visible">True</property>
                             <property name="valign">center</property>
                             <property name="hexpand">True</property>
                             <property name="activates_default">True</property>
@@ -153,7 +137,6 @@
                     </child>
                     <child>
                       <object class="AdwComboRow" id="ring_duration">
-                        <property name="visible">True</property>
                         <property name="activatable">False</property>
                         <property name="selectable">False</property>
                         <property name="title" translatable="yes">Ring Duration</property>
@@ -161,7 +144,6 @@
                     </child>
                     <child>
                       <object class="AdwComboRow" id="snooze_duration">
-                        <property name="visible">True</property>
                         <property name="activatable">False</property>
                         <property name="selectable">False</property>
                         <property name="title" translatable="yes">Snooze Duration</property>
@@ -175,7 +157,6 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="delete_button">
-                    <property name="visible">True</property>
                     <property name="label" translatable="yes">R_emove Alarm</property>
                     <property name="use-underline">True</property>
                     <property name="margin">6</property>
@@ -188,10 +169,8 @@
                 </child>
                 <child>
                   <object class="GtkRevealer" id="label_revealer">
-                    <property name="visible">True</property>
                     <child>
                       <object class="GtkLabel" id="warn_label">
-                        <property name="visible">True</property>
                         <property name="label" translatable="yes">You already have an alarm for this time.</property>
                       </object>
                     </child>

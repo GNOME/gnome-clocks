@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
 <interface>
   <template class="ClocksAlarmRow" parent="GtkListBoxRow">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
     <property name="activatable">True</property>
     <property name="selectable">False</property>
     <child>
       <object class="GtkGrid">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
         <property name="valign">center</property>
         <property name="margin_start">12</property>
         <property name="margin_end">12</property>
@@ -19,8 +14,6 @@
         <property name="column_spacing">12</property>
         <child>
           <object class="GtkSwitch" id="toggle">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
             <property name="tooltip_text" translatable="yes">Active</property>
             <property name="valign">center</property>
             <layout>
@@ -31,8 +24,6 @@
         </child>
         <child>
           <object class="GtkButton">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="tooltip_text" translatable="yes">Delete</property>
             <property name="halign">center</property>
@@ -51,12 +42,8 @@
         </child>
         <child>
           <object class="GtkRevealer" id="repeats_reveal">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <child>
               <object class="GtkLabel" id="repeats">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Repeats</property>
                 <property name="hexpand">True</property>
                 <property name="ellipsize">end</property>
@@ -75,8 +62,6 @@
         </child>
         <child>
           <object class="GtkLabel" id="time">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="hexpand">True</property>
             <property name="label">12:34</property>
             <property name="xalign">0</property>
@@ -91,13 +76,9 @@
         </child>
         <child>
           <object class="GtkRevealer" id="title_reveal">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="transition_type">slide-up</property>
             <child>
               <object class="GtkLabel" id="title">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="hexpand">True</property>
                 <property name="label">Name</property>
                 <property name="ellipsize">end</property>

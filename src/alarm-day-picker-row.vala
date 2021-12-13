@@ -137,7 +137,6 @@ public class DayPickerRow : Adw.ActionRow {
             var day_number = (first_weekday + i) % 7;
 
             var wrap = new Gtk.FlowBoxChild ();
-            wrap.can_focus = false;
             wrap.set_child (buttons[day_number]);
             wrap.show ();
 

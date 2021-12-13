@@ -4,79 +4,67 @@
     <property name="modal">True</property>
     <child>
       <object class="GtkShortcutsSection">
-        <property name="visible">1</property>
         <property name="section-name">shortcuts</property>
         <property name="max-height">10</property>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">1</property>
             <property name="title" translatable="yes" context="shortcut window">General</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">F1</property>
                 <property name="title" translatable="yes" context="shortcut window">Show help</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">F10</property>
                 <property name="title" translatable="yes" context="shortcut window">Open menu</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;question</property>
                 <property name="title" translatable="yes" context="shortcut window">Keyboard shortcuts</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;Q</property>
                 <property name="title" translatable="yes" context="shortcut window">Quit</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;&lt;alt&gt;Page_Down</property>
                 <property name="title" translatable="yes" context="shortcut window">Go to the next section</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;&lt;alt&gt;Page_Up</property>
                 <property name="title" translatable="yes" context="shortcut window">Go to the previous section</property>
               </object>
             </child>
              <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;alt&gt;1</property>
                 <property name="title" translatable="yes" context="shortcut window">Go to the World section</property>
               </object>
             </child>
              <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;alt&gt;2</property>
                 <property name="title" translatable="yes" context="shortcut window">Go to the Alarms section</property>
               </object>
             </child>
              <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;alt&gt;3</property>
                 <property name="title" translatable="yes" context="shortcut window">Go to the Stopwatch section</property>
               </object>
             </child>
              <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;alt&gt;4</property>
                 <property name="title" translatable="yes" context="shortcut window">Go to the Timer section</property>
               </object>
@@ -85,12 +73,10 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">1</property>
             <property name="view">ClocksWorldFace</property>
             <property name="title" translatable="yes" context="shortcut window">World Clocks</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;N</property>
                 <property name="title" translatable="yes" context="shortcut window">Add a world clock</property>
               </object>
@@ -99,12 +85,10 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">1</property>
             <property name="view">ClocksAlarmFace</property>
             <property name="title" translatable="yes" context="shortcut window">Alarm</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;N</property>
                 <property name="title" translatable="yes" context="shortcut window">Add an alarm</property>
               </object>
@@ -113,12 +97,10 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">1</property>
             <property name="view">ClocksStopwatchFace</property>
             <property name="title" translatable="yes" context="shortcut window">Stopwatch</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">Escape</property>
                 <property name="title" translatable="yes" context="shortcut window">Stop / Reset</property>
               </object>
@@ -127,19 +109,16 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">1</property>
             <property name="view">ClocksTimerFace</property>
             <property name="title" translatable="yes" context="shortcut window">Timer</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">Escape</property>
                 <property name="title" translatable="yes" context="shortcut window">Reset</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
                 <property name="accelerator">&lt;primary&gt;N</property>
                 <property name="title" translatable="yes" context="shortcut window">New Timer</property>
               </object>

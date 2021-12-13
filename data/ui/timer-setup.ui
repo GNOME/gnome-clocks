@@ -16,26 +16,18 @@
     <property name="page_increment">10</property>
   </object>
   <template class="ClocksTimerSetup" parent="GtkBox">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
     <property name="orientation">vertical</property>
     <child>
       <object class="AdwClamp">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
         <property name="hexpand">True</property>
         <property name="vexpand">True</property>
         <property name="valign">center</property>
         <child>
           <object class="GtkBox">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
             <property name="spacing">18</property>
             <child>
               <object class="GtkGrid">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">start</property>
                 <property name="row_spacing">12</property>
@@ -45,8 +37,6 @@
                     <property name="label" translatable="yes">1 m</property>
                     <property name="width_request">70</property>
                     <property name="height_request">40</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -63,8 +53,6 @@
                     <property name="label" translatable="yes">2 m</property>
                     <property name="width_request">70</property>
                     <property name="height_request">40</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -81,8 +69,6 @@
                     <property name="label" translatable="yes">3 m</property>
                     <property name="width_request">70</property>
                     <property name="height_request">40</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -99,8 +85,6 @@
                     <property name="label" translatable="yes">5 m</property>
                     <property name="width_request">70</property>
                     <property name="height_request">40</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -117,8 +101,6 @@
                     <property name="label" translatable="yes">30 m</property>
                     <property name="width_request">70</property>
                     <property name="height_request">40</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -135,8 +117,6 @@
                     <property name="label" translatable="yes">15 m</property>
                     <property name="width_request">70</property>
                     <property name="height_request">40</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -153,8 +133,6 @@
                     <property name="label" translatable="yes">45 m</property>
                     <property name="width_request">70</property>
                     <property name="height_request">40</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -171,8 +149,6 @@
                     <property name="label" translatable="yes">1 h</property>
                     <property name="width_request">70</property>
                     <property name="height_request">40</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
@@ -188,21 +164,15 @@
             </child>
             <child>
               <object class="GtkBox">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="margin_top">12</property>
                 <property name="margin_bottom">12</property>
                 <child>
                   <object class="GtkGrid" id="time_grid">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="column_spacing">10</property>
                     <child>
                       <object class="GtkLabel">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="hexpand">True</property>
                         <layout>
                           <property name="column">0</property>
@@ -212,8 +182,6 @@
                     </child>
                     <child>
                       <object class="GtkSpinButton" id="h_spinbutton">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
                         <!-- TODO GTK 4 -->
                         <!-- <property name="max_length">2</property> -->
                         <!-- <property name="invisible_char">●</property> -->
@@ -238,8 +206,6 @@
                     </child>
                     <child>
                       <object class="GtkLabel">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="label">∶</property>
                         <style>
                           <class name="clocks-timer-label"/>
@@ -252,8 +218,6 @@
                     </child>
                     <child>
                       <object class="GtkSpinButton" id="m_spinbutton">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
                         <!-- TODO GTK 4 -->
                         <!-- <property name="max_length">2</property> -->
                         <!-- <property name="invisible_char">●</property> -->
@@ -279,8 +243,6 @@
                     </child>
                     <child>
                       <object class="GtkLabel">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="label">∶</property>
                         <style>
                           <class name="clocks-timer-label"/>
@@ -293,8 +255,6 @@
                     </child>
                     <child>
                       <object class="GtkSpinButton" id="s_spinbutton">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
                         <!-- TODO GTK 4 -->
                         <!-- <property name="max_length">2</property> -->
                         <!-- <property name="invisible_char">●</property> -->
@@ -320,8 +280,6 @@
                     </child>
                     <child>
                       <object class="GtkLabel">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="hexpand">True</property>
                         <layout>
                           <property name="column">6</property>

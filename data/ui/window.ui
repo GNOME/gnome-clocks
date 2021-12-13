@@ -5,7 +5,6 @@
     <!-- <property name="title" bind-source="header_bar" bind-property="title" bind-flags="sync-create" /> -->
     <child>
       <object class="AdwLeaflet" id="alarm_leaflet">
-        <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <property name="visible-child">world_leaflet</property>
         <property name="transition-type">under</property>
@@ -13,24 +12,19 @@
         <signal name="notify::visible-child" handler="visible_child_changed"/>
         <child>
           <object class="ClocksAlarmRingingPanel" id="alarm_ringing_panel">
-            <property name="visible">True</property>
             <signal name="dismiss" handler="alarm_dismissed"/>
           </object>
         </child>
         <child>
           <object class="AdwLeaflet" id="world_leaflet">
-            <property name="visible">True</property>
             <property name="can-unfold">False</property>
             <property name="can-navigate-back">True</property>
             <signal name="notify::visible-child" handler="visible_child_changed"/>
             <child>
               <object class="GtkBox" id="main_view">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="ClocksHeaderBar" id="header_bar">
-                    <property name="visible">True</property>
                     <property name="stack">stack</property>
                     <property name="switcher_bar">switcher_bar</property>
                   </object>
@@ -47,7 +41,6 @@
                         <property name="icon-name">globe-symbolic</property>
                         <property name="child">
                           <object class="ClocksWorldFace" id="world">
-                            <property name="visible">True</property>
                           </object>
                         </property>
                       </object>
@@ -59,7 +52,6 @@
                         <property name="icon-name">alarm-symbolic</property>
                         <property name="child">
                           <object class="ClocksAlarmFace" id="alarm">
-                            <property name="visible">True</property>
                           </object>
                         </property>
                       </object>
@@ -71,7 +63,6 @@
                         <property name="icon-name">stopwatch-symbolic</property>
                         <property name="child">
                           <object class="ClocksStopwatchFace" id="stopwatch">
-                            <property name="visible">True</property>
                           </object>
                         </property>
                       </object>
@@ -83,7 +74,6 @@
                         <property name="icon-name">timer-symbolic</property>
                         <property name="child">
                           <object class="ClocksTimerFace" id="timer">
-                            <property name="visible">True</property>
                           </object>
                         </property>
                       </object>
@@ -92,8 +82,6 @@
                 </child>
                 <child>
                   <object class="AdwViewSwitcherBar" id="switcher_bar">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="stack">stack</property>
                   </object>
                 </child>
@@ -101,7 +89,6 @@
             </child>
             <child>
               <object class="ClocksWorldStandalone" id="world_standalone">
-                <property name="visible">True</property>
               </object>
             </child>
           </object>

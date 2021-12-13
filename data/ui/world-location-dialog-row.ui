@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <template class="ClocksWorldLocationDialogRow" parent="GtkListBoxRow">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
     <property name="selectable">False</property>
     <child>
       <object class="GtkGrid">
-        <property name="visible">True</property>
         <property name="valign">start</property>
         <property name="margin">12</property>
         <property name="hexpand">True</property>
@@ -14,7 +11,6 @@
         <property name="column_spacing">12</property>
         <child>
           <object class="GtkLabel">
-            <property name="visible">True</property>
             <property name="hexpand">True</property>
             <property name="label" bind-source="ClocksWorldLocationDialogRow" bind-property="clock-description" bind-flags="sync-create"/>
             <property name="ellipsize">end</property>
@@ -32,12 +28,9 @@
         </child>
         <child>
           <object class="GtkBox">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="spacing">10</property>
             <child>
               <object class="GtkLabel">
-                <property name="visible">True</property>
                 <property name="label" bind-source="ClocksWorldLocationDialogRow" bind-property="clock-name" bind-flags="sync-create"/>
                 <property name="ellipsize">end</property>
                 <property name="xalign">0</property>
@@ -49,7 +42,6 @@
             </child>
             <child>
               <object class="GtkLabel">
-                <property name="visible">True</property>
                 <property name="label" bind-source="ClocksWorldLocationDialogRow" bind-property="clock-location" bind-flags="sync-create"/>
                 <property name="xalign">0</property>
                 <property name="yalign">1</property>

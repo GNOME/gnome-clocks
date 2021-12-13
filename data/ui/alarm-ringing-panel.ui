@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
 <interface>
   <template class="ClocksAlarmRingingPanel" parent="AdwBin">
     <child>
       <object class="GtkWindowHandle">
-        <property name="visible">True</property>
         <child>
           <object class="GtkGrid">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="margin_start">6</property>
             <property name="margin_end">6</property>
             <property name="margin_top">6</property>
@@ -19,8 +15,6 @@
             <property name="column_spacing">24</property>
             <child>
               <object class="GtkGrid" id="button_grid">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="hexpand">True</property>
@@ -31,8 +25,6 @@
                   <object class="GtkButton" id="stop_button">
                     <property name="label" translatable="yes">Stop</property>
                     <property name="width_request">200</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <style>
                       <class name="pill"/>
@@ -49,8 +41,6 @@
                   <object class="GtkButton" id="snooze_button">
                     <property name="label" translatable="yes">Snooze</property>
                     <property name="width_request">200</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <style>
                       <class name="pill"/>
@@ -70,8 +60,6 @@
             </child>
             <child>
               <object class="GtkBox">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="hexpand">True</property>
@@ -79,8 +67,6 @@
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkLabel" id="time_label">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="justify">center</property>
                     <property name="wrap">True</property>
                     <property name="xalign">0.5</property>
@@ -94,8 +80,6 @@
                 </child>
                 <child>
                   <object class="GtkLabel" id="title_label">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="justify">center</property>
                     <property name="wrap">True</property>
                     <property name="margin_top">24</property>

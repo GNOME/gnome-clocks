@@ -3,23 +3,17 @@
   <template class="ClocksTimerFace" parent="AdwBin">
     <child>
       <object class="GtkStack" id="stack">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
         <child>
           <object class="GtkStackPage">
             <property name="name">empty</property>
             <property name="child">
               <object class="GtkBox" id="no_timer_container">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="orientation">vertical</property>
                 <property name="spacing">18</property>
                 <child>
                   <object class="GtkLabel">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Select Duration</property>
                     <style>
                       <class name="timer-header"/>
@@ -28,15 +22,11 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="start_button">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <child>
                       <object class="GtkImage">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="halign">center</property>
                         <property name="valign">center</property>
                         <property name="icon_name">media-playback-start-symbolic</property>
@@ -58,16 +48,10 @@
             <property name="name">timers</property>
             <property name="child">
               <object class="GtkScrolledWindow">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
                 <child>
                   <object class="AdwClamp">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <child>
                       <object class="GtkListBox" id="timers_list">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="valign">start</property>
                         <property name="selection_mode">none</property>
                         <property name="activate_on_single_click">False</property>

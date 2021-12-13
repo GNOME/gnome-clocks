@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
 <interface>
   <template class="ClocksStopwatchLapsRow" parent="GtkListBoxRow">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
     <property name="activatable">False</property>
     <child>
       <object class="GtkBox">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
         <property name="spacing">18</property>
         <child>
           <object class="GtkLabel" id="duration_label">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="tooltip_text" translatable="yes">Time</property>
             <property name="halign">start</property>
             <property name="valign">center</property>
@@ -27,8 +20,6 @@
         </child>
         <child>
           <object class="GtkLabel" id="difference_label">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="tooltip_text" translatable="yes">Difference</property>
             <property name="halign">start</property>
             <property name="valign">center</property>
@@ -39,8 +30,6 @@
         </child>
         <child>
           <object class="GtkLabel" id="index_label">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="halign">end</property>
             <property name="valign">center</property>
             <property name="width_chars">3</property>

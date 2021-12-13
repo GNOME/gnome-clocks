@@ -1,36 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <template class="ClocksStopwatchFace" parent="GtkBox">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
     <property name="orientation">vertical</property>
     <child>
       <object class="GtkScrolledWindow">
-        <property name="visible">True</property>
-        <property name="can_focus">True</property>
         <property name="min_content_width">300</property>
         <property name="vexpand">True</property>
         <child>
           <object class="AdwClamp">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="maximum_size">380</property>
             <child>
               <object class="GtkBox" id="container">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="valign">center</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkBox" id="time_container">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="halign">center</property>
                     <property name="margin_bottom">18</property>
                     <child>
                       <object class="GtkLabel" id="hours_label">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="label">00</property>
                         <property name="xalign">0</property>
                         <property name="yalign">0</property>
@@ -45,15 +33,11 @@
                     </child>
                     <child>
                       <object class="GtkLabel">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="label">∶</property>
                       </object>
                     </child>
                     <child>
                       <object class="GtkLabel" id="minutes_label">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="label">00</property>
                         <property name="xalign">0</property>
                         <property name="yalign">0</property>
@@ -68,8 +52,6 @@
                     </child>
                     <child>
                       <object class="GtkLabel">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="label">∶</property>
                         <property name="xalign">0</property>
                         <property name="yalign">0</property>
@@ -77,8 +59,6 @@
                     </child>
                     <child>
                       <object class="GtkLabel" id="seconds_label">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="label">00</property>
                         <property name="xalign">0</property>
                         <property name="yalign">0</property>
@@ -92,8 +72,6 @@
                     </child>
                     <child>
                       <object class="GtkLabel">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="label">.</property>
                         <property name="xalign">0</property>
                         <property name="yalign">0</property>
@@ -101,8 +79,6 @@
                     </child>
                     <child>
                       <object class="GtkLabel" id="miliseconds_label">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="valign">end</property>
                         <!-- TODO GTK 4 -->
                         <!-- <property name="ypad">6</property> -->
@@ -124,15 +100,11 @@
                 </child>
                 <child>
                   <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="spacing">12</property>
                     <child>
                       <object class="GtkButton" id="start_btn">
                         <property name="label" translatable="yes">_Start</property>
                         <property name="width_request">120</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="use_underline">True</property>
                         <property name="hexpand">True</property>
@@ -149,8 +121,6 @@
                       <object class="GtkButton" id="clear_btn">
                         <property name="label" translatable="yes">Clear</property>
                         <property name="width_request">120</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="halign">end</property>
                         <signal name="clicked" handler="on_clear_btn_clicked" swapped="no"/>
@@ -164,13 +134,9 @@
                 </child>
                 <child>
                   <object class="GtkRevealer" id="laps_revealer">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="transition_type">crossfade</property>
                     <child>
                       <object class="GtkListBox" id="laps_list">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="valign">start</property>
                         <property name="selection_mode">none</property>
                         <style>

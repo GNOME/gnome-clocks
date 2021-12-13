@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
 <interface>
   <template class="ClocksTimerRow" parent="GtkListBoxRow">
-    <property name="visible">True</property>
     <property name="activatable">False</property>
-    <property name="can_focus">False</property>
     <child>
       <object class="GtkBox">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
         <property name="valign">start</property>
         <property name="margin_top">24</property>
         <property name="margin_bottom">24</property>
@@ -16,8 +11,6 @@
         <property name="spacing">6</property>
         <child>
           <object class="GtkLabel" id="countdown_label">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="label">00 ∶ 00 ∶ 00</property>
             <attributes>
               <attribute name="font-features" value="tnum=1"/>
@@ -29,15 +22,11 @@
         </child>
         <child>
           <object class="GtkStack" id="name_stack">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <child>
               <object class="GtkStackPage">
                 <property name="name">edit</property>
                 <property name="child">
                   <object class="GtkEntry" id="title">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
                     <property name="halign">center</property>
                     <property name="width_chars">26</property>
                     <property name="placeholder_text" translatable="yes">Title…</property>
@@ -50,8 +39,6 @@
                 <property name="name">display</property>
                 <property name="child">
                   <object class="GtkLabel" id="timer_name">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="halign">center</property>
                     <style>
                       <class name="dim-label"/>
@@ -64,15 +51,11 @@
         </child>
         <child>
           <object class="GtkGrid">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="halign">center</property>
             <property name="column_spacing">18</property>
             <property name="column_homogeneous">True</property>
             <child>
               <object class="GtkStack" id="start_stack">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="hhomogeneous">False</property>
@@ -82,16 +65,12 @@
                     <property name="name">pause</property>
                     <property name="child">
                       <object class="GtkButton" id="pause_button">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="halign">center</property>
                         <property name="valign">center</property>
                         <signal name="clicked" handler="on_pause_button_clicked" swapped="no"/>
                         <child>
                           <object class="GtkImage">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
                             <property name="icon_name">media-playback-pause-symbolic</property>
                           </object>
                         </child>
@@ -108,16 +87,12 @@
                     <property name="name">start</property>
                     <property name="child">
                       <object class="GtkButton" id="start_button">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="halign">center</property>
                         <property name="valign">center</property>
                         <signal name="clicked" handler="on_start_button_clicked" swapped="no"/>
                         <child>
                           <object class="GtkImage">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
                             <property name="icon_name">media-playback-start-symbolic</property>
                           </object>
                         </child>
@@ -138,23 +113,17 @@
             </child>
             <child>
               <object class="GtkStack" id="reset_stack">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <child>
                   <object class="GtkStackPage">
                     <property name="name">button</property>
                     <property name="child">
                       <object class="GtkButton" id="reset_button">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="halign">center</property>
                         <property name="valign">center</property>
                         <signal name="clicked" handler="on_reset_button_clicked" swapped="no"/>
                         <child>
                           <object class="GtkImage">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
                             <property name="icon_name">view-refresh-symbolic</property>
                           </object>
                         </child>
@@ -171,8 +140,6 @@
                     <property name="name">empty</property>
                     <property name="child">
                       <object class="GtkLabel">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                       </object>
                     </property>
                   </object>
@@ -185,22 +152,16 @@
             </child>
             <child>
               <object class="GtkStack" id="delete_stack">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <child>
                   <object class="GtkStackPage">
                     <property name="name">button</property>
                     <property name="child">
                       <object class="GtkButton" id="delete_button">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="halign">center</property>
                         <property name="valign">center</property>
                         <child>
                           <object class="GtkImage">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
                             <property name="icon_name">edit-delete-symbolic</property>
                           </object>
                         </child>
@@ -217,8 +178,6 @@
                     <property name="name">empty</property>
                     <property name="child">
                       <object class="GtkLabel">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                       </object>
                     </property>
                   </object>
