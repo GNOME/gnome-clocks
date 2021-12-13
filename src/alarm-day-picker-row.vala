@@ -128,7 +128,6 @@ public class DayPickerRow : Gtk.ListBoxRow {
             buttons[i].tooltip_text = day.name ();
             buttons[i].add_css_class ("circular");
             buttons[i].halign = Gtk.Align.START;
-            buttons[i].show ();
         }
 
         // Add the items, starting with the first day of the week
@@ -139,7 +138,6 @@ public class DayPickerRow : Gtk.ListBoxRow {
 
             var wrap = new Gtk.FlowBoxChild ();
             wrap.set_child (buttons[day_number]);
-            wrap.show ();
 
             flow.insert (wrap, -1);
         }
