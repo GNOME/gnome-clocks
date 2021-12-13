@@ -75,18 +75,18 @@ public class SearchProvider : Object {
 
     private async void search_locations_recurse (GWeather.Location location, string[] normalized_terms,
                                                  GenericArray<GWeather.Location> matches) {
-        // TODO GTK 4
-        // var locations = location.get_children ();
-        // foreach (var child_location in locations) {
-        //     var level = child_location.get_level ();
-        //     if (level == CITY || level == NAMED_TIMEZONE) {
-        //         if (location_matches (child_location, normalized_terms)) {
-        //             matches.add (child_location);
-        //         }
-        //     }
-        //
-        //     yield search_locations_recurse (child_location, normalized_terms, matches);
-        // }
+        var loc = location.next_child (null);
+        while (loc != null) {
+            var level = loc.get_level ();
+            if (level == CITY || level == NAMED_TIMEZONE) {
+                if (location_matches (loc, normalized_terms)) {
+                    matches.add (loc);
+                }
+            }
+
+            yield search_locations_recurse (loc, normalized_terms, matches);
+            loc = location.next_child (loc);
+        }
     }
 
     private async string[] search_locations (string[] normalized_terms) {
@@ -104,11 +104,10 @@ public class SearchProvider : Object {
         string[] result = {};
         matches.foreach ((location) => {
             // FIXME: Avoid cities without children locations
-            // TODO GTK 4
-            // if (location.get_level () == GWeather.LocationLevel.CITY &&
-            //     location.get_children ().length == 0) {
-            //     return;
-            // }
+            if (location.get_level () == GWeather.LocationLevel.CITY &&
+                location.next_child (null) == null) {
+                return;
+            }
             // HACK: the search provider interface does not currently allow variants as result IDs
             result += serialize_location (location);
         });

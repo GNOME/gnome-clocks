@@ -174,13 +174,15 @@ private class LocationDialog : Gtk.Window {
             default:
                 break;
         }
-        // TODO GTK 4
-        // foreach (var child in location.get_children ()) {
-        //     query_locations (child, search);
-        //     if (locations.get_n_items () >= RESULT_COUNT_LIMIT) {
-        //         return;
-        //     }
-        // }
+
+        var loc = location.next_child (null);
+        while (loc != null) {
+            query_locations (loc, search);
+            if (locations.get_n_items () >= RESULT_COUNT_LIMIT) {
+                return;
+            }
+            loc = location.next_child (loc);
+        }
     }
 }
 
