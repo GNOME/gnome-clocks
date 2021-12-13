@@ -119,27 +119,27 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkButton" id="delete_button">
-                    <property name="label" translatable="yes">R_emove Alarm</property>
-                    <property name="use-underline">True</property>
-                    <property name="margin-top">6</property>
-                    <property name="margin-bottom">6</property>
-                    <property name="margin-start">6</property>
-                    <property name="margin-top">6</property>
-                    <property name="halign">start</property>
-                    <signal name="clicked" handler="delete" swapped="no" />
-                    <style>
-                      <class name="destructive-action"/>
-                    </style>
-                  </object>
-                </child>
-                <child>
                   <object class="GtkRevealer" id="label_revealer">
                     <child>
                       <object class="GtkLabel" id="warn_label">
                         <property name="label" translatable="yes">You already have an alarm for this time.</property>
                       </object>
                     </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="delete_button">
+                    <property name="label" translatable="yes">R_emove Alarm</property>
+                    <property name="use-underline">True</property>
+                    <property name="halign">start</property>
+                    <property name="valign">end</property>
+                    <property name="vexpand">True</property>
+                    <property name="margin-start">6</property>
+                    <property name="margin-bottom">6</property>
+                    <signal name="clicked" handler="delete" swapped="no" />
+                    <style>
+                      <class name="destructive-action"/>
+                    </style>
                   </object>
                 </child>
               </object>
