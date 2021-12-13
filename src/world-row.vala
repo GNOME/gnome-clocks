@@ -20,28 +20,20 @@ namespace Clocks {
 namespace World {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world-row.ui")]
-private class Row : Gtk.ListBoxRow {
+private class Row : Adw.ActionRow {
     public Item location { get; construct set; }
 
     [GtkChild]
     private unowned Gtk.Label time_label;
     [GtkChild]
-    private unowned Gtk.Widget name_label;
-    [GtkChild]
-    private unowned Gtk.Label desc;
-    [GtkChild]
-    private unowned Gtk.Stack delete_stack;
-    [GtkChild]
     private unowned Gtk.Widget delete_button;
-    [GtkChild]
-    private unowned Gtk.Widget delete_empty;
 
     internal signal void remove_clock ();
 
     public Row (Item location) {
         Object (location: location);
 
-        location.bind_property ("city-name", name_label, "label", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
+        location.bind_property ("city-name", this, "title", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
         location.tick.connect (update);
 
         update ();
@@ -59,15 +51,15 @@ private class Row : Gtk.ListBoxRow {
         var message = Utils.get_time_difference_message ((double) location.local_offset);
 
         if (location.day_label != null && location.day_label != "") {
-            desc.label = "%s • %s".printf ((string) location.day_label, message);
-            delete_stack.visible_child = delete_button;
+            subtitle = "%s • %s".printf ((string) location.day_label, message);
+            delete_button.show ();
         } else if (location.automatic) {
             // Translators: This clock represents the local time
-            desc.label = _("Current location");
-            delete_stack.visible_child = delete_empty;
+            subtitle = _("Current location");
+            delete_button.hide ();
         } else {
-            desc.label = "%s".printf (message);
-            delete_stack.visible_child = delete_button;
+            subtitle = "%s".printf (message);
+            delete_button.show ();
         }
 
         time_label.label = location.time_label;
