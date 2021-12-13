@@ -104,7 +104,7 @@ public class DayPickerRow : Gtk.ListBoxRow {
     private Utils.Weekdays days = new Utils.Weekdays ();
 
     [GtkChild]
-    private unowned Gtk.FlowBox flow;
+    private unowned Gtk.Box box;
 
     construct {
         // Create actions to control propeties from menu items
@@ -136,10 +136,7 @@ public class DayPickerRow : Gtk.ListBoxRow {
         for (int i = 0; i < 7; i++) {
             var day_number = (first_weekday + i) % 7;
 
-            var wrap = new Gtk.FlowBoxChild ();
-            wrap.set_child (buttons[day_number]);
-
-            flow.insert (wrap, -1);
+            box.append (buttons[day_number]);
         }
 
         update ();

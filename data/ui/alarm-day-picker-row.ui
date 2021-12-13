@@ -5,23 +5,24 @@
     <property name="selectable">False</property>
     <child>
       <object class="GtkBox">
-        <property name="spacing">30</property>
+        <property name="spacing">9</property>
         <property name="margin-start">12</property>
         <property name="margin-end">12</property>
         <property name="margin-top">12</property>
         <property name="margin-bottom">12</property>
+        <property name="orientation">vertical</property>
         <child>
           <object class="GtkLabel">
+            <property name="halign">start</property>
             <property name="label" translatable="yes">Repeat</property>
             <property name="use-underline">True</property>
+            <property name="hexpand">True</property>
           </object>
         </child>
         <child>
-          <object class="GtkFlowBox" id="flow">
+          <object class="GtkBox" id="box">
             <property name="valign">center</property>
-            <property name="hexpand">True</property>
-            <property name="selection-mode">none</property>
-            <property name="activate-on-single-click">False</property>
+            <property name="spacing">6</property>
           </object>
         </child>
       </object>
