@@ -36,22 +36,6 @@ const double RISESET_CORRECTION_ASTRONOMICAL = 18.0;
 namespace Clocks {
 namespace Utils {
 
-public void load_css (string css) {
-    var provider = new Gtk.CssProvider ();
-    try {
-        var data = resources_lookup_data ("/org/gnome/clocks/css/" + css + ".css", NONE);
-        provider.load_from_data (data.get_data ());
-        Gtk.StyleContext.add_provider_for_display (Gdk.Display.get_default (),
-                                                   provider,
-                                                   Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-    } catch (ResourceError.NOT_FOUND e) {
-        /* Ignore */
-    } catch (Error e) {
-        warning ("Didn't load css for %s: %s".printf (css, e.message));
-    }
-}
-
 public void time_to_hms (double t, out int h, out int m, out int s, out double remainder) {
     h = (int) t / 3600;
     t = t % 3600;
