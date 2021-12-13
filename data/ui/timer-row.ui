@@ -68,12 +68,8 @@
                         <property name="receives_default">True</property>
                         <property name="halign">center</property>
                         <property name="valign">center</property>
+                        <property name="icon_name">media-playback-pause-symbolic</property>
                         <signal name="clicked" handler="on_pause_button_clicked" swapped="no"/>
-                        <child>
-                          <object class="GtkImage">
-                            <property name="icon_name">media-playback-pause-symbolic</property>
-                          </object>
-                        </child>
                         <style>
                           <class name="pill"/>
                           <class name="large-button"/>
@@ -90,12 +86,8 @@
                         <property name="receives_default">True</property>
                         <property name="halign">center</property>
                         <property name="valign">center</property>
+                        <property name="icon_name">media-playback-start-symbolic</property>
                         <signal name="clicked" handler="on_start_button_clicked" swapped="no"/>
-                        <child>
-                          <object class="GtkImage">
-                            <property name="icon_name">media-playback-start-symbolic</property>
-                          </object>
-                        </child>
                         <style>
                           <class name="suggested-action"/>
                           <class name="pill"/>
@@ -121,12 +113,8 @@
                         <property name="receives_default">True</property>
                         <property name="halign">center</property>
                         <property name="valign">center</property>
+                        <property name="icon_name">view-refresh-symbolic</property>
                         <signal name="clicked" handler="on_reset_button_clicked" swapped="no"/>
-                        <child>
-                          <object class="GtkImage">
-                            <property name="icon_name">view-refresh-symbolic</property>
-                          </object>
-                        </child>
                         <style>
                           <class name="pill"/>
                           <class name="small-button"/>
@@ -160,11 +148,7 @@
                         <property name="receives_default">True</property>
                         <property name="halign">center</property>
                         <property name="valign">center</property>
-                        <child>
-                          <object class="GtkImage">
-                            <property name="icon_name">edit-delete-symbolic</property>
-                          </object>
-                        </child>
+                        <property name="icon_name">edit-delete-symbolic</property>
                         <style>
                           <class name="pill"/>
                           <class name="small-button"/>

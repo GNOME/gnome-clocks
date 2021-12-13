@@ -36,11 +36,7 @@
                     <property name="receives_default">True</property>
                     <property name="action_name">win.new</property>
                     <property name="tooltip-text" bind-source="ClocksHeaderBar" bind-property="new-label" bind-flags="sync-create" />
-                    <child>
-                      <object class="GtkImage">
-                        <property name="icon_name">list-add-symbolic</property>
-                      </object>
-                    </child>
+                    <property name="icon_name">list-add-symbolic</property>
                   </object>
                 </property>
               </object>
@@ -53,11 +49,7 @@
                     <property name="receives_default">True</property>
                     <property name="action_name">win.back</property>
                     <property name="tooltip-text" translatable="yes">Back</property>
-                    <child>
-                      <object class="GtkImage">
-                        <property name="icon_name">go-previous-symbolic</property>
-                      </object>
-                    </child>
+                    <property name="icon_name">go-previous-symbolic</property>
                   </object>
                 </property>
               </object>
