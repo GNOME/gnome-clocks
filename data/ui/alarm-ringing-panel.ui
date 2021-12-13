@@ -70,10 +70,8 @@
                     <property name="justify">center</property>
                     <property name="wrap">True</property>
                     <property name="xalign">0.5</property>
-                    <attributes>
-                      <attribute name="font-features" value="tnum=1"/>
-                    </attributes>
                     <style>
+                      <class name="numeric"/>
                       <class name="clocks-ringing-label"/>
                     </style>
                   </object>

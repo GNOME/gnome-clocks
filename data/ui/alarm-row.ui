@@ -83,10 +83,8 @@
                 <property name="label">Name</property>
                 <property name="ellipsize">end</property>
                 <property name="xalign">0</property>
-                <attributes>
-                  <attribute name="font-features" value="tnum=1"/>
-                </attributes>
                 <style>
+                  <class name="numeric"/>
                   <class name="alarm-name"/>
                 </style>
               </object>

@@ -12,10 +12,8 @@
         <child>
           <object class="GtkLabel" id="countdown_label">
             <property name="label">00 ∶ 00 ∶ 00</property>
-            <attributes>
-              <attribute name="font-features" value="tnum=1"/>
-            </attributes>
             <style>
+              <class name="numeric"/>
               <class name="timer-countdown"/>
             </style>
           </object>
