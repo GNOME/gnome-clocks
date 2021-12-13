@@ -71,7 +71,7 @@
                         <property name="icon_name">media-playback-pause-symbolic</property>
                         <signal name="clicked" handler="on_pause_button_clicked" swapped="no"/>
                         <style>
-                          <class name="pill"/>
+                          <class name="circular"/>
                           <class name="large-button"/>
                         </style>
                       </object>
@@ -90,7 +90,7 @@
                         <signal name="clicked" handler="on_start_button_clicked" swapped="no"/>
                         <style>
                           <class name="suggested-action"/>
-                          <class name="pill"/>
+                          <class name="circular"/>
                           <class name="large-button"/>
                         </style>
                       </object>
@@ -116,8 +116,7 @@
                         <property name="icon_name">view-refresh-symbolic</property>
                         <signal name="clicked" handler="on_reset_button_clicked" swapped="no"/>
                         <style>
-                          <class name="pill"/>
-                          <class name="small-button"/>
+                          <class name="circular"/>
                         </style>
                       </object>
                     </property>
@@ -150,8 +149,7 @@
                         <property name="valign">center</property>
                         <property name="icon_name">edit-delete-symbolic</property>
                         <style>
-                          <class name="pill"/>
-                          <class name="small-button"/>
+                          <class name="circular"/>
                         </style>
                       </object>
                     </property>
