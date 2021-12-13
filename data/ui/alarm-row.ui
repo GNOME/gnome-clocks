@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.1 -->
 <interface>
-  <requires lib="gtk+" version="3.20"/>
   <template class="ClocksAlarmRow" parent="GtkListBoxRow">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -24,12 +23,11 @@
             <property name="can_focus">True</property>
             <property name="tooltip_text" translatable="yes">Active</property>
             <property name="valign">center</property>
+            <layout>
+              <property name="column">1</property>
+              <property name="row">0</property>
+            </layout>
           </object>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="top_attach">0</property>
-            <property name="height">3</property>
-          </packing>
         </child>
         <child>
           <object class="GtkButton">
@@ -39,24 +37,17 @@
             <property name="tooltip_text" translatable="yes">Delete</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
-            <property name="relief">none</property>
+            <property name="icon_name">edit-delete-symbolic</property>
             <signal name="clicked" handler="delete" swapped="no"/>
-            <child>
-              <object class="GtkImage">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="icon_name">edit-delete-symbolic</property>
-              </object>
-            </child>
             <style>
               <class name="circular"/>
+              <class name="flat"/>
             </style>
+            <layout>
+              <property name="column">4</property>
+              <property name="row">0</property>
+            </layout>
           </object>
-          <packing>
-            <property name="left_attach">4</property>
-            <property name="top_attach">0</property>
-            <property name="height">3</property>
-          </packing>
         </child>
         <child>
           <object class="GtkRevealer" id="repeats_reveal">
@@ -76,11 +67,11 @@
                 </style>
               </object>
             </child>
+            <layout>
+              <property name="column">0</property>
+              <property name="row">2</property>
+            </layout>
           </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">2</property>
-          </packing>
         </child>
         <child>
           <object class="GtkLabel" id="time">
@@ -92,11 +83,11 @@
             <style>
               <class name="alarm-time"/>
             </style>
+            <layout>
+              <property name="column">0</property>
+              <property name="row">1</property>
+            </layout>
           </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">1</property>
-          </packing>
         </child>
         <child>
           <object class="GtkRevealer" id="title_reveal">
@@ -119,11 +110,11 @@
                 </style>
               </object>
             </child>
+            <layout>
+              <property name="column">0</property>
+              <property name="row">0</property>
+            </layout>
           </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">0</property>
-          </packing>
         </child>
       </object>
     </child>

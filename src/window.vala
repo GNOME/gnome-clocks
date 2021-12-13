@@ -38,7 +38,7 @@ public class Window : Adw.ApplicationWindow {
     [GtkChild]
     private unowned Gtk.Box main_view;
     [GtkChild]
-    private unowned Gtk.Stack stack;
+    private unowned Adw.ViewStack stack;
     [GtkChild]
     private unowned World.Face world;
     [GtkChild]
@@ -104,7 +104,8 @@ public class Window : Adw.ApplicationWindow {
 
         inited = true;
 
-        header_bar.bind_property ("title", this, "title", SYNC_CREATE);
+        // TODO GTK 4
+        // header_bar.bind_property ("title", this, "title", SYNC_CREATE);
 
         pane_changed ();
 

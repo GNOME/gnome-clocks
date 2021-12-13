@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.1 -->
 <interface>
-  <requires lib="gtk+" version="3.14"/>
   <template class="ClocksStopwatchLapsRow" parent="GtkListBoxRow">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -10,7 +9,7 @@
       <object class="GtkBox">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="border_width">18</property>
+        <property name="spacing">18</property>
         <child>
           <object class="GtkLabel" id="duration_label">
             <property name="visible">True</property>
@@ -25,12 +24,6 @@
               <class name="lap-time"/>
             </style>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="padding">6</property>
-            <property name="position">0</property>
-          </packing>
         </child>
         <child>
           <object class="GtkLabel" id="difference_label">
@@ -43,12 +36,6 @@
               <attribute name="font-features" value="tnum=1"/>
             </attributes>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="padding">6</property>
-            <property name="position">1</property>
-          </packing>
         </child>
         <child>
           <object class="GtkLabel" id="index_label">
@@ -61,11 +48,6 @@
               <class name="dim-label"/>
             </style>
           </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
-          </packing>
         </child>
       </object>
     </child>

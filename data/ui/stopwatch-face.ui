@@ -9,6 +9,7 @@
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="min_content_width">300</property>
+        <property name="vexpand">True</property>
         <child>
           <object class="AdwClamp">
             <property name="visible">True</property>
@@ -41,11 +42,6 @@
                           <class name="dim-label"/>
                         </style>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkLabel">
@@ -53,11 +49,6 @@
                         <property name="can_focus">False</property>
                         <property name="label">∶</property>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkLabel" id="minutes_label">
@@ -74,11 +65,6 @@
                           <class name="dim-label"/>
                         </style>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">2</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkLabel">
@@ -88,11 +74,6 @@
                         <property name="xalign">0</property>
                         <property name="yalign">0</property>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">3</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkLabel" id="seconds_label">
@@ -108,11 +89,6 @@
                           <class name="seconds-label"/>
                         </style>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">4</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkLabel">
@@ -122,18 +98,14 @@
                         <property name="xalign">0</property>
                         <property name="yalign">0</property>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">5</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkLabel" id="miliseconds_label">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="valign">end</property>
-                        <property name="ypad">6</property>
+                        <!-- TODO GTK 4 -->
+                        <!-- <property name="ypad">6</property> -->
                         <property name="label">0</property>
                         <property name="xalign">0</property>
                         <property name="yalign">0</property>
@@ -144,27 +116,17 @@
                           <class name="miliseconds-label"/>
                         </style>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">6</property>
-                      </packing>
                     </child>
                     <style>
                       <class name="stopped-stopwatch"/>
                     </style>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
                 </child>
                 <child>
                   <object class="GtkBox">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="border_width">12</property>
+                    <property name="spacing">12</property>
                     <child>
                       <object class="GtkButton" id="start_btn">
                         <property name="label" translatable="yes">_Start</property>
@@ -173,6 +135,8 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="use_underline">True</property>
+                        <property name="hexpand">True</property>
+                        <property name="halign">start</property>
                         <signal name="clicked" handler="on_start_btn_clicked" swapped="no"/>
                         <style>
                           <class name="suggested-action"/>
@@ -180,11 +144,6 @@
                           <class name="pill"/>
                         </style>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkButton" id="clear_btn">
@@ -193,25 +152,15 @@
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
+                        <property name="halign">end</property>
                         <signal name="clicked" handler="on_clear_btn_clicked" swapped="no"/>
                         <style>
                           <class name="large-button"/>
                           <class name="pill"/>
                         </style>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="pack_type">end</property>
-                        <property name="position">1</property>
-                      </packing>
                     </child>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
                 </child>
                 <child>
                   <object class="GtkRevealer" id="laps_revealer">
@@ -231,22 +180,12 @@
                       </object>
                     </child>
                   </object>
-                  <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
-                    <property name="position">2</property>
-                  </packing>
                 </child>
               </object>
             </child>
           </object>
         </child>
       </object>
-      <packing>
-        <property name="expand">True</property>
-        <property name="fill">True</property>
-        <property name="position">0</property>
-      </packing>
     </child>
     <style>
       <class name="stopwatch-panel"/>

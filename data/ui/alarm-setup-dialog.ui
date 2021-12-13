@@ -43,30 +43,30 @@
                         <property name="visible">True</property>
                         <property name="margin_start">6</property>
                         <property name="margin_end">6</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="row">0</property>
+                        </layout>
                       </object>
-                      <packing>
-                        <property name="left_attach">0</property>
-                        <property name="top_attach">0</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkLabel" id="label2">
                         <property name="visible">True</property>
                         <property name="label">∶</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="row">0</property>
+                        </layout>
                       </object>
-                      <packing>
-                        <property name="left_attach">2</property>
-                        <property name="top_attach">0</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkSpinButton" id="m_spinbutton">
                         <property name="visible">True</property>
-                        <property name="max_length">2</property>
+                        <!-- TODO GTK 4 -->
+                        <!-- <property name="max_length">2</property> -->
                         <property name="activates_default">False</property>
                         <property name="text">0</property>
                         <property name="xalign">0.5</property>
-                        <property name="input_purpose">number</property>
                         <property name="orientation">vertical</property>
                         <property name="adjustment">m_adjustment</property>
                         <property name="numeric">True</property>
@@ -74,11 +74,11 @@
                         <property name="width-request">60</property>
                         <signal name="changed" handler="spinbuttons_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
                         <signal name="output" handler="show_leading_zeros" object="ClocksAlarmSetupDialog" swapped="no"/>
+                        <layout>
+                          <property name="column">3</property>
+                          <property name="row">0</property>
+                        </layout>
                       </object>
-                      <packing>
-                        <property name="left_attach">3</property>
-                        <property name="top_attach">0</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkStack" id="am_pm_stack">
@@ -91,20 +91,20 @@
                             <property name="can_focus">False</property>
                           </object>
                         </child>
+                        <layout>
+                          <property name="column">4</property>
+                          <property name="row">0</property>
+                        </layout>
                       </object>
-                      <packing>
-                        <property name="left_attach">4</property>
-                        <property name="top_attach">0</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkSpinButton" id="h_spinbutton">
                         <property name="visible">True</property>
-                        <property name="max_length">2</property>
+                        <!-- TODO GTK 4 -->
+                        <!-- <property name="max_length">2</property> -->
                         <property name="activates_default">False</property>
                         <property name="text">0</property>
                         <property name="xalign">0.5</property>
-                        <property name="input_purpose">number</property>
                         <property name="orientation">vertical</property>
                         <property name="adjustment">h_adjustment</property>
                         <property name="numeric">True</property>
@@ -112,11 +112,11 @@
                         <property name="width-request">60</property>
                         <signal name="changed" handler="spinbuttons_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
                         <signal name="output" handler="show_leading_zeros" object="ClocksAlarmSetupDialog" swapped="no"/>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="row">0</property>
+                        </layout>
                       </object>
-                      <packing>
-                        <property name="left_attach">1</property>
-                        <property name="top_attach">0</property>
-                      </packing>
                     </child>
                     <style>
                       <class name="clocks-alarm-setup-time"/>

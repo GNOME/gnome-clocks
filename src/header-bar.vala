@@ -44,14 +44,14 @@ public class Clocks.HeaderBar : Adw.Bin {
         }
     }
 
-    public Gtk.Stack stack { get; set; }
+    public Adw.ViewStack stack { get; set; }
     public Adw.ViewSwitcherBar switcher_bar { get; set; }
     public string? new_label { get; set; }
 
     private ButtonMode _button_mode;
 
     [GtkChild]
-    private unowned Gtk.Stack start_button_stack;
+    private unowned Adw.ViewStack start_button_stack;
     [GtkChild]
     private unowned Adw.ViewSwitcherTitle view_switcher_title;
 

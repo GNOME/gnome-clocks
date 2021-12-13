@@ -5,7 +5,8 @@
       <object class="GtkStack" id="stack">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="homogeneous">False</property>
+        <property name="hhomogeneous">False</property>
+        <property name="vhomogeneous">False</property>
         <child>
           <object class="GtkBox" id="empty_view">
             <property name="visible">True</property>
@@ -25,9 +26,6 @@
                   <class name="dim-label"/>
                 </style>
               </object>
-              <packing>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
               <object class="GtkButton">
@@ -41,9 +39,6 @@
                   <class name="pill"/>
                 </style>
               </object>
-              <packing>
-                <property name="position">1</property>
-              </packing>
             </child>
           </object>
         </child>
