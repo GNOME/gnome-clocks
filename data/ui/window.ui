@@ -81,6 +81,9 @@
                 <child>
                   <object class="AdwViewSwitcherBar" id="switcher_bar">
                     <property name="stack">stack</property>
+                    <binding name="reveal">
+                      <lookup name="title-visible">header_bar</lookup>
+                    </binding>
                   </object>
                 </child>
               </object>

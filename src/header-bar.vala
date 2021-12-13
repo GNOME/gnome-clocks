@@ -47,16 +47,10 @@ public class Clocks.HeaderBar : Adw.Bin {
     public Adw.ViewStack stack { get; set; }
     public Adw.ViewSwitcherBar switcher_bar { get; set; }
     public string? new_label { get; set; }
+    public bool title_visible { get; set; }
 
     private ButtonMode _button_mode;
 
     [GtkChild]
     private unowned Adw.ViewStack start_button_stack;
-    [GtkChild]
-    private unowned Adw.ViewSwitcherTitle view_switcher_title;
-
-    [GtkCallback]
-    private void title_visible_changed () {
-        switcher_bar.reveal = view_switcher_title.title_visible;
-    }
 }

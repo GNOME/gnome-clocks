@@ -17,13 +17,13 @@
     </section>
   </menu>
   <template class="ClocksHeaderBar" parent="AdwBin">
+    <property name="title-visible" bind-source="view_switcher_title" bind-flags="sync-create"/>
     <child>
       <object class="AdwHeaderBar">
         <property name="centering_policy">strict</property>
         <child type="title">
           <object class="AdwViewSwitcherTitle" id="view_switcher_title">
-            <property name="stack" bind-source="ClocksHeaderBar" bind-property="stack" bind-flags="sync-create">ignore-me</property>
-            <signal name="notify::title-visible" handler="title_visible_changed"/>
+            <property name="stack" bind-source="ClocksHeaderBar" bind-property="stack" bind-flags="sync-create"/>
             <property name="title" translatable="yes">Clocks</property>
           </object>
         </child>
@@ -78,5 +78,4 @@
       </object>
     </child>
   </template>
-  <object class="AdwViewStack" id="ignore-me"></object>
 </interface>
