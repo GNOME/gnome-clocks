@@ -102,27 +102,28 @@ public class Info : Object {
             }
         }
 
-        var locations = location.get_children ();
-        for (int i = 0; i < locations.length; i++) {
-            if (locations[i].get_level () == GWeather.LocationLevel.CITY) {
-                if (locations[i].has_coords ()) {
-                    double latitude, longitude, distance;
-
-                    locations[i].get_coords (out latitude, out longitude);
-                    distance = get_distance (((GClue.Location) geo_location).latitude,
-                                             ((GClue.Location) geo_location).longitude,
-                                             latitude,
-                                             longitude);
-
-                    if (distance < minimal_distance) {
-                        found_location = locations[i];
-                        minimal_distance = distance;
-                    }
-                }
-            }
-
-            yield search_locations (locations[i]);
-        }
+        // TODO GTK 4
+        // var locations = location.get_children ();
+        // for (int i = 0; i < locations.length; i++) {
+        //     if (locations[i].get_level () == GWeather.LocationLevel.CITY) {
+        //         if (locations[i].has_coords ()) {
+        //             double latitude, longitude, distance;
+        //
+        //             locations[i].get_coords (out latitude, out longitude);
+        //             distance = get_distance (((GClue.Location) geo_location).latitude,
+        //                                      ((GClue.Location) geo_location).longitude,
+        //                                      latitude,
+        //                                      longitude);
+        //
+        //             if (distance < minimal_distance) {
+        //                 found_location = locations[i];
+        //                 minimal_distance = distance;
+        //             }
+        //         }
+        //     }
+        //
+        //     yield search_locations (locations[i]);
+        // }
     }
 
     public bool is_location_similar (GWeather.Location location) {
@@ -133,13 +134,14 @@ public class Info : Object {
                 var timezone = location.get_timezone ();
                 var found_timezone = ((GWeather.Location) found_location).get_timezone ();
 
-                if (timezone != null && found_timezone != null) {
-                    var tzid = ((GWeather.Timezone) timezone).get_tzid ();
-                    var found_tzid = ((GWeather.Timezone) found_timezone).get_tzid ();
-                    if (tzid == found_tzid) {
-                        return true;
-                    }
-                }
+                // TODO GTK 4
+                // if (timezone != null && found_timezone != null) {
+                //     var tzid = ((GWeather.Timezone) timezone).get_tzid ();
+                //     var found_tzid = ((GWeather.Timezone) found_timezone).get_tzid ();
+                //     if (tzid == found_tzid) {
+                //         return true;
+                //     }
+                // }
             }
         }
 

@@ -20,7 +20,7 @@ namespace Clocks {
 namespace World {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world-face.ui")]
-public class Face : Gtk.Stack, Clocks.Clock {
+public class Face : Adw.Bin, Clocks.Clock {
     public signal void show_standalone (Item location);
 
     public PanelId panel_id { get; construct set; }
@@ -36,21 +36,24 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private unowned Gtk.ScrolledWindow list_view;
     [GtkChild]
     private unowned Gtk.ListBox listbox;
+    [GtkChild]
+    private unowned Gtk.Stack stack;
 
     construct {
         panel_id = WORLD;
-        transition_type = CROSSFADE;
+        stack.transition_type = CROSSFADE;
 
         locations = new ContentStore ();
         settings = new GLib.Settings ("org.gnome.clocks");
 
         locations.set_sorting ((item1, item2) => {
-            var offset1 = ((GWeather.Timezone) ((Item) item1).location.get_timezone ()).get_offset ();
-            var offset2 = ((GWeather.Timezone) ((Item) item2).location.get_timezone ()).get_offset ();
-            if (offset1 < offset2)
-                return -1;
-            if (offset1 > offset2)
-                return 1;
+            // TODO GTK 4
+            // var offset1 = ((GWeather.Timezone) ((Item) item1).location.get_timezone ()).get_offset ();
+            // var offset2 = ((GWeather.Timezone) ((Item) item2).location.get_timezone ()).get_offset ();
+            // if (offset1 < offset2)
+            //     return -1;
+            // if (offset1 > offset2)
+            //     return 1;
             return 0;
         });
 
@@ -161,7 +164,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     private void reset_view () {
-        visible_child = locations.get_n_items () == 0 ? empty_view : list_view;
+        stack.visible_child = locations.get_n_items () == 0 ? empty_view : list_view;
     }
 }
 

@@ -129,13 +129,16 @@ private class SetupDialog : Gtk.Dialog {
 
         duration_model = new DurationModel ();
 
-        ring_duration.bind_name_model (duration_model, (item) => {
-            return ((Duration) item).label;
-        });
+        ring_duration.set_model (duration_model);
+        snooze_duration.set_model (duration_model);
 
-        snooze_duration.bind_name_model (duration_model, (item) => {
-            return ((Duration) item).label;
-        });
+        // ring_duration.bind_name_model (duration_model, (item) => {
+        //     return ((Duration) item).label;
+        // });
+
+        // snooze_duration.bind_name_model (duration_model, (item) => {
+        //     return ((Duration) item).label;
+        // });
 
         // Force LTR since we do not want to reverse [hh] : [mm]
         time_grid.set_direction (Gtk.TextDirection.LTR);
@@ -154,7 +157,7 @@ private class SetupDialog : Gtk.Dialog {
             am_pm_button.vexpand = false;
             am_pm_button.halign = Gtk.Align.CENTER;
             am_pm_button.valign = Gtk.Align.CENTER;
-            am_pm_stack.add (am_pm_button);
+            am_pm_stack.add_child (am_pm_button);
             am_pm_stack.visible_child = am_pm_button;
         }
 
@@ -204,8 +207,8 @@ private class SetupDialog : Gtk.Dialog {
                 hour = 12;
             }
         }
-        ring_duration.set_selected_index (duration_model.find_by_duration (ring_minutes));
-        snooze_duration.set_selected_index (duration_model.find_by_duration (snooze_minutes));
+        ring_duration.set_selected (duration_model.find_by_duration (ring_minutes));
+        snooze_duration.set_selected (duration_model.find_by_duration (snooze_minutes));
 
         h_spinbutton.set_value (hour);
         m_spinbutton.set_value (minute);
@@ -223,8 +226,8 @@ private class SetupDialog : Gtk.Dialog {
         var name = name_entry.get_text ();
         var hour = h_spinbutton.get_value_as_int ();
         var minute = m_spinbutton.get_value_as_int ();
-        var snooze_item = (Duration) duration_model.get_item (snooze_duration.get_selected_index ());
-        var ring_item = (Duration) duration_model.get_item (ring_duration.get_selected_index ());
+        var snooze_item = (Duration) duration_model.get_item (snooze_duration.get_selected ());
+        var ring_item = (Duration) duration_model.get_item (ring_duration.get_selected ());
 
         if (format == Utils.WallClock.Format.TWELVE) {
             var choice = am_pm_button.choice;

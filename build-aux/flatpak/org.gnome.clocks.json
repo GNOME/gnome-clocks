@@ -6,6 +6,7 @@
     "command": "gnome-clocks",
     "tags": ["nightly"],
     "finish-args": [
+        "--device=dri",
         "--share=ipc",
         "--socket=fallback-x11",
         "--socket=wayland",
@@ -44,8 +45,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://gitlab.gnome.org/mlundblad/libgweather.git",
-                    "branch": "wip/mlundblad/no-gtk"
+                    "url": "https://gitlab.gnome.org/GNOME/libgweather.git",
+                    "branch": "main"
                 }
             ]
         },
@@ -56,13 +57,14 @@
               "-Ddebug_tools=false",
               "-Dudev=disabled",
               "-Dgtk_doc=false",
-              "-Ddesktop_docs=false"
+              "-Ddesktop_docs=false",
+              "-Dlegacy_library=false",
+              "-Dbuild_gtk4=false"
             ],
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/gnome-desktop.git",
-                    "branch": "wip/gtk4"
+                    "url": "https://gitlab.gnome.org/GNOME/gnome-desktop.git"
                 }
             ]
         },
@@ -125,8 +127,8 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/gnome-clocks.git"
+                    "type": "dir",
+                    "path": "../../"
                 }
             ]
         }

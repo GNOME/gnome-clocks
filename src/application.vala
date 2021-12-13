@@ -98,11 +98,11 @@ public class Application : Gtk.Application {
         var win = ensure_window ();
         win.present ();
 
-        win.focus_in_event.connect (() => {
-            withdraw_notifications ();
-
-            return false;
-        });
+        // TODO GTK 4
+        // win.focus_in_event.connect (() => {
+        //     withdraw_notifications ();
+        //     return false;
+        // });
     }
 
     private void update_theme (Gtk.Settings settings) {
@@ -121,7 +121,7 @@ public class Application : Gtk.Application {
 
         set_resource_base_path ("/org/gnome/clocks/");
 
-        var theme = Gtk.IconTheme.get_default ();
+        var theme = Gtk.IconTheme.get_for_display (Gdk.Display.get_default ());
         theme.add_resource_path ("/org/gnome/clocks/icons");
 
         var settings = (Gtk.Settings) Gtk.Settings.get_default ();

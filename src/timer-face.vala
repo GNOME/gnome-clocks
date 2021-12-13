@@ -21,7 +21,7 @@ namespace Clocks {
 namespace Timer {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/timer-face.ui")]
-public class Face : Gtk.Stack, Clocks.Clock {
+public class Face : Adw.Bin, Clocks.Clock {
     private Setup timer_setup;
     [GtkChild]
     private unowned Gtk.ListBox timers_list;
@@ -29,6 +29,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private unowned Gtk.Box no_timer_container;
     [GtkChild]
     private unowned Gtk.Button start_button;
+    [GtkChild]
+    private unowned Gtk.Stack stack;
 
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NONE; }
@@ -43,7 +45,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
     construct {
         panel_id = TIMER;
-        transition_type = CROSSFADE;
+        stack.transition_type = CROSSFADE;
         timer_setup = new Setup ();
 
         settings = new GLib.Settings ("org.gnome.clocks");
@@ -62,10 +64,10 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         timers.items_changed.connect ( (added, removed, position) => {
             if (this.timers.get_n_items () > 0) {
-                this.visible_child_name = "timers";
+                stack.visible_child_name = "timers";
                 this.button_mode = NEW;
             } else {
-                this.visible_child_name = "empty";
+                stack.visible_child_name = "empty";
                 this.button_mode = NONE;
             }
             save ();
@@ -78,7 +80,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
 
         var no_timer_container_first_child = no_timer_container.get_first_child ();
         no_timer_container.insert_child_after (timer_setup, no_timer_container_first_child);
-        set_visible_child_name ("empty");
+        stack.set_visible_child_name ("empty");
 
         start_button.set_sensitive (false);
         timer_setup.duration_changed.connect ((duration) => {

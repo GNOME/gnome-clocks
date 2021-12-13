@@ -51,7 +51,7 @@ clocks_vala_args = [
   '--target-glib', '2.58',
   '--vapidir', meson.current_source_dir(),
   '--gresources', resource_files,
-  '--enable-experimental-non-null',
+  # '--enable-experimental-non-null',
   '--disable-since-check',
 ]
 

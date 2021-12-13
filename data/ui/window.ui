@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <!-- interface-requires gtk+ 3.20 -->
-  <requires lib="gtk+" version="3.20"/>
-  <requires lib="libhandy" version="0.0"/>
-  <template class="ClocksWindow" parent="HdyApplicationWindow">
+  <template class="ClocksWindow" parent="AdwApplicationWindow">
     <property name="title" bind-source="header_bar" bind-property="title" bind-flags="sync-create" />
     <child>
-      <object class="HdyDeck" id="alarm_deck">
+      <object class="AdwLeaflet" id="alarm_leaflet">
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <property name="visible-child">world_deck</property>
@@ -19,9 +16,9 @@
           </object>
         </child>
         <child>
-          <object class="HdyDeck" id="world_deck">
+          <object class="AdwLeaflet" id="world_leaflet">
             <property name="visible">True</property>
-            <property name="can-swipe-back">True</property>
+            <property name="can-navigate-back">True</property>
             <signal name="notify::visible-child" handler="visible_child_changed"/>
             <child>
               <object class="GtkBox" id="main_view">
@@ -87,7 +84,7 @@
                   </object>
                 </child>
                 <child>
-                  <object class="HdyViewSwitcherBar" id="switcher_bar">
+                  <object class="AdwViewSwitcherBar" id="switcher_bar">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="stack">stack</property>

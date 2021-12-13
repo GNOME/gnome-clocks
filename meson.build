@@ -13,33 +13,13 @@ python3 = import('python3')
 glib = dependency('glib-2.0', version: '>= 2.68')
 gio = dependency('gio-2.0', version: '>= 2.58')
 gobject = dependency('gobject-2.0', version: '>= 2.58')
-gtk = dependency('gtk4')
+gtk = dependency('gtk4', version: '>= 4.5')
 gsound = dependency('gsound', version: '>=0.98')
-gweather = dependency('gweather-4.0')
-gnomedesktop = dependency('gnome-desktop-4.0')
+gweather = dependency('gweather4')
+gnomedesktop = dependency('gnome-desktop-4')
 geocodeglib = dependency('geocode-glib-1.0', version: '>=1.0')
 libgeoclue = dependency('libgeoclue-2.0', version: '>=2.4')
 libadwaita = dependency ('libadwaita-1', version: '>=1.0')
-
-# libhandy_subproj = libhandy
-# if not libhandy.found()
-#   libhandy_subproj = subproject(
-#     'libhandy',
-#     default_options: [
-#       'examples=false',
-#       'glade_catalog=disabled',
-#       'tests=false',
-#     ]
-#   )
-
-  # When using libhandy as subproject, make sure we get the VAPI file
-#   libhandy = declare_dependency(
-#     dependencies: [
-#       libhandy_subproj.get_variable('libhandy_dep'),
-#       libhandy_subproj.get_variable('libhandy_vapi'),
-#     ]
-#   )
-# endif
 
 cc = meson.get_compiler('c')
 math = cc.find_library('m', required: false)

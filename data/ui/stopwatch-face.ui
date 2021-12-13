@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.2 -->
 <interface>
-  <requires lib="gtk+" version="3.16"/>
-  <requires lib="libhandy" version="0.0"/>
   <template class="ClocksStopwatchFace" parent="GtkBox">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -13,7 +10,7 @@
         <property name="can_focus">True</property>
         <property name="min_content_width">300</property>
         <child>
-          <object class="HdyClamp">
+          <object class="AdwClamp">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="maximum_size">380</property>
@@ -180,7 +177,7 @@
                         <style>
                           <class name="suggested-action"/>
                           <class name="large-button"/>
-                          <class name="pill-button"/>
+                          <class name="pill"/>
                         </style>
                       </object>
                       <packing>
@@ -199,7 +196,7 @@
                         <signal name="clicked" handler="on_clear_btn_clicked" swapped="no"/>
                         <style>
                           <class name="large-button"/>
-                          <class name="pill-button"/>
+                          <class name="pill"/>
                         </style>
                       </object>
                       <packing>

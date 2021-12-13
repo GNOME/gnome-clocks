@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.1 -->
 <interface>
-  <requires lib="gtk+" version="3.20"/>
-  <template class="ClocksAlarmRingingPanel" parent="GtkBin">
+  <template class="ClocksAlarmRingingPanel" parent="AdwBin">
     <child>
-      <object class="HdyWindowHandle">
+      <object class="GtkWindowHandle">
         <property name="visible">True</property>
         <child>
           <object class="GtkGrid">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="margin_left">6</property>
-            <property name="margin_right">6</property>
+            <property name="margin_start">6</property>
+            <property name="margin_end">6</property>
             <property name="margin_top">6</property>
             <property name="margin_bottom">6</property>
             <property name="hexpand">True</property>
@@ -36,7 +35,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <style>
-                      <class name="pill-button"/>
+                      <class name="pill"/>
                       <class name="large-button"/>
                       <class name="destructive-action"/>
                     </style>
@@ -54,7 +53,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <style>
-                      <class name="pill-button"/>
+                      <class name="pill"/>
                       <class name="large-button"/>
                     </style>
                   </object>

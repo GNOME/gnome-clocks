@@ -58,11 +58,12 @@ private class LocationDialog : Gtk.Dialog {
     public LocationDialog (Gtk.Window parent, Face world_face) {
         Object (transient_for: parent, use_header_bar: 1);
 
-        key_press_event.connect ((event) => {
-            if (event.keyval == Gdk.Key.Tab)
-                return Gdk.EVENT_PROPAGATE;
-            return location_entry.handle_event (event);
-        });
+        // TODO GTK 4
+        // key_press_event.connect ((event) => {
+        //     if (event.keyval == Gdk.Key.Tab)
+        //         return Gdk.EVENT_PROPAGATE;
+        //     return location_entry.handle_event (event);
+        // });
 
         world = world_face;
 
@@ -143,10 +144,11 @@ private class LocationDialog : Gtk.Dialog {
                 string? timezone_name = null;
                 var timezone = location.get_timezone ();
                 if (timezone != null) {
-                    timezone_name = ((GWeather.Timezone) timezone).get_name ();
-                    if (timezone_name != null) {
-                        timezone_name = ((string) timezone_name).normalize ().casefold ();
-                    }
+                    // TODO GTK 4
+                    // timezone_name = ((GWeather.Timezone) timezone).get_name ();
+                    // if (timezone_name != null) {
+                    //     timezone_name = ((string) timezone_name).normalize ().casefold ();
+                    // }
                 }
                 var contains_timezone_name = timezone_name != null && ((string) timezone_name).contains (search);
 
@@ -164,12 +166,13 @@ private class LocationDialog : Gtk.Dialog {
             default:
                 break;
         }
-        foreach (var child in location.get_children ()) {
-            query_locations (child, search);
-            if (locations.get_n_items () >= RESULT_COUNT_LIMIT) {
-                return;
-            }
-        }
+        // TODO GTK 4
+        // foreach (var child in location.get_children ()) {
+        //     query_locations (child, search);
+        //     if (locations.get_n_items () >= RESULT_COUNT_LIMIT) {
+        //         return;
+        //     }
+        // }
     }
 }
 

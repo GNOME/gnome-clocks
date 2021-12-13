@@ -25,7 +25,7 @@ public enum Clocks.ButtonMode {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/header-bar.ui")]
-public class Clocks.HeaderBar : Adw.HeaderBar {
+public class Clocks.HeaderBar : Adw.Bin {
     public ButtonMode button_mode {
         get {
             return _button_mode;

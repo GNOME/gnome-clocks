@@ -1,59 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk+" version="3.18"/>
-  <template class="ClocksAlarmFace" parent="GtkStack">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="homogeneous">False</property>
+  <template class="ClocksAlarmFace" parent="AdwBin">
     <child>
-      <object class="GtkBox" id="empty_view">
+      <object class="GtkStack" id="stack">
         <property name="visible">True</property>
-        <property name="halign">center</property>
-        <property name="valign">center</property>
-        <property name="spacing">36</property>
-        <property name="orientation">vertical</property>
+        <property name="can_focus">False</property>
+        <property name="homogeneous">False</property>
         <child>
-          <object class="GtkImage">
+          <object class="GtkBox" id="empty_view">
             <property name="visible">True</property>
-            <property name="icon_name">alarm-centered-symbolic</property>
-            <property name="pixel-size">128</property>
-            <style>
-              <class name="dim-label"/>
-            </style>
-          </object>
-        </child>
-        <child>
-          <object class="GtkButton">
-            <property name="visible">True</property>
-            <property name="action-name">win.new</property>
-            <property name="label" translatable="yes">Add A_larm</property>
-            <property name="use-underline">True</property>
             <property name="halign">center</property>
-            <style>
-              <class name="suggested-action"/>
-              <class name="large-button"/>
-              <class name="pill-button"/>
-            </style>
+            <property name="valign">center</property>
+            <property name="spacing">36</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="icon_name">alarm-centered-symbolic</property>
+                <property name="pixel-size">128</property>
+                <style>
+                  <class name="dim-label"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="visible">True</property>
+                <property name="action-name">win.new</property>
+                <property name="label" translatable="yes">Add A_larm</property>
+                <property name="use-underline">True</property>
+                <property name="halign">center</property>
+                <style>
+                  <class name="suggested-action"/>
+                  <class name="large-button"/>
+                  <class name="pill"/>
+                </style>
+              </object>
+            </child>
           </object>
         </child>
-      </object>
-    </child>
-    <child>
-      <object class="GtkScrolledWindow" id="list_view">
-        <property name="visible">True</property>
         <child>
-          <object class="HdyClamp">
+          <object class="GtkScrolledWindow" id="list_view">
             <property name="visible">True</property>
             <child>
-              <object class="GtkListBox" id="listbox">
+              <object class="AdwClamp">
                 <property name="visible">True</property>
-                <property name="valign">start</property>
-                <property name="selection-mode">none</property>
-                <property name="activate-on-single-click">True</property>
-                <style>
-                  <class name="content"/>
-                  <class name="clocks-list"/>
-                </style>
+                <child>
+                  <object class="GtkListBox" id="listbox">
+                    <property name="visible">True</property>
+                    <property name="valign">start</property>
+                    <property name="selection-mode">none</property>
+                    <property name="activate-on-single-click">True</property>
+                    <style>
+                      <class name="content"/>
+                      <class name="clocks-list"/>
+                    </style>
+                  </object>
+                </child>
               </object>
             </child>
           </object>

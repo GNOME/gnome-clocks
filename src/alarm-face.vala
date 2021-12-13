@@ -21,7 +21,7 @@ namespace Clocks {
 namespace Alarm {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm-face.ui")]
-public class Face : Gtk.Stack, Clocks.Clock {
+public class Face : Adw.Bin, Clocks.Clock {
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NEW; }
     // Translators: Tooltip for the + button
@@ -35,6 +35,8 @@ public class Face : Gtk.Stack, Clocks.Clock {
     private unowned Gtk.ListBox listbox;
     [GtkChild]
     private unowned Gtk.ScrolledWindow list_view;
+    [GtkChild]
+    private unowned Gtk.Stack stack;
 
     construct {
         panel_id = ALARM;
@@ -133,7 +135,7 @@ public class Face : Gtk.Stack, Clocks.Clock {
     }
 
     private void reset_view () {
-        visible_child = alarms.get_n_items () == 0 ? empty_view : list_view;
+        stack.visible_child = alarms.get_n_items () == 0 ? empty_view : list_view;
     }
 
     public void activate_new () {
