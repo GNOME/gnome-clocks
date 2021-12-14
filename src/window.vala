@@ -133,8 +133,6 @@ public class Window : Adw.ApplicationWindow {
         if (Config.PROFILE == "Devel") {
             add_css_class ("devel");
         }
-
-        this.hide_on_close = true;
     }
 
     [Signal (action = true)]

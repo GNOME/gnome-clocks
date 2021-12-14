@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <template class="ClocksWindow" parent="AdwApplicationWindow">
+    <property name="hide-on-close">True</property>
     <child>
       <object class="GtkEventControllerKey">
         <signal name="key-pressed" handler="key_press_cb"/>
