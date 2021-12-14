@@ -131,14 +131,12 @@
                   <object class="GtkButton" id="delete_button">
                     <property name="label" translatable="yes">R_emove Alarm</property>
                     <property name="use-underline">True</property>
-                    <property name="halign">start</property>
-                    <property name="valign">end</property>
-                    <property name="vexpand">True</property>
-                    <property name="margin-start">6</property>
-                    <property name="margin-bottom">6</property>
+                    <property name="halign">center</property>
+                    <property name="margin-bottom">12</property>
                     <signal name="clicked" handler="delete" swapped="no" />
                     <style>
                       <class name="destructive-action"/>
+                      <class name="pill"/>
                     </style>
                   </object>
                 </child>
