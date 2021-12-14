@@ -3,8 +3,8 @@
   <template class="ClocksAlarmSetupDialog" parent="GtkDialog">
     <property name="modal">True</property>
     <property name="destroy_with_parent">True</property>
-    <property name="default-height">550</property>
-    <property name="default-width">360</property>
+    <property name="default-width">520</property>
+    <property name="default-height">580</property>
     <property name="title" translatable="yes">New Alarm</property>
     <child internal-child="content_area">
       <object class="GtkBox">
@@ -15,10 +15,14 @@
               <object class="GtkBox">
                 <property name="spacing">12</property>
                 <property name="orientation">vertical</property>
+                <property name="margin-top">18</property>
+                <property name="margin-bottom">18</property>
+                <property name="margin-start">12</property>
+                <property name="margin-end">12</property>
                 <child>
                   <object class="GtkBox" id="time_box">
                     <property name="halign">center</property>
-                    <property name="margin_top">12</property>
+                    <property name="margin-bottom">12</property>
                     <property name="spacing">6</property>
                     <style>
                       <class name="clocks-alarm-setup-time"/>
@@ -114,7 +118,6 @@
                     </child>
                     <style>
                       <class name="boxed-list"/>
-                      <class name="clocks-list"/>
                     </style>
                   </object>
                 </child>
@@ -132,7 +135,6 @@
                     <property name="label" translatable="yes">R_emove Alarm</property>
                     <property name="use-underline">True</property>
                     <property name="halign">center</property>
-                    <property name="margin-bottom">12</property>
                     <signal name="clicked" handler="delete" swapped="no" />
                     <style>
                       <class name="destructive-action"/>
