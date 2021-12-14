@@ -99,19 +99,7 @@ public class Window : Adw.ApplicationWindow {
 
         pane_changed ();
 
-        // Setup window geometry saving
-        var window_maximized = settings.get_boolean ("maximized");
-        if (window_maximized) {
-            maximize ();
-        } else {
-            int width, height;
-            width = settings.get_int ("width");
-            height = settings.get_int ("height");
-            set_default_size (width, height);
-        }
-        settings.bind ("maximized", this, "maximized", SettingsBindFlags.SET);
-        settings.bind ("width", this, "default-width", SettingsBindFlags.SET);
-        settings.bind ("height", this, "default-height", SettingsBindFlags.SET);
+        load_window_state ();
 
         world.show_standalone.connect ((w, l) => {
             stack.visible_child = w;
@@ -221,6 +209,38 @@ public class Window : Adw.ApplicationWindow {
 
     public void add_world_location (GWeather.Location location) {
         world.add_location (location);
+    }
+
+    public override bool close_request () {
+        save_window_state ();
+        return base.close_request ();
+    }
+
+    private void load_window_state () {
+        var window_maximized = settings.get_boolean ("maximized");
+        if (window_maximized) {
+            maximize ();
+        } else {
+            int width, height;
+            width = settings.get_int ("width");
+            height = settings.get_int ("height");
+            set_default_size (width, height);
+        }
+    }
+
+    private void save_window_state () {
+        var width = 0;
+        var height = 0;
+
+        get_default_size (out width, out height);
+
+        debug ("Saving window geometry: %i × %i", width, height);
+
+        settings.set_int ("width", width);
+        settings.set_int ("height", height);
+
+        settings.set_boolean ("maximized", is_maximized ());
+        settings.apply ();
     }
 
     [GtkCallback]
