@@ -6,18 +6,12 @@
 	color: @blue_1;
 }
 
-.astro .clock-time {
-	background: alpha(@orange_2, 0.2);
-}
-
+.astro .clock-time,
 .naut .clock-time {
 	color: @orange_1;
 }
 
-.civil .clock-time {
-	background: alpha(@yellow_2, 0.2);
-}
-
+.civil .clock-time,
 .day .clock-time {
 	color: @yellow_2;
 	background: alpha(#cd9309, 0.25);

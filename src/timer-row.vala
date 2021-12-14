@@ -103,6 +103,7 @@ public class Row : Gtk.ListBoxRow {
         delete_stack.visible_child_name = "button";
 
         countdown_label.remove_css_class ("timer-paused");
+        countdown_label.remove_css_class ("dim-label");
         countdown_label.remove_css_class ("timer-ringing");
         countdown_label.remove_css_class ("timer-running");
         start_stack.visible_child_name = "start";
@@ -116,6 +117,7 @@ public class Row : Gtk.ListBoxRow {
         countdown_label.add_css_class ("timer-running");
         countdown_label.remove_css_class ("timer-ringing");
         countdown_label.remove_css_class ("timer-paused");
+        countdown_label.remove_css_class ("dim-label");
 
         reset_stack.visible_child_name = "empty";
         delete_stack.visible_child_name = "empty";
@@ -128,6 +130,7 @@ public class Row : Gtk.ListBoxRow {
     private void ring () {
         countdown_label.add_css_class ("timer-ringing");
         countdown_label.remove_css_class ("timer-paused");
+        countdown_label.remove_css_class ("dim-label");
         countdown_label.remove_css_class ("timer-running");
     }
 
