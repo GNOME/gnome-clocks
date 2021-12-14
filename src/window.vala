@@ -134,11 +134,6 @@ public class Window : Adw.ApplicationWindow {
             add_css_class ("devel");
         }
 
-        const uint BUTTON_BACK = 8;
-        var gesture_click = new Gtk.GestureClick ();
-        gesture_click.button = BUTTON_BACK;
-        gesture_click.released.connect (button_back_released);
-
         this.hide_on_close = true;
     }
 
@@ -262,10 +257,6 @@ public class Window : Adw.ApplicationWindow {
         }
 
         return handled;
-    }
-
-    private void button_back_released (int n_press, double x, double y) {
-        on_back_activate ();
     }
 
     private void on_help_activate () {
