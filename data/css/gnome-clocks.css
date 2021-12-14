@@ -1,5 +1,9 @@
 window > stack:backdrop {
-	background-color: mix(@theme_unfocused_fg_color, @theme_unfocused_bg_color, 0.95);
+	background-color: mix(
+		@theme_unfocused_fg_color,
+		@theme_unfocused_bg_color,
+		0.95
+	);
 	box-shadow: none;
 }
 
@@ -88,12 +92,16 @@ spinbutton.clocks-timer-label button {
 }
 
 @keyframes clocks-blink {
-	0% { color: @theme_fg_color; }
-	100% { color: @accent_color; }
+	0% {
+		color: @theme_fg_color;
+	}
+	100% {
+		color: @accent_color;
+	}
 }
 
 .timer-countdown.timer-paused {
-	opacity: .55;
+	opacity: 0.55;
 	animation-name: clocks-blink;
 	animation-iteration-count: infinite;
 	animation-timing-function: steps(2);
@@ -154,32 +162,31 @@ spinbutton.clocks-timer-label button {
 	font-size: 2em;
 	padding: 0.2em 0.5em;
 	border-radius: 1em;
-	color: alpha(black, 0.8);
-	font-weight: 300;
-	transition: 0.4s background ease-in;
 }
 
 .none .clock-time {
-	background: #f6f5f4;
+	background: alpha(currentColor, 0.2);
 }
 
 .night .clock-time {
-	background: #a0a2b7;
+	color: @blue_4;
+	background-color: alpha(@blue_3, 0.25);
 }
 
 .astro .clock-time {
-	background: #c6adaa;
+	color: @orange_5;
+	background-color: alpha(@orange_4, 0.25);
 }
 
 .naut .clock-time {
-	background: #ecb89c;
+	background: alpha(@orange_2, 0.4);
 }
 
 .civil .clock-time {
-	background: #FAE189;
+	background: alpha(@yellow_2, 0.4);
 }
 
 .day .clock-time {
-	background: #fcf7b0;
+	color: #ae7b03;
+	background: alpha(@yellow_5, 0.25);
 }
-

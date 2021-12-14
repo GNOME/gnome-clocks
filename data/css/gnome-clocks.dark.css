@@ -1,27 +1,24 @@
-.clock-time {
-	color: alpha(black, 0.8);
-}
-
 .none .clock-time {
-	background: #f6f5f4;
+	background: alpha(currentColor, 0.2);
 }
 
 .night .clock-time {
-	background: #a0a2b7;
+	color: @blue_1;
 }
 
 .astro .clock-time {
-	background: #c6adaa;
+	background: alpha(@orange_2, 0.2);
 }
 
 .naut .clock-time {
-	background: #ecb89c;
+	color: @orange_1;
 }
 
 .civil .clock-time {
-	background: #fae189;
+	background: alpha(@yellow_2, 0.2);
 }
 
 .day .clock-time {
-	background: #fcf7b0;
+	color: @yellow_2;
+	background: alpha(#cd9309, 0.25);
 }
