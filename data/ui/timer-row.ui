@@ -19,30 +19,35 @@
           </object>
         </child>
         <child>
-          <object class="GtkStack" id="name_stack">
+          <object class="GtkRevealer" id="name_revealer">
             <child>
-              <object class="GtkStackPage">
-                <property name="name">edit</property>
-                <property name="child">
-                  <object class="GtkEntry" id="title">
-                    <property name="halign">center</property>
-                    <property name="width_chars">26</property>
-                    <property name="placeholder_text" translatable="yes">Title…</property>
+              <object class="GtkStack" id="name_stack">
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">edit</property>
+                    <property name="child">
+                      <object class="GtkEntry" id="title">
+                        <property name="halign">center</property>
+                        <property name="width_chars">26</property>
+                        <property name="placeholder_text" translatable="yes">Title…</property>
+                      </object>
+                    </property>
                   </object>
-                </property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkStackPage">
-                <property name="name">display</property>
-                <property name="child">
-                  <object class="GtkLabel" id="timer_name">
-                    <property name="halign">center</property>
-                    <style>
-                      <class name="dim-label"/>
-                    </style>
+                </child>
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">display</property>
+                    <property name="child">
+                      <object class="GtkLabel" id="timer_name">
+                        <property name="halign">center</property>
+                        <property name="valign">start</property>
+                        <style>
+                          <class name="dim-label"/>
+                        </style>
+                      </object>
+                    </property>
                   </object>
-                </property>
+                </child>
               </object>
             </child>
           </object>
@@ -140,7 +145,7 @@
                       <object class="GtkButton" id="delete_button">
                         <property name="halign">center</property>
                         <property name="valign">center</property>
-                        <property name="icon_name">edit-delete-symbolic</property>
+                        <property name="icon_name">user-trash-symbolic</property>
                         <style>
                           <class name="circular"/>
                         </style>

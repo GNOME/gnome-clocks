@@ -49,6 +49,8 @@ public class Row : Gtk.ListBoxRow {
 
     [GtkChild]
     private unowned Gtk.Stack name_stack;
+    [GtkChild]
+    private unowned Gtk.Revealer name_revealer;
 
     [GtkChild]
     private unowned Gtk.Stack start_stack;
@@ -104,6 +106,7 @@ public class Row : Gtk.ListBoxRow {
         countdown_label.remove_css_class ("timer-ringing");
         countdown_label.remove_css_class ("timer-running");
         start_stack.visible_child_name = "start";
+        name_revealer.reveal_child = true;
         name_stack.visible_child_name = "edit";
 
         update_countdown (item.hours, item.minutes, item.seconds);
@@ -118,6 +121,7 @@ public class Row : Gtk.ListBoxRow {
         delete_stack.visible_child_name = "empty";
 
         start_stack.visible_child_name = "pause";
+        name_revealer.reveal_child = (timer_name.label != "");
         name_stack.visible_child_name = "display";
     }
 
@@ -135,6 +139,7 @@ public class Row : Gtk.ListBoxRow {
         reset_stack.visible_child_name = "button";
         delete_stack.visible_child_name = "button";
         start_stack.visible_child_name = "start";
+        name_revealer.reveal_child = (timer_name.label != "");
         name_stack.visible_child_name = "display";
     }
 
