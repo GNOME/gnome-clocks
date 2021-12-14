@@ -51,14 +51,17 @@ private class Row : Adw.ActionRow {
 
         if (location.day_label != null && location.day_label != "") {
             subtitle = "%s • %s".printf ((string) location.day_label, message);
-            delete_button.show ();
+            delete_button.sensitive = true;
+            delete_button.remove_css_class ("hidden");
         } else if (location.automatic) {
             // Translators: This clock represents the local time
             subtitle = _("Current location");
-            delete_button.hide ();
+            delete_button.sensitive = false;
+            delete_button.add_css_class ("hidden");
         } else {
             subtitle = "%s".printf (message);
-            delete_button.show ();
+            delete_button.sensitive = true;
+            delete_button.remove_css_class ("hidden");
         }
 
         time_label.label = location.time_label;
