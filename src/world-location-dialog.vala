@@ -35,6 +35,8 @@ private class LocationDialog : Gtk.Window {
     [GtkChild]
     private unowned Gtk.Widget empty_search;
     [GtkChild]
+    private unowned Gtk.Widget search_results;
+    [GtkChild]
     private unowned Gtk.SearchEntry location_entry;
     [GtkChild]
     private unowned Gtk.ListBox listbox;
@@ -58,6 +60,9 @@ private class LocationDialog : Gtk.Window {
     public LocationDialog (Gtk.Window parent, Face world_face) {
         Object (transient_for: parent);
 
+        // HACK: We set the key capture widget on the entry
+        // rather than the search bar. This way when pressing
+        // TAB the widget will continue to get input events.
         location_entry.set_key_capture_widget (this);
 
         world = world_face;
@@ -72,6 +77,14 @@ private class LocationDialog : Gtk.Window {
         if (selected_row == null)
             return null;
         return ((LocationDialogRow) selected_row).data.location;
+    }
+
+    [GtkCallback]
+    private void on_search_mode_notify (GLib.Object object, GLib.ParamSpec param) {
+        // Pressing ESC will close the search bar, we don't want that.
+        var search_bar = (Gtk.SearchBar) object;
+        if (!search_bar.search_mode_enabled)
+            search_bar.search_mode_enabled = true;
     }
 
     [GtkCallback]
@@ -120,7 +133,7 @@ private class LocationDialog : Gtk.Window {
             return strcmp (name_a, name_b);
         });
 
-        stack.visible_child = listbox;
+        stack.visible_child = search_results;
     }
 
     public signal void location_added ();

@@ -32,46 +32,45 @@
       </object>
     </property>
     <child>
-      <object class="GtkScrolledWindow">
-        <property name="hscrollbar_policy">never</property>
-        <property name="height_request">250</property>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
         <child>
-          <object class="AdwClamp">
-            <property name="width_request">300</property>
-            <property name="margin-start">12</property>
-            <property name="margin-end">12</property>
+          <object class="GtkSearchBar" id="search_bar">
+            <property name="search-mode-enabled">True</property>
+            <signal name="notify::search-mode-enabled" handler="on_search_mode_notify" swapped="no"/>
+            <property name="child">
+              <object class="GtkSearchEntry" id="location_entry">
+                <signal name="search-changed" handler="on_search_changed" swapped="no"/>
+              </object>
+            </property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStack" id="stack">
             <child>
-              <object class="GtkBox">
-                <property name="orientation">vertical</property>
+              <object class="AdwStatusPage" id="empty_search">
+                <property name="icon_name">edit-find-symbolic</property>
+                <property name="title" translatable="yes">Search for a City</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkScrolledWindow" id="search_results">
+                <property name="hscrollbar_policy">never</property>
+                <property name="vexpand">True</property>
                 <child>
-                  <object class="GtkSearchEntry" id="location_entry">
-                    <property name="margin_top">18</property>
-                    <property name="margin_start">50</property>
-                    <property name="margin_end">50</property>
-                    <signal name="search-changed" handler="on_search_changed" swapped="no"/>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkStack" id="stack">
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
-                    <property name="transition_duration">100</property>
-                    <property name="transition_type">crossfade</property>
-                    <child>
-                      <object class="AdwStatusPage" id="empty_search">
-                        <property name="icon_name">edit-find-symbolic</property>
-                        <property name="title" translatable="yes">Search for a City</property>
-                      </object>
-                    </child>
+                  <object class="AdwClamp">
+                    <property name="width_request">300</property>
+                    <property name="margin-start">12</property>
+                    <property name="margin-end">12</property>
                     <child>
                       <object class="GtkListBox" id="listbox">
                         <property name="valign">start</property>
                         <property name="selection_mode">none</property>
+                        <signal name="row-activated" handler="item_activated" swapped="no"/>
                         <style>
                           <class name="clocks-list"/>
                           <class name="boxed-list"/>
                         </style>
-                        <signal name="row-activated" handler="item_activated" swapped="no"/>
                       </object>
                     </child>
                   </object>
