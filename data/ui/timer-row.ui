@@ -71,6 +71,7 @@
                         <property name="halign">center</property>
                         <property name="valign">center</property>
                         <property name="icon_name">media-playback-pause-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">Pause</property>
                         <signal name="clicked" handler="on_pause_button_clicked" swapped="no"/>
                         <style>
                           <class name="circular"/>
@@ -88,6 +89,7 @@
                         <property name="halign">center</property>
                         <property name="valign">center</property>
                         <property name="icon_name">media-playback-start-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">Start</property>
                         <signal name="clicked" handler="on_start_button_clicked" swapped="no"/>
                         <style>
                           <class name="suggested-action"/>
@@ -114,6 +116,7 @@
                         <property name="halign">center</property>
                         <property name="valign">center</property>
                         <property name="icon_name">view-refresh-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">Reset</property>
                         <signal name="clicked" handler="on_reset_button_clicked" swapped="no"/>
                         <style>
                           <class name="circular"/>
@@ -146,6 +149,7 @@
                         <property name="halign">center</property>
                         <property name="valign">center</property>
                         <property name="icon_name">user-trash-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">Delete</property>
                         <style>
                           <class name="circular"/>
                         </style>
