@@ -4,7 +4,7 @@
     <property name="orientation">vertical</property>
     <signal name="notify::location" handler="location_changed"/>
     <child>
-      <object class="AdwHeaderBar">
+      <object class="GtkHeaderBar">
         <property name="title-widget">
           <object class="AdwWindowTitle">
             <property name="title" bind-source="ClocksWorldStandalone" bind-property="title" bind-flags="sync-create" />
