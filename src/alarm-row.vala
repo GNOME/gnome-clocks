@@ -67,10 +67,8 @@ private class Row : Gtk.ListBoxRow {
         }
 
         if (alarm.state == Item.State.SNOOZING) {
-            add_css_class ("snoozing");
             time.label = alarm.snooze_time_label;
         } else {
-            remove_css_class ("snoozing");
             time.label = alarm.time_label;
         }
 
