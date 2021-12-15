@@ -296,6 +296,10 @@ public class Item : Object, ContentItem {
             return;
         }
 
+        if (!location.has_coords ()) {
+            return;
+        }
+
         location.get_coords (out latitude, out longitude);
 
         // Some locations, such as UTC, aren't actual locations and don't have
