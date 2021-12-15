@@ -55,9 +55,9 @@ private class LapsRow : Gtk.ListBoxRow {
 
             var difference = this.get_delta_duration ();
             if (difference > 0) {
-                difference_label.add_css_class ("negative-lap");
+                difference_label.add_css_class ("error");
             } else if (difference < 0) {
-                difference_label.add_css_class ("positive-lap");
+                difference_label.add_css_class ("accent");
             }
         }
     }
