@@ -56,25 +56,6 @@
 	font-weight: 300;
 }
 
-@keyframes clocks-blink {
-	0% {
-		color: @accent_color;
-	}
-	100% {
-	}
-}
-
-.timer-countdown.timer-paused {
-	animation-name: clocks-blink;
-	animation-iteration-count: infinite;
-	animation-timing-function: steps(2);
-	animation-duration: 1s;
-}
-
-.timer-countdown.timer-running {
-	color: @accent_color;
-}
-
 /* Stopwatch Panel */
 .lap-time {
 	font-weight: bold;

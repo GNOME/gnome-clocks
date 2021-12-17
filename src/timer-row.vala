@@ -39,6 +39,7 @@ public class Row : Gtk.ListBoxRow {
         }
     }
     private Item _item;
+    private Adw.TimedAnimation paused_animation;
 
 
     [GtkChild]
@@ -80,6 +81,11 @@ public class Row : Gtk.ListBoxRow {
         item.reset.connect (() => this.reset ());
         delete_button.clicked.connect (() => deleted ());
 
+        var target = new Adw.CallbackAnimationTarget (animation_target);
+        paused_animation = new Adw.TimedAnimation (this, 0, 2, 2000, target);
+        paused_animation.repeat_count = Adw.DURATION_INFINITE;
+        paused_animation.easing = Adw.Easing.LINEAR;
+
         reset ();
     }
 
@@ -102,10 +108,11 @@ public class Row : Gtk.ListBoxRow {
         reset_stack.visible_child_name = "empty";
         delete_stack.visible_child_name = "button";
 
-        countdown_label.remove_css_class ("timer-paused");
-        countdown_label.remove_css_class ("dim-label");
-        countdown_label.remove_css_class ("timer-ringing");
-        countdown_label.remove_css_class ("timer-running");
+        countdown_label.remove_css_class ("accent");
+        countdown_label.add_css_class ("dim-label");
+
+        paused_animation.pause ();
+
         start_stack.visible_child_name = "start";
         name_revealer.reveal_child = true;
         name_stack.visible_child_name = "edit";
@@ -114,10 +121,10 @@ public class Row : Gtk.ListBoxRow {
     }
 
     private void start () {
-        countdown_label.add_css_class ("timer-running");
-        countdown_label.remove_css_class ("timer-ringing");
-        countdown_label.remove_css_class ("timer-paused");
+        countdown_label.add_css_class ("accent");
         countdown_label.remove_css_class ("dim-label");
+
+        paused_animation.pause ();
 
         reset_stack.visible_child_name = "empty";
         delete_stack.visible_child_name = "empty";
@@ -128,16 +135,14 @@ public class Row : Gtk.ListBoxRow {
     }
 
     private void ring () {
-        countdown_label.add_css_class ("timer-ringing");
-        countdown_label.remove_css_class ("timer-paused");
-        countdown_label.remove_css_class ("dim-label");
-        countdown_label.remove_css_class ("timer-running");
+        paused_animation.pause ();
+
+        countdown_label.remove_css_class ("accent");
+        countdown_label.add_css_class ("dim-label");
     }
 
     private void pause () {
-        countdown_label.add_css_class ("timer-paused");
-        countdown_label.remove_css_class ("timer-ringing");
-        countdown_label.remove_css_class ("timer-running");
+        paused_animation.play ();
 
         reset_stack.visible_child_name = "button";
         delete_stack.visible_child_name = "button";
@@ -148,6 +153,16 @@ public class Row : Gtk.ListBoxRow {
 
     private void update_countdown (int h, int m, int s ) {
         countdown_label.set_text ("%02i ∶ %02i ∶ %02i".printf (h, m, s));
+    }
+
+    private void animation_target (double val) {
+        if (val < 1.0) {
+            countdown_label.add_css_class ("dim-label");
+            countdown_label.remove_css_class ("accent");
+        } else {
+            countdown_label.add_css_class ("accent");
+            countdown_label.remove_css_class ("dim-label");
+        }
     }
 }
 
