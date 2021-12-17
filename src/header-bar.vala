@@ -53,4 +53,10 @@ public class Clocks.HeaderBar : Adw.Bin {
 
     [GtkChild]
     private unowned Adw.ViewStack start_button_stack;
+    [GtkChild]
+    private unowned Gtk.MenuButton menu_button;
+
+    public void show_primary_menu () {
+        menu_button.activate ();
+    }
 }

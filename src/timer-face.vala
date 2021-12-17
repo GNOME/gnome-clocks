@@ -144,6 +144,18 @@ public class Face : Adw.Bin, Clocks.Clock {
 
         return false;
     }
+
+    public bool escape_pressed () {
+        var res = false;
+        this.timers.foreach ((item) => {
+                var timer = (Item) item;
+                if (timer.state == Item.State.RUNNING) {
+                    timer.pause ();
+                    res = true;
+                }
+            });
+        return res;
+    }
 }
 
 } // namespace Timer

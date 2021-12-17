@@ -22,10 +22,12 @@ namespace Clocks {
 public class Window : Adw.ApplicationWindow {
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
         // primary menu
-        { "show-primary-menu", on_show_primary_menu_activate, null, "false", null },
+        { "show-primary-menu", on_show_primary_menu_activate },
         { "new", on_new_activate },
         { "back", on_back_activate },
         { "help", on_help_activate },
+        { "navigate-forward", on_navigate_forward },
+        { "navigate-backward", on_navigate_backward },
         { "about", on_about_activate },
     };
 
@@ -61,27 +63,20 @@ public class Window : Adw.ApplicationWindow {
     private bool inited = false;
 
     construct {
-        // plain ctrl+page_up/down is easten by the scrolled window...
-        add_binding_action (Gdk.Key.Page_Up,
-                            Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.ALT_MASK,
-                            "change-page", "(i)", 0);
-
-        add_binding_action (Gdk.Key.Page_Down,
-                            Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.ALT_MASK,
-                            "change-page", "(i)", 1);
+        install_action ("set-page", "s", (Gtk.WidgetActionActivateFunc) on_set_page);
 
         add_binding_action (Gdk.Key.@1,
                             Gdk.ModifierType.ALT_MASK,
-                            "set-page", "(s)", "world");
+                            "set-page", "s", "world");
         add_binding_action (Gdk.Key.@2,
                             Gdk.ModifierType.ALT_MASK,
-                            "set-page", "(s)", "alarm");
+                            "set-page", "s", "alarm");
         add_binding_action (Gdk.Key.@3,
                             Gdk.ModifierType.ALT_MASK,
-                            "set-page", "(s)", "stopwatch");
+                            "set-page", "s", "stopwatch");
         add_binding_action (Gdk.Key.@4,
                             Gdk.ModifierType.ALT_MASK,
-                            "set-page", "(s)", "timer");
+                            "set-page", "s", "timer");
     }
 
     public Window (Application app) {
@@ -182,9 +177,8 @@ public class Window : Adw.ApplicationWindow {
         stack.visible_child_name = page;
     }
 
-    private void on_show_primary_menu_activate (SimpleAction action) {
-        var state = ((!) action.get_state ()).get_boolean ();
-        action.set_state (new Variant.boolean (!state));
+    private void on_show_primary_menu_activate () {
+        header_bar.show_primary_menu ();
     }
 
     private void on_new_activate () {
@@ -354,6 +348,49 @@ public class Window : Adw.ApplicationWindow {
 
     private void close_standalone () {
         world_leaflet.visible_child = main_view;
+    }
+
+    private void on_navigate_forward () {
+        var current = stack.visible_child_name;
+        switch (current) {
+        case "world":
+            stack.visible_child_name = "alarm";
+            break;
+        case "alarm":
+            stack.visible_child_name = "stopwatch";
+            break;
+        case "stopwatch":
+            stack.visible_child_name = "timer";
+            break;
+        case "timer":
+            stack.visible_child_name = "world";
+            break;
+        }
+    }
+
+    private void on_navigate_backward () {
+        var current = stack.visible_child_name;
+        switch (current) {
+        case "world":
+            stack.visible_child_name = "timer";
+            break;
+        case "alarm":
+            stack.visible_child_name = "world";
+            break;
+        case "stopwatch":
+            stack.visible_child_name = "alarm";
+            break;
+        case "timer":
+            stack.visible_child_name = "stopwatch";
+            break;
+        }
+    }
+
+    private void on_set_page (string action_name, Variant? param) {
+        if (param != null) {
+            var page = param.get_string ();
+            stack.visible_child_name = page;
+        }
     }
 }
 
