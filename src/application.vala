@@ -105,7 +105,6 @@ public class Application : Adw.Application {
 
         set_accels_for_action ("win.new", { "<Control>n" });
         set_accels_for_action ("win.show-primary-menu", { "F10" });
-        set_accels_for_action ("win.show-help-overlay", { "<Control>question" });
         set_accels_for_action ("win.help", { "F1" });
         set_accels_for_action ("app.quit", { "<Control>q" });
     }
