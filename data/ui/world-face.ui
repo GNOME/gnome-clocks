@@ -5,6 +5,7 @@
       <object class="GtkStack" id="stack">
         <property name="hhomogeneous">False</property>
         <property name="vhomogeneous">False</property>
+        <property name="transition-type">crossfade</property>
         <child>
           <object class="AdwStatusPage" id="empty_view">
             <property name="icon_name">globe-centered-symbolic</property>

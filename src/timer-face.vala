@@ -45,7 +45,6 @@ public class Face : Adw.Bin, Clocks.Clock {
 
     construct {
         panel_id = TIMER;
-        stack.transition_type = CROSSFADE;
         timer_setup = new Setup ();
 
         settings = new GLib.Settings ("org.gnome.clocks");

@@ -41,7 +41,6 @@ public class Face : Adw.Bin, Clocks.Clock {
 
     construct {
         panel_id = WORLD;
-        stack.transition_type = CROSSFADE;
 
         locations = new ContentStore ();
         settings = new GLib.Settings ("org.gnome.clocks");
