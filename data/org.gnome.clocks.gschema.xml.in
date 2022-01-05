@@ -46,18 +46,11 @@
         Whether the window is maximized.
       </description>
     </key>
-    <key type="i" name="width">
-      <default>870</default>
-      <summary>Window width</summary>
+    <key type="(ii)" name="size">
+      <default>(870, 690)</default>
+      <summary>Window width and height</summary>
       <description>
-        Width of the window.
-      </description>
-    </key>
-    <key type="i" name="height">
-      <default>690</default>
-      <summary>Window height</summary>
-      <description>
-        Height of the window.
+        Width and height of the window.
       </description>
     </key>
     <key enum="org.gnome.clocks.panelid" name="panel-id">

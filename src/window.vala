@@ -209,8 +209,7 @@ public class Window : Adw.ApplicationWindow {
             maximize ();
         } else {
             int width, height;
-            width = settings.get_int ("width");
-            height = settings.get_int ("height");
+            settings.get ("size", "(ii)", out width, out height);
             set_default_size (width, height);
         }
     }
@@ -223,8 +222,7 @@ public class Window : Adw.ApplicationWindow {
 
         debug ("Saving window geometry: %i × %i", width, height);
 
-        settings.set_int ("width", width);
-        settings.set_int ("height", height);
+        settings.set ("size", "(ii)", width, height);
 
         settings.set_boolean ("maximized", is_maximized ());
         settings.apply ();
