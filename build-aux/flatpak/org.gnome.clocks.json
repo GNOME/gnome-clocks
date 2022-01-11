@@ -12,7 +12,6 @@
         "--socket=wayland",
         "--socket=pulseaudio",
         "--share=network",
-        "--system-talk-name=org.freedesktop.GeoClue2",
         "--env=G_MESSAGES_DEBUG=org.gnome.ClocksDevel"
     ],
     "cleanup": ["/include", "/lib/pkgconfig",
@@ -21,6 +20,22 @@
                 "/share/vala",
                 "*.la", "*.a"],
     "modules": [
+        {
+            "name": "libgeoclue",
+            "buildsystem": "meson",
+            "config-opts" : [
+                "-Denable-backend=false",
+                "-Dlibgeoclue=true",
+                "-Dintrospection=true",
+                "-Dgtk-doc=false"
+            ],
+            "sources": [
+                {
+                    "type" : "git",
+                    "url": "https://gitlab.freedesktop.org/geoclue/geoclue.git"
+                }
+            ]
+        },
         {
             "name": "geocode-glib",
             "buildsystem": "meson",
