@@ -35,7 +35,7 @@ public class Setup : Gtk.Box {
 
     public Setup () {
         var actions = new SimpleActionGroup ();
-        // The duration here represends a number of minutes
+        // The duration here represents a number of minutes
         var duration_type = new GLib.VariantType ("i");
         var set_duration_action = new SimpleAction ("set-duration", duration_type);
         set_duration_action.activate.connect ((action, param) => {
@@ -44,6 +44,7 @@ public class Setup : Gtk.Box {
             var minutes = total_minutes - hours * 60;
             this.h_spinbutton.value = hours;
             this.m_spinbutton.value = minutes;
+            this.s_spinbutton.value = 0;
         });
         actions.add_action (set_duration_action);
         insert_action_group ("timer-setup", actions);
