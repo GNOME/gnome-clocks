@@ -12,16 +12,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2022-01-07 17:23+0000\n"
-"PO-Revision-Date: 2022-01-11 15:37+0100\n"
+"POT-Creation-Date: 2022-01-11 14:38+0000\n"
+"PO-Revision-Date: 2022-01-12 22:16+0100\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Gtranslator 40.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Project-Style: gnome\n"
 "X-DL-Team: gl\n"
 "X-DL-Module: gnome-clocks\n"
@@ -85,12 +85,10 @@ msgid "Turn geolocation support on and off."
 msgstr "Activar/desactivar a compatibilidade de xeolocalización."
 
 #: data/org.gnome.clocks.gschema.xml.in:44
-#| msgid "Window state"
 msgid "Window maximized"
 msgstr "Xanela maximizada"
 
 #: data/org.gnome.clocks.gschema.xml.in:45
-#| msgid "State of the window, e.g. maximized."
 msgid "Whether the window is maximized."
 msgstr "Indica se a xanela está maximizada."
 
@@ -168,21 +166,16 @@ msgid "General"
 msgstr "Xeral"
 
 #: data/gtk/help-overlay.ui:15
-#| msgctxt "shortcut window"
-#| msgid "Show help"
 msgctxt "shortcut window"
 msgid "Show Help"
 msgstr "Mostrar axuda"
 
 #: data/gtk/help-overlay.ui:21
-#| msgctxt "shortcut window"
-#| msgid "Open menu"
 msgctxt "shortcut window"
 msgid "Open Menu"
 msgstr "Abrir menú"
 
 #: data/gtk/help-overlay.ui:27
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Keyboard Shortcuts"
 msgstr "Atallos de teclado"
@@ -193,43 +186,31 @@ msgid "Quit"
 msgstr "Saír"
 
 #: data/gtk/help-overlay.ui:39
-#| msgctxt "shortcut window"
-#| msgid "Go to the next section"
 msgctxt "shortcut window"
 msgid "Go to the Next Section"
 msgstr "Ir á seguinte sección"
 
 #: data/gtk/help-overlay.ui:45
-#| msgctxt "shortcut window"
-#| msgid "Go to the previous section"
 msgctxt "shortcut window"
 msgid "Go to the Previous Section"
 msgstr "Ir á sección anterior"
 
 #: data/gtk/help-overlay.ui:51
-#| msgctxt "shortcut window"
-#| msgid "Go to the World section"
 msgctxt "shortcut window"
 msgid "Go to the World Section"
 msgstr "Ir á sección Mundo"
 
 #: data/gtk/help-overlay.ui:57
-#| msgctxt "shortcut window"
-#| msgid "Go to the Alarms section"
 msgctxt "shortcut window"
 msgid "Go to the Alarms Section"
 msgstr "Ir á sección Alarmas"
 
 #: data/gtk/help-overlay.ui:63
-#| msgctxt "shortcut window"
-#| msgid "Go to the Stopwatch section"
 msgctxt "shortcut window"
 msgid "Go to the Stopwatch Section"
 msgstr "Ir á sección Cronómetro"
 
 #: data/gtk/help-overlay.ui:69
-#| msgctxt "shortcut window"
-#| msgid "Go to the Timer section"
 msgctxt "shortcut window"
 msgid "Go to the Timer Section"
 msgstr "Ir á sección Temporizador"
@@ -240,7 +221,6 @@ msgid "World Clocks"
 msgstr "Reloxos mundiais"
 
 #: data/gtk/help-overlay.ui:81
-#| msgid "Add World Clock"
 msgctxt "shortcut window"
 msgid "Add a World Clock"
 msgstr "Engadir un reloxo mundial"
@@ -251,8 +231,6 @@ msgid "Alarm"
 msgstr "Alarma"
 
 #: data/gtk/help-overlay.ui:93
-#| msgctxt "shortcut window"
-#| msgid "Add an alarm"
 msgctxt "shortcut window"
 msgid "Add an Alarm"
 msgstr "Engadir unha alarma"
@@ -263,7 +241,6 @@ msgid "Stopwatch"
 msgstr "Cronómetro"
 
 #: data/gtk/help-overlay.ui:105
-#| msgid "Pause"
 msgctxt "shortcut window"
 msgid "Pause All"
 msgstr "Pausar todo"
@@ -284,7 +261,6 @@ msgid "New Timer"
 msgstr "Novo temporizador"
 
 #: data/ui/alarm-day-picker-row.ui:17
-#| msgid "_Repeat"
 msgid "Repeat"
 msgstr "Repetir"
 
@@ -363,7 +339,6 @@ msgid "Menu"
 msgstr "Menú"
 
 #: data/ui/header-bar.ui:71
-#| msgid "Menu"
 msgid "Main Menu"
 msgstr "Menú principal"
 
@@ -388,7 +363,6 @@ msgid "Select Duration"
 msgstr "Seleccionar duración"
 
 #: data/ui/timer-row.ui:32
-#| msgid "Title..."
 msgid "Title…"
 msgstr "Título…"
 
@@ -458,7 +432,6 @@ msgid "Timer"
 msgstr "Temporizador"
 
 #: data/ui/world-face.ui:15
-#| msgid "Add World Clock"
 msgid "_Add World Clock"
 msgstr "_Engadir un reloxo mundial"
 
@@ -687,7 +660,7 @@ msgstr "Utilidades que lle axudan co tempo."
 #: src/window.vala:291
 msgid "translator-credits"
 msgstr ""
-"Fran Diéguez <frandieguez@gnome.org>, 2012-2020\n"
+"Fran Diéguez <frandieguez@gnome.org>, 2012-2022\n"
 "Leandro Regueiro <leandro.regueiro@gmail.com>, 2012"
 
 #. Translators: Tooltip for the + button
