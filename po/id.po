@@ -5,13 +5,13 @@
 # Dirgita <dirgitadevina@yahoo.co.id>, 2012, 2013.
 # Andika Triwidada <andika@gmail.com>, 2012, 2013, 2014.
 # Bonaventura Aditya Perdana <bonaditya@about.me>, 2012.
-# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2019, 2020, 2021.
+# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2019, 2020, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2021-11-27 21:43+0000\n"
-"PO-Revision-Date: 2021-12-23 10:03+0700\n"
+"POT-Creation-Date: 2022-01-08 12:49+0000\n"
+"PO-Revision-Date: 2022-01-19 16:24+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome@i15n.org>\n"
 "Language: id\n"
@@ -22,8 +22,8 @@ msgstr ""
 "X-Generator: Poedit 3.0\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:29
-#: src/main.vala:25 src/window.vala:323 src/window.vala:378
+#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
+#: src/main.vala:25 src/window.vala:281 src/window.vala:336
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Jam"
@@ -75,12 +75,12 @@ msgid "Turn geolocation support on and off."
 msgstr "Mengaktifkan/mematikan fungsi geolokasi."
 
 #: data/org.gnome.clocks.gschema.xml.in:44
-msgid "Window state"
-msgstr "Keadaan jendela"
+msgid "Window maximized"
+msgstr "Jendela dimaksimalkan"
 
 #: data/org.gnome.clocks.gschema.xml.in:45
-msgid "State of the window, e.g. maximized."
-msgstr "Keadaan jendela, mis. dimaksimalkan."
+msgid "Whether the window is maximized."
+msgstr "Apakah jendela dimaksimalkan."
 
 #: data/org.gnome.clocks.gschema.xml.in:51
 msgid "Window width and height"
@@ -150,304 +150,320 @@ msgstr "Layar pewaktu"
 msgid "The GNOME Project"
 msgstr "Proyek GNOME"
 
-#: data/gtk/help-overlay.ui:14
+#: data/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Umum"
 
-#: data/gtk/help-overlay.ui:19
+#: data/gtk/help-overlay.ui:15
 msgctxt "shortcut window"
-msgid "Show help"
-msgstr "Tampilkan bantuan"
+msgid "Show Help"
+msgstr "Tampilkan Bantuan"
 
-#: data/gtk/help-overlay.ui:26
+#: data/gtk/help-overlay.ui:21
 msgctxt "shortcut window"
-msgid "Open menu"
-msgstr "Buka menu"
+msgid "Open Menu"
+msgstr "Buka Menu"
+
+#: data/gtk/help-overlay.ui:27
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr "Pintasan Papan Tik"
 
 #: data/gtk/help-overlay.ui:33
-msgctxt "shortcut window"
-msgid "Keyboard shortcuts"
-msgstr "Pintasan papan tik"
-
-#: data/gtk/help-overlay.ui:40
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Keluar"
 
-#: data/gtk/help-overlay.ui:47
+#: data/gtk/help-overlay.ui:39
 msgctxt "shortcut window"
-msgid "Go to the next section"
-msgstr "Pergi ke bagian selanjutnya"
+msgid "Go to the Next Section"
+msgstr "Pergi Ke Bagian Selanjutnya"
 
-#: data/gtk/help-overlay.ui:54
+#: data/gtk/help-overlay.ui:45
 msgctxt "shortcut window"
-msgid "Go to the previous section"
-msgstr "Pergi ke bagian sebelumnya"
+msgid "Go to the Previous Section"
+msgstr "Pergi Ke Bagian Sebelumnya"
 
-#: data/gtk/help-overlay.ui:61
+#: data/gtk/help-overlay.ui:51
 msgctxt "shortcut window"
-msgid "Go to the World section"
-msgstr "Pergi ke bagian Dunia"
+msgid "Go to the World Section"
+msgstr "Pergi Ke Bagian Dunia"
 
-#: data/gtk/help-overlay.ui:68
+#: data/gtk/help-overlay.ui:57
 msgctxt "shortcut window"
-msgid "Go to the Alarms section"
-msgstr "Pergi ke bagian Alarm"
+msgid "Go to the Alarms Section"
+msgstr "Pergi Ke Bagian Alarm"
 
-#: data/gtk/help-overlay.ui:75
+#: data/gtk/help-overlay.ui:63
 msgctxt "shortcut window"
-msgid "Go to the Stopwatch section"
-msgstr "Pergi ke bagian Stopwatch"
+msgid "Go to the Stopwatch Section"
+msgstr "Pergi Ke Bagian Stopwatch"
 
-#: data/gtk/help-overlay.ui:82
+#: data/gtk/help-overlay.ui:69
 msgctxt "shortcut window"
-msgid "Go to the Timer section"
-msgstr "Pergi ke bagian Pewaktu"
+msgid "Go to the Timer Section"
+msgstr "Pergi Ke Bagian Pewaktu"
 
-#: data/gtk/help-overlay.ui:91
+#: data/gtk/help-overlay.ui:77
 msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Jam Dunia"
 
-#: data/gtk/help-overlay.ui:96
+#: data/gtk/help-overlay.ui:81
 msgctxt "shortcut window"
-msgid "Add a world clock"
-msgstr "Tambahkan sebuah jam dunia"
+msgid "Add a World Clock"
+msgstr "Tambah Jam Dunia"
 
-#: data/gtk/help-overlay.ui:105
+#: data/gtk/help-overlay.ui:89
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Alarm"
 
-#: data/gtk/help-overlay.ui:110
+#: data/gtk/help-overlay.ui:93
 msgctxt "shortcut window"
-msgid "Add an alarm"
+msgid "Add an Alarm"
 msgstr "Tambah alarm"
 
-#: data/gtk/help-overlay.ui:119
+#: data/gtk/help-overlay.ui:101
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Stopwatch"
 
-#: data/gtk/help-overlay.ui:124
+#: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
-msgid "Stop / Reset"
-msgstr "Berhenti / Reset"
+msgid "Pause All"
+msgstr "Jeda Semua"
 
-#: data/gtk/help-overlay.ui:133
+#: data/gtk/help-overlay.ui:113
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Pewaktu"
 
-#: data/gtk/help-overlay.ui:138
+#: data/gtk/help-overlay.ui:117
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Atur ulang"
 
-#: data/gtk/help-overlay.ui:145
+#: data/gtk/help-overlay.ui:123
 msgctxt "shortcut window"
 msgid "New Timer"
 msgstr "Pewaktu Baru"
 
-#: data/ui/alarm-day-picker-row.ui:5
-msgid "_Repeat"
-msgstr "_Ulangi"
+#: data/ui/alarm-day-picker-row.ui:17
+msgid "Repeat"
+msgstr "Ulangi"
 
-#: data/ui/alarm-face.ui:29
+#: data/ui/alarm-face.ui:14
 msgid "Add A_larm"
 msgstr "Tambah A_larm"
 
-#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:117
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:117
 msgid "Stop"
 msgstr "Berhenti"
 
-#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:118
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:118
 msgid "Snooze"
 msgstr "Jeda"
 
-#: data/ui/alarm-row.ui:25
-msgid "Active"
-msgstr "Aktif"
-
-#: data/ui/alarm-row.ui:39 data/ui/world-row.ui:92
-msgid "Delete"
-msgstr "Hapus"
-
-#: data/ui/alarm-row.ui:69
+#: data/ui/alarm-row.ui:47
 msgid "Repeats"
 msgstr "Ulangi"
 
+#: data/ui/alarm-row.ui:66
+msgid "Active"
+msgstr "Aktif"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:22
+msgid "Delete"
+msgstr "Hapus"
+
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:24 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:108
+#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:109
 msgid "New Alarm"
 msgstr "Alarm Baru"
 
-#: data/ui/alarm-setup-dialog.ui:143
+#: data/ui/alarm-setup-dialog.ui:94
 msgid "Name"
 msgstr "Nama"
 
-#: data/ui/alarm-setup-dialog.ui:144
+#: data/ui/alarm-setup-dialog.ui:95
 msgid "Optional"
 msgstr "Opsional"
 
-#: data/ui/alarm-setup-dialog.ui:161
+#: data/ui/alarm-setup-dialog.ui:109
 msgid "Ring Duration"
 msgstr "Durasi Dering"
 
-#: data/ui/alarm-setup-dialog.ui:169
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Snooze Duration"
 msgstr "Durasi Tunda"
 
-#: data/ui/alarm-setup-dialog.ui:181
-msgid "R_emove Alarm"
-msgstr "H_apus Baru"
-
-#: data/ui/alarm-setup-dialog.ui:197
+#: data/ui/alarm-setup-dialog.ui:128
 msgid "You already have an alarm for this time."
 msgstr "Anda telah memiliki suatu alarm untuk waktu ini."
 
-#: data/ui/header-bar.ui:8
+#: data/ui/alarm-setup-dialog.ui:135
+msgid "R_emove Alarm"
+msgstr "H_apus Baru"
+
+#: data/ui/header-bar.ui:6
 msgid "_Keyboard Shortcuts"
 msgstr "_Tombol Pintas"
 
-#: data/ui/header-bar.ui:12
+#: data/ui/header-bar.ui:10
 msgid "_Help"
 msgstr "_Bantuan"
 
-#: data/ui/header-bar.ui:16
+#: data/ui/header-bar.ui:14
 msgid "_About Clocks"
 msgstr "Tent_ang Jam"
 
-#: data/ui/header-bar.ui:64 data/ui/world-standalone.ui:23
+#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:17
 msgid "Back"
 msgstr "Kembali"
 
-#: data/ui/header-bar.ui:95
+#: data/ui/header-bar.ui:68
 msgid "Menu"
 msgstr "Menu"
 
-#: data/ui/stopwatch-face.ui:173
+#: data/ui/header-bar.ui:71
+msgid "Main Menu"
+msgstr "Menu Utama"
+
+#: data/ui/stopwatch-face.ui:100
 msgid "_Start"
 msgstr "_Mulai"
 
-#: data/ui/stopwatch-face.ui:194 src/stopwatch-face.vala:182
+#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:182
 msgid "Clear"
 msgstr "Bersihkan"
 
-#: data/ui/stopwatch-laps-row.ui:18
+#: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
 msgstr "Waktu"
 
-#: data/ui/stopwatch-laps-row.ui:39
+#: data/ui/stopwatch-laps-row.ui:25
 msgid "Difference"
 msgstr "Perbedaan"
 
-#: data/ui/timer-face.ui:21
+#: data/ui/timer-face.ui:18
 msgid "Select Duration"
 msgstr "Pilih Durasi"
 
-#: data/ui/timer-row.ui:46
-msgid "Title..."
-msgstr "Judul..."
+#: data/ui/timer-row.ui:32
+msgid "Title…"
+msgstr "Judul…"
 
-#: data/ui/timer-setup.ui:47
+#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:162
+msgid "Pause"
+msgstr "Jeda"
+
+#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:199
+msgid "Start"
+msgstr "Mulai"
+
+#: data/ui/timer-row.ui:119
+msgid "Reset"
+msgstr "Atur ulang"
+
+#: data/ui/timer-setup.ui:37
 msgid "1 m"
 msgstr "1 m"
 
-#: data/ui/timer-setup.ui:65
+#: data/ui/timer-setup.ui:52
 msgid "2 m"
 msgstr "2 m"
 
-#: data/ui/timer-setup.ui:83
+#: data/ui/timer-setup.ui:67
 msgid "3 m"
 msgstr "3 m"
 
-#: data/ui/timer-setup.ui:101
+#: data/ui/timer-setup.ui:82
 msgid "5 m"
 msgstr "5 m"
 
-#: data/ui/timer-setup.ui:119
+#: data/ui/timer-setup.ui:97
 msgid "30 m"
 msgstr "30 m"
 
-#: data/ui/timer-setup.ui:137
+#: data/ui/timer-setup.ui:112
 msgid "15 m"
 msgstr "15 m"
 
-#: data/ui/timer-setup.ui:155
+#: data/ui/timer-setup.ui:127
 msgid "45 m"
 msgstr "45 m"
 
-#: data/ui/timer-setup.ui:173
+#: data/ui/timer-setup.ui:142
 msgid "1 h"
 msgstr "1 j"
 
-#: data/ui/timer-setup.ui:227 data/ui/timer-setup.ui:267
-#: data/ui/timer-setup.ui:308
+#: data/ui/timer-setup.ui:178 data/ui/timer-setup.ui:210
+#: data/ui/timer-setup.ui:243
 msgid "0"
 msgstr "0"
 
-#: data/ui/window.ui:53
+#: data/ui/window.ui:49
 msgid "World"
 msgstr "Dunia"
 
-#: data/ui/window.ui:63
+#: data/ui/window.ui:59
 msgid "Alarms"
 msgstr "Alarm"
 
-#: data/ui/window.ui:73
+#: data/ui/window.ui:69
 msgid "Stopwatch"
 msgstr "Stopwatch"
 
-#: data/ui/window.ui:83
+#: data/ui/window.ui:79
 msgid "Timer"
 msgstr "Pewaktu"
 
-#: data/ui/world-face.ui:35 data/ui/world-location-dialog.ui:8
-msgid "Add World Clock"
-msgstr "Tambah Jam Dunia"
+#: data/ui/world-face.ui:15
+msgid "_Add World Clock"
+msgstr "T_ambah Jam Dunia"
 
-#: data/ui/world-location-dialog.ui:20
+#: data/ui/world-location-dialog.ui:4
 msgid "Add a New World Clock"
 msgstr "Tambahkan sebuah Jam Dunia Baru"
 
-#: data/ui/world-location-dialog.ui:24
+#: data/ui/world-location-dialog.ui:14
 msgid "_Cancel"
 msgstr "_Batal"
 
-#: data/ui/world-location-dialog.ui:40
+#: data/ui/world-location-dialog.ui:22
 msgid "_Add"
 msgstr "T_ambah"
 
-#: data/ui/world-location-dialog.ui:140
+#: data/ui/world-location-dialog.ui:53
 msgid "Search for a City"
 msgstr "Cari Kota"
 
-#: data/ui/world-standalone.ui:104
+#: data/ui/world-standalone.ui:78
 msgid "Sunrise"
 msgstr "Matahari terbit"
 
-#: data/ui/world-standalone.ui:118
+#: data/ui/world-standalone.ui:90
 msgid "Sunset"
 msgstr "Matahari terbenam"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:374
+#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:332
 msgid "Alarm"
 msgstr "Alarm"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
-#: src/alarm-row.vala:89
+#: src/alarm-row.vala:87
 #, c-format
 msgid "Snoozed from %s: %s"
 msgstr "Ditunda dari %s: %s"
 
 #. Translators: %s is a time
-#: src/alarm-row.vala:92
+#: src/alarm-row.vala:90
 #, c-format
 msgid "Snoozed from %s"
 msgstr "Ditunda dari %s"
@@ -476,29 +492,25 @@ msgstr "20 menit"
 msgid "30 minutes"
 msgstr "30 menit"
 
-#: src/alarm-setup-dialog.vala:108
+#: src/alarm-setup-dialog.vala:109
 msgid "Edit Alarm"
 msgstr "Sunting Alarm"
 
-#: src/alarm-setup-dialog.vala:111 src/timer-setup-dialog.vala:30
+#: src/alarm-setup-dialog.vala:112 src/timer-setup-dialog.vala:30
 msgid "Cancel"
 msgstr "Batal"
 
-#: src/alarm-setup-dialog.vala:113
+#: src/alarm-setup-dialog.vala:114
 msgid "Done"
 msgstr "Selesai"
 
-#: src/alarm-setup-dialog.vala:115 src/timer-setup-dialog.vala:31
+#: src/alarm-setup-dialog.vala:116 src/timer-setup-dialog.vala:31
 msgid "Add"
 msgstr "Tambah"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Menampilkan informasi versi dan keluar"
-
-#: src/stopwatch-face.vala:162
-msgid "Pause"
-msgstr "Jeda"
 
 #: src/stopwatch-face.vala:166 src/stopwatch-face.vala:203
 msgid "Lap"
@@ -508,36 +520,32 @@ msgstr "Lintasan"
 msgid "Resume"
 msgstr "Lanjutkan"
 
-#: src/stopwatch-face.vala:199
-msgid "Start"
-msgstr "Mulai"
-
 #: src/stopwatch-laps-row.vala:48
 #, c-format
 msgid "Lap %i"
 msgstr "Putaran %i"
 
 #. Translators: Tooltip for the + button
-#: src/timer-face.vala:37 src/timer-setup-dialog.vala:27
+#: src/timer-face.vala:39 src/timer-setup-dialog.vala:27
 msgid "New Timer"
 msgstr "Pewaktu Baru"
 
-#: src/timer-face.vala:75
+#: src/timer-face.vala:76
 msgid "Time is up!"
 msgstr "Waktu habis!"
 
-#: src/timer-face.vala:76
+#: src/timer-face.vala:77
 msgid "Timer countdown finished"
 msgstr "Hitung mundur pewaktu selesai"
 
 #. Translators: The time is the same as the local time
-#: src/utils.vala:76
+#: src/utils.vala:61
 msgid "Current timezone"
 msgstr "Zona waktu saat ini"
 
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
-#: src/utils.vala:81
+#: src/utils.vala:66
 #, c-format
 msgid "%s hour earlier"
 msgid_plural "%s hours earlier"
@@ -545,110 +553,105 @@ msgstr[0] "%s jam sebelumnya"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
-#: src/utils.vala:87
+#: src/utils.vala:72
 #, c-format
 msgid "%s hour later"
 msgid_plural "%s hours later"
 msgstr[0] "%s jam kemudian"
 
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:189
+#: src/utils.vala:174
 msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "S"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:191
+#: src/utils.vala:176
 msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "S"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:193
+#: src/utils.vala:178
 msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "R"
 
 #. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:195
+#: src/utils.vala:180
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
 msgstr "K"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:197
+#: src/utils.vala:182
 msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "J"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:199
+#: src/utils.vala:184
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "S"
 
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:201
+#: src/utils.vala:186
 msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
 msgstr "M"
 
-#: src/utils.vala:215
+#: src/utils.vala:200
 msgid "Mondays"
 msgstr "Senin"
 
-#: src/utils.vala:216
+#: src/utils.vala:201
 msgid "Tuesdays"
 msgstr "Selasa"
 
-#: src/utils.vala:217
+#: src/utils.vala:202
 msgid "Wednesdays"
 msgstr "Rabu"
 
-#: src/utils.vala:218
+#: src/utils.vala:203
 msgid "Thursdays"
 msgstr "Kamis"
 
-#: src/utils.vala:219
+#: src/utils.vala:204
 msgid "Fridays"
 msgstr "Jumat"
 
-#: src/utils.vala:220
+#: src/utils.vala:205
 msgid "Saturdays"
 msgstr "Sabtu"
 
-#: src/utils.vala:221
+#: src/utils.vala:206
 msgid "Sundays"
 msgstr "Minggu"
 
-#: src/utils.vala:347
+#: src/utils.vala:332
 msgid "Every Day"
 msgstr "Tiap hari"
 
-#: src/utils.vala:349
+#: src/utils.vala:334
 msgid "Weekdays"
 msgstr "Hari kerja"
 
-#: src/utils.vala:351
+#: src/utils.vala:336
 msgid "Weekends"
 msgstr "Akhir minggu"
 
-#: src/window.vala:294
-#, c-format
-msgid "Failed to show help: %s"
-msgstr "Gagal menampilkan bantuan: %s"
-
-#: src/window.vala:328
+#: src/window.vala:286
 msgid "Utilities to help you with the time."
 msgstr "Aplikasi untuk membantu Anda mengenai waktu."
 
-#: src/window.vala:333
+#: src/window.vala:291
 msgid "translator-credits"
 msgstr ""
 "Dirgita <dirgitadevina@yahoo.co.id>, 2012, 2013.\n"
 "Andika Triwidada <andika@gmail.com>, 2012, 2013.\n"
 "Bonaventura Aditya Perdana <bonaditya@about.me>, 2012.\n"
-"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2019, 2020, 2021."
+"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2019, 2020, 2021, 2022."
 
 #. Translators: Tooltip for the + button
 #: src/world-face.vala:29
@@ -668,9 +671,24 @@ msgid "Yesterday"
 msgstr "Kemarin"
 
 #. Translators: This clock represents the local time
-#: src/world-row.vala:66
+#: src/world-row.vala:58
 msgid "Current location"
 msgstr "Lokasi saat ini"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Keyboard shortcuts"
+#~ msgstr "Pintasan papan tik"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Add a world clock"
+#~ msgstr "Tambahkan sebuah jam dunia"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Stop / Reset"
+#~ msgstr "Berhenti / Reset"
+
+#~ msgid "Failed to show help: %s"
+#~ msgstr "Gagal menampilkan bantuan: %s"
 
 #~ msgid "GNOME Clocks"
 #~ msgstr "GNOME Jam"
@@ -737,9 +755,6 @@ msgstr "Lokasi saat ini"
 
 #~ msgid "Configured timer duration in seconds."
 #~ msgstr "Durasi penghitung waktu yang telah disetel dalam satuan detik."
-
-#~ msgid "Reset"
-#~ msgstr "Atur ulang"
 
 #~ msgid "Continue"
 #~ msgstr "Lanjutkan"
