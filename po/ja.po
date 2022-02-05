@@ -1,18 +1,19 @@
 # Japanese translation for gnome-clocks.
-# Copyright (C) 2012-2016, 2019-2020 gnome-clocks's COPYRIGHT HOLDER
+# Copyright (C) 2012-2016, 2019-2022 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Takeshi AIHANA <takeshi.aihana@gmail.com>, 2012.
 # Jiro Matsuzawa <jmatsuzawa@gnome.org>, 2012-2013, 2015-2016.
 # Ikuya Awashiro <ikuya@fruitsbasket.info>, 2014.
 # Hajime Taira <htaira@redhat.com>, 2015.
-# sicklylife <translation@sicklylife.jp>, 2019-2020.
+# sicklylife <translation@sicklylife.jp>, 2019-2020, 2022.
+# Peniel Vargas <penieru@gmail.com>, 2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
 "POT-Creation-Date: 2020-08-07 13:53+0000\n"
-"PO-Revision-Date: 2020-12-16 20:40+0900\n"
+"PO-Revision-Date: 2022-02-05 16:00+0900\n"
 "Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
@@ -76,6 +77,14 @@ msgstr "位置情報サポートを有効にする"
 #: data/org.gnome.clocks.gschema.xml.in:27
 msgid "Turn geolocation support on and off."
 msgstr "位置情報サポートのオン/オフを切り替えます。"
+
+#: data/org.gnome.clocks.gschema.xml.in:44
+msgid "Window maximized"
+msgstr "ウィンドウの最大化"
+
+#: data/org.gnome.clocks.gschema.xml.in:45
+msgid "Whether the window is maximized."
+msgstr "ウィンドウが最大化されているかどうかです。"
 
 #: data/org.gnome.clocks.gschema.xml.in:44
 msgid "Window state"
@@ -167,9 +176,19 @@ msgctxt "shortcut window"
 msgid "Show help"
 msgstr "ヘルプを表示する"
 
+#: data/gtk/help-overlay.ui:15
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "ヘルプを表示する"
+
 #: data/gtk/help-overlay.ui:26
 msgctxt "shortcut window"
 msgid "Open menu"
+msgstr "メニューを開く"
+
+#: data/gtk/help-overlay.ui:21
+msgctxt "shortcut window"
+msgid "Open Menu"
 msgstr "メニューを開く"
 
 #: data/gtk/help-overlay.ui:33
@@ -177,10 +196,65 @@ msgctxt "shortcut window"
 msgid "Keyboard shortcuts"
 msgstr "キーボードショートカットを表示する"
 
+#: data/gtk/help-overlay.ui:27
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr "キーボードショートカットを表示する"
+
 #: data/gtk/help-overlay.ui:40
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "終了する"
+
+#: data/gtk/help-overlay.ui:39
+msgctxt "shortcut window"
+msgid "Go to the Next Section"
+msgstr "次のセクションへ移動する"
+
+#: data/gtk/help-overlay.ui:45
+msgctxt "shortcut window"
+msgid "Go to the Previous Section"
+msgstr "前のセクションへ移動する"
+
+#: data/gtk/help-overlay.ui:61
+msgctxt "shortcut window"
+msgid "Go to the World section"
+msgstr "世界時計セクションへ移動する"
+
+#: data/gtk/help-overlay.ui:51
+msgctxt "shortcut window"
+msgid "Go to the World Section"
+msgstr "世界時計セクションへ移動する"
+
+#: data/gtk/help-overlay.ui:68
+msgctxt "shortcut window"
+msgid "Go to the Alarms section"
+msgstr "アラームセクションへ移動する"
+
+#: data/gtk/help-overlay.ui:57
+msgctxt "shortcut window"
+msgid "Go to the Alarms Section"
+msgstr "アラームセクションへ移動する"
+
+#: data/gtk/help-overlay.ui:75
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch section"
+msgstr "ストップウォッチセクションへ移動する"
+
+#: data/gtk/help-overlay.ui:63
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch Section"
+msgstr "ストップウォッチセクションへ移動する"
+
+#: data/gtk/help-overlay.ui:82
+msgctxt "shortcut window"
+msgid "Go to the Timer section"
+msgstr "タイマーセクションへ移動する"
+
+#: data/gtk/help-overlay.ui:69
+msgctxt "shortcut window"
+msgid "Go to the Timer Section"
+msgstr "タイマーセクションへ移動する"
 
 #: data/gtk/help-overlay.ui:47
 msgctxt "shortcut window"
@@ -190,7 +264,7 @@ msgstr "次のセクションへ移動する"
 #: data/gtk/help-overlay.ui:54
 msgctxt "shortcut window"
 msgid "Go to the previous section"
-msgstr "前のセクションへ戻る"
+msgstr "前のセクションへ移動する"
 
 #: data/gtk/help-overlay.ui:63
 msgctxt "shortcut window"
@@ -200,6 +274,11 @@ msgstr "世界時計"
 #: data/gtk/help-overlay.ui:68
 msgctxt "shortcut window"
 msgid "Add a world clock"
+msgstr "世界時計を追加する"
+
+#: data/gtk/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Add a World Clock"
 msgstr "世界時計を追加する"
 
 #: data/gtk/help-overlay.ui:77
@@ -212,6 +291,11 @@ msgctxt "shortcut window"
 msgid "Add an alarm"
 msgstr "アラームを追加する"
 
+#: data/gtk/help-overlay.ui:93
+msgctxt "shortcut window"
+msgid "Add an Alarm"
+msgstr "アラームを追加する"
+
 #: data/gtk/help-overlay.ui:91
 msgctxt "shortcut window"
 msgid "Stopwatch"
@@ -221,6 +305,11 @@ msgstr "ストップウォッチ"
 msgctxt "shortcut window"
 msgid "Stop / Reset"
 msgstr "停止/リセットする"
+
+#: data/gtk/help-overlay.ui:105
+msgctxt "shortcut window"
+msgid "Pause All"
+msgstr "すべて一時停止する"
 
 #: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
@@ -240,6 +329,10 @@ msgstr "新しいタイマーを開始する"
 #: data/ui/alarm-day-picker-row.ui:5
 msgid "_Repeat"
 msgstr "繰り返し(_R)"
+
+#: data/ui/alarm-day-picker-row.ui:17
+msgid "Repeat"
+msgstr "繰り返し"
 
 #: data/ui/alarm-face.ui:29
 msgid "Add A_larm"
@@ -313,6 +406,10 @@ msgstr "戻る"
 msgid "Menu"
 msgstr "メニュー"
 
+#: data/ui/header-bar.ui:71
+msgid "Main Menu"
+msgstr "メインメニュー"
+
 #: data/ui/stopwatch-face.ui:171
 msgid "_Start"
 msgstr "開始(_S)"
@@ -336,6 +433,14 @@ msgstr "時間を選択してください"
 #: data/ui/timer-row.ui:46
 msgid "Title..."
 msgstr "タイトル..."
+
+#: data/ui/timer-row.ui:32
+msgid "Title…"
+msgstr "タイトル…"
+
+#: data/ui/timer-row.ui:119
+msgid "Reset"
+msgstr "リセット"
 
 #: data/ui/timer-setup.ui:47
 msgid "1 m"
@@ -394,6 +499,10 @@ msgstr "タイマー"
 msgid "Add World Clock"
 msgstr "世界時計を追加"
 
+#: data/ui/world-face.ui:15
+msgid "_Add World Clock"
+msgstr "世界時計を追加(_A)"
+
 #: data/ui/world-location-dialog.ui:24
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
@@ -403,7 +512,7 @@ msgid "_Add"
 msgstr "追加(_A)"
 
 #: data/ui/world-location-dialog.ui:139
-msgid "Search for a city"
+msgid "Search for a City"
 msgstr "都市の検索"
 
 #: data/ui/world-standalone.ui:104
@@ -538,36 +647,46 @@ msgid_plural "%s hours later"
 msgstr[0] "+%s 時間"
 
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:189
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:174
+msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
-msgstr "M"
+msgstr "月"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:191 src/utils.vala:195
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:176
+msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
-msgstr "T"
+msgstr "火"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:193
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:178
+msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
-msgstr "W"
+msgstr "水"
+
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:180
+msgctxt "Alarm|Repeat-On|Thursday"
+msgid "T"
+msgstr "木"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:197
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:182
+msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
-msgstr "F"
+msgstr "金"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:199 src/utils.vala:201
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:184
+msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
-msgstr "S"
+msgstr "土"
+
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:186
+msgctxt "Alarm|Repeat-On|Sunday"
+msgid "S"
+msgstr "日"
 
 #: src/utils.vala:205
 msgid "Mondays"
@@ -623,6 +742,7 @@ msgid "translator-credits"
 msgstr ""
 "相花 毅 <takeshi.aihana@gmail.com>\n"
 "平 初 <htaira@redhat.com>\n"
+"バルガス・ペニエル <penieru@gmail.com>\n"
 "松澤 二郎 <jmatsuzawa@gnome.org>\n"
 "日本 GNOME ユーザー会 <http://www.gnome.gr.jp/>\n"
 "Ikuya Awashiro <ikuya@fruitsbasket.info>\n"
