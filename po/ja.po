@@ -1,19 +1,20 @@
 # Japanese translation for gnome-clocks.
-# Copyright (C) 2012-2016, 2019-2020 gnome-clocks's COPYRIGHT HOLDER
+# Copyright (C) 2012-2016, 2019-2021 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Takeshi AIHANA <takeshi.aihana@gmail.com>, 2012.
 # Jiro Matsuzawa <jmatsuzawa@gnome.org>, 2012-2013, 2015-2016.
 # Ikuya Awashiro <ikuya@fruitsbasket.info>, 2014.
 # Hajime Taira <htaira@redhat.com>, 2015.
 # sicklylife <translation@sicklylife.jp>, 2019-2020.
+# Peniel Vargas <penieru@gmail.com>, 2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
 "POT-Creation-Date: 2020-08-07 13:53+0000\n"
-"PO-Revision-Date: 2020-12-16 20:40+0900\n"
-"Last-Translator: sicklylife <translation@sicklylife.jp>\n"
+"PO-Revision-Date: 2021-12-18 14:48-0400\n"
+"Last-Translator: Peniel Vargas <penieru@gmail.com>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -403,7 +404,7 @@ msgid "_Add"
 msgstr "追加(_A)"
 
 #: data/ui/world-location-dialog.ui:139
-msgid "Search for a city"
+msgid "Search for a City"
 msgstr "都市の検索"
 
 #: data/ui/world-standalone.ui:104
@@ -538,36 +539,46 @@ msgid_plural "%s hours later"
 msgstr[0] "+%s 時間"
 
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:189
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:174
+msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
-msgstr "M"
+msgstr "月"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:191 src/utils.vala:195
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:176
+msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
-msgstr "T"
+msgstr "火"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:193
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:178
+msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
-msgstr "W"
+msgstr "水"
+
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:180
+msgctxt "Alarm|Repeat-On|Thursday"
+msgid "T"
+msgstr "木"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:197
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:182
+msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
-msgstr "F"
+msgstr "金"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:199 src/utils.vala:201
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:184
+msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
-msgstr "S"
+msgstr "土"
+
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:186
+msgctxt "Alarm|Repeat-On|Sunday"
+msgid "S"
+msgstr "日"
 
 #: src/utils.vala:205
 msgid "Mondays"
@@ -623,6 +634,7 @@ msgid "translator-credits"
 msgstr ""
 "相花 毅 <takeshi.aihana@gmail.com>\n"
 "平 初 <htaira@redhat.com>\n"
+"バルガス・ペニエル <penieru@gmail.com>\n"
 "松澤 二郎 <jmatsuzawa@gnome.org>\n"
 "日本 GNOME ユーザー会 <http://www.gnome.gr.jp/>\n"
 "Ikuya Awashiro <ikuya@fruitsbasket.info>\n"
