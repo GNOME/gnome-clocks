@@ -157,17 +157,7 @@ private class LocationDialog : Gtk.Window {
                 }
                 var contains_country_name = country_name != null && ((string) country_name).contains (search);
 
-                string? timezone_name = null;
-                var timezone = location.get_timezone ();
-                if (timezone != null) {
-                    timezone_name = timezone.get_identifier ();
-                    if (timezone_name != null) {
-                        timezone_name = ((string) timezone_name).normalize ().casefold ();
-                    }
-                }
-                var contains_timezone_name = timezone_name != null && ((string) timezone_name).contains (search);
-
-                if (contains_name || contains_country_name || contains_timezone_name) {
+                if (contains_name || contains_country_name) {
                     bool selected = world.location_exists (location);
                     locations.append (new ClockLocation (location, selected));
                 }
