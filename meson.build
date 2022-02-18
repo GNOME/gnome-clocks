@@ -3,12 +3,11 @@ project(
   ['vala', 'c'],
   version: '42.beta',
   license: 'GPL-2.0-or-later',
-  meson_version: '>= 0.50.0',
+  meson_version: '>= 0.59.0',
 )
 
 gnome = import('gnome')
 i18n = import('i18n')
-python3 = import('python3')
 
 glib = dependency('glib-2.0', version: '>= 2.68')
 gio = dependency('gio-2.0', version: '>= 2.58')
@@ -63,10 +62,13 @@ endif
 configure_file(output: 'config.h', configuration: conf)
 config_h_dir = include_directories('.')
 
-meson.add_install_script(python3.find_python().path(),
-  join_paths(meson.source_root(), 'build-aux', 'post-install.py'))
-
 subdir('data')
 subdir('help')
 subdir('po')
 subdir('src')
+
+gnome.post_install(
+  glib_compile_schemas: true,
+  gtk_update_icon_cache: true,
+  update_desktop_database: true,
+)
