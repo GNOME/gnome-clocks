@@ -29,6 +29,7 @@ public class SetupDialog: Gtk.Dialog {
 
         add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
         var create_button = add_button (_("Add"), Gtk.ResponseType.ACCEPT);
+        this.set_response_sensitive (Gtk.ResponseType.ACCEPT, false);
         create_button.add_css_class ("suggested-action");
 
         timer_setup = new Setup ();
