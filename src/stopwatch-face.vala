@@ -85,6 +85,8 @@ public class Face : Gtk.Box, Clocks.Clock {
         timer = new GLib.Timer ();
         tick_id = 0;
 
+        time_container.set_direction (Gtk.TextDirection.LTR);
+
         laps_list.bind_model (laps, (lap) => {
             var total_items = laps.get_n_items ();
             Lap? before = null;
