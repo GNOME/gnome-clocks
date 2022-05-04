@@ -21,22 +21,6 @@
                 "*.la", "*.a"],
     "modules": [
         {
-            "name": "libgeoclue",
-            "buildsystem": "meson",
-            "config-opts" : [
-                "-Denable-backend=false",
-                "-Dlibgeoclue=true",
-                "-Dintrospection=true",
-                "-Dgtk-doc=false"
-            ],
-            "sources": [
-                {
-                    "type" : "git",
-                    "url": "https://gitlab.freedesktop.org/geoclue/geoclue.git"
-                }
-            ]
-        },
-        {
             "name": "geocode-glib",
             "buildsystem": "meson",
             "config-opts": [ "-Denable-installed-tests=false", "-Denable-introspection=true", "-Denable-gtk-doc=false" ],
