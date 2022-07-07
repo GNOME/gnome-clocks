@@ -257,9 +257,9 @@ public class Window : Adw.ApplicationWindow {
         const string COPYRIGHT = "Copyright \xc2\xa9 2011 Collabora Ltd.\n" +
                                  "Copyright \xc2\xa9 2012-2013 Collabora Ltd., Seif Lotfy, Emily Gonyer\n" +
                                  "Eslam Mostafa, Paolo Borelli, Volker Sobek\n" +
-                                 "Copyright \xc2\xa9 2019-2020 Bilal Elmoussaoui & Zander Brown et al";
+                                 "Copyright \xc2\xa9 2019-2020 Bilal Elmoussaoui &amp; Zander Brown et al";
 
-        const string? AUTHORS[] = {
+        const string? DEVELOPERS[] = {
             "Alex Anthony",
             "Paolo Borelli",
             "Allan Day",
@@ -278,18 +278,20 @@ public class Window : Adw.ApplicationWindow {
             null
         };
 
-        var program_name = Config.NAME_PREFIX + _("Clocks");
-        Gtk.show_about_dialog (this,
-                               "program-name", program_name,
-                               "logo-icon-name", Config.APP_ID,
-                               "version", Config.VERSION,
-                               "comments", _("Utilities to help you with the time."),
-                               "copyright", COPYRIGHT,
-                               "authors", AUTHORS,
-                               "license-type", Gtk.License.GPL_2_0,
-                               "wrap-license", false,
-                               "translator-credits", _("translator-credits"),
-                               null);
+        var about = new Adw.AboutWindow () {
+            transient_for = this,
+            application_name = _("Clocks"),
+            application_icon = Config.APP_ID,
+            developer_name = _("The GNOME Project"),
+            version = Config.VERSION,
+            copyright = COPYRIGHT,
+            developers = DEVELOPERS,
+            issue_url = "https://gitlab.gnome.org/GNOME/gnome-clocks/-/issues/new",
+            license_type = Gtk.License.GPL_2_0,
+            translator_credits = _("translator-credits")
+        };
+
+        about.present ();
     }
 
     [GtkCallback]
