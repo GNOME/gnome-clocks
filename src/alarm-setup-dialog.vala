@@ -82,7 +82,7 @@ private class SetupDialog : Gtk.Dialog {
     [GtkChild]
     private unowned Gtk.SpinButton m_spinbutton;
     [GtkChild]
-    private unowned Gtk.Entry name_entry;
+    private unowned Adw.EntryRow name_entry;
     [GtkChild]
     private unowned Adw.ComboRow snooze_duration;
     [GtkChild]
