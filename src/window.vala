@@ -256,10 +256,10 @@ public class Window : Adw.ApplicationWindow {
     }
 
     private void on_about_activate () {
-        const string COPYRIGHT = "Copyright \xc2\xa9 2011 Collabora Ltd.\n" +
-                                 "Copyright \xc2\xa9 2012-2013 Collabora Ltd., Seif Lotfy, Emily Gonyer\n" +
+        const string COPYRIGHT = "\xc2\xa9 2011 Collabora Ltd.\n" +
+                                 "\xc2\xa9 2012-2013 Collabora Ltd., Seif Lotfy, Emily Gonyer, " +
                                  "Eslam Mostafa, Paolo Borelli, Volker Sobek\n" +
-                                 "Copyright \xc2\xa9 2019-2020 Bilal Elmoussaoui &amp; Zander Brown et al";
+                                 "\xc2\xa9 2019-2020 Bilal Elmoussaoui &amp; Zander Brown et al";
 
         const string? DEVELOPERS[] = {
             "Alex Anthony",
