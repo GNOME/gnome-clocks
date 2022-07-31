@@ -35,11 +35,11 @@ Vala basics in 5 minutes:
 
 Good reference for the libraries used here:
 
- http://www.valadoc.org/
+ https://www.valadoc.org/
 
 Information about UI-templates:
 
- http://blogs.gnome.org/tvb/2013/05/29/composite-templates-lands-in-vala/
+ https://blogs.gnome.org/tvb/2013/05/29/composite-templates-lands-in-vala/
 
 3. Getting Started With Clocks
 ==============================
