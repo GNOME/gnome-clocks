@@ -25,7 +25,7 @@ public interface ContentItem : GLib.Object {
 
 public class ContentStore : GLib.Object, GLib.ListModel {
     private ListStore store;
-    private CompareDataFunc? sort_func;
+    private CompareDataFunc<ContentItem>? sort_func;
 
 
     public ContentStore () {
@@ -47,7 +47,7 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         return store.get_item (position);
     }
 
-    public void set_sorting (owned CompareDataFunc sort) {
+    public void set_sorting (owned CompareDataFunc<ContentItem> sort) {
         sort_func = (owned) sort;
 
         // TODO: we should re-sort, but for now we only
