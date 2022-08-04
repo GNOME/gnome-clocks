@@ -144,13 +144,17 @@ public class Application : Adw.Application {
     public new void send_notification (string notification_id, GLib.Notification notification) {
         base.send_notification (notification_id, notification);
 
-        system_notifications.append (notification_id);
+        if (system_notifications.find (notification_id) == null) {
+            system_notifications.append (notification_id);
+        }
     }
 
     public void withdraw_notifications () {
         foreach (var notification in system_notifications) {
             withdraw_notification (notification);
         }
+
+        system_notifications = new List<string> ();
     }
 
     public override void shutdown () {
