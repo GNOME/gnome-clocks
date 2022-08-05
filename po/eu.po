@@ -6,19 +6,27 @@
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2013, 2014, 2015, 2016, 2017.
 # Edurne Labaka <elabaka@uzei.com>, 2015.
 # Asier Sarasua Garmendia  <asiersarasua@ni.eus>, 2019, 2020, 2021, 2022.
+# Porrumentzio <porrumentzio@riseup.net>, 2022.
 #
 msgid ""
-msgstr "Project-Id-Version: gnome-clocks master\n"
+msgstr ""
+"Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2022-02-05 08:07+0000\n"
-"PO-Revision-Date: 2022-04-14 10:00+0100\n"
-"Last-Translator: Asier Sarasua Garmendia <asiersarasua@ni.eus>\n"
-"Language-Team: Basque <librezale@librezale.eus>\n"
+"POT-Creation-Date: 2022-05-07 13:55+0000\n"
+"PO-Revision-Date: 2022-07-03 16:43+0200\n"
+"Last-Translator: Porrumentzio <porrumentzio@riseup.net>\n"
+"Language-Team: Basque <Librezale>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-DL-Team: eu\n"
+"X-DL-Module: gnome-clocks\n"
+"X-DL-Branch: master\n"
+"X-DL-Domain: po\n"
+"X-DL-State: None\n"
+"X-Generator: Gtranslator 40.0\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
@@ -30,7 +38,8 @@ msgstr "Ordulariak"
 #: data/org.gnome.clocks.desktop.in.in:6
 #: data/org.gnome.clocks.metainfo.xml.in.in:7
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Ordulariak munduko orduetarako, gehi alarmak, kronometroa eta tenporizadorea"
+msgstr ""
+"Ordulariak munduko orduetarako, gehi alarmak, kronometroa eta tenporizadorea"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in.in:8
@@ -101,7 +110,9 @@ msgstr "Uneko ordulariaren panela."
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch and a timer."
-msgstr "Ordulariaren aplikazio xume eta dotorea. Munduko ordulariak, alarmak, kronometro eta tenporizadorea ditu."
+msgstr ""
+"Ordulariaren aplikazio xume eta dotorea. Munduko ordulariak, alarmak, "
+"kronometro eta tenporizadorea ditu."
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:13
 msgid "Goals:"
@@ -132,18 +143,14 @@ msgid "Alarms screen"
 msgstr "Alarmen pantaila"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:48
-msgid "Alarms setup"
-msgstr "Alarmen konfigurazioa"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:52
 msgid "Stopwatch screen"
 msgstr "Kronometroaren pantaila"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:56
+#: data/org.gnome.clocks.metainfo.xml.in.in:52
 msgid "Timer screen"
 msgstr "Tenporizadorearen pantaila"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:125
+#: data/org.gnome.clocks.metainfo.xml.in.in:121
 msgid "The GNOME Project"
 msgstr "GNOME proiektua"
 
@@ -271,7 +278,7 @@ msgstr "Errepikatzeak"
 msgid "Active"
 msgstr "Aktibo"
 
-#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:22
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Ezabatu"
 
@@ -333,7 +340,7 @@ msgstr "Menu nagusia"
 msgid "_Start"
 msgstr "_Hasi"
 
-#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:182
+#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:184
 msgid "Clear"
 msgstr "Garbitu"
 
@@ -353,13 +360,13 @@ msgstr "Hautatu iraupena"
 msgid "Title…"
 msgstr "Izenburua…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:162
+#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:164
 msgid "Pause"
 msgstr "Pausatu"
 
-#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:199
+#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:201
 msgid "Start"
-msgstr "Hasiera"
+msgstr "Hasi"
 
 #: data/ui/timer-row.ui:119
 msgid "Reset"
@@ -509,11 +516,11 @@ msgstr "Gehitu"
 msgid "Print version information and exit"
 msgstr "Erakutsi bertsioaren informazioa eta irten"
 
-#: src/stopwatch-face.vala:166 src/stopwatch-face.vala:203
+#: src/stopwatch-face.vala:168 src/stopwatch-face.vala:205
 msgid "Lap"
 msgstr "Itzulia"
 
-#: src/stopwatch-face.vala:178
+#: src/stopwatch-face.vala:180
 msgid "Resume"
 msgstr "Berrekin"
 
@@ -669,6 +676,9 @@ msgstr "Atzo"
 #: src/world-row.vala:58
 msgid "Current location"
 msgstr "Uneko kokalekua"
+
+#~ msgid "Alarms setup"
+#~ msgstr "Alarmen konfigurazioa"
 
 #~ msgid "GNOME Clocks"
 #~ msgstr "GNOMEren ordulariak"
