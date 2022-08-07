@@ -229,8 +229,10 @@ public class Window : Adw.ApplicationWindow {
     }
 
     [GtkCallback]
-    private void enter_cb (Gtk.EventControllerFocus controller) {
-        ((Application) application).withdraw_notifications ();
+    private void on_window_active () {
+        if (is_active) {
+            ((Application) application).withdraw_notifications ();
+        }
     }
 
     [GtkCallback]

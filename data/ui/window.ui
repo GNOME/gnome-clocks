@@ -2,14 +2,10 @@
 <interface>
   <template class="ClocksWindow" parent="AdwApplicationWindow">
     <property name="hide-on-close">True</property>
+    <signal name="notify::is-active" handler="on_window_active"/>
     <child>
       <object class="GtkEventControllerKey">
         <signal name="key-pressed" handler="key_press_cb"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkEventControllerFocus">
-        <signal name="enter" handler="enter_cb"/>
       </object>
     </child>
     <child>
