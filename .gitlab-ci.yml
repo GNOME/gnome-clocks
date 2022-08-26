@@ -2,20 +2,39 @@ include:
   - project: 'gnome/citemplates'
     file: 'flatpak/flatpak_ci_initiative.yml'
 
-flatpak:
-    variables:
-        BUNDLE: "gnome-clocks-dev.flatpak"
-        MANIFEST_PATH: "build-aux/flatpak/org.gnome.clocks.json"
-        FLATPAK_MODULE: "gnome-clocks"
-        RUNTIME_REPO: "https://nightly.gnome.org/gnome-nightly.flatpakrepo"
-        APP_ID: "org.gnome.clocksDevel"
-    extends: ".flatpak"
+variables:
+  APP_ID: "org.gnome.clocksDevel"
+  BUNDLE: "gnome-clocks-dev.flatpak"
+  RUNTIME_REPO: "https://nightly.gnome.org/gnome-nightly.flatpakrepo"
+  MANIFEST_PATH: "build-aux/flatpak/org.gnome.clocks.json"
+  FLATPAK_MODULE: "gnome-clocks"
+
+stages:
+  - lint
+  - build
+  - deploy
+
+build-flatpak:
+  extends: '.flatpak@x86_64'
+  stage: build
+  before_script: []
+
+build-flatpak-aarch64:
+  extends: '.flatpak@aarch64'
+  stage: build
+  before_script: []
 
 nightly:
   extends: '.publish_nightly'
+  needs: ['build-flatpak']
+
+nightly-aarch64:
+  extends: '.publish_nightly'
+  needs: ['build-flatpak-aarch64']
 
 lint:
   image: "valalang/lint:latest"
+  stage: lint
   script:
     - io.elementary.vala-lint src
 
