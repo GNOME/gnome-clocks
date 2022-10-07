@@ -7,27 +7,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2022-02-27 15:26+0000\n"
-"PO-Revision-Date: 2022-03-12 12:33+0100\n"
+"POT-Creation-Date: 2022-10-04 13:05+0000\n"
+"PO-Revision-Date: 2022-10-07 15:02+0200\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0\n"
-"X-Generator: Gtranslator 40.0\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+"X-Generator: Poedit 3.1.1\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
-#: src/main.vala:25 src/window.vala:281 src/window.vala:336
+#: src/main.vala:25 src/window.vala:285 src/window.vala:340
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Hodiny"
 
 #: data/org.gnome.clocks.desktop.in.in:6
-#: data/org.gnome.clocks.metainfo.xml.in.in:7
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Hodiny svetového času, budík, stopky a časovač"
 
@@ -82,13 +81,11 @@ msgstr "Zapnutie a vypnutie podpory geolokácie."
 
 # summary
 #: data/org.gnome.clocks.gschema.xml.in:44
-#| msgid "Window state"
 msgid "Window maximized"
 msgstr "Maximalizované okno"
 
 # description
 #: data/org.gnome.clocks.gschema.xml.in:45
-#| msgid "State of the window, e.g. maximized."
 msgid "Whether the window is maximized."
 msgstr "Určuje, či je okno maximalizované."
 
@@ -112,55 +109,51 @@ msgstr "Stav panela"
 msgid "Current clock panel."
 msgstr "Aktuálny panel s hodinami."
 
+#: data/org.gnome.clocks.metainfo.xml.in.in:7
+msgid "Keep track of time"
+msgstr "Uchováva časovú stopu"
+
 #: data/org.gnome.clocks.metainfo.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
+"stopwatch, and timers."
 msgstr ""
 "Jednoduchá a elegantná aplikácia s hodinami. Obsahuje svetový čas, budík, "
-"stopky a časovač."
+"stopky a časovače."
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:13
-msgid "Goals:"
-msgstr "Ciele:"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:15
+#: data/org.gnome.clocks.metainfo.xml.in.in:14
 msgid "Show the time in different cities around the world"
 msgstr "Zobrazí čas v rôznych svetových mestách"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:16
+#: data/org.gnome.clocks.metainfo.xml.in.in:15
 msgid "Set alarms to wake you up"
 msgstr "Umožňuje nastaviť rôzne časy zobudenia"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:17
+#: data/org.gnome.clocks.metainfo.xml.in.in:16
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Odmeria uplynutý čas s presnými stopkami"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:18
+#: data/org.gnome.clocks.metainfo.xml.in.in:17
 msgid "Set timers to properly cook your food"
 msgstr "Nastavenie hodnôt časovača pri varení obeda"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:40
+#: data/org.gnome.clocks.metainfo.xml.in.in:39
 msgid "Initial screen"
 msgstr "Úvodná obrazovka"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:44
+#: data/org.gnome.clocks.metainfo.xml.in.in:43
 msgid "Alarms screen"
 msgstr "Obrazovka s budíkmi"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:48
-msgid "Alarms setup"
-msgstr "Nastavenie budíkov"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:52
+#: data/org.gnome.clocks.metainfo.xml.in.in:47
 msgid "Stopwatch screen"
 msgstr "Obrazovka so stopkami"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:56
+#: data/org.gnome.clocks.metainfo.xml.in.in:51
 msgid "Timer screen"
 msgstr "Obrazovka s časovačmi"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:126
+#: data/org.gnome.clocks.metainfo.xml.in.in:120 src/window.vala:287
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -170,21 +163,16 @@ msgid "General"
 msgstr "Všeobecné"
 
 #: data/gtk/help-overlay.ui:15
-#| msgctxt "shortcut window"
-#| msgid "Show help"
 msgctxt "shortcut window"
 msgid "Show Help"
 msgstr "Zobrazenie pomocníka"
 
 #: data/gtk/help-overlay.ui:21
-#| msgctxt "shortcut window"
-#| msgid "Open menu"
 msgctxt "shortcut window"
 msgid "Open Menu"
 msgstr "Otvorenie ponuky"
 
 #: data/gtk/help-overlay.ui:27
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Keyboard Shortcuts"
 msgstr "Klávesové skratky"
@@ -195,43 +183,31 @@ msgid "Quit"
 msgstr "Ukončenie"
 
 #: data/gtk/help-overlay.ui:39
-#| msgctxt "shortcut window"
-#| msgid "Go to the next section"
 msgctxt "shortcut window"
 msgid "Go to the Next Section"
 msgstr "Prejdenie na nasledujúcu sekciu"
 
 #: data/gtk/help-overlay.ui:45
-#| msgctxt "shortcut window"
-#| msgid "Go to the previous section"
 msgctxt "shortcut window"
 msgid "Go to the Previous Section"
 msgstr "Prejdenie na predchádzajúcu sekciu"
 
 #: data/gtk/help-overlay.ui:51
-#| msgctxt "shortcut window"
-#| msgid "Go to the World section"
 msgctxt "shortcut window"
 msgid "Go to the World Section"
 msgstr "Prejdenie na sekciu so svetom"
 
 #: data/gtk/help-overlay.ui:57
-#| msgctxt "shortcut window"
-#| msgid "Go to the Alarms section"
 msgctxt "shortcut window"
 msgid "Go to the Alarms Section"
 msgstr "Prejdenie na sekciu s budíkmi"
 
 #: data/gtk/help-overlay.ui:63
-#| msgctxt "shortcut window"
-#| msgid "Go to the Stopwatch section"
 msgctxt "shortcut window"
 msgid "Go to the Stopwatch Section"
 msgstr "Prejdenie na sekciu so stopkami"
 
 #: data/gtk/help-overlay.ui:69
-#| msgctxt "shortcut window"
-#| msgid "Go to the Timer section"
 msgctxt "shortcut window"
 msgid "Go to the Timer Section"
 msgstr "Prejdenie na sekciu s časovačom"
@@ -242,7 +218,6 @@ msgid "World Clocks"
 msgstr "Svetové hodiny"
 
 #: data/gtk/help-overlay.ui:81
-#| msgid "Add World Clock"
 msgctxt "shortcut window"
 msgid "Add a World Clock"
 msgstr "Pridanie svetových hodín"
@@ -253,8 +228,6 @@ msgid "Alarm"
 msgstr "Budík"
 
 #: data/gtk/help-overlay.ui:93
-#| msgctxt "shortcut window"
-#| msgid "Add an alarm"
 msgctxt "shortcut window"
 msgid "Add an Alarm"
 msgstr "Pridanie budíku"
@@ -265,7 +238,6 @@ msgid "Stopwatch"
 msgstr "Stopky"
 
 #: data/gtk/help-overlay.ui:105
-#| msgid "Pause"
 msgctxt "shortcut window"
 msgid "Pause All"
 msgstr "Pozastavenie všetkého"
@@ -287,7 +259,6 @@ msgstr "Nový časovač"
 
 # Pondelok, Utorok, ...
 #: data/ui/alarm-day-picker-row.ui:17
-#| msgid "_Repeat"
 msgid "Repeat"
 msgstr "Opakovať"
 
@@ -324,27 +295,23 @@ msgstr "Odstráni"
 msgid "New Alarm"
 msgstr "Nový budík"
 
-#: data/ui/alarm-setup-dialog.ui:94
+#: data/ui/alarm-setup-dialog.ui:92
 msgid "Name"
 msgstr "Názov"
 
-#: data/ui/alarm-setup-dialog.ui:95
-msgid "Optional"
-msgstr "Voliteľné"
-
-#: data/ui/alarm-setup-dialog.ui:109
+#: data/ui/alarm-setup-dialog.ui:99
 msgid "Ring Duration"
 msgstr "Trvanie zvonenia"
 
-#: data/ui/alarm-setup-dialog.ui:116
+#: data/ui/alarm-setup-dialog.ui:105
 msgid "Snooze Duration"
 msgstr "Trvanie odloženia"
 
-#: data/ui/alarm-setup-dialog.ui:128
+#: data/ui/alarm-setup-dialog.ui:117
 msgid "You already have an alarm for this time."
 msgstr "V tomto čase už máte nastavený budík."
 
-#: data/ui/alarm-setup-dialog.ui:135
+#: data/ui/alarm-setup-dialog.ui:124
 msgid "R_emove Alarm"
 msgstr "O_dstrániť budík"
 
@@ -370,7 +337,6 @@ msgid "Menu"
 msgstr "Ponuka"
 
 #: data/ui/header-bar.ui:71
-#| msgid "Menu"
 msgid "Main Menu"
 msgstr "Hlavná ponuka"
 
@@ -378,7 +344,7 @@ msgstr "Hlavná ponuka"
 msgid "_Start"
 msgstr "_Spustiť"
 
-#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:182
+#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:184
 msgid "Clear"
 msgstr "Vymazať"
 
@@ -395,15 +361,14 @@ msgid "Select Duration"
 msgstr "Vyberte trvanie"
 
 #: data/ui/timer-row.ui:32
-#| msgid "Title..."
 msgid "Title…"
 msgstr "Názov…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:162
+#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:164
 msgid "Pause"
 msgstr "Pozastaviť"
 
-#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:199
+#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:201
 msgid "Start"
 msgstr "Spustiť"
 
@@ -448,24 +413,23 @@ msgstr "1 h"
 msgid "0"
 msgstr "0"
 
-#: data/ui/window.ui:49
+#: data/ui/window.ui:45
 msgid "World"
 msgstr "Svet"
 
-#: data/ui/window.ui:59
+#: data/ui/window.ui:55
 msgid "Alarms"
 msgstr "Budíky"
 
-#: data/ui/window.ui:69
+#: data/ui/window.ui:65
 msgid "Stopwatch"
 msgstr "Stopky"
 
-#: data/ui/window.ui:79
+#: data/ui/window.ui:75
 msgid "Timer"
 msgstr "Časovač"
 
 #: data/ui/world-face.ui:15
-#| msgid "Add World Clock"
 msgid "_Add World Clock"
 msgstr "_Pridať svetové hodiny"
 
@@ -496,7 +460,7 @@ msgstr "Západ slnka"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:332
+#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:336
 msgid "Alarm"
 msgstr "Budík"
 
@@ -557,11 +521,11 @@ msgstr "Pridať"
 msgid "Print version information and exit"
 msgstr "Zobrazí informácie o verzii a skončí"
 
-#: src/stopwatch-face.vala:166 src/stopwatch-face.vala:203
+#: src/stopwatch-face.vala:168 src/stopwatch-face.vala:205
 msgid "Lap"
 msgstr "Okruh"
 
-#: src/stopwatch-face.vala:178
+#: src/stopwatch-face.vala:180
 msgid "Resume"
 msgstr "Pokračovať"
 
@@ -691,11 +655,7 @@ msgstr "Pracovné dni"
 msgid "Weekends"
 msgstr "Víkendy"
 
-#: src/window.vala:286
-msgid "Utilities to help you with the time."
-msgstr "Nástroje na pomoc s časom."
-
-#: src/window.vala:291
+#: src/window.vala:293
 msgid "translator-credits"
 msgstr "Dušan Kazik <prescott66@gmail.com>"
 
@@ -721,6 +681,18 @@ msgstr "Včera"
 #: src/world-row.vala:58
 msgid "Current location"
 msgstr "Aktuálne umiestnenie"
+
+#~ msgid "Goals:"
+#~ msgstr "Ciele:"
+
+#~ msgid "Alarms setup"
+#~ msgstr "Nastavenie budíkov"
+
+#~ msgid "Optional"
+#~ msgstr "Voliteľné"
+
+#~ msgid "Utilities to help you with the time."
+#~ msgstr "Nástroje na pomoc s časom."
 
 #~ msgid "GNOME Clocks"
 #~ msgstr "Hodiny prostredia GNOME"
