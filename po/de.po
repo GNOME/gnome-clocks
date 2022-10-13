@@ -10,31 +10,32 @@
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2013, 2015-2016, 2020.
 # Tim Sabsch <tim@sabsch.com>, 2020-2022.
 # Philipp Kiemle <philipp.kiemle@gmail.com>, 2021.
+# Jürgen Benvenuti <gastornis@posteo.org>, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2022-02-05 08:07+0000\n"
-"PO-Revision-Date: 2022-02-27 14:09+0100\n"
-"Last-Translator: Tim Sabsch <tim@sabsch.com>\n"
+"POT-Creation-Date: 2022-10-04 13:05+0000\n"
+"PO-Revision-Date: 2022-10-04 18:27+0200\n"
+"Last-Translator: Jürgen Benvenuti <gastornis@posteo.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
-#: src/main.vala:25 src/window.vala:281 src/window.vala:336
+#: src/main.vala:25 src/window.vala:285 src/window.vala:340
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Uhren"
 
+# Hier wurde der Timer (Einzahl) übrigens nicht geändert auf Mehrzahl. - jb
 #: data/org.gnome.clocks.desktop.in.in:6
-#: data/org.gnome.clocks.metainfo.xml.in.in:7
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Uhren für die Weltzeit mit Alarm, Stoppuhr und einem Timer"
 
@@ -105,55 +106,51 @@ msgstr "Panel-Status"
 msgid "Current clock panel."
 msgstr "Aktuelles Uhren-Panel."
 
+#: data/org.gnome.clocks.metainfo.xml.in.in:7
+msgid "Keep track of time"
+msgstr "Behalten Sie die Zeit im Auge"
+
 #: data/org.gnome.clocks.metainfo.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
+"stopwatch, and timers."
 msgstr ""
 "Eine einfache und elegante Uhr-Anwendung. Sie beinhaltet Weltuhren, Alarme, "
-"eine Stoppuhr und einen Timer."
+"eine Stoppuhr und Timer."
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:13
-msgid "Goals:"
-msgstr "Ziele:"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:15
+#: data/org.gnome.clocks.metainfo.xml.in.in:14
 msgid "Show the time in different cities around the world"
 msgstr "Zeit in verschiedenen Städten rund um die Welt anzeigen"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:16
+#: data/org.gnome.clocks.metainfo.xml.in.in:15
 msgid "Set alarms to wake you up"
 msgstr "Alarme einstellen, um Sie aufzuwecken"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:17
+#: data/org.gnome.clocks.metainfo.xml.in.in:16
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Messen der verstrichenen Zeit mit einer genauen Stoppuhr"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:18
+#: data/org.gnome.clocks.metainfo.xml.in.in:17
 msgid "Set timers to properly cook your food"
 msgstr "Timer stellen, um Ihre Speisen passend zu kochen"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:40
+#: data/org.gnome.clocks.metainfo.xml.in.in:39
 msgid "Initial screen"
 msgstr "Anfangsbildschirm"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:44
+#: data/org.gnome.clocks.metainfo.xml.in.in:43
 msgid "Alarms screen"
 msgstr "Alarmbildschirm"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:48
-msgid "Alarms setup"
-msgstr "Alarmeinstellung"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:52
+#: data/org.gnome.clocks.metainfo.xml.in.in:47
 msgid "Stopwatch screen"
 msgstr "Stoppuhr-Bildschirm"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:56
+#: data/org.gnome.clocks.metainfo.xml.in.in:51
 msgid "Timer screen"
 msgstr "Timer-Bildschirm"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:125
+#: data/org.gnome.clocks.metainfo.xml.in.in:120 src/window.vala:287
 msgid "The GNOME Project"
 msgstr "Das GNOME-Projekt"
 
@@ -281,7 +278,7 @@ msgstr "Wiederholungen"
 msgid "Active"
 msgstr "Aktiv"
 
-#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:22
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Löschen"
 
@@ -291,27 +288,23 @@ msgstr "Löschen"
 msgid "New Alarm"
 msgstr "Neuer Alarm"
 
-#: data/ui/alarm-setup-dialog.ui:94
+#: data/ui/alarm-setup-dialog.ui:92
 msgid "Name"
 msgstr "Name"
 
-#: data/ui/alarm-setup-dialog.ui:95
-msgid "Optional"
-msgstr "Optional"
-
-#: data/ui/alarm-setup-dialog.ui:109
+#: data/ui/alarm-setup-dialog.ui:99
 msgid "Ring Duration"
 msgstr "Klingeldauer"
 
-#: data/ui/alarm-setup-dialog.ui:116
+#: data/ui/alarm-setup-dialog.ui:105
 msgid "Snooze Duration"
 msgstr "Schlummerdauer"
 
-#: data/ui/alarm-setup-dialog.ui:128
+#: data/ui/alarm-setup-dialog.ui:117
 msgid "You already have an alarm for this time."
 msgstr "Sie haben bereits einen Alarm zu dieser Zeit eingestellt."
 
-#: data/ui/alarm-setup-dialog.ui:135
+#: data/ui/alarm-setup-dialog.ui:124
 msgid "R_emove Alarm"
 msgstr "Alarm _entfernen"
 
@@ -343,7 +336,7 @@ msgstr "Hauptmenü"
 msgid "_Start"
 msgstr "_Start"
 
-#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:182
+#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:184
 msgid "Clear"
 msgstr "Leeren"
 
@@ -363,11 +356,11 @@ msgstr "Dauer auswählen"
 msgid "Title…"
 msgstr "Titel …"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:162
+#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:164
 msgid "Pause"
 msgstr "Pausieren"
 
-#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:199
+#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:201
 msgid "Start"
 msgstr "Starten"
 
@@ -412,19 +405,19 @@ msgstr "1 h"
 msgid "0"
 msgstr "0"
 
-#: data/ui/window.ui:49
+#: data/ui/window.ui:45
 msgid "World"
 msgstr "Welt"
 
-#: data/ui/window.ui:59
+#: data/ui/window.ui:55
 msgid "Alarms"
 msgstr "Alarme"
 
-#: data/ui/window.ui:69
+#: data/ui/window.ui:65
 msgid "Stopwatch"
 msgstr "Stoppuhr"
 
-#: data/ui/window.ui:79
+#: data/ui/window.ui:75
 msgid "Timer"
 msgstr "Timer"
 
@@ -459,7 +452,7 @@ msgstr "Sonnenuntergang"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:332
+#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:336
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -519,11 +512,11 @@ msgstr "Hinzufügen"
 msgid "Print version information and exit"
 msgstr "Versionsnummer anzeigen und beenden"
 
-#: src/stopwatch-face.vala:166 src/stopwatch-face.vala:203
+#: src/stopwatch-face.vala:168 src/stopwatch-face.vala:205
 msgid "Lap"
 msgstr "Runde"
 
-#: src/stopwatch-face.vala:178
+#: src/stopwatch-face.vala:180
 msgid "Resume"
 msgstr "Fortsetzen"
 
@@ -651,11 +644,7 @@ msgstr "Wochentags"
 msgid "Weekends"
 msgstr "An Wochenenden"
 
-#: src/window.vala:286
-msgid "Utilities to help you with the time."
-msgstr "Dienstprogramme, die Sie bei der Zeit unterstützen."
-
-#: src/window.vala:291
+#: src/window.vala:293
 msgid "translator-credits"
 msgstr ""
 "Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>\n"
@@ -664,7 +653,8 @@ msgstr ""
 "Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Paul Seyfert <pseyfert@mathphys.fsk.uni-heidelberg.de>\n"
 "Tim Sabsch <tim@sabsch.com>\n"
-"Philipp Kiemle <philipp.kiemle@gmail.com>"
+"Philipp Kiemle <philipp.kiemle@gmail.com>\n"
+"Jürgen Benvenuti <gastornis@posteo.org>"
 
 #. Translators: Tooltip for the + button
 #: src/world-face.vala:29
@@ -687,6 +677,18 @@ msgstr "Gestern"
 #: src/world-row.vala:58
 msgid "Current location"
 msgstr "Aktueller Ort"
+
+#~ msgid "Goals:"
+#~ msgstr "Ziele:"
+
+#~ msgid "Alarms setup"
+#~ msgstr "Alarmeinstellung"
+
+#~ msgid "Optional"
+#~ msgstr "Optional"
+
+#~ msgid "Utilities to help you with the time."
+#~ msgstr "Dienstprogramme, die Sie bei der Zeit unterstützen."
 
 #~ msgid "GNOME Clocks"
 #~ msgstr "GNOME-Uhren"
