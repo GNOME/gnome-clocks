@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2022-03-19 18:08+0000\n"
-"PO-Revision-Date: 2022-04-06 10:37+0000\n"
+"POT-Creation-Date: 2022-10-04 13:56+0000\n"
+"PO-Revision-Date: 2022-10-17 10:13+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -15,17 +15,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
-#: src/main.vala:25 src/window.vala:281 src/window.vala:336
+#: src/main.vala:25 src/window.vala:285 src/window.vala:340
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Klukkur"
 
 #: data/org.gnome.clocks.desktop.in.in:6
-#: data/org.gnome.clocks.metainfo.xml.in.in:7
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Klukkur á ýmsum stöðum, vekjaraklukkur, skeiðklukka og niðurteljari."
 
@@ -71,12 +70,10 @@ msgid "Turn geolocation support on and off."
 msgstr "Kveikja eða slökkva á stuðningi við hnattstaðsetningu."
 
 #: data/org.gnome.clocks.gschema.xml.in:44
-#| msgid "Window state"
 msgid "Window maximized"
 msgstr "Gluggi hámarkaður"
 
 #: data/org.gnome.clocks.gschema.xml.in:45
-#| msgid "State of the window, e.g. maximized."
 msgid "Whether the window is maximized."
 msgstr "Hvort glugginn sé hámarkaður."
 
@@ -96,51 +93,54 @@ msgstr "Staða spjalds"
 msgid "Current clock panel."
 msgstr "Núverandi klukkuspjald."
 
+#: data/org.gnome.clocks.metainfo.xml.in.in:7
+msgid "Keep track of time"
+msgstr "Fylgstu með tímanum"
+
 #: data/org.gnome.clocks.metainfo.xml.in.in:9
+#| msgid ""
+#| "A simple and elegant clock application. It includes world clocks, alarms, "
+#| "a stopwatch and a timer."
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
+"stopwatch, and timers."
 msgstr ""
-"Einfalt og glæsilegt klukkuforrit. Það innifelur heimsklukkur, vekjara, "
-"skeiðklukku og niðurteljara."
+"Einfalt og glæsilegt klukkuforrit. Það innifelur heimsklukkur, vekjara,"
+" skeiðklukku og niðurteljara."
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:13
-msgid "Goals:"
-msgstr "Markmið:"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:15
+#: data/org.gnome.clocks.metainfo.xml.in.in:14
 msgid "Show the time in different cities around the world"
 msgstr "Sýna tímann á mismunandi stöðum um allan heim"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:16
+#: data/org.gnome.clocks.metainfo.xml.in.in:15
 msgid "Set alarms to wake you up"
 msgstr "Setja áminningar til að vekja þig"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:17
+#: data/org.gnome.clocks.metainfo.xml.in.in:16
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Mæla tíma með nákvæmri skeiðklukku"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:18
+#: data/org.gnome.clocks.metainfo.xml.in.in:17
 msgid "Set timers to properly cook your food"
 msgstr "Settu af stað niðurtalningu til að geta eldað almennilegan mat"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:40
+#: data/org.gnome.clocks.metainfo.xml.in.in:39
 msgid "Initial screen"
 msgstr "Upphafsskjár"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:44
+#: data/org.gnome.clocks.metainfo.xml.in.in:43
 msgid "Alarms screen"
 msgstr "Áminningar"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:48
+#: data/org.gnome.clocks.metainfo.xml.in.in:47
 msgid "Stopwatch screen"
 msgstr "Skeiðklukka"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:52
+#: data/org.gnome.clocks.metainfo.xml.in.in:51
 msgid "Timer screen"
 msgstr "Niðurtalningarskjár"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:121
+#: data/org.gnome.clocks.metainfo.xml.in.in:120 src/window.vala:287
 msgid "The GNOME Project"
 msgstr "GNOME verkefnið"
 
@@ -150,21 +150,16 @@ msgid "General"
 msgstr "Almennt"
 
 #: data/gtk/help-overlay.ui:15
-#| msgctxt "shortcut window"
-#| msgid "Show help"
 msgctxt "shortcut window"
 msgid "Show Help"
 msgstr "Birta hjálp"
 
 #: data/gtk/help-overlay.ui:21
-#| msgctxt "shortcut window"
-#| msgid "Open menu"
 msgctxt "shortcut window"
 msgid "Open Menu"
 msgstr "Opna valmynd"
 
 #: data/gtk/help-overlay.ui:27
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Keyboard Shortcuts"
 msgstr "Flýtilyklar"
@@ -175,43 +170,31 @@ msgid "Quit"
 msgstr "Hætta"
 
 #: data/gtk/help-overlay.ui:39
-#| msgctxt "shortcut window"
-#| msgid "Go to the next section"
 msgctxt "shortcut window"
 msgid "Go to the Next Section"
 msgstr "Fara í næsta hluta"
 
 #: data/gtk/help-overlay.ui:45
-#| msgctxt "shortcut window"
-#| msgid "Go to the previous section"
 msgctxt "shortcut window"
 msgid "Go to the Previous Section"
 msgstr "Fara í fyrri hluta"
 
 #: data/gtk/help-overlay.ui:51
-#| msgctxt "shortcut window"
-#| msgid "Go to the World section"
 msgctxt "shortcut window"
 msgid "Go to the World Section"
 msgstr "Fara í Heimsklukku-hlutann"
 
 #: data/gtk/help-overlay.ui:57
-#| msgctxt "shortcut window"
-#| msgid "Go to the Alarms section"
 msgctxt "shortcut window"
 msgid "Go to the Alarms Section"
 msgstr "Fara í Áminninga-hlutann"
 
 #: data/gtk/help-overlay.ui:63
-#| msgctxt "shortcut window"
-#| msgid "Go to the Stopwatch section"
 msgctxt "shortcut window"
 msgid "Go to the Stopwatch Section"
 msgstr "Fara í Skeiðklukku-hlutann"
 
 #: data/gtk/help-overlay.ui:69
-#| msgctxt "shortcut window"
-#| msgid "Go to the Timer section"
 msgctxt "shortcut window"
 msgid "Go to the Timer Section"
 msgstr "Fara í Niðurtalningar-hlutann"
@@ -222,7 +205,6 @@ msgid "World Clocks"
 msgstr "Heimsklukkur"
 
 #: data/gtk/help-overlay.ui:81
-#| msgid "Add World Clock"
 msgctxt "shortcut window"
 msgid "Add a World Clock"
 msgstr "Bæta við heimsklukku"
@@ -233,8 +215,6 @@ msgid "Alarm"
 msgstr "Áminning"
 
 #: data/gtk/help-overlay.ui:93
-#| msgctxt "shortcut window"
-#| msgid "Add an alarm"
 msgctxt "shortcut window"
 msgid "Add an Alarm"
 msgstr "Bæta við áminningu"
@@ -245,7 +225,6 @@ msgid "Stopwatch"
 msgstr "Skeiðklukka"
 
 #: data/gtk/help-overlay.ui:105
-#| msgid "Pause"
 msgctxt "shortcut window"
 msgid "Pause All"
 msgstr "Setja allt í bið"
@@ -266,7 +245,6 @@ msgid "New Timer"
 msgstr "Ný niðurtalning"
 
 #: data/ui/alarm-day-picker-row.ui:17
-#| msgid "_Repeat"
 msgid "Repeat"
 msgstr "Endurtaka"
 
@@ -300,27 +278,23 @@ msgstr "Eyða"
 msgid "New Alarm"
 msgstr "Ný áminning"
 
-#: data/ui/alarm-setup-dialog.ui:94
+#: data/ui/alarm-setup-dialog.ui:92
 msgid "Name"
 msgstr "Heiti"
 
-#: data/ui/alarm-setup-dialog.ui:95
-msgid "Optional"
-msgstr "Valfrjálst"
-
-#: data/ui/alarm-setup-dialog.ui:109
+#: data/ui/alarm-setup-dialog.ui:99
 msgid "Ring Duration"
 msgstr "Lengd hringingar"
 
-#: data/ui/alarm-setup-dialog.ui:116
+#: data/ui/alarm-setup-dialog.ui:105
 msgid "Snooze Duration"
 msgstr "Lengd blunds"
 
-#: data/ui/alarm-setup-dialog.ui:128
+#: data/ui/alarm-setup-dialog.ui:117
 msgid "You already have an alarm for this time."
 msgstr "Þú ert þegar með áminningu á þessum tíma."
 
-#: data/ui/alarm-setup-dialog.ui:135
+#: data/ui/alarm-setup-dialog.ui:124
 msgid "R_emove Alarm"
 msgstr "F_jarlægja áminningu"
 
@@ -345,7 +319,6 @@ msgid "Menu"
 msgstr "Valmynd"
 
 #: data/ui/header-bar.ui:71
-#| msgid "Menu"
 msgid "Main Menu"
 msgstr "Aðalvalmynd"
 
@@ -353,7 +326,7 @@ msgstr "Aðalvalmynd"
 msgid "_Start"
 msgstr "_Byrja"
 
-#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:182
+#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:184
 msgid "Clear"
 msgstr "Hreinsa"
 
@@ -370,15 +343,14 @@ msgid "Select Duration"
 msgstr "Veldu tímalengd"
 
 #: data/ui/timer-row.ui:32
-#| msgid "Title..."
 msgid "Title…"
 msgstr "Titill…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:162
+#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:164
 msgid "Pause"
 msgstr "Hlé"
 
-#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:199
+#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:201
 msgid "Start"
 msgstr "Byrja"
 
@@ -423,24 +395,23 @@ msgstr "1 klst"
 msgid "0"
 msgstr "0"
 
-#: data/ui/window.ui:49
+#: data/ui/window.ui:45
 msgid "World"
 msgstr "Heimurinn"
 
-#: data/ui/window.ui:59
+#: data/ui/window.ui:55
 msgid "Alarms"
 msgstr "Áminningar"
 
-#: data/ui/window.ui:69
+#: data/ui/window.ui:65
 msgid "Stopwatch"
 msgstr "Skeiðklukka"
 
-#: data/ui/window.ui:79
+#: data/ui/window.ui:75
 msgid "Timer"
 msgstr "Niðurtalning"
 
 #: data/ui/world-face.ui:15
-#| msgid "Add World Clock"
 msgid "_Add World Clock"
 msgstr "Bæt_a við heimsklukku"
 
@@ -471,7 +442,7 @@ msgstr "Sólsetur"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:332
+#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:336
 msgid "Alarm"
 msgstr "Áminning"
 
@@ -531,11 +502,11 @@ msgstr "Bæta við"
 msgid "Print version information and exit"
 msgstr "Birta upplýsingar um útgáfu og hætta"
 
-#: src/stopwatch-face.vala:166 src/stopwatch-face.vala:203
+#: src/stopwatch-face.vala:168 src/stopwatch-face.vala:205
 msgid "Lap"
 msgstr "Umferð"
 
-#: src/stopwatch-face.vala:178
+#: src/stopwatch-face.vala:180
 msgid "Resume"
 msgstr "Halda áfram"
 
@@ -662,11 +633,7 @@ msgstr "Virka daga"
 msgid "Weekends"
 msgstr "Helgar"
 
-#: src/window.vala:286
-msgid "Utilities to help you with the time."
-msgstr "Tól til að hjálpa þér að koma hlutum í verk."
-
-#: src/window.vala:291
+#: src/window.vala:293
 msgid "translator-credits"
 msgstr "Sveinn í Felli, sv1@fellsnet.is"
 
@@ -691,6 +658,15 @@ msgstr "í gær"
 #: src/world-row.vala:58
 msgid "Current location"
 msgstr "Núverandi staðsetning"
+
+#~ msgid "Goals:"
+#~ msgstr "Markmið:"
+
+#~ msgid "Optional"
+#~ msgstr "Valfrjálst"
+
+#~ msgid "Utilities to help you with the time."
+#~ msgstr "Tól til að hjálpa þér að koma hlutum í verk."
 
 #~ msgid "GNOME Clocks"
 #~ msgstr "GNOME Klukkur"
