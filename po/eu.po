@@ -9,37 +9,28 @@
 # Porrumentzio <porrumentzio@riseup.net>, 2022.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: gnome-clocks master\n"
+msgstr "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2022-05-07 13:55+0000\n"
-"PO-Revision-Date: 2022-07-03 16:43+0200\n"
-"Last-Translator: Porrumentzio <porrumentzio@riseup.net>\n"
+"POT-Creation-Date: 2022-10-04 13:56+0000\n"
+"PO-Revision-Date: 2022-11-03 16:43+0200\n"
+"Last-Translator: Asier Sarasua Garmendia <asiersarasua@ni.eus>\n"
 "Language-Team: Basque <Librezale>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-DL-Team: eu\n"
-"X-DL-Module: gnome-clocks\n"
-"X-DL-Branch: master\n"
-"X-DL-Domain: po\n"
-"X-DL-State: None\n"
-"X-Generator: Gtranslator 40.0\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
-#: src/main.vala:25 src/window.vala:281 src/window.vala:336
+#: src/main.vala:25 src/window.vala:285 src/window.vala:340
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Ordulariak"
 
 #: data/org.gnome.clocks.desktop.in.in:6
-#: data/org.gnome.clocks.metainfo.xml.in.in:7
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr ""
-"Ordulariak munduko orduetarako, gehi alarmak, kronometroa eta tenporizadorea"
+msgstr "Ordulariak munduko orduetarako, gehi alarmak, kronometroa eta tenporizadorea"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in.in:8
@@ -106,51 +97,49 @@ msgstr "Panelaren egoera"
 msgid "Current clock panel."
 msgstr "Uneko ordulariaren panela."
 
+#: data/org.gnome.clocks.metainfo.xml.in.in:7
+msgid "Keep track of time"
+msgstr "Ezagutu denboraren igarotzea"
+
 #: data/org.gnome.clocks.metainfo.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
-msgstr ""
-"Ordulariaren aplikazio xume eta dotorea. Munduko ordulariak, alarmak, "
-"kronometro eta tenporizadorea ditu."
+"stopwatch, and timers."
+msgstr "Ordularien aplikazio xume eta dotorea. Munduko ordulariak, alarmak, kronometroa eta tenporizadoreak ditu."
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:13
-msgid "Goals:"
-msgstr "Helburuak:"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:15
+#: data/org.gnome.clocks.metainfo.xml.in.in:14
 msgid "Show the time in different cities around the world"
 msgstr "Erakutsi munduko hiri desberdinen ordua"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:16
+#: data/org.gnome.clocks.metainfo.xml.in.in:15
 msgid "Set alarms to wake you up"
 msgstr "Ezarri alarma zu esnatzeko"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:17
+#: data/org.gnome.clocks.metainfo.xml.in.in:16
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Neurtu igarotako denbora kronometro zehatzarekin"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:18
+#: data/org.gnome.clocks.metainfo.xml.in.in:17
 msgid "Set timers to properly cook your food"
 msgstr "Ezarri tenporizadorea zure janaria egokiro prestatzeko"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:40
+#: data/org.gnome.clocks.metainfo.xml.in.in:39
 msgid "Initial screen"
 msgstr "Hasierako pantaila"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:44
+#: data/org.gnome.clocks.metainfo.xml.in.in:43
 msgid "Alarms screen"
 msgstr "Alarmen pantaila"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:48
+#: data/org.gnome.clocks.metainfo.xml.in.in:47
 msgid "Stopwatch screen"
 msgstr "Kronometroaren pantaila"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:52
+#: data/org.gnome.clocks.metainfo.xml.in.in:51
 msgid "Timer screen"
 msgstr "Tenporizadorearen pantaila"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:121
+#: data/org.gnome.clocks.metainfo.xml.in.in:120 src/window.vala:287
 msgid "The GNOME Project"
 msgstr "GNOME proiektua"
 
@@ -288,27 +277,23 @@ msgstr "Ezabatu"
 msgid "New Alarm"
 msgstr "Alarma berria"
 
-#: data/ui/alarm-setup-dialog.ui:94
+#: data/ui/alarm-setup-dialog.ui:92
 msgid "Name"
 msgstr "Izena"
 
-#: data/ui/alarm-setup-dialog.ui:95
-msgid "Optional"
-msgstr "Aukerakoa"
-
-#: data/ui/alarm-setup-dialog.ui:109
+#: data/ui/alarm-setup-dialog.ui:99
 msgid "Ring Duration"
 msgstr "Txirrinaren iraupena"
 
-#: data/ui/alarm-setup-dialog.ui:116
+#: data/ui/alarm-setup-dialog.ui:105
 msgid "Snooze Duration"
 msgstr "Errepikatze-iraupena"
 
-#: data/ui/alarm-setup-dialog.ui:128
+#: data/ui/alarm-setup-dialog.ui:117
 msgid "You already have an alarm for this time."
 msgstr "Jadanik alarma bat duzu ordu honetarako."
 
-#: data/ui/alarm-setup-dialog.ui:135
+#: data/ui/alarm-setup-dialog.ui:124
 msgid "R_emove Alarm"
 msgstr "_Kendu alarma"
 
@@ -409,19 +394,19 @@ msgstr "1 h"
 msgid "0"
 msgstr "0"
 
-#: data/ui/window.ui:49
+#: data/ui/window.ui:45
 msgid "World"
 msgstr "Mundua"
 
-#: data/ui/window.ui:59
+#: data/ui/window.ui:55
 msgid "Alarms"
 msgstr "Alarmak"
 
-#: data/ui/window.ui:69
+#: data/ui/window.ui:65
 msgid "Stopwatch"
 msgstr "Kronometroa"
 
-#: data/ui/window.ui:79
+#: data/ui/window.ui:75
 msgid "Timer"
 msgstr "Tenporizadorea"
 
@@ -456,7 +441,7 @@ msgstr "Ilunabarra"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:332
+#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:336
 msgid "Alarm"
 msgstr "Alarma"
 
@@ -647,11 +632,7 @@ msgstr "Astegunero"
 msgid "Weekends"
 msgstr "Asteburuak"
 
-#: src/window.vala:286
-msgid "Utilities to help you with the time."
-msgstr "Orduarekin lagunduko dizuten tresnak."
-
-#: src/window.vala:291
+#: src/window.vala:293
 msgid "translator-credits"
 msgstr "translator-credits"
 
@@ -676,6 +657,15 @@ msgstr "Atzo"
 #: src/world-row.vala:58
 msgid "Current location"
 msgstr "Uneko kokalekua"
+
+#~ msgid "Goals:"
+#~ msgstr "Helburuak:"
+
+#~ msgid "Optional"
+#~ msgstr "Aukerakoa"
+
+#~ msgid "Utilities to help you with the time."
+#~ msgstr "Orduarekin lagunduko dizuten tresnak."
 
 #~ msgid "Alarms setup"
 #~ msgstr "Alarmen konfigurazioa"
