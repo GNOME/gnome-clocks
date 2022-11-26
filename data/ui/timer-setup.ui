@@ -150,7 +150,7 @@
                         <property name="adjustment">adjustment_hours</property>
                         <property name="numeric">True</property>
                         <property name="wrap">True</property>
-                        <signal name="value-changed" handler="update_duration" swapped="no"/>
+                        <signal name="changed" handler="update_duration" swapped="no"/>
                         <signal name="output" handler="show_leading_zeros" swapped="no"/>
                         <style>
                           <class name="clocks-spinbutton"/>
@@ -182,7 +182,7 @@
                         <property name="adjustment">adjustment_minutes</property>
                         <property name="numeric">True</property>
                         <property name="wrap">True</property>
-                        <signal name="value-changed" handler="update_duration" swapped="no"/>
+                        <signal name="changed" handler="update_duration" swapped="no"/>
                         <signal name="input" handler="input_minutes" swapped="no"/>
                         <signal name="output" handler="show_leading_zeros" swapped="no"/>
                         <style>
@@ -215,7 +215,7 @@
                         <property name="adjustment">adjustment_seconds</property>
                         <property name="numeric">True</property>
                         <property name="wrap">True</property>
-                        <signal name="value-changed" handler="update_duration" swapped="no"/>
+                        <signal name="changed" handler="update_duration" swapped="no"/>
                         <signal name="input" handler="input_seconds" swapped="no"/>
                         <signal name="output" handler="show_leading_zeros" swapped="no"/>
                         <style>
