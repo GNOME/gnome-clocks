@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2021-02-28 13:32+0000\n"
-"PO-Revision-Date: 2021-03-09 00:36+0300\n"
+"POT-Creation-Date: 2022-10-23 17:04+0000\n"
+"PO-Revision-Date: 2022-10-27 01:13+0300\n"
 "Last-Translator: Launchpad translators\n"
 "Language-Team: Belarusian <i18n-bel-gnome@googlegroups.com>\n"
 "Language: be\n"
@@ -18,16 +18,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.2\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:323
-#: src/window.vala:378 src/world-standalone.vala:24
+#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
+#: src/main.vala:25 src/window.vala:285 src/window.vala:340
+#: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Гадзіннік"
 
 #: data/org.gnome.clocks.desktop.in.in:6
-#: data/org.gnome.clocks.metainfo.xml.in.in:7
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr ""
 "Гадзіннік з паказам часу ў розных кутках свету, будзільнікам, таймерам і "
@@ -76,12 +76,12 @@ msgid "Turn geolocation support on and off."
 msgstr "Уключэнне ці выключэнне падтрымкі геалакацыі."
 
 #: data/org.gnome.clocks.gschema.xml.in:44
-msgid "Window state"
-msgstr "Стан акна"
+msgid "Window maximized"
+msgstr "Разгортванне акна"
 
 #: data/org.gnome.clocks.gschema.xml.in:45
-msgid "State of the window, e.g. maximized."
-msgstr "Стан акна (напр. разгорнута)."
+msgid "Whether the window is maximized."
+msgstr "Ці разгорнута акно."
 
 #: data/org.gnome.clocks.gschema.xml.in:51
 msgid "Window width and height"
@@ -99,361 +99,364 @@ msgstr "Стан панэлі"
 msgid "Current clock panel."
 msgstr "Бягучая панэль гадзінніка."
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:6
-msgid "GNOME Clocks"
-msgstr "Гадзіннік GNOME"
+#: data/org.gnome.clocks.metainfo.xml.in.in:7
+msgid "Keep track of time"
+msgstr "Сачыць за часам"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
+"stopwatch, and timers."
 msgstr ""
-"Просты і зручны гадзіннік. Гэта праграма змяшчае сусветныя гадзіннікі, "
+"Просты і элегантны гадзіннік. Праграма змяшчае сусветныя гадзіннікі, "
 "будзільнік, секундамер і таймер."
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:13
-msgid "Goals:"
-msgstr "Мэты:"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:15
+#: data/org.gnome.clocks.metainfo.xml.in.in:14
 msgid "Show the time in different cities around the world"
 msgstr "Паказваць час у розных гарадах свету"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:16
+#: data/org.gnome.clocks.metainfo.xml.in.in:15
 msgid "Set alarms to wake you up"
 msgstr "Настаўляць будзільнікі"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:17
+#: data/org.gnome.clocks.metainfo.xml.in.in:16
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Вымяраць час з дапамогай дакладнага секундамера"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:18
+#: data/org.gnome.clocks.metainfo.xml.in.in:17
 msgid "Set timers to properly cook your food"
 msgstr "Настаўляць таймер для гатавання страў"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:32
+#: data/org.gnome.clocks.metainfo.xml.in.in:39
 msgid "Initial screen"
 msgstr "Пачатковы экран"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:36
+#: data/org.gnome.clocks.metainfo.xml.in.in:43
 msgid "Alarms screen"
 msgstr "Экран будзільнікаў"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:40
-msgid "Alarms setup"
-msgstr "Налады будзільнікаў"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:44
+#: data/org.gnome.clocks.metainfo.xml.in.in:47
 msgid "Stopwatch screen"
 msgstr "Экран секундамера"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:48
+#: data/org.gnome.clocks.metainfo.xml.in.in:51
 msgid "Timer screen"
 msgstr "Экран таймера"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:96
+#: data/org.gnome.clocks.metainfo.xml.in.in:120 src/window.vala:287
 msgid "The GNOME Project"
 msgstr "Праект GNOME"
 
-#: data/gtk/help-overlay.ui:14
+#: data/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Агульныя"
 
-#: data/gtk/help-overlay.ui:19
+#: data/gtk/help-overlay.ui:15
 msgctxt "shortcut window"
-msgid "Show help"
-msgstr "Даведка"
+msgid "Show Help"
+msgstr "Паказаць даведку"
 
-#: data/gtk/help-overlay.ui:26
+#: data/gtk/help-overlay.ui:21
 msgctxt "shortcut window"
-msgid "Open menu"
+msgid "Open Menu"
 msgstr "Адкрыць меню"
 
-#: data/gtk/help-overlay.ui:33
+#: data/gtk/help-overlay.ui:27
 msgctxt "shortcut window"
-msgid "Keyboard shortcuts"
+msgid "Keyboard Shortcuts"
 msgstr "Спалучэнні клавіш"
 
-#: data/gtk/help-overlay.ui:40
+#: data/gtk/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Выйсці"
 
-#: data/gtk/help-overlay.ui:47
+#: data/gtk/help-overlay.ui:39
 msgctxt "shortcut window"
-msgid "Go to the next section"
+msgid "Go to the Next Section"
 msgstr "Да наступнага раздзела"
 
-#: data/gtk/help-overlay.ui:54
+#: data/gtk/help-overlay.ui:45
 msgctxt "shortcut window"
-msgid "Go to the previous section"
+msgid "Go to the Previous Section"
 msgstr "Да папярэдняга раздзела"
 
-#: data/gtk/help-overlay.ui:61
+#: data/gtk/help-overlay.ui:51
 msgctxt "shortcut window"
-msgid "Go to the World section"
+msgid "Go to the World Section"
 msgstr "Да раздзела Сусвет"
 
-#: data/gtk/help-overlay.ui:68
+#: data/gtk/help-overlay.ui:57
 msgctxt "shortcut window"
-msgid "Go to the Alarms section"
-msgstr "Да раздзела Будзільнік"
+msgid "Go to the Alarms Section"
+msgstr "Да раздзела Будзільнікі"
 
-#: data/gtk/help-overlay.ui:75
+#: data/gtk/help-overlay.ui:63
 msgctxt "shortcut window"
-msgid "Go to the Stopwatch section"
+msgid "Go to the Stopwatch Section"
 msgstr "Да раздзела Секундамер"
 
-#: data/gtk/help-overlay.ui:82
+#: data/gtk/help-overlay.ui:69
 msgctxt "shortcut window"
-msgid "Go to the Timer section"
+msgid "Go to the Timer Section"
 msgstr "Да раздзела Таймер"
 
-#: data/gtk/help-overlay.ui:91
+#: data/gtk/help-overlay.ui:77
 msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Сусветныя гадзіннікі"
 
-#: data/gtk/help-overlay.ui:96
+#: data/gtk/help-overlay.ui:81
 msgctxt "shortcut window"
-msgid "Add a world clock"
+msgid "Add a World Clock"
 msgstr "Дадаць сусветны гадзіннік"
 
-#: data/gtk/help-overlay.ui:105
+#: data/gtk/help-overlay.ui:89
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Будзільнік"
 
-#: data/gtk/help-overlay.ui:110
+#: data/gtk/help-overlay.ui:93
 msgctxt "shortcut window"
-msgid "Add an alarm"
+msgid "Add an Alarm"
 msgstr "Дадаць будзільнік"
 
-#: data/gtk/help-overlay.ui:119
+#: data/gtk/help-overlay.ui:101
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Секундамер"
 
-#: data/gtk/help-overlay.ui:124
+#: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
-msgid "Stop / Reset"
-msgstr "Спыніць / скінуць"
+msgid "Pause All"
+msgstr "Прыпыніць усе"
 
-#: data/gtk/help-overlay.ui:133
+#: data/gtk/help-overlay.ui:113
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Таймер"
 
-#: data/gtk/help-overlay.ui:138
+#: data/gtk/help-overlay.ui:117
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Скінуць"
 
-#: data/gtk/help-overlay.ui:145
+#: data/gtk/help-overlay.ui:123
 msgctxt "shortcut window"
 msgid "New Timer"
 msgstr "Новы таймер"
 
-#: data/ui/alarm-day-picker-row.ui:5
-msgid "_Repeat"
-msgstr "_Паўтараць"
+#: data/ui/alarm-day-picker-row.ui:17
+msgid "Repeat"
+msgstr "Паўтор"
 
-#: data/ui/alarm-face.ui:29
+#: data/ui/alarm-face.ui:14
 msgid "Add A_larm"
 msgstr "Дадаць _будзільнік"
 
-#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:116
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:117
 msgid "Stop"
 msgstr "Спыніць"
 
-#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:117
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:118
 msgid "Snooze"
 msgstr "Адкласці"
 
-#: data/ui/alarm-row.ui:25
-msgid "Active"
-msgstr "Актыўнасць"
-
-#: data/ui/alarm-row.ui:39 data/ui/world-row.ui:92
-msgid "Delete"
-msgstr "Выдаліць"
-
-#: data/ui/alarm-row.ui:69
+#: data/ui/alarm-row.ui:47
 msgid "Repeats"
 msgstr "Паўтараць"
 
+#: data/ui/alarm-row.ui:66
+msgid "Active"
+msgstr "Актыўнасць"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+msgid "Delete"
+msgstr "Выдаліць"
+
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:24 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:108
+#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:109
 msgid "New Alarm"
 msgstr "Новы будзільнік"
 
-#: data/ui/alarm-setup-dialog.ui:143
+#: data/ui/alarm-setup-dialog.ui:92
 msgid "Name"
 msgstr "Назва"
 
-#: data/ui/alarm-setup-dialog.ui:144
-msgid "Optional"
-msgstr "неабавязкова"
-
-#: data/ui/alarm-setup-dialog.ui:161
+#: data/ui/alarm-setup-dialog.ui:99
 msgid "Ring Duration"
 msgstr "Працягласць званка"
 
-#: data/ui/alarm-setup-dialog.ui:169
-#, fuzzy
+#: data/ui/alarm-setup-dialog.ui:105
 msgid "Snooze Duration"
 msgstr "Адкладваць на"
 
-#: data/ui/alarm-setup-dialog.ui:181
-msgid "R_emove Alarm"
-msgstr "В_ыдаліць будзільнік"
-
-#: data/ui/alarm-setup-dialog.ui:197
+#: data/ui/alarm-setup-dialog.ui:117
 msgid "You already have an alarm for this time."
 msgstr "Для гэтага часу ўжо створаны будзільнік."
 
-#: data/ui/header-bar.ui:8
+#: data/ui/alarm-setup-dialog.ui:124
+msgid "R_emove Alarm"
+msgstr "В_ыдаліць будзільнік"
+
+#: data/ui/header-bar.ui:6
 msgid "_Keyboard Shortcuts"
 msgstr "_Спалучэнні клавіш"
 
-#: data/ui/header-bar.ui:12
+#: data/ui/header-bar.ui:10
 msgid "_Help"
 msgstr "_Дапамога"
 
-#: data/ui/header-bar.ui:16
+#: data/ui/header-bar.ui:14
 msgid "_About Clocks"
 msgstr "_Пра гадзіннік"
 
-#: data/ui/header-bar.ui:64 data/ui/world-standalone.ui:23
+#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:17
 msgid "Back"
 msgstr "Назад"
 
-#: data/ui/header-bar.ui:95
+#: data/ui/header-bar.ui:68
 msgid "Menu"
 msgstr "Меню"
 
-#: data/ui/stopwatch-face.ui:171
+#: data/ui/header-bar.ui:71
+msgid "Main Menu"
+msgstr "Галоўнае меню"
+
+#: data/ui/stopwatch-face.ui:100
 msgid "_Start"
 msgstr "_Запусціць"
 
-#: data/ui/stopwatch-face.ui:192 src/stopwatch-face.vala:182
+#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:184
 msgid "Clear"
 msgstr "Ачысціць"
 
-#: data/ui/stopwatch-laps-row.ui:18
+#: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
 msgstr "Таймер"
 
-#: data/ui/stopwatch-laps-row.ui:39
+#: data/ui/stopwatch-laps-row.ui:25
 msgid "Difference"
 msgstr "Розніца"
 
-#: data/ui/timer-face.ui:21
+#: data/ui/timer-face.ui:18
 msgid "Select Duration"
 msgstr "Выбар працягласці"
 
-#: data/ui/timer-row.ui:46
-msgid "Title..."
-msgstr "Увядзіце назву..."
+#: data/ui/timer-row.ui:32
+msgid "Title…"
+msgstr "Назваць…"
 
-#: data/ui/timer-setup.ui:47
+#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:164
+msgid "Pause"
+msgstr "Прыпыніць"
+
+#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:201
+msgid "Start"
+msgstr "Запусціць"
+
+#: data/ui/timer-row.ui:119
+msgid "Reset"
+msgstr "Ануляваць"
+
+#: data/ui/timer-setup.ui:37
 msgid "1 m"
 msgstr "1 хв"
 
-#: data/ui/timer-setup.ui:65
+#: data/ui/timer-setup.ui:52
 msgid "2 m"
 msgstr "2 хв"
 
-#: data/ui/timer-setup.ui:83
+#: data/ui/timer-setup.ui:67
 msgid "3 m"
 msgstr "3 хв"
 
-#: data/ui/timer-setup.ui:101
+#: data/ui/timer-setup.ui:82
 msgid "5 m"
 msgstr "5 хв"
 
-#: data/ui/timer-setup.ui:119
+#: data/ui/timer-setup.ui:97
 msgid "30 m"
 msgstr "30 хв"
 
-#: data/ui/timer-setup.ui:137
+#: data/ui/timer-setup.ui:112
 msgid "15 m"
 msgstr "15 хв"
 
-#: data/ui/timer-setup.ui:155
+#: data/ui/timer-setup.ui:127
 msgid "45 m"
 msgstr "45 хв"
 
-#: data/ui/timer-setup.ui:173
+#: data/ui/timer-setup.ui:142
 msgid "1 h"
 msgstr "1 гадз"
 
-#: data/ui/timer-setup.ui:227 data/ui/timer-setup.ui:267
-#: data/ui/timer-setup.ui:308
+#: data/ui/timer-setup.ui:178 data/ui/timer-setup.ui:210
+#: data/ui/timer-setup.ui:243
 msgid "0"
 msgstr "0"
 
-#: data/ui/window.ui:53
+#: data/ui/window.ui:45
 msgid "World"
 msgstr "Сусвет"
 
-#: data/ui/window.ui:63
+#: data/ui/window.ui:55
 msgid "Alarms"
 msgstr "Будзільнік"
 
-#: data/ui/window.ui:73
+#: data/ui/window.ui:65
 msgid "Stopwatch"
 msgstr "Секундамер"
 
-#: data/ui/window.ui:83
+#: data/ui/window.ui:75
 msgid "Timer"
 msgstr "Таймер"
 
-#: data/ui/world-face.ui:35 data/ui/world-location-dialog.ui:8
-msgid "Add World Clock"
-msgstr "Дадаць сусветны гадзіннік"
+#: data/ui/world-face.ui:15
+msgid "_Add World Clock"
+msgstr "_Дадаць сусветны гадзіннік"
 
-#: data/ui/world-location-dialog.ui:20
+#: data/ui/world-location-dialog.ui:4
 msgid "Add a New World Clock"
 msgstr "Дадаць сусветны гадзіннік"
 
-#: data/ui/world-location-dialog.ui:24
+#: data/ui/world-location-dialog.ui:14
 msgid "_Cancel"
 msgstr "_Скасаваць"
 
-#: data/ui/world-location-dialog.ui:40
+#: data/ui/world-location-dialog.ui:22
 msgid "_Add"
 msgstr "_Дадаць"
 
-#: data/ui/world-location-dialog.ui:140
+#: data/ui/world-location-dialog.ui:53
 msgid "Search for a City"
 msgstr "Пошук горада"
 
-#: data/ui/world-standalone.ui:104
+#: data/ui/world-standalone.ui:78
 msgid "Sunrise"
 msgstr "Усход сонца"
 
-#: data/ui/world-standalone.ui:118
+#: data/ui/world-standalone.ui:90
 msgid "Sunset"
 msgstr "Захад сонца"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:374
+#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:336
 msgid "Alarm"
 msgstr "Будзільнік"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
-#: src/alarm-row.vala:89
+#: src/alarm-row.vala:87
 #, c-format
 msgid "Snoozed from %s: %s"
 msgstr "Адкладзена з %s: %s"
 
 #. Translators: %s is a time
-#: src/alarm-row.vala:92
+#: src/alarm-row.vala:90
 #, c-format
 msgid "Snoozed from %s"
 msgstr "Адкладзена з %s"
@@ -482,19 +485,19 @@ msgstr "20 хвілін"
 msgid "30 minutes"
 msgstr "30 хвілін"
 
-#: src/alarm-setup-dialog.vala:108
+#: src/alarm-setup-dialog.vala:109
 msgid "Edit Alarm"
 msgstr "Рэдагаванне будзільніка"
 
-#: src/alarm-setup-dialog.vala:111 src/timer-setup-dialog.vala:30
+#: src/alarm-setup-dialog.vala:112 src/timer-setup-dialog.vala:30
 msgid "Cancel"
 msgstr "Скасаваць"
 
-#: src/alarm-setup-dialog.vala:113
+#: src/alarm-setup-dialog.vala:114
 msgid "Done"
 msgstr "Гатова"
 
-#: src/alarm-setup-dialog.vala:115 src/timer-setup-dialog.vala:31
+#: src/alarm-setup-dialog.vala:116 src/timer-setup-dialog.vala:31
 msgid "Add"
 msgstr "Дадаць"
 
@@ -502,21 +505,13 @@ msgstr "Дадаць"
 msgid "Print version information and exit"
 msgstr "Вывесці звесткі пра версію і выйсці"
 
-#: src/stopwatch-face.vala:162
-msgid "Pause"
-msgstr "Прыпыніць"
-
-#: src/stopwatch-face.vala:166 src/stopwatch-face.vala:203
+#: src/stopwatch-face.vala:168 src/stopwatch-face.vala:205
 msgid "Lap"
 msgstr "Круг"
 
-#: src/stopwatch-face.vala:178
+#: src/stopwatch-face.vala:180
 msgid "Resume"
 msgstr "Узнавіць"
-
-#: src/stopwatch-face.vala:199
-msgid "Start"
-msgstr "Запусціць"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -524,26 +519,26 @@ msgid "Lap %i"
 msgstr "%i круг"
 
 #. Translators: Tooltip for the + button
-#: src/timer-face.vala:37 src/timer-setup-dialog.vala:27
+#: src/timer-face.vala:39 src/timer-setup-dialog.vala:27
 msgid "New Timer"
 msgstr "Новы таймер"
 
-#: src/timer-face.vala:75
+#: src/timer-face.vala:76
 msgid "Time is up!"
 msgstr "Час надышоў!"
 
-#: src/timer-face.vala:76
+#: src/timer-face.vala:77
 msgid "Timer countdown finished"
 msgstr "Адлік часу скончаны"
 
 #. Translators: The time is the same as the local time
-#: src/utils.vala:76
+#: src/utils.vala:61
 msgid "Current timezone"
 msgstr "Бягучы часавы пояс"
 
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
-#: src/utils.vala:81
+#: src/utils.vala:66
 #, c-format
 msgid "%s hour earlier"
 msgid_plural "%s hours earlier"
@@ -553,7 +548,7 @@ msgstr[2] "на %s гадзін менш"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
-#: src/utils.vala:87
+#: src/utils.vala:72
 #, c-format
 msgid "%s hour later"
 msgid_plural "%s hours later"
@@ -562,99 +557,90 @@ msgstr[1] "на %s гадзіны больш"
 msgstr[2] "на %s гадзін больш"
 
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:189
+#: src/utils.vala:174
 msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "П"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:191
+#: src/utils.vala:176
 msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "А"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:193
+#: src/utils.vala:178
 msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "С"
 
 #. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:195
+#: src/utils.vala:180
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
 msgstr "Ч"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:197
+#: src/utils.vala:182
 msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "П"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:199
+#: src/utils.vala:184
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "С"
 
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:201
+#: src/utils.vala:186
 msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
 msgstr "Н"
 
-#: src/utils.vala:215
+#: src/utils.vala:200
 msgid "Mondays"
 msgstr "Па панядзелках"
 
-#: src/utils.vala:216
+#: src/utils.vala:201
 msgid "Tuesdays"
 msgstr "Па аўторках"
 
-#: src/utils.vala:217
+#: src/utils.vala:202
 msgid "Wednesdays"
 msgstr "Па серадах"
 
-#: src/utils.vala:218
+#: src/utils.vala:203
 msgid "Thursdays"
 msgstr "Па чацвяргах"
 
-#: src/utils.vala:219
+#: src/utils.vala:204
 msgid "Fridays"
 msgstr "Па пятніцах"
 
-#: src/utils.vala:220
+#: src/utils.vala:205
 msgid "Saturdays"
 msgstr "Па суботах"
 
-#: src/utils.vala:221
+#: src/utils.vala:206
 msgid "Sundays"
 msgstr "Па нядзелях"
 
-#: src/utils.vala:347
+#: src/utils.vala:332
 msgid "Every Day"
 msgstr "Штодзень"
 
-#: src/utils.vala:349
+#: src/utils.vala:334
 msgid "Weekdays"
 msgstr "Па буднях"
 
-#: src/utils.vala:351
+#: src/utils.vala:336
 msgid "Weekends"
 msgstr "Па выхадных"
 
-#: src/window.vala:294
-#, c-format
-msgid "Failed to show help: %s"
-msgstr "Не ўдалося паказаць даведку: %s"
-
-#: src/window.vala:328
-msgid "Utilities to help you with the time."
-msgstr "Утыліты, якія памагаюць з часам."
-
-#: src/window.vala:333
+#: src/window.vala:293
 msgid "translator-credits"
-msgstr "Launchpad translators"
+msgstr "Launchpad Translators Team"
 
 #. Translators: Tooltip for the + button
 #: src/world-face.vala:29
@@ -674,9 +660,98 @@ msgid "Yesterday"
 msgstr "Учора"
 
 #. Translators: This clock represents the local time
-#: src/world-row.vala:66
+#: src/world-row.vala:58
 msgid "Current location"
 msgstr "Бягучае месцазнаходжанне"
+
+#~ msgid "Window state"
+#~ msgstr "Стан акна"
+
+#~ msgid "State of the window, e.g. maximized."
+#~ msgstr "Стан акна (напр. разгорнута)."
+
+#~ msgid "GNOME Clocks"
+#~ msgstr "Гадзіннік GNOME"
+
+#~ msgid ""
+#~ "A simple and elegant clock application. It includes world clocks, alarms, "
+#~ "a stopwatch and a timer."
+#~ msgstr ""
+#~ "Просты і зручны гадзіннік. Гэта праграма змяшчае сусветныя гадзіннікі, "
+#~ "будзільнік, секундамер і таймер."
+
+#~ msgid "Goals:"
+#~ msgstr "Мэты:"
+
+#~ msgid "Alarms setup"
+#~ msgstr "Налады будзільнікаў"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Show help"
+#~ msgstr "Даведка"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Open menu"
+#~ msgstr "Адкрыць меню"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Keyboard shortcuts"
+#~ msgstr "Спалучэнні клавіш"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Go to the next section"
+#~ msgstr "Да наступнага раздзела"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Go to the previous section"
+#~ msgstr "Да папярэдняга раздзела"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Go to the World section"
+#~ msgstr "Да раздзела Сусвет"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Go to the Alarms section"
+#~ msgstr "Да раздзела Будзільнік"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Go to the Stopwatch section"
+#~ msgstr "Да раздзела Секундамер"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Go to the Timer section"
+#~ msgstr "Да раздзела Таймер"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Add a world clock"
+#~ msgstr "Дадаць сусветны гадзіннік"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Add an alarm"
+#~ msgstr "Дадаць будзільнік"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Stop / Reset"
+#~ msgstr "Спыніць / скінуць"
+
+#~ msgid "_Repeat"
+#~ msgstr "_Паўтараць"
+
+#~ msgid "Optional"
+#~ msgstr "неабавязкова"
+
+#~ msgid "Title..."
+#~ msgstr "Увядзіце назву..."
+
+#~ msgid "Add World Clock"
+#~ msgstr "Дадаць сусветны гадзіннік"
+
+#, c-format
+#~ msgid "Failed to show help: %s"
+#~ msgstr "Не ўдалося паказаць даведку: %s"
+
+#~ msgid "Utilities to help you with the time."
+#~ msgstr "Утыліты, якія памагаюць з часам."
 
 #~ msgctxt "shortcut window"
 #~ msgid "Select all world clocks"
@@ -703,9 +778,6 @@ msgstr "Бягучае месцазнаходжанне"
 
 #~ msgid "Select <b>New</b> to add an alarm"
 #~ msgstr "Выберыце <b>Новы</b>, каб дадаць сігнал"
-
-#~ msgid "Reset"
-#~ msgstr "Ануляваць"
 
 #~ msgid "Select <b>New</b> to add a world clock"
 #~ msgstr "Выберыце <b>Новы</b>, каб дадаць сусветны гадзіннік"
