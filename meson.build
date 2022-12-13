@@ -15,7 +15,7 @@ gobject = dependency('gobject-2.0', version: '>= 2.58')
 gtk = dependency('gtk4', version: '>= 4.5')
 gsound = dependency('gsound', version: '>=0.98')
 gweather = dependency('gweather4')
-gweather_soup_version = gweather.get_pkgconfig_variable('soupapiversion')
+gweather_soup_version = gweather.get_variable(pkgconfig: 'soupapiversion')
 if gweather_soup_version == '3.0'
   geocodeglib = dependency('geocode-glib-2.0', version: '>=1.0')
 else
@@ -38,7 +38,7 @@ int main() {
 )
 
 msgfmt = find_program('msgfmt')
-podir = join_paths(meson.source_root(), 'po')
+podir = join_paths(meson.project_source_root(), 'po')
 
 if get_option('profile') == 'development'
   name_prefix = '(Development) '
