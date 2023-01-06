@@ -1,0 +1,658 @@
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
+"POT-Creation-Date: 2022-10-04 13:06+0000\n"
+"Last-Translator: Нанба Наала <naala-nanba@rambler.ru>\n"
+"Language-Team: Abkhazian <daniel.abzakh@gmail.com>\n"
+"Language: ab\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-DamnedLies-Scope: partial\n"
+
+#: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
+#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
+#: src/main.vala:25 src/window.vala:281 src/window.vala:336
+#: src/world-standalone.vala:24
+msgid "Clocks"
+msgstr ""
+
+#: data/org.gnome.clocks.desktop.in.in:6
+#: data/org.gnome.clocks.metainfo.xml.in.in:7
+msgid "Clocks for world times, plus alarms, stopwatch and a timer"
+msgstr "Адунеитә аамҭа асааҭ, иара убас арҿыхага,асекундашәага,аамҭарбага"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.clocks.desktop.in.in:8
+msgid "time;timer;alarm;world clock;stopwatch;time zone;"
+msgstr "аамҭа;аамҭарбага;арҿыхга;адунеитә аамҭа;асааҭзона;"
+
+#: data/org.gnome.clocks.desktop.in.in:18
+msgid "Allows world clocks to be displayed for your time zone."
+msgstr "Иаанырԥшуеит адунеитә сааҭкәа шәара шәсааҭзона азы"
+
+#: data/org.gnome.clocks.gschema.xml.in:5
+msgid "Configured world clocks"
+msgstr "Ирхиоу адунеитә сааҭқәа"
+
+#: data/org.gnome.clocks.gschema.xml.in:6
+msgid "List of world clocks to show."
+msgstr "Адунеитә сааҭкәа рахьӡынҵа "
+
+#: data/org.gnome.clocks.gschema.xml.in:12
+msgid "Configured alarms"
+msgstr "Ирхиоу арҿыхагақәа"
+
+#: data/org.gnome.clocks.gschema.xml.in:13
+msgid "List of alarms set."
+msgstr "Ирхиоу арҿыхагақәа рыхьӡынҵа"
+
+#: data/org.gnome.clocks.gschema.xml.in:19
+msgid "Configured Timers"
+msgstr "Ирхиоу аамҭарбагақәа"
+
+#: data/org.gnome.clocks.gschema.xml.in:20
+msgid "List of timers set."
+msgstr "Ирхиоу аамҭарбагақәа рыхьӡынҵа"
+
+#: data/org.gnome.clocks.gschema.xml.in:26
+msgid "Geolocation support"
+msgstr "Иаҿанакуеит насгьы иаҿнахуеит агеоҭыԥыркра ацхыраара"
+
+#: data/org.gnome.clocks.gschema.xml.in:27
+msgid "Turn geolocation support on and off."
+msgstr "Иаҿанакуеит насгьы иаҿнахуеит агеоҭыԥыркра ацхыраара"
+
+#: data/org.gnome.clocks.gschema.xml.in:44
+msgid "Window maximized"
+msgstr "Аԥенџьыр иамоуп иреиҳау ашәагаа"
+
+#: data/org.gnome.clocks.gschema.xml.in:45
+msgid "Whether the window is maximized."
+msgstr "Иаҭахума аԥенџьыр иреиҳау ашәагаа амазар."
+
+#: data/org.gnome.clocks.gschema.xml.in:51
+msgid "Window width and height"
+msgstr "Аԥенџьыр аҭбаареи аҳаракреи"
+
+#: data/org.gnome.clocks.gschema.xml.in:52
+msgid "Width and height of the window."
+msgstr "Аԥенџьыр аҭбаареи аҳаракреи"
+
+#: data/org.gnome.clocks.gschema.xml.in:58
+msgid "Panel state"
+msgstr "Апанель аҭагылазаашьа"
+
+#: data/org.gnome.clocks.gschema.xml.in:59
+msgid "Current clock panel."
+msgstr "асааҭ иактиву апанель."
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:9
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch and a timer."
+msgstr ""
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:13
+msgid "Goals:"
+msgstr ""
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:15
+msgid "Show the time in different cities around the world"
+msgstr "Еиуеипшым ақалақьқәа раамҭа арбара"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:16
+msgid "Set alarms to wake you up"
+msgstr "Арҿыхага агыларазы ашьақәыргылара"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:17
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "Ииашоу асекундашәага ала аамҭа ашәара"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:18
+msgid "Set timers to properly cook your food"
+msgstr "Афатә аҟаҵаразы аамҭарбага ашьақәыргылара"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:40
+msgid "Initial screen"
+msgstr "Алагарҭатә аекран"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:44
+msgid "Alarms screen"
+msgstr "Арҿыхага аекран"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:48
+msgid "Stopwatch screen"
+msgstr "Асекундашәага аекран"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:52
+msgid "Timer screen"
+msgstr "Аамҭарба аекран"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:121
+msgid "The GNOME Project"
+msgstr "The GNOME Project"
+
+#: data/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:15
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:21
+msgctxt "shortcut window"
+msgid "Open Menu"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:27
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:39
+msgctxt "shortcut window"
+msgid "Go to the Next Section"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:45
+msgctxt "shortcut window"
+msgid "Go to the Previous Section"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:51
+msgctxt "shortcut window"
+msgid "Go to the World Section"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:57
+msgctxt "shortcut window"
+msgid "Go to the Alarms Section"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:63
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch Section"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:69
+msgctxt "shortcut window"
+msgid "Go to the Timer Section"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:77
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Add a World Clock"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:89
+msgctxt "shortcut window"
+msgid "Alarm"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:93
+msgctxt "shortcut window"
+msgid "Add an Alarm"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:101
+msgctxt "shortcut window"
+msgid "Stopwatch"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:105
+msgctxt "shortcut window"
+msgid "Pause All"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:113
+msgctxt "shortcut window"
+msgid "Timer"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:117
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr ""
+
+#: data/gtk/help-overlay.ui:123
+msgctxt "shortcut window"
+msgid "New Timer"
+msgstr ""
+
+#: data/ui/alarm-day-picker-row.ui:17
+msgid "Repeat"
+msgstr "Аиҭаҟаҵара"
+
+#: data/ui/alarm-face.ui:14
+msgid "Add A_larm"
+msgstr "Арҿыхага_ацҵара"
+
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:117
+msgid "Stop"
+msgstr "Аанкылара"
+
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:118
+msgid "Snooze"
+msgstr "Агәаларшәара"
+
+#: data/ui/alarm-row.ui:47
+msgid "Repeats"
+msgstr "Еиҭаҟалоит"
+
+#: data/ui/alarm-row.ui:66
+msgid "Active"
+msgstr "Иаҿакуп"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+msgid "Delete"
+msgstr "Delete"
+
+#. Translators: Tooltip for the + button
+#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:109
+msgid "New Alarm"
+msgstr "Арҿыхага аԥҵара"
+
+#: data/ui/alarm-setup-dialog.ui:94
+msgid "Name"
+msgstr "Ахьӡ"
+
+#: data/ui/alarm-setup-dialog.ui:95
+msgid "Optional"
+msgstr "Иацҵаны"
+
+#: data/ui/alarm-setup-dialog.ui:109
+msgid "Ring Duration"
+msgstr "Абжы аура"
+
+#: data/ui/alarm-setup-dialog.ui:116
+msgid "Snooze Duration"
+msgstr "Ааҭгылара аура"
+
+#: data/ui/alarm-setup-dialog.ui:128
+msgid "You already have an alarm for this time."
+msgstr "Ари аамҭазы арҿыхага иқәгылоуп"
+
+#: data/ui/alarm-setup-dialog.ui:135
+msgid "R_emove Alarm"
+msgstr "_Арҿыхага аныхра"
+
+#: data/ui/header-bar.ui:6
+msgid "_Keyboard Shortcuts"
+msgstr "_Ицоу арыдқәа"
+
+#: data/ui/header-bar.ui:10
+msgid "_Help"
+msgstr "_Аилыркаа"
+
+#: data/ui/header-bar.ui:14
+msgid "_About Clocks"
+msgstr "_Аԥшьы иазкны"
+
+#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:17
+msgid "Back"
+msgstr "Шьҭахьҟа"
+
+#: data/ui/header-bar.ui:68
+msgid "Menu"
+msgstr "Амениу"
+
+#: data/ui/header-bar.ui:71
+msgid "Main Menu"
+msgstr "Ихадоу амнниу"
+
+#: data/ui/stopwatch-face.ui:100
+msgid "_Start"
+msgstr "_Алагара"
+
+#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:182
+msgid "Clear"
+msgstr "Арыцқьара"
+
+#: data/ui/stopwatch-laps-row.ui:14
+msgid "Time"
+msgstr "Аамҭа"
+
+#: data/ui/stopwatch-laps-row.ui:25
+msgid "Difference"
+msgstr "Аиԥшымзаара"
+
+#: data/ui/timer-face.ui:18
+msgid "Select Duration"
+msgstr "Анаурылара алхра"
+
+#: data/ui/timer-row.ui:32
+msgid "Title…"
+msgstr "Ахы..."
+
+#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:162
+msgid "Pause"
+msgstr "Pause"
+
+#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:199
+msgid "Start"
+msgstr "Алагара"
+
+#: data/ui/timer-row.ui:119
+msgid "Reset"
+msgstr ""
+
+#: data/ui/timer-setup.ui:37
+msgid "1 m"
+msgstr "1 мин"
+
+#: data/ui/timer-setup.ui:52
+msgid "2 m"
+msgstr "2 мин"
+
+#: data/ui/timer-setup.ui:67
+msgid "3 m"
+msgstr "3 мин"
+
+#: data/ui/timer-setup.ui:82
+msgid "5 m"
+msgstr "5 мин"
+
+#: data/ui/timer-setup.ui:97
+msgid "30 m"
+msgstr "30 мин"
+
+#: data/ui/timer-setup.ui:112
+msgid "15 m"
+msgstr "15 мин"
+
+#: data/ui/timer-setup.ui:127
+msgid "45 m"
+msgstr "45 мин"
+
+#: data/ui/timer-setup.ui:142
+msgid "1 h"
+msgstr "1 сааҭ"
+
+#: data/ui/timer-setup.ui:178 data/ui/timer-setup.ui:210
+#: data/ui/timer-setup.ui:243
+msgid "0"
+msgstr "0"
+
+#: data/ui/window.ui:49
+msgid "World"
+msgstr "Адунеитә аамҭа"
+
+#: data/ui/window.ui:59
+msgid "Alarms"
+msgstr "Арҿыхага"
+
+#: data/ui/window.ui:69
+msgid "Stopwatch"
+msgstr "Асекундашәага"
+
+#: data/ui/window.ui:79
+msgid "Timer"
+msgstr "Аамҭарба"
+
+#: data/ui/world-face.ui:15
+msgid "_Add World Clock"
+msgstr "_Адунеитә аамҭа ацҵара"
+
+#: data/ui/world-location-dialog.ui:4
+msgid "Add a New World Clock"
+msgstr "Иҿыцу адунеитә аамҭа ацҵара"
+
+#: data/ui/world-location-dialog.ui:14
+msgid "_Cancel"
+msgstr "_Аԥыхра"
+
+#: data/ui/world-location-dialog.ui:22
+msgid "_Add"
+msgstr "_Ацҵара"
+
+#: data/ui/world-location-dialog.ui:53
+msgid "Search for a City"
+msgstr "Ақалақь аԥшаара"
+
+#: data/ui/world-standalone.ui:78
+msgid "Sunrise"
+msgstr "Амрагылара"
+
+#: data/ui/world-standalone.ui:90
+msgid "Sunset"
+msgstr "Амраҭашәара"
+
+#. Prior to 3.36 unamed alarms would just be called "Alarm",
+#. pretend alarms called "Alarm" don't have a name (of course
+#. this fails if the language/translation has since changed)
+#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:332
+msgid "Alarm"
+msgstr "Арҿыхага"
+
+#. Translators: The alarm for the time %s titled %s has been "snoozed"
+#: src/alarm-row.vala:87
+#, c-format
+msgid "Snoozed from %s: %s"
+msgstr "%s: %s рҟынтә иахгоу"
+
+#. Translators: %s is a time
+#: src/alarm-row.vala:90
+#, c-format
+msgid "Snoozed from %s"
+msgstr "%s аҟынтә иахгоу"
+
+#: src/alarm-setup-dialog.vala:41
+msgid "1 minute"
+msgstr "1 минуҭк"
+
+#: src/alarm-setup-dialog.vala:42
+msgid "5 minutes"
+msgstr "5минуҭк"
+
+#: src/alarm-setup-dialog.vala:43
+msgid "10 minutes"
+msgstr "10 минуҭк"
+
+#: src/alarm-setup-dialog.vala:44
+msgid "15 minutes"
+msgstr "15 минуҭ"
+
+#: src/alarm-setup-dialog.vala:45
+msgid "20 minutes"
+msgstr "20 минуҭ"
+
+#: src/alarm-setup-dialog.vala:46
+msgid "30 minutes"
+msgstr "30 минуҭ"
+
+#: src/alarm-setup-dialog.vala:109
+msgid "Edit Alarm"
+msgstr "Арҿыхага архиара"
+
+#: src/alarm-setup-dialog.vala:112 src/timer-setup-dialog.vala:30
+msgid "Cancel"
+msgstr "Аԥыхры"
+
+#: src/alarm-setup-dialog.vala:114
+msgid "Done"
+msgstr "Ихиоуп"
+
+#: src/alarm-setup-dialog.vala:116 src/timer-setup-dialog.vala:31
+msgid "Add"
+msgstr ""
+
+#: src/application.vala:23
+msgid "Print version information and exit"
+msgstr "Аверисиа иазкны аинформациа аарԥшны аҭыҵра"
+
+#: src/stopwatch-face.vala:166 src/stopwatch-face.vala:203
+msgid "Lap"
+msgstr "Агьежь"
+
+#: src/stopwatch-face.vala:178
+msgid "Resume"
+msgstr "аиҭашьақәыргылара"
+
+#: src/stopwatch-laps-row.vala:48
+#, fuzzy, c-format
+msgid "Lap %i"
+msgstr "1 тщи агьежь"
+
+#. Translators: Tooltip for the + button
+#: src/timer-face.vala:39 src/timer-setup-dialog.vala:27
+msgid "New Timer"
+msgstr "Аамҭарба ҿыц"
+
+#: src/timer-face.vala:76
+msgid "Time is up!"
+msgstr "Аамҭа нҵәеит!"
+
+#: src/timer-face.vala:77
+msgid "Timer countdown finished"
+msgstr ""
+
+#. Translators: The time is the same as the local time
+#: src/utils.vala:61
+msgid "Current timezone"
+msgstr "Иактиву асааҭтә зона"
+
+#. Translators: The (possibly fractical) number hours in the past
+#. (relative to local) the clock/location is
+#: src/utils.vala:66
+#, c-format
+msgid "%s hour earlier"
+msgid_plural "%s hours earlier"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Translators: The (possibly fractical) number hours in the
+#. future (relative to local) the clock/location is
+#: src/utils.vala:72
+#, c-format
+msgid "%s hour later"
+msgid_plural "%s hours later"
+msgstr[0] ""
+msgstr[1] ""
+
+#. Translators: This is used in the repeat toggle for Monday
+#: src/utils.vala:174
+msgctxt "Alarm|Repeat-On|Monday"
+msgid "M"
+msgstr ""
+
+#. Translators: This is used in the repeat toggle for Tuesday
+#: src/utils.vala:176
+msgctxt "Alarm|Repeat-On|Tuesday"
+msgid "T"
+msgstr ""
+
+#. Translators: This is used in the repeat toggle for Wednesday
+#: src/utils.vala:178
+msgctxt "Alarm|Repeat-On|Wednesday"
+msgid "W"
+msgstr ""
+
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:180
+msgctxt "Alarm|Repeat-On|Thursday"
+msgid "T"
+msgstr ""
+
+#. Translators: This is used in the repeat toggle for Friday
+#: src/utils.vala:182
+msgctxt "Alarm|Repeat-On|Friday"
+msgid "F"
+msgstr ""
+
+#. Translators: This is used in the repeat toggle for Saturday
+#: src/utils.vala:184
+msgctxt "Alarm|Repeat-On|Saturday"
+msgid "S"
+msgstr ""
+
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:186
+msgctxt "Alarm|Repeat-On|Sunday"
+msgid "S"
+msgstr ""
+
+#: src/utils.vala:200
+msgid "Mondays"
+msgstr "Шәахьыла"
+
+#: src/utils.vala:201
+msgid "Tuesdays"
+msgstr "Ҩашла"
+
+#: src/utils.vala:202
+msgid "Wednesdays"
+msgstr "Хашыла"
+
+#: src/utils.vala:203
+msgid "Thursdays"
+msgstr "Ԥшьашла"
+
+#: src/utils.vala:204
+msgid "Fridays"
+msgstr "Хәашла"
+
+#: src/utils.vala:205
+msgid "Saturdays"
+msgstr "Сабшала"
+
+#: src/utils.vala:206
+msgid "Sundays"
+msgstr "Мҽышла"
+
+#: src/utils.vala:332
+msgid "Every Day"
+msgstr "Ессыҽны"
+
+#: src/utils.vala:334
+msgid "Weekdays"
+msgstr "Аусуратә мшқәа раан"
+
+#: src/utils.vala:336
+msgid "Weekends"
+msgstr "Аԥсшьарамшқәа раан"
+
+#: src/window.vala:286
+msgid "Utilities to help you with the time."
+msgstr ""
+
+#: src/window.vala:291
+msgid "translator-credits"
+msgstr "Нанба Наала <naala-nanba@rambler.ru>, 2022"
+
+#. Translators: Tooltip for the + button
+#: src/world-face.vala:29
+msgid "Add Location"
+msgstr "Ҭыԥс шәахьыҟоу ацҵара"
+
+#. If it is Jan 1st there, and not Jan 2nd here, then it must be
+#. Dec 31st here, so return "tomorrow"
+#: src/world-item.vala:144 src/world-item.vala:148
+msgid "Tomorrow"
+msgstr "Уаҵәы"
+
+#. If it is Jan 1st here, and not Jan 2nd there, then it must be
+#. Dec 31st there, so return "yesterday"
+#: src/world-item.vala:144 src/world-item.vala:148
+msgid "Yesterday"
+msgstr "Иацы"
+
+#. Translators: This clock represents the local time
+#: src/world-row.vala:58
+msgid "Current location"
+msgstr ""
