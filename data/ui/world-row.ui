@@ -29,4 +29,7 @@
       <class name="clock"/>
     </style>
   </template>
+  <object class="GBindingGroup" id="location_binds">
+    <property name="source" bind-source="ClocksWorldRow" bind-property="location" bind-flags="sync-create"/>
+  </object>
 </interface>

@@ -34,37 +34,28 @@ public class Standalone : Gtk.Box {
     [GtkChild]
     private unowned Gtk.Label sunset_label;
 
+    [GtkChild]
+    private unowned BindingGroup location_binds;
+
     construct {
-        // Start ticking...
-        Utils.WallClock.get_default ().tick.connect (update);
-    }
+        location_binds.bind ("country-name", this, "subtitle", SYNC_CREATE);
+        location_binds.bind_property ("state-name", this, "title", SYNC_CREATE, (binding, src, ref target) => {
+            var state_name = (string?) src;
+            var title = location.city_name;
 
-    private void update () {
-        if (location != null) {
-            time_label.label = ((Item) location).time_label;
-            day_label.label = (string) ((Item) location).day_label;
-            sunrise_label.label = ((Item) location).sunrise_label;
-            sunset_label.label = ((Item) location).sunset_label;
-        }
-    }
+            if (state_name != null) {
+                title = "%s, %s".printf (location.city_name, (string) state_name);
+            }
 
-    [GtkCallback]
-    private void location_changed () {
-        if (location == null) {
-            return;
-        }
+            target.set_string (title);
 
-        update ();
+            return true;
+        });
 
-        var item = (Item) location;
-
-        if (item.state_name != null) {
-            title = "%s, %s".printf (item.city_name, (string) item.state_name);
-        } else {
-            title = item.city_name;
-        }
-
-        subtitle = (string) item.country_name;
+        location_binds.bind ("time-label", time_label, "label", SYNC_CREATE);
+        location_binds.bind ("day-label", day_label, "label", SYNC_CREATE);
+        location_binds.bind ("sunrise-label", sunrise_label, "label", SYNC_CREATE);
+        location_binds.bind ("sunset-label", sunset_label, "label", SYNC_CREATE);
     }
 }
 

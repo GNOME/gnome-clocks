@@ -2,7 +2,6 @@
 <interface>
   <template class="ClocksWorldStandalone" parent="GtkBox">
     <property name="orientation">vertical</property>
-    <signal name="notify::location" handler="location_changed"/>
     <child>
       <object class="GtkHeaderBar">
         <property name="title-widget">
@@ -123,4 +122,7 @@
       </object>
     </child>
   </template>
+  <object class="GBindingGroup" id="location_binds">
+    <property name="source" bind-source="ClocksWorldStandalone" bind-property="location" bind-flags="sync-create"/>
+  </object>
 </interface>

@@ -19,6 +19,42 @@
 namespace Clocks {
 namespace World {
 
+public enum SunState {
+    NONE,
+    NIGHT,
+    ASTRO,
+    NAUT,
+    CIVIL,
+    DAY;
+
+    internal string as_css () {
+        switch (this) {
+            case NONE:
+            default:
+                return "none";
+            case NIGHT:
+                return "night";
+            case ASTRO:
+                return "astro";
+            case NAUT:
+                return "naut";
+            case CIVIL:
+                return "civil";
+            case DAY:
+                return "day";
+        }
+    }
+}
+
+internal const string[] STATE_CLASSES = {
+    "none",
+    "night",
+    "astro",
+    "naut",
+    "civil",
+    "day",
+};
+
 public class Item : Object, ContentItem {
     public GWeather.Location location { get; set; }
 
@@ -73,15 +109,6 @@ public class Item : Object, ContentItem {
     public string? country_name {
         owned get {
             return location.get_country_name ();
-        }
-    }
-
-    public bool is_daytime {
-         get {
-            if (weather_info != null) {
-                return ((GWeather.Info) weather_info).is_daytime ();
-            }
-            return true;
         }
     }
 
@@ -168,29 +195,29 @@ public class Item : Object, ContentItem {
     }
 
     // CSS class for the current time of day
-    public string state_class {
+    public SunState sun_state {
         get {
             if (sun_rise == null || sun_set == null) {
-                return "none";
+                return NONE;
             }
 
             if (is_current (sun_rise, sun_set)) {
-                return "day";
+                return DAY;
             }
 
             if (is_current (civil_rise, civil_set)) {
-                return "civil";
+                return CIVIL;
             }
 
             if (is_current (naut_rise, naut_set)) {
-                return "naut";
+                return NAUT;
             }
 
             if (is_current (astro_rise, astro_set)) {
-                return "astro";
+                return ASTRO;
             }
 
-            return "night";
+            return NIGHT;
         }
     }
 
@@ -367,6 +394,13 @@ public class Item : Object, ContentItem {
                                                        location: location,
                                                        enabled_providers: GWeather.Provider.NONE);
         }
+
+        notify_property ("sunrise-label");
+        notify_property ("sunset-label");
+        notify_property ("time-label");
+        notify_property ("day-label");
+        notify_property ("local-offset");
+        notify_property ("sun-state");
     }
 
     public void serialize (GLib.VariantBuilder builder) {

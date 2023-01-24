@@ -21,50 +21,71 @@ namespace World {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world-row.ui")]
 private class Row : Adw.ActionRow {
-    public Item location { get; construct set; }
+    public Item location { get; set; }
 
     [GtkChild]
     private unowned Gtk.Label time_label;
     [GtkChild]
     private unowned Gtk.Widget delete_button;
 
+    [GtkChild]
+    private unowned BindingGroup location_binds;
+
     internal signal void remove_clock ();
+
+    construct {
+        location_binds.bind ("city-name", this, "title", SYNC_CREATE);
+        location_binds.bind_property ("day-label", this, "subtitle", SYNC_CREATE, (binding, src, ref target) => {
+            var day_label = (string?) src;
+            var message = Utils.get_time_difference_message ((double) location.local_offset);
+            var subtitle = message;
+
+            if (day_label != null && day_label != "") {
+                subtitle = "%s • %s".printf ((string) day_label, message);
+            } else if (location.automatic) {
+                // Translators: This clock represents the local time
+                subtitle = _("Current location");
+            }
+
+            target.set_string (subtitle);
+
+            return true;
+        });
+        location_binds.bind ("time-label", time_label, "label", SYNC_CREATE);
+        location_binds.bind_property ("automatic", delete_button, "sensitive", SYNC_CREATE, (binding, src, ref target) => {
+            var is_automatic = (bool) src;
+
+            target.set_boolean (!is_automatic);
+
+            if (is_automatic) {
+                delete_button.add_css_class ("hidden");
+            } else {
+                delete_button.remove_css_class ("hidden");
+            }
+
+            return true;
+        });
+        location_binds.bind_property ("sun-state", this, "css-classes", SYNC_CREATE, (binding, src, ref target) => {
+            var current = css_classes;
+            var updated = new Array<string> ();
+            var state = (SunState) src;
+
+            foreach (var css_class in current) {
+                if (!(css_class in STATE_CLASSES)) {
+                    updated.append_val (css_class);
+                }
+            }
+
+            updated.append_val (state.as_css ());
+
+            target.set_boxed (updated.steal ());
+
+            return true;
+        });
+    }
 
     public Row (Item location) {
         Object (location: location);
-
-        location.bind_property ("city-name", this, "title", BindingFlags.DEFAULT | BindingFlags.SYNC_CREATE);
-        location.tick.connect (update);
-
-        update ();
-    }
-
-    private void update () {
-        remove_css_class ("night");
-        remove_css_class ("astro");
-        remove_css_class ("naut");
-        remove_css_class ("civil");
-        remove_css_class ("day");
-        add_css_class (location.state_class);
-
-        var message = Utils.get_time_difference_message ((double) location.local_offset);
-
-        if (location.day_label != null && location.day_label != "") {
-            subtitle = "%s • %s".printf ((string) location.day_label, message);
-            delete_button.sensitive = true;
-            delete_button.remove_css_class ("hidden");
-        } else if (location.automatic) {
-            // Translators: This clock represents the local time
-            subtitle = _("Current location");
-            delete_button.sensitive = false;
-            delete_button.add_css_class ("hidden");
-        } else {
-            subtitle = "%s".printf (message);
-            delete_button.sensitive = true;
-            delete_button.remove_css_class ("hidden");
-        }
-
-        time_label.label = location.time_label;
     }
 
     [GtkCallback]
