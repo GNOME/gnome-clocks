@@ -23,7 +23,6 @@ namespace Alarm {
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm-row.ui")]
 private class Row : Gtk.ListBoxRow {
     public Item alarm { get; construct set; }
-    public Face face { get; construct set; }
 
     [GtkChild]
     private unowned Gtk.Switch toggle;
@@ -38,25 +37,40 @@ private class Row : Gtk.ListBoxRow {
     [GtkChild]
     private unowned Gtk.Revealer repeats_reveal;
 
-    public Row (Item alarm, Face face) {
-        Object (alarm: alarm, face: face);
+    [GtkChild]
+    private unowned BindingGroup alarm_binds;
 
-        alarm.notify["days"].connect (update_repeats);
+    internal signal void remove_alarm ();
 
-        alarm.bind_property ("active", toggle, "active", SYNC_CREATE | BIDIRECTIONAL);
+    construct {
+        alarm_binds.bind ("active", toggle, "active", SYNC_CREATE | BIDIRECTIONAL);
+        alarm_binds.bind ("days-label", repeats, "label", SYNC_CREATE);
+        alarm_binds.bind_property ("days", repeats_reveal, "reveal-child", SYNC_CREATE, (binding, src, ref target) => {
+            var days = (Utils.Weekdays) src;
+
+            target.set_boolean (!days.empty);
+
+            return true;
+        });
+
+        title.bind_property ("label", title_reveal, "reveal-child", SYNC_CREATE, (binding, src, ref target) => {
+            var label = (string?) src;
+
+            target.set_boolean (label != null && ((string) label).length > 0);
+
+            return true;
+        });
+    }
+
+    public Row (Item alarm) {
+        Object (alarm: alarm);
 
         alarm.notify["name"].connect (update);
         alarm.notify["active"].connect (update);
         alarm.notify["state"].connect (update);
         alarm.notify["time"].connect (update);
 
-        update_repeats ();
         update ();
-    }
-
-    private void update_repeats () {
-        repeats_reveal.reveal_child = !((Utils.Weekdays) alarm.days).empty;
-        repeats.label = (string) alarm.days_label;
     }
 
     private void update () {
@@ -91,13 +105,12 @@ private class Row : Gtk.ListBoxRow {
             }
         }
 
-        title_reveal.reveal_child = label != null && ((string) label).length > 0;
         title.label = (string) label;
     }
 
     [GtkCallback]
     private void delete () {
-        face.delete (alarm);
+        remove_alarm ();
     }
 }
 

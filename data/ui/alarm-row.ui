@@ -85,4 +85,7 @@
       </object>
     </child>
   </template>
+  <object class="GBindingGroup" id="alarm_binds">
+    <property name="source" bind-source="ClocksAlarmRow" bind-property="alarm" bind-flags="sync-create"/>
+  </object>
 </interface>

@@ -68,8 +68,16 @@ public class Face : Adw.Bin, Clocks.Clock {
         });
 
         listbox.bind_model (alarms, (item) => {
+            var row = new Row ((Item) item);
+
             item.notify["active"].connect (save);
-            return new Row ((Item) item, this);
+
+            row.remove_alarm.connect (() => {
+                alarms.delete_item ((Item) item);
+                save ();
+            });
+
+            return row;
         });
 
         listbox.row_activated.connect ((row) => {
@@ -127,11 +135,6 @@ public class Face : Adw.Bin, Clocks.Clock {
             dialog.destroy ();
         });
         dialog.show ();
-    }
-
-    internal void delete (Item alarm) {
-        alarms.delete_item (alarm);
-        save ();
     }
 
     private void reset_view () {

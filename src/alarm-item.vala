@@ -55,7 +55,17 @@ private class Item : Object, ContentItem {
 
     public AlarmTime time { get; set; }
 
-    public Utils.Weekdays? days { get; set; }
+    private Utils.Weekdays? _days;
+    public Utils.Weekdays? days {
+        get {
+            return _days;
+        }
+
+        set {
+            _days = value;
+            notify_property ("days-label");
+        }
+    }
 
     public State state { get; private set; }
 
