@@ -28,6 +28,8 @@ public class Standalone : Gtk.Box {
     [GtkChild]
     private unowned Gtk.Label time_label;
     [GtkChild]
+    private unowned Gtk.Label time_label_small;
+    [GtkChild]
     private unowned Gtk.Label day_label;
     [GtkChild]
     private unowned Gtk.Label sunrise_label;
@@ -52,7 +54,8 @@ public class Standalone : Gtk.Box {
             return true;
         });
 
-        location_binds.bind ("time-label", time_label, "label", SYNC_CREATE);
+        location_binds.bind ("time-label-seconds", time_label, "label", SYNC_CREATE);
+        location_binds.bind ("time-label-seconds", time_label_small, "label", SYNC_CREATE);
         location_binds.bind ("day-label", day_label, "label", SYNC_CREATE);
         location_binds.bind ("sunrise-label", sunrise_label, "label", SYNC_CREATE);
         location_binds.bind ("sunset-label", sunset_label, "label", SYNC_CREATE);

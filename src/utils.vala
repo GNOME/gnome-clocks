@@ -99,8 +99,17 @@ public class WallClock : Object {
     public GLib.DateTime date_time { get; private set; }
     public GLib.TimeZone timezone { get; private set; }
     public Format format { get; private set; }
+    public bool seconds_precision {
+        get {
+            return wc.force_seconds;
+        }
+        set {
+            wc.force_seconds = value;
+        }
+    }
 
     private GLib.Settings settings;
+
     private Gnome.WallClock wc;
 
     private WallClock () {
@@ -140,8 +149,14 @@ public class WallClock : Object {
         date_time = new GLib.DateTime.now (timezone);
     }
 
-    public string format_time (GLib.DateTime date_time) {
-        string time = date_time.format (format == Format.TWELVE ? "%I:%M %p" : "%H:%M");
+    public string format_time (GLib.DateTime date_time, bool seconds) {
+        string time;
+
+        if (seconds) {
+            time = date_time.format (format == Format.TWELVE ? "%I:%M:%S %p" : "%H:%M:%S");
+        } else {
+            time = date_time.format (format == Format.TWELVE ? "%I:%M %p" : "%H:%M");
+        }
 
         // Replace ":" with ratio, space with thin-space, and prepend LTR marker
         // to force direction. Replacement is done afterward because date_time.format

@@ -99,6 +99,7 @@ public class Window : Adw.ApplicationWindow {
         world.show_standalone.connect ((w, l) => {
             stack.visible_child = w;
             world_standalone.location = l;
+            Utils.WallClock.get_default ().seconds_precision = true;
             world_leaflet.navigate (Adw.NavigationDirection.FORWARD);
         });
 
@@ -186,6 +187,7 @@ public class Window : Adw.ApplicationWindow {
     }
 
     private void on_back_activate () {
+        Utils.WallClock.get_default ().seconds_precision = false;
         world_leaflet.navigate (Adw.NavigationDirection.BACK);
     }
 

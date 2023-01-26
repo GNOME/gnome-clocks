@@ -71,13 +71,13 @@ private class Item : Object, ContentItem {
 
     public string time_label {
          owned get {
-            return Utils.WallClock.get_default ().format_time (alarm_time);
+            return Utils.WallClock.get_default ().format_time (alarm_time, false);
          }
     }
 
     public string snooze_time_label {
          owned get {
-            return Utils.WallClock.get_default ().format_time (snooze_time);
+            return Utils.WallClock.get_default ().format_time (snooze_time, false);
          }
     }
 

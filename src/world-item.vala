@@ -129,7 +129,7 @@ public class Item : Object, ContentItem {
 
             var sunrise_time = new GLib.DateTime.from_unix_local (sunrise);
             sunrise_time = sunrise_time.to_timezone ((TimeZone) time_zone);
-            return Utils.WallClock.get_default ().format_time (sunrise_time);
+            return Utils.WallClock.get_default ().format_time (sunrise_time, false);
         }
     }
 
@@ -150,13 +150,19 @@ public class Item : Object, ContentItem {
 
             var sunset_time = new GLib.DateTime.from_unix_local (sunset);
             sunset_time = sunset_time.to_timezone ((TimeZone) time_zone);
-            return Utils.WallClock.get_default ().format_time (sunset_time);
+            return Utils.WallClock.get_default ().format_time (sunset_time, false);
         }
     }
 
     public string time_label {
         owned get {
-            return Utils.WallClock.get_default ().format_time (date_time);
+            return Utils.WallClock.get_default ().format_time (date_time, false);
+        }
+    }
+
+    public string time_label_seconds {
+        owned get {
+            return Utils.WallClock.get_default ().format_time (date_time, true);
         }
     }
 
@@ -398,6 +404,7 @@ public class Item : Object, ContentItem {
         notify_property ("sunrise-label");
         notify_property ("sunset-label");
         notify_property ("time-label");
+        notify_property ("time-label-seconds");
         notify_property ("day-label");
         notify_property ("local-offset");
         notify_property ("sun-state");
