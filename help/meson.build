@@ -13,7 +13,7 @@ help_files = [
 ]
 
 help_media = [
-  'figures/gnome-clocks.png'
+  'figures/org.gnome.clocks.svg'
 ]
 
 gnome.yelp(
