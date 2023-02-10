@@ -96,11 +96,12 @@ private class Item : Object, ContentItem {
         set {
             if (value != _active) {
                 _active = value;
-                if (_active) {
-                    reset ();
-                } else if (state == State.RINGING) {
+
+                reset ();
+                if (!active && state == State.RINGING) {
                     stop ();
                 }
+
                 notify_property ("active");
             }
         }
