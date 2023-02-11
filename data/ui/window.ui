@@ -42,7 +42,8 @@
                     <child>
                       <object class="AdwViewStackPage">
                         <property name="name">world</property>
-                        <property name="title" translatable="yes">World</property>
+                        <property name="title" translatable="yes">_World</property>
+                        <property name="use-underline">True</property>
                         <property name="icon-name">globe-symbolic</property>
                         <property name="child">
                           <object class="ClocksWorldFace" id="world"/>
@@ -52,7 +53,8 @@
                     <child>
                       <object class="AdwViewStackPage">
                         <property name="name">alarm</property>
-                        <property name="title" translatable="yes">Alarms</property>
+                        <property name="title" translatable="yes">Ala_rms</property>
+                        <property name="use-underline">True</property>
                         <property name="icon-name">alarm-symbolic</property>
                         <property name="child">
                           <object class="ClocksAlarmFace" id="alarm"/>
@@ -62,7 +64,8 @@
                     <child>
                       <object class="AdwViewStackPage">
                         <property name="name">stopwatch</property>
-                        <property name="title" translatable="yes">Stopwatch</property>
+                        <property name="title" translatable="yes">_Stopwatch</property>
+                        <property name="use-underline">True</property>
                         <property name="icon-name">stopwatch-symbolic</property>
                         <property name="child">
                           <object class="ClocksStopwatchFace" id="stopwatch"/>
@@ -72,7 +75,8 @@
                     <child>
                       <object class="AdwViewStackPage">
                         <property name="name">timer</property>
-                        <property name="title" translatable="yes">Timer</property>
+                        <property name="title" translatable="yes">_Timer</property>
+                        <property name="use-underline">True</property>
                         <property name="icon-name">timer-symbolic</property>
                         <property name="child">
                           <object class="ClocksTimerFace" id="timer"/>
