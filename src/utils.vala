@@ -63,14 +63,14 @@ public string get_time_difference_message (double offset) {
     if (diff > 0) {
         // Translators: The (possibly fractical) number hours in the past
         // (relative to local) the clock/location is
-        message = ngettext ("%s hour earlier",
-                            "%s hours earlier",
+        message = ngettext ("%s hour behind",
+                            "%s hours behind",
                             ((int) diff).abs ()).printf (diff_string);
     } else if (diff < 0) {
         // Translators: The (possibly fractical) number hours in the
         // future (relative to local) the clock/location is
-        message = ngettext ("%s hour later",
-                            "%s hours later",
+        message = ngettext ("%s hour ahead",
+                            "%s hours ahead",
                             ((int) diff).abs ()).printf (diff_string);
     }
     return message;
