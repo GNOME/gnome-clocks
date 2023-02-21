@@ -1,13 +1,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Daniel Korostil <ted.korostiled@gmail.com>, 2013, 2014, 2015, 2016, 2017.
-# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2021, 2022.
+# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2022-10-03 17:27+0000\n"
-"PO-Revision-Date: 2022-10-03 20:28+0300\n"
+"POT-Creation-Date: 2023-02-21 10:53+0000\n"
+"PO-Revision-Date: 2023-02-21 16:54+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
-#: src/main.vala:25 src/window.vala:285 src/window.vala:340
+#: src/main.vala:25 src/window.vala:287 src/window.vala:342
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Годинники"
@@ -100,9 +100,6 @@ msgid "Keep track of time"
 msgstr "Керуйте вашим часом"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:9
-#| msgid ""
-#| "A simple and elegant clock application. It includes world clocks, alarms, "
-#| "a stopwatch and a timer."
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch, and timers."
@@ -142,7 +139,7 @@ msgstr "Вікно секундомірів"
 msgid "Timer screen"
 msgstr "Вікно таймерів"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:120 src/window.vala:287
+#: data/org.gnome.clocks.metainfo.xml.in.in:121 src/window.vala:289
 msgid "The GNOME Project"
 msgstr "Проєкт GNOME"
 
@@ -251,14 +248,15 @@ msgid "Repeat"
 msgstr "Повторення"
 
 #: data/ui/alarm-face.ui:14
-msgid "Add A_larm"
-msgstr "Додати б_удильник"
+#| msgid "Add A_larm"
+msgid "Add A_larm…"
+msgstr "Додати б_удильник…"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:117
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:128
 msgid "Stop"
 msgstr "Зупинити"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:118
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:129
 msgid "Snooze"
 msgstr "Нагадати пізніше"
 
@@ -266,11 +264,7 @@ msgstr "Нагадати пізніше"
 msgid "Repeats"
 msgstr "Повторення"
 
-#: data/ui/alarm-row.ui:66
-msgid "Active"
-msgstr "Дійсний"
-
-#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Вилучити"
 
@@ -312,7 +306,7 @@ msgstr "_Довідка"
 msgid "_About Clocks"
 msgstr "_Про Годинники"
 
-#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:17
+#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:16
 msgid "Back"
 msgstr "Назад"
 
@@ -360,62 +354,66 @@ msgstr "Запустити"
 msgid "Reset"
 msgstr "Скинути"
 
-#: data/ui/timer-setup.ui:37
+#: data/ui/timer-setup.ui:38
 msgid "1 m"
 msgstr "1 хв."
 
-#: data/ui/timer-setup.ui:52
+#: data/ui/timer-setup.ui:49
 msgid "2 m"
 msgstr "2 хв."
 
-#: data/ui/timer-setup.ui:67
+#: data/ui/timer-setup.ui:60
 msgid "3 m"
 msgstr "3 хв."
 
-#: data/ui/timer-setup.ui:82
+#: data/ui/timer-setup.ui:71
 msgid "5 m"
 msgstr "5 хв."
 
-#: data/ui/timer-setup.ui:97
+#: data/ui/timer-setup.ui:82
 msgid "30 m"
 msgstr "30 хв."
 
-#: data/ui/timer-setup.ui:112
+#: data/ui/timer-setup.ui:93
 msgid "15 m"
 msgstr "15 хв."
 
-#: data/ui/timer-setup.ui:127
+#: data/ui/timer-setup.ui:104
 msgid "45 m"
 msgstr "45 хв."
 
-#: data/ui/timer-setup.ui:142
+#: data/ui/timer-setup.ui:115
 msgid "1 h"
 msgstr "1 год."
 
-#: data/ui/timer-setup.ui:178 data/ui/timer-setup.ui:210
-#: data/ui/timer-setup.ui:243
+#: data/ui/timer-setup.ui:147 data/ui/timer-setup.ui:179
+#: data/ui/timer-setup.ui:212
 msgid "0"
 msgstr "0"
 
 #: data/ui/window.ui:45
-msgid "World"
-msgstr "Світ"
+#| msgid "World"
+msgid "_World"
+msgstr "С_віт"
 
-#: data/ui/window.ui:55
-msgid "Alarms"
-msgstr "Будильники"
+#: data/ui/window.ui:56
+msgid "Ala_rms"
+msgstr "_Будильники"
 
-#: data/ui/window.ui:65
-msgid "Stopwatch"
-msgstr "Хронометр"
+#: data/ui/window.ui:67
+#| msgid "Stopwatch"
+msgid "_Stopwatch"
+msgstr "_Хронометр"
 
-#: data/ui/window.ui:75
-msgid "Timer"
-msgstr "Таймер"
+#: data/ui/window.ui:78
+#| msgid "Timer"
+msgid "_Timer"
+msgstr "_Таймер"
 
 #: data/ui/world-face.ui:15
-msgid "_Add World Clock"
-msgstr "_Додати світовий годинник"
+#| msgid "_Add World Clock"
+msgid "_Add World Clock…"
+msgstr "_Додати світовий годинник…"
 
 #: data/ui/world-location-dialog.ui:4
 msgid "Add a New World Clock"
@@ -433,29 +431,29 @@ msgstr "_Додати"
 msgid "Search for a City"
 msgstr "Пошук міста"
 
-#: data/ui/world-standalone.ui:78
+#: data/ui/world-standalone.ui:91
 msgid "Sunrise"
 msgstr "Схід"
 
-#: data/ui/world-standalone.ui:90
+#: data/ui/world-standalone.ui:103
 msgid "Sunset"
 msgstr "Захід"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:336
+#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:338
 msgid "Alarm"
 msgstr "Будильник"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
-#: src/alarm-row.vala:87
+#: src/alarm-row.vala:101
 #, c-format
 msgid "Snoozed from %s: %s"
 msgstr "Відкладено з %s: %s"
 
 #. Translators: %s is a time
-#: src/alarm-row.vala:90
+#: src/alarm-row.vala:104
 #, c-format
 msgid "Snoozed from %s"
 msgstr "Відкладено з %s"
@@ -539,105 +537,109 @@ msgstr "Поточний часовий пояс"
 #. (relative to local) the clock/location is
 #: src/utils.vala:66
 #, c-format
-msgid "%s hour earlier"
-msgid_plural "%s hours earlier"
-msgstr[0] "%s годину раніше"
-msgstr[1] "%s години раніше"
-msgstr[2] "%s годин раніше"
+#| msgid "%s hour earlier"
+#| msgid_plural "%s hours earlier"
+msgid "%s hour behind"
+msgid_plural "%s hours behind"
+msgstr[0] "%s годину позаду"
+msgstr[1] "%s години позаду"
+msgstr[2] "%s годин позаду"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
 #: src/utils.vala:72
 #, c-format
-msgid "%s hour later"
-msgid_plural "%s hours later"
-msgstr[0] "%s годину пізніше"
-msgstr[1] "%s години пізніше"
-msgstr[2] "%s годин пізніше"
+#| msgid "%s hour later"
+#| msgid_plural "%s hours later"
+msgid "%s hour ahead"
+msgid_plural "%s hours ahead"
+msgstr[0] "%s годину попереду"
+msgstr[1] "%s години попереду"
+msgstr[2] "%s годин попереду"
 
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:174
+#: src/utils.vala:189
 msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "Пн"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:176
+#: src/utils.vala:191
 msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "Вт"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:178
+#: src/utils.vala:193
 msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "Ср"
 
 #. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:180
+#: src/utils.vala:195
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
 msgstr "Вт"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:182
+#: src/utils.vala:197
 msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "Пт"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:184
+#: src/utils.vala:199
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "Сб"
 
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:186
+#: src/utils.vala:201
 msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
 msgstr "Нд"
 
-#: src/utils.vala:200
+#: src/utils.vala:215
 msgid "Mondays"
 msgstr "Понеділки"
 
-#: src/utils.vala:201
+#: src/utils.vala:216
 msgid "Tuesdays"
 msgstr "Вівторки"
 
-#: src/utils.vala:202
+#: src/utils.vala:217
 msgid "Wednesdays"
 msgstr "Середи"
 
-#: src/utils.vala:203
+#: src/utils.vala:218
 msgid "Thursdays"
 msgstr "Четверги"
 
-#: src/utils.vala:204
+#: src/utils.vala:219
 msgid "Fridays"
 msgstr "П'ятниці"
 
-#: src/utils.vala:205
+#: src/utils.vala:220
 msgid "Saturdays"
 msgstr "Суботи"
 
-#: src/utils.vala:206
+#: src/utils.vala:221
 msgid "Sundays"
 msgstr "Неділі"
 
-#: src/utils.vala:332
+#: src/utils.vala:347
 msgid "Every Day"
 msgstr "Щодня"
 
-#: src/utils.vala:334
+#: src/utils.vala:349
 msgid "Weekdays"
 msgstr "Дні тижня"
 
-#: src/utils.vala:336
+#: src/utils.vala:351
 msgid "Weekends"
 msgstr "Вихідні"
 
-#: src/window.vala:293
+#: src/window.vala:295
 msgid "translator-credits"
 msgstr "Daniel Korostil <ted.korostiled@gmail.com>"
 
@@ -648,20 +650,26 @@ msgstr "Додати місце"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world-item.vala:144 src/world-item.vala:148
+#: src/world-item.vala:177 src/world-item.vala:181
 msgid "Tomorrow"
 msgstr "Завтра"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world-item.vala:144 src/world-item.vala:148
+#: src/world-item.vala:177 src/world-item.vala:181
 msgid "Yesterday"
 msgstr "Учора"
 
 #. Translators: This clock represents the local time
-#: src/world-row.vala:58
+#: src/world-row.vala:47
 msgid "Current location"
 msgstr "Поточне місце"
+
+#~ msgid "Active"
+#~ msgstr "Дійсний"
+
+#~ msgid "Alarms"
+#~ msgstr "Будильники"
 
 #~ msgid "Goals:"
 #~ msgstr "Цілі:"
