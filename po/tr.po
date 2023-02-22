@@ -1,20 +1,20 @@
 # Turkish translation for gnome-clocks.
-# Copyright (C) 2012-2022 gnome-clocks's COPYRIGHT HOLDER
+# Copyright (C) 2012-2023 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 #
 # Osman Karagöz <osmank3@gmail.com>, 2012.
 # Gökhan Gurbetoğlu <ggurbet@gmail.com>, 2014.
 # Muhammet Kara <muhammetk@gmail.com>, 2013, 2014, 2015, 2016.
 # Çağatay Yiğit Şahin <cyigitsahin@outlook.com>, 2017.
-# Sabri Ünal <libreajans@gmail.com>, 2020.
+# Sabri Ünal <libreajans@gmail.com>, 2020, 2023.
 # Emin Tufan Çetin <etcetin@gmail.com>, 2017, 2020, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2022-10-04 13:56+0000\n"
-"PO-Revision-Date: 2022-10-16 20:22+0300\n"
+"POT-Creation-Date: 2023-02-21 10:53+0000\n"
+"PO-Revision-Date: 2023-02-21 14:28+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
-#: src/main.vala:25 src/window.vala:285 src/window.vala:340
+#: src/main.vala:25 src/window.vala:287 src/window.vala:342
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Saatler"
@@ -146,7 +146,7 @@ msgstr "Kronometre ekranı"
 msgid "Timer screen"
 msgstr "Zamanlayıcı ekranı"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:120 src/window.vala:287
+#: data/org.gnome.clocks.metainfo.xml.in.in:121 src/window.vala:289
 msgid "The GNOME Project"
 msgstr "GNOME Projesi"
 
@@ -255,14 +255,14 @@ msgid "Repeat"
 msgstr "Yinele"
 
 #: data/ui/alarm-face.ui:14
-msgid "Add A_larm"
-msgstr "Alarm _Ekle"
+msgid "Add A_larm…"
+msgstr "Alarm _Ekle…"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:117
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:128
 msgid "Stop"
 msgstr "Dur"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:118
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:129
 msgid "Snooze"
 msgstr "Ertele"
 
@@ -270,11 +270,7 @@ msgstr "Ertele"
 msgid "Repeats"
 msgstr "Yinelemeler"
 
-#: data/ui/alarm-row.ui:66
-msgid "Active"
-msgstr "Etkin"
-
-#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Sil"
 
@@ -316,7 +312,7 @@ msgstr "_Yardım"
 msgid "_About Clocks"
 msgstr "Saatler _Hakkında"
 
-#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:17
+#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:16
 msgid "Back"
 msgstr "Geri"
 
@@ -364,62 +360,62 @@ msgstr "Başla"
 msgid "Reset"
 msgstr "Sıfırla"
 
-#: data/ui/timer-setup.ui:37
+#: data/ui/timer-setup.ui:38
 msgid "1 m"
-msgstr "1 d"
+msgstr "1 dk."
 
-#: data/ui/timer-setup.ui:52
+#: data/ui/timer-setup.ui:49
 msgid "2 m"
-msgstr "2 d"
+msgstr "2 dk."
 
-#: data/ui/timer-setup.ui:67
+#: data/ui/timer-setup.ui:60
 msgid "3 m"
-msgstr "3 d"
+msgstr "3 dk."
+
+#: data/ui/timer-setup.ui:71
+msgid "5 m"
+msgstr "5 dk."
 
 #: data/ui/timer-setup.ui:82
-msgid "5 m"
-msgstr "5 d"
-
-#: data/ui/timer-setup.ui:97
 msgid "30 m"
-msgstr "30 d"
+msgstr "30 dk."
 
-#: data/ui/timer-setup.ui:112
+#: data/ui/timer-setup.ui:93
 msgid "15 m"
-msgstr "15 d"
+msgstr "15 dk."
 
-#: data/ui/timer-setup.ui:127
+#: data/ui/timer-setup.ui:104
 msgid "45 m"
-msgstr "45 d"
+msgstr "45 dk."
 
-#: data/ui/timer-setup.ui:142
+#: data/ui/timer-setup.ui:115
 msgid "1 h"
-msgstr "1 sa"
+msgstr "1 sa."
 
-#: data/ui/timer-setup.ui:178 data/ui/timer-setup.ui:210
-#: data/ui/timer-setup.ui:243
+#: data/ui/timer-setup.ui:147 data/ui/timer-setup.ui:179
+#: data/ui/timer-setup.ui:212
 msgid "0"
 msgstr "0"
 
 #: data/ui/window.ui:45
-msgid "World"
-msgstr "Dünya"
+msgid "_World"
+msgstr "_Dünya"
 
-#: data/ui/window.ui:55
-msgid "Alarms"
-msgstr "Alarmlar"
+#: data/ui/window.ui:56
+msgid "Ala_rms"
+msgstr "Ala_rmlar"
 
-#: data/ui/window.ui:65
-msgid "Stopwatch"
-msgstr "Kronometre"
+#: data/ui/window.ui:67
+msgid "_Stopwatch"
+msgstr "_Kronometre"
 
-#: data/ui/window.ui:75
-msgid "Timer"
-msgstr "Zamanlayıcı"
+#: data/ui/window.ui:78
+msgid "_Timer"
+msgstr "_Zamanlayıcı"
 
 #: data/ui/world-face.ui:15
-msgid "_Add World Clock"
-msgstr "Dünya Saati _Ekle"
+msgid "_Add World Clock…"
+msgstr "Dünya Saati _Ekle…"
 
 #: data/ui/world-location-dialog.ui:4
 msgid "Add a New World Clock"
@@ -437,29 +433,29 @@ msgstr "_Ekle"
 msgid "Search for a City"
 msgstr "Şehir Ara"
 
-#: data/ui/world-standalone.ui:78
+#: data/ui/world-standalone.ui:91
 msgid "Sunrise"
 msgstr "Gün doğumu"
 
-#: data/ui/world-standalone.ui:90
+#: data/ui/world-standalone.ui:103
 msgid "Sunset"
 msgstr "Gün batımı"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:336
+#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:338
 msgid "Alarm"
 msgstr "Alarm"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
-#: src/alarm-row.vala:87
+#: src/alarm-row.vala:101
 #, c-format
 msgid "Snoozed from %s: %s"
 msgstr "%s saatinden beri ertelendi: %s"
 
 #. Translators: %s is a time
-#: src/alarm-row.vala:90
+#: src/alarm-row.vala:104
 #, c-format
 msgid "Snoozed from %s"
 msgstr "%s saatinden beri ertelendi"
@@ -543,101 +539,101 @@ msgstr "Geçerli saat dilimi"
 #. (relative to local) the clock/location is
 #: src/utils.vala:66
 #, c-format
-msgid "%s hour earlier"
-msgid_plural "%s hours earlier"
+msgid "%s hour behind"
+msgid_plural "%s hours behind"
 msgstr[0] "%s saat geri"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
 #: src/utils.vala:72
 #, c-format
-msgid "%s hour later"
-msgid_plural "%s hours later"
+msgid "%s hour ahead"
+msgid_plural "%s hours ahead"
 msgstr[0] "%s saat ileri"
 
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:174
+#: src/utils.vala:189
 msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "Pt"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:176
+#: src/utils.vala:191
 msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "S"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:178
+#: src/utils.vala:193
 msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "Ç"
 
 #. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:180
+#: src/utils.vala:195
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
 msgstr "Pş"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:182
+#: src/utils.vala:197
 msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "C"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:184
+#: src/utils.vala:199
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "Ct"
 
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:186
+#: src/utils.vala:201
 msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
 msgstr "P"
 
-#: src/utils.vala:200
+#: src/utils.vala:215
 msgid "Mondays"
 msgstr "Pazartesiler"
 
-#: src/utils.vala:201
+#: src/utils.vala:216
 msgid "Tuesdays"
 msgstr "Salılar"
 
-#: src/utils.vala:202
+#: src/utils.vala:217
 msgid "Wednesdays"
 msgstr "Çarşambalar"
 
-#: src/utils.vala:203
+#: src/utils.vala:218
 msgid "Thursdays"
 msgstr "Perşembeler"
 
-#: src/utils.vala:204
+#: src/utils.vala:219
 msgid "Fridays"
 msgstr "Cumalar"
 
-#: src/utils.vala:205
+#: src/utils.vala:220
 msgid "Saturdays"
 msgstr "Cumartesiler"
 
-#: src/utils.vala:206
+#: src/utils.vala:221
 msgid "Sundays"
 msgstr "Pazarlar"
 
-#: src/utils.vala:332
+#: src/utils.vala:347
 msgid "Every Day"
 msgstr "Her Gün"
 
-#: src/utils.vala:334
+#: src/utils.vala:349
 msgid "Weekdays"
 msgstr "Hafta İçleri"
 
-#: src/utils.vala:336
+#: src/utils.vala:351
 msgid "Weekends"
 msgstr "Hafta Sonları"
 
-#: src/window.vala:293
+#: src/window.vala:295
 msgid "translator-credits"
 msgstr ""
 "Emin Tufan Çetin <etcetin@gmail.com>\n"
@@ -651,20 +647,23 @@ msgstr "Konum Ekle"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world-item.vala:144 src/world-item.vala:148
+#: src/world-item.vala:177 src/world-item.vala:181
 msgid "Tomorrow"
 msgstr "Yarın"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world-item.vala:144 src/world-item.vala:148
+#: src/world-item.vala:177 src/world-item.vala:181
 msgid "Yesterday"
 msgstr "Dün"
 
 #. Translators: This clock represents the local time
-#: src/world-row.vala:58
+#: src/world-row.vala:47
 msgid "Current location"
 msgstr "Geçerli konum"
 
-#~ msgid "Goals:"
-#~ msgstr "Hedefleri:"
+#~ msgid "Active"
+#~ msgstr "Etkin"
+
+#~ msgid "Alarms"
+#~ msgstr "Alarmlar"
