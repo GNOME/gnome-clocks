@@ -2,27 +2,28 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# Yosef Or Boczko <yoseforb@gmail.com>, 2013-2022.
+# Yosef Or Boczko <yoseforb@gmail.com>, 2013-2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks 3.6\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2022-10-06 12:15+0000\n"
-"PO-Revision-Date: 2022-10-23 20:03+0300\n"
+"POT-Creation-Date: 2023-02-21 10:53+0000\n"
+"PO-Revision-Date: 2023-02-22 13:01+0200\n"
 "Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
-"Language-Team: Hebrew <yoseforb@gmail.com>\n"
+"Language-Team: Hebrew <>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3)\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Gtranslator 42.0\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
-#: src/main.vala:25 src/window.vala:285 src/window.vala:340
+#: src/main.vala:25 src/window.vala:287 src/window.vala:342
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "שעונים"
@@ -139,7 +140,7 @@ msgstr "מסך שעון עצר"
 msgid "Timer screen"
 msgstr "מסך קוצב זמן"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:120 src/window.vala:287
+#: data/org.gnome.clocks.metainfo.xml.in.in:121 src/window.vala:289
 msgid "The GNOME Project"
 msgstr "מיזם GNOME"
 
@@ -248,14 +249,14 @@ msgid "Repeat"
 msgstr "חזרה"
 
 #: data/ui/alarm-face.ui:14
-msgid "Add A_larm"
-msgstr "הוספת ה_תראה"
+msgid "Add A_larm…"
+msgstr "הוספת ה_תראה…"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:117
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:128
 msgid "Stop"
 msgstr "עצירה"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:118
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:129
 msgid "Snooze"
 msgstr "נודניק"
 
@@ -263,11 +264,7 @@ msgstr "נודניק"
 msgid "Repeats"
 msgstr "חזרתיות"
 
-#: data/ui/alarm-row.ui:66
-msgid "Active"
-msgstr "פעיל"
-
-#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "מחיקה"
 
@@ -309,7 +306,7 @@ msgstr "_עזרה"
 msgid "_About Clocks"
 msgstr "_על אודות שעונים"
 
-#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:17
+#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:16
 msgid "Back"
 msgstr "אחורה"
 
@@ -357,62 +354,62 @@ msgstr "התחלה"
 msgid "Reset"
 msgstr "איפוס"
 
-#: data/ui/timer-setup.ui:37
+#: data/ui/timer-setup.ui:38
 msgid "1 m"
 msgstr "דקה אחת"
 
-#: data/ui/timer-setup.ui:52
+#: data/ui/timer-setup.ui:49
 msgid "2 m"
 msgstr "2 דקות"
 
-#: data/ui/timer-setup.ui:67
+#: data/ui/timer-setup.ui:60
 msgid "3 m"
 msgstr "3 דקות"
 
-#: data/ui/timer-setup.ui:82
+#: data/ui/timer-setup.ui:71
 msgid "5 m"
 msgstr "4 דקות"
 
-#: data/ui/timer-setup.ui:97
+#: data/ui/timer-setup.ui:82
 msgid "30 m"
 msgstr "30 דקות"
 
-#: data/ui/timer-setup.ui:112
+#: data/ui/timer-setup.ui:93
 msgid "15 m"
 msgstr "15 דקות"
 
-#: data/ui/timer-setup.ui:127
+#: data/ui/timer-setup.ui:104
 msgid "45 m"
 msgstr "45 דקות"
 
-#: data/ui/timer-setup.ui:142
+#: data/ui/timer-setup.ui:115
 msgid "1 h"
 msgstr "שעה אחת"
 
-#: data/ui/timer-setup.ui:178 data/ui/timer-setup.ui:210
-#: data/ui/timer-setup.ui:243
+#: data/ui/timer-setup.ui:147 data/ui/timer-setup.ui:179
+#: data/ui/timer-setup.ui:212
 msgid "0"
 msgstr "0"
 
 #: data/ui/window.ui:45
-msgid "World"
-msgstr "עולם"
+msgid "_World"
+msgstr "_עולם"
 
-#: data/ui/window.ui:55
-msgid "Alarms"
-msgstr "התראות"
+#: data/ui/window.ui:56
+msgid "Ala_rms"
+msgstr "ה_תראה"
 
-#: data/ui/window.ui:65
-msgid "Stopwatch"
-msgstr "שעון עצר"
+#: data/ui/window.ui:67
+msgid "_Stopwatch"
+msgstr "שעון _עצר"
 
-#: data/ui/window.ui:75
-msgid "Timer"
-msgstr "קוצב זמן"
+#: data/ui/window.ui:78
+msgid "_Timer"
+msgstr "_קוצב זמן"
 
 #: data/ui/world-face.ui:15
-msgid "_Add World Clock"
-msgstr "הו_ספת שעון עולמי"
+msgid "_Add World Clock…"
+msgstr "הו_ספת שעון עולמי…"
 
 #: data/ui/world-location-dialog.ui:4
 msgid "Add a New World Clock"
@@ -430,29 +427,29 @@ msgstr "_הוספה"
 msgid "Search for a City"
 msgstr "חיפוש אחר עיר"
 
-#: data/ui/world-standalone.ui:78
+#: data/ui/world-standalone.ui:91
 msgid "Sunrise"
 msgstr "זריחה"
 
-#: data/ui/world-standalone.ui:90
+#: data/ui/world-standalone.ui:103
 msgid "Sunset"
 msgstr "שקיעה"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:336
+#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:338
 msgid "Alarm"
 msgstr "התראה"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
-#: src/alarm-row.vala:87
+#: src/alarm-row.vala:101
 #, c-format
 msgid "Snoozed from %s: %s"
 msgstr "נמנום מ־%s: ‏%s"
 
 #. Translators: %s is a time
-#: src/alarm-row.vala:90
+#: src/alarm-row.vala:104
 #, c-format
 msgid "Snoozed from %s"
 msgstr "נמנום מ־%s"
@@ -536,103 +533,109 @@ msgstr "אזור זמן נוכחי"
 #. (relative to local) the clock/location is
 #: src/utils.vala:66
 #, c-format
-msgid "%s hour earlier"
-msgid_plural "%s hours earlier"
-msgstr[0] "שעה (%s) מוקדם יותר"
-msgstr[1] "‏%s שעות מוקדם יותר"
+# msgid_plural "%s hours earlier"
+msgid "%s hour behind"
+msgid_plural "%s hours behind"
+msgstr[0] "שעה מוקדם יותר"
+msgstr[1] "שעתיים מוקדם יותר"
+msgstr[2] "‏%s שעות מוקדם יותר"
+msgstr[3] "‏%s שעות מוקדם יותר"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
 #: src/utils.vala:72
 #, c-format
-msgid "%s hour later"
-msgid_plural "%s hours later"
-msgstr[0] "שעה (%s) מאוחר יותר"
-msgstr[1] "‏%s שעות מאוחר יותר"
+# msgid_plural "%s hours later"
+msgid "%s hour ahead"
+msgid_plural "%s hours ahead"
+msgstr[0] "שעה מאוחר יותר"
+msgstr[1] "שעתיים מאוחר יותר"
+msgstr[2] "‏%s שעות מאוחר יותר"
+msgstr[3] "‏%s שעות מאוחר יותר"
 
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:174
+#: src/utils.vala:189
 msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "ב"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:176
+#: src/utils.vala:191
 msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "ג"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:178
+#: src/utils.vala:193
 msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "ד"
 
 #. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:180
+#: src/utils.vala:195
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
 msgstr "ה"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:182
+#: src/utils.vala:197
 msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "ו"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:184
+#: src/utils.vala:199
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "ש"
 
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:186
+#: src/utils.vala:201
 msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
 msgstr "א"
 
-#: src/utils.vala:200
+#: src/utils.vala:215
 msgid "Mondays"
 msgstr "ימי שני"
 
-#: src/utils.vala:201
+#: src/utils.vala:216
 msgid "Tuesdays"
 msgstr "ימי שלישי"
 
-#: src/utils.vala:202
+#: src/utils.vala:217
 msgid "Wednesdays"
 msgstr "ימי רביעי"
 
-#: src/utils.vala:203
+#: src/utils.vala:218
 msgid "Thursdays"
 msgstr "ימי חמישי"
 
-#: src/utils.vala:204
+#: src/utils.vala:219
 msgid "Fridays"
 msgstr "ימי שישי"
 
-#: src/utils.vala:205
+#: src/utils.vala:220
 msgid "Saturdays"
 msgstr "שבתות"
 
-#: src/utils.vala:206
+#: src/utils.vala:221
 msgid "Sundays"
 msgstr "ימי ראשון"
 
-#: src/utils.vala:332
+#: src/utils.vala:347
 msgid "Every Day"
 msgstr "כל יום"
 
-#: src/utils.vala:334
+#: src/utils.vala:349
 msgid "Weekdays"
 msgstr "בימי השבוע"
 
-#: src/utils.vala:336
+#: src/utils.vala:351
 msgid "Weekends"
 msgstr "סופי שבוע"
 
-#: src/window.vala:293
+#: src/window.vala:295
 msgid "translator-credits"
 msgstr ""
 "ירון שהרבני <sh.yaron@gmail.com>\n"
@@ -646,20 +649,26 @@ msgstr "הוספת מיקום"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world-item.vala:144 src/world-item.vala:148
+#: src/world-item.vala:177 src/world-item.vala:181
 msgid "Tomorrow"
 msgstr "מחר"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world-item.vala:144 src/world-item.vala:148
+#: src/world-item.vala:177 src/world-item.vala:181
 msgid "Yesterday"
 msgstr "אתמול"
 
 #. Translators: This clock represents the local time
-#: src/world-row.vala:58
+#: src/world-row.vala:47
 msgid "Current location"
 msgstr "מיקום נוכחי"
+
+#~ msgid "Active"
+#~ msgstr "פעיל"
+
+#~ msgid "Alarms"
+#~ msgstr "התראות"
 
 #~ msgid "Goals:"
 #~ msgstr "מטרות:"
