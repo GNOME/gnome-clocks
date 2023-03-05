@@ -1,14 +1,14 @@
 # Korean translation for gnome-clocks.
 # This file is distributed under the same license as the gnome-clocks package.
-# Seong-ho Cho <shcho@gnome.org>, 2016, 2021.
+# Seong-ho Cho <shcho@gnome.org>, 2016, 2021, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2021-02-11 15:59+0000\n"
-"PO-Revision-Date: 2021-03-12 11:34+0900\n"
+"POT-Creation-Date: 2023-02-28 12:09+0000\n"
+"PO-Revision-Date: 2023-03-05 00:17+0900\n"
 "Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
 "Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
@@ -16,12 +16,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.3.1\n"
 
 #. Put one translator per line, in the form NAME <EMAIL>, YEAR1, YEAR2
 msgctxt "_"
 msgid "translator-credits"
-msgstr "조성호 <shcho@gnome.org>, 2016, 2021."
+msgstr "조성호 <shcho@gnome.org>, 2016, 2021, 2023."
 
 #. (itstool) path: credit/name
 #: C/alarm-add.page:14 C/alarm-edit.page:14 C/alarm-remove.page:15
@@ -335,9 +335,9 @@ msgstr "카운트 다운이 0값에 도달하면 알림을 받습니다."
 #. (itstool) path: note/p
 #: C/timer.page:47
 msgid ""
-"Once the timer has started its countdown, you can press the <gui style="
-"\"button\">Pause</gui> button to pause the timer. To reset the timer, press "
-"the <gui style=\"button\">Reset</gui> button."
+"Once the timer has started its countdown, you can press the <gui "
+"style=\"button\">Pause</gui> button to pause the timer. To reset the timer, "
+"press the <gui style=\"button\">Reset</gui> button."
 msgstr ""
 "타이머에서 카운트다운을 시작하면 <gui style=\"button\">일시정지</gui>를 눌러 "
 "타이머를 멈출 수 있습니다. 타이머를 초기화하려면 <gui style=\"button\">초기화"
@@ -467,12 +467,30 @@ msgstr "<gui style=\"button\">삭제</gui> 단추를 눌러 세계 시계를 제
 
 #. (itstool) path: info/title
 #: C/index.page:22
+msgctxt "link:trail"
+msgid "Clocks Help"
+msgstr "시계 도움말"
+
+#. (itstool) path: info/title
+#: C/index.page:23
+msgctxt "text"
+msgid "Clocks Help"
+msgstr "시계 도움말"
+
+#. (itstool) path: info/title
+#: C/index.page:24
+msgctxt "link"
+msgid "Clocks Help"
+msgstr "시계 도움말"
+
+#. (itstool) path: info/title
+#: C/index.page:25
 msgctxt "link:seealso"
 msgid "Clocks Help"
 msgstr "시계 도움말"
 
 #. (itstool) path: info/desc
-#: C/index.page:24
+#: C/index.page:27
 msgid ""
 "Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
 "the time in different cities around the world."
@@ -481,12 +499,12 @@ msgstr ""
 "을 확인합니다."
 
 #. (itstool) path: page/title
-#: C/index.page:28
+#: C/index.page:31
 msgid "<_:media-1/> Clocks"
 msgstr "<_:media-1/> 시계"
 
 #. (itstool) path: page/p
-#: C/index.page:30
+#: C/index.page:34
 msgid ""
 "Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
 "the time in different cities."
@@ -495,12 +513,12 @@ msgstr ""
 "니다."
 
 #. (itstool) path: section/title
-#: C/index.page:34
+#: C/index.page:38
 msgid "World clocks"
 msgstr "세계 시계"
 
 #. (itstool) path: section/p
-#: C/index.page:36
+#: C/index.page:40
 msgid ""
 "View the time in cities around the world on the same screen. You can also "
 "check if it is still the same day in those cities, and the sunrise and "
@@ -510,32 +528,32 @@ msgstr ""
 "일출, 일몰 시간이 언제인지 확인할 수 있습니다."
 
 #. (itstool) path: section/title
-#: C/index.page:43
+#: C/index.page:47
 msgid "Alarm clocks"
 msgstr "알림 시계"
 
 #. (itstool) path: section/p
-#: C/index.page:45
-msgid "Set customisable alarms to go off on specific days every week."
-msgstr "매주 지정일에 대해 개별 알림을 설정합니다."
+#: C/index.page:49
+msgid "Set customizable alarms to go off on specific days every week."
+msgstr "매주 지정일에 알릴 개별 알림을 설정합니다."
 
 #. (itstool) path: section/title
-#: C/index.page:50
+#: C/index.page:54
 msgid "Stopwatch"
 msgstr "스톱워치"
 
 #. (itstool) path: section/p
-#: C/index.page:52
+#: C/index.page:56
 msgid "Use the stopwatch to time how long something takes."
 msgstr "스톱워치를 활용하여 일 하는 시간이 얼마나 걸리는지 잽니다."
 
 #. (itstool) path: section/title
-#: C/index.page:57
+#: C/index.page:61
 msgid "Timer"
 msgstr "타이머"
 
 #. (itstool) path: section/p
-#: C/index.page:59
+#: C/index.page:63
 msgid "Set a countdown in seconds, minutes or hours."
 msgstr "초, 분, 시간 단위로 카운트다운을 설정합니다."
 
