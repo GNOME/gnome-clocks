@@ -2,14 +2,14 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 #
-# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022.
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023.
 # Vika Leimane <vika.leimane@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2022-08-07 10:01+0000\n"
-"PO-Revision-Date: 2022-09-06 06:27+0300\n"
+"POT-Creation-Date: 2023-03-13 09:28+0000\n"
+"PO-Revision-Date: 2023-03-25 13:14+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -18,17 +18,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 :"
 " 2);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
-#: src/main.vala:25 src/window.vala:285 src/window.vala:340
+#: src/main.vala:25 src/window.vala:287 src/window.vala:342
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Pulksteņi"
 
 #: data/org.gnome.clocks.desktop.in.in:6
-#: data/org.gnome.clocks.metainfo.xml.in.in:7
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Pulksteņi pasaules laikiem, kā arī modinātājs, hronometrs un taimeris"
 
@@ -75,12 +74,10 @@ msgid "Turn geolocation support on and off."
 msgstr "Ieslēgt vai izslēgt ģeolokācijas atbalstu."
 
 #: data/org.gnome.clocks.gschema.xml.in:44
-#| msgid "Window state"
 msgid "Window maximized"
 msgstr "Logs maksimizēts"
 
 #: data/org.gnome.clocks.gschema.xml.in:45
-#| msgid "State of the window, e.g. maximized."
 msgid "Whether the window is maximized."
 msgstr "Vai logs ir maksimizēts."
 
@@ -100,51 +97,54 @@ msgstr "Paneļa stāvoklis"
 msgid "Current clock panel."
 msgstr "Pašreizējais pulksteņa panelis."
 
+#: data/org.gnome.clocks.metainfo.xml.in.in:7
+msgid "Keep track of time"
+msgstr "Seko līdzi laikam"
+
 #: data/org.gnome.clocks.metainfo.xml.in.in:9
+#| msgid ""
+#| "A simple and elegant clock application. It includes world clocks, alarms, "
+#| "a stopwatch and a timer."
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
+"stopwatch, and timers."
 msgstr ""
 "Vienkārša un eleganta pulksteņa lietotne. Tajā ir pasaules pulksteņi, "
-"modinātājs, hronometrs un taimeris."
+"modinātājs, hronometrs un taimeri."
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:13
-msgid "Goals:"
-msgstr "Mērķi:"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:15
+#: data/org.gnome.clocks.metainfo.xml.in.in:14
 msgid "Show the time in different cities around the world"
 msgstr "Rādīt laiku dažādās pasaules pilsētās"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:16
+#: data/org.gnome.clocks.metainfo.xml.in.in:15
 msgid "Set alarms to wake you up"
 msgstr "Iestatiet modinātāju, lai pamostos"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:17
+#: data/org.gnome.clocks.metainfo.xml.in.in:16
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Mērīt pagājušo laiku ar precīzu hronometru"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:18
+#: data/org.gnome.clocks.metainfo.xml.in.in:17
 msgid "Set timers to properly cook your food"
 msgstr "Iestatiet taimerus, lai pareizi pagatavotu ēdienu"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:40
+#: data/org.gnome.clocks.metainfo.xml.in.in:39
 msgid "Initial screen"
 msgstr "Sākotnējais ekrāns"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:44
+#: data/org.gnome.clocks.metainfo.xml.in.in:43
 msgid "Alarms screen"
 msgstr "Signālu ekrāns"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:48
+#: data/org.gnome.clocks.metainfo.xml.in.in:47
 msgid "Stopwatch screen"
 msgstr "Hronometra ekrāns"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:52
+#: data/org.gnome.clocks.metainfo.xml.in.in:51
 msgid "Timer screen"
 msgstr "Taimera ekrāns"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:122 src/window.vala:287
+#: data/org.gnome.clocks.metainfo.xml.in.in:122 src/window.vala:289
 msgid "The GNOME Project"
 msgstr "GNOME projekts"
 
@@ -154,21 +154,16 @@ msgid "General"
 msgstr "Vispārēji"
 
 #: data/gtk/help-overlay.ui:15
-#| msgctxt "shortcut window"
-#| msgid "Show help"
 msgctxt "shortcut window"
 msgid "Show Help"
 msgstr "Rādīt palīdzību"
 
 #: data/gtk/help-overlay.ui:21
-#| msgctxt "shortcut window"
-#| msgid "Open menu"
 msgctxt "shortcut window"
 msgid "Open Menu"
 msgstr "Atvērt izvēlni"
 
 #: data/gtk/help-overlay.ui:27
-#| msgid "_Keyboard Shortcuts"
 msgctxt "shortcut window"
 msgid "Keyboard Shortcuts"
 msgstr "Tastatūras īsinājumtaustiņi"
@@ -179,43 +174,31 @@ msgid "Quit"
 msgstr "Iziet"
 
 #: data/gtk/help-overlay.ui:39
-#| msgctxt "shortcut window"
-#| msgid "Go to the next section"
 msgctxt "shortcut window"
 msgid "Go to the Next Section"
 msgstr "Iet uz nākamo sadaļu"
 
 #: data/gtk/help-overlay.ui:45
-#| msgctxt "shortcut window"
-#| msgid "Go to the previous section"
 msgctxt "shortcut window"
 msgid "Go to the Previous Section"
 msgstr "Iet uz iepriekšējo sadaļu"
 
 #: data/gtk/help-overlay.ui:51
-#| msgctxt "shortcut window"
-#| msgid "Go to the World section"
 msgctxt "shortcut window"
 msgid "Go to the World Section"
 msgstr "Iet uz pasaules sadaļu"
 
 #: data/gtk/help-overlay.ui:57
-#| msgctxt "shortcut window"
-#| msgid "Go to the Alarms section"
 msgctxt "shortcut window"
 msgid "Go to the Alarms Section"
 msgstr "Iet uz signālu sadaļu"
 
 #: data/gtk/help-overlay.ui:63
-#| msgctxt "shortcut window"
-#| msgid "Go to the Stopwatch section"
 msgctxt "shortcut window"
 msgid "Go to the Stopwatch Section"
 msgstr "Iet uz hronometra sadaļu"
 
 #: data/gtk/help-overlay.ui:69
-#| msgctxt "shortcut window"
-#| msgid "Go to the Timer section"
 msgctxt "shortcut window"
 msgid "Go to the Timer Section"
 msgstr "Iet uz taimera sadaļu"
@@ -226,7 +209,6 @@ msgid "World Clocks"
 msgstr "Pasaules pulksteņi"
 
 #: data/gtk/help-overlay.ui:81
-#| msgid "Add World Clock"
 msgctxt "shortcut window"
 msgid "Add a World Clock"
 msgstr "Pievienot pasaules pulksteni"
@@ -237,8 +219,6 @@ msgid "Alarm"
 msgstr "Signāls"
 
 #: data/gtk/help-overlay.ui:93
-#| msgctxt "shortcut window"
-#| msgid "Add an alarm"
 msgctxt "shortcut window"
 msgid "Add an Alarm"
 msgstr "Pievienot signālu"
@@ -249,7 +229,6 @@ msgid "Stopwatch"
 msgstr "Hronometrs"
 
 #: data/gtk/help-overlay.ui:105
-#| msgid "Pause"
 msgctxt "shortcut window"
 msgid "Pause All"
 msgstr "Pauzēt visus"
@@ -270,19 +249,19 @@ msgid "New Timer"
 msgstr "Jauns taimeris"
 
 #: data/ui/alarm-day-picker-row.ui:17
-#| msgid "_Repeat"
 msgid "Repeat"
 msgstr "Atkārtot"
 
 #: data/ui/alarm-face.ui:14
-msgid "Add A_larm"
-msgstr "Pievienot signā_lu"
+#| msgid "Add A_larm"
+msgid "Add A_larm…"
+msgstr "Pievienot signā_lu…"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:117
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:128
 msgid "Stop"
 msgstr "Apturēt"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:118
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:129
 msgid "Snooze"
 msgstr "Iesnaudināt"
 
@@ -290,11 +269,7 @@ msgstr "Iesnaudināt"
 msgid "Repeats"
 msgstr "Atkārtojas"
 
-#: data/ui/alarm-row.ui:66
-msgid "Active"
-msgstr "Aktīvs"
-
-#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Dzēst"
 
@@ -336,7 +311,7 @@ msgstr "_Palīdzība"
 msgid "_About Clocks"
 msgstr "Par pulksteņiem"
 
-#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:17
+#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:16
 msgid "Back"
 msgstr "Atpakaļ"
 
@@ -345,7 +320,6 @@ msgid "Menu"
 msgstr "Izvēlne"
 
 #: data/ui/header-bar.ui:71
-#| msgid "Menu"
 msgid "Main Menu"
 msgstr "Galvenā izvēlne"
 
@@ -370,7 +344,6 @@ msgid "Select Duration"
 msgstr "Izvēlieties ilgumu"
 
 #: data/ui/timer-row.ui:32
-#| msgid "Title..."
 msgid "Title…"
 msgstr "Nosaukums…"
 
@@ -386,63 +359,66 @@ msgstr "Sākt"
 msgid "Reset"
 msgstr "Atstatīt"
 
-#: data/ui/timer-setup.ui:37
+#: data/ui/timer-setup.ui:38
 msgid "1 m"
 msgstr "1 min"
 
-#: data/ui/timer-setup.ui:52
+#: data/ui/timer-setup.ui:49
 msgid "2 m"
 msgstr "2 min"
 
-#: data/ui/timer-setup.ui:67
+#: data/ui/timer-setup.ui:60
 msgid "3 m"
 msgstr "3 min"
 
-#: data/ui/timer-setup.ui:82
+#: data/ui/timer-setup.ui:71
 msgid "5 m"
 msgstr "5 min"
 
-#: data/ui/timer-setup.ui:97
+#: data/ui/timer-setup.ui:82
 msgid "30 m"
 msgstr "30 min"
 
-#: data/ui/timer-setup.ui:112
+#: data/ui/timer-setup.ui:93
 msgid "15 m"
 msgstr "15 min"
 
-#: data/ui/timer-setup.ui:127
+#: data/ui/timer-setup.ui:104
 msgid "45 m"
 msgstr "45 min"
 
-#: data/ui/timer-setup.ui:142
+#: data/ui/timer-setup.ui:115
 msgid "1 h"
 msgstr "1 h"
 
-#: data/ui/timer-setup.ui:178 data/ui/timer-setup.ui:210
-#: data/ui/timer-setup.ui:243
+#: data/ui/timer-setup.ui:147 data/ui/timer-setup.ui:179
+#: data/ui/timer-setup.ui:212
 msgid "0"
 msgstr "0"
 
 #: data/ui/window.ui:45
-msgid "World"
-msgstr "Pasaule"
+#| msgid "World"
+msgid "_World"
+msgstr "_Pasaule"
 
-#: data/ui/window.ui:55
-msgid "Alarms"
-msgstr "Signāli"
+#: data/ui/window.ui:56
+msgid "Ala_rms"
+msgstr "Si_gnāli"
 
-#: data/ui/window.ui:65
-msgid "Stopwatch"
-msgstr "Hronometrs"
+#: data/ui/window.ui:67
+#| msgid "Stopwatch"
+msgid "_Stopwatch"
+msgstr "_Hronometrs"
 
-#: data/ui/window.ui:75
-msgid "Timer"
-msgstr "Taimeris"
+#: data/ui/window.ui:78
+#| msgid "Timer"
+msgid "_Timer"
+msgstr "_Taimeris"
 
 #: data/ui/world-face.ui:15
-#| msgid "Add World Clock"
-msgid "_Add World Clock"
-msgstr "Pievienot p_asaules pulksteni"
+#| msgid "_Add World Clock"
+msgid "_Add World Clock…"
+msgstr "Pievienot p_asaules pulksteni…"
 
 #: data/ui/world-location-dialog.ui:4
 msgid "Add a New World Clock"
@@ -460,29 +436,29 @@ msgstr "_Pievienot"
 msgid "Search for a City"
 msgstr "Meklēt pilsētu"
 
-#: data/ui/world-standalone.ui:78
+#: data/ui/world-standalone.ui:91
 msgid "Sunrise"
 msgstr "Saullēkts"
 
-#: data/ui/world-standalone.ui:90
+#: data/ui/world-standalone.ui:103
 msgid "Sunset"
 msgstr "Saulriets"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:336
+#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:338
 msgid "Alarm"
 msgstr "Signāls"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
-#: src/alarm-row.vala:87
+#: src/alarm-row.vala:101
 #, c-format
 msgid "Snoozed from %s: %s"
 msgstr "Snauž no %s: %s"
 
 #. Translators: %s is a time
-#: src/alarm-row.vala:90
+#: src/alarm-row.vala:104
 #, c-format
 msgid "Snoozed from %s"
 msgstr "Snauž no %s"
@@ -566,105 +542,109 @@ msgstr "Pašreizējā laika josla"
 #. (relative to local) the clock/location is
 #: src/utils.vala:66
 #, c-format
-msgid "%s hour earlier"
-msgid_plural "%s hours earlier"
-msgstr[0] "%s stundu agrāk"
-msgstr[1] "%s stundas agrāk"
-msgstr[2] "%s stundu agrāk"
+#| msgid "%s hour earlier"
+#| msgid_plural "%s hours earlier"
+msgid "%s hour behind"
+msgid_plural "%s hours behind"
+msgstr[0] "%s stundu atpakaļ"
+msgstr[1] "%s stundas atpakaļ"
+msgstr[2] "%s stundu atpakaļ"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
 #: src/utils.vala:72
 #, c-format
-msgid "%s hour later"
-msgid_plural "%s hours later"
-msgstr[0] "%s stundu vēlāk"
-msgstr[1] "%s stundas vēlāk"
-msgstr[2] "%s stundu vēlāk"
+#| msgid "%s hour later"
+#| msgid_plural "%s hours later"
+msgid "%s hour ahead"
+msgid_plural "%s hours ahead"
+msgstr[0] "%s stundu priekšā"
+msgstr[1] "%s stundas priekšā"
+msgstr[2] "%s stundu priekšā"
 
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:174
+#: src/utils.vala:189
 msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "P"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:176
+#: src/utils.vala:191
 msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "O"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:178
+#: src/utils.vala:193
 msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "T"
 
 #. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:180
+#: src/utils.vala:195
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
 msgstr "C"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:182
+#: src/utils.vala:197
 msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "Pk"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:184
+#: src/utils.vala:199
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "S"
 
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:186
+#: src/utils.vala:201
 msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
 msgstr "Sv"
 
-#: src/utils.vala:200
+#: src/utils.vala:215
 msgid "Mondays"
 msgstr "Pirmdienas"
 
-#: src/utils.vala:201
+#: src/utils.vala:216
 msgid "Tuesdays"
 msgstr "Otrdienas"
 
-#: src/utils.vala:202
+#: src/utils.vala:217
 msgid "Wednesdays"
 msgstr "Trešdienas"
 
-#: src/utils.vala:203
+#: src/utils.vala:218
 msgid "Thursdays"
 msgstr "Ceturtdienas"
 
-#: src/utils.vala:204
+#: src/utils.vala:219
 msgid "Fridays"
 msgstr "Piektdienas"
 
-#: src/utils.vala:205
+#: src/utils.vala:220
 msgid "Saturdays"
 msgstr "Sestdienas"
 
-#: src/utils.vala:206
+#: src/utils.vala:221
 msgid "Sundays"
 msgstr "Svētdienas"
 
-#: src/utils.vala:332
+#: src/utils.vala:347
 msgid "Every Day"
 msgstr "Katru dienu"
 
-#: src/utils.vala:334
+#: src/utils.vala:349
 msgid "Weekdays"
 msgstr "Darba dienas"
 
-#: src/utils.vala:336
+#: src/utils.vala:351
 msgid "Weekends"
 msgstr "Nedēļas nogales"
 
-#: src/window.vala:293
+#: src/window.vala:295
 msgid "translator-credits"
 msgstr ""
 "Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
@@ -677,20 +657,29 @@ msgstr "Pievienot atrašanās vietu"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world-item.vala:144 src/world-item.vala:148
+#: src/world-item.vala:177 src/world-item.vala:181
 msgid "Tomorrow"
 msgstr "Rīt"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world-item.vala:144 src/world-item.vala:148
+#: src/world-item.vala:177 src/world-item.vala:181
 msgid "Yesterday"
 msgstr "Vakar"
 
 #. Translators: This clock represents the local time
-#: src/world-row.vala:58
+#: src/world-row.vala:47
 msgid "Current location"
 msgstr "Pašreizējā atrašanās vieta"
+
+#~ msgid "Goals:"
+#~ msgstr "Mērķi:"
+
+#~ msgid "Active"
+#~ msgstr "Aktīvs"
+
+#~ msgid "Alarms"
+#~ msgstr "Signāli"
 
 #~ msgid "GNOME Clocks"
 #~ msgstr "GNOME pulksteņi"
