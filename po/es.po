@@ -2,14 +2,15 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Israel Campoy <churritzu@yahoo.com>, 2012.
+# 
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2012-2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2023-03-17 13:13+0000\n"
-"PO-Revision-Date: 2023-02-21 12:12+0100\n"
+"POT-Creation-Date: 2023-03-21 12:17+0000\n"
+"PO-Revision-Date: 2023-04-12 08:19+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -249,10 +250,8 @@ msgid "Repeat"
 msgstr "Repetir"
 
 #: data/ui/alarm-face.ui:14
-#, fuzzy
-#| msgid "Add A_larm"
 msgid "Add A_larm…"
-msgstr "Añadir a_larma"
+msgstr "Añadir a_larma…"
 
 #: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:128
 msgid "Stop"
@@ -394,32 +393,24 @@ msgid "0"
 msgstr "0"
 
 #: data/ui/window.ui:45
-#, fuzzy
-#| msgid "World"
 msgid "_World"
-msgstr "Mundo"
+msgstr "_Mundo"
 
 #: data/ui/window.ui:56
 msgid "Ala_rms"
-msgstr ""
+msgstr "Ala_rmas"
 
 #: data/ui/window.ui:67
-#, fuzzy
-#| msgid "Stopwatch"
 msgid "_Stopwatch"
-msgstr "Cronómetro"
+msgstr "_Cronómetro"
 
 #: data/ui/window.ui:78
-#, fuzzy
-#| msgid "Timer"
 msgid "_Timer"
-msgstr "Temporizador"
+msgstr "_Temporizador"
 
 #: data/ui/world-face.ui:15
-#, fuzzy
-#| msgid "_Add World Clock"
 msgid "_Add World Clock…"
-msgstr "_Añadir un reloj mundial"
+msgstr "_Añadir un reloj mundial…"
 
 #: data/ui/world-location-dialog.ui:4
 msgid "Add a New World Clock"
@@ -542,9 +533,7 @@ msgstr "Zona horaria actual"
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
 #: src/utils.vala:66
-#, fuzzy, c-format
-#| msgid "%s hour earlier"
-#| msgid_plural "%s hours earlier"
+#, c-format
 msgid "%s hour behind"
 msgid_plural "%s hours behind"
 msgstr[0] "%s hora antes"
@@ -553,9 +542,7 @@ msgstr[1] "%s horas antes"
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
 #: src/utils.vala:72
-#, fuzzy, c-format
-#| msgid "%s hour later"
-#| msgid_plural "%s hours later"
+#, c-format
 msgid "%s hour ahead"
 msgid_plural "%s hours ahead"
 msgstr[0] "%s hora después"
