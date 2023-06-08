@@ -14,9 +14,8 @@
         <child>
           <object class="AdwNavigationPage" id="main_page">
             <child>
-              <object class="GtkBox">
-                <property name="orientation">vertical</property>
-                <child>
+              <object class="AdwToolbarView">
+                <child type="top">
                   <object class="ClocksHeaderBar" id="header_bar">
                     <property name="stack">stack</property>
                     <property name="switcher_bar">switcher_bar</property>
@@ -73,7 +72,7 @@
                     </child>
                   </object>
                 </child>
-                <child>
+                <child type="bottom">
                   <object class="AdwViewSwitcherBar" id="switcher_bar">
                     <property name="stack">stack</property>
                     <binding name="reveal">
