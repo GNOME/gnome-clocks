@@ -21,82 +21,88 @@
           </object>
         </child>
         <child>
-          <object class="AdwLeaflet" id="world_leaflet">
-            <property name="can-unfold">False</property>
-            <property name="can-navigate-back">True</property>
-            <signal name="notify::visible-child" handler="visible_child_changed"/>
+          <object class="AdwNavigationView" id="world_leaflet">
+            <signal name="notify::visible-page" handler="visible_child_changed"/>
             <child>
-              <object class="GtkBox" id="main_view">
-                <property name="orientation">vertical</property>
+              <object class="AdwNavigationPage" id="main_page">
                 <child>
-                  <object class="ClocksHeaderBar" id="header_bar">
-                    <property name="stack">stack</property>
-                    <property name="switcher_bar">switcher_bar</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="AdwViewStack" id="stack">
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
-                    <signal name="notify::visible-child" handler="pane_changed" swapped="no"/>
+                  <object class="GtkBox">
+                    <property name="orientation">vertical</property>
                     <child>
-                      <object class="AdwViewStackPage">
-                        <property name="name">world</property>
-                        <property name="title" translatable="yes">_World</property>
-                        <property name="use-underline">True</property>
-                        <property name="icon-name">globe-symbolic</property>
-                        <property name="child">
-                          <object class="ClocksWorldFace" id="world"/>
-                        </property>
+                      <object class="ClocksHeaderBar" id="header_bar">
+                        <property name="stack">stack</property>
+                        <property name="switcher_bar">switcher_bar</property>
                       </object>
                     </child>
                     <child>
-                      <object class="AdwViewStackPage">
-                        <property name="name">alarm</property>
-                        <property name="title" translatable="yes">Ala_rms</property>
-                        <property name="use-underline">True</property>
-                        <property name="icon-name">alarm-symbolic</property>
-                        <property name="child">
-                          <object class="ClocksAlarmFace" id="alarm"/>
-                        </property>
+                      <object class="AdwViewStack" id="stack">
+                        <property name="hexpand">True</property>
+                        <property name="vexpand">True</property>
+                        <signal name="notify::visible-child" handler="pane_changed" swapped="no"/>
+                        <child>
+                          <object class="AdwViewStackPage">
+                            <property name="name">world</property>
+                            <property name="title" translatable="yes">_World</property>
+                            <property name="use-underline">True</property>
+                            <property name="icon-name">globe-symbolic</property>
+                            <property name="child">
+                              <object class="ClocksWorldFace" id="world"/>
+                            </property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwViewStackPage">
+                            <property name="name">alarm</property>
+                            <property name="title" translatable="yes">Ala_rms</property>
+                            <property name="use-underline">True</property>
+                            <property name="icon-name">alarm-symbolic</property>
+                            <property name="child">
+                              <object class="ClocksAlarmFace" id="alarm"/>
+                            </property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwViewStackPage">
+                            <property name="name">stopwatch</property>
+                            <property name="title" translatable="yes">_Stopwatch</property>
+                            <property name="use-underline">True</property>
+                            <property name="icon-name">stopwatch-symbolic</property>
+                            <property name="child">
+                              <object class="ClocksStopwatchFace" id="stopwatch"/>
+                            </property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="AdwViewStackPage">
+                            <property name="name">timer</property>
+                            <property name="title" translatable="yes">_Timer</property>
+                            <property name="use-underline">True</property>
+                            <property name="icon-name">timer-symbolic</property>
+                            <property name="child">
+                              <object class="ClocksTimerFace" id="timer"/>
+                            </property>
+                          </object>
+                        </child>
                       </object>
                     </child>
                     <child>
-                      <object class="AdwViewStackPage">
-                        <property name="name">stopwatch</property>
-                        <property name="title" translatable="yes">_Stopwatch</property>
-                        <property name="use-underline">True</property>
-                        <property name="icon-name">stopwatch-symbolic</property>
-                        <property name="child">
-                          <object class="ClocksStopwatchFace" id="stopwatch"/>
-                        </property>
+                      <object class="AdwViewSwitcherBar" id="switcher_bar">
+                        <property name="stack">stack</property>
+                        <binding name="reveal">
+                          <lookup name="title-visible">header_bar</lookup>
+                        </binding>
                       </object>
                     </child>
-                    <child>
-                      <object class="AdwViewStackPage">
-                        <property name="name">timer</property>
-                        <property name="title" translatable="yes">_Timer</property>
-                        <property name="use-underline">True</property>
-                        <property name="icon-name">timer-symbolic</property>
-                        <property name="child">
-                          <object class="ClocksTimerFace" id="timer"/>
-                        </property>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-                <child>
-                  <object class="AdwViewSwitcherBar" id="switcher_bar">
-                    <property name="stack">stack</property>
-                    <binding name="reveal">
-                      <lookup name="title-visible">header_bar</lookup>
-                    </binding>
                   </object>
                 </child>
               </object>
             </child>
             <child>
-              <object class="ClocksWorldStandalone" id="world_standalone"/>
+              <object class="AdwNavigationPage" id="world_subpage">
+                <child>
+                  <object class="ClocksWorldStandalone" id="world_standalone"/>
+                </child>
+              </object>
             </child>
           </object>
         </child>
