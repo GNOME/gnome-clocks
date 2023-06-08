@@ -132,9 +132,9 @@ public class Face : Adw.Bin, Clocks.Clock {
                 alarms.delete_item (alarm);
                 save ();
             }
-            dialog.destroy ();
+            dialog.close ();
         });
-        dialog.show ();
+        dialog.present ();
     }
 
     private void reset_view () {
@@ -150,9 +150,9 @@ public class Face : Adw.Bin, Clocks.Clock {
                 alarms.add (alarm);
                 save ();
             }
-            dialog.destroy ();
+            dialog.close ();
         });
-        dialog.show ();
+        dialog.present ();
     }
 }
 
