@@ -114,9 +114,9 @@ public class Face : Adw.Bin, Clocks.Clock {
             var timer = ((SetupDialog) dialog).timer_setup.get_timer ();
             this.timers.add (timer);
             timer.start ();
-            dialog.destroy ();
+            dialog.close ();
         });
-        dialog.show ();
+        dialog.present ();
     }
 
     private void load () {
