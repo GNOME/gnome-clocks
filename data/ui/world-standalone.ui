@@ -1,136 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="ClocksWorldStandalone" parent="GtkBox">
-    <property name="orientation">vertical</property>
+  <template class="ClocksWorldStandalone" parent="AdwBin">
     <child>
-      <object class="GtkHeaderBar">
-        <property name="title-widget">
-          <object class="AdwWindowTitle">
-            <property name="title" bind-source="ClocksWorldStandalone" bind-property="title" bind-flags="sync-create" />
-            <property name="subtitle" bind-source="ClocksWorldStandalone" bind-property="subtitle" bind-flags="sync-create" />
-          </object>
-        </property>
-        <child>
-          <object class="GtkButton">
-            <property name="action_name">win.back</property>
-            <property name="tooltip-text" translatable="yes">Back</property>
-            <property name="icon_name">go-previous-symbolic</property>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="GtkGrid">
-        <property name="halign">center</property>
-        <property name="valign">center</property>
-        <property name="margin_start">34</property>
-        <property name="margin_end">34</property>
-        <property name="margin_bottom">12</property>
-        <property name="hexpand">True</property>
-        <property name="vexpand">True</property>
-        <child>
-          <object class="GtkLabel" id="dummy_label">
-            <property name="label">  </property>
-            <layout>
-              <property name="column">0</property>
-              <property name="row">1</property>
-            </layout>
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar">
+            <property name="title-widget">
+              <object class="AdwWindowTitle">
+                <property name="title" bind-source="ClocksWorldStandalone" bind-property="title" bind-flags="sync-create" />
+                <property name="subtitle" bind-source="ClocksWorldStandalone" bind-property="subtitle" bind-flags="sync-create" />
+              </object>
+            </property>
           </object>
         </child>
         <child>
-          <object class="AdwSqueezer">
-            <layout>
-              <property name="column">0</property>
-              <property name="row">0</property>
-            </layout>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
             <child>
-              <object class="GtkLabel" id="time_label">
-                <property name="justify">center</property>
-                <property name="wrap">True</property>
-                <style>
-                  <class name="clocks-standalone-label"/>
-                  <class name="numeric"/>
-                </style>
+              <object class="GtkGrid">
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="margin_start">34</property>
+                <property name="margin_end">34</property>
+                <property name="margin_bottom">12</property>
+                <property name="hexpand">True</property>
+                <property name="vexpand">True</property>
+                <child>
+                  <object class="GtkLabel" id="dummy_label">
+                    <property name="label">  </property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="AdwSqueezer">
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">0</property>
+                    </layout>
+                    <child>
+                      <object class="GtkLabel" id="time_label">
+                        <property name="justify">center</property>
+                        <property name="wrap">True</property>
+                        <style>
+                          <class name="clocks-standalone-label"/>
+                          <class name="numeric"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="time_label_small">
+                        <property name="justify">center</property>
+                        <property name="wrap">True</property>
+                        <style>
+                          <class name="clocks-standalone-label-small"/>
+                          <class name="numeric"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="day_label">
+                    <style>
+                      <class name="clocks-secondary-standalone-label"/>
+                    </style>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">2</property>
+                    </layout>
+                  </object>
+                </child>
               </object>
             </child>
             <child>
-              <object class="GtkLabel" id="time_label_small">
-                <property name="justify">center</property>
-                <property name="wrap">True</property>
+              <object class="GtkGrid">
+                <property name="halign">center</property>
+                <property name="margin_bottom">24</property>
+                <property name="column_spacing">12</property>
                 <style>
-                  <class name="clocks-standalone-label-small"/>
-                  <class name="numeric"/>
+                  <class name="clocks-secondary-standalone-label"/>
                 </style>
+                <child>
+                  <object class="GtkLabel" id="label3">
+                    <property name="label" translatable="yes">Sunrise</property>
+                    <style>
+                      <class name="dim-label"/>
+                    </style>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label4">
+                    <property name="label" translatable="yes">Sunset</property>
+                    <style>
+                      <class name="dim-label"/>
+                    </style>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="sunrise_label">
+                    <property name="label">label</property>
+                    <style>
+                      <class name="numeric"/>
+                    </style>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="sunset_label">
+                    <style>
+                      <class name="numeric"/>
+                    </style>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
               </object>
             </child>
-          </object>
-        </child>
-        <child>
-          <object class="GtkLabel" id="day_label">
-            <style>
-              <class name="clocks-secondary-standalone-label"/>
-            </style>
-            <layout>
-              <property name="column">0</property>
-              <property name="row">2</property>
-            </layout>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="GtkGrid">
-        <property name="halign">center</property>
-        <property name="margin_bottom">24</property>
-        <property name="column_spacing">12</property>
-        <style>
-          <class name="clocks-secondary-standalone-label"/>
-        </style>
-        <child>
-          <object class="GtkLabel" id="label3">
-            <property name="label" translatable="yes">Sunrise</property>
-            <style>
-              <class name="dim-label"/>
-            </style>
-            <layout>
-              <property name="column">0</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="GtkLabel" id="label4">
-            <property name="label" translatable="yes">Sunset</property>
-            <style>
-              <class name="dim-label"/>
-            </style>
-            <layout>
-              <property name="column">0</property>
-              <property name="row">1</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="GtkLabel" id="sunrise_label">
-            <property name="label">label</property>
-            <style>
-              <class name="numeric"/>
-            </style>
-            <layout>
-              <property name="column">1</property>
-              <property name="row">0</property>
-            </layout>
-          </object>
-        </child>
-        <child>
-          <object class="GtkLabel" id="sunset_label">
-            <style>
-              <class name="numeric"/>
-            </style>
-            <layout>
-              <property name="column">1</property>
-              <property name="row">1</property>
-            </layout>
           </object>
         </child>
       </object>

@@ -20,7 +20,7 @@ namespace Clocks {
 namespace World {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world-standalone.ui")]
-public class Standalone : Gtk.Box {
+public class Standalone : Adw.Bin {
     public string title { get; set; default = _("Clocks"); }
     public string subtitle { get; set; }
     public Item? location { get; set; }
