@@ -20,24 +20,31 @@
 namespace Clocks {
 namespace Timer {
 
-public class SetupDialog: Gtk.Dialog {
+[GtkTemplate (ui = "/org/gnome/clocks/ui/timer-setup-dialog.ui")]
+public class SetupDialog: Adw.Window {
     public Setup timer_setup;
 
-    public SetupDialog (Gtk.Window parent) {
-        Object (modal: true, transient_for: parent, title: _("New Timer"), use_header_bar: 1);
-        this.set_default_size (640, 360);
+    [GtkChild]
+    private unowned Gtk.Button create_button;
+    [GtkChild]
+    private unowned Adw.ToolbarView toolbar_view;
 
-        add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
-        var create_button = add_button (_("Add"), Gtk.ResponseType.ACCEPT);
-        this.set_response_sensitive (Gtk.ResponseType.ACCEPT, false);
-        create_button.add_css_class ("suggested-action");
+    public SetupDialog (Gtk.Window parent) {
+        Object (transient_for: parent);
 
         timer_setup = new Setup ();
-        this.get_content_area ().append (timer_setup);
+        toolbar_view.set_content (timer_setup);
         timer_setup.duration_changed.connect ((duration) => {
-            this.set_response_sensitive (Gtk.ResponseType.ACCEPT, duration != 0);
+            create_button.sensitive = duration != 0;
         });
     }
+
+    [GtkCallback]
+    private void create_clicked () {
+        done ();
+    }
+
+    public signal void done ();
 }
 
 } // namespace Timer

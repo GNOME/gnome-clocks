@@ -110,12 +110,10 @@ public class Face : Adw.Bin, Clocks.Clock {
 
     public void activate_new () {
         var dialog = new SetupDialog ((Gtk.Window) get_root ());
-        dialog.response.connect ((dialog, response) => {
-            if (response == Gtk.ResponseType.ACCEPT) {
-                var timer = ((SetupDialog) dialog).timer_setup.get_timer ();
-                this.timers.add (timer);
-                timer.start ();
-            }
+        dialog.done.connect ((dialog) => {
+            var timer = ((SetupDialog) dialog).timer_setup.get_timer ();
+            this.timers.add (timer);
+            timer.start ();
             dialog.destroy ();
         });
         dialog.show ();
