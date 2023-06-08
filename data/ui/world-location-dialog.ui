@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="ClocksWorldLocationDialog" parent="GtkWindow">
+  <template class="ClocksWorldLocationDialog" parent="AdwWindow">
     <property name="title" translatable="yes">Add a New World Clock</property>
     <property name="modal">True</property>
     <property name="default_width">400</property>
     <property name="default_height">540</property>
     <property name="destroy_with_parent">True</property>
-    <property name="titlebar">
-      <object class="GtkHeaderBar" id="dialog-header-bar">
-        <property name="show_title_buttons">False</property>
-        <child>
-          <object class="GtkButton">
-            <property name="label" translatable="yes">_Cancel</property>
-            <property name="use_underline">True</property>
-            <property name="valign">center</property>
-            <property name="action-name">window.close</property>
-          </object>
-        </child>
-        <child type="end">
-          <object class="GtkButton" id="button_add">
-            <property name="label" translatable="yes">_Add</property>
-            <property name="sensitive">False</property>
-            <property name="use_underline">True</property>
-            <property name="valign">center</property>
-            <signal name="clicked" handler="add_button_clicked"/>
-            <style>
-              <class name="suggested-action"/>
-            </style>
-          </object>
-        </child>
-      </object>
-    </property>
     <child>
-      <object class="GtkBox">
-        <property name="orientation">vertical</property>
-        <child>
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar" id="dialog-header-bar">
+            <property name="show_end_title_buttons">False</property>
+            <property name="show_start_title_buttons">False</property>
+            <child>
+              <object class="GtkButton">
+                <property name="label" translatable="yes">_Cancel</property>
+                <property name="use_underline">True</property>
+                <property name="valign">center</property>
+                <property name="action-name">window.close</property>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkButton" id="button_add">
+                <property name="label" translatable="yes">_Add</property>
+                <property name="sensitive">False</property>
+                <property name="use_underline">True</property>
+                <property name="valign">center</property>
+                <signal name="clicked" handler="add_button_clicked"/>
+                <style>
+                  <class name="suggested-action"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="top">
           <object class="GtkSearchBar" id="search_bar">
             <property name="search-mode-enabled">True</property>
             <signal name="notify::search-mode-enabled" handler="on_search_mode_notify" swapped="no"/>

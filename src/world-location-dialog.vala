@@ -29,7 +29,7 @@ private class ClockLocation : Object {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world-location-dialog.ui")]
-private class LocationDialog : Gtk.Window {
+private class LocationDialog : Adw.Window {
     [GtkChild]
     private unowned Gtk.Stack stack;
     [GtkChild]
