@@ -73,7 +73,7 @@ private class DurationModel : ListModel, Object {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm-setup-dialog.ui")]
-private class SetupDialog : Gtk.Dialog {
+private class SetupDialog : Adw.Window {
     private Utils.WallClock.Format format;
     [GtkChild]
     private unowned Gtk.Box time_box;
@@ -96,6 +96,10 @@ private class SetupDialog : Gtk.Dialog {
     private unowned Gtk.Revealer label_revealer;
     [GtkChild]
     private unowned Gtk.Button delete_button;
+    [GtkChild]
+    private unowned Gtk.Button ok_button;
+    [GtkChild]
+    private unowned Gtk.Shortcut shortcut;
     private List<Item> other_alarms;
     private DurationModel duration_model;
 
@@ -106,18 +110,18 @@ private class SetupDialog : Gtk.Dialog {
 
     public SetupDialog (Gtk.Window parent, Item? alarm, ListModel all_alarms) {
         Object (transient_for: parent,
-                title: alarm != null ? _("Edit Alarm") : _("New Alarm"),
-                use_header_bar: 1);
+                title: alarm != null ? _("Edit Alarm") : _("New Alarm"));
 
-        add_button (_("Cancel"), Gtk.ResponseType.CANCEL);
         if (alarm != null) {
-            add_button (_("Done"), Gtk.ResponseType.OK);
-        } else {
-            add_button (_("Add"), Gtk.ResponseType.OK);
+            ok_button.label = _("_Done");
         }
-        set_default_response (Gtk.ResponseType.OK);
 
         delete_button.visible = alarm != null;
+
+        shortcut.action = new Gtk.CallbackAction (() => {
+            response (Gtk.ResponseType.CANCEL);
+            return true;
+        });
 
         other_alarms = new List<Item> ();
         var n = all_alarms.get_n_items ();
@@ -267,7 +271,7 @@ private class SetupDialog : Gtk.Dialog {
         apply_to_alarm (alarm);
 
         var duplicate = alarm.check_duplicate_alarm (other_alarms);
-        this.set_response_sensitive (Gtk.ResponseType.OK, !duplicate);
+        ok_button.sensitive = !duplicate;
         label_revealer.set_reveal_child (duplicate);
     }
 
@@ -296,6 +300,18 @@ private class SetupDialog : Gtk.Dialog {
     private void delete () {
         response (DELETE_ALARM);
     }
+
+    [GtkCallback]
+    private void add () {
+        response (Gtk.ResponseType.OK);
+    }
+
+    [GtkCallback]
+    private void cancel () {
+        response (Gtk.ResponseType.CANCEL);
+    }
+
+    public signal void response (int response);
 }
 
 } // namespace Alarm

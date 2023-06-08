@@ -1,13 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="ClocksAlarmSetupDialog" parent="GtkDialog">
+  <template class="ClocksAlarmSetupDialog" parent="AdwWindow">
     <property name="modal">True</property>
     <property name="destroy_with_parent">True</property>
     <property name="default-width">520</property>
     <property name="default-height">580</property>
     <property name="title" translatable="yes">New Alarm</property>
-    <child internal-child="content_area">
-      <object class="GtkBox">
+    <child>
+      <object class="GtkShortcutController">
+        <property name="scope">managed</property>
+        <child>
+          <object class="GtkShortcut" id="shortcut">
+            <property name="trigger">Escape</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <property name="content">
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar">
+            <property name="show-start-title-buttons">False</property>
+            <property name="show-end-title-buttons">False</property>
+            <child>
+              <object class="GtkButton">
+                <property name="label" translatable="yes">_Cancel</property>
+                <property name="use-underline">True</property>
+                <signal name="clicked" handler="cancel" swapped="no"/>
+              </object>
+            </child>
+            <child type="end">
+              <object class="GtkButton" id="ok_button">
+                <property name="label" translatable="yes">_Add</property>
+                <property name="use-underline">True</property>
+                <signal name="clicked" handler="add" swapped="no"/>
+                <style>
+                  <class name="suggested-action"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
         <child>
           <object class="AdwClamp">
             <property name="maximum-size">450</property>
@@ -136,6 +169,6 @@
           </object>
         </child>
       </object>
-    </child>
+    </property>
   </template>
 </interface>
