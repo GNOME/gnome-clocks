@@ -13,6 +13,7 @@
         <signal name="notify::visible-page" handler="visible_page_changed"/>
         <child>
           <object class="AdwNavigationPage" id="main_page">
+            <property name="title" translatable="yes">Main View</property>
             <child>
               <object class="AdwToolbarView">
                 <child type="top">
@@ -86,6 +87,7 @@
         </child>
         <child>
           <object class="AdwNavigationPage" id="world_subpage">
+            <property name="title" translatable="yes">Clock</property>
             <child>
               <object class="ClocksWorldStandalone" id="world_standalone"/>
             </child>
@@ -93,6 +95,7 @@
         </child>
         <child>
           <object class="AdwNavigationPage" id="alarm_subpage">
+            <property name="title" translatable="yes">Alarm Ringing</property>
             <property name="can-pop">False</property>
             <child>
               <object class="ClocksAlarmRingingPanel" id="alarm_ringing_panel">
