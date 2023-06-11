@@ -103,6 +103,9 @@ public class Window : Adw.ApplicationWindow {
             Utils.WallClock.get_default ().seconds_precision = true;
             navigation_view.push (world_subpage);
         });
+        world_subpage.hidden.connect (() => {
+            Utils.WallClock.get_default ().seconds_precision = false;
+        });
 
         alarm.ring.connect ((w, a) => {
             close_standalone ();
