@@ -43,18 +43,6 @@
             </child>
             <child>
               <object class="AdwViewStackPage">
-                <property name="name">back</property>
-                <property name="child">
-                  <object class="GtkButton">
-                    <property name="action_name">win.back</property>
-                    <property name="tooltip-text" translatable="yes">Back</property>
-                    <property name="icon_name">go-previous-symbolic</property>
-                  </object>
-                </property>
-              </object>
-            </child>
-            <child>
-              <object class="AdwViewStackPage">
                 <property name="name">empty</property>
                 <property name="child">
                   <object class="AdwBin"/>

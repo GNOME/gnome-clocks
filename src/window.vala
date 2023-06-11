@@ -24,7 +24,6 @@ public class Window : Adw.ApplicationWindow {
         // primary menu
         { "show-primary-menu", on_show_primary_menu_activate },
         { "new", on_new_activate },
-        { "back", on_back_activate },
         { "help", on_help_activate },
         { "navigate-forward", on_navigate_forward },
         { "navigate-backward", on_navigate_backward },
@@ -186,11 +185,6 @@ public class Window : Adw.ApplicationWindow {
 
     private void on_new_activate () {
         ((Clock) stack.visible_child).activate_new ();
-    }
-
-    private void on_back_activate () {
-        Utils.WallClock.get_default ().seconds_precision = false;
-        navigation_view.pop ();
     }
 
     public void show_world () {
