@@ -44,10 +44,19 @@ public class Clocks.HeaderBar : Adw.Bin {
         }
     }
 
+    public Gtk.Widget title_widget {
+        get {
+            return header_bar.title_widget;
+        }
+
+        set {
+            header_bar.title_widget = value;
+        }
+    }
+
     public Adw.ViewStack stack { get; set; }
     public Adw.ViewSwitcherBar switcher_bar { get; set; }
     public string? new_label { get; set; }
-    public bool title_visible { get; set; }
 
     private ButtonMode _button_mode;
 
@@ -55,6 +64,8 @@ public class Clocks.HeaderBar : Adw.Bin {
     private unowned Adw.ViewStack start_button_stack;
     [GtkChild]
     private unowned Gtk.MenuButton menu_button;
+    [GtkChild]
+    private unowned Adw.HeaderBar header_bar;
 
     public void show_primary_menu () {
         menu_button.activate ();

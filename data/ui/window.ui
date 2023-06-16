@@ -2,7 +2,16 @@
 <interface>
   <template class="ClocksWindow" parent="AdwApplicationWindow">
     <property name="hide-on-close">True</property>
+    <property name="width-request">360</property>
+    <property name="height-request">294</property>
     <signal name="notify::is-active" handler="on_window_active"/>
+    <child>
+      <object class="AdwBreakpoint">
+        <condition>max-width: 600sp</condition>
+        <setter object="switcher_bar" property="reveal">True</setter>
+        <setter object="header_bar" property="title-widget"/>
+      </object>
+    </child>
     <child>
       <object class="GtkEventControllerKey">
         <signal name="key-pressed" handler="key_press_cb"/>
@@ -13,7 +22,7 @@
         <signal name="notify::visible-page" handler="visible_page_changed"/>
         <child>
           <object class="AdwNavigationPage" id="main_page">
-            <property name="title" translatable="yes">Main View</property>
+            <property name="title" translatable="yes">Clocks</property>
             <child>
               <object class="AdwToolbarView">
                 <child type="top">
@@ -76,9 +85,6 @@
                 <child type="bottom">
                   <object class="AdwViewSwitcherBar" id="switcher_bar">
                     <property name="stack">stack</property>
-                    <binding name="reveal">
-                      <lookup name="title-visible">header_bar</lookup>
-                    </binding>
                   </object>
                 </child>
               </object>
