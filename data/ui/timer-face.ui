@@ -8,29 +8,37 @@
           <object class="GtkStackPage">
             <property name="name">empty</property>
             <property name="child">
-              <object class="GtkBox" id="no_timer_container">
-                <property name="halign">center</property>
-                <property name="valign">center</property>
-                <property name="orientation">vertical</property>
-                <property name="spacing">18</property>
+              <object class="GtkScrolledWindow">
+                <property name="hscrollbar_policy">never</property>
                 <child>
-                  <object class="GtkLabel">
-                    <property name="label" translatable="yes">Select Duration</property>
-                    <style>
-                      <class name="timer-header"/>
-                    </style>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkButton" id="start_button">
+                  <object class="GtkBox">
                     <property name="halign">center</property>
                     <property name="valign">center</property>
-                    <property name="icon_name">media-playback-start-symbolic</property>
-                    <style>
-                      <class name="circular"/>
-                      <class name="large-button"/>
-                      <class name="suggested-action"/>
-                    </style>
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">18</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="label" translatable="yes">Select Duration</property>
+                        <style>
+                          <class name="timer-header"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="AdwBin" id="timer_bin" />
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="start_button">
+                        <property name="halign">center</property>
+                        <property name="valign">center</property>
+                        <property name="icon_name">media-playback-start-symbolic</property>
+                        <style>
+                          <class name="circular"/>
+                          <class name="large-button"/>
+                          <class name="suggested-action"/>
+                        </style>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>

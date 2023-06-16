@@ -26,11 +26,11 @@ public class Face : Adw.Bin, Clocks.Clock {
     [GtkChild]
     private unowned Gtk.ListBox timers_list;
     [GtkChild]
-    private unowned Gtk.Box no_timer_container;
-    [GtkChild]
     private unowned Gtk.Button start_button;
     [GtkChild]
     private unowned Gtk.Stack stack;
+    [GtkChild]
+    private unowned Adw.Bin timer_bin;
 
     public PanelId panel_id { get; construct set; }
     public ButtonMode button_mode { get; set; default = NONE; }
@@ -77,8 +77,7 @@ public class Face : Adw.Bin, Clocks.Clock {
         notification.set_body (_("Timer countdown finished"));
         notification.set_priority (HIGH);
 
-        var no_timer_container_first_child = no_timer_container.get_first_child ();
-        no_timer_container.insert_child_after (timer_setup, no_timer_container_first_child);
+        timer_bin.child = timer_setup;
         stack.set_visible_child_name ("empty");
 
         start_button.set_sensitive (false);
