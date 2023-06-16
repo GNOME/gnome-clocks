@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="ClocksWorldStandalone" parent="AdwBin">
+  <template class="ClocksWorldStandalone" parent="AdwBreakpointBin">
+    <property name="width-request">360</property>
+    <property name="height-request">294</property>
+    <child>
+      <object class="AdwBreakpoint">
+        <condition>max-width: 400sp</condition>
+        <setter object="stack" property="visible-child">time_label_small</setter>
+      </object>
+    </child>
     <child>
       <object class="AdwToolbarView">
         <child type="top">
@@ -20,9 +28,8 @@
               <object class="GtkGrid">
                 <property name="halign">center</property>
                 <property name="valign">center</property>
-                <property name="margin_start">34</property>
-                <property name="margin_end">34</property>
-                <property name="margin_bottom">12</property>
+                <property name="margin_start">12</property>
+                <property name="margin_end">12</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
                 <child>
@@ -35,7 +42,9 @@
                   </object>
                 </child>
                 <child>
-                  <object class="AdwSqueezer">
+                  <object class="GtkStack" id="stack">
+                    <property name="hhomogeneous">False</property>
+                    <property name="vhomogeneous">False</property>
                     <layout>
                       <property name="column">0</property>
                       <property name="row">0</property>
@@ -78,7 +87,7 @@
             <child>
               <object class="GtkGrid">
                 <property name="halign">center</property>
-                <property name="margin_bottom">24</property>
+                <property name="margin_bottom">12</property>
                 <property name="column_spacing">12</property>
                 <style>
                   <class name="clocks-secondary-standalone-label"/>
