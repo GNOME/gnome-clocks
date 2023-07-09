@@ -13,7 +13,6 @@ glib = dependency('glib-2.0', version: '>= 2.72')
 gio = dependency('gio-2.0', version: '>= 2.72')
 gobject = dependency('gobject-2.0', version: '>= 2.72')
 gtk = dependency('gtk4', version: '>= 4.5')
-gsound = dependency('gsound', version: '>=0.98')
 gweather = dependency('gweather4')
 gweather_soup_version = gweather.get_variable(pkgconfig: 'soupapiversion')
 if gweather_soup_version == '3.0'

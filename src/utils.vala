@@ -392,57 +392,38 @@ public class Weekdays {
 }
 
 public class Bell : Object {
-    private GSound.Context? gsound;
-    private GLib.Cancellable cancellable;
-    private string soundtheme;
-    private string sound;
+    private Gtk.MediaFile media_file;
 
-    public Bell (string soundid) {
-        try {
-            gsound = new GSound.Context ();
-        } catch (GLib.Error e) {
-            warning ("Sound could not be initialized, error: %s", e.message);
-        }
-
-        var settings = new GLib.Settings ("org.gnome.desktop.sound");
-        soundtheme = settings.get_string ("theme-name");
-        sound = soundid;
-        cancellable = new GLib.Cancellable ();
-    }
-
-    private async void ring_real (bool repeat) {
-        if (gsound == null) {
+    public Bell (GLib.File sound) {
+        if (sound == null) {
+            warning ("Sound is missing");
             return;
         }
 
-        if (cancellable.is_cancelled ()) {
-            cancellable.reset ();
-        }
+        media_file = Gtk.MediaFile.for_file (sound);
+        media_file.notify["prepared"].connect (() => {
+            if (!media_file.has_audio) {
+                warning ("Invalid sound");
+            }
+        });
+    }
 
-        try {
-            do {
-                yield ((GSound.Context) gsound).play_full (cancellable,
-                                                           GSound.Attribute.EVENT_ID, sound,
-                                                           GSound.Attribute.CANBERRA_XDG_THEME_NAME, soundtheme,
-                                                           GSound.Attribute.MEDIA_ROLE, "alarm");
-            } while (repeat);
-        } catch (GLib.IOError.CANCELLED e) {
-            // ignore
-        } catch (GLib.Error e) {
-            warning ("Error playing sound: %s", e.message);
-        }
+    private void ring_real (bool repeat) {
+        media_file.set_loop (repeat);
+
+        media_file.play_now ();
     }
 
     public void ring_once () {
-        ring_real.begin (false);
+        ring_real (false);
     }
 
     public void ring () {
-        ring_real.begin (true);
+        ring_real (true);
     }
 
     public void stop () {
-        cancellable.cancel ();
+        media_file.set_playing (false);
     }
 }
 
