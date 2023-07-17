@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2023-03-17 13:13+0000\n"
-"PO-Revision-Date: 2023-03-18 02:53+0330\n"
+"POT-Creation-Date: 2023-07-04 18:15+0000\n"
+"PO-Revision-Date: 2023-07-17 19:18+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
-#: src/main.vala:25 src/window.vala:287 src/window.vala:342
+#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:25
+#: src/main.vala:25 src/window.vala:286 src/window.vala:341
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "ساعت‌ها"
@@ -139,7 +139,7 @@ msgstr "صفحهٔ زمان‌سنج"
 msgid "Timer screen"
 msgstr "صفحهٔ شمارشگر"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:136 src/window.vala:289
+#: data/org.gnome.clocks.metainfo.xml.in.in:136 src/window.vala:288
 msgid "The GNOME Project"
 msgstr "پروژهٔ گنوم"
 
@@ -269,27 +269,37 @@ msgstr "حذف"
 
 #. Translators: Tooltip for the + button
 #: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:109
+#: src/alarm-setup-dialog.vala:113
 msgid "New Alarm"
 msgstr "زنگ جدید"
 
-#: data/ui/alarm-setup-dialog.ui:92
+#: data/ui/alarm-setup-dialog.ui:27 data/ui/timer-setup-dialog.ui:28
+#: data/ui/world-location-dialog.ui:17
+msgid "_Cancel"
+msgstr "_لغو"
+
+#: data/ui/alarm-setup-dialog.ui:34 data/ui/timer-setup-dialog.ui:35
+#: data/ui/world-location-dialog.ui:25
+msgid "_Add"
+msgstr "_افزودن"
+
+#: data/ui/alarm-setup-dialog.ui:125
 msgid "Name"
 msgstr "نام"
 
-#: data/ui/alarm-setup-dialog.ui:99
+#: data/ui/alarm-setup-dialog.ui:132
 msgid "Ring Duration"
 msgstr "طول زنگ"
 
-#: data/ui/alarm-setup-dialog.ui:105
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "Snooze Duration"
 msgstr "طول چُرت"
 
-#: data/ui/alarm-setup-dialog.ui:117
+#: data/ui/alarm-setup-dialog.ui:150
 msgid "You already have an alarm for this time."
 msgstr "از پیش زنگی برای این زمان دارید."
 
-#: data/ui/alarm-setup-dialog.ui:124
+#: data/ui/alarm-setup-dialog.ui:157
 msgid "R_emove Alarm"
 msgstr "_برداشتن هشدار"
 
@@ -305,15 +315,11 @@ msgstr "_راهنما"
 msgid "_About Clocks"
 msgstr "_دربارهٔ ساعت‌ها"
 
-#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:16
-msgid "Back"
-msgstr "برگشت"
-
-#: data/ui/header-bar.ui:68
+#: data/ui/header-bar.ui:54
 msgid "Menu"
 msgstr "فهرست"
 
-#: data/ui/header-bar.ui:71
+#: data/ui/header-bar.ui:57
 msgid "Main Menu"
 msgstr "فهرست اصلی"
 
@@ -333,7 +339,7 @@ msgstr "زمان"
 msgid "Difference"
 msgstr "تفاوت"
 
-#: data/ui/timer-face.ui:18
+#: data/ui/timer-face.ui:21
 msgid "Select Duration"
 msgstr "گزینش مدّت"
 
@@ -352,6 +358,11 @@ msgstr "شروع"
 #: data/ui/timer-row.ui:119
 msgid "Reset"
 msgstr "بازنشانی"
+
+#. Translators: Tooltip for the + button
+#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+msgid "New Timer"
+msgstr "شمارشگر جدید"
 
 #: data/ui/timer-setup.ui:38
 msgid "1 m"
@@ -390,21 +401,29 @@ msgstr "۱ س"
 msgid "0"
 msgstr "۰"
 
-#: data/ui/window.ui:45
+#: data/ui/window.ui:42
 msgid "_World"
 msgstr "_جهان"
 
-#: data/ui/window.ui:56
+#: data/ui/window.ui:53
 msgid "Ala_rms"
 msgstr "_هشدارها"
 
-#: data/ui/window.ui:67
+#: data/ui/window.ui:64
 msgid "_Stopwatch"
 msgstr "_زمان‌سنج"
 
-#: data/ui/window.ui:78
+#: data/ui/window.ui:75
 msgid "_Timer"
 msgstr "_شمارشگر"
+
+#: data/ui/window.ui:96
+msgid "Clock"
+msgstr "ساعت"
+
+#: data/ui/window.ui:104
+msgid "Alarm Ringing"
+msgstr "زنگ زدن هشدار"
 
 #: data/ui/world-face.ui:15
 msgid "_Add World Clock…"
@@ -414,30 +433,22 @@ msgstr "_افزودن ساعت جهانی…"
 msgid "Add a New World Clock"
 msgstr "افزودن یک ساعت جهانی جدید"
 
-#: data/ui/world-location-dialog.ui:14
-msgid "_Cancel"
-msgstr "_لغو"
-
-#: data/ui/world-location-dialog.ui:22
-msgid "_Add"
-msgstr "_افزودن"
-
 #: data/ui/world-location-dialog.ui:53
 msgid "Search for a City"
 msgstr "جست‌وجوی یک شهر"
 
-#: data/ui/world-standalone.ui:91
+#: data/ui/world-standalone.ui:97
 msgid "Sunrise"
 msgstr "طلوع"
 
-#: data/ui/world-standalone.ui:103
+#: data/ui/world-standalone.ui:109
 msgid "Sunset"
 msgstr "غروب"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:338
+#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:337
 msgid "Alarm"
 msgstr "زنگ"
 
@@ -477,21 +488,13 @@ msgstr "۲۰ دقیقه"
 msgid "30 minutes"
 msgstr "۳۰ دقیقه"
 
-#: src/alarm-setup-dialog.vala:109
+#: src/alarm-setup-dialog.vala:113
 msgid "Edit Alarm"
 msgstr "ویرایش زنگ"
 
-#: src/alarm-setup-dialog.vala:112 src/timer-setup-dialog.vala:30
-msgid "Cancel"
-msgstr "لغو"
-
-#: src/alarm-setup-dialog.vala:114
-msgid "Done"
-msgstr "پایان"
-
-#: src/alarm-setup-dialog.vala:116 src/timer-setup-dialog.vala:31
-msgid "Add"
-msgstr "افزودن"
+#: src/alarm-setup-dialog.vala:116
+msgid "_Done"
+msgstr "_انجام شد"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
@@ -509,11 +512,6 @@ msgstr "از سرگیری"
 #, c-format
 msgid "Lap %i"
 msgstr "دور %Ii"
-
-#. Translators: Tooltip for the + button
-#: src/timer-face.vala:39 src/timer-setup-dialog.vala:27
-msgid "New Timer"
-msgstr "شمارشگر جدید"
 
 #: src/timer-face.vala:76
 msgid "Time is up!"
@@ -628,7 +626,7 @@ msgstr "روزهای هفته"
 msgid "Weekends"
 msgstr "پایان‌هفته‌ها"
 
-#: src/window.vala:295
+#: src/window.vala:294
 msgid "translator-credits"
 msgstr ""
 "آرش موسوی <mousavi.arash@gmail.com>\n"
@@ -655,6 +653,18 @@ msgstr "دیروز"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "مکان کنونی"
+
+#~ msgid "Back"
+#~ msgstr "برگشت"
+
+#~ msgid "Cancel"
+#~ msgstr "لغو"
+
+#~ msgid "Done"
+#~ msgstr "پایان"
+
+#~ msgid "Add"
+#~ msgstr "افزودن"
 
 #~ msgid "Active"
 #~ msgstr "فعّال"
@@ -738,9 +748,6 @@ msgstr "مکان کنونی"
 #~ msgid "Select None"
 #~ msgstr "گزینش هیچ‌کدام"
 
-#~ msgid "_Done"
-#~ msgstr "_انجام شد"
-
 #~ msgid "Select <b>New</b> to add an alarm"
 #~ msgstr "برای افزودن زنگ «جدید» را برگزینید"
 
@@ -757,9 +764,6 @@ msgstr "مکان کنونی"
 
 #~ msgid "Configured timer duration in seconds."
 #~ msgstr "مدّت زمان پیکربندی‌شده برای شمارشگر به ثانیه."
-
-#~ msgid "Clock"
-#~ msgstr "ساعت"
 
 #~ msgctxt "Alarm"
 #~ msgid "New"
