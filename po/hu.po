@@ -9,20 +9,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2023-02-21 10:53+0000\n"
-"PO-Revision-Date: 2023-02-28 00:52+0100\n"
+"POT-Creation-Date: 2023-07-04 18:15+0000\n"
+"PO-Revision-Date: 2023-07-26 01:52+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
-"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
+"Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
-#: src/main.vala:25 src/window.vala:287 src/window.vala:342
+#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:25
+#: src/main.vala:25 src/window.vala:286 src/window.vala:341
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Órák"
@@ -140,7 +140,7 @@ msgstr "Stopper képernyő"
 msgid "Timer screen"
 msgstr "Időzítő képernyő"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:121 src/window.vala:289
+#: data/org.gnome.clocks.metainfo.xml.in.in:136 src/window.vala:288
 msgid "The GNOME Project"
 msgstr "A GNOME projekt"
 
@@ -249,7 +249,6 @@ msgid "Repeat"
 msgstr "Ismétlés"
 
 #: data/ui/alarm-face.ui:14
-#| msgid "Add A_larm"
 msgid "Add A_larm…"
 msgstr "Riasztás _hozzáadása…"
 
@@ -271,27 +270,37 @@ msgstr "Törlés"
 
 #. Translators: Tooltip for the + button
 #: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:109
+#: src/alarm-setup-dialog.vala:113
 msgid "New Alarm"
 msgstr "Új riasztás"
 
-#: data/ui/alarm-setup-dialog.ui:92
+#: data/ui/alarm-setup-dialog.ui:27 data/ui/timer-setup-dialog.ui:28
+#: data/ui/world-location-dialog.ui:17
+msgid "_Cancel"
+msgstr "_Mégse"
+
+#: data/ui/alarm-setup-dialog.ui:34 data/ui/timer-setup-dialog.ui:35
+#: data/ui/world-location-dialog.ui:25
+msgid "_Add"
+msgstr "_Hozzáadás"
+
+#: data/ui/alarm-setup-dialog.ui:125
 msgid "Name"
 msgstr "Név"
 
-#: data/ui/alarm-setup-dialog.ui:99
+#: data/ui/alarm-setup-dialog.ui:132
 msgid "Ring Duration"
 msgstr "Csengetés időtartama"
 
-#: data/ui/alarm-setup-dialog.ui:105
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "Snooze Duration"
 msgstr "Szundi időtartama"
 
-#: data/ui/alarm-setup-dialog.ui:117
+#: data/ui/alarm-setup-dialog.ui:150
 msgid "You already have an alarm for this time."
 msgstr "Már van riasztása erre az időre."
 
-#: data/ui/alarm-setup-dialog.ui:124
+#: data/ui/alarm-setup-dialog.ui:157
 msgid "R_emove Alarm"
 msgstr "Riasztás _eltávolítása"
 
@@ -307,15 +316,11 @@ msgstr "_Súgó"
 msgid "_About Clocks"
 msgstr "Az Órák _névjegye"
 
-#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:16
-msgid "Back"
-msgstr "Vissza"
-
-#: data/ui/header-bar.ui:68
+#: data/ui/header-bar.ui:54
 msgid "Menu"
 msgstr "Menü"
 
-#: data/ui/header-bar.ui:71
+#: data/ui/header-bar.ui:57
 msgid "Main Menu"
 msgstr "Főmenü"
 
@@ -335,7 +340,7 @@ msgstr "Idő"
 msgid "Difference"
 msgstr "Különbség"
 
-#: data/ui/timer-face.ui:18
+#: data/ui/timer-face.ui:21
 msgid "Select Duration"
 msgstr "Válasszon időtartamot"
 
@@ -354,6 +359,11 @@ msgstr "Indítás"
 #: data/ui/timer-row.ui:119
 msgid "Reset"
 msgstr "Visszaállítás"
+
+#. Translators: Tooltip for the + button
+#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+msgid "New Timer"
+msgstr "Új időzítő"
 
 #: data/ui/timer-setup.ui:38
 msgid "1 m"
@@ -392,27 +402,32 @@ msgstr "1 ó"
 msgid "0"
 msgstr "0"
 
-#: data/ui/window.ui:45
-#| msgid "World"
+#: data/ui/window.ui:42
 msgid "_World"
 msgstr "_Világ"
 
-#: data/ui/window.ui:56
+#: data/ui/window.ui:53
 msgid "Ala_rms"
 msgstr "_Riasztások"
 
-#: data/ui/window.ui:67
-#| msgid "Stopwatch"
+#: data/ui/window.ui:64
 msgid "_Stopwatch"
 msgstr "_Stopper"
 
-#: data/ui/window.ui:78
-#| msgid "Timer"
+#: data/ui/window.ui:75
 msgid "_Timer"
 msgstr "_Időzítő"
 
+#: data/ui/window.ui:96
+#| msgid "Clocks"
+msgid "Clock"
+msgstr "Óra"
+
+#: data/ui/window.ui:104
+msgid "Alarm Ringing"
+msgstr "Riasztás csengése"
+
 #: data/ui/world-face.ui:15
-#| msgid "_Add World Clock"
 msgid "_Add World Clock…"
 msgstr "_Világóra hozzáadása…"
 
@@ -420,30 +435,22 @@ msgstr "_Világóra hozzáadása…"
 msgid "Add a New World Clock"
 msgstr "Új világóra hozzáadása"
 
-#: data/ui/world-location-dialog.ui:14
-msgid "_Cancel"
-msgstr "_Mégse"
-
-#: data/ui/world-location-dialog.ui:22
-msgid "_Add"
-msgstr "_Hozzáadás"
-
 #: data/ui/world-location-dialog.ui:53
 msgid "Search for a City"
 msgstr "Város keresése"
 
-#: data/ui/world-standalone.ui:91
+#: data/ui/world-standalone.ui:97
 msgid "Sunrise"
 msgstr "Napkelte"
 
-#: data/ui/world-standalone.ui:103
+#: data/ui/world-standalone.ui:109
 msgid "Sunset"
 msgstr "Napnyugta"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:338
+#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:337
 msgid "Alarm"
 msgstr "Riasztás"
 
@@ -483,21 +490,14 @@ msgstr "20 perc"
 msgid "30 minutes"
 msgstr "30 perc"
 
-#: src/alarm-setup-dialog.vala:109
+#: src/alarm-setup-dialog.vala:113
 msgid "Edit Alarm"
 msgstr "Riasztás szerkesztése"
 
-#: src/alarm-setup-dialog.vala:112 src/timer-setup-dialog.vala:30
-msgid "Cancel"
-msgstr "Mégse"
-
-#: src/alarm-setup-dialog.vala:114
-msgid "Done"
-msgstr "Kész"
-
-#: src/alarm-setup-dialog.vala:116 src/timer-setup-dialog.vala:31
-msgid "Add"
-msgstr "Hozzáadás"
+#: src/alarm-setup-dialog.vala:116
+#| msgid "Done"
+msgid "_Done"
+msgstr "_Kész"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
@@ -516,11 +516,6 @@ msgstr "Folytatás"
 msgid "Lap %i"
 msgstr "%i. kör"
 
-#. Translators: Tooltip for the + button
-#: src/timer-face.vala:39 src/timer-setup-dialog.vala:27
-msgid "New Timer"
-msgstr "Új időzítő"
-
 #: src/timer-face.vala:76
 msgid "Time is up!"
 msgstr "Lejárt az idő!"
@@ -538,8 +533,6 @@ msgstr "Jelenlegi időzóna"
 #. (relative to local) the clock/location is
 #: src/utils.vala:66
 #, c-format
-#| msgid "%s hour earlier"
-#| msgid_plural "%s hours earlier"
 msgid "%s hour behind"
 msgid_plural "%s hours behind"
 msgstr[0] "%s órával korábban"
@@ -549,8 +542,6 @@ msgstr[1] "%s órával korábban"
 #. future (relative to local) the clock/location is
 #: src/utils.vala:72
 #, c-format
-#| msgid "%s hour later"
-#| msgid_plural "%s hours later"
 msgid "%s hour ahead"
 msgid_plural "%s hours ahead"
 msgstr[0] "%s órával később"
@@ -638,7 +629,7 @@ msgstr "Hétköznaponként"
 msgid "Weekends"
 msgstr "Hétvégente"
 
-#: src/window.vala:295
+#: src/window.vala:294
 msgid "translator-credits"
 msgstr ""
 "Kelemen Gábor <kelemeng at gnome dot hu>\n"
