@@ -150,6 +150,9 @@ private class LocationDialog : Adw.Window {
         switch (location.get_level ()) {
             case CITY:
                 var contains_name = location.get_sort_name ().contains (search);
+                if (!contains_name) {
+                    contains_name = location.get_english_sort_name ().to_ascii ().contains (search);
+                }
 
                 var country_name = location.get_country_name ();
                 if (country_name != null) {
