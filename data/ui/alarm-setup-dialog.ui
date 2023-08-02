@@ -68,7 +68,7 @@
                         <property name="numeric">True</property>
                         <property name="wrap">True</property>
                         <property name="width-request">60</property>
-                        <signal name="changed" handler="spinbuttons_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
+                        <signal name="value-changed" handler="spinbuttons_changed" object="ClocksAlarmSetupDialog" swapped="no"/>
                         <signal name="output" handler="show_leading_zeros"/>
                         <property name="adjustment">
                           <object class="GtkAdjustment">
@@ -93,7 +93,7 @@
                         <property name="wrap">True</property>
                         <property name="width-request">60</property>
                         <signal name="output" handler="show_leading_zeros"/>
-                        <signal name="changed" handler="spinbuttons_changed"/>
+                        <signal name="value-changed" handler="spinbuttons_changed"/>
                         <property name="adjustment">
                           <object class="GtkAdjustment">
                             <property name="upper">59</property>
