@@ -113,23 +113,7 @@ public class SearchProvider : Object {
     public async string[] get_subsearch_result_set (string[] previous_results, string[] terms) throws GLib.DBusError, GLib.IOError {
         keep_alive ();
 
-        var normalized_terms = normalize_terms (terms);
-
-        if (previous_results.length == 0) {
-            return yield search_locations (normalized_terms);
-        }
-
-        string[] result = {};
-        foreach (var str in previous_results) {
-            var location = deserialize_location (str);
-
-            if (location != null &&
-                location_matches ((GWeather.Location) location, normalized_terms)) {
-                result += (str);
-            }
-        }
-
-        return result;
+        return yield search_locations (normalize_terms (terms));
     }
 
     public HashTable<string, Variant>[] get_result_metas (string[] results) throws GLib.DBusError, GLib.IOError {
