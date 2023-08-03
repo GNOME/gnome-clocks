@@ -21,8 +21,14 @@ namespace Clocks {
 [DBus (name = "org.gnome.Shell.SearchProvider2")]
 public class SearchProvider : Object {
 
+    private GWeather.Search _search;
+
     [DBus (visible = false)]
     public signal void activate (uint32 timestamp);
+
+    construct {
+        _search = GWeather.Search.get_world ();
+    }
 
     private string[] normalize_terms (string[] terms) {
         var normalized_terms = new GenericArray<string> ();
@@ -73,44 +79,26 @@ public class SearchProvider : Object {
         }
     }
 
-    private async void search_locations_recurse (GWeather.Location location, string[] normalized_terms,
-                                                 GenericArray<GWeather.Location> matches) {
-        var loc = location.next_child (null);
-        while (loc != null) {
-            var level = loc.get_level ();
-            if (level == CITY || level == NAMED_TIMEZONE) {
-                if (location_matches (loc, normalized_terms)) {
-                    matches.add (loc);
-                }
-            }
-
-            yield search_locations_recurse (loc, normalized_terms, matches);
-            loc = location.next_child (loc);
-        }
-    }
-
     private async string[] search_locations (string[] normalized_terms) {
-        var world = GWeather.Location.get_world ();
-        var matches = new GenericArray<GWeather.Location> ();
-
-        if (world == null) {
-            return {};
-        }
-
-        yield search_locations_recurse ((GWeather.Location) world,
-                                        normalized_terms,
-                                        matches);
-
+        var matches = _search.find_matching (normalized_terms);
+        var n_items = matches.get_n_items ();
         string[] result = {};
-        matches.foreach ((location) => {
+
+        for (var i = 0; i < n_items; i++) {
+            var location = (GWeather.Location)matches.get_item (i);
+
+            if (location.get_level () < GWeather.LocationLevel.CITY)
+                continue;
+
             // FIXME: Avoid cities without children locations
             if (location.get_level () == GWeather.LocationLevel.CITY &&
                 location.next_child (null) == null) {
-                return;
+                continue;
             }
+
             // HACK: the search provider interface does not currently allow variants as result IDs
             result += serialize_location (location);
-        });
+        }
 
         return result;
     }
