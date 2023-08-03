@@ -103,6 +103,9 @@ public class Application : Adw.Application {
     protected override void startup () {
         base.startup ();
 
+        if ((get_flags () & ApplicationFlags.IS_SERVICE) != 0)
+            set_inactivity_timeout (10000);
+
         set_accels_for_action ("win.new", { "<Control>n" });
         set_accels_for_action ("win.show-primary-menu", { "F10" });
         set_accels_for_action ("win.help", { "F1" });
