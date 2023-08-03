@@ -88,15 +88,6 @@ public class SearchProvider : Object {
         for (var i = 0; i < n_items; i++) {
             var location = (GWeather.Location)matches.get_item (i);
 
-            if (location.get_level () < GWeather.LocationLevel.CITY)
-                continue;
-
-            // FIXME: Avoid cities without children locations
-            if (location.get_level () == GWeather.LocationLevel.CITY &&
-                location.next_child (null) == null) {
-                continue;
-            }
-
             // HACK: the search provider interface does not currently allow variants as result IDs
             result += serialize_location (location);
         }
