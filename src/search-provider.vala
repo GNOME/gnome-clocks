@@ -21,6 +21,7 @@ namespace Clocks {
 [DBus (name = "org.gnome.Shell.SearchProvider2")]
 public class SearchProvider : Object {
 
+    private GWeather.Location _world;
     private GWeather.Search _search;
 
     [DBus (visible = false)]
@@ -28,6 +29,7 @@ public class SearchProvider : Object {
 
     construct {
         _search = GWeather.Search.get_world ();
+        _world = GWeather.Location.get_world ();
     }
 
     private string[] normalize_terms (string[] terms) {
@@ -71,9 +73,8 @@ public class SearchProvider : Object {
             return null;
         }
 
-        var world = GWeather.Location.get_world ();
-        if (world != null) {
-            return ((GWeather.Location) world).deserialize (variant);
+        if (_world != null) {
+            return _world.deserialize (variant);
         } else {
             return null;
         }
