@@ -3,6 +3,9 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "master",
     "sdk": "org.gnome.Sdk",
+    "sdk-extensions": [
+        "org.freedesktop.Sdk.Extension.vala-nightly"
+    ],
     "command": "gnome-clocks",
     "tags": ["nightly"],
     "finish-args": [
@@ -14,6 +17,10 @@
         "--share=network",
         "--env=G_MESSAGES_DEBUG=org.gnome.ClocksDevel"
     ],
+    "build-options": {
+        "prepend-path": "/usr/lib/sdk/vala-nightly/bin/",
+        "prepend-ld-library-path": "/usr/lib/sdk/vala-nightly/lib"
+    },
     "cleanup": ["/include", "/lib/pkgconfig",
                 "/share/pkgconfig", "/share/aclocal",
                 "/man", "/share/man", "/share/gtk-doc",
