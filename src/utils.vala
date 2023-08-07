@@ -443,6 +443,7 @@ public class Weekdays {
 
 public class Bell : Object {
     private Gtk.MediaFile media_file;
+    private GLib.File file;
 
     public Bell (GLib.File sound) {
         if (sound == null) {
@@ -450,16 +451,18 @@ public class Bell : Object {
             return;
         }
 
-        media_file = Gtk.MediaFile.for_file (sound);
+        file = sound;
+    }
+
+    private void ring_real (bool repeat) {
+        media_file = Gtk.MediaFile.for_file (file);
+
+        media_file.set_loop (repeat);
         media_file.notify["prepared"].connect (() => {
             if (!media_file.has_audio) {
                 warning ("Invalid sound");
             }
         });
-    }
-
-    private void ring_real (bool repeat) {
-        media_file.set_loop (repeat);
 
         media_file.play_now ();
     }
@@ -473,7 +476,13 @@ public class Bell : Object {
     }
 
     public void stop () {
+        if (media_file == null) {
+            return;
+        }
+
         media_file.set_playing (false);
+        media_file.close ();
+        media_file = null;
     }
 }
 
