@@ -253,7 +253,14 @@ public class Window : Adw.ApplicationWindow {
     }
 
     private void on_help_activate () {
-        Gtk.show_uri (this, "help:gnome-clocks", Gdk.CURRENT_TIME);
+        Gtk.UriLauncher help_launcher = new Gtk.UriLauncher ("help:gnome-clocks");
+        help_launcher.launch.begin (this, null, (obj, res) => {
+           try {
+               help_launcher.launch.end (res);
+           } catch (Error error) {
+               warning ("Could not open help: %s", error.message);
+           }
+         });
     }
 
     private void on_about_activate () {
