@@ -75,7 +75,7 @@ private class RingingPanel : Adw.Bin {
         if (alarm != null) {
             title_label.label = (string) ((Item) alarm).name;
             if (((Item) alarm).state == SNOOZING) {
-                time_label.label = ((Item) alarm).snooze_time_label;
+                time_label.label = ((Item) alarm).ring_time_label;
             } else {
                 time_label.label = ((Item) alarm).time_label;
             }

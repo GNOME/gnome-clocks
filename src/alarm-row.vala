@@ -69,6 +69,7 @@ private class Row : Gtk.ListBoxRow {
         alarm.notify["active"].connect (update);
         alarm.notify["state"].connect (update);
         alarm.notify["time"].connect (update);
+        alarm.notify["ring_time"].connect (update);
 
         update ();
     }
@@ -81,7 +82,7 @@ private class Row : Gtk.ListBoxRow {
         }
 
         if (alarm.state == Item.State.SNOOZING) {
-            time.label = alarm.snooze_time_label;
+            time.label = alarm.ring_time_label;
         } else {
             time.label = alarm.time_label;
         }

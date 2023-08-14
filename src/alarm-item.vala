@@ -23,6 +23,10 @@ namespace Alarm {
 private struct AlarmTime {
     public int hour;
     public int minute;
+
+    public bool is_eq (AlarmTime other) {
+        return this.hour == other.hour && this.minute == other.minute;
+    }
 }
 
 private class Item : Object, ContentItem {
@@ -54,6 +58,7 @@ private class Item : Object, ContentItem {
     }
 
     public AlarmTime time { get; set; }
+    public GLib.DateTime? ring_time { get; private set; }
 
     private Utils.Weekdays? _days;
     public Utils.Weekdays? days {
@@ -71,13 +76,24 @@ private class Item : Object, ContentItem {
 
     public string time_label {
          owned get {
-            return Utils.WallClock.get_default ().format_time (alarm_time, false);
+            // FIXME: Format the time without creating GLib.DateTime
+            var wallclock = Utils.WallClock.get_default ();
+            var now = wallclock.date_time;
+            var dt = new GLib.DateTime (wallclock.timezone,
+                                        now.get_year (),
+                                        now.get_month (),
+                                        now.get_day_of_month (),
+                                        time.hour,
+                                        time.minute,
+                                        0);
+
+            return wallclock.format_time (dt, false);
          }
     }
 
-    public string snooze_time_label {
+    public string ring_time_label {
          owned get {
-            return Utils.WallClock.get_default ().format_time (snooze_time, false);
+            return Utils.WallClock.get_default ().format_time (ring_time, false);
          }
     }
 
@@ -109,9 +125,6 @@ private class Item : Object, ContentItem {
 
     private string _name;
     private bool _active = true;
-    private GLib.DateTime alarm_time;
-    private GLib.DateTime snooze_time;
-    private GLib.DateTime ring_end_time;
     private Utils.Bell bell;
     private GLib.Notification notification;
 
@@ -130,12 +143,11 @@ private class Item : Object, ContentItem {
     }
 
     public void reset () {
-        update_alarm_time ();
-        update_snooze_time (alarm_time);
+        ring_time = next_ring_time ();
         state = State.READY;
     }
 
-    private void update_alarm_time () {
+    private GLib.DateTime next_ring_time () {
         var wallclock = Utils.WallClock.get_default ();
         var now = wallclock.date_time;
         var dt = new GLib.DateTime (wallclock.timezone,
@@ -160,11 +172,7 @@ private class Item : Object, ContentItem {
             }
         }
 
-        alarm_time = dt;
-    }
-
-    private void update_snooze_time (GLib.DateTime start_time) {
-        snooze_time = start_time.add_minutes (snooze_minutes);
+        return dt;
     }
 
     public virtual signal void ring () {
@@ -174,30 +182,27 @@ private class Item : Object, ContentItem {
     }
 
     private void start_ringing (GLib.DateTime now) {
-        update_snooze_time (now);
-        ring_end_time = now.add_minutes (ring_minutes);
         state = State.RINGING;
         ring ();
     }
 
     public void snooze () {
         bell.stop ();
+        ring_time = ring_time.add_minutes (snooze_minutes);
         state = State.SNOOZING;
     }
 
     public void stop () {
         bell.stop ();
-        update_snooze_time (alarm_time);
+        ring_time = next_ring_time ();
         state = State.READY;
     }
 
     private bool compare_with_item (Item i) {
-        return (this.alarm_time.compare (i.alarm_time) == 0 && (this.active || this.editing) && i.active);
+        return (this.time.is_eq (i.time) && (this.active || this.editing) && i.active);
     }
 
     public bool check_duplicate_alarm (List<Item> alarms) {
-        update_alarm_time ();
-
         foreach (var item in alarms) {
             if (this.compare_with_item (item)) {
                 return true;
@@ -219,17 +224,12 @@ private class Item : Object, ContentItem {
         var wallclock = Utils.WallClock.get_default ();
         var now = wallclock.date_time;
 
-        if (state == State.RINGING && now.compare (ring_end_time) > 0) {
+        var ring_end_time = ring_time.add_minutes (ring_minutes);
+
+        if (now.compare (ring_end_time) > 0) {
             stop ();
-        }
-
-        if (state == State.SNOOZING && now.compare (snooze_time) > 0) {
+        } else if ((state == State.READY || state == State.SNOOZING) && now.compare (ring_time) > 0) {
             start_ringing (now);
-        }
-
-        if (state == State.READY && now.compare (alarm_time) > 0) {
-            start_ringing (now);
-            update_alarm_time (); // reschedule for the next repeat
         }
 
         return state != last_state;
@@ -242,6 +242,8 @@ private class Item : Object, ContentItem {
         builder.add ("{sv}", "active", new GLib.Variant.boolean (active));
         builder.add ("{sv}", "hour", new GLib.Variant.int32 (time.hour));
         builder.add ("{sv}", "minute", new GLib.Variant.int32 (time.minute));
+        if (ring_time != null)
+            builder.add ("{sv}", "ring_time", new GLib.Variant.string (((!) ring_time).format_iso8601 ()));
         builder.add ("{sv}", "days", ((Utils.Weekdays) days).serialize ());
         builder.add ("{sv}", "snooze_minutes", new GLib.Variant.int32 (snooze_minutes));
         builder.add ("{sv}", "ring_minutes", new GLib.Variant.int32 (ring_minutes));
@@ -256,6 +258,7 @@ private class Item : Object, ContentItem {
         bool active = true;
         int hour = -1;
         int minute = -1;
+        GLib.DateTime? ring_time = null;
         int snooze_minutes = 10;
         int ring_minutes = 5;
         Utils.Weekdays? days = null;
@@ -272,6 +275,8 @@ private class Item : Object, ContentItem {
                 hour = (int32) val;
             } else if (key == "minute") {
                 minute = (int32) val;
+            } else if (key == "ring_time") {
+                ring_time = new GLib.DateTime.from_iso8601 ((string) val, null);
             } else if (key == "days") {
                 days = Utils.Weekdays.deserialize (val);
             } else if (key == "snooze_minutes") {
@@ -286,10 +291,10 @@ private class Item : Object, ContentItem {
             alarm.name = name;
             alarm.active = active;
             alarm.time = { hour, minute };
+            alarm.ring_time = ring_time;
             alarm.days = days;
             alarm.ring_minutes = ring_minutes;
             alarm.snooze_minutes = snooze_minutes;
-            alarm.reset ();
             return alarm;
         } else {
             warning ("Invalid alarm %s", name != null ? (string) name : "[unnamed]");

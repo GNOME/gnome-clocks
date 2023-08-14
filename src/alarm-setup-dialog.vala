@@ -260,7 +260,7 @@ private class SetupDialog : Adw.Window {
         alarm.snooze_minutes = snooze_item.minutes;
         alarm.ring_minutes = ring_item.minutes;
 
-        // Force update of alarm_time before notifying the changes
+        // Force update of ring_time before notifying the changes
         alarm.reset ();
 
         alarm.thaw_notify ();

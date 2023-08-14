@@ -114,6 +114,9 @@ public class Window : Adw.ApplicationWindow {
             navigation_view.push (alarm_subpage);
         });
 
+        // Immediately check if we need to notify the user about alarms
+        Utils.WallClock.get_default ().tick ();
+
         stopwatch.notify["state"].connect ((w) => {
             var stopwatch_stack_page = stack.get_page (stopwatch);
             stopwatch_stack_page.needs_attention = (stopwatch.state == Stopwatch.Face.State.RUNNING);
