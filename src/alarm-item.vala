@@ -194,8 +194,14 @@ private class Item : Object, ContentItem {
 
     public void stop () {
         bell.stop ();
-        ring_time = next_ring_time ();
-        state = State.READY;
+
+        // Disable the alarm if it doesn't have repeat days
+        if (days == null || ((Utils.Weekdays) days).empty) {
+            active = false;
+        } else {
+            ring_time = next_ring_time ();
+            state = State.READY;
+        }
     }
 
     private bool compare_with_item (Item i) {
