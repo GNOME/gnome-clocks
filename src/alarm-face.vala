@@ -121,13 +121,11 @@ public class Face : Adw.Bin, Clocks.Clock {
     internal void edit (Item alarm) {
         var dialog = new SetupDialog ((Gtk.Window) get_root (), alarm, alarms);
 
-        // Disable alarm while editing it and remember the original active state.
-        alarm.editing = true;
-
         dialog.response.connect ((dialog, response) => {
-            alarm.editing = false;
             if (response == Gtk.ResponseType.OK) {
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
+                // Activate the alarm after editing it
+                alarm.active = true;
                 save ();
             } else if (response == DELETE_ALARM) {
                 alarms.delete_item (alarm);

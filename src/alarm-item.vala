@@ -38,8 +38,6 @@ private class Item : Object, ContentItem {
         SNOOZING
     }
 
-    public bool editing { get; set; default = false; }
-
     public string id { get; construct set; }
 
     public int snooze_minutes { get; set; default = 10; }
@@ -106,7 +104,7 @@ private class Item : Object, ContentItem {
     [CCode (notify = false)]
     public bool active {
         get {
-            return _active && !this.editing;
+            return _active;
         }
 
         set {
@@ -205,7 +203,7 @@ private class Item : Object, ContentItem {
     }
 
     private bool compare_with_item (Item i) {
-        return (this.time.is_eq (i.time) && (this.active || this.editing) && i.active);
+        return (this.time.is_eq (i.time) && this.active && i.active);
     }
 
     public bool check_duplicate_alarm (List<Item> alarms) {
