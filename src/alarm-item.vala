@@ -90,7 +90,32 @@ private class Item : Object, ContentItem {
         }
     }
 
-    public State state { get; private set; }
+    private State _state = State.READY;
+
+    [CCode (notify = false)]
+    public State state {
+        get {
+            return _state;
+        }
+        private set {
+            if (value == _state) {
+                return;
+            }
+
+            var prev_state = _state;
+            _state = value;
+
+            if (prev_state == State.RINGING) {
+                bell.stop ();
+            }
+
+            if (_state == State.RINGING) {
+                ring ();
+            }
+
+            notify_property ("state");
+        }
+    }
 
     public string time_label {
          owned get {
@@ -192,26 +217,18 @@ private class Item : Object, ContentItem {
         return dt;
     }
 
-    public virtual signal void ring () {
+    private void ring () {
         var app = (Clocks.Application) GLib.Application.get_default ();
         app.send_notification ("alarm-clock-elapsed", notification);
         bell.ring ();
     }
 
-    private void start_ringing (GLib.DateTime now) {
-        state = State.RINGING;
-        ring ();
-    }
-
     public void snooze () {
-        bell.stop ();
         ring_time = ring_time.add_minutes (snooze_minutes);
         state = State.SNOOZING;
     }
 
     public void stop () {
-        bell.stop ();
-
         // Disable the alarm if it doesn't have repeat days
         if (days == null || ((Utils.Weekdays) days).empty) {
             ring_time = null;
@@ -253,7 +270,7 @@ private class Item : Object, ContentItem {
         if (now.compare (ring_end_time) > 0) {
             stop ();
         } else if ((state == State.READY || state == State.SNOOZING) && now.compare (ring_time) > 0) {
-            start_ringing (now);
+            state = State.RINGING;
         }
 
         return state != last_state;
