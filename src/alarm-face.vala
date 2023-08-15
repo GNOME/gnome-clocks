@@ -70,7 +70,6 @@ public class Face : Adw.Bin, Clocks.Clock {
         listbox.bind_model (alarms, (item) => {
             var row = new Row ((Item) item);
 
-            item.notify["active"].connect (save);
             item.notify["ring-time"].connect (save);
 
             row.remove_alarm.connect (() => {

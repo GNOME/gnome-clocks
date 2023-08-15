@@ -66,7 +66,6 @@ private class Row : Gtk.ListBoxRow {
         Object (alarm: alarm);
 
         alarm.notify["name"].connect (update);
-        alarm.notify["active"].connect (update);
         alarm.notify["state"].connect (update);
         alarm.notify["time"].connect (update);
         alarm.notify["ring_time"].connect (update);

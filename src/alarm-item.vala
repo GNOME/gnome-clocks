@@ -56,7 +56,27 @@ private class Item : Object, ContentItem {
     }
 
     public AlarmTime time { get; set; }
-    public GLib.DateTime? ring_time { get; private set; }
+    private GLib.DateTime? _ring_time;
+
+    [CCode (notify = false)]
+    public GLib.DateTime? ring_time {
+        get {
+            return _ring_time;
+        }
+        private set {
+            if (value == _ring_time) {
+                return;
+            }
+
+            var prev_active = active;
+            _ring_time = value;
+
+            if (prev_active != active) {
+                notify_property ("active");
+            }
+            notify_property ("ring-time");
+        }
+    }
 
     private Utils.Weekdays? _days;
     public Utils.Weekdays? days {
@@ -104,25 +124,24 @@ private class Item : Object, ContentItem {
     [CCode (notify = false)]
     public bool active {
         get {
-            return _active;
+            return ring_time != null;
         }
-
         set {
-            if (value != _active) {
-                _active = value;
-
-                reset ();
-                if (!active && state == State.RINGING) {
-                    stop ();
-                }
-
-                notify_property ("active");
+            if (value == active) {
+                return;
             }
+
+            if (value) {
+                ring_time = next_ring_time ();
+            } else {
+                ring_time = null;
+            }
+
+            state = State.READY;
         }
     }
 
     private string _name;
-    private bool _active = true;
     private Utils.Bell bell;
     private GLib.Notification notification;
 
@@ -195,11 +214,12 @@ private class Item : Object, ContentItem {
 
         // Disable the alarm if it doesn't have repeat days
         if (days == null || ((Utils.Weekdays) days).empty) {
-            active = false;
+            ring_time = null;
         } else {
             ring_time = next_ring_time ();
-            state = State.READY;
         }
+
+        state = State.READY;
     }
 
     private bool compare_with_item (Item i) {
@@ -243,7 +263,6 @@ private class Item : Object, ContentItem {
         builder.open (new GLib.VariantType ("a{sv}"));
         builder.add ("{sv}", "name", new GLib.Variant.string ((string) name));
         builder.add ("{sv}", "id", new GLib.Variant.string (id));
-        builder.add ("{sv}", "active", new GLib.Variant.boolean (active));
         builder.add ("{sv}", "hour", new GLib.Variant.int32 (time.hour));
         builder.add ("{sv}", "minute", new GLib.Variant.int32 (time.minute));
         if (ring_time != null)
@@ -259,7 +278,7 @@ private class Item : Object, ContentItem {
         Variant val;
         string? name = null;
         string? id = null;
-        bool active = true;
+        bool active = false;
         int hour = -1;
         int minute = -1;
         GLib.DateTime? ring_time = null;
@@ -293,9 +312,13 @@ private class Item : Object, ContentItem {
         if (hour >= 0 && minute >= 0) {
             Item alarm = new Item (id);
             alarm.name = name;
-            alarm.active = active;
             alarm.time = { hour, minute };
-            alarm.ring_time = ring_time;
+            // Keep compatibility with older versions
+            if (active && ring_time == null) {
+                alarm.active = true;
+            } else {
+                alarm.ring_time = ring_time;
+            }
             alarm.days = days;
             alarm.ring_minutes = ring_minutes;
             alarm.snooze_minutes = snooze_minutes;
