@@ -33,6 +33,8 @@ public class Window : Adw.ApplicationWindow {
     [GtkChild]
     private unowned HeaderBar header_bar;
     [GtkChild]
+    private unowned Adw.ToastOverlay toast_overlay;
+    [GtkChild]
     private unowned Adw.NavigationView navigation_view;
     [GtkChild]
     private unowned Adw.NavigationPage main_page;
@@ -404,6 +406,10 @@ public class Window : Adw.ApplicationWindow {
             var page = param.get_string ();
             stack.visible_child_name = page;
         }
+    }
+
+    public void add_toast (Adw.Toast toast) {
+        toast_overlay.add_toast (toast);
     }
 }
 

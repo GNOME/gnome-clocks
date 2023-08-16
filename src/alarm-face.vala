@@ -37,6 +37,8 @@ public class Face : Adw.Bin, Clocks.Clock {
     private unowned Gtk.ScrolledWindow list_view;
     [GtkChild]
     private unowned Gtk.Stack stack;
+    private Adw.Toast? ring_time_toast;
+    private Alarm.Item? ring_time_toast_alarm;
 
     construct {
         panel_id = ALARM;
@@ -70,10 +72,17 @@ public class Face : Adw.Bin, Clocks.Clock {
         listbox.bind_model (alarms, (item) => {
             var row = new Row ((Item) item);
 
-            item.notify["ring-time"].connect (save);
+            item.notify["ring-time"].connect (() => {
+                show_ring_time_toast ((Item) item);
+                save ();
+            });
 
             row.remove_alarm.connect (() => {
                 alarms.delete_item ((Item) item);
+                if (ring_time_toast != null && item == ring_time_toast_alarm) {
+                    ring_time_toast_alarm = null;
+                    ring_time_toast.dismiss ();
+                }
                 save ();
             });
 
@@ -117,6 +126,43 @@ public class Face : Adw.Bin, Clocks.Clock {
         settings.set_value ("alarms", alarms.serialize ());
     }
 
+    private void show_ring_time_toast (Item alarm) {
+        if (alarm.ring_time == null) {
+            return;
+        }
+
+        var window = (Clocks.Window) get_root ();
+        var now = new GLib.DateTime.now ();
+        var time_left_string = Utils.format_time_span (alarm.ring_time.difference (now));
+        if (ring_time_toast == null) {
+            ring_time_toast = new Adw.Toast ("");
+        } else {
+            ring_time_toast.dismiss ();
+        }
+
+        ring_time_toast.set_title (_("Alarm set for %s from now").printf (time_left_string));
+        ring_time_toast_alarm = alarm;
+
+        ulong handler_id1 = 0;
+        ulong handler_id2 = 0;
+        handler_id1 = ring_time_toast.dismissed.connect (() => {
+            if (alarm == ring_time_toast_alarm) {
+                ring_time_toast_alarm = null;
+            }
+            ring_time_toast.disconnect (handler_id1);
+            alarm.disconnect (handler_id2);
+        });
+
+        handler_id2 = alarm.notify["active"].connect (() => {
+            if (alarm == ring_time_toast_alarm && !alarm.active) {
+                ring_time_toast.dismiss ();
+                ring_time_toast_alarm = null;
+            }
+        });
+
+        window.add_toast (ring_time_toast);
+    }
+
     internal void edit (Item alarm) {
         var dialog = new SetupDialog ((Gtk.Window) get_root (), alarm, alarms);
 
@@ -146,6 +192,8 @@ public class Face : Adw.Bin, Clocks.Clock {
                 var alarm = new Item ();
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
                 alarms.add (alarm);
+                // We need to send the toast manually since the ring time doesn't change
+                show_ring_time_toast (alarm);
                 save ();
             }
             dialog.close ();
