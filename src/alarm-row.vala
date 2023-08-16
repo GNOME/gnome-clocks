@@ -101,6 +101,19 @@ private class Row : Gtk.ListBoxRow {
             }
         }
 
+        if (alarm.state == Item.State.MISSED) {
+            if (label != null && ((string) label).length > 0) {
+                // Translators: The alarm titled %s was "missed"
+                label = _("Alarm %s was missed").printf ((string) label);
+            } else {
+                label = _("Alarm was missed");
+            }
+
+            title.add_css_class ("error");
+        } else {
+            title.remove_css_class ("error");
+        }
+
         title.label = (string) label;
     }
 

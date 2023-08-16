@@ -30,12 +30,11 @@ private struct AlarmTime {
 }
 
 private class Item : Object, ContentItem {
-    // FIXME: should we add a "MISSED" state where the alarm stopped
-    // ringing but we keep showing the ringing panel?
     public enum State {
         READY,
         RINGING,
-        SNOOZING
+        SNOOZING,
+        MISSED
     }
 
     public string id { get; construct set; }
@@ -228,7 +227,7 @@ private class Item : Object, ContentItem {
         state = State.SNOOZING;
     }
 
-    public void stop () {
+    public void stop (bool missed = false) {
         // Disable the alarm if it doesn't have repeat days
         if (days == null || ((Utils.Weekdays) days).empty) {
             ring_time = null;
@@ -236,7 +235,11 @@ private class Item : Object, ContentItem {
             ring_time = next_ring_time ();
         }
 
-        state = State.READY;
+        if (missed) {
+            state = State.MISSED;
+        } else {
+            state = State.READY;
+        }
     }
 
     private bool compare_with_item (Item i) {
@@ -268,8 +271,8 @@ private class Item : Object, ContentItem {
         var ring_end_time = ring_time.add_minutes (ring_minutes);
 
         if (now.compare (ring_end_time) > 0) {
-            stop ();
-        } else if ((state == State.READY || state == State.SNOOZING) && now.compare (ring_time) > 0) {
+            stop (true);
+        } else if ((state != State.RINGING) && now.compare (ring_time) > 0) {
             state = State.RINGING;
         }
 
