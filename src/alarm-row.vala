@@ -80,11 +80,7 @@ private class Row : Gtk.ListBoxRow {
             remove_css_class ("active");
         }
 
-        if (alarm.state == Item.State.SNOOZING) {
-            time.label = alarm.ring_time_label;
-        } else {
-            time.label = alarm.time_label;
-        }
+        time.label = alarm.time_label;
 
         var label = alarm.name;
 
@@ -98,10 +94,10 @@ private class Row : Gtk.ListBoxRow {
         if (alarm.state == Item.State.SNOOZING) {
             if (label != null && ((string) label).length > 0) {
                 // Translators: The alarm for the time %s titled %s has been "snoozed"
-                label = _("Snoozed from %s: %s").printf (alarm.time_label, (string) label);
+                label = _("%s: Snoozed untill %s").printf ((string) label, alarm.ring_time_label);
             } else {
                 // Translators: %s is a time
-                label = _("Snoozed from %s").printf (alarm.time_label);
+                label = _("Snoozed untill %s").printf (alarm.ring_time_label);
             }
         }
 
