@@ -7,20 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2023-02-28 12:09+0000\n"
-"PO-Revision-Date: 2023-03-02 23:50+0100\n"
-"Last-Translator: Marek Černocký <marek@manet.cz>\n"
+"POT-Creation-Date: 2023-08-10 13:14+0000\n"
+"PO-Revision-Date: 2023-08-31 15:28+0200\n"
+"Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
-#: src/main.vala:25 src/window.vala:287 src/window.vala:342
+#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:25
+#: src/main.vala:25 src/window.vala:286 src/window.vala:341
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Hodiny"
@@ -139,7 +139,7 @@ msgstr "Obrazovka se stopkami"
 msgid "Timer screen"
 msgstr "Obrazovka s odpočtem"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:121 src/window.vala:289
+#: data/org.gnome.clocks.metainfo.xml.in.in:136 src/window.vala:288
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -269,27 +269,37 @@ msgstr "Smazat"
 
 #. Translators: Tooltip for the + button
 #: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:109
+#: src/alarm-setup-dialog.vala:113
 msgid "New Alarm"
 msgstr "Nové budík"
 
-#: data/ui/alarm-setup-dialog.ui:92
+#: data/ui/alarm-setup-dialog.ui:27 data/ui/timer-setup-dialog.ui:28
+#: data/ui/world-location-dialog.ui:17
+msgid "_Cancel"
+msgstr "_Zrušit"
+
+#: data/ui/alarm-setup-dialog.ui:34 data/ui/timer-setup-dialog.ui:35
+#: data/ui/world-location-dialog.ui:25
+msgid "_Add"
+msgstr "Přid_at"
+
+#: data/ui/alarm-setup-dialog.ui:125
 msgid "Name"
 msgstr "Název"
 
-#: data/ui/alarm-setup-dialog.ui:99
+#: data/ui/alarm-setup-dialog.ui:132
 msgid "Ring Duration"
 msgstr "Délka zvonění"
 
-#: data/ui/alarm-setup-dialog.ui:105
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "Snooze Duration"
 msgstr "Délka spánku"
 
-#: data/ui/alarm-setup-dialog.ui:117
+#: data/ui/alarm-setup-dialog.ui:150
 msgid "You already have an alarm for this time."
 msgstr "Na tento čas už budík nastavené máte."
 
-#: data/ui/alarm-setup-dialog.ui:124
+#: data/ui/alarm-setup-dialog.ui:157
 msgid "R_emove Alarm"
 msgstr "Od_ebrat budík"
 
@@ -305,15 +315,11 @@ msgstr "Nápo_věda"
 msgid "_About Clocks"
 msgstr "O _aplikaci Hodiny"
 
-#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:16
-msgid "Back"
-msgstr "Zpět"
-
-#: data/ui/header-bar.ui:68
+#: data/ui/header-bar.ui:54
 msgid "Menu"
 msgstr "Nabídka"
 
-#: data/ui/header-bar.ui:71
+#: data/ui/header-bar.ui:57
 msgid "Main Menu"
 msgstr "Hlavní nabídka"
 
@@ -333,7 +339,7 @@ msgstr "Čas"
 msgid "Difference"
 msgstr "Rozdíl"
 
-#: data/ui/timer-face.ui:18
+#: data/ui/timer-face.ui:21
 msgid "Select Duration"
 msgstr "Vyberte dobu"
 
@@ -352,6 +358,11 @@ msgstr "Start"
 #: data/ui/timer-row.ui:119
 msgid "Reset"
 msgstr "Vynulovat"
+
+#. Translators: Tooltip for the + button
+#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+msgid "New Timer"
+msgstr "Nový odpočet"
 
 #: data/ui/timer-setup.ui:38
 msgid "1 m"
@@ -390,21 +401,29 @@ msgstr "1 h"
 msgid "0"
 msgstr "0"
 
-#: data/ui/window.ui:45
+#: data/ui/window.ui:42
 msgid "_World"
 msgstr "S_vět"
 
-#: data/ui/window.ui:56
+#: data/ui/window.ui:53
 msgid "Ala_rms"
 msgstr "_Budík"
 
-#: data/ui/window.ui:67
+#: data/ui/window.ui:64
 msgid "_Stopwatch"
 msgstr "_Stopky"
 
-#: data/ui/window.ui:78
+#: data/ui/window.ui:75
 msgid "_Timer"
 msgstr "Odpoče_t"
+
+#: data/ui/window.ui:96
+msgid "Clock"
+msgstr "Hodiny"
+
+#: data/ui/window.ui:104
+msgid "Alarm Ringing"
+msgstr "Vyzvánění budíku"
 
 #: data/ui/world-face.ui:15
 msgid "_Add World Clock…"
@@ -414,30 +433,22 @@ msgstr "Přid_at světový čas…"
 msgid "Add a New World Clock"
 msgstr "Přidání nového světového času"
 
-#: data/ui/world-location-dialog.ui:14
-msgid "_Cancel"
-msgstr "_Zrušit"
-
-#: data/ui/world-location-dialog.ui:22
-msgid "_Add"
-msgstr "Přid_at"
-
 #: data/ui/world-location-dialog.ui:53
 msgid "Search for a City"
 msgstr "Hledat město"
 
-#: data/ui/world-standalone.ui:91
+#: data/ui/world-standalone.ui:97
 msgid "Sunrise"
 msgstr "Východ slunce"
 
-#: data/ui/world-standalone.ui:103
+#: data/ui/world-standalone.ui:109
 msgid "Sunset"
 msgstr "Západ slunce"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:338
+#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:337
 msgid "Alarm"
 msgstr "Budík"
 
@@ -477,21 +488,13 @@ msgstr "20 minut"
 msgid "30 minutes"
 msgstr "30 minut"
 
-#: src/alarm-setup-dialog.vala:109
+#: src/alarm-setup-dialog.vala:113
 msgid "Edit Alarm"
 msgstr "Změna budíku"
 
-#: src/alarm-setup-dialog.vala:112 src/timer-setup-dialog.vala:30
-msgid "Cancel"
-msgstr "Zrušit"
-
-#: src/alarm-setup-dialog.vala:114
-msgid "Done"
-msgstr "Hotovo"
-
-#: src/alarm-setup-dialog.vala:116 src/timer-setup-dialog.vala:31
-msgid "Add"
-msgstr "Přidat"
+#: src/alarm-setup-dialog.vala:116
+msgid "_Done"
+msgstr "_Hotovo"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
@@ -509,11 +512,6 @@ msgstr "Pokračovat"
 #, c-format
 msgid "Lap %i"
 msgstr "%i. mezičas"
-
-#. Translators: Tooltip for the + button
-#: src/timer-face.vala:39 src/timer-setup-dialog.vala:27
-msgid "New Timer"
-msgstr "Nový odpočet"
 
 #: src/timer-face.vala:76
 msgid "Time is up!"
@@ -630,7 +628,7 @@ msgstr "Pracovní dny"
 msgid "Weekends"
 msgstr "Víkendy"
 
-#: src/window.vala:295
+#: src/window.vala:294
 msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>"
 
@@ -655,3 +653,12 @@ msgstr "Včera"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Současné místo"
+
+#~ msgid "Back"
+#~ msgstr "Zpět"
+
+#~ msgid "Cancel"
+#~ msgstr "Zrušit"
+
+#~ msgid "Add"
+#~ msgstr "Přidat"
