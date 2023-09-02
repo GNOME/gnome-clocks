@@ -18,9 +18,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2023-02-28 12:09+0000\n"
-"PO-Revision-Date: 2023-03-03 03:01+0900\n"
-"Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
+"POT-Creation-Date: 2023-08-10 13:14+0000\n"
+"PO-Revision-Date: 2023-08-27 02:07+0900\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: 한국어 <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
@@ -30,8 +30,8 @@ msgstr ""
 "X-Generator: Poedit 2.3.1\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
-#: src/main.vala:25 src/window.vala:287 src/window.vala:342
+#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:25
+#: src/main.vala:25 src/window.vala:286 src/window.vala:341
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "시계"
@@ -44,8 +44,8 @@ msgstr "세계 시계, 알림, 초시계, 타이머 기능이 있는 시계"
 #: data/org.gnome.clocks.desktop.in.in:8
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
-"time;시간;timer;타이머;alarm;알람;알림;world clock;세계 시계;stopwatch;스톱워"
-"치;초시계;time zone;시간대;"
+"time;시간;timer;타이머;alarm;알람;알림;world clock;세계 시계;stopwatch;스톱"
+"워치;초시계;time zone;시간대;"
 
 #: data/org.gnome.clocks.desktop.in.in:18
 msgid "Allows world clocks to be displayed for your time zone."
@@ -151,7 +151,7 @@ msgstr "스톱워치 화면"
 msgid "Timer screen"
 msgstr "타이머 화면"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:121 src/window.vala:289
+#: data/org.gnome.clocks.metainfo.xml.in.in:136 src/window.vala:288
 msgid "The GNOME Project"
 msgstr "그놈 프로젝트"
 
@@ -281,27 +281,37 @@ msgstr "삭제"
 
 #. Translators: Tooltip for the + button
 #: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:109
+#: src/alarm-setup-dialog.vala:113
 msgid "New Alarm"
 msgstr "새 알림"
 
-#: data/ui/alarm-setup-dialog.ui:92
+#: data/ui/alarm-setup-dialog.ui:27 data/ui/timer-setup-dialog.ui:28
+#: data/ui/world-location-dialog.ui:17
+msgid "_Cancel"
+msgstr "취소(_C)"
+
+#: data/ui/alarm-setup-dialog.ui:34 data/ui/timer-setup-dialog.ui:35
+#: data/ui/world-location-dialog.ui:25
+msgid "_Add"
+msgstr "추가(_A)"
+
+#: data/ui/alarm-setup-dialog.ui:125
 msgid "Name"
 msgstr "이름"
 
-#: data/ui/alarm-setup-dialog.ui:99
+#: data/ui/alarm-setup-dialog.ui:132
 msgid "Ring Duration"
 msgstr "알림 지속 시간"
 
-#: data/ui/alarm-setup-dialog.ui:105
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "Snooze Duration"
 msgstr "다시 알림 지연"
 
-#: data/ui/alarm-setup-dialog.ui:117
+#: data/ui/alarm-setup-dialog.ui:150
 msgid "You already have an alarm for this time."
 msgstr "이미 알림을 설정했습니다."
 
-#: data/ui/alarm-setup-dialog.ui:124
+#: data/ui/alarm-setup-dialog.ui:157
 msgid "R_emove Alarm"
 msgstr "알림 제거(_E)"
 
@@ -317,15 +327,11 @@ msgstr "도움말(_H)"
 msgid "_About Clocks"
 msgstr "시계 정보(_A)"
 
-#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:16
-msgid "Back"
-msgstr "뒤로"
-
-#: data/ui/header-bar.ui:68
+#: data/ui/header-bar.ui:54
 msgid "Menu"
 msgstr "메뉴"
 
-#: data/ui/header-bar.ui:71
+#: data/ui/header-bar.ui:57
 msgid "Main Menu"
 msgstr "주 메뉴"
 
@@ -345,7 +351,7 @@ msgstr "시간"
 msgid "Difference"
 msgstr "차이"
 
-#: data/ui/timer-face.ui:18
+#: data/ui/timer-face.ui:21
 msgid "Select Duration"
 msgstr "시간 간격 선택"
 
@@ -364,6 +370,11 @@ msgstr "시작"
 #: data/ui/timer-row.ui:119
 msgid "Reset"
 msgstr "초기화"
+
+#. Translators: Tooltip for the + button
+#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+msgid "New Timer"
+msgstr "새 타이머"
 
 #: data/ui/timer-setup.ui:38
 msgid "1 m"
@@ -402,21 +413,29 @@ msgstr "1시간"
 msgid "0"
 msgstr "0"
 
-#: data/ui/window.ui:45
+#: data/ui/window.ui:42
 msgid "_World"
 msgstr "세계시계(_W)"
 
-#: data/ui/window.ui:56
+#: data/ui/window.ui:53
 msgid "Ala_rms"
 msgstr "알림(_R)"
 
-#: data/ui/window.ui:67
+#: data/ui/window.ui:64
 msgid "_Stopwatch"
 msgstr "스톱워치(_S)"
 
-#: data/ui/window.ui:78
+#: data/ui/window.ui:75
 msgid "_Timer"
 msgstr "타이머(_T)"
+
+#: data/ui/window.ui:96
+msgid "Clock"
+msgstr "시계"
+
+#: data/ui/window.ui:104
+msgid "Alarm Ringing"
+msgstr "알림 소리 울리기"
 
 #: data/ui/world-face.ui:15
 msgid "_Add World Clock…"
@@ -426,30 +445,22 @@ msgstr "세계 시계 추가(_A)…"
 msgid "Add a New World Clock"
 msgstr "새 세계 시계 추가"
 
-#: data/ui/world-location-dialog.ui:14
-msgid "_Cancel"
-msgstr "취소(_C)"
-
-#: data/ui/world-location-dialog.ui:22
-msgid "_Add"
-msgstr "추가(_A)"
-
 #: data/ui/world-location-dialog.ui:53
 msgid "Search for a City"
 msgstr "도시 검색"
 
-#: data/ui/world-standalone.ui:91
+#: data/ui/world-standalone.ui:97
 msgid "Sunrise"
 msgstr "일출"
 
-#: data/ui/world-standalone.ui:103
+#: data/ui/world-standalone.ui:109
 msgid "Sunset"
 msgstr "일몰"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:338
+#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:337
 msgid "Alarm"
 msgstr "알림"
 
@@ -489,21 +500,13 @@ msgstr "20분"
 msgid "30 minutes"
 msgstr "30분"
 
-#: src/alarm-setup-dialog.vala:109
+#: src/alarm-setup-dialog.vala:113
 msgid "Edit Alarm"
 msgstr "알림 편집"
 
-#: src/alarm-setup-dialog.vala:112 src/timer-setup-dialog.vala:30
-msgid "Cancel"
-msgstr "취소"
-
-#: src/alarm-setup-dialog.vala:114
-msgid "Done"
-msgstr "완료"
-
-#: src/alarm-setup-dialog.vala:116 src/timer-setup-dialog.vala:31
-msgid "Add"
-msgstr "추가"
+#: src/alarm-setup-dialog.vala:116
+msgid "_Done"
+msgstr "완료(_D)"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
@@ -523,11 +526,6 @@ msgstr "재개"
 #, c-format
 msgid "Lap %i"
 msgstr "랩 %i"
-
-#. Translators: Tooltip for the + button
-#: src/timer-face.vala:39 src/timer-setup-dialog.vala:27
-msgid "New Timer"
-msgstr "새 타이머"
 
 #: src/timer-face.vala:76
 msgid "Time is up!"
@@ -640,7 +638,7 @@ msgstr "매주"
 msgid "Weekends"
 msgstr "주말"
 
-#: src/window.vala:295
+#: src/window.vala:294
 msgid "translator-credits"
 msgstr "조성호 <shcho@gnome.org>"
 
@@ -665,6 +663,15 @@ msgstr "어제"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "현재 위치"
+
+#~ msgid "Back"
+#~ msgstr "뒤로"
+
+#~ msgid "Cancel"
+#~ msgstr "취소"
+
+#~ msgid "Add"
+#~ msgstr "추가"
 
 #~ msgid "Goals:"
 #~ msgstr "목표:"
