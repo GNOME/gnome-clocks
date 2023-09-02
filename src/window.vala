@@ -21,8 +21,6 @@ namespace Clocks {
 [GtkTemplate (ui = "/org/gnome/clocks/ui/window.ui")]
 public class Window : Adw.ApplicationWindow {
     private const GLib.ActionEntry[] ACTION_ENTRIES = {
-        // primary menu
-        { "show-primary-menu", on_show_primary_menu_activate },
         { "new", on_new_activate },
         { "help", on_help_activate },
         { "navigate-forward", on_navigate_forward },
@@ -185,10 +183,6 @@ public class Window : Adw.ApplicationWindow {
     [Signal (action = true)]
     public virtual signal void set_page (string page) {
         stack.visible_child_name = page;
-    }
-
-    private void on_show_primary_menu_activate () {
-        header_bar.show_primary_menu ();
     }
 
     private void on_new_activate () {

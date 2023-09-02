@@ -107,7 +107,6 @@ public class Application : Adw.Application {
             set_inactivity_timeout (10000);
 
         set_accels_for_action ("win.new", { "<Control>n" });
-        set_accels_for_action ("win.show-primary-menu", { "F10" });
         set_accels_for_action ("win.help", { "F1" });
         set_accels_for_action ("app.quit", { "<Control>q" });
         set_accels_for_action ("win.navigate-backward", { "<Control><Alt>Page_Up" });
