@@ -7,26 +7,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2022-01-07 17:23+0000\n"
-"PO-Revision-Date: 2022-01-12 18:58+0100\n"
-"Last-Translator: Marek Černocký <marek@manet.cz>\n"
+"POT-Creation-Date: 2023-04-03 07:16+0000\n"
+"PO-Revision-Date: 2023-09-04 00:36+0200\n"
+"Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
-#: src/main.vala:25 src/window.vala:281 src/window.vala:336
+#: src/main.vala:25 src/window.vala:285 src/window.vala:340
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Hodiny"
 
 #: data/org.gnome.clocks.desktop.in.in:6
-#: data/org.gnome.clocks.metainfo.xml.in.in:7
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Hodiny s časy ve světě, budíkem, stopkami a odpočtem"
 
@@ -96,55 +95,51 @@ msgstr "Stav panelu"
 msgid "Current clock panel."
 msgstr "Aktuální panel s hodinami."
 
+#: data/org.gnome.clocks.metainfo.xml.in.in:7
+msgid "Keep track of time"
+msgstr "Mějte přehled o čase"
+
 #: data/org.gnome.clocks.metainfo.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
+"stopwatch, and timers."
 msgstr ""
 "Jednoduché a elegantní hodiny včetně světového času, budíku, stopek a "
 "časového odpočtu."
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:13
-msgid "Goals:"
-msgstr "Má sloužit k:"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:15
+#: data/org.gnome.clocks.metainfo.xml.in.in:14
 msgid "Show the time in different cities around the world"
 msgstr "Zobrazení času v různých městech celého světa"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:16
+#: data/org.gnome.clocks.metainfo.xml.in.in:15
 msgid "Set alarms to wake you up"
 msgstr "Nastavení budíku na daný čas"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:17
+#: data/org.gnome.clocks.metainfo.xml.in.in:16
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Měření uplynulého času na přesných stopkách"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:18
+#: data/org.gnome.clocks.metainfo.xml.in.in:17
 msgid "Set timers to properly cook your food"
 msgstr "Nastavení odpočtu času při vaření (tzv. kuchyňská minutka)"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:40
+#: data/org.gnome.clocks.metainfo.xml.in.in:39
 msgid "Initial screen"
 msgstr "Úvodní obrazovka"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:44
+#: data/org.gnome.clocks.metainfo.xml.in.in:43
 msgid "Alarms screen"
 msgstr "Obrazovka s budíkem"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:48
-msgid "Alarms setup"
-msgstr "Nastavení budíku"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:52
+#: data/org.gnome.clocks.metainfo.xml.in.in:47
 msgid "Stopwatch screen"
 msgstr "Obrazovka se stopkami"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:56
+#: data/org.gnome.clocks.metainfo.xml.in.in:51
 msgid "Timer screen"
 msgstr "Obrazovka s odpočtem"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:120
+#: data/org.gnome.clocks.metainfo.xml.in.in:120 src/window.vala:287
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -256,11 +251,11 @@ msgstr "Opakovat"
 msgid "Add A_larm"
 msgstr "Přidat _budík"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:117
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:127
 msgid "Stop"
 msgstr "Zastavit"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:118
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:128
 msgid "Snooze"
 msgstr "Ještě spát"
 
@@ -272,7 +267,7 @@ msgstr "Opakování"
 msgid "Active"
 msgstr "Zapnutý"
 
-#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:22
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Smazat"
 
@@ -282,27 +277,23 @@ msgstr "Smazat"
 msgid "New Alarm"
 msgstr "Nové budík"
 
-#: data/ui/alarm-setup-dialog.ui:94
+#: data/ui/alarm-setup-dialog.ui:92
 msgid "Name"
 msgstr "Název"
 
-#: data/ui/alarm-setup-dialog.ui:95
-msgid "Optional"
-msgstr "Volitelné"
-
-#: data/ui/alarm-setup-dialog.ui:109
+#: data/ui/alarm-setup-dialog.ui:99
 msgid "Ring Duration"
 msgstr "Délka zvonění"
 
-#: data/ui/alarm-setup-dialog.ui:116
+#: data/ui/alarm-setup-dialog.ui:105
 msgid "Snooze Duration"
 msgstr "Délka spánku"
 
-#: data/ui/alarm-setup-dialog.ui:128
+#: data/ui/alarm-setup-dialog.ui:117
 msgid "You already have an alarm for this time."
 msgstr "Na tento čas už budík nastavené máte."
 
-#: data/ui/alarm-setup-dialog.ui:135
+#: data/ui/alarm-setup-dialog.ui:124
 msgid "R_emove Alarm"
 msgstr "Od_ebrat budík"
 
@@ -318,7 +309,7 @@ msgstr "Nápo_věda"
 msgid "_About Clocks"
 msgstr "O _aplikaci Hodiny"
 
-#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:17
+#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:16
 msgid "Back"
 msgstr "Zpět"
 
@@ -334,7 +325,7 @@ msgstr "Hlavní nabídka"
 msgid "_Start"
 msgstr "_Start"
 
-#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:182
+#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:184
 msgid "Clear"
 msgstr "Vynulovat"
 
@@ -354,11 +345,11 @@ msgstr "Vyberte dobu"
 msgid "Title…"
 msgstr "Název…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:162
+#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:164
 msgid "Pause"
 msgstr "Pozastavit"
 
-#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:199
+#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:201
 msgid "Start"
 msgstr "Start"
 
@@ -403,19 +394,19 @@ msgstr "1 h"
 msgid "0"
 msgstr "0"
 
-#: data/ui/window.ui:49
+#: data/ui/window.ui:45
 msgid "World"
 msgstr "Svět"
 
-#: data/ui/window.ui:59
+#: data/ui/window.ui:55
 msgid "Alarms"
 msgstr "Budíky"
 
-#: data/ui/window.ui:69
+#: data/ui/window.ui:65
 msgid "Stopwatch"
 msgstr "Stopky"
 
-#: data/ui/window.ui:79
+#: data/ui/window.ui:75
 msgid "Timer"
 msgstr "Odpočet"
 
@@ -439,29 +430,29 @@ msgstr "Přid_at"
 msgid "Search for a City"
 msgstr "Hledat město"
 
-#: data/ui/world-standalone.ui:78
+#: data/ui/world-standalone.ui:77
 msgid "Sunrise"
 msgstr "Východ slunce"
 
-#: data/ui/world-standalone.ui:90
+#: data/ui/world-standalone.ui:89
 msgid "Sunset"
 msgstr "Západ slunce"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:332
+#: src/alarm-item.vala:124 src/alarm-row.vala:94 src/window.vala:336
 msgid "Alarm"
 msgstr "Budík"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
-#: src/alarm-row.vala:87
+#: src/alarm-row.vala:101
 #, c-format
 msgid "Snoozed from %s: %s"
 msgstr "Uspáno od %s: %s"
 
 #. Translators: %s is a time
-#: src/alarm-row.vala:90
+#: src/alarm-row.vala:104
 #, c-format
 msgid "Snoozed from %s"
 msgstr "Uspáno od %s"
@@ -510,11 +501,11 @@ msgstr "Přidat"
 msgid "Print version information and exit"
 msgstr "Vypsat informace o verzi a skončit"
 
-#: src/stopwatch-face.vala:166 src/stopwatch-face.vala:203
+#: src/stopwatch-face.vala:168 src/stopwatch-face.vala:205
 msgid "Lap"
 msgstr "Mezičas"
 
-#: src/stopwatch-face.vala:178
+#: src/stopwatch-face.vala:180
 msgid "Resume"
 msgstr "Pokračovat"
 
@@ -643,11 +634,7 @@ msgstr "Pracovní dny"
 msgid "Weekends"
 msgstr "Víkendy"
 
-#: src/window.vala:286
-msgid "Utilities to help you with the time."
-msgstr "Užitečné programy, které vám pomohu s časem."
-
-#: src/window.vala:291
+#: src/window.vala:293
 msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>"
 
@@ -658,17 +645,29 @@ msgstr "Přidat místo"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world-item.vala:144 src/world-item.vala:148
+#: src/world-item.vala:171 src/world-item.vala:175
 msgid "Tomorrow"
 msgstr "Zítra"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world-item.vala:144 src/world-item.vala:148
+#: src/world-item.vala:171 src/world-item.vala:175
 msgid "Yesterday"
 msgstr "Včera"
 
 #. Translators: This clock represents the local time
-#: src/world-row.vala:58
+#: src/world-row.vala:47
 msgid "Current location"
 msgstr "Současné místo"
+
+#~ msgid "Goals:"
+#~ msgstr "Má sloužit k:"
+
+#~ msgid "Alarms setup"
+#~ msgstr "Nastavení budíku"
+
+#~ msgid "Optional"
+#~ msgstr "Volitelné"
+
+#~ msgid "Utilities to help you with the time."
+#~ msgstr "Užitečné programy, které vám pomohu s časem."
