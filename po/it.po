@@ -1,28 +1,28 @@
 # Italian translations for gnome-clocks package
-# Copyright (C) 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022 the gnome-clocks copyright holder
+# Copyright (C) 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023 the gnome-clocks copyright holder
 # This file is distributed under the same license as the gnome-clocks package.
 # Paolo Borelli <pborelli@gnome.org>, 2012.
-# Milo Casagrande <milo@milo.name>, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022.
+# Milo Casagrande <milo@milo.name>, 2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021, 2022, 2023.
 # Gianvito Cavasoli <gianvito@gmx.it>, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2023-05-06 20:19+0000\n"
-"PO-Revision-Date: 2023-05-18 11:29+0200\n"
-"Last-Translator: Gianvito Cavasoli <gianvito@gmx.it>\n"
+"POT-Creation-Date: 2023-08-10 13:14+0000\n"
+"PO-Revision-Date: 2023-08-30 10:29+0200\n"
+"Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <gnome-it-list@gnome.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Gtranslator 42.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
-#: src/main.vala:25 src/window.vala:287 src/window.vala:342
+#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:25
+#: src/main.vala:25 src/window.vala:286 src/window.vala:341
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Orologi"
@@ -140,7 +140,7 @@ msgstr "Vista cronometro"
 msgid "Timer screen"
 msgstr "Vista timer"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:136 src/window.vala:289
+#: data/org.gnome.clocks.metainfo.xml.in.in:136 src/window.vala:288
 msgid "The GNOME Project"
 msgstr "Il progetto GNOME"
 
@@ -270,27 +270,37 @@ msgstr "Elimina"
 
 #. Translators: Tooltip for the + button
 #: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:109
+#: src/alarm-setup-dialog.vala:113
 msgid "New Alarm"
 msgstr "Nuova sveglia"
 
-#: data/ui/alarm-setup-dialog.ui:92
+#: data/ui/alarm-setup-dialog.ui:27 data/ui/timer-setup-dialog.ui:28
+#: data/ui/world-location-dialog.ui:17
+msgid "_Cancel"
+msgstr "A_nnulla"
+
+#: data/ui/alarm-setup-dialog.ui:34 data/ui/timer-setup-dialog.ui:35
+#: data/ui/world-location-dialog.ui:25
+msgid "_Add"
+msgstr "_Aggiungi"
+
+#: data/ui/alarm-setup-dialog.ui:125
 msgid "Name"
 msgstr "Nome"
 
-#: data/ui/alarm-setup-dialog.ui:99
+#: data/ui/alarm-setup-dialog.ui:132
 msgid "Ring Duration"
 msgstr "Durata suoneria"
 
-#: data/ui/alarm-setup-dialog.ui:105
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "Snooze Duration"
 msgstr "Durata ripetizione"
 
-#: data/ui/alarm-setup-dialog.ui:117
+#: data/ui/alarm-setup-dialog.ui:150
 msgid "You already have an alarm for this time."
 msgstr "Una sveglia per quest'ora è già stata impostata."
 
-#: data/ui/alarm-setup-dialog.ui:124
+#: data/ui/alarm-setup-dialog.ui:157
 msgid "R_emove Alarm"
 msgstr "R_imuovi sveglia"
 
@@ -306,15 +316,11 @@ msgstr "A_iuto"
 msgid "_About Clocks"
 msgstr "I_nformazioni su Orologi"
 
-#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:16
-msgid "Back"
-msgstr "Indietro"
-
-#: data/ui/header-bar.ui:68
+#: data/ui/header-bar.ui:54
 msgid "Menu"
 msgstr "Menù"
 
-#: data/ui/header-bar.ui:71
+#: data/ui/header-bar.ui:57
 msgid "Main Menu"
 msgstr "Menù principale"
 
@@ -334,7 +340,7 @@ msgstr "Orario"
 msgid "Difference"
 msgstr "Differenza"
 
-#: data/ui/timer-face.ui:18
+#: data/ui/timer-face.ui:21
 msgid "Select Duration"
 msgstr "Seleziona durata"
 
@@ -353,6 +359,11 @@ msgstr "Avvia"
 #: data/ui/timer-row.ui:119
 msgid "Reset"
 msgstr "Azzera"
+
+#. Translators: Tooltip for the + button
+#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+msgid "New Timer"
+msgstr "Nuovo timer"
 
 #: data/ui/timer-setup.ui:38
 msgid "1 m"
@@ -391,21 +402,29 @@ msgstr "1 h"
 msgid "0"
 msgstr "0"
 
-#: data/ui/window.ui:45
+#: data/ui/window.ui:42
 msgid "_World"
 msgstr "_Fuso orario"
 
-#: data/ui/window.ui:56
+#: data/ui/window.ui:53
 msgid "Ala_rms"
 msgstr "_Sveglie"
 
-#: data/ui/window.ui:67
+#: data/ui/window.ui:64
 msgid "_Stopwatch"
 msgstr "_Cronometro"
 
-#: data/ui/window.ui:78
+#: data/ui/window.ui:75
 msgid "_Timer"
 msgstr "_Timer"
+
+#: data/ui/window.ui:96
+msgid "Clock"
+msgstr "Orologio"
+
+#: data/ui/window.ui:104
+msgid "Alarm Ringing"
+msgstr "Sveglia attiva"
 
 #: data/ui/world-face.ui:15
 msgid "_Add World Clock…"
@@ -415,30 +434,22 @@ msgstr "A_ggiungi orologio mondiale…"
 msgid "Add a New World Clock"
 msgstr "Aggiungi un nuovo orologio"
 
-#: data/ui/world-location-dialog.ui:14
-msgid "_Cancel"
-msgstr "A_nnulla"
-
-#: data/ui/world-location-dialog.ui:22
-msgid "_Add"
-msgstr "_Aggiungi"
-
 #: data/ui/world-location-dialog.ui:53
 msgid "Search for a City"
 msgstr "Cerca una città"
 
-#: data/ui/world-standalone.ui:91
+#: data/ui/world-standalone.ui:97
 msgid "Sunrise"
 msgstr "Alba"
 
-#: data/ui/world-standalone.ui:103
+#: data/ui/world-standalone.ui:109
 msgid "Sunset"
 msgstr "Tramonto"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:338
+#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:337
 msgid "Alarm"
 msgstr "Sveglia"
 
@@ -478,21 +489,13 @@ msgstr "20 minuti"
 msgid "30 minutes"
 msgstr "30 minuti"
 
-#: src/alarm-setup-dialog.vala:109
+#: src/alarm-setup-dialog.vala:113
 msgid "Edit Alarm"
 msgstr "Modifica sveglia"
 
-#: src/alarm-setup-dialog.vala:112 src/timer-setup-dialog.vala:30
-msgid "Cancel"
-msgstr "Annulla"
-
-#: src/alarm-setup-dialog.vala:114
-msgid "Done"
-msgstr "Fatto"
-
-#: src/alarm-setup-dialog.vala:116 src/timer-setup-dialog.vala:31
-msgid "Add"
-msgstr "Aggiungi"
+#: src/alarm-setup-dialog.vala:116
+msgid "_Done"
+msgstr "_Fatto"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
@@ -510,11 +513,6 @@ msgstr "Riprendi"
 #, c-format
 msgid "Lap %i"
 msgstr "Giro %i"
-
-#. Translators: Tooltip for the + button
-#: src/timer-face.vala:39 src/timer-setup-dialog.vala:27
-msgid "New Timer"
-msgstr "Nuovo timer"
 
 #: src/timer-face.vala:76
 msgid "Time is up!"
@@ -629,7 +627,7 @@ msgstr "Giorni lavorativi"
 msgid "Weekends"
 msgstr "Giorni non lavorativi"
 
-#: src/window.vala:295
+#: src/window.vala:294
 msgid "translator-credits"
 msgstr ""
 "Milo Casagrande (milo@milo.name)\n"
