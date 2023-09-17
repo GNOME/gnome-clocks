@@ -100,7 +100,7 @@ public string format_time_span (GLib.TimeSpan diff) {
 
     StringBuilder builder = new StringBuilder ();
     if (days > 0) {
-        builder.append (ngettext ("%s day", "%s day", (ulong) days).printf (days.to_string ()));
+        builder.append (ngettext ("%s day", "%s days", (ulong) days).printf (days.to_string ()));
         if (hours > 0 || minutes > 0) {
             builder.append (_(" and "));
         }
