@@ -10,8 +10,8 @@
 msgid ""
 msgstr "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2023-08-10 13:14+0000\n"
-"PO-Revision-Date: 2023-08-13 10:00+0200\n"
+"POT-Creation-Date: 2023-09-17 14:40+0000\n"
+"PO-Revision-Date: 2023-09-21 10:00+0200\n"
 "Last-Translator: Asier Sarasua Garmendia <asiersarasua@ni.eus>\n"
 "Language-Team: Basque <Librezale>\n"
 "Language: eu\n"
@@ -21,8 +21,8 @@ msgstr "Project-Id-Version: gnome-clocks master\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:25
-#: src/main.vala:25 src/window.vala:286 src/window.vala:341
+#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
+#: src/main.vala:25 src/window.vala:298 src/window.vala:353
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Ordulariak"
@@ -138,7 +138,7 @@ msgstr "Kronometroaren pantaila"
 msgid "Timer screen"
 msgstr "Tenporizadorearen pantaila"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:136 src/window.vala:288
+#: data/org.gnome.clocks.metainfo.xml.in.in:150 src/window.vala:300
 msgid "The GNOME Project"
 msgstr "GNOME proiektua"
 
@@ -250,11 +250,11 @@ msgstr "Errepikatu"
 msgid "Add A_larm…"
 msgstr "_Gehitu alarma…"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:128
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:182
 msgid "Stop"
 msgstr "Gelditu"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:129
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:183
 msgid "Snooze"
 msgstr "Errepikatu"
 
@@ -400,27 +400,27 @@ msgstr "1 h"
 msgid "0"
 msgstr "0"
 
-#: data/ui/window.ui:42
+#: data/ui/window.ui:44
 msgid "_World"
 msgstr "_Mundua"
 
-#: data/ui/window.ui:53
+#: data/ui/window.ui:55
 msgid "Ala_rms"
 msgstr "Ala_rmak"
 
-#: data/ui/window.ui:64
+#: data/ui/window.ui:66
 msgid "_Stopwatch"
 msgstr "_Kronometroa"
 
-#: data/ui/window.ui:75
+#: data/ui/window.ui:77
 msgid "_Timer"
 msgstr "_Tenporizadorea"
 
-#: data/ui/window.ui:96
+#: data/ui/window.ui:98
 msgid "Clock"
 msgstr "Ordularia"
 
-#: data/ui/window.ui:104
+#: data/ui/window.ui:106
 msgid "Alarm Ringing"
 msgstr "Alarma jotzea"
 
@@ -444,24 +444,39 @@ msgstr "Egunsentia"
 msgid "Sunset"
 msgstr "Ilunabarra"
 
+#: src/alarm-face.vala:143
+#, c-format
+msgid "Alarm set for %s from now"
+msgstr "Alarma ezarri da %s(e)rako oraindik aurrera"
+
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:337
+#: src/alarm-item.vala:179 src/alarm-row.vala:90 src/window.vala:349
 msgid "Alarm"
 msgstr "Alarma"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
-#: src/alarm-row.vala:101
+#: src/alarm-row.vala:97
 #, c-format
-msgid "Snoozed from %s: %s"
-msgstr "Errepikapena %s ordurako: %s"
+msgid "%s: Snoozed untill %s"
+msgstr "%s: Utzi geroko %s ordura arte"
 
 #. Translators: %s is a time
-#: src/alarm-row.vala:104
+#: src/alarm-row.vala:100
 #, c-format
-msgid "Snoozed from %s"
-msgstr "Errepikapena %s ordutik"
+msgid "Snoozed untill %s"
+msgstr "Geroko utzi da %s ordura arte"
+
+#. Translators: The alarm titled %s was "missed"
+#: src/alarm-row.vala:107
+#, c-format
+msgid "Alarm %s was missed"
+msgstr "%s alarma galdu da"
+
+#: src/alarm-row.vala:109
+msgid "Alarm was missed"
+msgstr "Alarma galdu da"
 
 #: src/alarm-setup-dialog.vala:41
 msgid "1 minute"
@@ -521,13 +536,13 @@ msgid "Timer countdown finished"
 msgstr "Tenporizadorearen atzekoz aurrerako zenbatzea amaitu da"
 
 #. Translators: The time is the same as the local time
-#: src/utils.vala:61
+#: src/utils.vala:67
 msgid "Current timezone"
 msgstr "Uneko ordu-zona"
 
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
-#: src/utils.vala:66
+#: src/utils.vala:72
 #, c-format
 msgid "%s hour behind"
 msgid_plural "%s hours behind"
@@ -536,96 +551,121 @@ msgstr[1] "%s ordu lehenago"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
-#: src/utils.vala:72
+#: src/utils.vala:78
 #, c-format
 msgid "%s hour ahead"
 msgid_plural "%s hours ahead"
 msgstr[0] "Ordu %s geroago"
 msgstr[1] "%s ordu geroago"
 
+#: src/utils.vala:103
+#, c-format
+msgid "%s day"
+msgid_plural "%s day"
+msgstr[0] "egun %s"
+msgstr[1] "%s egun"
+
+#: src/utils.vala:105 src/utils.vala:112
+msgid " and "
+msgstr " eta "
+
+#: src/utils.vala:110
+#, c-format
+msgid "%s hour"
+msgid_plural "%s hours"
+msgstr[0] "ordu %s"
+msgstr[1] "%s ordu"
+
+#: src/utils.vala:117
+#, c-format
+msgid "%s minute"
+msgid_plural "%s minutes"
+msgstr[0] "minutu %s"
+msgstr[1] "%s minutu"
+
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:189
+#: src/utils.vala:277
 msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "A"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:191
+#: src/utils.vala:279
 msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "A"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:193
+#: src/utils.vala:281
 msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "A"
 
 #. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:195
+#: src/utils.vala:283
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
 msgstr "O"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:197
+#: src/utils.vala:285
 msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "O"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:199
+#: src/utils.vala:287
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "L"
 
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:201
+#: src/utils.vala:289
 msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
 msgstr "I"
 
-#: src/utils.vala:215
+#: src/utils.vala:303
 msgid "Mondays"
 msgstr "Astelehenero"
 
-#: src/utils.vala:216
+#: src/utils.vala:304
 msgid "Tuesdays"
 msgstr "Asteartero"
 
-#: src/utils.vala:217
+#: src/utils.vala:305
 msgid "Wednesdays"
 msgstr "Asteazkenero"
 
-#: src/utils.vala:218
+#: src/utils.vala:306
 msgid "Thursdays"
 msgstr "Ostegunero"
 
-#: src/utils.vala:219
+#: src/utils.vala:307
 msgid "Fridays"
 msgstr "Ostiralero"
 
-#: src/utils.vala:220
+#: src/utils.vala:308
 msgid "Saturdays"
 msgstr "Larunbatero"
 
-#: src/utils.vala:221
+#: src/utils.vala:309
 msgid "Sundays"
 msgstr "Igandero"
 
-#: src/utils.vala:347
+#: src/utils.vala:435
 msgid "Every Day"
 msgstr "Egunero"
 
-#: src/utils.vala:349
+#: src/utils.vala:437
 msgid "Weekdays"
 msgstr "Astegunero"
 
-#: src/utils.vala:351
+#: src/utils.vala:439
 msgid "Weekends"
 msgstr "Asteburuak"
 
-#: src/window.vala:294
+#: src/window.vala:306
 msgid "translator-credits"
 msgstr "translator-credits"
 
@@ -651,6 +691,10 @@ msgstr "Atzo"
 msgid "Current location"
 msgstr "Uneko kokalekua"
 
+#, c-format
+#~ msgid "Snoozed from %s: %s"
+#~ msgstr "Errepikapena %s ordurako: %s"
+
 #~ msgid "Back"
 #~ msgstr "Atzera"
 
@@ -674,9 +718,6 @@ msgstr "Uneko kokalekua"
 
 #~ msgid "Utilities to help you with the time."
 #~ msgstr "Orduarekin lagunduko dizuten tresnak."
-
-#~ msgid "Alarms setup"
-#~ msgstr "Alarmen konfigurazioa"
 
 #~ msgid "GNOME Clocks"
 #~ msgstr "GNOMEren ordulariak"
