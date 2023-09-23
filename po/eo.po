@@ -4,33 +4,33 @@
 # Ryan LORTIE <desrt@desrt.ca>, 2013.
 # Baptiste DARTHENAY <baptiste+ecrevisse@darthenay.fr>, 2014.
 # Daniel PUENTES <blatberk@openmailbox.org>, 2015.
-# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2012-2020.
 # Carmen Bianca BAKKER <carmen@carmenbianca.eu>, 2018-2020.
+# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2012-2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2020-08-17 00:35+0000\n"
-"PO-Revision-Date: 2020-09-21 20:54+0200\n"
-"Last-Translator: Carmen Bianca BAKKER <carmen@carmenbianca.eu>\n"
+"POT-Creation-Date: 2023-09-17 14:40+0000\n"
+"PO-Revision-Date: 2023-09-22 22:04+0200\n"
+"Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
 "Language-Team: Esperanto <gnome-eo-list@gnome.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Gtranslator 3.36.0\n"
+"X-Generator: Gtranslator 42.0\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:297
-#: src/window.vala:352 src/world-standalone.vala:24
+#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
+#: src/main.vala:25 src/window.vala:298 src/window.vala:353
+#: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Horloĝoj"
 
 #: data/org.gnome.clocks.desktop.in.in:6
-#: data/org.gnome.clocks.metainfo.xml.in.in:7
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Horloĝoj por mondaj horoj, plus alarmoj, klikhorloĝo kaj ĝisnombrilo"
 
@@ -78,12 +78,12 @@ msgid "Turn geolocation support on and off."
 msgstr "Aktivigi aŭ malaktivigi geo-pozicitrovan subtenon."
 
 #: data/org.gnome.clocks.gschema.xml.in:44
-msgid "Window state"
-msgstr "Fenestra stato"
+msgid "Window maximized"
+msgstr "Fenestro maksimumigita"
 
 #: data/org.gnome.clocks.gschema.xml.in:45
-msgid "State of the window, e.g. maximized."
-msgstr "Stato de la fenestro; ekz. maksimumigita."
+msgid "Whether the window is maximized."
+msgstr "Ĉu la fenestro estas maksimumigita."
 
 #: data/org.gnome.clocks.gschema.xml.in:51
 msgid "Window width and height"
@@ -101,234 +101,247 @@ msgstr "Panela stato"
 msgid "Current clock panel."
 msgstr "Aktuala horloĝa reĝimo."
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:6
-msgid "GNOME Clocks"
-msgstr "GNOME Horloĝoj"
+#: data/org.gnome.clocks.metainfo.xml.in.in:7
+msgid "Keep track of time"
+msgstr "Konservi la tempon"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
+"stopwatch, and timers."
 msgstr ""
-"Simpla kaj eleganta horloĝa aplikaĵo. Enhavas mondajn horloĝojn, alarmojn, "
-"klikhorloĝon kaj ĝisnombrilon."
+"Simpla kaj eleganta horloĝa aplikaĵo. Ĝi enhavas mondajn horloĝojn, "
+"alarmojn, kronometron kaj ĝisnombrilon."
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:13
-msgid "Goals:"
-msgstr "Celoj:"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:15
+#: data/org.gnome.clocks.metainfo.xml.in.in:14
 msgid "Show the time in different cities around the world"
 msgstr "Montri la tempon en malsamaj urboj ĉirkaŭ la mondo"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:16
+#: data/org.gnome.clocks.metainfo.xml.in.in:15
 msgid "Set alarms to wake you up"
 msgstr "Agordi alarmojn por veki vin"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:17
+#: data/org.gnome.clocks.metainfo.xml.in.in:16
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "Mezuri pasitan tempon per preciza klikhorloĝo"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:18
+#: data/org.gnome.clocks.metainfo.xml.in.in:17
 msgid "Set timers to properly cook your food"
 msgstr "Agordi ĝisnombrilojn por ĝuste kuiri vian manĝaĵon"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:32
+#: data/org.gnome.clocks.metainfo.xml.in.in:39
 msgid "Initial screen"
 msgstr "Komenca ekrano"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:36
+#: data/org.gnome.clocks.metainfo.xml.in.in:43
 msgid "Alarms screen"
 msgstr "Alarma ekrano"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:40
-msgid "Alarms setup"
-msgstr "Alarma agordado"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:44
+#: data/org.gnome.clocks.metainfo.xml.in.in:47
 msgid "Stopwatch screen"
 msgstr "Klikhorloĝa ekrano"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:48
+#: data/org.gnome.clocks.metainfo.xml.in.in:51
 msgid "Timer screen"
 msgstr "Ĝisnombrila ekrano"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:84
+#: data/org.gnome.clocks.metainfo.xml.in.in:150 src/window.vala:300
 msgid "The GNOME Project"
 msgstr "La projekto GNOME"
 
-#: data/gtk/help-overlay.ui:14
+#: data/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Ĝenerala"
 
-#: data/gtk/help-overlay.ui:19
+#: data/gtk/help-overlay.ui:15
 msgctxt "shortcut window"
-msgid "Show help"
+msgid "Show Help"
 msgstr "Montri helpon"
 
-#: data/gtk/help-overlay.ui:26
+#: data/gtk/help-overlay.ui:21
 msgctxt "shortcut window"
-msgid "Open menu"
+msgid "Open Menu"
 msgstr "Malfermi menuon"
 
-#: data/gtk/help-overlay.ui:33
+#: data/gtk/help-overlay.ui:27
 msgctxt "shortcut window"
-msgid "Keyboard shortcuts"
+msgid "Keyboard Shortcuts"
 msgstr "Klavkombinoj"
 
-#: data/gtk/help-overlay.ui:40
+#: data/gtk/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Ĉesi"
 
-#: data/gtk/help-overlay.ui:47
+#: data/gtk/help-overlay.ui:39
 msgctxt "shortcut window"
-msgid "Go to the next section"
-msgstr "Iri al sekva sekcio"
+msgid "Go to the Next Section"
+msgstr "Iri al la sekva sekcio"
 
-#: data/gtk/help-overlay.ui:54
+#: data/gtk/help-overlay.ui:45
 msgctxt "shortcut window"
-msgid "Go to the previous section"
-msgstr "Iri al antaŭa sekcio"
+msgid "Go to the Previous Section"
+msgstr "Iri al la antaŭa sekcio"
+
+#: data/gtk/help-overlay.ui:51
+msgctxt "shortcut window"
+msgid "Go to the World Section"
+msgstr "Iri al la monda sekcio"
+
+#: data/gtk/help-overlay.ui:57
+msgctxt "shortcut window"
+msgid "Go to the Alarms Section"
+msgstr "Iri al la alarama sekcio"
 
 #: data/gtk/help-overlay.ui:63
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch Section"
+msgstr "Iri al la kronometra sekcio"
+
+#: data/gtk/help-overlay.ui:69
+msgctxt "shortcut window"
+msgid "Go to the Timer Section"
+msgstr "Iru al la ĝisnombrila sekcio"
+
+#: data/gtk/help-overlay.ui:77
 msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Mondaj horloĝoj"
 
-#: data/gtk/help-overlay.ui:68
+#: data/gtk/help-overlay.ui:81
 msgctxt "shortcut window"
-msgid "Add a world clock"
-msgstr "Aldoni mondan horloĝon"
+msgid "Add a World Clock"
+msgstr "Aldoni mondhorloĝon"
 
-#: data/gtk/help-overlay.ui:77
+#: data/gtk/help-overlay.ui:89
 msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "Alarmo"
 
-#: data/gtk/help-overlay.ui:82
+#: data/gtk/help-overlay.ui:93
 msgctxt "shortcut window"
-msgid "Add an alarm"
+msgid "Add an Alarm"
 msgstr "Aldoni alarmon"
 
-#: data/gtk/help-overlay.ui:91
+#: data/gtk/help-overlay.ui:101
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Klikhorloĝo"
 
-#: data/gtk/help-overlay.ui:96
-msgctxt "shortcut window"
-msgid "Stop / Reset"
-msgstr "Haltigi / Rekomencigi"
-
 #: data/gtk/help-overlay.ui:105
+msgctxt "shortcut window"
+msgid "Pause All"
+msgstr "Paŭzigi ĉiujn"
+
+#: data/gtk/help-overlay.ui:113
 msgctxt "shortcut window"
 msgid "Timer"
 msgstr "Ĝisnombrilo"
 
-#: data/gtk/help-overlay.ui:110
+#: data/gtk/help-overlay.ui:117
 msgctxt "shortcut window"
 msgid "Reset"
 msgstr "Rekomencigi"
 
-#: data/gtk/help-overlay.ui:117
-#| msgid "New Timer"
+#: data/gtk/help-overlay.ui:123
 msgctxt "shortcut window"
 msgid "New Timer"
 msgstr "Nova ĝisnombrilo"
 
-#: data/ui/alarm-day-picker-row.ui:5
-msgid "_Repeat"
-msgstr "_Ripeti"
+#: data/ui/alarm-day-picker-row.ui:17
+msgid "Repeat"
+msgstr "Ripeti"
 
-#: data/ui/alarm-face.ui:29
-msgid "Add A_larm"
-msgstr "Aldoni a_larmon"
+#: data/ui/alarm-face.ui:14
+msgid "Add A_larm…"
+msgstr "Aldoni a_larmon…"
 
-#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:116
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:182
 msgid "Stop"
 msgstr "Haltigi"
 
-#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:117
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:183
 msgid "Snooze"
 msgstr "Dormeti"
 
-#: data/ui/alarm-row.ui:25
-msgid "Active"
-msgstr "Aktiva"
-
-#: data/ui/alarm-row.ui:39 data/ui/world-row.ui:92
-msgid "Delete"
-msgstr "Forigi"
-
-#: data/ui/alarm-row.ui:69
+#: data/ui/alarm-row.ui:47
 msgid "Repeats"
 msgstr "Ripetoj"
 
-#: data/ui/alarm-setup-dialog.ui:24 data/ui/world-location-dialog.ui:20
-msgid "Add a New World Clock"
-msgstr "Aldoni novan mondhorloĝon"
+#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+msgid "Delete"
+msgstr "Forigi"
 
-#: data/ui/alarm-setup-dialog.ui:143
+#. Translators: Tooltip for the + button
+#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:113
+msgid "New Alarm"
+msgstr "Nova alarmo"
+
+#: data/ui/alarm-setup-dialog.ui:27 data/ui/timer-setup-dialog.ui:28
+#: data/ui/world-location-dialog.ui:17
+msgid "_Cancel"
+msgstr "_Nuligi"
+
+#: data/ui/alarm-setup-dialog.ui:34 data/ui/timer-setup-dialog.ui:35
+#: data/ui/world-location-dialog.ui:25
+msgid "_Add"
+msgstr "_Aldoni"
+
+#: data/ui/alarm-setup-dialog.ui:125
 msgid "Name"
 msgstr "Nomo"
 
-#: data/ui/alarm-setup-dialog.ui:144
-msgid "Optional"
-msgstr "Malnepra"
-
-#: data/ui/alarm-setup-dialog.ui:161
-#| msgid "Select Duration"
+#: data/ui/alarm-setup-dialog.ui:132
 msgid "Ring Duration"
 msgstr "Daŭro de sonorado"
 
-#: data/ui/alarm-setup-dialog.ui:169
-#| msgid "Select Duration"
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "Snooze Duration"
 msgstr "Daŭro de paŭzigo"
 
-#: data/ui/alarm-setup-dialog.ui:181
-msgid "R_emove Alarm"
-msgstr "_Forigi alarmo-"
-
-#: data/ui/alarm-setup-dialog.ui:197
+#: data/ui/alarm-setup-dialog.ui:150
 msgid "You already have an alarm for this time."
 msgstr "Vi jam havas alarmon por ĉi tiu tempo."
 
-#: data/ui/header-bar.ui:8
+#: data/ui/alarm-setup-dialog.ui:157
+msgid "R_emove Alarm"
+msgstr "_Forigi alarmo-"
+
+#: data/ui/header-bar.ui:6
 msgid "_Keyboard Shortcuts"
 msgstr "_Klavkombinoj"
 
-#: data/ui/header-bar.ui:12
+#: data/ui/header-bar.ui:10
 msgid "_Help"
 msgstr "_Helpo"
 
-#: data/ui/header-bar.ui:16
+#: data/ui/header-bar.ui:14
 msgid "_About Clocks"
 msgstr "_Pri Horloĝoj"
 
-#: data/ui/header-bar.ui:64 data/ui/world-standalone.ui:23
-msgid "Back"
-msgstr "Reen"
-
-#: data/ui/header-bar.ui:95
+#: data/ui/header-bar.ui:54
 msgid "Menu"
 msgstr "Menuo"
 
-#: data/ui/stopwatch-face.ui:171
+#: data/ui/header-bar.ui:57
+msgid "Main Menu"
+msgstr "Ĉefa menuo"
+
+#: data/ui/stopwatch-face.ui:100
 msgid "_Start"
 msgstr "_Komenci"
 
-#: data/ui/stopwatch-face.ui:192 src/stopwatch-face.vala:178
+#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:184
 msgid "Clear"
 msgstr "Vakigi"
 
-#: data/ui/stopwatch-laps-row.ui:18
+#: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
 msgstr "Horo"
 
-#: data/ui/stopwatch-laps-row.ui:39
+#: data/ui/stopwatch-laps-row.ui:25
 msgid "Difference"
 msgstr "Malsamo"
 
@@ -336,115 +349,143 @@ msgstr "Malsamo"
 msgid "Select Duration"
 msgstr "Elekti daŭron"
 
-#: data/ui/timer-row.ui:46
-msgid "Title..."
-msgstr "Titolo..."
+#: data/ui/timer-row.ui:32
+msgid "Title…"
+msgstr "Titolo…"
 
-#: data/ui/timer-setup.ui:47
+#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:164
+msgid "Pause"
+msgstr "Paŭzigi"
+
+#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:201
+msgid "Start"
+msgstr "Komenci"
+
+#: data/ui/timer-row.ui:119
+msgid "Reset"
+msgstr "Rekomencigi"
+
+#. Translators: Tooltip for the + button
+#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+msgid "New Timer"
+msgstr "Nova ĝisnombrilo"
+
+#: data/ui/timer-setup.ui:38
 msgid "1 m"
 msgstr "1 m"
 
-#: data/ui/timer-setup.ui:65
+#: data/ui/timer-setup.ui:49
 msgid "2 m"
 msgstr "2 m"
 
-#: data/ui/timer-setup.ui:83
+#: data/ui/timer-setup.ui:60
 msgid "3 m"
 msgstr "3 m"
 
-#: data/ui/timer-setup.ui:101
+#: data/ui/timer-setup.ui:71
 msgid "5 m"
 msgstr "5 m"
 
-#: data/ui/timer-setup.ui:119
+#: data/ui/timer-setup.ui:82
 msgid "30 m"
 msgstr "30 m"
 
-#: data/ui/timer-setup.ui:137
+#: data/ui/timer-setup.ui:93
 msgid "15 m"
 msgstr "15 m"
 
-#: data/ui/timer-setup.ui:155
+#: data/ui/timer-setup.ui:104
 msgid "45 m"
 msgstr "45 m"
 
-#: data/ui/timer-setup.ui:173
+#: data/ui/timer-setup.ui:115
 msgid "1 h"
 msgstr "1 h"
 
-#: data/ui/timer-setup.ui:227 data/ui/timer-setup.ui:267
-#: data/ui/timer-setup.ui:308
+#: data/ui/timer-setup.ui:147 data/ui/timer-setup.ui:179
+#: data/ui/timer-setup.ui:212
 msgid "0"
 msgstr "0"
 
-#: data/ui/window.ui:53
-msgid "World"
-msgstr "Mondo"
+#: data/ui/window.ui:44
+msgid "_World"
+msgstr "_Mondo"
 
-#: data/ui/window.ui:63
-msgid "Alarms"
-msgstr "Alarmoj"
+#: data/ui/window.ui:55
+msgid "Ala_rms"
+msgstr "Ala_rmoj"
 
-#: data/ui/window.ui:73
-msgid "Stopwatch"
-msgstr "Kronometro"
+#: data/ui/window.ui:66
+msgid "_Stopwatch"
+msgstr "_Kronometro"
 
-#: data/ui/window.ui:83
-msgid "Timer"
-msgstr "Ĝisnombrilo"
+#: data/ui/window.ui:77
+msgid "_Timer"
+msgstr "Ĝ_isnombrilo"
 
-#: data/ui/world-face.ui:35 data/ui/world-location-dialog.ui:8
-#| msgid "Add a New World Clock"
-msgid "Add World Clock"
-msgstr "Aldoni mondhorloĝon"
+#: data/ui/window.ui:98
+msgid "Clock"
+msgstr "Horloĝo"
 
-#: data/ui/world-location-dialog.ui:24
-msgid "_Cancel"
-msgstr "_Nuligi"
+#: data/ui/window.ui:106
+msgid "Alarm Ringing"
+msgstr "Alarma sonorado"
 
-#: data/ui/world-location-dialog.ui:40
-msgid "_Add"
-msgstr "_Aldoni"
+#: data/ui/world-face.ui:15
+msgid "_Add World Clock…"
+msgstr "_Aldoni mondhorloĝon…"
 
-#: data/ui/world-location-dialog.ui:139
-#| msgid "Search for a city:"
-msgid "Search for a city"
-msgstr "Serĉu urbon"
+#: data/ui/world-location-dialog.ui:4
+msgid "Add a New World Clock"
+msgstr "Aldoni novan mondhorloĝon"
 
-#: data/ui/world-standalone.ui:104
+#: data/ui/world-location-dialog.ui:53
+msgid "Search for a City"
+msgstr "Serĉi urbon"
+
+#: data/ui/world-standalone.ui:97
 msgid "Sunrise"
 msgstr "Sunleviĝo"
 
-#: data/ui/world-standalone.ui:118
+#: data/ui/world-standalone.ui:109
 msgid "Sunset"
 msgstr "Sunsubiro"
 
-#. Translators: Tooltip for the + button
-#: src/alarm-face.vala:28 src/alarm-setup-dialog.vala:108
-msgid "New Alarm"
-msgstr "Nova alarmo"
+#: src/alarm-face.vala:143
+#, c-format
+msgid "Alarm set for %s from now"
+msgstr "Alarmo starigita por %s de nun"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:348
+#: src/alarm-item.vala:179 src/alarm-row.vala:90 src/window.vala:349
 msgid "Alarm"
 msgstr "Alarmoj"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
-#: src/alarm-row.vala:89
+#: src/alarm-row.vala:97
 #, c-format
-msgid "Snoozed from %s: %s"
-msgstr "Paŭzigita de %s: %s"
+msgid "%s: Snoozed untill %s"
+msgstr "%s: Paŭzigita ĝis %s"
 
 #. Translators: %s is a time
-#: src/alarm-row.vala:92
+#: src/alarm-row.vala:100
 #, c-format
-msgid "Snoozed from %s"
-msgstr "Paŭzigita de %s"
+msgid "Snoozed untill %s"
+msgstr "Paŭzigita ĝis %s"
+
+#. Translators: The alarm titled %s was "missed"
+#: src/alarm-row.vala:107
+#, c-format
+msgid "Alarm %s was missed"
+msgstr "La alarmo %s estis maltrafita"
+
+#: src/alarm-row.vala:109
+msgid "Alarm was missed"
+msgstr "Alarmo estas maltrafita"
 
 #: src/alarm-setup-dialog.vala:41
-#| msgid "%i minute timer"
 msgid "1 minute"
 msgstr "1 minuto"
 
@@ -468,175 +509,170 @@ msgstr "20 minutoj"
 msgid "30 minutes"
 msgstr "30 minutoj"
 
-#: src/alarm-setup-dialog.vala:108
+#: src/alarm-setup-dialog.vala:113
 msgid "Edit Alarm"
 msgstr "Redakti alarmon"
 
-#: src/alarm-setup-dialog.vala:111 src/timer-setup-dialog.vala:30
-msgid "Cancel"
-msgstr "Nuligi"
-
-#: src/alarm-setup-dialog.vala:113
-msgid "Done"
-msgstr "Farita"
-
-#: src/alarm-setup-dialog.vala:115 src/timer-setup-dialog.vala:31
-msgid "Add"
-msgstr "Aldoni"
+#: src/alarm-setup-dialog.vala:116
+msgid "_Done"
+msgstr "_Plenumita"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Eligi versian informon kaj ĉesi"
 
-#: src/stopwatch-face.vala:158
-msgid "Pause"
-msgstr "Paŭzigi"
-
-#: src/stopwatch-face.vala:162 src/stopwatch-face.vala:199
+#: src/stopwatch-face.vala:168 src/stopwatch-face.vala:205
 msgid "Lap"
 msgstr "Rondiro"
 
-#: src/stopwatch-face.vala:174
+#: src/stopwatch-face.vala:180
 msgid "Resume"
 msgstr "Daŭrigi"
-
-#: src/stopwatch-face.vala:195
-msgid "Start"
-msgstr "Komenci"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
 msgid "Lap %i"
 msgstr "Rondo %i"
 
-#. Translators: Tooltip for the + button
-#: src/timer-face.vala:37 src/timer-setup-dialog.vala:27
-msgid "New Timer"
-msgstr "Nova ĝisnombrilo"
-
-#: src/timer-face.vala:75
+#: src/timer-face.vala:76
 msgid "Time is up!"
 msgstr "Tempo estas pasinta!"
 
-#: src/timer-face.vala:76
+#: src/timer-face.vala:77
 msgid "Timer countdown finished"
 msgstr "Ĝisnombrado finita"
 
 #. Translators: The time is the same as the local time
-#: src/utils.vala:76
+#: src/utils.vala:67
 msgid "Current timezone"
 msgstr "Aktuala horzono"
 
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
-#: src/utils.vala:81
+#: src/utils.vala:72
 #, c-format
-msgid "%s hour earlier"
-msgid_plural "%s hours earlier"
-msgstr[0] "%s horo antaŭe"
-msgstr[1] "%s horoj antaŭe"
+msgid "%s hour behind"
+msgid_plural "%s hours behind"
+msgstr[0] "%s horo malantaŭe"
+msgstr[1] "%s horoj malantaŭe"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
-#: src/utils.vala:87
+#: src/utils.vala:78
 #, c-format
-msgid "%s hour later"
-msgid_plural "%s hours later"
-msgstr[0] "%s horo poste"
-msgstr[1] "%s horoj poste"
+msgid "%s hour ahead"
+msgid_plural "%s hours ahead"
+msgstr[0] "%s horo antaŭe"
+msgstr[1] "%s horoj antaŭe"
+
+#: src/utils.vala:103
+#, c-format
+msgid "%s day"
+msgid_plural "%s day"
+msgstr[0] "%s tago"
+msgstr[1] "%s tagoj"
+
+#: src/utils.vala:105 src/utils.vala:112
+msgid " and "
+msgstr " kaj "
+
+#: src/utils.vala:110
+#, c-format
+msgid "%s hour"
+msgid_plural "%s hours"
+msgstr[0] "%s horo"
+msgstr[1] "%s horoj"
+
+#: src/utils.vala:117
+#, c-format
+msgid "%s minute"
+msgid_plural "%s minutes"
+msgstr[0] "%s minuto"
+msgstr[1] "%s minutoj"
 
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:189
-#| msgctxt "Repeat|Monday"
-#| msgid "M"
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:277
+msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "L"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:191 src/utils.vala:195
-#| msgctxt "Repeat|Tuesday"
-#| msgid "T"
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:279
+msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "M"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:193
-#| msgctxt "Repeat|Wednesday"
-#| msgid "W"
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:281
+msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "M"
 
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:283
+msgctxt "Alarm|Repeat-On|Thursday"
+msgid "T"
+msgstr "M"
+
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:197
-#| msgctxt "Repeat|Friday"
-#| msgid "F"
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:285
+msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "V"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:199 src/utils.vala:201
-#| msgctxt "Repeat|Saturday"
-#| msgid "S"
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:287
+msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
-msgstr "S"
+msgstr "D"
 
-#: src/utils.vala:205
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:289
+msgctxt "Alarm|Repeat-On|Sunday"
+msgid "S"
+msgstr "D"
+
+#: src/utils.vala:303
 msgid "Mondays"
 msgstr "Lunde"
 
-#: src/utils.vala:206
+#: src/utils.vala:304
 msgid "Tuesdays"
 msgstr "Marde"
 
-#: src/utils.vala:207
+#: src/utils.vala:305
 msgid "Wednesdays"
 msgstr "Merkrede"
 
-#: src/utils.vala:208
+#: src/utils.vala:306
 msgid "Thursdays"
 msgstr "Ĵaŭde"
 
-#: src/utils.vala:209
+#: src/utils.vala:307
 msgid "Fridays"
 msgstr "Vendrede"
 
-#: src/utils.vala:210
+#: src/utils.vala:308
 msgid "Saturdays"
 msgstr "Sabate"
 
-#: src/utils.vala:211
+#: src/utils.vala:309
 msgid "Sundays"
 msgstr "Dimanĉe"
 
-#: src/utils.vala:337
+#: src/utils.vala:435
 msgid "Every Day"
 msgstr "Ĉiutage"
 
-#: src/utils.vala:339
+#: src/utils.vala:437
 msgid "Weekdays"
 msgstr "Semajntage"
 
-#: src/utils.vala:341
+#: src/utils.vala:439
 msgid "Weekends"
 msgstr "Semajnfine"
 
-#: src/window.vala:268
-#, c-format
-msgid "Failed to show help: %s"
-msgstr "Malsukcesis montri helpon: %s"
-
-#: src/window.vala:302
-msgid "Utilities to help you with the time."
-msgstr "Utilaĵoj por helpi vin pri tempo."
-
-#: src/window.vala:307
+#: src/window.vala:306
 msgid "translator-credits"
 msgstr ""
 "Kristjan SCHMIDT\n"
@@ -653,20 +689,67 @@ msgstr "Aldoni lokon"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world-item.vala:144 src/world-item.vala:148
+#: src/world-item.vala:177 src/world-item.vala:181
 msgid "Tomorrow"
 msgstr "Morgaŭ"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world-item.vala:144 src/world-item.vala:148
+#: src/world-item.vala:177 src/world-item.vala:181
 msgid "Yesterday"
 msgstr "Hieraŭ"
 
 #. Translators: This clock represents the local time
-#: src/world-row.vala:66
+#: src/world-row.vala:47
 msgid "Current location"
 msgstr "Aktuala loko"
+
+#~ msgid "GNOME Clocks"
+#~ msgstr "GNOME Horloĝoj"
+
+#~ msgid "Goals:"
+#~ msgstr "Celoj:"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Keyboard shortcuts"
+#~ msgstr "Klavkombinoj"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Add a world clock"
+#~ msgstr "Aldoni mondan horloĝon"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Stop / Reset"
+#~ msgstr "Haltigi / Rekomencigi"
+
+#~ msgid "Active"
+#~ msgstr "Aktiva"
+
+#~ msgid "Optional"
+#~ msgstr "Malnepra"
+
+#~ msgid "Back"
+#~ msgstr "Reen"
+
+#~ msgid "Alarms"
+#~ msgstr "Alarmoj"
+
+#, c-format
+#~ msgid "Snoozed from %s: %s"
+#~ msgstr "Paŭzigita de %s: %s"
+
+#~ msgid "Cancel"
+#~ msgstr "Nuligi"
+
+#~ msgid "Add"
+#~ msgstr "Aldoni"
+
+#, c-format
+#~ msgid "Failed to show help: %s"
+#~ msgstr "Malsukcesis montri helpon: %s"
+
+#~ msgid "Utilities to help you with the time."
+#~ msgstr "Utilaĵoj por helpi vin pri tempo."
 
 #~ msgid "Edit"
 #~ msgstr "Redakti"
@@ -727,9 +810,6 @@ msgstr "Aktuala loko"
 
 #~ msgid "Configured timer duration in seconds."
 #~ msgstr "Agordita ĝisnombrila daŭro, en sekundoj."
-
-#~ msgid "Reset"
-#~ msgstr "Rekomencigi"
 
 #~ msgid "Continue"
 #~ msgstr "Daŭrigi"
