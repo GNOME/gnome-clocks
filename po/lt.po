@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2023-07-04 18:15+0000\n"
-"PO-Revision-Date: 2023-07-20 22:10+0300\n"
+"POT-Creation-Date: 2023-09-17 17:01+0000\n"
+"PO-Revision-Date: 2023-09-17 22:25+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -22,8 +22,8 @@ msgstr ""
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:25
-#: src/main.vala:25 src/window.vala:286 src/window.vala:341
+#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
+#: src/main.vala:25 src/window.vala:298 src/window.vala:353
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Laikrodžiai"
@@ -143,7 +143,7 @@ msgstr "Chronometro ekranas"
 msgid "Timer screen"
 msgstr "Laikmačio ekranas"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:136 src/window.vala:288
+#: data/org.gnome.clocks.metainfo.xml.in.in:150 src/window.vala:300
 msgid "The GNOME Project"
 msgstr "GNOME projektas"
 
@@ -255,11 +255,11 @@ msgstr "Kartoti"
 msgid "Add A_larm…"
 msgstr "Pridėti ž_adintuvą…"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:128
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:182
 msgid "Stop"
 msgstr "Sustabdyti"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:129
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:183
 msgid "Snooze"
 msgstr "Atidėti"
 
@@ -405,27 +405,27 @@ msgstr "1 h"
 msgid "0"
 msgstr "0"
 
-#: data/ui/window.ui:42
+#: data/ui/window.ui:44
 msgid "_World"
 msgstr "_Pasaulis"
 
-#: data/ui/window.ui:53
+#: data/ui/window.ui:55
 msgid "Ala_rms"
 msgstr "Ž_adintuvai"
 
-#: data/ui/window.ui:64
+#: data/ui/window.ui:66
 msgid "_Stopwatch"
 msgstr "_Chronometras"
 
-#: data/ui/window.ui:75
+#: data/ui/window.ui:77
 msgid "_Timer"
 msgstr "_Laikmatis"
 
-#: data/ui/window.ui:96
+#: data/ui/window.ui:98
 msgid "Clock"
 msgstr "Laikrodžis"
 
-#: data/ui/window.ui:104
+#: data/ui/window.ui:106
 msgid "Alarm Ringing"
 msgstr "Skamba žadintuvas"
 
@@ -449,24 +449,39 @@ msgstr "Saulėtekis"
 msgid "Sunset"
 msgstr "Saulėlydis"
 
+#: src/alarm-face.vala:143
+#, c-format
+msgid "Alarm set for %s from now"
+msgstr "Žadintuvas nustatytas %s nuo dabar"
+
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:337
+#: src/alarm-item.vala:179 src/alarm-row.vala:90 src/window.vala:349
 msgid "Alarm"
 msgstr "Žadintuvas"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
-#: src/alarm-row.vala:101
+#: src/alarm-row.vala:97
 #, c-format
-msgid "Snoozed from %s: %s"
-msgstr "Užmigdyta nuo %s: %s"
+msgid "%s: Snoozed untill %s"
+msgstr "%s: užmigdyta iki %s"
 
 #. Translators: %s is a time
-#: src/alarm-row.vala:104
+#: src/alarm-row.vala:100
 #, c-format
-msgid "Snoozed from %s"
-msgstr "Užmigdyta nuo %s"
+msgid "Snoozed untill %s"
+msgstr "Užmigdyta iki %s"
+
+#. Translators: The alarm titled %s was "missed"
+#: src/alarm-row.vala:107
+#, c-format
+msgid "Alarm %s was missed"
+msgstr "Buvo praleistas žadintuvas %s"
+
+#: src/alarm-row.vala:109
+msgid "Alarm was missed"
+msgstr "Žadintuvas buvo praleistas"
 
 #: src/alarm-setup-dialog.vala:41
 msgid "1 minute"
@@ -526,13 +541,13 @@ msgid "Timer countdown finished"
 msgstr "Laikmačio skaičiavimas baigėsi"
 
 #. Translators: The time is the same as the local time
-#: src/utils.vala:61
+#: src/utils.vala:67
 msgid "Current timezone"
 msgstr "Dabartinė laiko juosta"
 
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
-#: src/utils.vala:66
+#: src/utils.vala:72
 #, c-format
 msgid "%s hour behind"
 msgid_plural "%s hours behind"
@@ -542,7 +557,7 @@ msgstr[2] "Prieš %s valandų"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
-#: src/utils.vala:72
+#: src/utils.vala:78
 #, c-format
 msgid "%s hour ahead"
 msgid_plural "%s hours ahead"
@@ -550,89 +565,117 @@ msgstr[0] "Po %s valandos"
 msgstr[1] "Po %s valandų"
 msgstr[2] "Po %s valandų"
 
+#: src/utils.vala:103
+#, c-format
+msgid "%s day"
+msgid_plural "%s day"
+msgstr[0] "%s diena"
+msgstr[1] "%s dienos"
+msgstr[2] "%s dienų"
+
+#: src/utils.vala:105 src/utils.vala:112
+msgid " and "
+msgstr " ir "
+
+#: src/utils.vala:110
+#, c-format
+msgid "%s hour"
+msgid_plural "%s hours"
+msgstr[0] "%s valanda"
+msgstr[1] "%s valandos"
+msgstr[2] "%s valandų"
+
+#: src/utils.vala:117
+#, c-format
+msgid "%s minute"
+msgid_plural "%s minutes"
+msgstr[0] "%s minutė"
+msgstr[1] "%s minutės"
+msgstr[2] "%s minučių"
+
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:189
+#: src/utils.vala:277
 msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "Pr"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:191
+#: src/utils.vala:279
 msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "A"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:193
+#: src/utils.vala:281
 msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "T"
 
 #. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:195
+#: src/utils.vala:283
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
 msgstr "K"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:197
+#: src/utils.vala:285
 msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "Pn"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:199
+#: src/utils.vala:287
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "Š"
 
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:201
+#: src/utils.vala:289
 msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
 msgstr "S"
 
-#: src/utils.vala:215
+#: src/utils.vala:303
 msgid "Mondays"
 msgstr "Pirmadieniais"
 
-#: src/utils.vala:216
+#: src/utils.vala:304
 msgid "Tuesdays"
 msgstr "Antradieniais"
 
-#: src/utils.vala:217
+#: src/utils.vala:305
 msgid "Wednesdays"
 msgstr "Trečiadieniais"
 
-#: src/utils.vala:218
+#: src/utils.vala:306
 msgid "Thursdays"
 msgstr "Ketvirtadieniais"
 
-#: src/utils.vala:219
+#: src/utils.vala:307
 msgid "Fridays"
 msgstr "Penktadieniais"
 
-#: src/utils.vala:220
+#: src/utils.vala:308
 msgid "Saturdays"
 msgstr "Šeštadieniais"
 
-#: src/utils.vala:221
+#: src/utils.vala:309
 msgid "Sundays"
 msgstr "Sekmadieniais"
 
-#: src/utils.vala:347
+#: src/utils.vala:435
 msgid "Every Day"
 msgstr "Kasdien"
 
-#: src/utils.vala:349
+#: src/utils.vala:437
 msgid "Weekdays"
 msgstr "Darbo dienomis"
 
-#: src/utils.vala:351
+#: src/utils.vala:439
 msgid "Weekends"
 msgstr "Savaitgaliai"
 
-#: src/window.vala:294
+#: src/window.vala:306
 msgid "translator-credits"
 msgstr ""
 "išvertė:\n"
@@ -660,6 +703,10 @@ msgstr "Vakar"
 msgid "Current location"
 msgstr "Dabartinė vieta"
 
+#, c-format
+#~ msgid "Snoozed from %s: %s"
+#~ msgstr "Užmigdyta nuo %s: %s"
+
 #~ msgid "Back"
 #~ msgstr "Grįžti"
 
@@ -677,9 +724,6 @@ msgstr "Dabartinė vieta"
 
 #~ msgid "Goals:"
 #~ msgstr "Tikslai:"
-
-#~ msgid "Alarms setup"
-#~ msgstr "Žadintuvų nustatymas"
 
 #~ msgid "Optional"
 #~ msgstr "Papildoma"
