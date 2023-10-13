@@ -9,5 +9,5 @@ a stopwatch and a timer.
 
 - Homepage: <https://wiki.gnome.org/Apps/Clocks>
 - Report issues: <https://gitlab.gnome.org/GNOME/gnome-clocks/issues/>
-- Donate: <https://www.gnome.org/friends/>
+- Donate: <https://www.gnome.org/donate/>
 - Translate: <https://wiki.gnome.org/TranslationProject>
