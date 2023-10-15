@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2023-07-04 18:15+0000\n"
-"PO-Revision-Date: 2023-07-10 22:18+0300\n"
+"POT-Creation-Date: 2023-09-29 17:14+0000\n"
+"PO-Revision-Date: 2023-10-14 11:10+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -22,11 +22,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:25
-#: src/main.vala:25 src/window.vala:286 src/window.vala:341
+#: src/main.vala:25 src/window.vala:293 src/window.vala:348
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Saatler"
@@ -146,7 +146,7 @@ msgstr "Kronometre ekranı"
 msgid "Timer screen"
 msgstr "Zamanlayıcı ekranı"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:136 src/window.vala:288
+#: data/org.gnome.clocks.metainfo.xml.in.in:150 src/window.vala:295
 msgid "The GNOME Project"
 msgstr "GNOME Projesi"
 
@@ -283,7 +283,7 @@ msgstr "Yeni Alarm"
 #: data/ui/alarm-setup-dialog.ui:27 data/ui/timer-setup-dialog.ui:28
 #: data/ui/world-location-dialog.ui:17
 msgid "_Cancel"
-msgstr "_Vazgeç"
+msgstr "İ_ptal"
 
 #: data/ui/alarm-setup-dialog.ui:34 data/ui/timer-setup-dialog.ui:35
 #: data/ui/world-location-dialog.ui:25
@@ -455,7 +455,7 @@ msgstr "Gün batımı"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:337
+#: src/alarm-item.vala:125 src/alarm-row.vala:94 src/window.vala:344
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -529,13 +529,13 @@ msgid "Timer countdown finished"
 msgstr "Geri sayım tamamlandı"
 
 #. Translators: The time is the same as the local time
-#: src/utils.vala:61
+#: src/utils.vala:67
 msgid "Current timezone"
 msgstr "Geçerli saat dilimi"
 
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
-#: src/utils.vala:66
+#: src/utils.vala:72
 #, c-format
 msgid "%s hour behind"
 msgid_plural "%s hours behind"
@@ -543,95 +543,95 @@ msgstr[0] "%s saat geri"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
-#: src/utils.vala:72
+#: src/utils.vala:78
 #, c-format
 msgid "%s hour ahead"
 msgid_plural "%s hours ahead"
 msgstr[0] "%s saat ileri"
 
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:189
+#: src/utils.vala:239
 msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "Pt"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:191
+#: src/utils.vala:241
 msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "S"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:193
+#: src/utils.vala:243
 msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "Ç"
 
 #. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:195
+#: src/utils.vala:245
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
 msgstr "Pş"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:197
+#: src/utils.vala:247
 msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "C"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:199
+#: src/utils.vala:249
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "Ct"
 
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:201
+#: src/utils.vala:251
 msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
 msgstr "P"
 
-#: src/utils.vala:215
+#: src/utils.vala:265
 msgid "Mondays"
 msgstr "Pazartesiler"
 
-#: src/utils.vala:216
+#: src/utils.vala:266
 msgid "Tuesdays"
 msgstr "Salılar"
 
-#: src/utils.vala:217
+#: src/utils.vala:267
 msgid "Wednesdays"
 msgstr "Çarşambalar"
 
-#: src/utils.vala:218
+#: src/utils.vala:268
 msgid "Thursdays"
 msgstr "Perşembeler"
 
-#: src/utils.vala:219
+#: src/utils.vala:269
 msgid "Fridays"
 msgstr "Cumalar"
 
-#: src/utils.vala:220
+#: src/utils.vala:270
 msgid "Saturdays"
 msgstr "Cumartesiler"
 
-#: src/utils.vala:221
+#: src/utils.vala:271
 msgid "Sundays"
 msgstr "Pazarlar"
 
-#: src/utils.vala:347
+#: src/utils.vala:397
 msgid "Every Day"
 msgstr "Her Gün"
 
-#: src/utils.vala:349
+#: src/utils.vala:399
 msgid "Weekdays"
 msgstr "Hafta İçleri"
 
-#: src/utils.vala:351
+#: src/utils.vala:401
 msgid "Weekends"
 msgstr "Hafta Sonları"
 
-#: src/window.vala:294
+#: src/window.vala:301
 msgid "translator-credits"
 msgstr ""
 "Emin Tufan Çetin <etcetin@gmail.com>\n"
