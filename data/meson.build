@@ -29,7 +29,7 @@ desktop_file = custom_target('desktop-file',
   install_dir: join_paths(get_option('datadir'), 'applications'),
   command: [msgfmt, '--desktop',
     '--template', '@INPUT@', '-d', podir, '-o', '@OUTPUT@',
-    '--keyword=X-GNOME-FullName', '--keyword=X-Geoclue-Reason',
+    '--keyword=X-Geoclue-Reason',
     '--keyword=Name', '--keyword=GenericName', '--keyword=Comment', '--keyword=Keywords'
   ]
 )
