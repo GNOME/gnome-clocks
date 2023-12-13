@@ -142,6 +142,7 @@ public class Face : Gtk.Box, Clocks.Clock {
     private void on_clear_btn_clicked (Gtk.Button button) {
         switch (state) {
         case State.STOPPED:
+            start_btn.grab_focus ();
             reset ();
             break;
         case State.RUNNING:
@@ -302,3 +303,4 @@ public class Face : Gtk.Box, Clocks.Clock {
 
 } // namespace Stopwatch
 } // namespace Clocks
+
