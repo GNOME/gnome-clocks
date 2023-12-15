@@ -38,7 +38,7 @@ public class Face : Adw.Bin, Clocks.Clock {
     [GtkChild]
     private unowned Gtk.ListBox listbox;
     [GtkChild]
-    private unowned Gtk.Stack stack;
+    private unowned Adw.ViewStack stack;
 
     construct {
         panel_id = WORLD;

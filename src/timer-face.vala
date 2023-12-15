@@ -28,7 +28,7 @@ public class Face : Adw.Bin, Clocks.Clock {
     [GtkChild]
     private unowned Gtk.Button start_button;
     [GtkChild]
-    private unowned Gtk.Stack stack;
+    private unowned Adw.ViewStack stack;
     [GtkChild]
     private unowned Adw.Bin timer_bin;
 
