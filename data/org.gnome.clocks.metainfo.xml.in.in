@@ -149,12 +149,15 @@
   <url type="translate">https://l10n.gnome.org/module/gnome-clocks/</url>
   <url type="vcs-browser">https://gitlab.gnome.org/GNOME/gnome-clocks</url>
   <launchable type="desktop-id">@appid@.desktop</launchable>
+  <!-- developer_name tag deprecated with Appstream 1.0 -->
   <developer_name>The GNOME Project</developer_name>
+  <developer id="gnome.org">
+    <name>The GNOME Project</name>
+  </developer>
   <project_group>GNOME</project_group>
   <translation type="gettext">gnome-clocks</translation>
   <content_rating type="oars-1.0" />
   <custom>
-    <value key="Purism::form_factor">workstation</value>
     <value key="Purism::form_factor">mobile</value>
     <value key="GnomeSoftware::key-colors">[(63, 57, 71)]</value>
   </custom>
