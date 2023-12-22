@@ -15,15 +15,7 @@
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="orientation">vertical</property>
-                    <property name="spacing">18</property>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="label" translatable="yes">Select Duration</property>
-                        <style>
-                          <class name="timer-header"/>
-                        </style>
-                      </object>
-                    </child>
+                    <property name="spacing">26</property>
                     <child>
                       <object class="AdwBin" id="timer_bin" />
                     </child>
@@ -31,10 +23,9 @@
                       <object class="GtkButton" id="start_button">
                         <property name="halign">center</property>
                         <property name="valign">center</property>
-                        <property name="icon_name">media-playback-start-symbolic</property>
+                        <property name="label" translatable="yes">Start</property>
                         <style>
-                          <class name="circular"/>
-                          <class name="large-button"/>
+                          <class name="pill"/>
                           <class name="suggested-action"/>
                         </style>
                       </object>

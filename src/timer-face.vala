@@ -84,6 +84,12 @@ public class Face : Adw.Bin, Clocks.Clock {
         timer_setup.duration_changed.connect ((duration) => {
             start_button.set_sensitive (duration != 0);
         });
+        timer_setup.start_timer.connect (() => {
+            var timer = this.timer_setup.get_timer ();
+            this.timers.add (timer);
+
+            timer.start ();
+        });
         start_button.clicked.connect (() => {
             var timer = this.timer_setup.get_timer ();
             this.timers.add (timer);

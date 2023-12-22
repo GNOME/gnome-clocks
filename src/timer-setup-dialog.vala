@@ -25,17 +25,20 @@ public class SetupDialog: Adw.Window {
     public Setup timer_setup;
 
     [GtkChild]
-    private unowned Gtk.Button create_button;
+    private unowned Gtk.Box timer_box;
     [GtkChild]
-    private unowned Adw.ToolbarView toolbar_view;
+    private unowned Gtk.Button start_button;
 
     public SetupDialog (Gtk.Window parent) {
         Object (transient_for: parent);
 
         timer_setup = new Setup ();
-        toolbar_view.set_content (timer_setup);
+        timer_box.prepend (timer_setup);
         timer_setup.duration_changed.connect ((duration) => {
-            create_button.sensitive = duration != 0;
+            start_button.sensitive = duration != 0;
+        });
+        timer_setup.start_timer.connect (() => {
+            done ();
         });
     }
 
