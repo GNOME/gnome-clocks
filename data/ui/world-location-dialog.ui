@@ -37,6 +37,7 @@
         <child type="top">
           <object class="GtkSearchBar" id="search_bar">
             <property name="search-mode-enabled">True</property>
+            <property name="receives-default">True</property>
             <signal name="notify::search-mode-enabled" handler="on_search_mode_notify" swapped="no"/>
             <property name="child">
               <object class="GtkSearchEntry" id="location_entry">
@@ -78,6 +79,16 @@
                 </child>
               </object>
             </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkShortcutController">
+        <child>
+          <object class="GtkShortcut">
+            <property name="trigger">Escape</property>
+            <property name="action">action(window.close)</property>
           </object>
         </child>
       </object>
