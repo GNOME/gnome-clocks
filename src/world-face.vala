@@ -45,10 +45,11 @@ public class Face : Adw.Bin, Clocks.Clock {
         locations = new ContentStore ();
         settings = new GLib.Settings ("org.gnome.clocks");
 
+        var unixtime = new GLib.DateTime.now_local ().to_unix ();
         locations.set_sorting ((item1, item2) => {
-            var interval1 = ((Item) item1).location.get_timezone ().find_interval (GLib.TimeType.UNIVERSAL, Gdk.CURRENT_TIME);
+            var interval1 = ((Item) item1).location.get_timezone ().find_interval (GLib.TimeType.STANDARD, unixtime);
             var offset1 = ((Item) item1).location.get_timezone ().get_offset (interval1);
-            var interval2 = ((Item) item2).location.get_timezone ().find_interval (GLib.TimeType.UNIVERSAL, Gdk.CURRENT_TIME);
+            var interval2 = ((Item) item2).location.get_timezone ().find_interval (GLib.TimeType.STANDARD, unixtime);
             var offset2 = ((Item) item2).location.get_timezone ().get_offset (interval2);
             if (offset1 < offset2)
                 return -1;
