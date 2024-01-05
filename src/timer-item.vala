@@ -34,8 +34,8 @@ public class Item : Object, ContentItem {
     public int minutes { get; set; default = 0; }
     public int seconds { get; set; default = 0; }
 
-    private double span;
-    private GLib.Timer timer;
+    private int64 target;
+    private int span;
     private uint timeout_id;
     private int stored_hour;
     private int stored_minute;
@@ -97,30 +97,30 @@ public class Item : Object, ContentItem {
         seconds = s;
 
         span = get_total_seconds ();
-        timer = new GLib.Timer ();
 
         timeout_id = 0;
     }
 
     public virtual signal void start () {
         state = State.RUNNING;
+        target = span + new DateTime.now_local ().to_unix ();
         timeout_id = GLib.Timeout.add (100, () => {
-            var e = timer.elapsed ();
+            int64 curr_unix_time = new DateTime.now_local ().to_unix ();
             if (state != State.RUNNING) {
                 return false;
             }
-            if (e >= span) {
+            if (curr_unix_time > target) {
                 reset ();
                 ring ();
                 timeout_id = 0;
                 return false;
             }
-            var elapsed = Math.ceil (span - e);
+            int remaining = (int) (target - curr_unix_time);
             int h;
             int m;
             int s;
             double r;
-            Utils.time_to_hms (elapsed, out h, out m, out s, out r);
+            Utils.time_to_hms (remaining, out h, out m, out s, out r);
 
             if (stored_hour != h || stored_minute != m || stored_second != s) {
                 stored_hour = h;
@@ -130,19 +130,17 @@ public class Item : Object, ContentItem {
             }
             return true;
         });
-        timer.start ();
     }
 
     public virtual signal void pause () {
         state = State.PAUSED;
-        span -= timer.elapsed ();
-        timer.stop ();
+        span -= (int) (target - new DateTime.now_local ().to_unix ());
     }
 
     public virtual signal void reset () {
         state = State.STOPPED;
         span = get_total_seconds ();
-        timer.reset ();
+        target = span + new DateTime.now_local ().to_unix ();
         timeout_id = 0;
     }
 }
