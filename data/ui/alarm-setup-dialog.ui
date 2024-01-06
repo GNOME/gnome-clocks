@@ -10,8 +10,9 @@
       <object class="GtkShortcutController">
         <property name="scope">managed</property>
         <child>
-          <object class="GtkShortcut" id="shortcut">
+          <object class="GtkShortcut">
             <property name="trigger">Escape</property>
+            <property name="action">action(window.close)</property>
           </object>
         </child>
       </object>

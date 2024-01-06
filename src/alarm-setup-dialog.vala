@@ -98,8 +98,6 @@ private class SetupDialog : Adw.Window {
     private unowned Gtk.Button delete_button;
     [GtkChild]
     private unowned Gtk.Button ok_button;
-    [GtkChild]
-    private unowned Gtk.Shortcut shortcut;
     private List<Item> other_alarms;
     private DurationModel duration_model;
 
@@ -117,11 +115,6 @@ private class SetupDialog : Adw.Window {
         }
 
         delete_button.visible = alarm != null;
-
-        shortcut.action = new Gtk.CallbackAction (() => {
-            response (Gtk.ResponseType.CANCEL);
-            return true;
-        });
 
         other_alarms = new List<Item> ();
         var n = all_alarms.get_n_items ();
