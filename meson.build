@@ -22,7 +22,7 @@ else
 endif
 gnomedesktop = dependency('gnome-desktop-4')
 libgeoclue = dependency('libgeoclue-2.0', version: '>=2.4')
-libadwaita = dependency ('libadwaita-1', version: '>=1.4.alpha')
+libadwaita = dependency ('libadwaita-1', version: '>=1.5.alpha')
 
 cc = meson.get_compiler('c')
 math = cc.find_library('m', required: false)

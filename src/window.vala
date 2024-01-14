@@ -152,8 +152,13 @@ public class Window : Adw.ApplicationWindow {
     }
 
     public override bool close_request () {
+        if (base.close_request ()) {
+            return true;
+        }
+
         save_window_state ();
-        return base.close_request ();
+
+        return false;
     }
 
     private void load_window_state () {
@@ -240,8 +245,7 @@ public class Window : Adw.ApplicationWindow {
             null
         };
 
-        var about = new Adw.AboutWindow () {
-            transient_for = this,
+        var about = new Adw.AboutDialog () {
             application_name = _("Clocks"),
             application_icon = Config.APP_ID,
             developer_name = _("The GNOME Project"),
@@ -253,7 +257,7 @@ public class Window : Adw.ApplicationWindow {
             translator_credits = _("translator-credits")
         };
 
-        about.present ();
+        about.present (this);
     }
 
     [GtkCallback]
