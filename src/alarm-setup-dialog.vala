@@ -73,7 +73,7 @@ private class DurationModel : ListModel, Object {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm-setup-dialog.ui")]
-private class SetupDialog : Adw.Window {
+private class SetupDialog : Adw.Dialog {
     private Utils.WallClock.Format format;
     [GtkChild]
     private unowned Gtk.Box time_box;
@@ -106,9 +106,8 @@ private class SetupDialog : Adw.Window {
         typeof (Duration).ensure ();
     }
 
-    public SetupDialog (Gtk.Window parent, Item? alarm, ListModel all_alarms) {
-        Object (transient_for: parent,
-                title: alarm != null ? _("Edit Alarm") : _("New Alarm"));
+    public SetupDialog (Item? alarm, ListModel all_alarms) {
+        Object (title: alarm != null ? _("Edit Alarm") : _("New Alarm"));
 
         if (alarm != null) {
             ok_button.label = _("_Done");
