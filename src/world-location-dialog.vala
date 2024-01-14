@@ -29,7 +29,7 @@ private class ClockLocation : Object {
 }
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/world-location-dialog.ui")]
-private class LocationDialog : Adw.Window {
+private class LocationDialog : Adw.Dialog {
     [GtkChild]
     private unowned Gtk.Stack stack;
     [GtkChild]
@@ -57,9 +57,7 @@ private class LocationDialog : Adw.Window {
 
     private const int RESULT_COUNT_LIMIT = 12;
 
-    public LocationDialog (Gtk.Window parent, Face world_face) {
-        Object (transient_for: parent);
-
+    public LocationDialog (Face world_face) {
         // HACK: We set the key capture widget on the entry
         // rather than the search bar. This way when pressing
         // TAB the widget will continue to get input events.
