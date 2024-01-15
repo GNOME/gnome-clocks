@@ -18,21 +18,19 @@ resources = gnome.compile_resources('org.gnome.clocks', resource_files,
 
 desktop_conf = configuration_data()
 desktop_conf.set('icon', app_id)
-desktop_file = custom_target('desktop-file',
+desktop_file = i18n.merge_file(
+  type: 'desktop',
   input: configure_file(
     input: 'org.gnome.clocks.desktop.in.in',
     output: '@BASENAME@',
     configuration: desktop_conf
   ),
   output: '@0@.desktop'.format(app_id),
+  po_dir: podir,
   install: true,
-  install_dir: join_paths(get_option('datadir'), 'applications'),
-  command: [msgfmt, '--desktop',
-    '--template', '@INPUT@', '-d', podir, '-o', '@OUTPUT@',
-    '--keyword=X-Geoclue-Reason',
-    '--keyword=Name', '--keyword=GenericName', '--keyword=Comment', '--keyword=Keywords'
-  ]
+  install_dir: join_paths(get_option('datadir'), 'applications')
 )
+
 # Validate Desktop file
 desktop_file_validate = find_program('desktop-file-validate', required: false)
 if desktop_file_validate.found()
