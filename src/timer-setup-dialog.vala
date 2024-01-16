@@ -21,7 +21,7 @@ namespace Clocks {
 namespace Timer {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/timer-setup-dialog.ui")]
-public class SetupDialog: Adw.Window {
+public class SetupDialog: Adw.Dialog {
     public Setup timer_setup;
 
     [GtkChild]
@@ -29,9 +29,7 @@ public class SetupDialog: Adw.Window {
     [GtkChild]
     private unowned Gtk.Button start_button;
 
-    public SetupDialog (Gtk.Window parent) {
-        Object (transient_for: parent);
-
+    public SetupDialog () {
         timer_setup = new Setup ();
         timer_box.prepend (timer_setup);
         timer_setup.duration_changed.connect ((duration) => {
