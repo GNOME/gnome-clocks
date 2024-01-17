@@ -138,53 +138,6 @@ public class Window : Adw.ApplicationWindow {
         }
     }
 
-    [Signal (action = true)]
-    public virtual signal void change_page (int offset) {
-        var dir = false;
-
-        if (get_direction () == RTL) {
-            dir = offset == 0 ? false : true;
-        } else {
-            dir = offset == 1 ? false : true;
-        }
-
-        switch (stack.visible_child_name) {
-            case "world":
-                if (dir) {
-                    stack.error_bell ();
-                } else {
-                    stack.visible_child = alarm;
-                }
-                break;
-            case "alarm":
-                if (dir) {
-                    stack.visible_child = world;
-                } else {
-                    stack.visible_child = stopwatch;
-                }
-                break;
-            case "stopwatch":
-                if (dir) {
-                    stack.visible_child = alarm;
-                } else {
-                    stack.visible_child = timer;
-                }
-                break;
-            case "timer":
-                if (dir) {
-                    stack.visible_child = stopwatch;
-                } else {
-                    stack.error_bell ();
-                }
-                break;
-        }
-    }
-
-    [Signal (action = true)]
-    public virtual signal void set_page (string page) {
-        stack.visible_child_name = page;
-    }
-
     private void on_new_activate () {
         ((Clock) stack.visible_child).activate_new ();
     }
