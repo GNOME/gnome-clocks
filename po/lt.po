@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
 "POT-Creation-Date: 2023-09-17 14:40+0000\n"
-"PO-Revision-Date: 2023-09-17 22:25+0300\n"
+"PO-Revision-Date: 2024-02-12 23:42+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "(n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
@@ -463,25 +463,29 @@ msgstr "Žadintuvas"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
 #: src/alarm-row.vala:97
-#, c-format
+#, fuzzy, c-format
+#| msgid "Snoozed from %s"
 msgid "%s: Snoozed untill %s"
-msgstr "%s: užmigdyta iki %s"
+msgstr "Užmigdyta nuo %s"
 
 #. Translators: %s is a time
 #: src/alarm-row.vala:100
-#, c-format
+#, fuzzy, c-format
+#| msgid "Snoozed from %s"
 msgid "Snoozed untill %s"
-msgstr "Užmigdyta iki %s"
+msgstr "Užmigdyta nuo %s"
 
 #. Translators: The alarm titled %s was "missed"
 #: src/alarm-row.vala:107
 #, c-format
 msgid "Alarm %s was missed"
-msgstr "Buvo praleistas žadintuvas %s"
+msgstr ""
 
 #: src/alarm-row.vala:109
+#, fuzzy
+#| msgid "Alarms setup"
 msgid "Alarm was missed"
-msgstr "Žadintuvas buvo praleistas"
+msgstr "Žadintuvų nustatymas"
 
 #: src/alarm-setup-dialog.vala:41
 msgid "1 minute"
@@ -569,29 +573,32 @@ msgstr[2] "Po %s valandų"
 #, c-format
 msgid "%s day"
 msgid_plural "%s day"
-msgstr[0] "%s diena"
-msgstr[1] "%s dienos"
-msgstr[2] "%s dienų"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/utils.vala:105 src/utils.vala:112
 msgid " and "
-msgstr " ir "
+msgstr ""
 
 #: src/utils.vala:110
-#, c-format
+#, fuzzy, c-format
+#| msgid "%s hour ahead"
+#| msgid_plural "%s hours ahead"
 msgid "%s hour"
 msgid_plural "%s hours"
-msgstr[0] "%s valanda"
-msgstr[1] "%s valandos"
-msgstr[2] "%s valandų"
+msgstr[0] "Po %s valandos"
+msgstr[1] "Po %s valandų"
+msgstr[2] "Po %s valandų"
 
 #: src/utils.vala:117
-#, c-format
+#, fuzzy, c-format
+#| msgid "1 minute"
 msgid "%s minute"
 msgid_plural "%s minutes"
-msgstr[0] "%s minutė"
-msgstr[1] "%s minutės"
-msgstr[2] "%s minučių"
+msgstr[0] "1 minutė"
+msgstr[1] "1 minutė"
+msgstr[2] "1 minutė"
 
 #. Translators: This is used in the repeat toggle for Monday
 #: src/utils.vala:277
