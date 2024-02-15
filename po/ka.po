@@ -1,14 +1,14 @@
 # Georgian translation for gnome-clocks.
 # Copyright (C) 2023 gnome-clocks's authors.
 # This file is distributed under the same license as the gnome-clocks package.
-# Ekaterine Papava <papava.e@gtu.ge>, 2023.
+# Ekaterine Papava <papava.e@gtu.ge>, 2023-2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2023-09-17 14:40+0000\n"
-"PO-Revision-Date: 2023-09-17 19:16+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
+"POT-Creation-Date: 2024-02-13 18:01+0000\n"
+"PO-Revision-Date: 2024-02-15 08:14+0100\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <(nothing)>\n"
 "Language: ka\n"
@@ -20,21 +20,21 @@ msgstr ""
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:298 src/window.vala:353
+#: src/main.vala:25 src/window.vala:245 src/window.vala:300
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "საათები"
 
-#: data/org.gnome.clocks.desktop.in.in:6
+#: data/org.gnome.clocks.desktop.in.in:5
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "საათი მსოფლიოს დროისთვის, განგაშები, წამმზომი და ტაიმერი"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in.in:8
+#: data/org.gnome.clocks.desktop.in.in:7
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "time;timer;alarm;world clock;stopwatch;time zone;"
 
-#: data/org.gnome.clocks.desktop.in.in:18
+#: data/org.gnome.clocks.desktop.in.in:17
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "მსოფლიო საათების თქვენს დროის სარტყელში ჩვენება."
 
@@ -138,7 +138,8 @@ msgstr "წამმზომის ეკრანი"
 msgid "Timer screen"
 msgstr "ტაიერის ეკრანი"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:150 src/window.vala:300
+#. developer_name tag deprecated with Appstream 1.0
+#: data/org.gnome.clocks.metainfo.xml.in.in:153 src/window.vala:247
 msgid "The GNOME Project"
 msgstr "პროექტი \"GNOME\""
 
@@ -268,37 +269,35 @@ msgstr "წაშლა"
 
 #. Translators: Tooltip for the + button
 #: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:113
+#: src/alarm-setup-dialog.vala:111
 msgid "New Alarm"
 msgstr "მაღვიძარა"
 
-#: data/ui/alarm-setup-dialog.ui:27 data/ui/timer-setup-dialog.ui:28
-#: data/ui/world-location-dialog.ui:17
+#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
 msgid "_Cancel"
 msgstr "გაუქმება"
 
-#: data/ui/alarm-setup-dialog.ui:34 data/ui/timer-setup-dialog.ui:35
-#: data/ui/world-location-dialog.ui:25
+#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
 msgid "_Add"
 msgstr "_დამატება"
 
-#: data/ui/alarm-setup-dialog.ui:125
+#: data/ui/alarm-setup-dialog.ui:126
 msgid "Name"
 msgstr "სახელი"
 
-#: data/ui/alarm-setup-dialog.ui:132
+#: data/ui/alarm-setup-dialog.ui:133
 msgid "Ring Duration"
 msgstr "ზარის ხანგრძლივობა"
 
-#: data/ui/alarm-setup-dialog.ui:138
+#: data/ui/alarm-setup-dialog.ui:139
 msgid "Snooze Duration"
 msgstr "ჩაჩუმების ხანგრძლივობა"
 
-#: data/ui/alarm-setup-dialog.ui:150
+#: data/ui/alarm-setup-dialog.ui:151
 msgid "You already have an alarm for this time."
 msgstr "ამ დროზე განგაში უკვე დაყენებული გაქვთ."
 
-#: data/ui/alarm-setup-dialog.ui:157
+#: data/ui/alarm-setup-dialog.ui:158
 msgid "R_emove Alarm"
 msgstr "განგაშის _წაშლა"
 
@@ -314,11 +313,7 @@ msgstr "_დახმარება"
 msgid "_About Clocks"
 msgstr "საათების _შესახებ"
 
-#: data/ui/header-bar.ui:54
-msgid "Menu"
-msgstr "მენიუ"
-
-#: data/ui/header-bar.ui:57
+#: data/ui/header-bar.ui:56
 msgid "Main Menu"
 msgstr "მთავარი მენიუ"
 
@@ -326,7 +321,7 @@ msgstr "მთავარი მენიუ"
 msgid "_Start"
 msgstr "_დაწყება"
 
-#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:184
+#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
 msgid "Clear"
 msgstr "გაწმენდა"
 
@@ -338,19 +333,20 @@ msgstr "დრო"
 msgid "Difference"
 msgstr "სხვაობა"
 
-#: data/ui/timer-face.ui:21
-msgid "Select Duration"
-msgstr "არჩიეთ ხანგრძლივობა"
+#: data/ui/timer-face.ui:27
+msgid "St_art"
+msgstr "გ_აშვება"
 
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "სათაური…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:164
+#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
 msgid "Pause"
 msgstr "შეჩერება"
 
-#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:201
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
+#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "გაშვება"
 
@@ -363,40 +359,48 @@ msgstr "საწყისი პარამეტრები"
 msgid "New Timer"
 msgstr "ახალი ტაიმერი"
 
-#: data/ui/timer-setup.ui:38
+#: data/ui/timer-setup.ui:31
+msgid "Quick Start"
+msgstr "სწრაფი დაწყება"
+
+#: data/ui/timer-setup.ui:47
 msgid "1 m"
 msgstr "1 წთ"
 
-#: data/ui/timer-setup.ui:49
+#: data/ui/timer-setup.ui:58
 msgid "2 m"
 msgstr "2 წთ"
 
-#: data/ui/timer-setup.ui:60
+#: data/ui/timer-setup.ui:69
 msgid "3 m"
 msgstr "3 წთ"
 
-#: data/ui/timer-setup.ui:71
+#: data/ui/timer-setup.ui:80
 msgid "5 m"
 msgstr "5 წთ"
 
-#: data/ui/timer-setup.ui:82
+#: data/ui/timer-setup.ui:91
 msgid "30 m"
 msgstr "30 წთ"
 
-#: data/ui/timer-setup.ui:93
+#: data/ui/timer-setup.ui:102
 msgid "15 m"
 msgstr "15 წთ"
 
-#: data/ui/timer-setup.ui:104
+#: data/ui/timer-setup.ui:113
 msgid "45 m"
 msgstr "45 წთ"
 
-#: data/ui/timer-setup.ui:115
+#: data/ui/timer-setup.ui:124
 msgid "1 h"
 msgstr "1 სთ"
 
-#: data/ui/timer-setup.ui:147 data/ui/timer-setup.ui:179
-#: data/ui/timer-setup.ui:212
+#: data/ui/timer-setup.ui:137
+msgid "Set Timer"
+msgstr "ტაიმერის დაყენება"
+
+#: data/ui/timer-setup.ui:163 data/ui/timer-setup.ui:195
+#: data/ui/timer-setup.ui:228
 msgid "0"
 msgstr "0"
 
@@ -432,7 +436,7 @@ msgstr "_მსოფლიო საათის დამატება…"
 msgid "Add a New World Clock"
 msgstr "ახალი მსოფლიო საათის დამატება"
 
-#: data/ui/world-location-dialog.ui:53
+#: data/ui/world-location-dialog.ui:65
 msgid "Search for a City"
 msgstr "ქალაქის მოძებნა"
 
@@ -452,20 +456,20 @@ msgstr "განგაში დაყენებულია მიმდი�
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:179 src/alarm-row.vala:90 src/window.vala:349
+#: src/alarm-item.vala:179 src/alarm-row.vala:90 src/window.vala:296
 msgid "Alarm"
 msgstr "KAlarm"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
 #: src/alarm-row.vala:97
 #, c-format
-msgid "%s: Snoozed untill %s"
+msgid "%s: Snoozed until %s"
 msgstr "%s: ჩაჩუმდა %s-მდე"
 
 #. Translators: %s is a time
 #: src/alarm-row.vala:100
 #, c-format
-msgid "Snoozed untill %s"
+msgid "Snoozed until %s"
 msgstr "ჩაჩუმდა %s-მდე"
 
 #. Translators: The alarm titled %s was "missed"
@@ -502,11 +506,11 @@ msgstr "20 წუთი"
 msgid "30 minutes"
 msgstr "30 წუთი"
 
-#: src/alarm-setup-dialog.vala:113
+#: src/alarm-setup-dialog.vala:111
 msgid "Edit Alarm"
 msgstr "განგაშის ჩასწორება"
 
-#: src/alarm-setup-dialog.vala:116
+#: src/alarm-setup-dialog.vala:114
 msgid "_Done"
 msgstr "_მზადაა"
 
@@ -514,11 +518,11 @@ msgstr "_მზადაა"
 msgid "Print version information and exit"
 msgstr "ვერსიის ჩვენება და გასვლა"
 
-#: src/stopwatch-face.vala:168 src/stopwatch-face.vala:205
+#: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
 msgid "Lap"
 msgstr "წრე"
 
-#: src/stopwatch-face.vala:180
+#: src/stopwatch-face.vala:181
 msgid "Resume"
 msgstr "გაგრძელება"
 
@@ -561,7 +565,7 @@ msgstr[1] "%s საათის შემდეგ"
 #: src/utils.vala:103
 #, c-format
 msgid "%s day"
-msgid_plural "%s day"
+msgid_plural "%s days"
 msgstr[0] "%s დღე"
 msgstr[1] "%s დღე"
 
@@ -665,7 +669,7 @@ msgstr "სამუსაო დღეებში"
 msgid "Weekends"
 msgstr "კვირის ბოლოს"
 
-#: src/window.vala:306
+#: src/window.vala:253
 msgid "translator-credits"
 msgstr "თემური დოღონაძე"
 
@@ -690,6 +694,12 @@ msgstr "გუშინ"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "მიმდინარე მდებარეობა"
+
+#~ msgid "Menu"
+#~ msgstr "მენიუ"
+
+#~ msgid "Select Duration"
+#~ msgstr "არჩიეთ ხანგრძლივობა"
 
 #, c-format
 #~ msgid "Snoozed from %s: %s"
