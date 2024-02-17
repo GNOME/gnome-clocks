@@ -25,8 +25,6 @@ public interface ContentItem : GLib.Object {
 
 public class ContentStore : GLib.Object, GLib.ListModel {
     private ListStore store;
-    private CompareDataFunc<ContentItem>? sort_func;
-
 
     public ContentStore () {
         store = new ListStore (typeof (ContentItem));
@@ -47,20 +45,8 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         return store.get_item (position);
     }
 
-    public void set_sorting (owned CompareDataFunc<ContentItem> sort) {
-        sort_func = (owned) sort;
-
-        // TODO: we should re-sort, but for now we only
-        // set this before adding any item
-        assert (store.get_n_items () == 0);
-    }
-
     public void add (ContentItem item) {
-        if (sort_func == null) {
-            store.append (item);
-        } else {
-            store.insert_sorted (item, sort_func);
-        }
+        store.append (item);
     }
 
     public int get_index (ContentItem item) {
@@ -111,10 +97,6 @@ public class ContentStore : GLib.Object, GLib.ListModel {
             var o = store.get_object (i);
             if (o == item) {
                 store.remove (i);
-
-                if (sort_func != null) {
-                    store.sort (sort_func);
-                }
 
                 return;
             }
