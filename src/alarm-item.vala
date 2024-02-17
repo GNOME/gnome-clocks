@@ -27,6 +27,19 @@ private struct AlarmTime {
     public bool is_eq (AlarmTime other) {
         return this.hour == other.hour && this.minute == other.minute;
     }
+
+    public int compare (AlarmTime other) {
+        int this_minutes = hour * 60 + minute;
+        int other_minutes = other.hour * 60 + other.minute;
+
+        if (this_minutes < other_minutes)
+            return -1;
+
+        if (this_minutes > other_minutes)
+            return 1;
+
+        return 0;
+    }
 }
 
 private class Item : Object, ContentItem {
@@ -348,6 +361,10 @@ private class Item : Object, ContentItem {
         }
 
         return null;
+    }
+
+    public static int compare (Item a, Item b) {
+        return a.time.compare (b.time);
     }
 }
 

@@ -28,6 +28,7 @@ public class Face : Adw.Bin, Clocks.Clock {
     public string? new_label { get; default = _("New Alarm"); }
 
     private ContentStore alarms;
+    private Gtk.SortListModel sorted_alarms;
     private GLib.Settings settings;
     [GtkChild]
     private unowned Gtk.Widget empty_view;
@@ -45,6 +46,11 @@ public class Face : Adw.Bin, Clocks.Clock {
 
         alarms = new ContentStore ();
         settings = new GLib.Settings ("org.gnome.clocks");
+
+        sorted_alarms = new Gtk.SortListModel (
+            alarms,
+            new Gtk.CustomSorter ((a, b) => Item.compare ((Item) a, (Item) b))
+        );
 
         var app = (!) GLib.Application.get_default ();
         var action = (GLib.SimpleAction) app.lookup_action ("stop-alarm");
@@ -69,7 +75,7 @@ public class Face : Adw.Bin, Clocks.Clock {
             }
         });
 
-        listbox.bind_model (alarms, (item) => {
+        listbox.bind_model (sorted_alarms, (item) => {
             var row = new Row ((Item) item);
 
             item.notify["ring-time"].connect (() => {
@@ -118,8 +124,16 @@ public class Face : Adw.Bin, Clocks.Clock {
 
     internal signal void ring (Item item);
 
+    private void connect_item (Item item) {
+        item.notify["time"].connect (() => {
+            sorted_alarms.sorter.changed (DIFFERENT);
+        });
+    }
+
     private void load () {
         alarms.deserialize (settings.get_value ("alarms"), Item.deserialize);
+
+        alarms.foreach (item => connect_item ((Item) item));
     }
 
     private void save () {
@@ -192,6 +206,7 @@ public class Face : Adw.Bin, Clocks.Clock {
                 var alarm = new Item ();
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
                 alarms.add (alarm);
+                connect_item (alarm);
                 // We need to send the toast manually since the ring time doesn't change
                 show_ring_time_toast (alarm);
                 save ();
