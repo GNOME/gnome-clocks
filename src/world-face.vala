@@ -29,6 +29,7 @@ public class Face : Adw.Bin, Clocks.Clock {
     public string? new_label { get; default = _("Add Location"); }
 
     private ContentStore locations;
+    private Gtk.SortListModel sorted_locations;
     private GLib.Settings settings;
     [GtkChild]
     private unowned Gtk.Widget empty_view;
@@ -42,23 +43,27 @@ public class Face : Adw.Bin, Clocks.Clock {
     construct {
         panel_id = WORLD;
 
+        var unixtime = new GLib.DateTime.now_local ().to_unix ();
+
         locations = new ContentStore ();
+        sorted_locations = new Gtk.SortListModel (
+            locations,
+            new Gtk.CustomSorter ((item1, item2) => {
+                var interval1 = ((Item) item1).location.get_timezone ().find_interval (GLib.TimeType.STANDARD, unixtime);
+                var offset1 = ((Item) item1).location.get_timezone ().get_offset (interval1);
+                var interval2 = ((Item) item2).location.get_timezone ().find_interval (GLib.TimeType.STANDARD, unixtime);
+                var offset2 = ((Item) item2).location.get_timezone ().get_offset (interval2);
+                if (offset1 < offset2)
+                    return -1;
+                if (offset1 > offset2)
+                    return 1;
+                return 0;
+            })
+        );
+
         settings = new GLib.Settings ("org.gnome.clocks");
 
-        var unixtime = new GLib.DateTime.now_local ().to_unix ();
-        locations.set_sorting ((item1, item2) => {
-            var interval1 = ((Item) item1).location.get_timezone ().find_interval (GLib.TimeType.STANDARD, unixtime);
-            var offset1 = ((Item) item1).location.get_timezone ().get_offset (interval1);
-            var interval2 = ((Item) item2).location.get_timezone ().find_interval (GLib.TimeType.STANDARD, unixtime);
-            var offset2 = ((Item) item2).location.get_timezone ().get_offset (interval2);
-            if (offset1 < offset2)
-                return -1;
-            if (offset1 > offset2)
-                return 1;
-            return 0;
-        });
-
-        listbox.bind_model (locations, (item) => {
+        listbox.bind_model (sorted_locations, (item) => {
             var row = new Row ((Item) item);
 
             row.remove_clock.connect (() => locations.delete_item ((Item) item));
