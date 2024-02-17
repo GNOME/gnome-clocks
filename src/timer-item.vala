@@ -133,6 +133,18 @@ public class Item : Object, ContentItem {
         timer.start ();
     }
 
+    public int get_stored_hour () {
+        return stored_hour;
+    }
+
+    public int get_stored_minute () {
+        return stored_minute;
+    }
+
+    public int get_stored_second () {
+        return stored_second;
+    }
+
     public virtual signal void pause () {
         state = State.PAUSED;
         span -= timer.elapsed ();
@@ -144,6 +156,35 @@ public class Item : Object, ContentItem {
         span = get_total_seconds ();
         timer.reset ();
         timeout_id = 0;
+    }
+
+    public static int compare (Item a, Item b) {
+        if (a.state == STOPPED && b.state != STOPPED)
+            return 1;
+
+        if (a.state != STOPPED && b.state == STOPPED)
+            return -1;
+
+        if (a.state != STOPPED) {
+            if (a.span < b.span)
+                return -1;
+
+            if (a.span > b.span)
+                return 1;
+
+            return 0;
+        }
+
+        int a_seconds = a.get_total_seconds ();
+        int b_seconds = b.get_total_seconds ();
+
+        if (a_seconds < b_seconds)
+            return -1;
+
+        if (a_seconds > b_seconds)
+            return 1;
+
+        return 0;
     }
 }
 

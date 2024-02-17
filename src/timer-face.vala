@@ -39,6 +39,7 @@ public class Face : Adw.Bin, Clocks.Clock {
     public string? new_label { get; default = _("New Timer"); }
 
     private ContentStore timers;
+    private Gtk.SortListModel sorted_timers;
     private GLib.Settings settings;
     private Utils.Bell bell;
     private GLib.Notification notification;
@@ -50,7 +51,12 @@ public class Face : Adw.Bin, Clocks.Clock {
         settings = new GLib.Settings ("org.gnome.clocks");
         timers = new ContentStore ();
 
-        timers_list.bind_model (timers, (timer) => {
+        sorted_timers = new Gtk.SortListModel (
+            timers,
+            new Gtk.CustomSorter ((a, b) => Item.compare ((Item) a, (Item) b))
+        );
+
+        timers_list.bind_model (sorted_timers, (timer) => {
             var row = new Row ((Item) timer);
             row.deleted.connect (() => remove_timer ((Item) timer));
             row.edited.connect (() => save ());
@@ -87,12 +93,14 @@ public class Face : Adw.Bin, Clocks.Clock {
         timer_setup.start_timer.connect (() => {
             var timer = this.timer_setup.get_timer ();
             this.timers.add (timer);
+            connect_item (timer);
 
             timer.start ();
         });
         start_button.clicked.connect (() => {
             var timer = this.timer_setup.get_timer ();
             this.timers.add (timer);
+            connect_item (timer);
 
             timer.start ();
         });
@@ -118,14 +126,32 @@ public class Face : Adw.Bin, Clocks.Clock {
         dialog.done.connect ((dialog) => {
             var timer = ((SetupDialog) dialog).timer_setup.get_timer ();
             this.timers.add (timer);
+            connect_item (timer);
             timer.start ();
             dialog.close ();
         });
         dialog.present ();
     }
 
+    private void connect_item (Item item) {
+        item.notify["hours"].connect (() => {
+            sorted_timers.sorter.changed (DIFFERENT);
+        });
+        item.notify["minutes"].connect (() => {
+            sorted_timers.sorter.changed (DIFFERENT);
+        });
+        item.notify["seconds"].connect (() => {
+            sorted_timers.sorter.changed (DIFFERENT);
+        });
+        item.notify["state"].connect (() => {
+            sorted_timers.sorter.changed (DIFFERENT);
+        });
+    }
+
     private void load () {
         timers.deserialize (settings.get_value ("timers"), Item.deserialize);
+
+        timers.foreach (item => connect_item ((Item) item));
     }
 
     private void save () {

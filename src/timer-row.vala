@@ -86,7 +86,12 @@ public class Row : Gtk.ListBoxRow {
         paused_animation.repeat_count = Adw.DURATION_INFINITE;
         paused_animation.easing = Adw.Easing.LINEAR;
 
-        reset ();
+        if (item.state == RUNNING)
+            start ();
+        else if (item.state == PAUSED)
+            pause ();
+        else
+            reset ();
     }
 
     [GtkCallback]
@@ -132,6 +137,12 @@ public class Row : Gtk.ListBoxRow {
         start_stack.visible_child_name = "pause";
         name_revealer.reveal_child = (timer_name.label != "");
         name_stack.visible_child_name = "display";
+
+        update_countdown (
+            item.get_stored_hour (),
+            item.get_stored_minute (),
+            item.get_stored_second ()
+        );
     }
 
     private void ring () {
@@ -149,6 +160,12 @@ public class Row : Gtk.ListBoxRow {
         start_stack.visible_child_name = "start";
         name_revealer.reveal_child = (timer_name.label != "");
         name_stack.visible_child_name = "display";
+
+        update_countdown (
+            item.get_stored_hour (),
+            item.get_stored_minute (),
+            item.get_stored_second ()
+        );
     }
 
     private void update_countdown (int h, int m, int s ) {
