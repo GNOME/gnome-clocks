@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-02-13 18:01+0000\n"
-"PO-Revision-Date: 2024-02-18 13:53+0200\n"
+"POT-Creation-Date: 2024-02-21 20:50+0000\n"
+"PO-Revision-Date: 2024-02-26 22:10+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -256,11 +256,11 @@ msgstr "Kartoti"
 msgid "Add A_larm…"
 msgstr "Pridėti ž_adintuvą…"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:182
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
 msgid "Stop"
 msgstr "Sustabdyti"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:183
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:196
 msgid "Snooze"
 msgstr "Atidėti"
 
@@ -453,7 +453,7 @@ msgstr "Saulėtekis"
 msgid "Sunset"
 msgstr "Saulėlydis"
 
-#: src/alarm-face.vala:143
+#: src/alarm-face.vala:157
 #, c-format
 msgid "Alarm set for %s from now"
 msgstr "Žadintuvas nustatytas %s nuo dabar"
@@ -461,7 +461,7 @@ msgstr "Žadintuvas nustatytas %s nuo dabar"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:179 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
 msgid "Alarm"
 msgstr "Žadintuvas"
 
@@ -536,11 +536,11 @@ msgstr "Tęsti"
 msgid "Lap %i"
 msgstr "Ratas %i"
 
-#: src/timer-face.vala:76
+#: src/timer-face.vala:82
 msgid "Time is up!"
 msgstr "Laikas!"
 
-#: src/timer-face.vala:77
+#: src/timer-face.vala:83
 msgid "Timer countdown finished"
 msgstr "Laikmačio skaičiavimas baigėsi"
 
@@ -573,32 +573,29 @@ msgstr[2] "Po %s valandų"
 #, c-format
 msgid "%s day"
 msgid_plural "%s days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s diena"
+msgstr[1] "%s dienos"
+msgstr[2] "%s dienų"
 
 #: src/utils.vala:105 src/utils.vala:112
 msgid " and "
 msgstr " ir "
 
 #: src/utils.vala:110
-#, fuzzy, c-format
-#| msgid "%s hour ahead"
-#| msgid_plural "%s hours ahead"
+#, c-format
 msgid "%s hour"
 msgid_plural "%s hours"
-msgstr[0] "Po %s valandos"
-msgstr[1] "Po %s valandų"
-msgstr[2] "Po %s valandų"
+msgstr[0] "%s valanda"
+msgstr[1] "%s valandos"
+msgstr[2] "%s valandų"
 
 #: src/utils.vala:117
-#, fuzzy, c-format
-#| msgid "1 minute"
+#, c-format
 msgid "%s minute"
 msgid_plural "%s minutes"
-msgstr[0] "1 minutė"
-msgstr[1] "1 minutė"
-msgstr[2] "1 minutė"
+msgstr[0] "%s minutė"
+msgstr[1] "%s minutės"
+msgstr[2] "%s minučių"
 
 #. Translators: This is used in the repeat toggle for Monday
 #: src/utils.vala:277
