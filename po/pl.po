@@ -1,16 +1,16 @@
 # Polish translation for gnome-clocks.
-# Copyright © 2012-2023 the gnome-clocks authors.
+# Copyright © 2012-2024 the gnome-clocks authors.
 # This file is distributed under the same license as the gnome-clocks package.
-# Piotr Drąg <piotrdrag@gmail.com>, 2012-2023.
+# Piotr Drąg <piotrdrag@gmail.com>, 2012-2024.
 # Paweł Żołnowski <pawel@zolnowski.name>, 2014.
-# Aviary.pl <community-poland@mozilla.org>, 2012-2023.
+# Aviary.pl <community-poland@mozilla.org>, 2012-2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2023-09-24 14:29+0200\n"
-"PO-Revision-Date: 2023-09-24 14:35+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
+"POT-Creation-Date: 2024-03-02 18:44+0000\n"
+"PO-Revision-Date: 2024-03-02 19:47+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -22,21 +22,21 @@ msgstr ""
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:292 src/window.vala:347
+#: src/main.vala:25 src/window.vala:245 src/window.vala:300
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Zegar"
 
-#: data/org.gnome.clocks.desktop.in.in:6
+#: data/org.gnome.clocks.desktop.in.in:5
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Zegar światowy, budzik, stoper i minutnik"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in.in:8
+#: data/org.gnome.clocks.desktop.in.in:7
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "czas;minutnik;timer;budzik;alarm;zegar światowy;stoper;strefa czasowa;"
 
-#: data/org.gnome.clocks.desktop.in.in:18
+#: data/org.gnome.clocks.desktop.in.in:17
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "Umożliwia wyświetlanie zegara dla strefy czasowej użytkownika."
 
@@ -140,7 +140,8 @@ msgstr "Stoper"
 msgid "Timer screen"
 msgstr "Minutnik"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:150 src/window.vala:294
+#. developer_name tag deprecated with Appstream 1.0
+#: data/org.gnome.clocks.metainfo.xml.in.in:168 src/window.vala:247
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -252,11 +253,11 @@ msgstr "Powtarzanie"
 msgid "Add A_larm…"
 msgstr "_Dodaj budzik…"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:182
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
 msgid "Stop"
 msgstr "Zatrzymaj"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:183
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:196
 msgid "Snooze"
 msgstr "Drzemka"
 
@@ -270,37 +271,35 @@ msgstr "Usuń"
 
 #. Translators: Tooltip for the + button
 #: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:113
+#: src/alarm-setup-dialog.vala:111
 msgid "New Alarm"
 msgstr "Nowy budzik"
 
-#: data/ui/alarm-setup-dialog.ui:27 data/ui/timer-setup-dialog.ui:28
-#: data/ui/world-location-dialog.ui:17
+#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: data/ui/alarm-setup-dialog.ui:34 data/ui/timer-setup-dialog.ui:35
-#: data/ui/world-location-dialog.ui:25
+#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: data/ui/alarm-setup-dialog.ui:125
+#: data/ui/alarm-setup-dialog.ui:126
 msgid "Name"
 msgstr "Nazwa"
 
-#: data/ui/alarm-setup-dialog.ui:132
+#: data/ui/alarm-setup-dialog.ui:133
 msgid "Ring Duration"
 msgstr "Czas trwania dzwonka"
 
-#: data/ui/alarm-setup-dialog.ui:138
+#: data/ui/alarm-setup-dialog.ui:139
 msgid "Snooze Duration"
 msgstr "Czas trwania drzemki"
 
-#: data/ui/alarm-setup-dialog.ui:150
+#: data/ui/alarm-setup-dialog.ui:151
 msgid "You already have an alarm for this time."
 msgstr "Istnieje już taki sam budzik."
 
-#: data/ui/alarm-setup-dialog.ui:157
+#: data/ui/alarm-setup-dialog.ui:158
 msgid "R_emove Alarm"
 msgstr "_Usuń budzik"
 
@@ -324,7 +323,7 @@ msgstr "Menu główne"
 msgid "_Start"
 msgstr "_Rozpocznij"
 
-#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:184
+#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
 msgid "Clear"
 msgstr "Wyczyść"
 
@@ -336,19 +335,20 @@ msgstr "Czas"
 msgid "Difference"
 msgstr "Różnica"
 
-#: data/ui/timer-face.ui:21
-msgid "Select Duration"
-msgstr "Wybór czasu trwania"
+#: data/ui/timer-face.ui:27
+msgid "St_art"
+msgstr "_Rozpocznij"
 
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Tytuł…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:164
+#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
 msgid "Pause"
 msgstr "Wstrzymaj"
 
-#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:201
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
+#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Rozpocznij"
 
@@ -361,40 +361,48 @@ msgstr "Resetuj"
 msgid "New Timer"
 msgstr "Nowy minutnik"
 
-#: data/ui/timer-setup.ui:38
+#: data/ui/timer-setup.ui:31
+msgid "Quick Start"
+msgstr "Szybki start"
+
+#: data/ui/timer-setup.ui:47
 msgid "1 m"
 msgstr "1 min"
 
-#: data/ui/timer-setup.ui:49
+#: data/ui/timer-setup.ui:58
 msgid "2 m"
 msgstr "2 min"
 
-#: data/ui/timer-setup.ui:60
+#: data/ui/timer-setup.ui:69
 msgid "3 m"
 msgstr "3 min"
 
-#: data/ui/timer-setup.ui:71
+#: data/ui/timer-setup.ui:80
 msgid "5 m"
 msgstr "5 min"
 
-#: data/ui/timer-setup.ui:82
+#: data/ui/timer-setup.ui:91
 msgid "30 m"
 msgstr "30 min"
 
-#: data/ui/timer-setup.ui:93
+#: data/ui/timer-setup.ui:102
 msgid "15 m"
 msgstr "15 min"
 
-#: data/ui/timer-setup.ui:104
+#: data/ui/timer-setup.ui:113
 msgid "45 m"
 msgstr "45 min"
 
-#: data/ui/timer-setup.ui:115
+#: data/ui/timer-setup.ui:124
 msgid "1 h"
 msgstr "1 godz."
 
-#: data/ui/timer-setup.ui:147 data/ui/timer-setup.ui:179
-#: data/ui/timer-setup.ui:212
+#: data/ui/timer-setup.ui:137
+msgid "Set Timer"
+msgstr "Ustaw minutnik"
+
+#: data/ui/timer-setup.ui:163 data/ui/timer-setup.ui:195
+#: data/ui/timer-setup.ui:228
 msgid "0"
 msgstr "0"
 
@@ -430,7 +438,7 @@ msgstr "_Dodaj zegar światowy…"
 msgid "Add a New World Clock"
 msgstr "Dodanie nowego zegara światowego"
 
-#: data/ui/world-location-dialog.ui:53
+#: data/ui/world-location-dialog.ui:65
 msgid "Search for a City"
 msgstr "Wyszukiwanie miasta"
 
@@ -442,7 +450,7 @@ msgstr "Wschód słońca"
 msgid "Sunset"
 msgstr "Zachód słońca"
 
-#: src/alarm-face.vala:143
+#: src/alarm-face.vala:157
 #, c-format
 msgid "Alarm set for %s from now"
 msgstr "Ustawiono budzik na %s od teraz"
@@ -450,7 +458,7 @@ msgstr "Ustawiono budzik na %s od teraz"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:179 src/alarm-row.vala:90 src/window.vala:343
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
 msgid "Alarm"
 msgstr "Budzik"
 
@@ -500,11 +508,11 @@ msgstr "20 minut"
 msgid "30 minutes"
 msgstr "30 minut"
 
-#: src/alarm-setup-dialog.vala:113
+#: src/alarm-setup-dialog.vala:111
 msgid "Edit Alarm"
 msgstr "Modyfikacja budzika"
 
-#: src/alarm-setup-dialog.vala:116
+#: src/alarm-setup-dialog.vala:114
 msgid "_Done"
 msgstr "_Gotowe"
 
@@ -512,11 +520,11 @@ msgstr "_Gotowe"
 msgid "Print version information and exit"
 msgstr "Wyświetla informację o wersji i kończy działanie"
 
-#: src/stopwatch-face.vala:168 src/stopwatch-face.vala:205
+#: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
 msgid "Lap"
 msgstr "Okrążenie"
 
-#: src/stopwatch-face.vala:180
+#: src/stopwatch-face.vala:181
 msgid "Resume"
 msgstr "Wznów"
 
@@ -525,11 +533,11 @@ msgstr "Wznów"
 msgid "Lap %i"
 msgstr "%i. okrążenie"
 
-#: src/timer-face.vala:76
+#: src/timer-face.vala:82
 msgid "Time is up!"
 msgstr "Czas minął!"
 
-#: src/timer-face.vala:77
+#: src/timer-face.vala:83
 msgid "Timer countdown finished"
 msgstr "Ukończono odliczanie minutnika"
 
@@ -668,12 +676,12 @@ msgstr "Dni robocze"
 msgid "Weekends"
 msgstr "Weekendy"
 
-#: src/window.vala:300
+#: src/window.vala:253
 msgid "translator-credits"
 msgstr ""
-"Piotr Drąg <piotrdrag@gmail.com>, 2012-2023\n"
+"Piotr Drąg <piotrdrag@gmail.com>, 2012-2024\n"
 "Paweł Żołnowski <pawel@zolnowski.name>, 2014\n"
-"Aviary.pl <community-poland@mozilla.org>, 2012-2023"
+"Aviary.pl <community-poland@mozilla.org>, 2012-2024"
 
 #. Translators: Tooltip for the + button
 #: src/world-face.vala:29
