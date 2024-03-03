@@ -1,19 +1,19 @@
 # Swedish translation for gnome-clocks.
-# Copyright © 2012-2023 Free Software Foundation, Inc.
+# Copyright © 2012-2024 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-clocks package.
 # Daniel Nylander <po@danielnylander.se>, 2012.
 # Fredrik Söderström <tirithen@gmail.com>, 2014.
 # Mattias Eriksson <snaggen@gmail.com>, 2014.
 # Sebastian Rasmussen <sebras@gmail.com>, 2015.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015, 2016, 2017, 2018, 2020, 2021, 2022, 2023.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2014, 2015, 2016, 2017, 2018, 2020, 2021, 2022, 2023, 2024.
 # Luna Jernberg <droidbittin@gmail.com>, 2021, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2023-09-17 14:47+0000\n"
-"PO-Revision-Date: 2023-10-26 10:40+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
+"POT-Creation-Date: 2024-02-13 18:01+0000\n"
+"PO-Revision-Date: 2024-02-13 19:13+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -21,25 +21,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:298 src/window.vala:353
+#: src/main.vala:25 src/window.vala:245 src/window.vala:300
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Klockor"
 
-#: data/org.gnome.clocks.desktop.in.in:6
+#: data/org.gnome.clocks.desktop.in.in:5
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Klockor för världstider, alarm, stoppur och en timer"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in.in:8
+#: data/org.gnome.clocks.desktop.in.in:7
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "tid;timer;äggklocka;alarm:världsklocka;världsur;stoppur;tidszon;"
 
-#: data/org.gnome.clocks.desktop.in.in:18
+#: data/org.gnome.clocks.desktop.in.in:17
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "Låter världsklockor visas för din tidszon."
 
@@ -143,7 +143,8 @@ msgstr "Stoppursskärm"
 msgid "Timer screen"
 msgstr "Timerskärm"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:150 src/window.vala:300
+#. developer_name tag deprecated with Appstream 1.0
+#: data/org.gnome.clocks.metainfo.xml.in.in:153 src/window.vala:247
 msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
@@ -273,37 +274,35 @@ msgstr "Ta bort"
 
 #. Translators: Tooltip for the + button
 #: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:113
+#: src/alarm-setup-dialog.vala:111
 msgid "New Alarm"
 msgstr "Nytt alarm"
 
-#: data/ui/alarm-setup-dialog.ui:27 data/ui/timer-setup-dialog.ui:28
-#: data/ui/world-location-dialog.ui:17
+#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
 msgid "_Cancel"
 msgstr "_Avbryt"
 
-#: data/ui/alarm-setup-dialog.ui:34 data/ui/timer-setup-dialog.ui:35
-#: data/ui/world-location-dialog.ui:25
+#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
 msgid "_Add"
 msgstr "_Lägg till"
 
-#: data/ui/alarm-setup-dialog.ui:125
+#: data/ui/alarm-setup-dialog.ui:126
 msgid "Name"
 msgstr "Namn"
 
-#: data/ui/alarm-setup-dialog.ui:132
+#: data/ui/alarm-setup-dialog.ui:133
 msgid "Ring Duration"
 msgstr "Ringningslängd"
 
-#: data/ui/alarm-setup-dialog.ui:138
+#: data/ui/alarm-setup-dialog.ui:139
 msgid "Snooze Duration"
 msgstr "Snoozelängd"
 
-#: data/ui/alarm-setup-dialog.ui:150
+#: data/ui/alarm-setup-dialog.ui:151
 msgid "You already have an alarm for this time."
 msgstr "Du har redan ett alarm för den här tiden."
 
-#: data/ui/alarm-setup-dialog.ui:157
+#: data/ui/alarm-setup-dialog.ui:158
 msgid "R_emove Alarm"
 msgstr "Ta _bort alarm"
 
@@ -319,11 +318,7 @@ msgstr "_Hjälp"
 msgid "_About Clocks"
 msgstr "_Om Klockor"
 
-#: data/ui/header-bar.ui:54
-msgid "Menu"
-msgstr "Meny"
-
-#: data/ui/header-bar.ui:57
+#: data/ui/header-bar.ui:56
 msgid "Main Menu"
 msgstr "Huvudmeny"
 
@@ -331,7 +326,7 @@ msgstr "Huvudmeny"
 msgid "_Start"
 msgstr "_Starta"
 
-#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:184
+#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
 msgid "Clear"
 msgstr "Rensa"
 
@@ -343,19 +338,20 @@ msgstr "Tid"
 msgid "Difference"
 msgstr "Differens"
 
-#: data/ui/timer-face.ui:21
-msgid "Select Duration"
-msgstr "Välj längd"
+#: data/ui/timer-face.ui:27
+msgid "St_art"
+msgstr "St_arta"
 
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Titel…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:164
+#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
 msgid "Pause"
 msgstr "Paus"
 
-#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:201
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
+#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Starta"
 
@@ -368,40 +364,48 @@ msgstr "Återställ"
 msgid "New Timer"
 msgstr "Ny timer"
 
-#: data/ui/timer-setup.ui:38
+#: data/ui/timer-setup.ui:31
+msgid "Quick Start"
+msgstr "Snabbstart"
+
+#: data/ui/timer-setup.ui:47
 msgid "1 m"
 msgstr "1 min"
 
-#: data/ui/timer-setup.ui:49
+#: data/ui/timer-setup.ui:58
 msgid "2 m"
 msgstr "2 min"
 
-#: data/ui/timer-setup.ui:60
+#: data/ui/timer-setup.ui:69
 msgid "3 m"
 msgstr "3 min"
 
-#: data/ui/timer-setup.ui:71
+#: data/ui/timer-setup.ui:80
 msgid "5 m"
 msgstr "5 min"
 
-#: data/ui/timer-setup.ui:82
+#: data/ui/timer-setup.ui:91
 msgid "30 m"
 msgstr "30 min"
 
-#: data/ui/timer-setup.ui:93
+#: data/ui/timer-setup.ui:102
 msgid "15 m"
 msgstr "15 min"
 
-#: data/ui/timer-setup.ui:104
+#: data/ui/timer-setup.ui:113
 msgid "45 m"
 msgstr "45 min"
 
-#: data/ui/timer-setup.ui:115
+#: data/ui/timer-setup.ui:124
 msgid "1 h"
 msgstr "1 tim"
 
-#: data/ui/timer-setup.ui:147 data/ui/timer-setup.ui:179
-#: data/ui/timer-setup.ui:212
+#: data/ui/timer-setup.ui:137
+msgid "Set Timer"
+msgstr "Ställ in timer"
+
+#: data/ui/timer-setup.ui:163 data/ui/timer-setup.ui:195
+#: data/ui/timer-setup.ui:228
 msgid "0"
 msgstr "0"
 
@@ -437,7 +441,7 @@ msgstr "_Lägg till världsklocka…"
 msgid "Add a New World Clock"
 msgstr "Lägg till ny världsklocka"
 
-#: data/ui/world-location-dialog.ui:53
+#: data/ui/world-location-dialog.ui:65
 msgid "Search for a City"
 msgstr "Sök efter en stad"
 
@@ -457,22 +461,20 @@ msgstr "Alarm inställt till %s från nu"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:179 src/alarm-row.vala:90 src/window.vala:349
+#: src/alarm-item.vala:179 src/alarm-row.vala:90 src/window.vala:296
 msgid "Alarm"
 msgstr "Alarm"
 
-# TODO: until
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
 #: src/alarm-row.vala:97
 #, c-format
-msgid "%s: Snoozed untill %s"
+msgid "%s: Snoozed until %s"
 msgstr "%s: Snoozat till %s"
 
-# TODO: until
 #. Translators: %s is a time
 #: src/alarm-row.vala:100
 #, c-format
-msgid "Snoozed untill %s"
+msgid "Snoozed until %s"
 msgstr "Snoozat till %s"
 
 #. Translators: The alarm titled %s was "missed"
@@ -509,11 +511,11 @@ msgstr "20 minuter"
 msgid "30 minutes"
 msgstr "30 minuter"
 
-#: src/alarm-setup-dialog.vala:113
+#: src/alarm-setup-dialog.vala:111
 msgid "Edit Alarm"
 msgstr "Redigera alarm"
 
-#: src/alarm-setup-dialog.vala:116
+#: src/alarm-setup-dialog.vala:114
 msgid "_Done"
 msgstr "_Färdig"
 
@@ -521,11 +523,11 @@ msgstr "_Färdig"
 msgid "Print version information and exit"
 msgstr "Skriv ut versionsinformation och avsluta"
 
-#: src/stopwatch-face.vala:168 src/stopwatch-face.vala:205
+#: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
 msgid "Lap"
 msgstr "Varv"
 
-#: src/stopwatch-face.vala:180
+#: src/stopwatch-face.vala:181
 msgid "Resume"
 msgstr "Fortsätt"
 
@@ -568,7 +570,7 @@ msgstr[1] "%s timmar före"
 #: src/utils.vala:103
 #, c-format
 msgid "%s day"
-msgid_plural "%s day"
+msgid_plural "%s days"
 msgstr[0] "%s dag"
 msgstr[1] "%s dagar"
 
@@ -672,7 +674,7 @@ msgstr "Veckodagar"
 msgid "Weekends"
 msgstr "Helger"
 
-#: src/window.vala:306
+#: src/window.vala:253
 msgid "translator-credits"
 msgstr ""
 "Daniel Nylander <po@danielnylander.se>\n"
@@ -705,6 +707,12 @@ msgstr "I går"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Aktuell plats"
+
+#~ msgid "Menu"
+#~ msgstr "Meny"
+
+#~ msgid "Select Duration"
+#~ msgstr "Välj längd"
 
 #, c-format
 #~ msgid "Snoozed from %s: %s"
