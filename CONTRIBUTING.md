@@ -5,14 +5,14 @@ Clocks. Feel free to skip sections if you know what they are about.
 
 Another good source for general information is:
 
-<https://wiki.gnome.org/Apps/Clocks>
+<https://welcome.gnome.org/app/Clocks/>
 
 ---
 
 ## 1. How to Provide a Good Patch
 
 * Make sure you have just what belongs there in the changeset.
-* Read <https://wiki.gnome.org/Git/CommitMessages> carefully.
+* Read <https://handbook.gnome.org/development/commit-messages.html> carefully.
 * The preferred way of appending patches to bugs is via `git bz`.
   * As an alternative you can use `git format-patch HEAD~1`.
 * The bugtracker has some quite cool features; use them!
@@ -26,7 +26,7 @@ Another good source for general information is:
 
 Check out:
 
-<https://wiki.gnome.org/Projects/Vala/Documentation>
+<https://vala.dev>
 
 Vala basics in 5 minutes:
 
