@@ -1,437 +1,490 @@
-# Norwegian bokmål translation of gnome-clocks.
-# Copyright (C) 1998-2004, 2005 Free Software Foundation, Inc.
-# Kjartan Maraas <kmaraas@gnome.org>, 1998-2020.
-# Terance Edward Sola <terance@lyse.net>, 2005.
-# Torstein Adolf Winterseth <kvikende@fsfe.org>, 2010.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-clocks 3.38.x\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2021-01-24 12:00+0000\n"
-"PO-Revision-Date: 2021-01-25 16:29+0100\n"
-"Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
-"Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
+"POT-Creation-Date: 2024-03-15 19:09+0000\n"
+"PO-Revision-Date: 2024-03-16 18:20+0100\n"
+"Last-Translator: Brage <bragefuglseth@gnome.org>\n"
+"Language-Team: \n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/ui/header-bar.ui:29 src/main.vala:25 src/window.vala:297
-#: src/window.vala:352 src/world-standalone.vala:24
+#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
+#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/world-standalone.vala:24
 msgid "Clocks"
-msgstr "Klokker"
+msgstr "Klokke"
 
-#: data/org.gnome.clocks.desktop.in.in:6
-#: data/org.gnome.clocks.metainfo.xml.in.in:7
+#: data/org.gnome.clocks.desktop.in.in:5
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Klokker med verdenstid, alarm, stoppeklokke og nedtelling"
+msgstr "Få kontroll på tiden"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in.in:8
+#: data/org.gnome.clocks.desktop.in.in:7
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "tid;nedtelling;alarm;verdensklokke;stoppeklokke;tidssone;"
+msgstr ""
+"clocks;verdensklokker;ur;nedtelling;alarmer;vekkerklokke;ringetone;"
+"påminnelser;stoppeklokke;tidssoner;ta tiden;start nedtelling;tidtaker;"
 
-#: data/org.gnome.clocks.desktop.in.in:18
+#: data/org.gnome.clocks.desktop.in.in:17
 msgid "Allows world clocks to be displayed for your time zone."
-msgstr "Tillat visning av verdensklokker for din tidssone."
+msgstr "Lar verdensklokker vises for tidssonen din."
 
 #: data/org.gnome.clocks.gschema.xml.in:5
 msgid "Configured world clocks"
-msgstr "Oppsatte verdensklokker"
+msgstr "Verdensklokker"
 
 #: data/org.gnome.clocks.gschema.xml.in:6
 msgid "List of world clocks to show."
-msgstr "Liste over verdensklokker som skal vises."
+msgstr "Liste over verdensklokker å vise."
 
 #: data/org.gnome.clocks.gschema.xml.in:12
 msgid "Configured alarms"
-msgstr "Oppsatte alarmer"
+msgstr "Alarmer"
 
 #: data/org.gnome.clocks.gschema.xml.in:13
 msgid "List of alarms set."
-msgstr "Liste over gjeldende alarmer."
+msgstr "Liste over alarmer."
 
 #: data/org.gnome.clocks.gschema.xml.in:19
 msgid "Configured Timers"
-msgstr "Oppsatte alarmer"
+msgstr "Nedtellinger"
 
 #: data/org.gnome.clocks.gschema.xml.in:20
 msgid "List of timers set."
-msgstr "Liste med gjeldende alarmer."
+msgstr "Liste over nedtellinger."
 
 #: data/org.gnome.clocks.gschema.xml.in:26
 msgid "Geolocation support"
-msgstr "Støtte for geografisk plassering"
+msgstr "Posisjon"
 
 #: data/org.gnome.clocks.gschema.xml.in:27
 msgid "Turn geolocation support on and off."
-msgstr "Slå av og på støtte for geografisk plassering."
+msgstr "Hvis denne innstillingen er på, vil enhetens posisjon kunne brukes."
 
 #: data/org.gnome.clocks.gschema.xml.in:44
-msgid "Window state"
-msgstr "Tilstand for vindu"
+msgid "Window maximized"
+msgstr "Maksimering"
 
 #: data/org.gnome.clocks.gschema.xml.in:45
-msgid "State of the window, e.g. maximized."
-msgstr "Vinduets tilstand (f.eks. maksimert)."
+msgid "Whether the window is maximized."
+msgstr "Hvis denne innstillingen er på, vil vinduet maksimeres."
 
 #: data/org.gnome.clocks.gschema.xml.in:51
 msgid "Window width and height"
-msgstr "Høyde og bredde på vindu"
+msgstr "Vindusstørrelse"
 
 #: data/org.gnome.clocks.gschema.xml.in:52
 msgid "Width and height of the window."
-msgstr "Høyde og bredde på vinduet."
+msgstr "Bredden og høyden på vinduet."
 
 #: data/org.gnome.clocks.gschema.xml.in:58
 msgid "Panel state"
-msgstr "Tilstand for panel"
+msgstr "Side"
 
 #: data/org.gnome.clocks.gschema.xml.in:59
 msgid "Current clock panel."
-msgstr "Gjeldende klokkepanel."
+msgstr "Hvilken side som vises."
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:6
-msgid "GNOME Clocks"
-msgstr "GNOME klokker"
+#: data/org.gnome.clocks.metainfo.xml.in.in:7
+msgid "Keep track of time"
+msgstr "Få kontroll på tiden"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
+"stopwatch, and timers."
 msgstr ""
-"Et enkelt og elegant klokkeprogram med verdensklokke, alarm, stoppeklokke og "
-"nedtelling."
+"Se hva klokken er i New York akkurat nå, eller pass på at bakverket ditt "
+"står lenge nok i ovnen. Denne appen hjelper deg med alt som har med tid å "
+"gjøre."
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:13
-msgid "Goals:"
-msgstr "Mål:"
+#: data/org.gnome.clocks.metainfo.xml.in.in:14
+msgid "Show the time in different cities around the world"
+msgstr "Vis klokkeslett for hvor som helst i verden"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:15
-msgid "Show the time in different cities around the world"
-msgstr "Vis klokkeslett i forskjellige byer rundt om i verden"
+msgid "Set alarms to wake you up"
+msgstr "Utløs alarmer på bestemte tidspunkter"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:16
-msgid "Set alarms to wake you up"
-msgstr "Still inn alarmer som vekker deg"
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "Ta tiden med en presis stoppeklokke"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:17
-msgid "Measure elapsed time with an accurate stopwatch"
-msgstr "Mål medgått tid med en nøyaktig stoppeklokke"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:18
 msgid "Set timers to properly cook your food"
-msgstr "Still inn nedtellere for å tilberede maten din skikkelig"
+msgstr "Start så mange nedtellinger du vil"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:32
+#: data/org.gnome.clocks.metainfo.xml.in.in:39
 msgid "Initial screen"
-msgstr "Startskjerm"
+msgstr "Verdensklokker"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:36
+#: data/org.gnome.clocks.metainfo.xml.in.in:43
 msgid "Alarms screen"
-msgstr "Alarmskjerm"
+msgstr "Alarmer"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:40
-msgid "Alarms setup"
-msgstr "Oppsett av alarm"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:44
+#: data/org.gnome.clocks.metainfo.xml.in.in:47
 msgid "Stopwatch screen"
-msgstr "Stoppeklokkeskjerm"
+msgstr "Stoppeklokke"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:48
+#: data/org.gnome.clocks.metainfo.xml.in.in:51
 msgid "Timer screen"
-msgstr "Nedtellingsskjerm"
+msgstr "Nedtellinger"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:95
+#. developer_name tag deprecated with Appstream 1.0
+#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
 msgid "The GNOME Project"
-msgstr "GNOME prosjektet"
+msgstr "GNOME"
 
-#: data/gtk/help-overlay.ui:14
+#: data/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
 msgstr "Generelt"
 
-#: data/gtk/help-overlay.ui:19
+#: data/gtk/help-overlay.ui:15
 msgctxt "shortcut window"
-msgid "Show help"
+msgid "Show Help"
 msgstr "Vis hjelp"
 
-#: data/gtk/help-overlay.ui:26
+#: data/gtk/help-overlay.ui:21
 msgctxt "shortcut window"
-msgid "Open menu"
-msgstr "Åpne meny"
+msgid "Open Menu"
+msgstr "Vis hovedmeny"
 
-#: data/gtk/help-overlay.ui:33
+#: data/gtk/help-overlay.ui:27
 msgctxt "shortcut window"
-msgid "Keyboard shortcuts"
+msgid "Keyboard Shortcuts"
 msgstr "Tastatursnarveier"
 
-#: data/gtk/help-overlay.ui:40
+#: data/gtk/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Avslutt"
 
-#: data/gtk/help-overlay.ui:47
+#: data/gtk/help-overlay.ui:39
 msgctxt "shortcut window"
-msgid "Go to the next section"
-msgstr "Gå til neste del"
+msgid "Go to the Next Section"
+msgstr "Neste side"
 
-#: data/gtk/help-overlay.ui:54
+#: data/gtk/help-overlay.ui:45
 msgctxt "shortcut window"
-msgid "Go to the previous section"
-msgstr "Gå til forrige del"
+msgid "Go to the Previous Section"
+msgstr "Forrige side"
+
+#: data/gtk/help-overlay.ui:51
+msgctxt "shortcut window"
+msgid "Go to the World Section"
+msgstr "Gå til verdensklokker"
+
+#: data/gtk/help-overlay.ui:57
+msgctxt "shortcut window"
+msgid "Go to the Alarms Section"
+msgstr "Gå til alarmer"
 
 #: data/gtk/help-overlay.ui:63
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch Section"
+msgstr "Gå til stoppeklokke"
+
+#: data/gtk/help-overlay.ui:69
+msgctxt "shortcut window"
+msgid "Go to the Timer Section"
+msgstr "Gå til nedtellinger"
+
+#: data/gtk/help-overlay.ui:77
 msgctxt "shortcut window"
 msgid "World Clocks"
 msgstr "Verdensklokker"
 
-#: data/gtk/help-overlay.ui:68
+#: data/gtk/help-overlay.ui:81
 msgctxt "shortcut window"
-msgid "Add a world clock"
-msgstr "Legg til en verdensklokke"
+msgid "Add a World Clock"
+msgstr "Legg til verdensklokke"
 
-#: data/gtk/help-overlay.ui:77
+#: data/gtk/help-overlay.ui:89
 msgctxt "shortcut window"
 msgid "Alarm"
-msgstr "Alarm"
+msgstr "Alarmer"
 
-#: data/gtk/help-overlay.ui:82
+#: data/gtk/help-overlay.ui:93
 msgctxt "shortcut window"
-msgid "Add an alarm"
-msgstr "Legg til en alarm"
+msgid "Add an Alarm"
+msgstr "Ny alarm"
 
-#: data/gtk/help-overlay.ui:91
+#: data/gtk/help-overlay.ui:101
 msgctxt "shortcut window"
 msgid "Stopwatch"
 msgstr "Stoppeklokke"
 
-#: data/gtk/help-overlay.ui:96
-msgctxt "shortcut window"
-msgid "Stop / Reset"
-msgstr "Stopp / nullstill"
-
 #: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
-msgid "Timer"
-msgstr "Nedtelling"
+msgid "Pause All"
+msgstr "Sett på pause"
 
-#: data/gtk/help-overlay.ui:110
+#: data/gtk/help-overlay.ui:113
 msgctxt "shortcut window"
-msgid "Reset"
-msgstr "Nullstill"
+msgid "Timer"
+msgstr "Nedtellinger"
 
 #: data/gtk/help-overlay.ui:117
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr "Reset"
+
+#: data/gtk/help-overlay.ui:123
 msgctxt "shortcut window"
 msgid "New Timer"
 msgstr "Ny nedtelling"
 
-#: data/ui/alarm-day-picker-row.ui:5
-msgid "_Repeat"
-msgstr "_Gjenta"
+#: data/ui/alarm-day-picker-row.ui:17
+msgid "Repeat"
+msgstr "Gjenta"
 
-#: data/ui/alarm-face.ui:29
-msgid "Add A_larm"
-msgstr "Legg til en alarm"
+#: data/ui/alarm-face.ui:14
+msgid "Add A_larm…"
+msgstr "Legg til _alarm…"
 
-#: data/ui/alarm-ringing-panel.ui:33 src/alarm-item.vala:116
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
 msgid "Stop"
 msgstr "Stopp"
 
-#: data/ui/alarm-ringing-panel.ui:51 src/alarm-item.vala:117
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:196
 msgid "Snooze"
-msgstr "Pause"
+msgstr "Slumre"
 
-#: data/ui/alarm-row.ui:25
-msgid "Active"
-msgstr "Aktiv"
+#: data/ui/alarm-row.ui:47
+msgid "Repeats"
+msgstr "Gjentakelse"
 
-#: data/ui/alarm-row.ui:39 data/ui/world-row.ui:92
+#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Slett"
 
-#: data/ui/alarm-row.ui:69
-msgid "Repeats"
-msgstr "Gjentas"
-
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:24 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:108
+#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:111
 msgid "New Alarm"
 msgstr "Ny alarm"
 
-#: data/ui/alarm-setup-dialog.ui:143
+#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+msgid "_Cancel"
+msgstr "_Avbryt"
+
+#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+msgid "_Add"
+msgstr "_Legg til"
+
+#: data/ui/alarm-setup-dialog.ui:126
 msgid "Name"
 msgstr "Navn"
 
-#: data/ui/alarm-setup-dialog.ui:144
-msgid "Optional"
-msgstr "Valgfri"
-
-#: data/ui/alarm-setup-dialog.ui:161
+#: data/ui/alarm-setup-dialog.ui:133
 msgid "Ring Duration"
 msgstr "Ringevarighet"
 
-#: data/ui/alarm-setup-dialog.ui:169
+#: data/ui/alarm-setup-dialog.ui:139
 msgid "Snooze Duration"
-msgstr "Pausevarighet"
+msgstr "Slumrevarighet"
 
-#: data/ui/alarm-setup-dialog.ui:181
-msgid "R_emove Alarm"
-msgstr "Fj_ern alarm"
-
-#: data/ui/alarm-setup-dialog.ui:197
+#: data/ui/alarm-setup-dialog.ui:151
 msgid "You already have an alarm for this time."
-msgstr "Du har allerede satt opp en alarm ved dette klokkeslettet."
+msgstr "Det finnes allerede en alarm for dette klokkeslettet."
 
-#: data/ui/header-bar.ui:8
+#: data/ui/alarm-setup-dialog.ui:158
+msgid "R_emove Alarm"
+msgstr "_Fjern alarm"
+
+#: data/ui/header-bar.ui:6
 msgid "_Keyboard Shortcuts"
 msgstr "_Tastatursnarveier"
 
-#: data/ui/header-bar.ui:12
+#: data/ui/header-bar.ui:10
 msgid "_Help"
 msgstr "_Hjelp"
 
-#: data/ui/header-bar.ui:16
+#: data/ui/header-bar.ui:14
 msgid "_About Clocks"
-msgstr "_Om klokker"
+msgstr "_Om Klokke"
 
-#: data/ui/header-bar.ui:64 data/ui/world-standalone.ui:23
-msgid "Back"
-msgstr "Tilbake"
+#: data/ui/header-bar.ui:56
+msgid "Main Menu"
+msgstr "Hovedmeny"
 
-#: data/ui/header-bar.ui:95
-msgid "Menu"
-msgstr "Meny"
-
-#: data/ui/stopwatch-face.ui:171
+#: data/ui/stopwatch-face.ui:100
 msgid "_Start"
 msgstr "_Start"
 
-#: data/ui/stopwatch-face.ui:192 src/stopwatch-face.vala:178
+#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
 msgid "Clear"
-msgstr "Tøm"
+msgstr "Nullstill"
 
-#: data/ui/stopwatch-laps-row.ui:18
+#: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
-msgstr "Tid"
+msgstr "Tid brukt"
 
-#: data/ui/stopwatch-laps-row.ui:39
+#: data/ui/stopwatch-laps-row.ui:25
 msgid "Difference"
-msgstr "Forskjell"
+msgstr "Tidsforskjell"
 
-#: data/ui/timer-face.ui:21
-msgid "Select Duration"
-msgstr "Velg varighet"
+#: data/ui/timer-face.ui:27
+msgid "St_art"
+msgstr "_Start"
 
-#: data/ui/timer-row.ui:46
-msgid "Title..."
-msgstr "Tittel …"
+#: data/ui/timer-row.ui:32
+msgid "Title…"
+msgstr "Navn…"
+
+#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+msgid "Pause"
+msgstr "Pause"
+
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
+#: src/stopwatch-face.vala:202
+msgid "Start"
+msgstr "Start"
+
+#: data/ui/timer-row.ui:119
+msgid "Reset"
+msgstr "Tilbakestill"
+
+#. Translators: Tooltip for the + button
+#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+msgid "New Timer"
+msgstr "Ny nedtelling"
+
+#: data/ui/timer-setup.ui:31
+msgid "Quick Start"
+msgstr "Hurtigstart"
 
 #: data/ui/timer-setup.ui:47
 msgid "1 m"
 msgstr "1 m"
 
-#: data/ui/timer-setup.ui:65
+#: data/ui/timer-setup.ui:58
 msgid "2 m"
 msgstr "2 m"
 
-#: data/ui/timer-setup.ui:83
+#: data/ui/timer-setup.ui:69
 msgid "3 m"
 msgstr "3 m"
 
-#: data/ui/timer-setup.ui:101
+#: data/ui/timer-setup.ui:80
 msgid "5 m"
 msgstr "5 m"
 
-#: data/ui/timer-setup.ui:119
+#: data/ui/timer-setup.ui:91
 msgid "30 m"
 msgstr "30 m"
 
-#: data/ui/timer-setup.ui:137
+#: data/ui/timer-setup.ui:102
 msgid "15 m"
 msgstr "15 m"
 
-#: data/ui/timer-setup.ui:155
+#: data/ui/timer-setup.ui:113
 msgid "45 m"
 msgstr "45 m"
 
-#: data/ui/timer-setup.ui:173
+#: data/ui/timer-setup.ui:124
 msgid "1 h"
 msgstr "1 t"
 
-#: data/ui/timer-setup.ui:227 data/ui/timer-setup.ui:267
-#: data/ui/timer-setup.ui:308
+#: data/ui/timer-setup.ui:137
+msgid "Set Timer"
+msgstr "Tilpass lengde"
+
+#: data/ui/timer-setup.ui:163 data/ui/timer-setup.ui:195
+#: data/ui/timer-setup.ui:228
 msgid "0"
 msgstr "0"
 
-#: data/ui/window.ui:53
-msgid "World"
-msgstr "Verden"
+#: data/ui/window.ui:44
+msgid "_World"
+msgstr "_Verden"
 
-#: data/ui/window.ui:63
-msgid "Alarms"
-msgstr "Alarmer"
+#: data/ui/window.ui:55
+msgid "Ala_rms"
+msgstr "_Alarmer"
 
-#: data/ui/window.ui:73
-msgid "Stopwatch"
-msgstr "Stoppeklokke"
+#: data/ui/window.ui:66
+msgid "_Stopwatch"
+msgstr "_Stoppeklokke"
 
-#: data/ui/window.ui:83
-msgid "Timer"
-msgstr "Nedtelling"
+#: data/ui/window.ui:77
+msgid "_Timer"
+msgstr "_Nedtelling"
 
-#: data/ui/world-face.ui:35 data/ui/world-location-dialog.ui:8
-msgid "Add World Clock"
-msgstr "Legg til en verdensklokke"
+#: data/ui/window.ui:98
+msgid "Clock"
+msgstr "Klokke"
 
-#: data/ui/world-location-dialog.ui:20
+#: data/ui/window.ui:106
+msgid "Alarm Ringing"
+msgstr "Alarm"
+
+#: data/ui/world-face.ui:15
+msgid "_Add World Clock…"
+msgstr "_Legg til verdensklokke…"
+
+#: data/ui/world-location-dialog.ui:4
 msgid "Add a New World Clock"
-msgstr "Legg til en verdensklokke"
+msgstr "Legg til verdensklokke"
 
-#: data/ui/world-location-dialog.ui:24
-msgid "_Cancel"
-msgstr "A_vbryt"
+#: data/ui/world-location-dialog.ui:65
+msgid "Search for a City"
+msgstr "Søk etter steder"
 
-#: data/ui/world-location-dialog.ui:40
-msgid "_Add"
-msgstr "_Legg til"
-
-#: data/ui/world-location-dialog.ui:139
-msgid "Search for a city"
-msgstr "Søk etter en by"
-
-#: data/ui/world-standalone.ui:104
+#: data/ui/world-standalone.ui:97
 msgid "Sunrise"
 msgstr "Soloppgang"
 
-#: data/ui/world-standalone.ui:118
+#: data/ui/world-standalone.ui:109
 msgid "Sunset"
 msgstr "Solnedgang"
+
+#: src/alarm-face.vala:157
+#, c-format
+msgid "Alarm set for %s from now"
+msgstr "Alarm stilt til %s fra nå"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:82 src/window.vala:348
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
 msgid "Alarm"
 msgstr "Alarm"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
-#: src/alarm-row.vala:89
+#: src/alarm-row.vala:97
 #, c-format
-msgid "Snoozed from %s: %s"
-msgstr "Satt på pause fra %s: %s"
+msgid "%s: Snoozed until %s"
+msgstr "%s: Slumrer til %s"
 
 #. Translators: %s is a time
-#: src/alarm-row.vala:92
+#: src/alarm-row.vala:100
 #, c-format
-msgid "Snoozed from %s"
-msgstr "Satt på pause fra %s"
+msgid "Snoozed until %s"
+msgstr "Slumrer til %s"
+
+#. Translators: The alarm titled %s was "missed"
+#: src/alarm-row.vala:107
+#, c-format
+msgid "Alarm %s was missed"
+msgstr "Alarmen %s har passert"
+
+#: src/alarm-row.vala:109
+msgid "Alarm was missed"
+msgstr "En alarm har passert"
 
 #: src/alarm-setup-dialog.vala:41
 msgid "1 minute"
@@ -457,189 +510,191 @@ msgstr "20 minutter"
 msgid "30 minutes"
 msgstr "30 minutter"
 
-#: src/alarm-setup-dialog.vala:108
+#: src/alarm-setup-dialog.vala:111
 msgid "Edit Alarm"
 msgstr "Rediger alarm"
 
-#: src/alarm-setup-dialog.vala:111 src/timer-setup-dialog.vala:30
-msgid "Cancel"
-msgstr "Avbryt"
-
-#: src/alarm-setup-dialog.vala:113
-msgid "Done"
-msgstr "Ferdig"
-
-#: src/alarm-setup-dialog.vala:115 src/timer-setup-dialog.vala:31
-msgid "Add"
-msgstr "Legg til"
+#: src/alarm-setup-dialog.vala:114
+msgid "_Done"
+msgstr "_Ferdig"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
-msgstr "Skriv ut versjonsinformasjon og avslutt"
+msgstr "Skriv ut versjon og avslutt"
 
-#: src/stopwatch-face.vala:158
-msgid "Pause"
-msgstr "Pause"
-
-#: src/stopwatch-face.vala:162 src/stopwatch-face.vala:199
+#: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
 msgid "Lap"
 msgstr "Runde"
 
-#: src/stopwatch-face.vala:174
+#: src/stopwatch-face.vala:181
 msgid "Resume"
-msgstr "Gjenoppta"
-
-#: src/stopwatch-face.vala:195
-msgid "Start"
-msgstr "Start"
+msgstr "Fortsett"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
 msgid "Lap %i"
 msgstr "Runde %i"
 
-#. Translators: Tooltip for the + button
-#: src/timer-face.vala:37 src/timer-setup-dialog.vala:27
-msgid "New Timer"
-msgstr "Ny nedtelling"
-
-#: src/timer-face.vala:75
+#: src/timer-face.vala:82
 msgid "Time is up!"
-msgstr "Tiden er ute!"
+msgstr "Tiden er ute"
 
-#: src/timer-face.vala:76
+#: src/timer-face.vala:83
 msgid "Timer countdown finished"
-msgstr "Nedtelling fullført"
+msgstr "Nedtellingen er ferdig"
 
 #. Translators: The time is the same as the local time
-#: src/utils.vala:76
+#: src/utils.vala:67
 msgid "Current timezone"
-msgstr "Gjeldende tidssone"
+msgstr "Nåværende tidssone"
 
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
-#: src/utils.vala:81
+#: src/utils.vala:72
 #, c-format
-msgid "%s hour earlier"
-msgid_plural "%s hours earlier"
-msgstr[0] "%s time tidligere"
-msgstr[1] "%s timer tidligere"
+msgid "%s hour behind"
+msgid_plural "%s hours behind"
+msgstr[0] "%s time bak"
+msgstr[1] "%s timer bak"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
-#: src/utils.vala:87
+#: src/utils.vala:78
 #, c-format
-msgid "%s hour later"
-msgid_plural "%s hours later"
-msgstr[0] "%s time senere"
-msgstr[1] "%s timer senere"
+msgid "%s hour ahead"
+msgid_plural "%s hours ahead"
+msgstr[0] "%s time foran"
+msgstr[1] "%s timer foran"
+
+#: src/utils.vala:103
+#, c-format
+msgid "%s day"
+msgid_plural "%s days"
+msgstr[0] "%s dag"
+msgstr[1] "%s dager"
+
+#: src/utils.vala:105 src/utils.vala:112
+msgid " and "
+msgstr " og "
+
+#: src/utils.vala:110
+#, c-format
+msgid "%s hour"
+msgid_plural "%s hours"
+msgstr[0] "%s time"
+msgstr[1] "%s timer"
+
+#: src/utils.vala:117
+#, c-format
+msgid "%s minute"
+msgid_plural "%s minutes"
+msgstr[0] "%s minutt"
+msgstr[1] "%s minutter"
 
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:189
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:277
+msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "M"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:191 src/utils.vala:195
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:279
+msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "T"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:193
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:281
+msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "O"
 
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:283
+msgctxt "Alarm|Repeat-On|Thursday"
+msgid "T"
+msgstr "T"
+
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:197
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:285
+msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "F"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:199 src/utils.vala:201
-msgctxt "Alarm|Repeat-On"
+#: src/utils.vala:287
+msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "L"
 
-#: src/utils.vala:205
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:289
+msgctxt "Alarm|Repeat-On|Sunday"
+msgid "S"
+msgstr "S"
+
+#: src/utils.vala:303
 msgid "Mondays"
 msgstr "Mandager"
 
-#: src/utils.vala:206
+#: src/utils.vala:304
 msgid "Tuesdays"
 msgstr "Tirsdager"
 
-#: src/utils.vala:207
+#: src/utils.vala:305
 msgid "Wednesdays"
 msgstr "Onsdager"
 
-#: src/utils.vala:208
+#: src/utils.vala:306
 msgid "Thursdays"
 msgstr "Torsdager"
 
-#: src/utils.vala:209
+#: src/utils.vala:307
 msgid "Fridays"
 msgstr "Fredager"
 
-#: src/utils.vala:210
+#: src/utils.vala:308
 msgid "Saturdays"
 msgstr "Lørdager"
 
-#: src/utils.vala:211
+#: src/utils.vala:309
 msgid "Sundays"
 msgstr "Søndager"
 
-#: src/utils.vala:337
+#: src/utils.vala:435
 msgid "Every Day"
-msgstr "Hver dag"
+msgstr "Daglig"
 
-#: src/utils.vala:339
+#: src/utils.vala:437
 msgid "Weekdays"
-msgstr "Ukedager"
+msgstr "Hverdager"
 
-#: src/utils.vala:341
+#: src/utils.vala:439
 msgid "Weekends"
 msgstr "Helger"
 
-#: src/window.vala:268
-#, c-format
-msgid "Failed to show help: %s"
-msgstr "Klarte ikke å vise hjelp. %s"
-
-#: src/window.vala:302
-msgid "Utilities to help you with the time."
-msgstr "Verktøy som hjelper deg å holde orden på tiden."
-
-#: src/window.vala:307
+#: src/window.vala:253
 msgid "translator-credits"
-msgstr ""
-"Kjartan Maraas <kmaraas@gnome.org>\n"
-"Torstein Adolf Winterseth <kvikende@fsfe.org>\n"
-"Åka Sikrom <a4NOSPAMPLEASETHANKYOU@hush.com>"
+msgstr "Brage Fuglseth https://bragefuglseth.dev"
 
 #. Translators: Tooltip for the + button
 #: src/world-face.vala:29
 msgid "Add Location"
-msgstr "Legg til lokasjon"
+msgstr "Legg til sted"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world-item.vala:144 src/world-item.vala:148
+#: src/world-item.vala:177 src/world-item.vala:181
 msgid "Tomorrow"
 msgstr "I morgen"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world-item.vala:144 src/world-item.vala:148
+#: src/world-item.vala:177 src/world-item.vala:181
 msgid "Yesterday"
 msgstr "I går"
 
 #. Translators: This clock represents the local time
-#: src/world-row.vala:66
+#: src/world-row.vala:47
 msgid "Current location"
-msgstr "Gjeldende lokasjon"
+msgstr "Her"
