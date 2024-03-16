@@ -30,7 +30,8 @@ public class Setup : Gtk.Box {
     private unowned Gtk.SpinButton m_spinbutton;
     [GtkChild]
     private unowned Gtk.SpinButton s_spinbutton;
-
+    [GtkChild]
+    private unowned Gtk.Entry title_entry;
     [GtkChild]
     private unowned Gtk.Grid time_grid;
 
@@ -67,7 +68,7 @@ public class Setup : Gtk.Box {
     }
 
     public Item get_timer () {
-        return (new Item.from_seconds (get_duration (), ""));
+        return (new Item.from_seconds (get_duration (), title_entry.text));
     }
 
     // This callback is called on `changed` (from `Gtk.Editable`) rather than on
