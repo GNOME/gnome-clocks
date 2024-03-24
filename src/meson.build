@@ -11,7 +11,7 @@ clocks_c = static_library(
   clocks_c_sources + config_h,
   c_args: clocks_c_args,
   include_directories: config_h_dir,
-  dependencies: [gtk, math],
+  dependencies: [ icu_i18n, icu_uc, gtk, math ],
   gnu_symbol_visibility: 'hidden',
 )
 

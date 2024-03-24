@@ -147,7 +147,9 @@ public class Face : Adw.Bin, Clocks.Clock {
 
         var window = (Clocks.Window) get_root ();
         var now = new GLib.DateTime.now ();
-        var time_left_string = Utils.format_time_span (alarm.ring_time.difference (now));
+        // Round the time left up to the next minute.
+        var time_left = Utils.ceil_time_span (alarm.ring_time.difference (now), GLib.TimeSpan.MINUTE);
+        var time_left_string = Utils.format_time_span (time_left, false);
         if (ring_time_toast == null) {
             ring_time_toast = new Adw.Toast ("");
         } else {

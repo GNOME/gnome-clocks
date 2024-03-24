@@ -22,6 +22,8 @@ else
   geocodeglib = dependency('geocode-glib-1.0', version: '>=1.0')
 endif
 gnomedesktop = dependency('gnome-desktop-4')
+icu_i18n = dependency('icu-i18n', version: '>=60.0')
+icu_uc = dependency('icu-uc', version: '>=60.0')
 libgeoclue = dependency('libgeoclue-2.0', version: '>=2.4')
 libadwaita = dependency ('libadwaita-1', version: '>=1.8.rc')
 

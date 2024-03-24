@@ -24,6 +24,117 @@
 #endif
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
+#include <locale.h>
+#include <unicode/unumberformatter.h>
+
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (UNumberFormatter, unumf_close);
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (UFormattedNumber, unumf_closeResult);
+
+const struct {
+  GTimeSpan span;
+  uint64_t max;
+  const char *string;
+} TIME_UNIT[] = {
+    { G_TIME_SPAN_DAY, G_MAXUINT64, "day" },
+    { G_TIME_SPAN_HOUR, 24, "hour" },
+    { G_TIME_SPAN_MINUTE, 60, "minute" },
+    { G_TIME_SPAN_SECOND, 60, "second" },
+    { G_TIME_SPAN_MILLISECOND, 1000, "millisecond" },
+    { 1, 1000, "microsecond" },
+};
+
+static inline char *
+unicode_build_duration_unit_for_time_span (GTimeSpan time_span)
+{
+  const char *segments[G_N_ELEMENTS (TIME_UNIT) + 1] = { NULL };
+  int j = 0;
+
+  for (int i = 0; i < G_N_ELEMENTS (TIME_UNIT); i++) {
+    uint64_t n = (time_span / TIME_UNIT[i].span) % TIME_UNIT[i].max;
+    if (n > 0) {
+      segments[j++] = TIME_UNIT[i].string;
+    }
+  }
+
+  return g_strjoinv ("-and-", (GStrv) segments);
+}
+
+static inline char *
+unicode_format_number (const char *skeleton,
+                       double      number)
+{
+  char *locale = setlocale (LC_TIME, NULL);
+  g_autofree gunichar2 *skeleton_utf16 = NULL;
+  g_autoptr (UNumberFormatter) formatter = NULL;
+  g_autoptr (UFormattedNumber) result = NULL;
+  int32_t string_utf16_length = 0;
+  const UChar *string_utf16 = NULL;
+  g_autofree char *string = NULL;
+  UErrorCode error_code = U_ZERO_ERROR;
+  g_autoptr (GError) error = NULL;
+
+  skeleton_utf16 = g_utf8_to_utf16 (skeleton, -1, NULL, NULL, &error);
+  if (error != NULL) {
+    g_critical ("Failed to convert from UTF-8 to UTF-16: %s", error->message);
+    return NULL;
+  }
+
+  formatter = unumf_openForSkeletonAndLocale (skeleton_utf16, -1, locale, &error_code);
+  if (U_FAILURE (error_code)) {
+    g_critical ("Failed to create a Unicode number formatter: %s", u_errorName (error_code));
+    return NULL;
+  }
+
+  result = unumf_openResult (&error_code);
+  if (U_FAILURE (error_code)) {
+    g_critical ("Failed to create a Unicode result object: %s", u_errorName (error_code));
+    return NULL;
+  }
+
+  unumf_formatDouble (formatter, number, result, &error_code);
+  if (U_FAILURE (error_code)) {
+    g_critical ("Failed to format a number with Unicode: %s", u_errorName (error_code));
+    return NULL;
+  }
+
+  string_utf16 = ufmtval_getString (unumf_resultAsValue(result, &error_code), &string_utf16_length, &error_code);
+  if (U_FAILURE (error_code)) {
+    g_critical ("Failed to retrieved the Unicode number string: %s", u_errorName (error_code));
+    return NULL;
+  }
+
+  string = g_utf16_to_utf8 (string_utf16, string_utf16_length, NULL, NULL, &error);
+  if (error != NULL) {
+    g_critical ("Failed to convert from UTF-16 to UTF-8: %s", error->message);
+    return NULL;
+  }
+
+  return g_steal_pointer (&string);
+}
+
+char *
+clocks_cutils_format_time_span (GTimeSpan   time_span,
+                                gboolean    abbreviated)
+{
+  double number;
+  g_autofree char *duration_unit = NULL;
+  g_autofree char *skeleton = NULL;
+
+  time_span = labs (time_span);
+  number = time_span >= G_TIME_SPAN_DAY ? time_span / (double) G_TIME_SPAN_DAY
+         : time_span >= G_TIME_SPAN_HOUR ? time_span / (double) G_TIME_SPAN_HOUR
+         : time_span >= G_TIME_SPAN_MINUTE ? time_span / (double) G_TIME_SPAN_MINUTE
+         : time_span >= G_TIME_SPAN_SECOND ? time_span / (double) G_TIME_SPAN_SECOND
+         : time_span >= G_TIME_SPAN_MILLISECOND ? time_span / (double) G_TIME_SPAN_MILLISECOND
+         : (double) time_span;
+
+  duration_unit = unicode_build_duration_unit_for_time_span (time_span);
+  skeleton = g_strdup_printf ("unit/%s unit-width-%s precision-integer",
+                              duration_unit,
+                              abbreviated ? "narrow" : "full-name");
+
+  return unicode_format_number (skeleton, number);
+}
 
 /* Copied from gtkcalendar.c */
 int

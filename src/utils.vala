@@ -89,43 +89,8 @@ public GLib.TimeSpan ceil_time_span (GLib.TimeSpan time_span, GLib.TimeSpan unit
     return time_span - remainder + unit * (int) (remainder > 0);
 }
 
-public string format_time_span (GLib.TimeSpan diff) {
-    var days = diff / GLib.TimeSpan.DAY;
-    var hours = (diff - days * GLib.TimeSpan.DAY) / GLib.TimeSpan.HOUR;
-    // The +1 makes sure we always round to the upper minute
-    var minutes = (diff - days * GLib.TimeSpan.DAY - hours * GLib.TimeSpan.HOUR) / GLib.TimeSpan.MINUTE + 1;
-
-    if (minutes == GLib.TimeSpan.HOUR / GLib.TimeSpan.MINUTE) {
-        hours += 1;
-        minutes = 0;
-    }
-
-    if (hours == GLib.TimeSpan.DAY / GLib.TimeSpan.HOUR) {
-        days += 1;
-        hours = 0;
-    }
-
-    StringBuilder builder = new StringBuilder ();
-    if (days > 0) {
-        builder.append (ngettext ("%s day", "%s days", (ulong) days).printf (days.to_string ()));
-        if (hours > 0 || minutes > 0) {
-            builder.append (_(" and "));
-        }
-    }
-
-    if (hours > 0) {
-        builder.append (ngettext ("%s hour", "%s hours", (ulong) hours).printf (hours.to_string ()));
-        if (minutes > 0) {
-            builder.append (_(" and "));
-        }
-    }
-
-    if (minutes > 0) {
-        builder.append (ngettext ("%s minute", "%s minutes", (ulong) minutes).printf (minutes.to_string ()));
-    }
-
-    return builder.str;
-}
+[CCode (cname = "clocks_cutils_format_time_span")]
+public extern string format_time_span (GLib.TimeSpan time_span, bool abbreviated);
 
 // TODO: For now we are wrapping Gnome's clock, but we should probably
 // implement our own class, maybe using gnome-datetime-source
