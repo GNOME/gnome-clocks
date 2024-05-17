@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-02-16 22:02+0000\n"
-"PO-Revision-Date: 2024-02-17 07:59+0100\n"
-"Last-Translator: Matej Urbančič <mateju@src.gnome.org>\n"
+"POT-Creation-Date: 2024-05-12 21:23+0000\n"
+"PO-Revision-Date: 2024-05-17 19:14+0200\n"
+"Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups."
 "com>\n"
 "Language: sl_SI\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
 "n%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
@@ -143,7 +143,7 @@ msgid "Timer screen"
 msgstr "Časomer"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:153 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -255,11 +255,11 @@ msgstr "Ponovi"
 msgid "Add A_larm…"
 msgstr "Dodaj _alarm ..."
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:182
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
 msgid "Stop"
 msgstr "Ustavi"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:183
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:196
 msgid "Snooze"
 msgstr "Zadremaj"
 
@@ -408,6 +408,10 @@ msgstr "Nastavi časovnik"
 msgid "0"
 msgstr "0"
 
+#: data/ui/timer-setup.ui:264
+msgid "Title"
+msgstr "Napis"
+
 #: data/ui/window.ui:44
 msgid "_World"
 msgstr "_Svetovni čas"
@@ -452,7 +456,7 @@ msgstr "Sončni vzhod"
 msgid "Sunset"
 msgstr "Sončni zahod"
 
-#: src/alarm-face.vala:143
+#: src/alarm-face.vala:157
 #, c-format
 msgid "Alarm set for %s from now"
 msgstr "Alarm je nastavljen, še %s do zvonjenja."
@@ -460,7 +464,7 @@ msgstr "Alarm je nastavljen, še %s do zvonjenja."
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:179 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -535,11 +539,11 @@ msgstr "Nadaljuj"
 msgid "Lap %i"
 msgstr "Krog %i"
 
-#: src/timer-face.vala:76
+#: src/timer-face.vala:82
 msgid "Time is up!"
 msgstr "Čas je potekel!"
 
-#: src/timer-face.vala:77
+#: src/timer-face.vala:83
 msgid "Timer countdown finished"
 msgstr "Odštevanje je končano."
 
@@ -708,151 +712,3 @@ msgstr "Včeraj"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Trenutno mesto"
-
-#~ msgid "Menu"
-#~ msgstr "Meni"
-
-#~ msgid "Select Duration"
-#~ msgstr "Izbor trajanja"
-
-#~ msgid "Back"
-#~ msgstr "Nazaj"
-
-#, c-format
-#~ msgid "Snoozed from %s: %s"
-#~ msgstr "Dremanje od %s: %s"
-
-#~ msgid "Cancel"
-#~ msgstr "Prekliči"
-
-#~ msgid "Done"
-#~ msgstr "Končano"
-
-#~ msgid "Add"
-#~ msgstr "Dodaj"
-
-#~ msgid "Active"
-#~ msgstr "Dejavno"
-
-#~ msgid "Alarms"
-#~ msgstr "Alarmi"
-
-#~ msgid "Goals:"
-#~ msgstr "Cilji:"
-
-#~ msgid "Optional"
-#~ msgstr "Izbirno"
-
-#~ msgid "Utilities to help you with the time."
-#~ msgstr "Programska orodja za pomoč s časom."
-
-#~ msgid "GNOME Clocks"
-#~ msgstr "GNOME Ure"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Keyboard shortcuts"
-#~ msgstr "Tipkovne bližnjice"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Add a world clock"
-#~ msgstr "Doda svetovni čas"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Stop / Reset"
-#~ msgstr "Zaustavi / Ponastavi"
-
-#, c-format
-#~ msgid "Failed to show help: %s"
-#~ msgstr "Ni mogoče prikazati pomoči: %s"
-
-#~ msgid "Edit"
-#~ msgstr "Uredi"
-
-#~ msgid "Select <b>New</b> to add a world clock"
-#~ msgstr "Za prikaz kateregakoli časa je treba najprej določiti <b>kraj</b>."
-
-#~ msgctxt "Repeat|Thursday"
-#~ msgid "T"
-#~ msgstr "Č"
-
-#~ msgctxt "Repeat|Sunday"
-#~ msgid "S"
-#~ msgstr "N"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Select all world clocks"
-#~ msgstr "Izbere vse svetovne čase"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Select all alarms"
-#~ msgstr "Izbere vse alarme"
-
-#~ msgid "Select All"
-#~ msgstr "Izberi vse"
-
-#~ msgid "@icon@"
-#~ msgstr "@icon@"
-
-#~ msgid "Configured timer duration in seconds."
-#~ msgstr "Nastavljeno merjenje časomera v sekundah."
-
-#~ msgid "Select <b>New</b> to add an alarm"
-#~ msgstr "Za dodajanje alarma je treba klikniti na <b>gumb</b>."
-
-#~ msgctxt "Alarm"
-#~ msgid "New"
-#~ msgstr "Nov alarm"
-
-#~ msgid "Continue"
-#~ msgstr "Nadaljuj"
-
-#~ msgid "Click on items to select them"
-#~ msgstr "S klikom na predmet se ta izbere"
-
-#~ msgid "%u selected"
-#~ msgid_plural "%u selected"
-#~ msgstr[0] "%u izbranih"
-#~ msgstr[1] "%u izbran"
-#~ msgstr[2] "%u izbrani"
-#~ msgstr[3] "%u izbrane"
-
-#~ msgctxt "World clock"
-#~ msgid "New"
-#~ msgstr "Dodaj čas"
-
-#~ msgid "org.gnome.clocks"
-#~ msgstr "org.gnome.clocks"
-
-#~ msgid "_About"
-#~ msgstr "_O programu"
-
-#~ msgid "_Quit"
-#~ msgstr "_Končaj"
-
-#~ msgid "New"
-#~ msgstr "Novo"
-
-#~ msgid "%d selected"
-#~ msgid_plural "%d selected"
-#~ msgstr[0] "%d izbranih"
-#~ msgstr[1] "%d izbran"
-#~ msgstr[2] "%d izbrana"
-#~ msgstr[3] "%d izbrani"
-
-#~ msgid "_New"
-#~ msgstr "_Nova"
-
-#~ msgid "Split"
-#~ msgstr "Razdeli"
-
-#~ msgid "Total"
-#~ msgstr "Skupaj"
-
-#~ msgid "Gnome Clocks"
-#~ msgstr "Gnomeove ure"
-
-#~ msgid ":"
-#~ msgstr ":"
-
-#~ msgid "Laps"
-#~ msgstr "Krogi"
