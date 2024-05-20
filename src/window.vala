@@ -248,7 +248,7 @@ public class Window : Adw.ApplicationWindow {
             version = Config.VERSION,
             copyright = COPYRIGHT,
             developers = DEVELOPERS,
-            issue_url = "https://gitlab.gnome.org/GNOME/gnome-clocks/-/issues/new",
+            issue_url = "https://gitlab.gnome.org/GNOME/gnome-clocks/-/issues/",
             license_type = Gtk.License.GPL_2_0,
             translator_credits = _("translator-credits")
         };
