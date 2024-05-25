@@ -178,7 +178,7 @@ public class Face : Adw.Bin, Clocks.Clock {
     }
 
     internal void edit (Item alarm) {
-        var dialog = new SetupDialog ((Gtk.Window) get_root (), alarm, alarms);
+        var dialog = new SetupDialog (alarm, alarms);
 
         dialog.response.connect ((dialog, response) => {
             if (response == Gtk.ResponseType.OK) {
@@ -192,7 +192,7 @@ public class Face : Adw.Bin, Clocks.Clock {
             }
             dialog.close ();
         });
-        dialog.present ();
+        dialog.present (get_root ());
     }
 
     private void reset_view () {
@@ -200,7 +200,7 @@ public class Face : Adw.Bin, Clocks.Clock {
     }
 
     public void activate_new () {
-        var dialog = new SetupDialog ((Gtk.Window) get_root (), null, alarms);
+        var dialog = new SetupDialog (null, alarms);
         dialog.response.connect ((dialog, response) => {
             if (response == Gtk.ResponseType.OK) {
                 var alarm = new Item ();
@@ -213,7 +213,7 @@ public class Face : Adw.Bin, Clocks.Clock {
             }
             dialog.close ();
         });
-        dialog.present ();
+        dialog.present (get_root ());
     }
 }
 

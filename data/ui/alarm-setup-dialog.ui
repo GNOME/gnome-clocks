@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="ClocksAlarmSetupDialog" parent="AdwWindow">
-    <property name="modal">True</property>
-    <property name="destroy_with_parent">True</property>
-    <property name="default-width">520</property>
-    <property name="default-height">580</property>
+  <template class="ClocksAlarmSetupDialog" parent="AdwDialog">
+    <property name="content-width">520</property>
+    <property name="content-height">580</property>
     <property name="title" translatable="yes">New Alarm</property>
-    <child>
-      <object class="GtkShortcutController">
-        <property name="scope">managed</property>
-        <child>
-          <object class="GtkShortcut">
-            <property name="trigger">Escape</property>
-            <property name="action">action(window.close)</property>
-          </object>
-        </child>
-      </object>
-    </child>
-    <property name="content">
+    <property name="child">
       <object class="AdwToolbarView">
         <child type="top">
           <object class="AdwHeaderBar">
