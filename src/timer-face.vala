@@ -122,7 +122,7 @@ public class Face : Adw.Bin, Clocks.Clock {
     }
 
     public void activate_new () {
-        var dialog = new SetupDialog ((Gtk.Window) get_root ());
+        var dialog = new SetupDialog ();
         dialog.done.connect ((dialog) => {
             var timer = ((SetupDialog) dialog).timer_setup.get_timer ();
             this.timers.add (timer);
@@ -130,7 +130,7 @@ public class Face : Adw.Bin, Clocks.Clock {
             timer.start ();
             dialog.close ();
         });
-        dialog.present ();
+        dialog.present (get_root ());
     }
 
     private void connect_item (Item item) {
