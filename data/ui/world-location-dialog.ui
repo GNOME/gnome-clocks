@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="ClocksWorldLocationDialog" parent="AdwWindow">
+  <template class="ClocksWorldLocationDialog" parent="AdwDialog">
     <property name="title" translatable="yes">Add a New World Clock</property>
-    <property name="modal">True</property>
-    <property name="default_width">400</property>
-    <property name="default_height">540</property>
-    <property name="destroy_with_parent">True</property>
-    <child>
-      <object class="GtkShortcutController">
-        <property name="scope">managed</property>
-        <child>
-          <object class="GtkShortcut" id="shortcut">
-            <property name="trigger">Escape</property>
-            <property name="action">action(window.close)</property>
-          </object>
-        </child>
-      </object>
-    </child>    
-    <child>
+    <property name="content_width">400</property>
+    <property name="content_height">540</property>
+    <property name="child">
       <object class="AdwToolbarView">
         <child type="top">
           <object class="AdwHeaderBar" id="dialog-header-bar">
@@ -93,16 +80,6 @@
           </object>
         </child>
       </object>
-    </child>
-    <child>
-      <object class="GtkShortcutController">
-        <child>
-          <object class="GtkShortcut">
-            <property name="trigger">Escape</property>
-            <property name="action">action(window.close)</property>
-          </object>
-        </child>
-      </object>
-    </child>
+    </property>
   </template>
 </interface>

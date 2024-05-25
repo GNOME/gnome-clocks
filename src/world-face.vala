@@ -155,16 +155,16 @@ public class Face : Adw.Bin, Clocks.Clock {
     }
 
     public void activate_new () {
-        var dialog = new LocationDialog ((Gtk.Window) get_root (), this);
+        var dialog = new LocationDialog (this);
 
         dialog.location_added.connect (() => {
                 var location = dialog.get_selected_location ();
                 if (location != null)
                     add_location ((GWeather.Location) location);
 
-                dialog.destroy ();
+                dialog.force_close ();
             });
-        dialog.present ();
+        dialog.present (get_root ());
     }
 
     private void reset_view () {
