@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks gnome 3.14\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues\n"
-"POT-Creation-Date: 2022-08-07 10:01+0000\n"
-"PO-Revision-Date: 2022-09-08 02:52+0545\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
+"POT-Creation-Date: 2024-05-12 21:41+0000\n"
+"PO-Revision-Date: 2024-06-07 16:43+0545\n"
 "Last-Translator: Pawan Chitrakar <chautari@gmail.com>\n"
 "Language-Team: Nepali Translation Team <chautari@gmail.com>\n"
 "Language: ne\n"
@@ -16,27 +16,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n !=1;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Bookmarks: -1,-1,-1,-1,-1,-1,-1,-1,119,-1\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/header-bar.ui:27
-#: src/main.vala:25 src/window.vala:285 src/window.vala:340
-#: src/world-standalone.vala:24
+#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27 src/main.vala:25
+#: src/window.vala:245 src/window.vala:300 src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "घडिहरू"
 
-#: data/org.gnome.clocks.desktop.in.in:6 data/org.gnome.clocks.metainfo.xml.in.in:7
+#: data/org.gnome.clocks.desktop.in.in:5
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "विश्व समय, प्लस संसूचक, स्टपवाच र टाइमरका लागि घडी"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in.in:8
+#: data/org.gnome.clocks.desktop.in.in:7
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "समय;समयसूचक;संसूचक;विश्व घडी;रोकिने घडी;समय क्षेत्र;"
 
-#: data/org.gnome.clocks.desktop.in.in:18
+#: data/org.gnome.clocks.desktop.in.in:17
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "तपाईँको समय क्षेत्रको लागि प्रदर्शित हुने घडीलाई अनुमति दिन्छ ।"
 
@@ -96,50 +95,51 @@ msgstr "प्यानल स्थिति"
 msgid "Current clock panel."
 msgstr "हालको घडी प्यानल"
 
+#: data/org.gnome.clocks.metainfo.xml.in.in:7
+msgid "Keep track of time"
+msgstr "समयको ट्रयाक राख्नुहोस्"
+
 #: data/org.gnome.clocks.metainfo.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch and a timer."
+"stopwatch, and timers."
 msgstr ""
-"एउटा साधारण र सुरुचिपूर्ण घडी अनुप्रयोग । यसमा विश्व घडी, संसूचक, स्टपवाच र टाइमर समावेश छन् ।"
+"एक सरल र सुरुचिपूर्ण घडी अनुप्रयोग। यसमा विश्व घडीहरू, अलार्महरू, स्टपवाच र टाइमरहरू समावेश छन्।"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:13
-msgid "Goals:"
-msgstr "लक्षहरू:"
-
-#: data/org.gnome.clocks.metainfo.xml.in.in:15
+#: data/org.gnome.clocks.metainfo.xml.in.in:14
 msgid "Show the time in different cities around the world"
 msgstr "विश्वभरका विभिन्न शहरमा समय देखाउनुहोस्"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:16
+#: data/org.gnome.clocks.metainfo.xml.in.in:15
 msgid "Set alarms to wake you up"
 msgstr "तपाईँलाई ब्यूँझाउन संसूचक सेट गर्नुहोस्"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:17
+#: data/org.gnome.clocks.metainfo.xml.in.in:16
 msgid "Measure elapsed time with an accurate stopwatch"
 msgstr "सही स्टपवाचसँग बितेको समय मापन गर्नुहोस्"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:18
+#: data/org.gnome.clocks.metainfo.xml.in.in:17
 msgid "Set timers to properly cook your food"
 msgstr "तपाईँको खाना राम्रोसँग पकाउन टाइमर सेट गर्नुहोस्"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:40
+#: data/org.gnome.clocks.metainfo.xml.in.in:39
 msgid "Initial screen"
 msgstr "सुरू पर्दा"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:44
+#: data/org.gnome.clocks.metainfo.xml.in.in:43
 msgid "Alarms screen"
 msgstr "संसूचक पर्दा"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:48
+#: data/org.gnome.clocks.metainfo.xml.in.in:47
 msgid "Stopwatch screen"
 msgstr "रोकिने घडी पर्दा"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:52
+#: data/org.gnome.clocks.metainfo.xml.in.in:51
 msgid "Timer screen"
 msgstr "समयक पर्दा"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:122 src/window.vala:287
+#. developer_name tag deprecated with Appstream 1.0
+#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
 msgid "The GNOME Project"
 msgstr "जिनोम परियोजना"
 
@@ -248,14 +248,14 @@ msgid "Repeat"
 msgstr "दोहो-याउनु"
 
 #: data/ui/alarm-face.ui:14
-msgid "Add A_larm"
-msgstr "संसूचक थप्नुहोस्"
+msgid "Add A_larm…"
+msgstr "संसूचक थप्नुहोस्..."
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:117
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
 msgid "Stop"
 msgstr "रोक्नुहोस्"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:118
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:196
 msgid "Snooze"
 msgstr "स्नूज"
 
@@ -263,37 +263,41 @@ msgstr "स्नूज"
 msgid "Repeats"
 msgstr "दोहोर्याउनुस्"
 
-#: data/ui/alarm-row.ui:66
-msgid "Active"
-msgstr "सक्रिय गर्नुहोस्"
-
-#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "मेट्नुहोस्"
 
 #. Translators: Tooltip for the + button
 #: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:109
+#: src/alarm-setup-dialog.vala:111
 msgid "New Alarm"
 msgstr "नयां सचेतक घडी"
 
-#: data/ui/alarm-setup-dialog.ui:92
+#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+msgid "_Cancel"
+msgstr "रद्द गर्नुहोस्"
+
+#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+msgid "_Add"
+msgstr "थप्नुहोस्"
+
+#: data/ui/alarm-setup-dialog.ui:126
 msgid "Name"
 msgstr "नाम"
 
-#: data/ui/alarm-setup-dialog.ui:99
+#: data/ui/alarm-setup-dialog.ui:133
 msgid "Ring Duration"
 msgstr "घण्टी अवधि"
 
-#: data/ui/alarm-setup-dialog.ui:105
+#: data/ui/alarm-setup-dialog.ui:139
 msgid "Snooze Duration"
 msgstr "स्नूज अवधि"
 
-#: data/ui/alarm-setup-dialog.ui:117
+#: data/ui/alarm-setup-dialog.ui:151
 msgid "You already have an alarm for this time."
 msgstr "यस समयमा तपाईँसँग पहिले नै एउटा संसूचक छ ।"
 
-#: data/ui/alarm-setup-dialog.ui:124
+#: data/ui/alarm-setup-dialog.ui:158
 msgid "R_emove Alarm"
 msgstr "संसूचक हटाउनुहोस्"
 
@@ -309,15 +313,7 @@ msgstr "सहयोग"
 msgid "_About Clocks"
 msgstr "घडीका बारेमा"
 
-#: data/ui/header-bar.ui:50 data/ui/world-standalone.ui:17
-msgid "Back"
-msgstr "पछाडि"
-
-#: data/ui/header-bar.ui:68
-msgid "Menu"
-msgstr "मेनु"
-
-#: data/ui/header-bar.ui:71
+#: data/ui/header-bar.ui:56
 msgid "Main Menu"
 msgstr "मुख्य मेनु"
 
@@ -325,7 +321,7 @@ msgstr "मुख्य मेनु"
 msgid "_Start"
 msgstr "सुरु गर्नुहोस्"
 
-#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:184
+#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
 msgid "Clear"
 msgstr "खाली गर्नुहोस्"
 
@@ -337,19 +333,20 @@ msgstr "समय"
 msgid "Difference"
 msgstr "भिन्नता"
 
-#: data/ui/timer-face.ui:18
-msgid "Select Duration"
-msgstr "अवधि छान्नुहोस्"
+#: data/ui/timer-face.ui:27
+msgid "St_art"
+msgstr "सुरु गर्नुहोस्"
 
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "शीर्षक…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:164
+#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
 msgid "Pause"
 msgstr "पज गर्नुहोस्"
 
-#: data/ui/timer-row.ui:92 src/stopwatch-face.vala:201
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
+#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "सुरुआत गर्नुहोस्"
 
@@ -357,104 +354,132 @@ msgstr "सुरुआत गर्नुहोस्"
 msgid "Reset"
 msgstr "रिसेट गर्नुहोस्"
 
-#: data/ui/timer-setup.ui:37
+#. Translators: Tooltip for the + button
+#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+msgid "New Timer"
+msgstr "नया समयक"
+
+#: data/ui/timer-setup.ui:31
+msgid "Quick Start"
+msgstr "द्रुत सुरुआत"
+
+#: data/ui/timer-setup.ui:47
 msgid "1 m"
 msgstr "१ मिनेट"
 
-#: data/ui/timer-setup.ui:52
+#: data/ui/timer-setup.ui:58
 msgid "2 m"
 msgstr "२ मिनेट"
 
-#: data/ui/timer-setup.ui:67
+#: data/ui/timer-setup.ui:69
 msgid "3 m"
 msgstr "३ मिनेट"
 
-#: data/ui/timer-setup.ui:82
+#: data/ui/timer-setup.ui:80
 msgid "5 m"
 msgstr "५ मिनेट"
 
-#: data/ui/timer-setup.ui:97
+#: data/ui/timer-setup.ui:91
 msgid "30 m"
 msgstr "३० मिनेट"
 
-#: data/ui/timer-setup.ui:112
+#: data/ui/timer-setup.ui:102
 msgid "15 m"
 msgstr "१५ मिनेट"
 
-#: data/ui/timer-setup.ui:127
+#: data/ui/timer-setup.ui:113
 msgid "45 m"
 msgstr "४५ मिनेट"
 
-#: data/ui/timer-setup.ui:142
+#: data/ui/timer-setup.ui:124
 msgid "1 h"
 msgstr "१ घण्टा"
 
-#: data/ui/timer-setup.ui:178 data/ui/timer-setup.ui:210 data/ui/timer-setup.ui:243
+#: data/ui/timer-setup.ui:137
+msgid "Set Timer"
+msgstr "टाइमर सेट गर्नुहोस्"
+
+#: data/ui/timer-setup.ui:163 data/ui/timer-setup.ui:195 data/ui/timer-setup.ui:228
 msgid "0"
 msgstr "0"
 
-#: data/ui/window.ui:45
-msgid "World"
+#: data/ui/window.ui:44
+msgid "_World"
 msgstr "विश्व"
 
 #: data/ui/window.ui:55
-msgid "Alarms"
+msgid "Ala_rms"
 msgstr "संसूचक"
 
-#: data/ui/window.ui:65
-msgid "Stopwatch"
-msgstr "रोकिने घडी"
+#: data/ui/window.ui:66
+msgid "_Stopwatch"
+msgstr "बिराम घडी"
 
-#: data/ui/window.ui:75
-msgid "Timer"
-msgstr "समयक"
+#: data/ui/window.ui:77
+msgid "_Timer"
+msgstr "टाइमर"
+
+#: data/ui/window.ui:98
+msgid "Clock"
+msgstr "घडी"
+
+#: data/ui/window.ui:106
+msgid "Alarm Ringing"
+msgstr "संसूचक बजिरहेको छ"
 
 #: data/ui/world-face.ui:15
-msgid "_Add World Clock"
-msgstr "विश्व घडी थप्नुहोस्"
+msgid "_Add World Clock…"
+msgstr "विश्व घडी थप्नुहोस्..."
 
 #: data/ui/world-location-dialog.ui:4
 msgid "Add a New World Clock"
 msgstr "नयाँ विश्व घडी थप्नुहोस्"
 
-#: data/ui/world-location-dialog.ui:14
-msgid "_Cancel"
-msgstr "रद्द गर्नुहोस्"
-
-#: data/ui/world-location-dialog.ui:22
-msgid "_Add"
-msgstr "थप्नुहोस्"
-
-#: data/ui/world-location-dialog.ui:53
+#: data/ui/world-location-dialog.ui:65
 msgid "Search for a City"
 msgstr "शहर खोज्नुहोस्"
 
-#: data/ui/world-standalone.ui:78
+#: data/ui/world-standalone.ui:97
 msgid "Sunrise"
 msgstr "सूर्योदय"
 
-#: data/ui/world-standalone.ui:90
+#: data/ui/world-standalone.ui:109
 msgid "Sunset"
 msgstr "सूर्यास्त"
+
+#: src/alarm-face.vala:157
+#, c-format
+msgid "Alarm set for %s from now"
+msgstr "अबदेखि %s का लागि संसूचक सेट गर्नुहोस्"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:114 src/alarm-row.vala:80 src/window.vala:336
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
 msgid "Alarm"
 msgstr "सचेतक घडी"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
-#: src/alarm-row.vala:87
+#: src/alarm-row.vala:97
 #, c-format
-msgid "Snoozed from %s: %s"
-msgstr "%s बाट स्नूज गरियो: %s"
+msgid "%s: Snoozed until %s"
+msgstr "%s: %s सम्म स्नूज गरियो"
 
 #. Translators: %s is a time
-#: src/alarm-row.vala:90
+#: src/alarm-row.vala:100
 #, c-format
-msgid "Snoozed from %s"
-msgstr "%s बाट स्नूज गरियो"
+msgid "Snoozed until %s"
+msgstr "%s सम्म स्नूज गरियो"
+
+#. Translators: The alarm titled %s was "missed"
+#: src/alarm-row.vala:107
+#, c-format
+msgid "Alarm %s was missed"
+msgstr "संसूचक %s छुटेको थियो"
+
+#: src/alarm-row.vala:109
+msgid "Alarm was missed"
+msgstr "संसूचक छुटेको थियो"
 
 #: src/alarm-setup-dialog.vala:41
 msgid "1 minute"
@@ -480,31 +505,23 @@ msgstr "२० मिनेट"
 msgid "30 minutes"
 msgstr "३० मिनेट"
 
-#: src/alarm-setup-dialog.vala:109
+#: src/alarm-setup-dialog.vala:111
 msgid "Edit Alarm"
 msgstr "सचेतक घडी संसोधन"
 
-#: src/alarm-setup-dialog.vala:112 src/timer-setup-dialog.vala:30
-msgid "Cancel"
-msgstr "रद्द गर्नुहोस्"
-
 #: src/alarm-setup-dialog.vala:114
-msgid "Done"
-msgstr "सम्पन्न भयो"
-
-#: src/alarm-setup-dialog.vala:116 src/timer-setup-dialog.vala:31
-msgid "Add"
-msgstr "थप्नुहोस्"
+msgid "_Done"
+msgstr "गरियो"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
 msgstr "मुद्रण संस्करण विवरण अनि बाहिरनुहोस्"
 
-#: src/stopwatch-face.vala:168 src/stopwatch-face.vala:205
+#: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
 msgid "Lap"
 msgstr "ल्याप"
 
-#: src/stopwatch-face.vala:180
+#: src/stopwatch-face.vala:181
 msgid "Resume"
 msgstr "पुन: निरन्तरता दिनुहोस्"
 
@@ -513,125 +530,145 @@ msgstr "पुन: निरन्तरता दिनुहोस्"
 msgid "Lap %i"
 msgstr "ल्याप %i"
 
-#. Translators: Tooltip for the + button
-#: src/timer-face.vala:39 src/timer-setup-dialog.vala:27
-msgid "New Timer"
-msgstr "नया समयक"
-
-#: src/timer-face.vala:76
+#: src/timer-face.vala:82
 msgid "Time is up!"
 msgstr "समय समाप्ति"
 
-#: src/timer-face.vala:77
+#: src/timer-face.vala:83
 msgid "Timer countdown finished"
 msgstr "समय गणना समाप्त भयो"
 
 #. Translators: The time is the same as the local time
-#: src/utils.vala:61
+#: src/utils.vala:67
 msgid "Current timezone"
 msgstr "हालको समय क्षेत्र"
 
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
-#: src/utils.vala:66
+#: src/utils.vala:72
 #, c-format
-msgid "%s hour earlier"
-msgid_plural "%s hours earlier"
-msgstr[0] "%s घण्टा अगावै"
-msgstr[1] "%s घण्टा अगावै"
+msgid "%s hour behind"
+msgid_plural "%s hours behind"
+msgstr[0] "%s घण्टा ढिला"
+msgstr[1] "%s घण्टा ढिला"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
-#: src/utils.vala:72
+#: src/utils.vala:78
 #, c-format
-msgid "%s hour later"
-msgid_plural "%s hours later"
-msgstr[0] "%s घण्टा पछि"
-msgstr[1] "%s घण्टा पछि"
+msgid "%s hour ahead"
+msgid_plural "%s hours ahead"
+msgstr[0] "%s घण्टा चलाख"
+msgstr[1] "%s घण्टा चलाख"
+
+#: src/utils.vala:103
+#, c-format
+msgid "%s day"
+msgid_plural "%s days"
+msgstr[0] "%s दिन"
+msgstr[1] "%s दिनहरु"
+
+#: src/utils.vala:105 src/utils.vala:112
+msgid " and "
+msgstr "र"
+
+#: src/utils.vala:110
+#, c-format
+msgid "%s hour"
+msgid_plural "%s hours"
+msgstr[0] "%s घण्टा"
+msgstr[1] "%s घण्टा"
+
+#: src/utils.vala:117
+#, c-format
+msgid "%s minute"
+msgid_plural "%s minutes"
+msgstr[0] "%s मिनेट"
+msgstr[1] "%s मिनेट"
 
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:174
+#: src/utils.vala:277
 msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "M"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:176
+#: src/utils.vala:279
 msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "T"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:178
+#: src/utils.vala:281
 msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "W"
 
 #. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:180
+#: src/utils.vala:283
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
 msgstr "T"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:182
+#: src/utils.vala:285
 msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "F"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:184
+#: src/utils.vala:287
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "S"
 
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:186
+#: src/utils.vala:289
 msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
 msgstr "S"
 
-#: src/utils.vala:200
+#: src/utils.vala:303
 msgid "Mondays"
 msgstr "सोमबार"
 
-#: src/utils.vala:201
+#: src/utils.vala:304
 msgid "Tuesdays"
 msgstr "मंगलबार"
 
-#: src/utils.vala:202
+#: src/utils.vala:305
 msgid "Wednesdays"
 msgstr "बुधबार"
 
-#: src/utils.vala:203
+#: src/utils.vala:306
 msgid "Thursdays"
 msgstr "बिहिबार"
 
-#: src/utils.vala:204
+#: src/utils.vala:307
 msgid "Fridays"
 msgstr "शुक्रबार"
 
-#: src/utils.vala:205
+#: src/utils.vala:308
 msgid "Saturdays"
 msgstr "शनिबार"
 
-#: src/utils.vala:206
+#: src/utils.vala:309
 msgid "Sundays"
 msgstr "आईतबार"
 
-#: src/utils.vala:332
+#: src/utils.vala:435
 msgid "Every Day"
 msgstr "प्रत्येकदिन"
 
-#: src/utils.vala:334
+#: src/utils.vala:437
 msgid "Weekdays"
 msgstr "सप्ताहदिन"
 
-#: src/utils.vala:336
+#: src/utils.vala:439
 msgid "Weekends"
 msgstr "सप्ताहन्त"
 
-#: src/window.vala:293
+#: src/window.vala:253
 msgid "translator-credits"
 msgstr "Pawan Chitrakar <chautari@gmail.com>"
 
@@ -642,20 +679,48 @@ msgstr "स्थान थप्नुहोस्"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
-#: src/world-item.vala:144 src/world-item.vala:148
+#: src/world-item.vala:177 src/world-item.vala:181
 msgid "Tomorrow"
 msgstr "भोलि"
 
 #. If it is Jan 1st here, and not Jan 2nd there, then it must be
 #. Dec 31st there, so return "yesterday"
-#: src/world-item.vala:144 src/world-item.vala:148
+#: src/world-item.vala:177 src/world-item.vala:181
 msgid "Yesterday"
 msgstr "हिजो"
 
 #. Translators: This clock represents the local time
-#: src/world-row.vala:58
+#: src/world-row.vala:47
 msgid "Current location"
 msgstr "हालको स्थान"
+
+#~ msgid "Goals:"
+#~ msgstr "लक्षहरू:"
+
+#~ msgid "Active"
+#~ msgstr "सक्रिय गर्नुहोस्"
+
+#~ msgid "Back"
+#~ msgstr "पछाडि"
+
+#~ msgid "Menu"
+#~ msgstr "मेनु"
+
+#~ msgid "Select Duration"
+#~ msgstr "अवधि छान्नुहोस्"
+
+#~ msgid "Alarms"
+#~ msgstr "संसूचक"
+
+#, c-format
+#~ msgid "Snoozed from %s: %s"
+#~ msgstr "%s बाट स्नूज गरियो: %s"
+
+#~ msgid "Cancel"
+#~ msgstr "रद्द गर्नुहोस्"
+
+#~ msgid "Add"
+#~ msgstr "थप्नुहोस्"
 
 #~ msgid "Optional"
 #~ msgstr "वैकल्पिक"
