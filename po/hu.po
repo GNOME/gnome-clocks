@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the gnome-clocks package.
 #
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2012, 2013, 2016.
-# Balázs Úr <ur.balazs at fsf dot hu>, 2012, 2013, 2014, 2016, 2019, 2020, 2021, 2022, 2023.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2012, 2013, 2014, 2016, 2019, 2020, 2021, 2022, 2023, 2024.
 # Balázs Meskó <mesko.balazs at fsf dot hu>, 2020, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-02-13 18:01+0000\n"
-"PO-Revision-Date: 2024-02-19 23:36+0100\n"
+"POT-Creation-Date: 2024-05-25 01:21+0000\n"
+"PO-Revision-Date: 2024-06-28 15:27+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "Language: hu\n"
@@ -141,7 +141,7 @@ msgid "Timer screen"
 msgstr "Időzítő képernyő"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:153 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
 msgid "The GNOME Project"
 msgstr "A GNOME projekt"
 
@@ -253,11 +253,11 @@ msgstr "Ismétlés"
 msgid "Add A_larm…"
 msgstr "Riasztás _hozzáadása…"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:182
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
 msgid "Stop"
 msgstr "Leállítás"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:183
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:196
 msgid "Snooze"
 msgstr "Szundi"
 
@@ -362,7 +362,6 @@ msgid "New Timer"
 msgstr "Új időzítő"
 
 #: data/ui/timer-setup.ui:31
-#| msgid "Start"
 msgid "Quick Start"
 msgstr "Gyors indítás"
 
@@ -399,7 +398,6 @@ msgid "1 h"
 msgstr "1 ó"
 
 #: data/ui/timer-setup.ui:137
-#| msgid "New Timer"
 msgid "Set Timer"
 msgstr "Időzítő beállítása"
 
@@ -407,6 +405,11 @@ msgstr "Időzítő beállítása"
 #: data/ui/timer-setup.ui:228
 msgid "0"
 msgstr "0"
+
+#: data/ui/timer-setup.ui:264
+#| msgid "Title…"
+msgid "Title"
+msgstr "Cím"
 
 #: data/ui/window.ui:44
 msgid "_World"
@@ -452,7 +455,7 @@ msgstr "Napkelte"
 msgid "Sunset"
 msgstr "Napnyugta"
 
-#: src/alarm-face.vala:143
+#: src/alarm-face.vala:157
 #, c-format
 msgid "Alarm set for %s from now"
 msgstr "Riasztás beállítva mostantól ennyire: %s"
@@ -460,21 +463,19 @@ msgstr "Riasztás beállítva mostantól ennyire: %s"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:179 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
 msgid "Alarm"
 msgstr "Riasztás"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
 #: src/alarm-row.vala:97
 #, c-format
-#| msgid "%s: Snoozed untill %s"
 msgid "%s: Snoozed until %s"
 msgstr "%s: szundi eddig: %s"
 
 #. Translators: %s is a time
 #: src/alarm-row.vala:100
 #, c-format
-#| msgid "Snoozed untill %s"
 msgid "Snoozed until %s"
 msgstr "Szundi eddig: %s"
 
@@ -537,11 +538,11 @@ msgstr "Folytatás"
 msgid "Lap %i"
 msgstr "%i. kör"
 
-#: src/timer-face.vala:76
+#: src/timer-face.vala:82
 msgid "Time is up!"
 msgstr "Lejárt az idő!"
 
-#: src/timer-face.vala:77
+#: src/timer-face.vala:83
 msgid "Timer countdown finished"
 msgstr "Az időzítő visszaszámlálása lejárt"
 
@@ -570,8 +571,6 @@ msgstr[1] "%s órával később"
 
 #: src/utils.vala:103
 #, c-format
-#| msgid "%s day"
-#| msgid_plural "%s day"
 msgid "%s day"
 msgid_plural "%s days"
 msgstr[0] "%s nap"
