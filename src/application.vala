@@ -58,7 +58,7 @@ public class Application : Adw.Application {
         search_provider.activate.connect ((timestamp) => {
             var win = ensure_window ();
             win.show_world ();
-            win.present_with_time (timestamp);
+            win.present ();
         });
 
         system_notifications = new List<string> ();
