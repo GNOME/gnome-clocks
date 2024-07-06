@@ -3,16 +3,16 @@
 }
 
 .night .clock-time {
-	color: @blue_1;
+	color: var(--blue-1);
 }
 
 .astro .clock-time,
 .naut .clock-time {
-	color: @orange_1;
+	color: var(--orange-1);
 }
 
 .civil .clock-time,
 .day .clock-time {
-	color: @yellow_2;
+	color: var(--yellow-2);
 	background: alpha(#cd9309, 0.25);
 }

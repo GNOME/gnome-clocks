@@ -12,7 +12,7 @@ i18n = import('i18n')
 glib = dependency('glib-2.0', version: '>= 2.72')
 gio = dependency('gio-2.0', version: '>= 2.72')
 gobject = dependency('gobject-2.0', version: '>= 2.72')
-gtk = dependency('gtk4', version: '>= 4.5')
+gtk = dependency('gtk4', version: '>= 4.15.3')
 gweather = dependency('gweather4')
 gweather_soup_version = gweather.get_variable(pkgconfig: 'soupapiversion')
 if gweather_soup_version == '3.0'
@@ -22,7 +22,7 @@ else
 endif
 gnomedesktop = dependency('gnome-desktop-4')
 libgeoclue = dependency('libgeoclue-2.0', version: '>=2.4')
-libadwaita = dependency ('libadwaita-1', version: '>=1.5')
+libadwaita = dependency ('libadwaita-1', version: '>=1.6.alpha')
 
 cc = meson.get_compiler('c')
 math = cc.find_library('m', required: false)
