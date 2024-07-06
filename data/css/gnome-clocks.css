@@ -100,25 +100,22 @@
 	font-size: 2em;
 	padding: 0.2em 0.5em;
 	border-radius: 1em;
+	color: oklab(from var(--pill-color) var(--standalone-color-oklab));
+	background-color: color-mix(in srgb, var(--pill-color) 25%, transparent);
 }
 
-.none .clock-time {
-	background: color-mix(in srgb, currentColor 20%, transparent);
+.none {
+	--pill-color: var(--card-fg-color);
 }
 
-.night .clock-time {
-	color: var(--blue-4);
-	background-color: color-mix(in srgb, var(--blue-3) 25%, transparent);
+.night {
+	--pill-color: var(--blue-3);
 }
 
-.naut .clock-time,
-.astro .clock-time {
-	color: var(--orange-5);
-	background-color: color-mix(in srgb, var(--orange-4) 25%, transparent);
+.naut, .astro {
+	--pill-color: var(--orange-3);
 }
 
-.civil .clock-time,
-.day .clock-time {
-	color: #ae7b03;
-	background: color-mix(in srgb, var(--yellow-5) 25%, transparent);
+.civil, .day {
+	--pill-color: var(--yellow-5);
 }
