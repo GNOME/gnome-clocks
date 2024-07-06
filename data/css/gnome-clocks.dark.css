@@ -1,5 +1,5 @@
 .none .clock-time {
-	background: alpha(currentColor, 0.2);
+	background: color-mix(in srgb, currentColor 20%, transparent);
 }
 
 .night .clock-time {
@@ -14,5 +14,5 @@
 .civil .clock-time,
 .day .clock-time {
 	color: var(--yellow-2);
-	background: alpha(#cd9309, 0.25);
+	background: color-mix(in srgb, #cd9309 25%, transparent);
 }
