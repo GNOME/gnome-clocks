@@ -3,7 +3,7 @@
 A simple clock application for GNOME. It includes world clocks, alarms,
 a stopwatch and a timer.
 
-<a href='https://flathub.org/apps/details/org.gnome.clocks'><img width='190px' alt='Download on Flathub' src='https://flathub.org/assets/badges/flathub-badge-i-en.png'/></a>
+<a href='https://flathub.org/apps/details/org.gnome.clocks'><img width='190px' alt='Download on Flathub' src='https://flathub.org/api/badge?svg&locale=en'/></a>
 
 ## Useful links
 
