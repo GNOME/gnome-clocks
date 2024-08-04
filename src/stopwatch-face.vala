@@ -162,11 +162,11 @@ public class Face : Gtk.Box, Clocks.Clock {
 
         state = State.RUNNING;
         add_tick ();
-        start_btn.set_label (_("Pause"));
+        start_btn.set_label (_("_Pause"));
         start_btn.remove_css_class ("suggested-action");
 
         clear_btn.set_sensitive (true);
-        clear_btn.set_label (_("Lap"));
+        clear_btn.set_label (_("_Lap"));
         clear_btn.remove_css_class ("destructive-action");
 
         time_container.add_css_class ("running-stopwatch");
@@ -178,11 +178,11 @@ public class Face : Gtk.Box, Clocks.Clock {
         timer.stop ();
         state = State.STOPPED;
         remove_tick ();
-        start_btn.set_label (_("Resume"));
+        start_btn.set_label (_("R_esume"));
         start_btn.remove_css_class ("destructive-action");
         start_btn.add_css_class ("suggested-action");
         clear_btn.set_sensitive (true);
-        clear_btn.set_label (_("Clear"));
+        clear_btn.set_label (_("_Clear"));
         clear_btn.add_css_class ("destructive-action");
 
         time_container.add_css_class ("paused-stopwatch");
@@ -199,11 +199,11 @@ public class Face : Gtk.Box, Clocks.Clock {
         update_time_label ();
         current_lap = 0;
 
-        start_btn.set_label (_("Start"));
+        start_btn.set_label (_("St_art"));
         start_btn.add_css_class ("suggested-action");
 
         clear_btn.set_sensitive (false);
-        clear_btn.set_label (_("Lap"));
+        clear_btn.set_label (_("_Lap"));
         clear_btn.remove_css_class ("destructive-action");
 
         time_container.add_css_class ("stopped-stopwatch");

@@ -97,7 +97,7 @@
                     <property name="margin-start">18</property>
                     <child>
                       <object class="GtkButton" id="start_btn">
-                        <property name="label" translatable="yes">_Start</property>
+                        <property name="label" translatable="yes">St_art</property>
                         <property name="width_request">120</property>
                         <property name="use_underline">True</property>
                         <property name="hexpand">True</property>
@@ -112,8 +112,9 @@
                     </child>
                     <child>
                       <object class="GtkButton" id="clear_btn">
-                        <property name="label" translatable="yes">Clear</property>
+                        <property name="label" translatable="yes">_Clear</property>
                         <property name="width_request">120</property>
+                        <property name="use_underline">True</property>
                         <property name="halign">end</property>
                         <signal name="clicked" handler="on_clear_btn_clicked" swapped="no"/>
                         <style>
