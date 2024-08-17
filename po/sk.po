@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-05-12 21:41+0000\n"
-"PO-Revision-Date: 2024-06-29 11:16+0200\n"
+"POT-Creation-Date: 2024-08-12 08:58+0000\n"
+"PO-Revision-Date: 2024-08-17 11:43+0200\n"
 "Last-Translator: Jose Riha <jose1711@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -212,7 +212,7 @@ msgstr "Prejsť na kartu Stopky"
 #: data/gtk/help-overlay.ui:69
 msgctxt "shortcut window"
 msgid "Go to the Timer Section"
-msgstr "Prejdenie na kartu Časovač"
+msgstr "Prejsť na kartu Časovač"
 
 #: data/gtk/help-overlay.ui:77
 msgctxt "shortcut window"
@@ -379,7 +379,6 @@ msgid "New Timer"
 msgstr "Nový časovač"
 
 #: data/ui/timer-setup.ui:31
-#| msgid "Start"
 msgid "Quick Start"
 msgstr "Rýchly štart"
 
@@ -416,7 +415,6 @@ msgid "1 h"
 msgstr "1 h"
 
 #: data/ui/timer-setup.ui:137
-#| msgid "New Timer"
 msgid "Set Timer"
 msgstr "Nový časovač"
 
@@ -442,7 +440,6 @@ msgid "_Timer"
 msgstr "Čas_ovač"
 
 #: data/ui/window.ui:98
-#| msgid "Clocks"
 msgid "Clock"
 msgstr "Hodiny"
 
@@ -485,14 +482,12 @@ msgstr "Budík"
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
 #: src/alarm-row.vala:97
 #, c-format
-#| msgid "Snoozed from %s"
 msgid "%s: Snoozed until %s"
 msgstr "%s: odložené do %s"
 
 #. Translators: %s is a time
 #: src/alarm-row.vala:100
 #, c-format
-#| msgid "Snoozed from %s"
 msgid "Snoozed until %s"
 msgstr "Odložené do %s"
 
@@ -503,7 +498,6 @@ msgid "Alarm %s was missed"
 msgstr "Zmeškali ste budík %s"
 
 #: src/alarm-row.vala:109
-#| msgid "Alarms setup"
 msgid "Alarm was missed"
 msgstr "Zmeškali ste budík"
 
@@ -605,8 +599,6 @@ msgstr " a "
 
 #: src/utils.vala:110
 #, c-format
-#| msgid "%s hour ahead"
-#| msgid_plural "%s hours ahead"
 msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] "%s hodín"
@@ -615,7 +607,6 @@ msgstr[2] "%s hodiny"
 
 #: src/utils.vala:117
 #, c-format
-#| msgid "1 minute"
 msgid "%s minute"
 msgid_plural "%s minutes"
 msgstr[0] "%s minút"
