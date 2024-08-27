@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-05-25 15:12+0000\n"
-"PO-Revision-Date: 2024-08-12 12:27+0330\n"
+"POT-Creation-Date: 2024-08-12 08:58+0000\n"
+"PO-Revision-Date: 2024-08-27 15:43+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:25 src/window.vala:244 src/window.vala:299
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "ساعت‌ها"
@@ -140,7 +140,7 @@ msgid "Timer screen"
 msgstr "صفحهٔ شمارشگر"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
 msgid "The GNOME Project"
 msgstr "پروژهٔ گنوم"
 
@@ -269,36 +269,36 @@ msgid "Delete"
 msgstr "حذف"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "زنگ جدید"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_لغو"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_افزودن"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:113
 msgid "Name"
 msgstr "نام"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:120
 msgid "Ring Duration"
 msgstr "طول زنگ"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:126
 msgid "Snooze Duration"
 msgstr "طول چُرت"
 
-#: data/ui/alarm-setup-dialog.ui:151
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "You already have an alarm for this time."
 msgstr "از پیش زنگی برای این زمان دارید."
 
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "_برداشتن هشدار"
 
@@ -346,7 +346,7 @@ msgstr "عنوان…"
 msgid "Pause"
 msgstr "مکث"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 #: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "شروع"
@@ -356,7 +356,7 @@ msgid "Reset"
 msgstr "بازنشانی"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "شمارشگر جدید"
 
@@ -405,6 +405,10 @@ msgstr "تنظیم شمارشگر"
 msgid "0"
 msgstr "۰"
 
+#: data/ui/timer-setup.ui:264
+msgid "Title"
+msgstr "عنوان"
+
 #: data/ui/window.ui:44
 msgid "_World"
 msgstr "_جهان"
@@ -437,7 +441,7 @@ msgstr "_افزودن ساعت جهانی…"
 msgid "Add a New World Clock"
 msgstr "افزودن یک ساعت جهانی جدید"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "جست‌وجوی یک شهر"
 
@@ -457,7 +461,7 @@ msgstr "هشدار برای %s از اکنون تنظیم شد"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
 msgid "Alarm"
 msgstr "زنگ"
 
@@ -507,11 +511,11 @@ msgstr "۲۰ دقیقه"
 msgid "30 minutes"
 msgstr "۳۰ دقیقه"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "ویرایش زنگ"
 
-#: src/alarm-setup-dialog.vala:114
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "_انجام شد"
 
@@ -670,7 +674,7 @@ msgstr "روزهای هفته"
 msgid "Weekends"
 msgstr "پایان‌هفته‌ها"
 
-#: src/window.vala:253
+#: src/window.vala:252
 msgid "translator-credits"
 msgstr ""
 "آرش موسوی <mousavi.arash@gmail.com>\n"
