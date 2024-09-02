@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-02-21 20:50+0000\n"
-"PO-Revision-Date: 2024-02-26 22:10+0200\n"
+"POT-Creation-Date: 2024-08-31 14:18+0000\n"
+"PO-Revision-Date: 2024-09-02 22:56+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "(n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:25 src/window.vala:244 src/window.vala:299
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Laikrodžiai"
@@ -144,7 +144,7 @@ msgid "Timer screen"
 msgstr "Laikmačio ekranas"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:153 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
 msgid "The GNOME Project"
 msgstr "GNOME projektas"
 
@@ -273,36 +273,36 @@ msgid "Delete"
 msgstr "Ištrinti"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "Naujas žadintuvas"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Atsisakyti"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Pridėti"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:113
 msgid "Name"
 msgstr "Pavadinimas"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:120
 msgid "Ring Duration"
 msgstr "Skambėjimo trukmė"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:126
 msgid "Snooze Duration"
 msgstr "Nutildymo trukmė"
 
-#: data/ui/alarm-setup-dialog.ui:151
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "You already have an alarm for this time."
 msgstr "Jau turite žadintuvą šiam laikui."
 
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "_Pašalinti žadintuvą"
 
@@ -350,7 +350,7 @@ msgstr "Pavadinimas…"
 msgid "Pause"
 msgstr "Pristabdyti"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 #: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Paleisti"
@@ -360,7 +360,7 @@ msgid "Reset"
 msgstr "Atstatyti"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "Naujas laikmatis"
 
@@ -409,6 +409,10 @@ msgstr "Nustatyti laikmatį"
 msgid "0"
 msgstr "0"
 
+#: data/ui/timer-setup.ui:264
+msgid "Title"
+msgstr "Pavadinimas"
+
 #: data/ui/window.ui:44
 msgid "_World"
 msgstr "_Pasaulis"
@@ -441,7 +445,7 @@ msgstr "Pridėti p_asaulio laikrodį…"
 msgid "Add a New World Clock"
 msgstr "Pridėti naują pasaulio laikrodį"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "Ieškoti miesto"
 
@@ -461,7 +465,7 @@ msgstr "Žadintuvas nustatytas %s nuo dabar"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
 msgid "Alarm"
 msgstr "Žadintuvas"
 
@@ -511,11 +515,11 @@ msgstr "20 minučių"
 msgid "30 minutes"
 msgstr "30 minučių"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "Redaguoti žadintuvą"
 
-#: src/alarm-setup-dialog.vala:114
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "_Atlikta"
 
@@ -679,7 +683,7 @@ msgstr "Darbo dienomis"
 msgid "Weekends"
 msgstr "Savaitgaliai"
 
-#: src/window.vala:253
+#: src/window.vala:252
 msgid "translator-credits"
 msgstr ""
 "išvertė:\n"
