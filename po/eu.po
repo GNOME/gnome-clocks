@@ -11,8 +11,8 @@
 msgid ""
 msgstr "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-02-13 18:01+0000\n"
-"PO-Revision-Date: 2024-02-18 10:00+0200\n"
+"POT-Creation-Date: 2024-08-31 14:18+0000\n"
+"PO-Revision-Date: 2024-09-02 10:00+0200\n"
 "Last-Translator: Asier Sarasua Garmendia <asiersarasua@ni.eus>\n"
 "Language-Team: Basque <Librezale>\n"
 "Language: eu\n"
@@ -23,7 +23,7 @@ msgstr "Project-Id-Version: gnome-clocks master\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:25 src/window.vala:244 src/window.vala:299
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Ordulariak"
@@ -140,7 +140,7 @@ msgid "Timer screen"
 msgstr "Tenporizadorearen pantaila"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:153 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
 msgid "The GNOME Project"
 msgstr "GNOME proiektua"
 
@@ -252,11 +252,11 @@ msgstr "Errepikatu"
 msgid "Add A_larm…"
 msgstr "_Gehitu alarma…"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:182
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
 msgid "Stop"
 msgstr "Gelditu"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:183
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:196
 msgid "Snooze"
 msgstr "Errepikatu"
 
@@ -269,36 +269,36 @@ msgid "Delete"
 msgstr "Ezabatu"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "Alarma berria"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Utzi"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
 msgid "_Add"
-msgstr "_Gehitu"
+msgstr "G_ehitu"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:113
 msgid "Name"
 msgstr "Izena"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:120
 msgid "Ring Duration"
 msgstr "Txirrinaren iraupena"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:126
 msgid "Snooze Duration"
 msgstr "Errepikatze-iraupena"
 
-#: data/ui/alarm-setup-dialog.ui:151
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "You already have an alarm for this time."
 msgstr "Jadanik alarma bat duzu ordu honetarako."
 
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "_Kendu alarma"
 
@@ -346,7 +346,7 @@ msgstr "Izenburua…"
 msgid "Pause"
 msgstr "Pausatu"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 #: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Hasi"
@@ -356,7 +356,7 @@ msgid "Reset"
 msgstr "Berrezarri"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "Tenporizadore berria"
 
@@ -405,6 +405,10 @@ msgstr "Ezarri tenporizadorea"
 msgid "0"
 msgstr "0"
 
+#: data/ui/timer-setup.ui:264
+msgid "Title"
+msgstr "Titulua"
+
 #: data/ui/window.ui:44
 msgid "_World"
 msgstr "_Mundua"
@@ -437,7 +441,7 @@ msgstr "_Gehitu munduko ordularia…"
 msgid "Add a New World Clock"
 msgstr "Gehitu munduko ordulari berria"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "Bilatu hiria"
 
@@ -449,7 +453,7 @@ msgstr "Egunsentia"
 msgid "Sunset"
 msgstr "Ilunabarra"
 
-#: src/alarm-face.vala:143
+#: src/alarm-face.vala:157
 #, c-format
 msgid "Alarm set for %s from now"
 msgstr "Alarma ezarri da %s(e)rako oraindik aurrera"
@@ -457,7 +461,7 @@ msgstr "Alarma ezarri da %s(e)rako oraindik aurrera"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:179 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
 msgid "Alarm"
 msgstr "Alarma"
 
@@ -507,11 +511,11 @@ msgstr "20 minutu"
 msgid "30 minutes"
 msgstr "30 minutu"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "Editatu alarma"
 
-#: src/alarm-setup-dialog.vala:114
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "_Eginda"
 
@@ -532,11 +536,11 @@ msgstr "Berrekin"
 msgid "Lap %i"
 msgstr "%i itzulia"
 
-#: src/timer-face.vala:76
+#: src/timer-face.vala:82
 msgid "Time is up!"
 msgstr "Denbora amaitu da!"
 
-#: src/timer-face.vala:77
+#: src/timer-face.vala:83
 msgid "Timer countdown finished"
 msgstr "Tenporizadorearen atzekoz aurrerako zenbatzea amaitu da"
 
@@ -610,7 +614,7 @@ msgstr "A"
 #: src/utils.vala:283
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
-msgstr "O"
+msgstr "A"
 
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:285
@@ -622,7 +626,7 @@ msgstr "O"
 #: src/utils.vala:287
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
-msgstr "L"
+msgstr "I"
 
 #. Translators: This is used in the repeat toggle for Sunday
 #: src/utils.vala:289
@@ -670,7 +674,7 @@ msgstr "Astegunero"
 msgid "Weekends"
 msgstr "Asteburuak"
 
-#: src/window.vala:253
+#: src/window.vala:252
 msgid "translator-credits"
 msgstr "translator-credits"
 
