@@ -10,21 +10,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-02-21 20:50+0000\n"
-"PO-Revision-Date: 2024-02-23 12:12+0000\n"
-"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"POT-Creation-Date: 2024-08-31 14:18+0000\n"
+"PO-Revision-Date: 2024-09-01 12:58+0100\n"
+"Last-Translator: Bruce Cowan <bruce@bcowan.me.uk>\n"
 "Language-Team: English - United Kingdom <en@li.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:25 src/window.vala:244 src/window.vala:299
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Clocks"
@@ -143,7 +143,7 @@ msgid "Timer screen"
 msgstr "Timer screen"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:153 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
 msgid "The GNOME Project"
 msgstr "The GNOME Project"
 
@@ -272,36 +272,36 @@ msgid "Delete"
 msgstr "Delete"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "New Alarm"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Cancel"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Add"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:113
 msgid "Name"
 msgstr "Name"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:120
 msgid "Ring Duration"
 msgstr "Ring Duration"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:126
 msgid "Snooze Duration"
 msgstr "Snooze Duration"
 
-#: data/ui/alarm-setup-dialog.ui:151
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "You already have an alarm for this time."
 msgstr "You already have an alarm for this time."
 
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "R_emove Alarm"
 
@@ -349,7 +349,7 @@ msgstr "Title…"
 msgid "Pause"
 msgstr "Pause"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 #: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Start"
@@ -359,12 +359,11 @@ msgid "Reset"
 msgstr "Reset"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "New Timer"
 
 #: data/ui/timer-setup.ui:31
-#| msgid "Start"
 msgid "Quick Start"
 msgstr "Quick Start"
 
@@ -401,7 +400,6 @@ msgid "1 h"
 msgstr "1 h"
 
 #: data/ui/timer-setup.ui:137
-#| msgid "New Timer"
 msgid "Set Timer"
 msgstr "Set Timer"
 
@@ -409,6 +407,11 @@ msgstr "Set Timer"
 #: data/ui/timer-setup.ui:228
 msgid "0"
 msgstr "0"
+
+#: data/ui/timer-setup.ui:264
+#| msgid "Title…"
+msgid "Title"
+msgstr "Title"
 
 #: data/ui/window.ui:44
 msgid "_World"
@@ -442,7 +445,7 @@ msgstr "_Add World Clock…"
 msgid "Add a New World Clock"
 msgstr "Add a New World Clock"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "Search for a City"
 
@@ -462,21 +465,19 @@ msgstr "Alarm set for %s from now"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
 msgid "Alarm"
 msgstr "Alarm"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
 #: src/alarm-row.vala:97
 #, c-format
-#| msgid "Snoozed from %s"
 msgid "%s: Snoozed until %s"
 msgstr "%s: Snoozed until %s"
 
 #. Translators: %s is a time
 #: src/alarm-row.vala:100
 #, c-format
-#| msgid "Snoozed from %s"
 msgid "Snoozed until %s"
 msgstr "Snoozed until %s"
 
@@ -487,7 +488,6 @@ msgid "Alarm %s was missed"
 msgstr "Alarm %s was missed"
 
 #: src/alarm-row.vala:109
-#| msgid "Alarms setup"
 msgid "Alarm was missed"
 msgstr "Alarm was missed"
 
@@ -515,11 +515,11 @@ msgstr "20 minutes"
 msgid "30 minutes"
 msgstr "30 minutes"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "Edit Alarm"
 
-#: src/alarm-setup-dialog.vala:114
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "_Done"
 
@@ -584,8 +584,6 @@ msgstr " and "
 
 #: src/utils.vala:110
 #, c-format
-#| msgid "%s hour ahead"
-#| msgid_plural "%s hours ahead"
 msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] "%s hour"
@@ -593,7 +591,6 @@ msgstr[1] "%s hours"
 
 #: src/utils.vala:117
 #, c-format
-#| msgid "1 minute"
 msgid "%s minute"
 msgid_plural "%s minutes"
 msgstr[0] "%s minute"
@@ -681,7 +678,7 @@ msgstr "Weekdays"
 msgid "Weekends"
 msgstr "Weekends"
 
-#: src/window.vala:253
+#: src/window.vala:252
 msgid "translator-credits"
 msgstr ""
 "Bruce Cowan <bruce@bcowan.me.uk>\n"
