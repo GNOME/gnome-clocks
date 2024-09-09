@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-03-08 13:29+0000\n"
-"PO-Revision-Date: 2024-03-11 10:28+0100\n"
+"POT-Creation-Date: 2024-08-31 14:18+0000\n"
+"PO-Revision-Date: 2024-09-08 17:41+0200\n"
 "Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:25 src/window.vala:244 src/window.vala:299
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Ure"
@@ -143,7 +143,7 @@ msgid "Timer screen"
 msgstr "Minutursskærm"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:168 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
 msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
@@ -272,36 +272,36 @@ msgid "Delete"
 msgstr "Slet"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "Ny alarm"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Annullér"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Tilføj"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:113
 msgid "Name"
 msgstr "Navn"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:120
 msgid "Ring Duration"
 msgstr "Ringevarighed"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:126
 msgid "Snooze Duration"
 msgstr "Slumrevarighed"
 
-#: data/ui/alarm-setup-dialog.ui:151
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "You already have an alarm for this time."
 msgstr "Du har allerede en alarm for dette tidspunkt."
 
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "F_jern alarm"
 
@@ -349,7 +349,7 @@ msgstr "Titel …"
 msgid "Pause"
 msgstr "Pause"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 #: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Start"
@@ -359,7 +359,7 @@ msgid "Reset"
 msgstr "Nulstil"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "Nyt minutur"
 
@@ -408,6 +408,10 @@ msgstr "Sæt minutur"
 msgid "0"
 msgstr "0"
 
+#: data/ui/timer-setup.ui:264
+msgid "Title"
+msgstr "Titel"
+
 #: data/ui/window.ui:44
 msgid "_World"
 msgstr "_Verden"
@@ -440,7 +444,7 @@ msgstr "_Tilføj verdensur …"
 msgid "Add a New World Clock"
 msgstr "Tilføj et nyt verdensur"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "Søg efter en by"
 
@@ -460,7 +464,7 @@ msgstr "Alarm er indstillet til %s fra nu af"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -510,11 +514,11 @@ msgstr "20 minutter"
 msgid "30 minutes"
 msgstr "30 minutter"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "Redigér alarm"
 
-#: src/alarm-setup-dialog.vala:114
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "_Færdig"
 
@@ -673,7 +677,7 @@ msgstr "Hverdage"
 msgid "Weekends"
 msgstr "Weekender"
 
-#: src/window.vala:253
+#: src/window.vala:252
 msgid "translator-credits"
 msgstr ""
 "Kenneth Nielsen\n"
