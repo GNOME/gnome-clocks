@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-02-13 18:01+0000\n"
-"PO-Revision-Date: 2024-02-25 01:04+0200\n"
+"POT-Creation-Date: 2024-08-31 14:18+0000\n"
+"PO-Revision-Date: 2024-09-11 22:25+0300\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 :"
 " 2);\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:25 src/window.vala:244 src/window.vala:299
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Pulksteņi"
@@ -142,7 +142,7 @@ msgid "Timer screen"
 msgstr "Taimera ekrāns"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:153 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
 msgid "The GNOME Project"
 msgstr "GNOME projekts"
 
@@ -254,11 +254,11 @@ msgstr "Atkārtot"
 msgid "Add A_larm…"
 msgstr "Pievienot signā_lu…"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:182
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
 msgid "Stop"
 msgstr "Apturēt"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:183
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:196
 msgid "Snooze"
 msgstr "Iesnaudināt"
 
@@ -271,36 +271,36 @@ msgid "Delete"
 msgstr "Dzēst"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "Jauns signāls"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "At_celt"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Pievienot"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:113
 msgid "Name"
 msgstr "Nosaukums"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:120
 msgid "Ring Duration"
 msgstr "Zvana ilgums"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:126
 msgid "Snooze Duration"
 msgstr "Snaudas ilgums"
 
-#: data/ui/alarm-setup-dialog.ui:151
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "You already have an alarm for this time."
 msgstr "Šim laikam jau ir iestatīts modinātājs."
 
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "Izņ_emt signālu"
 
@@ -348,7 +348,7 @@ msgstr "Nosaukums…"
 msgid "Pause"
 msgstr "Pauzēt"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 #: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Sākt"
@@ -358,12 +358,11 @@ msgid "Reset"
 msgstr "Atstatīt"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "Jauns taimeris"
 
 #: data/ui/timer-setup.ui:31
-#| msgid "Start"
 msgid "Quick Start"
 msgstr "Ātrais starts"
 
@@ -400,7 +399,6 @@ msgid "1 h"
 msgstr "1 h"
 
 #: data/ui/timer-setup.ui:137
-#| msgid "New Timer"
 msgid "Set Timer"
 msgstr "Iestatīt taimeri"
 
@@ -408,6 +406,11 @@ msgstr "Iestatīt taimeri"
 #: data/ui/timer-setup.ui:228
 msgid "0"
 msgstr "0"
+
+#: data/ui/timer-setup.ui:264
+#| msgid "Title…"
+msgid "Title"
+msgstr "Nosaukums"
 
 #: data/ui/window.ui:44
 msgid "_World"
@@ -426,7 +429,6 @@ msgid "_Timer"
 msgstr "_Taimeris"
 
 #: data/ui/window.ui:98
-#| msgid "Clocks"
 msgid "Clock"
 msgstr "Pulkstenis"
 
@@ -442,7 +444,7 @@ msgstr "Pievienot p_asaules pulksteni…"
 msgid "Add a New World Clock"
 msgstr "Pievienot jaunu pasaules pulksteni"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "Meklēt pilsētu"
 
@@ -454,7 +456,7 @@ msgstr "Saullēkts"
 msgid "Sunset"
 msgstr "Saulriets"
 
-#: src/alarm-face.vala:143
+#: src/alarm-face.vala:157
 #, c-format
 msgid "Alarm set for %s from now"
 msgstr "Iestatīts signāls %s no šī brīža"
@@ -462,21 +464,19 @@ msgstr "Iestatīts signāls %s no šī brīža"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:179 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
 msgid "Alarm"
 msgstr "Signāls"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
 #: src/alarm-row.vala:97
 #, c-format
-#| msgid "Snoozed from %s"
 msgid "%s: Snoozed until %s"
 msgstr "%s: snauž līdz %s"
 
 #. Translators: %s is a time
 #: src/alarm-row.vala:100
 #, c-format
-#| msgid "Snoozed from %s"
 msgid "Snoozed until %s"
 msgstr "Snauž līdz %s"
 
@@ -487,7 +487,6 @@ msgid "Alarm %s was missed"
 msgstr "Signāls %s tika palaists garām"
 
 #: src/alarm-row.vala:109
-#| msgid "Alarms setup"
 msgid "Alarm was missed"
 msgstr "Signāls tika palaists garām"
 
@@ -515,12 +514,11 @@ msgstr "20 minūtes"
 msgid "30 minutes"
 msgstr "30 minūtes"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "Rediģēt signālu"
 
-#: src/alarm-setup-dialog.vala:114
-#| msgid "Done"
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "_Pabeigts"
 
@@ -541,11 +539,11 @@ msgstr "Turpināt"
 msgid "Lap %i"
 msgstr "%i. aplis"
 
-#: src/timer-face.vala:76
+#: src/timer-face.vala:82
 msgid "Time is up!"
 msgstr "Laiks beidzies!"
 
-#: src/timer-face.vala:77
+#: src/timer-face.vala:83
 msgid "Timer countdown finished"
 msgstr "Taimera laiks iztecējis"
 
@@ -588,8 +586,6 @@ msgstr " un "
 
 #: src/utils.vala:110
 #, c-format
-#| msgid "%s hour ahead"
-#| msgid_plural "%s hours ahead"
 msgid "%s hour"
 msgid_plural "%s hours"
 msgstr[0] "%s stunda"
@@ -598,7 +594,6 @@ msgstr[2] "%s stundu"
 
 #: src/utils.vala:117
 #, c-format
-#| msgid "1 minute"
 msgid "%s minute"
 msgid_plural "%s minutes"
 msgstr[0] "%s minūte"
@@ -687,7 +682,7 @@ msgstr "Darba dienas"
 msgid "Weekends"
 msgstr "Nedēļas nogales"
 
-#: src/window.vala:253
+#: src/window.vala:252
 msgid "translator-credits"
 msgstr ""
 "Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
