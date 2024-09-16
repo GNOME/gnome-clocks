@@ -496,6 +496,15 @@ public class Weekdays {
 
         return 0;
     }
+
+    public bool intersects (Weekdays other) {
+        for (int day = 0; day < 7; day++) {
+            if (this.days[day] && other.days[day]) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 public class Bell : Object {

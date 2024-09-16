@@ -258,7 +258,7 @@ private class Item : Object, ContentItem {
     }
 
     private bool compare_with_item (Item i) {
-        return (this.time.is_eq (i.time) && this.active && i.active);
+        return (this.time.is_eq (i.time) && this.days.intersects (i.days) && this.active && i.active);
     }
 
     public bool check_duplicate_alarm (List<Item> alarms) {
