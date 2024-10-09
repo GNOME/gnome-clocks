@@ -2,25 +2,31 @@
 # Copyright (C) 2024 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Rachida SACI <rgebbid@gmail.com>, 2024.
+# ButterflyOfFire <butterflyoffire@protonmail.com>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-03-18 00:20+0000\n"
-"PO-Revision-Date: 2024-03-21 12:50+0100\n"
-"Last-Translator: sa\n"
-"Language-Team: Kabyle <kab@li.org>\n"
+"POT-Creation-Date: 2024-09-20 13:14+0000\n"
+"PO-Revision-Date: 2024-10-09 13:25+0100\n"
+"Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
+"Language-Team: Kabyle\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Gtranslator 47.0\n"
+"X-DL-Lang: kab\n"
+"X-DL-Module: gnome-clocks\n"
+"X-DL-Branch: master\n"
+"X-DL-Domain: po\n"
+"X-DL-State: Translating\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:25 src/window.vala:244 src/window.vala:299
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Timrilin"
@@ -139,7 +145,7 @@ msgid "Timer screen"
 msgstr "Agdil n umakud"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:178 src/window.vala:246
 msgid "The GNOME Project"
 msgstr "Asenfar n GNOME"
 
@@ -249,7 +255,7 @@ msgstr "Ales"
 
 #: data/ui/alarm-face.ui:14
 msgid "Add A_larm…"
-msgstr "Rnu tamrilt (_l)"
+msgstr "Rnu tamrint (_L)"
 
 #: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
 msgid "Stop"
@@ -268,38 +274,38 @@ msgid "Delete"
 msgstr "Kkes"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "Tamrilt tamaynut"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "Sefsex (_C)"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "Rnu (_A)"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:113
 msgid "Name"
 msgstr "Isem"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:120
 msgid "Ring Duration"
 msgstr "Tanzagt n usûni"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:126
 msgid "Snooze Duration"
 msgstr "Tanzagt n tguni"
 
-#: data/ui/alarm-setup-dialog.ui:151
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "You already have an alarm for this time."
 msgstr "Tesεiḍ yakan tangedwit i wakud-a."
 
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
-msgstr "Kkes tangedwit (_e)"
+msgstr "Kk_es tangedwit"
 
 #: data/ui/header-bar.ui:6
 msgid "_Keyboard Shortcuts"
@@ -311,7 +317,7 @@ msgstr "Tallalt (_H)"
 
 #: data/ui/header-bar.ui:14
 msgid "_About Clocks"
-msgstr "Γef temrilin (_A)"
+msgstr "Γef Timrilin (_A)"
 
 #: data/ui/header-bar.ui:56
 msgid "Main Menu"
@@ -335,7 +341,7 @@ msgstr "Amgired"
 
 #: data/ui/timer-face.ui:27
 msgid "St_art"
-msgstr "Bdu (a)"
+msgstr "Bdu (_A)"
 
 #: data/ui/timer-row.ui:32
 msgid "Title…"
@@ -345,7 +351,7 @@ msgstr "Azwel…"
 msgid "Pause"
 msgstr "Seḥbes"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 #: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Bdu"
@@ -355,7 +361,7 @@ msgid "Reset"
 msgstr "Wennez"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "Amakud amaynut"
 
@@ -404,13 +410,17 @@ msgstr "Sbadu amakud"
 msgid "0"
 msgstr "0"
 
+#: data/ui/timer-setup.ui:264
+msgid "Title"
+msgstr "Azwel"
+
 #: data/ui/window.ui:44
 msgid "_World"
 msgstr "Amaḍal (_W)"
 
 #: data/ui/window.ui:55
 msgid "Ala_rms"
-msgstr "Tingedwiyin (_r)"
+msgstr "Tingedwiyin (_R)"
 
 #: data/ui/window.ui:66
 msgid "_Stopwatch"
@@ -436,7 +446,7 @@ msgstr "Rnu tamrilt n umaḍal… (_A)"
 msgid "Add a New World Clock"
 msgstr "Rnu tamrilt n umaḍal tamaynut"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "Nadi ɣef temdint"
 
@@ -456,7 +466,7 @@ msgstr "Tettusbadu temrilt i %s seg tura"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
 msgid "Alarm"
 msgstr "Tangedwit"
 
@@ -506,11 +516,11 @@ msgstr "20 n tisdatin"
 msgid "30 minutes"
 msgstr "30 n tesdatin"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "Ẓreg tangedwit"
 
-#: src/alarm-setup-dialog.vala:114
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "Immed (_D)"
 
@@ -669,9 +679,12 @@ msgstr "Ussan n umalas"
 msgid "Weekends"
 msgstr "Imalasen"
 
-#: src/window.vala:253
+#: src/window.vala:252
 msgid "translator-credits"
-msgstr "amsuqqel-isemdan"
+msgstr ""
+"Launchpad Contributions:\n"
+"  tasutlelli17 https://launchpad.net/~tafziri13\n"
+"  ButterflyOfFire"
 
 #. Translators: Tooltip for the + button
 #: src/world-face.vala:29
