@@ -17,18 +17,13 @@
       <li>Set timers to properly cook your food</li>
     </ul>
   </description>
-  <kudos>
-    <kudo>HiDpiIcon</kudo>
-    <kudo>HighContrast</kudo>
-    <kudo>ModernToolkit</kudo>
-    <kudo>Notifications</kudo>
-    <kudo>SearchProvider</kudo>
-    <kudo>UserDocs</kudo>
-  </kudos>
-  <recommends>
+  <supports>
     <control>keyboard</control>
     <control>pointing</control>
     <control>touch</control>
+  </supports>
+  <recommends>
+    <internet>always</internet>
   </recommends>
   <requires>
     <display_length compare="ge">360</display_length>
@@ -166,6 +161,10 @@
     <release version="3.31.1" date="2018-11-11" type="development" />
     <release version="3.30.1" date="2018-10-21" type="stable" />
   </releases>
+  <branding>
+    <color type="primary" scheme_preference="light">#b3adbf</color>
+    <color type="primary" scheme_preference="dark">#59526c</color>
+  </branding>
   <url type="homepage">https://apps.gnome.org/Clocks/</url>
   <url type="contribute">https://welcome.gnome.org/app/Clocks/</url>
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/gnome-clocks/issues</url>
@@ -173,6 +172,7 @@
   <url type="help">https://help.gnome.org/users/gnome-clocks/stable/</url>
   <url type="translate">https://l10n.gnome.org/module/gnome-clocks/</url>
   <url type="vcs-browser">https://gitlab.gnome.org/GNOME/gnome-clocks</url>
+  <url type="contact">https://matrix.to/#/#clocks:gnome.org</url>
   <launchable type="desktop-id">@appid@.desktop</launchable>
   <!-- developer_name tag deprecated with Appstream 1.0 -->
   <developer_name>The GNOME Project</developer_name>
@@ -182,8 +182,5 @@
   <project_group>GNOME</project_group>
   <translation type="gettext">gnome-clocks</translation>
   <content_rating type="oars-1.0" />
-  <custom>
-    <value key="Purism::form_factor">mobile</value>
-    <value key="GnomeSoftware::key-colors">[(63, 57, 71)]</value>
-  </custom>
 </component>
+
