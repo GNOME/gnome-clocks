@@ -8,22 +8,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-03-22 22:07+0000\n"
-"PO-Revision-Date: 2024-03-23 17:10+0100\n"
-"Last-Translator: facyber <marko.andrejic93@gmail.com>\n"
+"POT-Creation-Date: 2024-10-27 22:54+0000\n"
+"PO-Revision-Date: 2024-11-04 08:21+0100\n"
+"Last-Translator: Марко М. Костић <marko.m.kostic@gmail.com>\n"
 "Language-Team: Serbian <marko.andrejic93@gmail.com>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
-"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2\n"
+"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
-"X-Generator: Gtranslator 45.3\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:25 src/window.vala:244 src/window.vala:299
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Сатови"
@@ -144,7 +144,7 @@ msgid "Timer screen"
 msgstr "Екран одбројавача"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:178 src/window.vala:246
 msgid "The GNOME Project"
 msgstr "Гном пројекат"
 
@@ -273,36 +273,36 @@ msgid "Delete"
 msgstr "Обриши"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "Нови будилник"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Откажи"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Додај"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:113
 msgid "Name"
 msgstr "Назив"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:120
 msgid "Ring Duration"
 msgstr "Трајање звона"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:126
 msgid "Snooze Duration"
 msgstr "Трајање дремке"
 
-#: data/ui/alarm-setup-dialog.ui:151
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "You already have an alarm for this time."
 msgstr "Већ имате будилник са овим временом."
 
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "У_клони будилник"
 
@@ -350,7 +350,7 @@ msgstr "Наслов…"
 msgid "Pause"
 msgstr "Паузирај"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 #: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Покрени"
@@ -360,7 +360,7 @@ msgid "Reset"
 msgstr "Поврати"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "Нови одбројавач"
 
@@ -409,6 +409,10 @@ msgstr "Подеси одбројавач"
 msgid "0"
 msgstr "0"
 
+#: data/ui/timer-setup.ui:264
+msgid "Title"
+msgstr "Наслов"
+
 #: data/ui/window.ui:44
 msgid "_World"
 msgstr "_Свет"
@@ -441,7 +445,7 @@ msgstr "Дод_ај светски сат…"
 msgid "Add a New World Clock"
 msgstr "Додај нови светски сат"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "Потражи град"
 
@@ -461,7 +465,7 @@ msgstr "Будилник ће се укључити за %s"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
 msgid "Alarm"
 msgstr "Будилник"
 
@@ -511,11 +515,11 @@ msgstr "20 минута"
 msgid "30 minutes"
 msgstr "30 минута"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "Уреди будилник"
 
-#: src/alarm-setup-dialog.vala:114
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "_Готово"
 
@@ -687,7 +691,7 @@ msgstr "радним данима"
 msgid "Weekends"
 msgstr "викендом"
 
-#: src/window.vala:253
+#: src/window.vala:252
 msgid "translator-credits"
 msgstr ""
 "Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
