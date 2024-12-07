@@ -167,7 +167,7 @@ public class Application : Adw.Application {
 
     void on_quit_activate () {
         if (window != null) {
-            ((Window) window).destroy ();
+            ((Window) window).close ();
         }
         quit ();
     }
