@@ -108,6 +108,7 @@ public class Application : Adw.Application {
 
         set_accels_for_action ("win.new", { "<Control>n" });
         set_accels_for_action ("win.help", { "F1" });
+        set_accels_for_action ("window.close", { "<Control>w" });
         set_accels_for_action ("app.quit", { "<Control>q" });
         set_accels_for_action ("win.navigate-backward", { "<Control><Alt>Page_Up" });
         set_accels_for_action ("win.navigate-forward", { "<Control><Alt>Page_Down" });
