@@ -1,6 +1,7 @@
 include:
-  - project: 'gnome/citemplates'
+  - project: 'alatiera/citemplates'
     file: 'flatpak/flatpak_ci_initiative.yml'
+    ref: "alatiera/flatpak-dist-2"
   - component: gitlab.gnome.org/GNOME/citemplates/release-service@master
     inputs:
       dist-job-name: "build-flatpak"
