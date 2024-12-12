@@ -93,7 +93,7 @@ private class SetupDialog : Adw.Dialog {
     [GtkChild]
     private unowned Adw.Bin am_pm_bin;
     [GtkChild]
-    private unowned Gtk.Revealer label_revealer;
+    private unowned Adw.Banner banner;
     [GtkChild]
     private unowned Gtk.Button delete_button;
     [GtkChild]
@@ -264,7 +264,7 @@ private class SetupDialog : Adw.Dialog {
 
         var duplicate = alarm.check_duplicate_alarm (other_alarms);
         ok_button.sensitive = !duplicate;
-        label_revealer.set_reveal_child (duplicate);
+        banner.set_revealed (duplicate);
     }
 
     [GtkCallback]
