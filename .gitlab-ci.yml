@@ -22,11 +22,13 @@ stages:
 build-flatpak:
   extends: '.flatpak@x86_64'
   stage: build
+  needs: []
   before_script: []
 
 build-flatpak-aarch64:
   extends: '.flatpak@aarch64'
   stage: build
+  needs: []
   before_script: []
 
 nightly:
@@ -40,6 +42,7 @@ nightly-aarch64:
 lint:
   image: "valalang/lint:latest"
   stage: lint
+  needs: []
   script:
     - io.elementary.vala-lint src
 
