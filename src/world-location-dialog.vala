@@ -35,6 +35,8 @@ private class LocationDialog : Adw.Dialog {
     [GtkChild]
     private unowned Gtk.Widget empty_search;
     [GtkChild]
+    private unowned Gtk.Widget no_search_results;
+    [GtkChild]
     private unowned Gtk.Widget search_results;
     [GtkChild]
     private unowned Gtk.SearchEntry location_entry;
@@ -122,7 +124,7 @@ private class LocationDialog : Adw.Dialog {
         query_locations ((GWeather.Location) world_location, search);
 
         if (locations.get_n_items () == 0) {
-            stack.visible_child = empty_search;
+            stack.visible_child = no_search_results;
             return;
         }
         locations.sort ((a, b) => {
