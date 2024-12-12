@@ -55,20 +55,12 @@
               </object>
             </child>
             <child>
-              <object class="GtkScrolledWindow" id="search_results">
-                <property name="hscrollbar_policy">never</property>
-                <property name="vexpand">True</property>
+              <object class="AdwPreferencesPage" id="search_results">
                 <child>
-                  <object class="AdwClamp">
-                    <property name="width_request">300</property>
+                  <object class="AdwPreferencesGroup">
                     <child>
                       <object class="GtkListBox" id="listbox">
-                        <property name="valign">start</property>
                         <property name="selection_mode">none</property>
-                        <property name="margin-top">18</property>
-                        <property name="margin-bottom">18</property>
-                        <property name="margin-start">12</property>
-                        <property name="margin-end">12</property>
                         <signal name="row-activated" handler="item_activated" swapped="no"/>
                         <style>
                           <class name="boxed-list"/>
