@@ -132,16 +132,14 @@
                   </object>
                 </child>
                 <child>
-                  <object class="AdwPreferencesGroup">
+                  <object class="AdwPreferencesGroup" id="delete_group">
                     <child>
-                      <object class="GtkButton" id="delete_button">
-                        <property name="label" translatable="yes">R_emove Alarm</property>
+                      <object class="AdwButtonRow">
+                        <property name="title" translatable="yes">R_emove Alarm</property>
                         <property name="use-underline">True</property>
-                        <property name="halign">center</property>
-                        <signal name="clicked" handler="delete" swapped="no" />
+                        <signal name="activated" handler="delete" swapped="no" />
                         <style>
                           <class name="destructive-action"/>
-                          <class name="pill"/>
                         </style>
                       </object>
                     </child>

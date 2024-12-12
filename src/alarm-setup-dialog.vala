@@ -95,7 +95,7 @@ private class SetupDialog : Adw.Dialog {
     [GtkChild]
     private unowned Adw.Banner banner;
     [GtkChild]
-    private unowned Gtk.Button delete_button;
+    private unowned Adw.PreferencesGroup delete_group;
     [GtkChild]
     private unowned Gtk.Button ok_button;
     private List<Item> other_alarms;
@@ -113,7 +113,7 @@ private class SetupDialog : Adw.Dialog {
             ok_button.label = _("_Done");
         }
 
-        delete_button.visible = alarm != null;
+        delete_group.visible = alarm != null;
 
         other_alarms = new List<Item> ();
         var n = all_alarms.get_n_items ();
