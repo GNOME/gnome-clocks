@@ -139,7 +139,6 @@ private class LocationDialog : Adw.Dialog {
     [GtkCallback]
     private void add_button_clicked () {
         location_added ();
-        close ();
     }
 
     private void query_locations (GWeather.Location location, string search) {
