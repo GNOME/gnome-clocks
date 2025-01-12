@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-05-12 21:23+0000\n"
-"PO-Revision-Date: 2024-05-17 19:14+0200\n"
+"POT-Creation-Date: 2025-01-11 23:02+0000\n"
+"PO-Revision-Date: 2025-01-12 16:41+0100\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups."
 "com>\n"
@@ -20,11 +20,11 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
 "n%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Ure"
@@ -126,24 +126,24 @@ msgstr "Merjenje pretečenega časa z natančno štoparico"
 msgid "Set timers to properly cook your food"
 msgstr "Nastavitev časomerov za ustrezen čas kuhanja"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "Začetno okno"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Alarmi"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Štoparica"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Časomer"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:193 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -267,41 +267,45 @@ msgstr "Zadremaj"
 msgid "Repeats"
 msgstr "Ponovi"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "Omogoči alarm"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Izbriši"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "Dodaj alarm"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Prekliči"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:114
 msgid "Name"
 msgstr "Ime"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:121
 msgid "Ring Duration"
 msgstr "Trajanje zvonjenja"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:127
 msgid "Snooze Duration"
 msgstr "Trajanje dremeža"
 
-#: data/ui/alarm-setup-dialog.ui:151
+#: data/ui/alarm-setup-dialog.ui:139
 msgid "You already have an alarm for this time."
 msgstr "Za ta čas je že nastavljen alarm."
 
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:146
 msgid "R_emove Alarm"
 msgstr "_Odstrani alarm"
 
@@ -321,13 +325,14 @@ msgstr "_O programu"
 msgid "Main Menu"
 msgstr "Glavni meni"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
 msgstr "_Začni"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Počisti"
+msgid "_Clear"
+msgstr "_Počisti"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -337,20 +342,15 @@ msgstr "Čas"
 msgid "Difference"
 msgstr "Razlika"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "_Začni"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Naziv …"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Premor"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
-#: src/stopwatch-face.vala:202
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 msgid "Start"
 msgstr "Začni"
 
@@ -359,7 +359,7 @@ msgid "Reset"
 msgstr "Počisti"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "Nov časomer"
 
@@ -444,7 +444,7 @@ msgstr "Dodaj _nov svetovni čas"
 msgid "Add a New World Clock"
 msgstr "Dodaj nov svetovni čas"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "Iskanje mesta"
 
@@ -464,7 +464,7 @@ msgstr "Alarm je nastavljen, še %s do zvonjenja."
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -514,11 +514,11 @@ msgstr "20 minut"
 msgid "30 minutes"
 msgstr "30 minut"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "Uredi alarm"
 
-#: src/alarm-setup-dialog.vala:114
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "_Končano"
 
@@ -526,13 +526,17 @@ msgstr "_Končano"
 msgid "Print version information and exit"
 msgstr "Izpiši podatke o različici in končaj"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "_Premor"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Krog"
+msgid "_Lap"
+msgstr "_Krog"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Nadaljuj"
+msgid "R_esume"
+msgstr "Na_daljuj"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -687,7 +691,7 @@ msgstr "Dnevi tedna"
 msgid "Weekends"
 msgstr "Vikendi"
 
-#: src/window.vala:253
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr "Matej Urbančič <mateju@src@gnome.org>"
 
