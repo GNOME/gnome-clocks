@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-09-20 13:14+0000\n"
-"PO-Revision-Date: 2024-10-14 14:05+0000\n"
+"POT-Creation-Date: 2025-01-12 18:03+0000\n"
+"PO-Revision-Date: 2025-01-20 22:19+0100\n"
 "Last-Translator: Fabio T. <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <f.t.public@gmail.com>\n"
 "Language: fur\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Editor: HaiPO 2.0 beta\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:244 src/window.vala:299
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Orlois"
@@ -30,8 +30,7 @@ msgstr "Orlois"
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Orlois par i fûs oraris tal mont, sveis, cronometri e un temporizadôr"
 
-#. Translators: Search terms to find this application. Do NOT translate or
-#. localize the semicolons! The list MUST also end with a semicolon!
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in.in:7
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "ore;orari;timp;orloi;cronometri;temporizadôr;fûs orari;svee;alarme;"
@@ -124,24 +123,24 @@ msgstr "Misurâ il timp cuntun cronometri precîs"
 msgid "Set timers to properly cook your food"
 msgstr "Configure i temporizadôrs par cusinâ ben"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "Videade iniziâl"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Videade alarmis"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Videade cronometri"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Videade temporizadôr"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:178 src/window.vala:246
+#: data/org.gnome.clocks.metainfo.xml.in.in:193 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "Il progjet GNOME"
 
@@ -265,7 +264,11 @@ msgstr "Polse"
 msgid "Repeats"
 msgstr "Ripetizions"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "Ative svee"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Elimine"
 
@@ -275,31 +278,31 @@ msgstr "Elimine"
 msgid "New Alarm"
 msgstr "Gnove svee"
 
-#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Anule"
 
-#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Zonte"
 
-#: data/ui/alarm-setup-dialog.ui:113
+#: data/ui/alarm-setup-dialog.ui:114
 msgid "Name"
 msgstr "Non"
 
-#: data/ui/alarm-setup-dialog.ui:120
+#: data/ui/alarm-setup-dialog.ui:121
 msgid "Ring Duration"
 msgstr "Durade sunarie"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:127
 msgid "Snooze Duration"
 msgstr "Durade polse"
 
-#: data/ui/alarm-setup-dialog.ui:138
+#: data/ui/alarm-setup-dialog.ui:139
 msgid "You already have an alarm for this time."
 msgstr "Tu âs za une svee par cheste ore."
 
-#: data/ui/alarm-setup-dialog.ui:145
+#: data/ui/alarm-setup-dialog.ui:146
 msgid "R_emove Alarm"
 msgstr "G_jave svee"
 
@@ -319,13 +322,14 @@ msgstr "_Informazions su Orlois"
 msgid "Main Menu"
 msgstr "Menù principâl"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "_Tache"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "In_vie"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Nete"
+msgid "_Clear"
+msgstr "_Nete"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -335,20 +339,15 @@ msgstr "Ore"
 msgid "Difference"
 msgstr "Diference"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "In_vie"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Titul…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Pause"
 
 #: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
-#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Tache"
 
@@ -462,7 +461,7 @@ msgstr "Svee metude ca di %s"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "Svee"
 
@@ -524,18 +523,22 @@ msgstr "_Fat"
 msgid "Print version information and exit"
 msgstr "Scrîf informazions di version e jes"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "Met in _pause"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Volte"
+msgid "_Lap"
+msgstr "_Zîr"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Ripie"
+msgid "R_esume"
+msgstr "Ri_pie"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
 msgid "Lap %i"
-msgstr "%iᵉ volte"
+msgstr "Zîr %i"
 
 #: src/timer-face.vala:82
 msgid "Time is up!"
@@ -675,7 +678,7 @@ msgstr "Dîs de vore"
 msgid "Weekends"
 msgstr "Dîs di fieste"
 
-#: src/window.vala:252
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr "Fabio Tomat (f.t.public@gmail.com)"
 
@@ -700,6 +703,12 @@ msgstr "Îr"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Posizion atuâl"
+
+#~ msgid "_Start"
+#~ msgstr "_Tache"
+
+#~ msgid "Lap"
+#~ msgstr "Volte"
 
 #~ msgid "Menu"
 #~ msgstr "Menù"
