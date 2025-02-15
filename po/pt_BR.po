@@ -1,29 +1,29 @@
 # Brazilian Portuguese translation for gnome-clocks.
-# Copyright (C) 2023 gnome-clocks's COPYRIGHT HOLDER
+# Copyright (C) 2025 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Djavan Fagundes <djavan@comum.org>, 2012.
 # Edson Silva <edsonlead@gmail.com>, 2013.
 # Fábio Nogueira <fnogueira@gnome.org>, 2016.
 # Enrico Nicoletto <liverig@gmail.com>, 2012, 2013, 2014, 2016, 2020.
-# Rafael Fontenelle <rafaelff@gnome.org>, 2017-2022.
 # Leônidas Araújo <leorusvellt@hotmail.com>, 2022-2023.
 # Matheus Polkorny <mpolkorny@ipt.br>, 2024.
 # Juliano de Souza Camargo <julianosc@pm.me>, 2024.
+# Rafael Fontenelle <rafaelff@gnome.org>, 2017-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-09-20 13:14+0000\n"
-"PO-Revision-Date: 2024-08-25 10:02-0300\n"
-"Last-Translator: Juliano de Souza Camargo <julianosc@pm.me>\n"
+"POT-Creation-Date: 2025-02-12 20:51+0000\n"
+"PO-Revision-Date: 2025-02-14 22:29-0300\n"
+"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <https://br.gnome.org/traducao>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Gtranslator 46.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Gtranslator 47.1\n"
 "X-Project-Style: gnome\n"
 "X-DL-Team: pt_BR\n"
 "X-DL-Module: gnome-clocks\n"
@@ -33,7 +33,7 @@ msgstr ""
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:244 src/window.vala:299
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Relógios"
@@ -136,24 +136,24 @@ msgstr "Mede o tempo gasto através de um cronômetro preciso"
 msgid "Set timers to properly cook your food"
 msgstr "Define temporizadores para que você cozinhe apropriadamente sua comida"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "Tela inicial"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Tela de alarmes"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Tela de cronômetro"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Tela de temporizador"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:178 src/window.vala:246
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "O Projeto GNOME"
 
@@ -277,7 +277,11 @@ msgstr "Soneca"
 msgid "Repeats"
 msgstr "Repetições"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "Habilitar alarme"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Excluir"
 
@@ -287,31 +291,31 @@ msgstr "Excluir"
 msgid "New Alarm"
 msgstr "Novo alarme"
 
-#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Adicionar"
 
-#: data/ui/alarm-setup-dialog.ui:113
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "Você já tem um alarme para este horário"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "Nome"
 
-#: data/ui/alarm-setup-dialog.ui:120
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "Duração do toque"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "Duração da soneca"
 
 #: data/ui/alarm-setup-dialog.ui:138
-msgid "You already have an alarm for this time."
-msgstr "Você já possui um alarme para este horário."
-
-#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "R_emover alarme"
 
@@ -331,13 +335,14 @@ msgstr "_Sobre o relógios"
 msgid "Main Menu"
 msgstr "Menu principal"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "_Iniciar"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "Inici_ar"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Limpar"
+msgid "_Clear"
+msgstr "_Limpar"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -347,20 +352,15 @@ msgstr "Tempo"
 msgid "Difference"
 msgstr "Diferença"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "Inici_ar"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Título…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Pausar"
 
 #: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
-#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Iniciar"
 
@@ -474,7 +474,7 @@ msgstr "Alarme definido para %s a partir de agora"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "Alarme"
 
@@ -536,13 +536,17 @@ msgstr "C_oncluído"
 msgid "Print version information and exit"
 msgstr "Exibe informações da versão e sai"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "_Pausar"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Volta"
+msgid "_Lap"
+msgstr "_Volta"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Continuar"
+msgid "R_esume"
+msgstr "_Continuar"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -687,7 +691,7 @@ msgstr "Dias da semana"
 msgid "Weekends"
 msgstr "Finais de semana"
 
-#: src/window.vala:252
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr ""
 "Enrico Nicoletto <liverig@gmail.com>\n"
@@ -718,6 +722,12 @@ msgstr "Ontem"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Localização atual"
+
+#~ msgid "_Start"
+#~ msgstr "_Iniciar"
+
+#~ msgid "Lap"
+#~ msgstr "Volta"
 
 #~ msgid "Menu"
 #~ msgstr "Menu"
