@@ -1,20 +1,20 @@
 # Turkish translation for gnome-clocks.
-# Copyright (C) 2012-2024 gnome-clocks's COPYRIGHT HOLDER
+# Copyright (C) 2012-2025 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 #
 # Osman Karagöz <osmank3@gmail.com>, 2012.
 # Gökhan Gurbetoğlu <ggurbet@gmail.com>, 2014.
 # Muhammet Kara <muhammetk@gmail.com>, 2013, 2014, 2015, 2016.
 # Çağatay Yiğit Şahin <cyigitsahin@outlook.com>, 2017.
-# Sabri Ünal <yakushabb@gmail.com>, 2020, 2023, 2024.
-# Emin Tufan Çetin <etcetin@gmail.com>, 2017, 2020, 2022, 2024.
+# Sabri Ünal <yakushabb@gmail.com>, 2020, 2023-2025.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2017, 2020, 2022, 2024, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-08-25 13:03+0000\n"
-"PO-Revision-Date: 2024-06-25 14:03+0300\n"
+"POT-Creation-Date: 2025-02-04 13:23+0000\n"
+"PO-Revision-Date: 2025-02-09 17:03+0300\n"
 "Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
 "Language: tr\n"
@@ -22,11 +22,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.4.3\n"
+"X-Generator: Poedit 3.5\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:244 src/window.vala:299
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Saatler"
@@ -131,24 +131,24 @@ msgstr "Doğru bir kronometre ile geçen zamanı ölçmek"
 msgid "Set timers to properly cook your food"
 msgstr "Düzgün yemek pişirmek için zamanlayıcı ayarlamak"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "İlk ekran"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Alarmlar ekranı"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Kronometre ekranı"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Zamanlayıcı ekranı"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "GNOME Projesi"
 
@@ -272,7 +272,11 @@ msgstr "Ertele"
 msgid "Repeats"
 msgstr "Yinelemeler"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "Alarmı Etkinleştir"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Sil"
 
@@ -282,31 +286,31 @@ msgstr "Sil"
 msgid "New Alarm"
 msgstr "Yeni Alarm"
 
-#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "İ_ptal"
 
-#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Ekle"
 
-#: data/ui/alarm-setup-dialog.ui:113
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "Zaten bu saate kurulmuş alarmınız var"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "Ad"
 
-#: data/ui/alarm-setup-dialog.ui:120
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "Çalma Süresi"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "Erteleme Süresi"
 
 #: data/ui/alarm-setup-dialog.ui:138
-msgid "You already have an alarm for this time."
-msgstr "Zaten bu saate kurulmuş alarmınız var."
-
-#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "Alarmı _Kaldır"
 
@@ -326,13 +330,14 @@ msgstr "Saatler _Hakkında"
 msgid "Main Menu"
 msgstr "Ana Menü"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "_Başla"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "_Başlat"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Temizle"
+msgid "_Clear"
+msgstr "_Temizle"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -342,20 +347,15 @@ msgstr "Zaman"
 msgid "Difference"
 msgstr "Fark"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "_Başlat"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Başlık…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Duraklat"
 
 #: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
-#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Başla"
 
@@ -469,7 +469,7 @@ msgstr "%s için alarm ayarlandı"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -531,13 +531,17 @@ msgstr "_Tamam"
 msgid "Print version information and exit"
 msgstr "Sürüm bilgisini yazdır ve çık"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "_Duraklat"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Tur"
+msgid "_Lap"
+msgstr "_Tur"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Sürdür"
+msgid "R_esume"
+msgstr "_Sürdür"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -677,7 +681,7 @@ msgstr "Hafta İçleri"
 msgid "Weekends"
 msgstr "Hafta Sonları"
 
-#: src/window.vala:252
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr ""
 "Emin Tufan Çetin <etcetin@gmail.com>\n"
