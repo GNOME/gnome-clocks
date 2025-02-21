@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-02-13 18:01+0000\n"
-"PO-Revision-Date: 2024-02-13 21:14+0100\n"
+"POT-Creation-Date: 2025-02-12 20:50+0000\n"
+"PO-Revision-Date: 2025-02-21 22:02+0100\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
@@ -140,7 +140,7 @@ msgid "Timer screen"
 msgstr "Obrazovka s odpočtem"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:153 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -252,11 +252,11 @@ msgstr "Opakovat"
 msgid "Add A_larm…"
 msgstr "Přidat _budík…"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:182
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
 msgid "Stop"
 msgstr "Zastavit"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:183
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:196
 msgid "Snooze"
 msgstr "Ještě spát"
 
@@ -272,7 +272,7 @@ msgstr "Smazat"
 #: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
 #: src/alarm-setup-dialog.vala:111
 msgid "New Alarm"
-msgstr "Nové budík"
+msgstr "Nový budík"
 
 #: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
 msgid "_Cancel"
@@ -449,7 +449,7 @@ msgstr "Východ slunce"
 msgid "Sunset"
 msgstr "Západ slunce"
 
-#: src/alarm-face.vala:143
+#: src/alarm-face.vala:157
 #, c-format
 msgid "Alarm set for %s from now"
 msgstr "Budík nastaven na %s od této chvíle"
@@ -457,7 +457,7 @@ msgstr "Budík nastaven na %s od této chvíle"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:179 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
 msgid "Alarm"
 msgstr "Budík"
 
@@ -532,11 +532,11 @@ msgstr "Pokračovat"
 msgid "Lap %i"
 msgstr "%i. mezičas"
 
-#: src/timer-face.vala:76
+#: src/timer-face.vala:82
 msgid "Time is up!"
 msgstr "Čas vypršel!"
 
-#: src/timer-face.vala:77
+#: src/timer-face.vala:83
 msgid "Timer countdown finished"
 msgstr "Doběhl časový odpočet"
 
