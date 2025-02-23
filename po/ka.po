@@ -1,14 +1,14 @@
 # Georgian translation for gnome-clocks.
 # Copyright (C) 2023 gnome-clocks's authors.
 # This file is distributed under the same license as the gnome-clocks package.
-# Ekaterine Papava <papava.e@gtu.ge>, 2023-2024.
+# Ekaterine Papava <papava.e@gtu.ge>, 2023-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-05-25 01:21+0000\n"
-"PO-Revision-Date: 2024-08-23 09:49+0200\n"
+"POT-Creation-Date: 2025-02-21 21:26+0000\n"
+"PO-Revision-Date: 2025-02-23 07:51+0100\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: Georgian <(nothing)>\n"
 "Language: ka\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "საათები"
@@ -122,24 +122,24 @@ msgstr "გაზომეთ გასული დრო ზუსტი წ�
 msgid "Set timers to properly cook your food"
 msgstr "დააყენეთ ტაიმერები, რომ საჭმელი კარგად გააკეთოთ"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "საწყისი ეკრანი"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "განგაშების ეკრანი"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "წამმზომის ეკრანი"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "ტაიერის ეკრანი"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "პროექტი \"GNOME\""
 
@@ -263,41 +263,45 @@ msgstr "ჩაჩუმება"
 msgid "Repeats"
 msgstr "გამეორება"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "განგაშის ჩართვა"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "წაშლა"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "მაღვიძარა"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "გაუქმება"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_დამატება"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "ამ დროზე განგაში უკვე დაყენებული გაქვთ"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "სახელი"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "ზარის ხანგრძლივობა"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "ჩაჩუმების ხანგრძლივობა"
 
-#: data/ui/alarm-setup-dialog.ui:151
-msgid "You already have an alarm for this time."
-msgstr "ამ დროზე განგაში უკვე დაყენებული გაქვთ."
-
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "R_emove Alarm"
 msgstr "განგაშის _წაშლა"
 
@@ -317,13 +321,14 @@ msgstr "საათების _შესახებ"
 msgid "Main Menu"
 msgstr "მთავარი მენიუ"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "_დაწყება"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "გ_აშვება"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "გაწმენდა"
+msgid "_Clear"
+msgstr "_გასუფთავება"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -333,20 +338,15 @@ msgstr "დრო"
 msgid "Difference"
 msgstr "სხვაობა"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "გ_აშვება"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "სათაური…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "შეჩერება"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
-#: src/stopwatch-face.vala:202
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 msgid "Start"
 msgstr "გაშვება"
 
@@ -355,7 +355,7 @@ msgid "Reset"
 msgstr "საწყისი პარამეტრები"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "ახალი ტაიმერი"
 
@@ -440,7 +440,7 @@ msgstr "_მსოფლიო საათის დამატება…"
 msgid "Add a New World Clock"
 msgstr "ახალი მსოფლიო საათის დამატება"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "ქალაქის მოძებნა"
 
@@ -460,7 +460,7 @@ msgstr "განგაში დაყენებულია მიმდი�
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "KAlarm"
 
@@ -510,11 +510,11 @@ msgstr "20 წუთი"
 msgid "30 minutes"
 msgstr "30 წუთი"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "განგაშის ჩასწორება"
 
-#: src/alarm-setup-dialog.vala:114
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "_მზადაა"
 
@@ -522,13 +522,17 @@ msgstr "_მზადაა"
 msgid "Print version information and exit"
 msgstr "ვერსიის ჩვენება და გასვლა"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "_შეჩერება"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "წრე"
+msgid "_Lap"
+msgstr "_წრე"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "გაგრძელება"
+msgid "R_esume"
+msgstr "გაგრძ_ელება"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -673,7 +677,7 @@ msgstr "სამუსაო დღეებში"
 msgid "Weekends"
 msgstr "კვირის ბოლოს"
 
-#: src/window.vala:253
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr "თემური დოღონაძე"
 
@@ -698,6 +702,12 @@ msgstr "გუშინ"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "მიმდინარე მდებარეობა"
+
+#~ msgid "_Start"
+#~ msgstr "_დაწყება"
+
+#~ msgid "Lap"
+#~ msgstr "წრე"
 
 #~ msgid "Menu"
 #~ msgstr "მენიუ"
