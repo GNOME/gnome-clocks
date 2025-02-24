@@ -2,28 +2,28 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# Yosef Or Boczko <yoseforb@gmail.com>, 2013-2023.
+# Yosef Or Boczko <yoseforb@gmail.com>, 2013-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks 3.6\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-05-25 01:21+0000\n"
-"PO-Revision-Date: 2024-07-19 23:39+0300\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"POT-Creation-Date: 2025-02-23 06:54+0000\n"
+"PO-Revision-Date: 2025-02-24 17:14+0200\n"
+"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
 "Language-Team: Hebrew <yoseforb@gmail.com>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
-"2 : 3);\n"
+"2 : 3)\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Gtranslator 47.1\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "שעונים"
@@ -124,24 +124,24 @@ msgstr "מדידת זמן שחלף עם שעון עצר מדויק"
 msgid "Set timers to properly cook your food"
 msgstr "הגדרת קוצב זמן כדי לבשל את האוכל שלך כמו שצריך"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "מסך פתיחה"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "מסך התראות"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "מסך שעון עצר"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "מסך קוצב זמן"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "מיזם GNOME"
 
@@ -265,41 +265,45 @@ msgstr "נודניק"
 msgid "Repeats"
 msgstr "חזרתיות"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "לאפשר התראות"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "מחיקה"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "התראה חדשה"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_ביטול"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_הוספה"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "כבר יש לך התראה לזמן זה"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "שם"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "משך צלצול"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "משך נמנום"
 
-#: data/ui/alarm-setup-dialog.ui:151
-msgid "You already have an alarm for this time."
-msgstr "כבר יש לך התראה לזמן זה."
-
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "R_emove Alarm"
 msgstr "ה_סרת התראה"
 
@@ -319,13 +323,14 @@ msgstr "_על אודות שעונים"
 msgid "Main Menu"
 msgstr "תפריט ראשי"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "ה_תחלה"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "הת_חלה"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "ניקוי"
+msgid "_Clear"
+msgstr "_ניקוי"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -335,20 +340,15 @@ msgstr "זמן"
 msgid "Difference"
 msgstr "שינוי"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "הת_חלה"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "כותרת…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "השהייה"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
-#: src/stopwatch-face.vala:202
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 msgid "Start"
 msgstr "התחלה"
 
@@ -357,7 +357,7 @@ msgid "Reset"
 msgstr "איפוס"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "קוצב זמן חדש"
 
@@ -442,7 +442,7 @@ msgstr "הו_ספת שעון עולמי…"
 msgid "Add a New World Clock"
 msgstr "הוספת שעון עולמי חדש"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "חיפוש אחר עיר"
 
@@ -462,7 +462,7 @@ msgstr "ההתראה הוגדרה לעוד %s מעכשיו"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "התראה"
 
@@ -512,11 +512,11 @@ msgstr "20 דקות"
 msgid "30 minutes"
 msgstr "חצי שעה"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "עריכת התראה"
 
-#: src/alarm-setup-dialog.vala:114
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "_בוצע"
 
@@ -524,13 +524,17 @@ msgstr "_בוצע"
 msgid "Print version information and exit"
 msgstr "Print version information and exit"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "_השהיה"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "הקפה"
+msgid "_Lap"
+msgstr "_סיבוב"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "המשך"
+msgid "R_esume"
+msgstr "_המשך"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -688,7 +692,7 @@ msgstr "בימי השבוע"
 msgid "Weekends"
 msgstr "סופי שבוע"
 
-#: src/window.vala:253
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr ""
 "ירון שהרבני <sh.yaron@gmail.com>\n"
@@ -716,6 +720,12 @@ msgstr "אתמול"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "מיקום נוכחי"
+
+#~ msgid "_Start"
+#~ msgstr "ה_תחלה"
+
+#~ msgid "Lap"
+#~ msgstr "הקפה"
 
 #~ msgid "Menu"
 #~ msgstr "תפריט"
