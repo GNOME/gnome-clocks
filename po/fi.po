@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-05-25 01:21+0000\n"
-"PO-Revision-Date: 2024-08-23 13:35+0300\n"
+"POT-Creation-Date: 2025-02-23 06:54+0000\n"
+"PO-Revision-Date: 2025-02-24 20:36+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Kellot"
@@ -123,24 +123,24 @@ msgstr "Mittaa kulunut aika tarkalla sekuntikellolla"
 msgid "Set timers to properly cook your food"
 msgstr "Käytä ajastimia vaikkapa ruokaa valmistaessasi"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "Päänäkymä"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Herätysnäkymä"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Sekuntikellon näkymä"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Ajastimen näkymä"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "Gnome-projekti"
 
@@ -264,41 +264,45 @@ msgstr "Torkku"
 msgid "Repeats"
 msgstr "Toistuu"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "Käytä herätystä"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Poista"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "Uusi herätys"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Peru"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Lisää"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "Olet jo asettanut herätyksen tähän aikaan"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "Nimi"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "Soiton kesto"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "Torkutuksen kesto"
 
-#: data/ui/alarm-setup-dialog.ui:151
-msgid "You already have an alarm for this time."
-msgstr "Olet jo asettanut herätyksen tähän aikaan."
-
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "R_emove Alarm"
 msgstr "_Poista herätys"
 
@@ -318,13 +322,14 @@ msgstr "_Tietoja - Kellot"
 msgid "Main Menu"
 msgstr "Päävalikko"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
 msgstr "_Käynnistä"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Tyhjennä"
+msgid "_Clear"
+msgstr "_Tyhjennä"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -334,20 +339,15 @@ msgstr "Aika"
 msgid "Difference"
 msgstr "Ero"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "_Käynnistä"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Otsikko…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Keskeytä"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
-#: src/stopwatch-face.vala:202
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 msgid "Start"
 msgstr "Käynnistä"
 
@@ -356,7 +356,7 @@ msgid "Reset"
 msgstr "Nollaa"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "Uusi ajastin"
 
@@ -441,7 +441,7 @@ msgstr "Lisää _maailmankello…"
 msgid "Add a New World Clock"
 msgstr "Lisää uusi maailmankello"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "Etsi kaupunkia"
 
@@ -461,7 +461,7 @@ msgstr "Herätys asetettu %s tästä hetkestä"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "Herätys"
 
@@ -511,11 +511,11 @@ msgstr "20 minuuttia"
 msgid "30 minutes"
 msgstr "30 minuuttia"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "Muokkaa herätystä"
 
-#: src/alarm-setup-dialog.vala:114
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "_Valmis"
 
@@ -523,13 +523,17 @@ msgstr "_Valmis"
 msgid "Print version information and exit"
 msgstr "Tulosta versiotiedot ja poistu"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "_Keskeytä"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Kierros"
+msgid "_Lap"
+msgstr "_Kierros"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Jatka"
+msgid "R_esume"
+msgstr "_Jatka"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -678,7 +682,7 @@ msgstr "Arkisin"
 msgid "Weekends"
 msgstr "Viikonloppuisin"
 
-#: src/window.vala:253
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr "Jiri Grönroos, JR-Fi"
 
@@ -703,6 +707,12 @@ msgstr "Eilen"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Nykyinen sijainti"
+
+#~ msgid "_Start"
+#~ msgstr "_Käynnistä"
+
+#~ msgid "Lap"
+#~ msgstr "Kierros"
 
 #~ msgid "Menu"
 #~ msgstr "Valikko"
