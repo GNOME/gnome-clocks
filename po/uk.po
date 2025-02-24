@@ -1,13 +1,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Daniel Korostil <ted.korostiled@gmail.com>, 2013, 2014, 2015, 2016, 2017.
-# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2021, 2022, 2023, 2024.
+# Yuri Chornoivan <yurchor@ukr.net>, 2020, 2021, 2022, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-05-25 01:21+0000\n"
-"PO-Revision-Date: 2024-08-23 15:57+0300\n"
+"POT-Creation-Date: 2025-02-23 06:54+0000\n"
+"PO-Revision-Date: 2025-02-24 16:51+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Годинники"
@@ -123,24 +123,24 @@ msgstr "Вимірюйте час, що минув, з точним секунд
 msgid "Set timers to properly cook your food"
 msgstr "Встановлюйте таймери, щоб правильно готувати їжу"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "Початкове вікно"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Вікно будильників"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Вікно секундомірів"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Вікно таймерів"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "Проєкт GNOME"
 
@@ -264,41 +264,47 @@ msgstr "Нагадати пізніше"
 msgid "Repeats"
 msgstr "Повторення"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+#| msgid "New Alarm"
+msgid "Enable Alarm"
+msgstr "Увімкнути будильник"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Вилучити"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "Створити будильник"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Скасувати"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Додати"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:38
+#| msgid "You already have an alarm for this time."
+msgid "You already have an alarm for this time"
+msgstr "Ви вже маєте будильник на цей час"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "Назва"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "Тривалість дзвінка"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "Тривалість присипляння"
 
-#: data/ui/alarm-setup-dialog.ui:151
-msgid "You already have an alarm for this time."
-msgstr "Ви вже маєте будильник на цей час."
-
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "R_emove Alarm"
 msgstr "Ви_лучити будильник"
 
@@ -318,13 +324,15 @@ msgstr "_Про Годинники"
 msgid "Main Menu"
 msgstr "Головне меню"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
 msgstr "З_апустити"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Очистити"
+#| msgid "Clear"
+msgid "_Clear"
+msgstr "О_чистити"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -334,20 +342,15 @@ msgstr "Час"
 msgid "Difference"
 msgstr "Різниця"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "З_апустити"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Заголовок…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Призупинити"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
-#: src/stopwatch-face.vala:202
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 msgid "Start"
 msgstr "Запустити"
 
@@ -356,7 +359,7 @@ msgid "Reset"
 msgstr "Скинути"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "Новий таймер"
 
@@ -406,7 +409,6 @@ msgid "0"
 msgstr "0"
 
 #: data/ui/timer-setup.ui:264
-#| msgid "Title…"
 msgid "Title"
 msgstr "Заголовок"
 
@@ -442,7 +444,7 @@ msgstr "_Додати світовий годинник…"
 msgid "Add a New World Clock"
 msgstr "Додати новий світовий годинник"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "Пошук міста"
 
@@ -462,7 +464,7 @@ msgstr "Будильник встановлено на %s відтепер"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "Будильник"
 
@@ -512,11 +514,11 @@ msgstr "20 хвилин"
 msgid "30 minutes"
 msgstr "30 хвилин"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "Редагувати будильник"
 
-#: src/alarm-setup-dialog.vala:114
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "_Готово"
 
@@ -524,13 +526,19 @@ msgstr "_Готово"
 msgid "Print version information and exit"
 msgstr "Вивести інформацію про версію та вийти"
 
+#: src/stopwatch-face.vala:165
+#| msgid "Pause"
+msgid "_Pause"
+msgstr "П_ризупинити"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Коло"
+msgid "_Lap"
+msgstr "_Коло"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Продовжити"
+#| msgid "Resume"
+msgid "R_esume"
+msgstr "П_оновити"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -680,7 +688,7 @@ msgstr "Щотижня"
 msgid "Weekends"
 msgstr "На вихідних"
 
-#: src/window.vala:253
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr "Daniel Korostil <ted.korostiled@gmail.com>"
 
@@ -705,6 +713,12 @@ msgstr "Учора"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Поточне місце"
+
+#~ msgid "_Start"
+#~ msgstr "З_апустити"
+
+#~ msgid "Lap"
+#~ msgstr "Коло"
 
 #~ msgid "Menu"
 #~ msgstr "Меню"
