@@ -1,30 +1,30 @@
 # Bulgarian translation for gnome-clocks po-file.
 # Copyright (C) 2013 Krasimir Chonov <mk2616@abv.bg>.
 # Copyright (C) 2021, 2022, 2023 Alexander Shopov <ash@kambanaria.org>.
-# Copyright (C) 2024 twlvnn kraftwerk <kraft_werk@tutanota.com>.
+# Copyright (C) 2024, 2025 twlvnn kraftwerk <kraft_werk@tutanota.com>.
 # This file is distributed under the same license as the gnome-clocks package.
 # Krasimir Chonov <mk2616@abv.bg>, 2013.
 # Alexander Shopov <ash@kambanaria.org>, 2021, 2022, 2023.
-# twlvnn kraftwerk <kraft_werk@tutanota.com>, 2024.
+# twlvnn kraftwerk <kraft_werk@tutanota.com>, 2024, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-09-02 15:52+0000\n"
-"PO-Revision-Date: 2024-09-02 21:24+0200\n"
+"POT-Creation-Date: 2025-02-25 02:14+0000\n"
+"PO-Revision-Date: 2025-02-25 08:11+0100\n"
 "Last-Translator: twlvnn kraftwerk <kraft_werk@tutanota.com>\n"
 "Language-Team: Bulgarian <dict@ludost.net>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Gtranslator 46.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.5\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:244 src/window.vala:299
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Часовници"
@@ -37,8 +37,8 @@ msgstr "Часовници за различни градове, аларми, �
 #: data/org.gnome.clocks.desktop.in.in:7
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
-"време;обратно;отброяване;напомняне;аларма;часовник;секундомер;пояс;"
-"хронометър;time;timer;alarm;world clock;stopwatch;time zone;"
+"време;обратно;отброяване;напомняне;аларма;часовник;секундомер;пояс;хронометър;time;timer;alarm;world "
+"clock;stopwatch;time zone;"
 
 #: data/org.gnome.clocks.desktop.in.in:17
 msgid "Allows world clocks to be displayed for your time zone."
@@ -82,7 +82,7 @@ msgstr "Максимизиран прозорец"
 
 #: data/org.gnome.clocks.gschema.xml.in:45
 msgid "Whether the window is maximized."
-msgstr "Дали прозорецът е максимизиран"
+msgstr "Дали прозорецът е максимизиран."
 
 #: data/org.gnome.clocks.gschema.xml.in:51
 msgid "Window width and height"
@@ -128,24 +128,24 @@ msgstr "Измерване на времето с точен хронометъ�
 msgid "Set timers to properly cook your food"
 msgstr "Обратно отброяване за правилно сготвена храна"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "Начален екран"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Екран с аларми"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Екран на хронометър"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Екран с отброяванията"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "Проектът GNOME"
 
@@ -269,7 +269,11 @@ msgstr "Дрямка"
 msgid "Repeats"
 msgstr "Повтаряне"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "Включване на алармата"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Изтриване"
 
@@ -279,31 +283,31 @@ msgstr "Изтриване"
 msgid "New Alarm"
 msgstr "Нова аларма"
 
-#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Отмяна"
 
-#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Добавяне"
 
-#: data/ui/alarm-setup-dialog.ui:113
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "Вече е зададена аларма за този момент"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "Име"
 
-#: data/ui/alarm-setup-dialog.ui:120
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "Продължителност на звъненето"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "Продължителност на дрямката"
 
 #: data/ui/alarm-setup-dialog.ui:138
-msgid "You already have an alarm for this time."
-msgstr "Вече е зададена аларма за този момент."
-
-#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "_Изтриване на аларма"
 
@@ -323,13 +327,14 @@ msgstr "_Относно „Часовниците“"
 msgid "Main Menu"
 msgstr "Основно меню"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
 msgstr "_Старт"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Изчистване"
+msgid "_Clear"
+msgstr "_Изчистване"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -339,20 +344,15 @@ msgstr "Време"
 msgid "Difference"
 msgstr "Разлика"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "_Старт"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Заглавие…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Пауза"
 
 #: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
-#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Старт"
 
@@ -466,7 +466,7 @@ msgstr "Алармата е зададена за %s от сега"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "Аларма"
 
@@ -528,13 +528,17 @@ msgstr "_Готово"
 msgid "Print version information and exit"
 msgstr "Извеждане на информация за версията и изход"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "_Пауза"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Обиколка"
+msgid "_Lap"
+msgstr "_Обиколка"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Продължаване"
+msgid "R_esume"
+msgstr "_Продължаване"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -679,14 +683,14 @@ msgstr "Делнични дни"
 msgid "Weekends"
 msgstr "Почивни дни"
 
-#: src/window.vala:252
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr ""
 "Красимир Чонов &lt;<a href='mailto:mk2616@abv.bg'>mk2616@abv.bg</a>&gt;\n"
 "Александър Шопов &lt;<a href='mailto:ash@kambanaria.org'>ash@kambanaria.org</"
 "a>&gt;\n"
-"Twlvnn Kraftwerk &lt;<a href='mailto:kraft_werk@tutanota."
-"com'>kraft_werk@tutanota.com</a>&gt;\n"
+"Twlvnn Kraftwerk &lt;<a "
+"href='mailto:kraft_werk@tutanota.com'>kraft_werk@tutanota.com</a>&gt;\n"
 "\n"
 "\n"
 "Проектът за превод на GNOME има нужда от подкрепа.\n"
@@ -716,22 +720,3 @@ msgstr "Вчера"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Текущо местоположение"
-
-#~ msgid "Back"
-#~ msgstr "Назад"
-
-#~ msgid "Menu"
-#~ msgstr "Меню"
-
-#~ msgid "Select Duration"
-#~ msgstr "Избор на интервал"
-
-#, c-format
-#~ msgid "Snoozed from %s: %s"
-#~ msgstr "Дрямка от %s: %s"
-
-#~ msgid "Cancel"
-#~ msgstr "Отмяна"
-
-#~ msgid "Add"
-#~ msgstr "Добавяне"
