@@ -9,14 +9,14 @@
 # Dingzhong Chen <wsxy162@gmail.com>, 2017-2019.
 # 王滋涵 <wi24rd@fedoraproject.org>, 2020.
 # 王滋涵 Zephyr Wang <wi24rd@fedoraproject.org>, 2020.
-# lumingzh <lumingzh@qq.com>, 2022-2024.
+# lumingzh <lumingzh@qq.com>, 2022-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-05-25 01:21+0000\n"
-"PO-Revision-Date: 2024-08-23 15:54+0800\n"
+"POT-Creation-Date: 2025-02-23 06:54+0000\n"
+"PO-Revision-Date: 2025-02-25 10:12+0800\n"
 "Last-Translator: lumingzh <lumingzh@qq.com>\n"
 "Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -24,11 +24,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 46.1\n"
+"X-Generator: Gtranslator 47.1\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "时钟"
@@ -129,24 +129,24 @@ msgstr "用精确的秒表计量花费的时间"
 msgid "Set timers to properly cook your food"
 msgstr "设置定时帮您做好饭"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "初始屏幕"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "闹钟屏幕"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "秒表屏幕"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "定时屏幕"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "GNOME 项目"
 
@@ -270,41 +270,45 @@ msgstr "贪睡"
 msgid "Repeats"
 msgstr "重复"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "启用闹钟"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "删除"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "新建闹钟"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "取消(_C)"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "添加(_A)"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "您在该时间已经设置了闹钟"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "名称"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "响铃时长"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "睡眠时长"
 
-#: data/ui/alarm-setup-dialog.ui:151
-msgid "You already have an alarm for this time."
-msgstr "您在该时间已经设置了闹钟。"
-
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "R_emove Alarm"
 msgstr "删除闹钟(_E)"
 
@@ -324,13 +328,14 @@ msgstr "关于时钟(_A)"
 msgid "Main Menu"
 msgstr "主菜单"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "开始(_S)"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "开始(_A)"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "清除"
+msgid "_Clear"
+msgstr "清除(_C)"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -340,20 +345,15 @@ msgstr "时间"
 msgid "Difference"
 msgstr "差别"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "开始(_A)"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "标题…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "暂停"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
-#: src/stopwatch-face.vala:202
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 msgid "Start"
 msgstr "开始"
 
@@ -362,7 +362,7 @@ msgid "Reset"
 msgstr "重置"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "新建定时"
 
@@ -447,7 +447,7 @@ msgstr "添加世界时钟(_A)…"
 msgid "Add a New World Clock"
 msgstr "添加新的世界时钟"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "搜索城市"
 
@@ -467,7 +467,7 @@ msgstr "闹钟设置为从现在开始 %s"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "闹钟"
 
@@ -517,11 +517,11 @@ msgstr "20 分钟"
 msgid "30 minutes"
 msgstr "30 分钟"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "编辑闹钟"
 
-#: src/alarm-setup-dialog.vala:114
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "完成(_D)"
 
@@ -529,13 +529,17 @@ msgstr "完成(_D)"
 msgid "Print version information and exit"
 msgstr "打印版本信息并退出"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "暂停(_P)"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "记圈"
+msgid "_Lap"
+msgstr "记圈(_L)"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "恢复"
+msgid "R_esume"
+msgstr "恢复(_E)"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -675,7 +679,7 @@ msgstr "工作日"
 msgid "Weekends"
 msgstr "周末"
 
-#: src/window.vala:253
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr ""
 "tuhaihe <1132321739qq@gmail.com>, 2012~2013\n"
@@ -686,7 +690,7 @@ msgstr ""
 "Dingzhong Chen <wsxy162@gmail.com>, 2017, 2019\n"
 "Yuchen Guo <egyc@live.com>, 2020\n"
 "王滋涵 <wi24rd@fedoraproject.org>, 2020\n"
-"lumingzh <lumingzh@qq.com>, 2022-2024"
+"lumingzh <lumingzh@qq.com>, 2022-2025"
 
 #. Translators: Tooltip for the + button
 #: src/world-face.vala:29
@@ -709,6 +713,12 @@ msgstr "昨天"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "当前位置"
+
+#~ msgid "_Start"
+#~ msgstr "开始(_S)"
+
+#~ msgid "Lap"
+#~ msgstr "记圈"
 
 #~ msgid "Menu"
 #~ msgstr "菜单"
