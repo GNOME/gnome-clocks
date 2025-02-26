@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-05-25 01:21+0000\n"
-"PO-Revision-Date: 2024-08-26 13:53+0200\n"
+"POT-Creation-Date: 2025-02-23 06:54+0000\n"
+"PO-Revision-Date: 2025-02-27 08:34+1100\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: Tot En Òc\n"
 "Language: oc\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.4.3\n"
+"X-Generator: Poedit 3.5\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Relòtges"
@@ -127,24 +127,24 @@ msgstr "Mesurar lo temps passat amb un cronomètre precís"
 msgid "Set timers to properly cook your food"
 msgstr "Reglar de minutadors per plan còire vòstres aliments"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "Ecran inicial"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Ecran d’alarma"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Ecran cronomètre"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Ecran minutador"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "The GNOME Project"
 
@@ -268,41 +268,45 @@ msgstr "Repetir"
 msgid "Repeats"
 msgstr "Repetir cada"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "Activar l’alarma"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Suprimir"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "Alarma novèla"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "A_nullar"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Apondre"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "Avètz ja una alarma de reglada a aquesta ora"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "Nom"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "Durada de la campanejada"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "Durada del repòrt"
 
-#: data/ui/alarm-setup-dialog.ui:151
-msgid "You already have an alarm for this time."
-msgstr "Avètz ja una alarma de reglada a aquesta ora."
-
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "R_emove Alarm"
 msgstr "Sup_rimir l’alarma"
 
@@ -322,13 +326,14 @@ msgstr "_A prepaus de Clocks"
 msgid "Main Menu"
 msgstr "Menú principal"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "_Aviar"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "L_ançar"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Escafar"
+msgid "_Clear"
+msgstr "_Escafar"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -338,20 +343,15 @@ msgstr "Ora"
 msgid "Difference"
 msgstr "Diferéncia"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "L_ançar"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Títol…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Pausa"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
-#: src/stopwatch-face.vala:202
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 msgid "Start"
 msgstr "Aviar"
 
@@ -360,7 +360,7 @@ msgid "Reset"
 msgstr "Recomençar"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "Minutador novèl"
 
@@ -445,7 +445,7 @@ msgstr "_Apondre un relòtge mondial novèl…"
 msgid "Add a New World Clock"
 msgstr "Apondre un novèl relòtge mondial"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "Recercar una vila"
 
@@ -465,7 +465,7 @@ msgstr "Alarma definida per %s d’ara enlà"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "Alarma"
 
@@ -515,11 +515,11 @@ msgstr "20 minutas"
 msgid "30 minutes"
 msgstr "30 minutas"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "Modificar l'alarma"
 
-#: src/alarm-setup-dialog.vala:114
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "A_cabat"
 
@@ -527,13 +527,17 @@ msgstr "A_cabat"
 msgid "Print version information and exit"
 msgstr "Afichar las informacions de version e quitar"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "_Pausa"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Torn"
+msgid "_Lap"
+msgstr "_Torn"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Reprendre"
+msgid "R_esume"
+msgstr "R_eprendre"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -678,7 +682,7 @@ msgstr "En setmana"
 msgid "Weekends"
 msgstr "Las fins de setmana"
 
-#: src/window.vala:253
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr ""
 "Cédric Valmary (totenoc.eu)\n"
@@ -705,6 +709,12 @@ msgstr "Ièr"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Emplaçament actual"
+
+#~ msgid "_Start"
+#~ msgstr "_Aviar"
+
+#~ msgid "Lap"
+#~ msgstr "Torn"
 
 #~ msgid "Menu"
 #~ msgstr "Menú"
