@@ -4,16 +4,16 @@
 #
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2013, 2014, 2015, 2016, 2017.
 # Edurne Labaka <elabaka@uzei.com>, 2015.
-# Asier Sarasua Garmendia  <asiersarasua@ni.eus>, 2013, 2019, 2020, 2021, 2022, 2023.
-# Asier Sarasua Garmendia  <asiersarasua@ni.eus>, 2024.
+# Asier Saratsua Garmendia  <asiersarasua@ni.eus>, 2013, 2019, 2020, 2021, 2022, 2023.
+# Asier Saratsua Garmendia  <asiersarasua@ni.eus>, 2024, 2025.
 # Porrumentzio <porrumentzio@riseup.net>, 2022.
 #
 msgid ""
 msgstr "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-08-31 14:18+0000\n"
-"PO-Revision-Date: 2024-09-02 10:00+0200\n"
-"Last-Translator: Asier Sarasua Garmendia <asiersarasua@ni.eus>\n"
+"POT-Creation-Date: 2025-02-23 06:54+0000\n"
+"PO-Revision-Date: 2025-03-01 10:00+0200\n"
+"Last-Translator: Asier Saratsua Garmendia <asiersarasua@ni.eus>\n"
 "Language-Team: Basque <Librezale>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr "Project-Id-Version: gnome-clocks master\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:244 src/window.vala:299
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Ordulariak"
@@ -123,24 +123,24 @@ msgstr "Neurtu igarotako denbora kronometro zehatzarekin"
 msgid "Set timers to properly cook your food"
 msgstr "Ezarri tenporizadorea zure janaria egokiro prestatzeko"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "Hasierako pantaila"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Alarmen pantaila"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Kronometroaren pantaila"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Tenporizadorearen pantaila"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "GNOME proiektua"
 
@@ -264,7 +264,11 @@ msgstr "Errepikatu"
 msgid "Repeats"
 msgstr "Errepikatzeak"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "Gaitu alarma"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Ezabatu"
 
@@ -274,31 +278,31 @@ msgstr "Ezabatu"
 msgid "New Alarm"
 msgstr "Alarma berria"
 
-#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Utzi"
 
-#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "G_ehitu"
 
-#: data/ui/alarm-setup-dialog.ui:113
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "Jadanik alarma bat duzu ordu honetarako"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "Izena"
 
-#: data/ui/alarm-setup-dialog.ui:120
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "Txirrinaren iraupena"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "Errepikatze-iraupena"
 
 #: data/ui/alarm-setup-dialog.ui:138
-msgid "You already have an alarm for this time."
-msgstr "Jadanik alarma bat duzu ordu honetarako."
-
-#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "_Kendu alarma"
 
@@ -318,13 +322,14 @@ msgstr "Clocks aplikazioari _buruz"
 msgid "Main Menu"
 msgstr "Menu nagusia"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "_Hasi"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "_Hasiera"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Garbitu"
+msgid "_Clear"
+msgstr "_Garbitu"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -334,20 +339,15 @@ msgstr "Ordua"
 msgid "Difference"
 msgstr "Diferentzia"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "_Hasiera"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Izenburua…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Pausatu"
 
 #: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
-#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Hasi"
 
@@ -461,7 +461,7 @@ msgstr "Alarma ezarri da %s(e)rako oraindik aurrera"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "Alarma"
 
@@ -523,13 +523,17 @@ msgstr "_Eginda"
 msgid "Print version information and exit"
 msgstr "Erakutsi bertsioaren informazioa eta irten"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "Pau_satu"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Itzulia"
+msgid "_Lap"
+msgstr "_Itzulia"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Berrekin"
+msgid "R_esume"
+msgstr "_Berrekin"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -674,7 +678,7 @@ msgstr "Astegunero"
 msgid "Weekends"
 msgstr "Asteburuak"
 
-#: src/window.vala:252
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr "translator-credits"
 
@@ -699,6 +703,12 @@ msgstr "Atzo"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Uneko kokalekua"
+
+#~ msgid "_Start"
+#~ msgstr "_Hasi"
+
+#~ msgid "Lap"
+#~ msgstr "Itzulia"
 
 #~ msgid "Menu"
 #~ msgstr "Menua"
