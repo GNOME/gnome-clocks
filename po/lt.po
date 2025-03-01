@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-08-31 14:18+0000\n"
-"PO-Revision-Date: 2024-09-02 22:56+0300\n"
+"POT-Creation-Date: 2025-02-23 06:54+0000\n"
+"PO-Revision-Date: 2025-03-01 23:05+0200\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -18,12 +18,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "(n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:244 src/window.vala:299
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Laikrodžiai"
@@ -127,24 +127,24 @@ msgstr "Matuoti praėjusį laiką tiksliu chronometru"
 msgid "Set timers to properly cook your food"
 msgstr "Tvarkingai nustatyti laikmačius maisto ruošimui"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "Pradinis ekranas"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Žadintuvų ekranas"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Chronometro ekranas"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Laikmačio ekranas"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "GNOME projektas"
 
@@ -268,7 +268,11 @@ msgstr "Atidėti"
 msgid "Repeats"
 msgstr "Kartojama"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "Įjungti žadintuvą"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Ištrinti"
 
@@ -278,31 +282,31 @@ msgstr "Ištrinti"
 msgid "New Alarm"
 msgstr "Naujas žadintuvas"
 
-#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Atsisakyti"
 
-#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Pridėti"
 
-#: data/ui/alarm-setup-dialog.ui:113
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "Jau turite žadintuvą šiam laikui"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "Pavadinimas"
 
-#: data/ui/alarm-setup-dialog.ui:120
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "Skambėjimo trukmė"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "Nutildymo trukmė"
 
 #: data/ui/alarm-setup-dialog.ui:138
-msgid "You already have an alarm for this time."
-msgstr "Jau turite žadintuvą šiam laikui."
-
-#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "_Pašalinti žadintuvą"
 
@@ -322,13 +326,14 @@ msgstr "_Apie laikrodžius"
 msgid "Main Menu"
 msgstr "Pagrindinis meniu"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "Palei_sti"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "P_leisti"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Išvalyti"
+msgid "_Clear"
+msgstr "Iš_valyti"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -338,20 +343,15 @@ msgstr "Laikas"
 msgid "Difference"
 msgstr "Skirtumas"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "P_leisti"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Pavadinimas…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Pristabdyti"
 
 #: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
-#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Paleisti"
 
@@ -465,7 +465,7 @@ msgstr "Žadintuvas nustatytas %s nuo dabar"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "Žadintuvas"
 
@@ -527,13 +527,17 @@ msgstr "_Atlikta"
 msgid "Print version information and exit"
 msgstr "Atspausdinti versijos informaciją ir išeiti"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "_Pristabdyti"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Ratas"
+msgid "_Lap"
+msgstr "_Ratas"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Tęsti"
+msgid "R_esume"
+msgstr "_Tęsti"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -683,7 +687,7 @@ msgstr "Darbo dienomis"
 msgid "Weekends"
 msgstr "Savaitgaliai"
 
-#: src/window.vala:252
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr ""
 "išvertė:\n"
@@ -710,6 +714,12 @@ msgstr "Vakar"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Dabartinė vieta"
+
+#~ msgid "_Start"
+#~ msgstr "Palei_sti"
+
+#~ msgid "Lap"
+#~ msgstr "Ratas"
 
 #~ msgid "Menu"
 #~ msgstr "Meniu"
