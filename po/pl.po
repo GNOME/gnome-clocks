@@ -1,16 +1,16 @@
 # Polish translation for gnome-clocks.
-# Copyright © 2012-2024 the gnome-clocks authors.
+# Copyright © 2012-2025 the gnome-clocks authors.
 # This file is distributed under the same license as the gnome-clocks package.
-# Piotr Drąg <piotrdrag@gmail.com>, 2012-2024.
+# Piotr Drąg <piotrdrag@gmail.com>, 2012-2025.
 # Paweł Żołnowski <pawel@zolnowski.name>, 2014.
-# Aviary.pl <community-poland@mozilla.org>, 2012-2024.
+# Aviary.pl <community-poland@mozilla.org>, 2012-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-08-31 14:18+0000\n"
-"PO-Revision-Date: 2024-08-31 16:19+0200\n"
+"POT-Creation-Date: 2025-02-23 06:54+0000\n"
+"PO-Revision-Date: 2025-03-02 12:32+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:244 src/window.vala:299
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Zegar"
@@ -124,24 +124,24 @@ msgstr "Dokładne mierzenie czasu stoperem"
 msgid "Set timers to properly cook your food"
 msgstr "Ustawianie minutnika, aby właściwie przygotować potrawy"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "Zegar światowy"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Budziki"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Stoper"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Minutnik"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -265,9 +265,13 @@ msgstr "Drzemka"
 msgid "Repeats"
 msgstr "Powtarza się"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "Włącza budzik"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
-msgstr "Usuń"
+msgstr "Usuwa"
 
 #. Translators: Tooltip for the + button
 #: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
@@ -275,31 +279,31 @@ msgstr "Usuń"
 msgid "New Alarm"
 msgstr "Nowy budzik"
 
-#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: data/ui/alarm-setup-dialog.ui:113
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "Istnieje już taki sam budzik"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "Nazwa"
 
-#: data/ui/alarm-setup-dialog.ui:120
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "Czas trwania dzwonka"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "Czas trwania drzemki"
 
 #: data/ui/alarm-setup-dialog.ui:138
-msgid "You already have an alarm for this time."
-msgstr "Istnieje już taki sam budzik."
-
-#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "_Usuń budzik"
 
@@ -319,13 +323,14 @@ msgstr "_O programie"
 msgid "Main Menu"
 msgstr "Menu główne"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
 msgstr "_Rozpocznij"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Wyczyść"
+msgid "_Clear"
+msgstr "Wy_czyść"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -335,20 +340,15 @@ msgstr "Czas"
 msgid "Difference"
 msgstr "Różnica"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "_Rozpocznij"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Tytuł…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Wstrzymaj"
 
 #: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
-#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Rozpocznij"
 
@@ -462,7 +462,7 @@ msgstr "Ustawiono budzik na %s od teraz"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "Budzik"
 
@@ -524,13 +524,17 @@ msgstr "_Gotowe"
 msgid "Print version information and exit"
 msgstr "Wyświetla informację o wersji i kończy działanie"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "_Wstrzymaj"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Okrążenie"
+msgid "_Lap"
+msgstr "_Okrążenie"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Wznów"
+msgid "R_esume"
+msgstr "W_znów"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -680,12 +684,12 @@ msgstr "Dni robocze"
 msgid "Weekends"
 msgstr "Weekendy"
 
-#: src/window.vala:252
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr ""
-"Piotr Drąg <piotrdrag@gmail.com>, 2012-2024\n"
+"Piotr Drąg <piotrdrag@gmail.com>, 2012-2025\n"
 "Paweł Żołnowski <pawel@zolnowski.name>, 2014\n"
-"Aviary.pl <community-poland@mozilla.org>, 2012-2024"
+"Aviary.pl <community-poland@mozilla.org>, 2012-2025"
 
 #. Translators: Tooltip for the + button
 #: src/world-face.vala:29
