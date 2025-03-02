@@ -1,6 +1,6 @@
 # Korean translation for gnome-clocks.
 # This file is distributed under the same license as the gnome-clocks package.
-# Seong-ho Cho <shcho@gnome.org>, 2012-2024.
+# Seong-ho Cho <shcho@gnome.org>, 2012-2025.
 #
 # 번역에 참여하신 분께서는
 # 상단 주석에 다음과 같은 형식으로
@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-05-25 01:21+0000\n"
-"PO-Revision-Date: 2024-08-25 00:29+0900\n"
+"POT-Creation-Date: 2025-02-23 06:54+0000\n"
+"PO-Revision-Date: 2025-03-01 04:22+0900\n"
 "Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
 "Language-Team: 한국어 <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
@@ -27,11 +27,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "시계"
@@ -135,24 +135,24 @@ msgstr "정확한 스톱워치로 경과 시간을 잽니다"
 msgid "Set timers to properly cook your food"
 msgstr "음식을 적당하게 요리할 타이머를 설정합니다"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "초기 화면"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "알림 화면"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "스톱워치 화면"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "타이머 화면"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "그놈 프로젝트"
 
@@ -276,41 +276,45 @@ msgstr "다시 알림"
 msgid "Repeats"
 msgstr "반복"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "알림 울리기"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "삭제"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "새 알림"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "취소(_C)"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "추가(_A)"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "이미 알림을 설정했습니다"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "이름"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "알림 지속 시간"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "다시 알림 지연"
 
-#: data/ui/alarm-setup-dialog.ui:151
-msgid "You already have an alarm for this time."
-msgstr "이미 알림을 설정했습니다."
-
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "R_emove Alarm"
 msgstr "알림 제거(_E)"
 
@@ -330,13 +334,14 @@ msgstr "시계 정보(_A)"
 msgid "Main Menu"
 msgstr "주 메뉴"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "시작(_S)"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "시작(_A)"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "지우기"
+msgid "_Clear"
+msgstr "지우기(_C)"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -346,20 +351,15 @@ msgstr "시간"
 msgid "Difference"
 msgstr "차이"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "시작(_A)"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "제목…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "일시정지"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
-#: src/stopwatch-face.vala:202
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 msgid "Start"
 msgstr "시작"
 
@@ -368,7 +368,7 @@ msgid "Reset"
 msgstr "초기화"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "새 타이머"
 
@@ -453,7 +453,7 @@ msgstr "세계 시계 추가(_A)…"
 msgid "Add a New World Clock"
 msgstr "새 세계 시계 추가"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "도시 검색"
 
@@ -473,7 +473,7 @@ msgstr "지금부터 %s의 알림을 설정했습니다"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "알림"
 
@@ -523,11 +523,11 @@ msgstr "20분"
 msgid "30 minutes"
 msgstr "30분"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "알림 편집"
 
-#: src/alarm-setup-dialog.vala:114
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "완료(_D)"
 
@@ -535,20 +535,23 @@ msgstr "완료(_D)"
 msgid "Print version information and exit"
 msgstr "버전 정보를 출력하고 나갑니다"
 
-#  * Note: Lap time: 경과 시간. therefore: Lap=> 경과.
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "일시정지(_P)"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "경과"
+msgid "_Lap"
+msgstr "랩(_L)"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "재개"
+msgid "R_esume"
+msgstr "재개(_E)"
 
 # 주: 안드로이드 번역 따름.
 #: src/stopwatch-laps-row.vala:48
 #, c-format
 msgid "Lap %i"
-msgstr "랩 %i"
+msgstr "랩 %i번"
 
 #: src/timer-face.vala:82
 msgid "Time is up!"
@@ -683,7 +686,7 @@ msgstr "매주"
 msgid "Weekends"
 msgstr "주말"
 
-#: src/window.vala:253
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr "조성호 <shcho@gnome.org>"
 
@@ -708,6 +711,13 @@ msgstr "어제"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "현재 위치"
+
+#~ msgid "_Start"
+#~ msgstr "시작(_S)"
+
+#  * Note: Lap time: 경과 시간. therefore: Lap=> 경과.
+#~ msgid "Lap"
+#~ msgstr "경과"
 
 #~ msgid "Menu"
 #~ msgstr "메뉴"
