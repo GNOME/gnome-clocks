@@ -2,14 +2,14 @@
 # Copyright (C) 2012 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Arash Mousavi <mousavi.arash@gmail.com> 2012-2017.
-# Danial Behzadi <dani.behzi@ubuntu.com>, 2018-2024.
+# Danial Behzadi <dani.behzi@ubuntu.com>, 2018-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-08-12 08:58+0000\n"
-"PO-Revision-Date: 2024-08-27 15:43+0330\n"
+"POT-Creation-Date: 2025-02-23 06:54+0000\n"
+"PO-Revision-Date: 2025-03-03 18:58+0330\n"
 "Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:244 src/window.vala:299
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "ساعت‌ها"
@@ -123,24 +123,24 @@ msgstr "اندازه‌گیری زمان سپری شده با یک زمان‌س
 msgid "Set timers to properly cook your food"
 msgstr "تنظیم شمارشگر برای پخت درست غذا"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "صفحهٔ نخستین"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "صفحهٔ زنگ‌ها"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "صفحهٔ زمان‌سنج"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "صفحهٔ شمارشگر"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "پروژهٔ گنوم"
 
@@ -264,7 +264,11 @@ msgstr "چُرت"
 msgid "Repeats"
 msgstr "تکرارها"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "به کار انداختن زنگ"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "حذف"
 
@@ -274,31 +278,31 @@ msgstr "حذف"
 msgid "New Alarm"
 msgstr "زنگ جدید"
 
-#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_لغو"
 
-#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_افزودن"
 
-#: data/ui/alarm-setup-dialog.ui:113
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "از پیش زنگی برای این زمان دارید"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "نام"
 
-#: data/ui/alarm-setup-dialog.ui:120
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "طول زنگ"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "طول چُرت"
 
 #: data/ui/alarm-setup-dialog.ui:138
-msgid "You already have an alarm for this time."
-msgstr "از پیش زنگی برای این زمان دارید."
-
-#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "_برداشتن هشدار"
 
@@ -318,13 +322,14 @@ msgstr "_دربارهٔ ساعت‌ها"
 msgid "Main Menu"
 msgstr "فهرست اصلی"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "_شروع"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "آ_غاز"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "پاک‌سازی"
+msgid "_Clear"
+msgstr "_پاک کردن"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -334,20 +339,15 @@ msgstr "زمان"
 msgid "Difference"
 msgstr "تفاوت"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "آ_غاز"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "عنوان…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "مکث"
 
 #: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
-#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "شروع"
 
@@ -461,7 +461,7 @@ msgstr "هشدار برای %s از اکنون تنظیم شد"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "زنگ"
 
@@ -523,13 +523,17 @@ msgstr "_انجام شد"
 msgid "Print version information and exit"
 msgstr "چاپ اطّلاعات نگارش و خروج"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "_مکث"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "دور"
+msgid "_Lap"
+msgstr "_دور"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "از سرگیری"
+msgid "R_esume"
+msgstr "_از سرگیری"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -674,7 +678,7 @@ msgstr "روزهای هفته"
 msgid "Weekends"
 msgstr "پایان‌هفته‌ها"
 
-#: src/window.vala:252
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr ""
 "آرش موسوی <mousavi.arash@gmail.com>\n"
@@ -701,6 +705,12 @@ msgstr "دیروز"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "مکان کنونی"
+
+#~ msgid "_Start"
+#~ msgstr "_شروع"
+
+#~ msgid "Lap"
+#~ msgstr "دور"
 
 #~ msgid "Menu"
 #~ msgstr "فهرست"
