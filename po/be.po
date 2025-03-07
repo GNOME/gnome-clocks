@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-08-25 13:03+0000\n"
-"PO-Revision-Date: 2024-08-27 00:18+0300\n"
+"POT-Creation-Date: 2025-02-23 06:54+0000\n"
+"PO-Revision-Date: 2025-03-07 16:46+0300\n"
 "Last-Translator: Yuras Shumovich <shumovichy@gmail.com>\n"
 "Language-Team: Belarusian <i18n-bel-gnome@googlegroups.com>\n"
 "Language: be\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:244 src/window.vala:299
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Гадзіннік"
@@ -128,24 +128,24 @@ msgstr "Вымяраць час з дапамогай дакладнага се�
 msgid "Set timers to properly cook your food"
 msgstr "Настаўляць таймер для гатавання страў"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "Пачатковы экран"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Экран будзільнікаў"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Экран секундамера"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Экран таймера"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "Праект GNOME"
 
@@ -269,7 +269,11 @@ msgstr "Адкласці"
 msgid "Repeats"
 msgstr "Паўтараць"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "Укючыць будзільнік"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Выдаліць"
 
@@ -279,31 +283,31 @@ msgstr "Выдаліць"
 msgid "New Alarm"
 msgstr "Новы будзільнік"
 
-#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Скасаваць"
 
-#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Дадаць"
 
-#: data/ui/alarm-setup-dialog.ui:113
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "Для гэтага часу ўжо створаны будзільнік"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "Назва"
 
-#: data/ui/alarm-setup-dialog.ui:120
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "Працягласць званка"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "Адкладваць на"
 
 #: data/ui/alarm-setup-dialog.ui:138
-msgid "You already have an alarm for this time."
-msgstr "Для гэтага часу ўжо створаны будзільнік."
-
-#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "В_ыдаліць будзільнік"
 
@@ -323,13 +327,14 @@ msgstr "_Пра гадзіннік"
 msgid "Main Menu"
 msgstr "Галоўнае меню"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "_Запусціць"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "За_пусціць"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Скінуць"
+msgid "_Clear"
+msgstr "_Скінуць"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -339,20 +344,15 @@ msgstr "Таймер"
 msgid "Difference"
 msgstr "Розніца"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "За_пусціць"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Увядзіце назву…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Прыпыніць"
 
 #: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
-#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Запусціць"
 
@@ -466,7 +466,7 @@ msgstr "Будзільнік настаўлены на %s ад гэтага ча
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "Будзільнік"
 
@@ -528,13 +528,17 @@ msgstr "_Гатова"
 msgid "Print version information and exit"
 msgstr "Вывесці звесткі пра версію і выйсці"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "_Прыпыніць"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Круг"
+msgid "_Lap"
+msgstr "_Круг"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Узнавіць"
+msgid "R_esume"
+msgstr "_Узнавіць"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -684,7 +688,7 @@ msgstr "Па буднях"
 msgid "Weekends"
 msgstr "Па выхадных"
 
-#: src/window.vala:252
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr "Yuras Shumovich <shumovichy@gmail.com>"
 
@@ -709,3 +713,9 @@ msgstr "Учора"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Бягучае месцазнаходжанне"
+
+#~ msgid "_Start"
+#~ msgstr "_Запусціць"
+
+#~ msgid "Lap"
+#~ msgstr "Круг"
