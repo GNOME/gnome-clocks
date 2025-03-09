@@ -1,8 +1,8 @@
 # Danish translation for gnome-clocks.
-# Copyright (C) 2012-2013, 2016-2017, 2022-2024 gnome-clocks's COPYRIGHT HOLDER
+# Copyright (C) 2012-2013, 2016-2017, 2022-2025 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Kenneth Nielsen <k.nielsen81@gmail.com>, 2012-2014.
-# Ask Hjorth Larsen <asklarsen@gmail.com>, 2013, 2015-2016, 2022-2024.
+# Ask Hjorth Larsen <asklarsen@gmail.com>, 2013, 2015-2016, 2022-2025.
 # scootergrisen, 2016, 2020.
 # Joe Hansen <joedalton2@yahoo.dk>, 2017
 # Alan Mortensen <alanmortensen.am@gmail.com>, 2020-21.
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-08-31 14:18+0000\n"
-"PO-Revision-Date: 2024-09-08 17:41+0200\n"
+"POT-Creation-Date: 2025-02-23 06:54+0000\n"
+"PO-Revision-Date: 2025-03-08 14:22+0100\n"
 "Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -24,7 +24,7 @@ msgstr ""
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:244 src/window.vala:299
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Ure"
@@ -126,24 +126,24 @@ msgstr "Måle tid der er gået med et præcist stopur"
 msgid "Set timers to properly cook your food"
 msgstr "Indstille minutur for at tilberede din mad rigtigt"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "Startskærm"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Alarmskærm"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Stopurskærm"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Minutursskærm"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
@@ -267,7 +267,11 @@ msgstr "Slumr"
 msgid "Repeats"
 msgstr "Gentages"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "Slå alarm til"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Slet"
 
@@ -277,31 +281,31 @@ msgstr "Slet"
 msgid "New Alarm"
 msgstr "Ny alarm"
 
-#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Annullér"
 
-#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Tilføj"
 
-#: data/ui/alarm-setup-dialog.ui:113
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "Du har allerede en alarm på dette tidspunkt"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "Navn"
 
-#: data/ui/alarm-setup-dialog.ui:120
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "Ringevarighed"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "Slumrevarighed"
 
 #: data/ui/alarm-setup-dialog.ui:138
-msgid "You already have an alarm for this time."
-msgstr "Du har allerede en alarm for dette tidspunkt."
-
-#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "F_jern alarm"
 
@@ -321,13 +325,14 @@ msgstr "_Om Ure"
 msgid "Main Menu"
 msgstr "Hovedmenu"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "_Start"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "St_art"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Ryd"
+msgid "_Clear"
+msgstr "_Ryd"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -337,20 +342,15 @@ msgstr "Tid"
 msgid "Difference"
 msgstr "Forskel"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "St_art"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Titel …"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Pause"
 
 #: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
-#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Start"
 
@@ -464,7 +464,7 @@ msgstr "Alarm er indstillet til %s fra nu af"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -526,13 +526,17 @@ msgstr "_Færdig"
 msgid "Print version information and exit"
 msgstr "Vis versionsoplysninger og afslut"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "_Pause"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Omgang"
+msgid "_Lap"
+msgstr "_Omgang"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Genoptag"
+msgid "R_esume"
+msgstr "_Genoptag"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -677,7 +681,7 @@ msgstr "Hverdage"
 msgid "Weekends"
 msgstr "Weekender"
 
-#: src/window.vala:252
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr ""
 "Kenneth Nielsen\n"
@@ -711,6 +715,12 @@ msgstr "I går"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Nuværende placering"
+
+#~ msgid "_Start"
+#~ msgstr "_Start"
+
+#~ msgid "Lap"
+#~ msgstr "Omgang"
 
 #~ msgid "Menu"
 #~ msgstr "Menu"
