@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the gnome-clocks package.
 #
 # Dirgita <dirgitadevina@yahoo.co.id>, 2012, 2013.
-# Andika Triwidada <andika@gmail.com>, 2012-2014, 2023, 2024.
+# Andika Triwidada <andika@gmail.com>, 2012-2014, 2023-2025.
 # Bonaventura Aditya Perdana <bonaditya@about.me>, 2012.
 # Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2019-2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-08-31 14:18+0000\n"
-"PO-Revision-Date: 2024-09-07 16:34+0700\n"
+"POT-Creation-Date: 2025-03-10 18:07+0000\n"
+"PO-Revision-Date: 2025-03-11 20:04+0700\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <gnome@i15n.org>\n"
 "Language: id\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:244 src/window.vala:299
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Jam"
@@ -125,24 +125,24 @@ msgstr "Ukur waktu berlalu dengan suatu stopwatch yang akurat"
 msgid "Set timers to properly cook your food"
 msgstr "Atur pewaktu untuk memasak masakan Anda dengan benar"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "Layar awal"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Layar alarm"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Layar stopwatch"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Layar pewaktu"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "Proyek GNOME"
 
@@ -266,7 +266,11 @@ msgstr "Jeda"
 msgid "Repeats"
 msgstr "Ulangi"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "Fungsikan Alarm"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Hapus"
 
@@ -276,31 +280,31 @@ msgstr "Hapus"
 msgid "New Alarm"
 msgstr "Alarm Baru"
 
-#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Batal"
 
-#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "T_ambah"
 
-#: data/ui/alarm-setup-dialog.ui:113
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "Anda telah memiliki suatu alarm untuk waktu ini"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "Nama"
 
-#: data/ui/alarm-setup-dialog.ui:120
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "Durasi Dering"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "Durasi Tunda"
 
 #: data/ui/alarm-setup-dialog.ui:138
-msgid "You already have an alarm for this time."
-msgstr "Anda telah memiliki suatu alarm untuk waktu ini."
-
-#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "H_apus Baru"
 
@@ -320,13 +324,14 @@ msgstr "Tent_ang Jam"
 msgid "Main Menu"
 msgstr "Menu Utama"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "_Mulai"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "Mul_ai"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Bersihkan"
+msgid "_Clear"
+msgstr "_Bersihkan"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -336,20 +341,15 @@ msgstr "Waktu"
 msgid "Difference"
 msgstr "Perbedaan"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "Mul_ai"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Judul…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Jeda"
 
 #: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
-#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Mulai"
 
@@ -463,7 +463,7 @@ msgstr "Alarm disetel %s dari sekarang"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -525,13 +525,17 @@ msgstr "_Selesai"
 msgid "Print version information and exit"
 msgstr "Menampilkan informasi versi dan keluar"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "_Jeda"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Lintasan"
+msgid "_Lap"
+msgstr "_Lap"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Lanjutkan"
+msgid "R_esume"
+msgstr "La_njutkan"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -671,11 +675,11 @@ msgstr "Hari kerja"
 msgid "Weekends"
 msgstr "Akhir minggu"
 
-#: src/window.vala:252
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr ""
 "Dirgita <dirgitadevina@yahoo.co.id>, 2012, 2013.\n"
-"Andika Triwidada <andika@gmail.com>, 2012-2014, 2023, 2024.\n"
+"Andika Triwidada <andika@gmail.com>, 2012-2014, 2023-2025.\n"
 "Bonaventura Aditya Perdana <bonaditya@about.me>, 2012.\n"
 "Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2019-2024."
 
