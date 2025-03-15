@@ -10,21 +10,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-08-31 14:18+0000\n"
-"PO-Revision-Date: 2024-09-01 12:58+0100\n"
-"Last-Translator: Bruce Cowan <bruce@bcowan.me.uk>\n"
+"POT-Creation-Date: 2025-02-04 13:23+0000\n"
+"PO-Revision-Date: 2025-02-09 18:07+0000\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English - United Kingdom <en@li.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:244 src/window.vala:299
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Clocks"
@@ -126,24 +126,24 @@ msgstr "Measure elapsed time with an accurate stopwatch"
 msgid "Set timers to properly cook your food"
 msgstr "Set timers to properly cook your food"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "Initial screen"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Alarms screen"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Stopwatch screen"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Timer screen"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
+#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "The GNOME Project"
 
@@ -267,7 +267,12 @@ msgstr "Snooze"
 msgid "Repeats"
 msgstr "Repeats"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+#| msgid "New Alarm"
+msgid "Enable Alarm"
+msgstr "Enable Alarm"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Delete"
 
@@ -277,31 +282,32 @@ msgstr "Delete"
 msgid "New Alarm"
 msgstr "New Alarm"
 
-#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Cancel"
 
-#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Add"
 
-#: data/ui/alarm-setup-dialog.ui:113
+#: data/ui/alarm-setup-dialog.ui:38
+#| msgid "You already have an alarm for this time."
+msgid "You already have an alarm for this time"
+msgstr "You already have an alarm for this time"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "Name"
 
-#: data/ui/alarm-setup-dialog.ui:120
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "Ring Duration"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "Snooze Duration"
 
 #: data/ui/alarm-setup-dialog.ui:138
-msgid "You already have an alarm for this time."
-msgstr "You already have an alarm for this time."
-
-#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "R_emove Alarm"
 
@@ -321,13 +327,15 @@ msgstr "_About Clocks"
 msgid "Main Menu"
 msgstr "Main Menu"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "_Start"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "St_art"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Clear"
+#| msgid "Clear"
+msgid "_Clear"
+msgstr "_Clear"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -337,20 +345,15 @@ msgstr "Time"
 msgid "Difference"
 msgstr "Difference"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "St_art"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Title…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Pause"
 
 #: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
-#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Start"
 
@@ -409,7 +412,6 @@ msgid "0"
 msgstr "0"
 
 #: data/ui/timer-setup.ui:264
-#| msgid "Title…"
 msgid "Title"
 msgstr "Title"
 
@@ -465,7 +467,7 @@ msgstr "Alarm set for %s from now"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "Alarm"
 
@@ -527,13 +529,19 @@ msgstr "_Done"
 msgid "Print version information and exit"
 msgstr "Print version information and exit"
 
+#: src/stopwatch-face.vala:165
+#| msgid "Pause"
+msgid "_Pause"
+msgstr "_Pause"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Lap"
+msgid "_Lap"
+msgstr "_Lap"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Resume"
+#| msgid "Resume"
+msgid "R_esume"
+msgstr "R_esume"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -678,7 +686,7 @@ msgstr "Weekdays"
 msgid "Weekends"
 msgstr "Weekends"
 
-#: src/window.vala:252
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr ""
 "Bruce Cowan <bruce@bcowan.me.uk>\n"
@@ -708,6 +716,12 @@ msgstr "Yesterday"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Current location"
+
+#~ msgid "_Start"
+#~ msgstr "_Start"
+
+#~ msgid "Lap"
+#~ msgstr "Lap"
 
 #~ msgid "Menu"
 #~ msgstr "Menu"
