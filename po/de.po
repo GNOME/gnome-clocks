@@ -9,27 +9,27 @@
 # Wolfgang Stöggl <c72578@yahoo.de>, 2012, 2014, 2017.
 # Mario Blättermann <mario.blaettermann@gmail.com>, 2013, 2015-2016, 2020.
 # Tim Sabsch <tim@sabsch.com>, 2020-2022.
-# Philipp Kiemle <philipp.kiemle@gmail.com>, 2021, 2023.
-# Jürgen Benvenuti <gastornis@posteo.org>, 2022-2024.
+# Philipp Kiemle <l10n@prly.mozmail.com>, 2021, 2023, 2025.
+# Jürgen Benvenuti <gastornis@posteo.org>, 2022-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-05-25 01:21+0000\n"
-"PO-Revision-Date: 2024-08-22 22:12+0200\n"
-"Last-Translator: Jürgen Benvenuti <gastornis@posteo.org>\n"
+"POT-Creation-Date: 2025-03-14 18:04+0000\n"
+"PO-Revision-Date: 2025-03-21 19:16+0100\n"
+"Last-Translator: Philipp Kiemle <l10n@prly.mozmail.com>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.5\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:245 src/window.vala:300
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Uhren"
@@ -134,24 +134,24 @@ msgstr "Messen der verstrichenen Zeit mit einer genauen Stoppuhr"
 msgid "Set timers to properly cook your food"
 msgstr "Timer stellen, um Ihre Speisen passend zu kochen"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "Anfangsbildschirm"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Weckerbildschirm"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Stoppuhr-Bildschirm"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Timer-Bildschirm"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:247
+#: data/org.gnome.clocks.metainfo.xml.in.in:195 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "Das GNOME-Projekt"
 
@@ -275,41 +275,45 @@ msgstr "Schlummern"
 msgid "Repeats"
 msgstr "Wiederholungen"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "Wecker aktivieren"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Löschen"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:8 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:111
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
 msgstr "Neuer Wecker"
 
-#: data/ui/alarm-setup-dialog.ui:28 data/ui/world-location-dialog.ui:28
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "A_bbrechen"
 
-#: data/ui/alarm-setup-dialog.ui:35 data/ui/world-location-dialog.ui:36
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Hinzufügen"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "Sie haben bereits einen Wecker zu dieser Zeit eingestellt"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "Name"
 
-#: data/ui/alarm-setup-dialog.ui:133
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "Klingeldauer"
 
-#: data/ui/alarm-setup-dialog.ui:139
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "Schlummerdauer"
 
-#: data/ui/alarm-setup-dialog.ui:151
-msgid "You already have an alarm for this time."
-msgstr "Sie haben bereits einen Wecker zu dieser Zeit eingestellt."
-
-#: data/ui/alarm-setup-dialog.ui:158
+#: data/ui/alarm-setup-dialog.ui:138
 msgid "R_emove Alarm"
 msgstr "Wecker _entfernen"
 
@@ -329,13 +333,14 @@ msgstr "_Info zu Uhren"
 msgid "Main Menu"
 msgstr "Hauptmenü"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "_Start"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "St_art"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Leeren"
+msgid "_Clear"
+msgstr "_Leeren"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -345,20 +350,15 @@ msgstr "Zeit"
 msgid "Difference"
 msgstr "Unterschied"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "St_art"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Titel …"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Pausieren"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:35
-#: src/stopwatch-face.vala:202
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
 msgid "Start"
 msgstr "Starten"
 
@@ -367,7 +367,7 @@ msgid "Reset"
 msgstr "Zurücksetzen"
 
 #. Translators: Tooltip for the + button
-#: data/ui/timer-setup-dialog.ui:6 src/timer-face.vala:39
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
 msgstr "Neuer Timer"
 
@@ -452,7 +452,7 @@ msgstr "Weltuhr _hinzufügen …"
 msgid "Add a New World Clock"
 msgstr "Eine neue Weltuhr hinzufügen"
 
-#: data/ui/world-location-dialog.ui:65
+#: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
 msgstr "Nach einer Stadt suchen"
 
@@ -472,7 +472,7 @@ msgstr "Wecker für %s von jetzt an eingestellt"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:296
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
 msgstr "Wecker"
 
@@ -522,11 +522,11 @@ msgstr "20 Minuten"
 msgid "30 minutes"
 msgstr "30 Minuten"
 
-#: src/alarm-setup-dialog.vala:111
+#: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
 msgstr "Wecker bearbeiten"
 
-#: src/alarm-setup-dialog.vala:114
+#: src/alarm-setup-dialog.vala:113
 msgid "_Done"
 msgstr "_Fertig"
 
@@ -534,13 +534,17 @@ msgstr "_Fertig"
 msgid "Print version information and exit"
 msgstr "Versionsnummer anzeigen und beenden"
 
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "_Pausieren"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Runde"
+msgid "_Lap"
+msgstr "_Runde"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Fortsetzen"
+msgid "R_esume"
+msgstr "Forts_etzen"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -686,7 +690,7 @@ msgstr "Wochentags"
 msgid "Weekends"
 msgstr "An Wochenenden"
 
-#: src/window.vala:253
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr ""
 "Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>\n"
@@ -695,7 +699,7 @@ msgstr ""
 "Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Paul Seyfert <pseyfert@mathphys.fsk.uni-heidelberg.de>\n"
 "Tim Sabsch <tim@sabsch.com>\n"
-"Philipp Kiemle <philipp.kiemle@gmail.com>\n"
+"Philipp Kiemle <l10n@prly.mozmail.com>\n"
 "Jürgen Benvenuti <gastornis@posteo.org>"
 
 #. Translators: Tooltip for the + button
@@ -719,6 +723,12 @@ msgstr "Gestern"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Aktueller Ort"
+
+#~ msgid "_Start"
+#~ msgstr "_Start"
+
+#~ msgid "Lap"
+#~ msgstr "Runde"
 
 #~ msgid "Menu"
 #~ msgstr "Menü"
