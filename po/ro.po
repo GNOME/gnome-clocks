@@ -2,41 +2,41 @@
 # Copyright (C) 2014 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Bogdan Mințoi <mintoi.bogdan@gmail.com>, 2014.
+# Antonio Marin <gnmer.6qxyg@slmail.me>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-08-04 18:11+0000\n"
-"PO-Revision-Date: 2024-08-23 08:15+0300\n"
-"Last-Translator: Florentina Mușat <florentina [dot] musat [dot] 28 [at] "
-"gmail [dot] com>\n"
-"Language-Team: Română <>\n"
+"POT-Creation-Date: 2025-04-10 23:14+0000\n"
+"PO-Revision-Date: 2025-04-24 11:45+0200\n"
+"Last-Translator: Antonio Marin <gnmer.6qxyg@slmail.me>\n"
+"Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Gtranslator 48.0\n"
 
 #: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:244 src/window.vala:299
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Ceasuri"
 
 #: data/org.gnome.clocks.desktop.in.in:5
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "Ora în lume, alarme, cronometru și temporizator"
+msgstr "Ora în lume, sonerii, cronometru și temporizator"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in.in:7
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
-"timp;temporizator;fus orar;cronometru;alarmă;time;timer;alarm;world clock;"
-"stopwatch;time zone;"
+"timp;temporizator;fus orar;cronometru;sonerie;ceas;time;timer;alarm;world "
+"clock;stopwatch;time zone;"
 
 #: data/org.gnome.clocks.desktop.in.in:17
 msgid "Allows world clocks to be displayed for your time zone."
@@ -52,27 +52,27 @@ msgstr "Lista fusurilor orare de afișat."
 
 #: data/org.gnome.clocks.gschema.xml.in:12
 msgid "Configured alarms"
-msgstr "Alarme configurate"
+msgstr "Sonerii stabilite"
 
 #: data/org.gnome.clocks.gschema.xml.in:13
 msgid "List of alarms set."
-msgstr "Listă de alarme setate."
+msgstr "Lista de sonerii stabilite."
 
 #: data/org.gnome.clocks.gschema.xml.in:19
 msgid "Configured Timers"
-msgstr "Cronometre configurate"
+msgstr "Timpi stabiliți"
 
 #: data/org.gnome.clocks.gschema.xml.in:20
 msgid "List of timers set."
-msgstr "Liste de cronometre stabilite."
+msgstr "Lista de timpi stabiliți."
 
 #: data/org.gnome.clocks.gschema.xml.in:26
 msgid "Geolocation support"
-msgstr "Suport pentru geolocalizare"
+msgstr "Geolocalizare"
 
 #: data/org.gnome.clocks.gschema.xml.in:27
 msgid "Turn geolocation support on and off."
-msgstr "Activează sau dezactivează suportul pentru geolocalizare."
+msgstr "Activează sau dezactivează geolocalizarea."
 
 #: data/org.gnome.clocks.gschema.xml.in:44
 msgid "Window maximized"
@@ -84,7 +84,7 @@ msgstr "Dacă fereastra este maximizată."
 
 #: data/org.gnome.clocks.gschema.xml.in:51
 msgid "Window width and height"
-msgstr "Înălțime și lățime fereastră"
+msgstr "Înălțimea și lățimea ferestrei"
 
 #: data/org.gnome.clocks.gschema.xml.in:52
 msgid "Width and height of the window."
@@ -92,11 +92,11 @@ msgstr "Înălțimea și lățimea ferestrei."
 
 #: data/org.gnome.clocks.gschema.xml.in:58
 msgid "Panel state"
-msgstr "Stare panou"
+msgstr "Starea panoului"
 
 #: data/org.gnome.clocks.gschema.xml.in:59
 msgid "Current clock panel."
-msgstr "Panou ceas actual."
+msgstr "Panoul actual al ceasului"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:7
 msgid "Keep track of time"
@@ -107,8 +107,8 @@ msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch, and timers."
 msgstr ""
-"O aplicație de ceas simplă și elegantă. Include fusuri orare globale, "
-"alarme, un cronometru și temporizatoare."
+"O aplicație ceas simplă și elegantă. Include fusuri orare globale, sonerii, "
+"un cronometru și temporizator."
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:14
 msgid "Show the time in different cities around the world"
@@ -116,7 +116,7 @@ msgstr "Afișează ora pentru diferite orașe de pe glob"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:15
 msgid "Set alarms to wake you up"
-msgstr "Setează alarme pentru a vă trezi"
+msgstr "Pune ceasul să te trezească"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:16
 msgid "Measure elapsed time with an accurate stopwatch"
@@ -124,26 +124,26 @@ msgstr "Măsoară timpul scurs cu un cronometru precis"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:17
 msgid "Set timers to properly cook your food"
-msgstr "Setați temporizatoare care să vă ajute să gătiți"
+msgstr "Pune temporizatoare care să ajute la gătit"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
-msgstr "Ecran inițial"
+msgstr "Pagina inițială"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
-msgstr "Ecran alarme"
+msgstr "Pagina sonerii"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
-msgstr "Ecran cronometru"
+msgstr "Pagina cronometru"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
-msgstr "Ecran temporizator"
+msgstr "Pagina temporizator"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
+#: data/org.gnome.clocks.metainfo.xml.in.in:195 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "Proiectul GNOME"
 
@@ -160,47 +160,47 @@ msgstr "Arată ajutorul"
 #: data/gtk/help-overlay.ui:21
 msgctxt "shortcut window"
 msgid "Open Menu"
-msgstr "Deschide meniul"
+msgstr "Deschide opțiunile"
 
 #: data/gtk/help-overlay.ui:27
 msgctxt "shortcut window"
 msgid "Keyboard Shortcuts"
-msgstr "Scurtături de tastatură"
+msgstr "Scurtături"
 
 #: data/gtk/help-overlay.ui:33
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr "Ieșire"
+msgstr "Închide"
 
 #: data/gtk/help-overlay.ui:39
 msgctxt "shortcut window"
 msgid "Go to the Next Section"
-msgstr "Navighează la secțiunea următoare"
+msgstr "Duce la secțiunea următoare"
 
 #: data/gtk/help-overlay.ui:45
 msgctxt "shortcut window"
 msgid "Go to the Previous Section"
-msgstr "Navighează la secțiunea precedentă"
+msgstr "Duce la secțiunea precedentă"
 
 #: data/gtk/help-overlay.ui:51
 msgctxt "shortcut window"
 msgid "Go to the World Section"
-msgstr "Navighează la secțiunea Global"
+msgstr "Duce la secțiunea Ceasuri"
 
 #: data/gtk/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Go to the Alarms Section"
-msgstr "Navighează la secțiunea Alarme"
+msgstr "Duce la secțiunea Sonerii"
 
 #: data/gtk/help-overlay.ui:63
 msgctxt "shortcut window"
 msgid "Go to the Stopwatch Section"
-msgstr "Navighează la secțiunea Cronometru"
+msgstr "Duce la secțiunea Cronometru"
 
 #: data/gtk/help-overlay.ui:69
 msgctxt "shortcut window"
 msgid "Go to the Timer Section"
-msgstr "Navighează la secțiunea Temporizator"
+msgstr "Duce la secțiunea Timp"
 
 #: data/gtk/help-overlay.ui:77
 msgctxt "shortcut window"
@@ -215,12 +215,12 @@ msgstr "Adaugă un ceas global"
 #: data/gtk/help-overlay.ui:89
 msgctxt "shortcut window"
 msgid "Alarm"
-msgstr "Alarmă"
+msgstr "Sonerie"
 
 #: data/gtk/help-overlay.ui:93
 msgctxt "shortcut window"
 msgid "Add an Alarm"
-msgstr "Adaugă o alarmă"
+msgstr "Adaugă o sonerie"
 
 #: data/gtk/help-overlay.ui:101
 msgctxt "shortcut window"
@@ -230,22 +230,22 @@ msgstr "Cronometru"
 #: data/gtk/help-overlay.ui:105
 msgctxt "shortcut window"
 msgid "Pause All"
-msgstr "Pauză toate"
+msgstr "Toate în pauză"
 
 #: data/gtk/help-overlay.ui:113
 msgctxt "shortcut window"
 msgid "Timer"
-msgstr "Temporizator"
+msgstr "Timp"
 
 #: data/gtk/help-overlay.ui:117
 msgctxt "shortcut window"
 msgid "Reset"
-msgstr "Resetare"
+msgstr "Pauză"
 
 #: data/gtk/help-overlay.ui:123
 msgctxt "shortcut window"
 msgid "New Timer"
-msgstr "Cronometru nou"
+msgstr "Timp nou"
 
 #: data/ui/alarm-day-picker-row.ui:17
 msgid "Repeat"
@@ -253,7 +253,7 @@ msgstr "Repetă"
 
 #: data/ui/alarm-face.ui:14
 msgid "Add A_larm…"
-msgstr "Adaugă o a_larmă…"
+msgstr "Adaugă o _sonerie…"
 
 #: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
 msgid "Stop"
@@ -261,13 +261,17 @@ msgstr "Stop"
 
 #: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:196
 msgid "Snooze"
-msgstr "Ațipire"
+msgstr "Repetă"
 
 #: data/ui/alarm-row.ui:47
 msgid "Repeats"
-msgstr "Repetă"
+msgstr "Repetări"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "Activează soneria"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Șterge"
 
@@ -275,39 +279,39 @@ msgstr "Șterge"
 #: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
 #: src/alarm-setup-dialog.vala:110
 msgid "New Alarm"
-msgstr "Alarmă nouă"
+msgstr "Sonerie nouă"
 
-#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
 msgid "_Cancel"
 msgstr "_Anulează"
 
-#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
 msgid "_Add"
 msgstr "_Adaugă"
 
-#: data/ui/alarm-setup-dialog.ui:113
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "Există deja o sonerie pentru această oră"
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "Nume"
 
-#: data/ui/alarm-setup-dialog.ui:120
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
-msgstr "Durată apel"
+msgstr "Durata soneriei"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
-msgstr "Durată ațipit"
+msgstr "Repetă după"
 
 #: data/ui/alarm-setup-dialog.ui:138
-msgid "You already have an alarm for this time."
-msgstr "Există deja o alarmă pentru această oră."
-
-#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
-msgstr "_Elimină alarma"
+msgstr "_Elimină soneria"
 
 #: data/ui/header-bar.ui:6
 msgid "_Keyboard Shortcuts"
-msgstr "Scurtături _tastatură"
+msgstr "Scur_tături"
 
 #: data/ui/header-bar.ui:10
 msgid "_Help"
@@ -319,53 +323,49 @@ msgstr "_Despre ceasuri globale"
 
 #: data/ui/header-bar.ui:56
 msgid "Main Menu"
-msgstr "Meniu principal"
+msgstr "Opțiuni"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "_Start"
-
-#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Curăță"
-
-#: data/ui/stopwatch-laps-row.ui:14
-msgid "Time"
-msgstr "Oră"
-
-#: data/ui/stopwatch-laps-row.ui:25
-msgid "Difference"
-msgstr "Diferență"
-
-#: data/ui/timer-face.ui:27
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
 msgid "St_art"
 msgstr "St_art"
 
+#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
+msgid "_Clear"
+msgstr "La _zero"
+
+#: data/ui/stopwatch-laps-row.ui:14
+msgid "Time"
+msgstr "Ora"
+
+#: data/ui/stopwatch-laps-row.ui:25
+msgid "Difference"
+msgstr "Diferența"
+
 #: data/ui/timer-row.ui:32
 msgid "Title…"
-msgstr "Titlu…"
+msgstr "Titlul…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Pauză"
 
 #: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
-#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Start"
 
 #: data/ui/timer-row.ui:119
 msgid "Reset"
-msgstr "Resetare"
+msgstr "Reîncepe"
 
 #. Translators: Tooltip for the + button
 #: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
 msgid "New Timer"
-msgstr "Cronometru nou"
+msgstr "Timp nou"
 
 #: data/ui/timer-setup.ui:31
 msgid "Quick Start"
-msgstr "Start rapid"
+msgstr "Alegere rapidă"
 
 #: data/ui/timer-setup.ui:47
 msgid "1 m"
@@ -397,11 +397,11 @@ msgstr "45 m"
 
 #: data/ui/timer-setup.ui:124
 msgid "1 h"
-msgstr "1 o"
+msgstr "1 h"
 
 #: data/ui/timer-setup.ui:137
 msgid "Set Timer"
-msgstr "Stabilește cronometru"
+msgstr "Alege timpul"
 
 #: data/ui/timer-setup.ui:163 data/ui/timer-setup.ui:195
 #: data/ui/timer-setup.ui:228
@@ -410,15 +410,15 @@ msgstr "0"
 
 #: data/ui/timer-setup.ui:264
 msgid "Title"
-msgstr "Titlu"
+msgstr "Titlul"
 
 #: data/ui/window.ui:44
 msgid "_World"
-msgstr "Gl_obal"
+msgstr "_Ceasuri"
 
 #: data/ui/window.ui:55
 msgid "Ala_rms"
-msgstr "Ala_rme"
+msgstr "Sone_rii"
 
 #: data/ui/window.ui:66
 msgid "_Stopwatch"
@@ -426,7 +426,7 @@ msgstr "Cr_onometru"
 
 #: data/ui/window.ui:77
 msgid "_Timer"
-msgstr "_Temporizator"
+msgstr "_Timp"
 
 #: data/ui/window.ui:98
 msgid "Clock"
@@ -434,61 +434,61 @@ msgstr "Ceas"
 
 #: data/ui/window.ui:106
 msgid "Alarm Ringing"
-msgstr "Sună alarma"
+msgstr "Sună ceasul"
 
 #: data/ui/world-face.ui:15
 msgid "_Add World Clock…"
-msgstr "_Adaugă un ceas global…"
+msgstr "_Adaugă un ceas…"
 
 #: data/ui/world-location-dialog.ui:4
 msgid "Add a New World Clock"
-msgstr "Adaugă un fus orar nou"
+msgstr "Adaugă un ceas nou"
 
 #: data/ui/world-location-dialog.ui:52
 msgid "Search for a City"
-msgstr "Caută după un oraș"
+msgstr "Caută un oraș"
 
 #: data/ui/world-standalone.ui:97
 msgid "Sunrise"
-msgstr "Răsărit"
+msgstr "Răsare"
 
 #: data/ui/world-standalone.ui:109
 msgid "Sunset"
-msgstr "Apus"
+msgstr "Apune"
 
 #: src/alarm-face.vala:157
 #, c-format
 msgid "Alarm set for %s from now"
-msgstr "Alarma stabilită pentru %s de acum înainte"
+msgstr "Ceasul va suna peste %s"
 
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
 msgid "Alarm"
-msgstr "Alarmă"
+msgstr "Sonerie"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
 #: src/alarm-row.vala:97
 #, c-format
 msgid "%s: Snoozed until %s"
-msgstr "%s: amânat până la %s"
+msgstr "%s: Sună din nou la %s"
 
 #. Translators: %s is a time
 #: src/alarm-row.vala:100
 #, c-format
 msgid "Snoozed until %s"
-msgstr "Amânat până la %s"
+msgstr "Sună din nou la %s"
 
 #. Translators: The alarm titled %s was "missed"
 #: src/alarm-row.vala:107
 #, c-format
 msgid "Alarm %s was missed"
-msgstr "Alarma %s a fost ratată"
+msgstr "Soneria %s a trecut"
 
 #: src/alarm-row.vala:109
 msgid "Alarm was missed"
-msgstr "Alarma a fost ratată"
+msgstr "A sunat ceasul"
 
 #: src/alarm-setup-dialog.vala:41
 msgid "1 minute"
@@ -516,7 +516,7 @@ msgstr "30 de minute"
 
 #: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
-msgstr "Editare alarmă"
+msgstr "Modifică soneria"
 
 #: src/alarm-setup-dialog.vala:113
 msgid "_Done"
@@ -524,20 +524,24 @@ msgstr "_Gata"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
-msgstr "Afișează informații despre versiune și iese"
+msgstr "Afișează informații despre versiune și închide"
+
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "_Pauză"
 
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Tură"
+msgid "_Lap"
+msgstr "_Tură"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Revenire"
+msgid "R_esume"
+msgstr "R_eia"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
 msgid "Lap %i"
-msgstr "Etapa %i"
+msgstr "Tura %i"
 
 #: src/timer-face.vala:82
 msgid "Time is up!"
@@ -550,7 +554,7 @@ msgstr "Timpul alocat s-a scurs"
 #. Translators: The time is the same as the local time
 #: src/utils.vala:67
 msgid "Current timezone"
-msgstr "Fusul orar curent"
+msgstr "Fusul orar actual"
 
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
@@ -558,9 +562,9 @@ msgstr "Fusul orar curent"
 #, c-format
 msgid "%s hour behind"
 msgid_plural "%s hours behind"
-msgstr[0] "%s oră înapoi"
-msgstr[1] "%s ore înapoi"
-msgstr[2] "%s de ore înapoi"
+msgstr[0] "%s oră în urmă"
+msgstr[1] "%s ore în urmă"
+msgstr[2] "%s de ore în urmă"
 
 #. Translators: The (possibly fractical) number hours in the
 #. future (relative to local) the clock/location is
@@ -644,31 +648,31 @@ msgstr "D"
 
 #: src/utils.vala:303
 msgid "Mondays"
-msgstr "Zilele de Luni"
+msgstr "Lunea"
 
 #: src/utils.vala:304
 msgid "Tuesdays"
-msgstr "Zilele de Marți"
+msgstr "Marțea"
 
 #: src/utils.vala:305
 msgid "Wednesdays"
-msgstr "Zilele de Miercuri"
+msgstr "Miercurea"
 
 #: src/utils.vala:306
 msgid "Thursdays"
-msgstr "Zilele de Joi"
+msgstr "Joia"
 
 #: src/utils.vala:307
 msgid "Fridays"
-msgstr "Zilele de Vineri"
+msgstr "Vinerea"
 
 #: src/utils.vala:308
 msgid "Saturdays"
-msgstr "Zilele de Sâmbătă"
+msgstr "Sâmbăta"
 
 #: src/utils.vala:309
 msgid "Sundays"
-msgstr "Zilele de Duminică"
+msgstr "Duminica"
 
 #: src/utils.vala:435
 msgid "Every Day"
@@ -682,17 +686,18 @@ msgstr "Zilele lucrătoare"
 msgid "Weekends"
 msgstr "Sfârșiturile de săptămână"
 
-#: src/window.vala:252
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr ""
 "Bogdan Mințoi <mintoi.bogdan@gmail.com> 2014\n"
 "Florentina Mușat <florentina [dot] musat [dot] 28 [at] gmail [dot] com>, "
-"2019-2021, 2023-2024"
+"2019-2021, 2023-2024\n"
+"Antonio Marin <gnmer.6qxyg@slmail.me>, 2025"
 
 #. Translators: Tooltip for the + button
 #: src/world-face.vala:29
 msgid "Add Location"
-msgstr "Adaugă locația"
+msgstr "Adaugă un ceas"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
@@ -709,120 +714,4 @@ msgstr "Ieri"
 #. Translators: This clock represents the local time
 #: src/world-row.vala:47
 msgid "Current location"
-msgstr "Locația curentă"
-
-#~ msgid "Menu"
-#~ msgstr "Meniu"
-
-#~ msgid "Select Duration"
-#~ msgstr "Selectează durata"
-
-#, c-format
-#~ msgid "Snoozed from %s: %s"
-#~ msgstr "Amânat de la %s: %s"
-
-#~ msgid "GNOME Clocks"
-#~ msgstr "Ceasuri GNOME"
-
-#~ msgid "Goals:"
-#~ msgstr "Obiective:"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Keyboard shortcuts"
-#~ msgstr "Scurtături de tastatură"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Add a world clock"
-#~ msgstr "Adaugă un ceas global"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Stop / Reset"
-#~ msgstr "Oprire / Resetare"
-
-#~ msgid "Active"
-#~ msgstr "Activ"
-
-#~ msgid "Optional"
-#~ msgstr "Opțional"
-
-#~ msgid "Back"
-#~ msgstr "Înapoi"
-
-#~ msgid "Alarms"
-#~ msgstr "Alarme"
-
-#~ msgid "Cancel"
-#~ msgstr "Anulează"
-
-#~ msgid "Add"
-#~ msgstr "Adaugă"
-
-#, c-format
-#~ msgid "Failed to show help: %s"
-#~ msgstr "Nu se poate afișa fișierul de ajutor: %s"
-
-#~ msgid "Utilities to help you with the time."
-#~ msgstr "Instrumente pentru timp."
-
-#~ msgid "Edit"
-#~ msgstr "Editează"
-
-#~ msgid "Select <b>New</b> to add a world clock"
-#~ msgstr "Selectează <b>Nou</b> pentru a adăuga un fus orar nou"
-
-#~ msgctxt "Repeat|Thursday"
-#~ msgid "T"
-#~ msgstr "T"
-
-#~ msgctxt "Repeat|Sunday"
-#~ msgid "S"
-#~ msgstr "S"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Select all world clocks"
-#~ msgstr "Selectează toate ceasurile globale"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Select all alarms"
-#~ msgstr "Selectează toate alarmele"
-
-#~ msgid "Select All"
-#~ msgstr "Selectează tot"
-
-#~ msgid "@icon@"
-#~ msgstr "@icon@"
-
-#~ msgid "Configured timer duration in seconds."
-#~ msgstr "Durata configurată a temporizatorului, în secunde."
-
-#~ msgid "Select <b>New</b> to add an alarm"
-#~ msgstr "Selectează <b>Nou</b> pentru a adăuga o alarmă"
-
-#~ msgctxt "Alarm"
-#~ msgid "New"
-#~ msgstr "Nouă"
-
-#~ msgid "Continue"
-#~ msgstr "Continuă"
-
-#~ msgid "Click on items to select them"
-#~ msgstr "Clic pe elemente pentru a le selecta"
-
-#~ msgid "%u selected"
-#~ msgid_plural "%u selected"
-#~ msgstr[0] "%u selectat"
-#~ msgstr[1] "%u selectate"
-#~ msgstr[2] "%u selectate"
-
-#~ msgctxt "World clock"
-#~ msgid "New"
-#~ msgstr "Nou"
-
-#~ msgid "_About"
-#~ msgstr "_Despre"
-
-#~ msgid "_Quit"
-#~ msgstr "_Ieșire"
-
-#~ msgid "org.gnome.clocks"
-#~ msgstr "org.gnome.clocks"
+msgstr "Ora locală"
