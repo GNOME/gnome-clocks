@@ -519,7 +519,7 @@ public class Bell : Object {
         }
 
         media_file.set_playing (false);
-        media_file.close ();
+        media_file.clear ();
         media_file = null;
     }
 }
