@@ -265,14 +265,11 @@ public class Window : Adw.ApplicationWindow {
 
     [GtkCallback]
     private void pane_changed () {
-        var help_overlay = get_help_overlay ();
         var panel = (Clock) stack.visible_child;
 
         if (stack.in_destruction ()) {
             return;
         }
-
-        ((Gtk.ShortcutsWindow) help_overlay).view_name = Type.from_instance (panel).name ();
 
         if (inited) {
             settings.set_enum ("panel-id", panel.panel_id);
