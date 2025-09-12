@@ -47,6 +47,7 @@
             "name": "libgweather",
             "buildsystem": "meson",
             "config-opts": [
+              "-Dtests=false",
               "-Dgtk_doc=false"
             ],
             "sources": [
