@@ -50,11 +50,24 @@
               "-Dtests=false",
               "-Dgtk_doc=false"
             ],
+            "modules": [
+                {
+                    "name" : "gweather-locations",
+                    "buildsystem" : "meson",
+                    "sources" : [
+                        {
+                            "type" : "git",
+                            "url" : "https://gitlab.gnome.org/GNOME/gweather-locations",
+                            "branch" : "main"
+                        }
+                    ]
+                }
+            ],
             "sources": [
                 {
                     "type": "git",
                     "url": "https://gitlab.gnome.org/GNOME/libgweather.git",
-                    "branch": "gnome-49"
+                    "branch": "main"
                 }
             ]
         },
