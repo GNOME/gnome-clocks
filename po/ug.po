@@ -4,10 +4,9 @@
 # Gheyret Kenji <gheyret@gmail.com>, YEAR.
 #
 msgid ""
-msgstr ""
-"Project-Id-Version: gnome-clocks\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=clocks&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-22 09:33+0000\n"
+msgstr "Project-Id-Version: gnome-clocks\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
+"POT-Creation-Date: 2025-09-10 16:17+0000\n"
 "PO-Revision-Date: 2013-02-24 13:15+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -17,270 +16,744 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../data/gnome-clocks.desktop.in.h:1 ../src/window.vala:44
+#: data/org.gnome.clocks.desktop.in.in:2 data/org.gnome.clocks.desktop.in.in:3
+#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
+#: src/main.vala:26 src/window.vala:252 src/window.vala:307
+#: src/world-standalone.vala:24
 msgid "Clocks"
-msgstr "سائەتلەر"
+msgstr "سائەت"
 
-#: ../data/gnome-clocks.desktop.in.h:2
-msgid "GNOME Clocks"
-msgstr "گىنوم سائەتلىرى"
-
-#: ../data/gnome-clocks.desktop.in.h:3
+#: data/org.gnome.clocks.desktop.in.in:4
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
-msgstr "دۇنيا ۋاقىتلىرى، قوڭغۇراقلىق سائەت، ۋاقىت ئۆلچىگۈچ"
+msgstr "دۇنيا ۋاقىتلىرى، قوڭغۇراقلىق سائەت، ۋاقىت خاتىرىلىگۈچ"
 
-#: ../data/gnome-clocks.desktop.in.h:4
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.clocks.desktop.in.in:6
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "time;timer;alarm;world clock;stopwatch;time zone;ۋاقىت;ئۆلچىگۈچ;قوڭغۇراق;دۇنيا سائىتى;ۋاقىت رايونى;"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:1
-msgid "Configured world clocks"
-msgstr "دۇنيا سائەتلىرىنى سەپلەش"
+#: data/org.gnome.clocks.desktop.in.in:16
+msgid "Allows world clocks to be displayed for your time zone."
+msgstr "ۋاقىت رايونىڭىزدا دۇنيا سائىتىنى كۆرسىتىشكە يول قويىدۇ."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:2
+#: data/org.gnome.clocks.gschema.xml.in:5
+msgid "Configured world clocks"
+msgstr "سەپلەنگەن دۇنيا سائىتى"
+
+#: data/org.gnome.clocks.gschema.xml.in:6
 msgid "List of world clocks to show."
 msgstr "كۆرسىتىدىغان دۇنيا سائەتلىرىنىڭ تىزىمى."
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:3
+#: data/org.gnome.clocks.gschema.xml.in:12
 msgid "Configured alarms"
-msgstr "سەپلەنگەن قوڭغۇراقلار"
+msgstr "سەپلەنگەن قوڭغۇراق"
 
-#: ../data/org.gnome.clocks.gschema.xml.in.h:4
+#: data/org.gnome.clocks.gschema.xml.in:13
 msgid "List of alarms set."
-msgstr "قوڭغۇراقلارنىڭ تىزىمى."
+msgstr "قوڭغۇراق تەڭشىكىنىڭ تىزىمى."
 
-#: ../src/alarm.vala:105 ../src/alarm.vala:314 ../src/alarm.vala:459
+#: data/org.gnome.clocks.gschema.xml.in:19
+msgid "Configured Timers"
+msgstr "سەپلەنگەن ۋاقىت خاتىرىلىگۈچ"
+
+#: data/org.gnome.clocks.gschema.xml.in:20
+msgid "List of timers set."
+msgstr "ۋاقىت خاتىرىلىگۈچ تەڭشىكىنىڭ تىزىمى."
+
+#: data/org.gnome.clocks.gschema.xml.in:26
+msgid "Geolocation support"
+msgstr "جۇغراپىيەلىك ئورۇننى قوللاش"
+
+#: data/org.gnome.clocks.gschema.xml.in:27
+msgid "Turn geolocation support on and off."
+msgstr "جۇغراپىيەلىك ئورۇننى قوللاشنى ئاچ ۋە تاقا."
+
+#: data/org.gnome.clocks.gschema.xml.in:44
+msgid "Window maximized"
+msgstr "كۆزنەك چوڭايتىلدى"
+
+#: data/org.gnome.clocks.gschema.xml.in:45
+msgid "Whether the window is maximized."
+msgstr "كۆزنەك ئەڭ چوڭ قىلىنغانمۇ يوق."
+
+#: data/org.gnome.clocks.gschema.xml.in:51
+msgid "Window width and height"
+msgstr "كۆزنەكنىڭ كەڭلىكى ۋە ئېگىزلىكى"
+
+#: data/org.gnome.clocks.gschema.xml.in:52
+msgid "Width and height of the window."
+msgstr "كۆزنەكنىڭ كەڭلىكى ۋە ئېگىزلىكى."
+
+#: data/org.gnome.clocks.gschema.xml.in:58
+msgid "Panel state"
+msgstr "كۆزنەكچە ھالىتى"
+
+#: data/org.gnome.clocks.gschema.xml.in:59
+msgid "Current clock panel."
+msgstr "نۆۋەتتىكى سائەت كۆزنەكچە."
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:7
+msgid "Keep track of time"
+msgstr "ۋاقىت ئىزلاشنى ساقلاپ قالىدۇ"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:9
+msgid ""
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch, and timers."
+msgstr "ئاددىي نەپىس سائەت پىروگراممىسى. ئۇنىڭدا دۇنيا سائىتى، قوڭغۇراق، دەقىقە سائەت ۋە ۋاقىت خاتىرىلىگۈچ بار."
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:14
+msgid "Show the time in different cities around the world"
+msgstr "دۇنيانىڭ ھەر قايسى جايلىرىدىكى شەھەرلەرنىڭ ۋاقتىنى كۆرسىتىدۇ"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:15
+msgid "Set alarms to wake you up"
+msgstr "ئويغىتىدىغان قوڭغۇراق تەڭشىكى"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:16
+msgid "Measure elapsed time with an accurate stopwatch"
+msgstr "سەرپ قىلغان ئېنىق ۋاقىتنى دەقىقە سائەتتە ئۆلچەيدۇ"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:17
+msgid "Set timers to properly cook your food"
+msgstr "تاماق ئەتكەندە ئىشلىتىدىغان ۋاقىت خاتىرىلىگۈچ تەڭشىكى"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
+msgid "Initial screen"
+msgstr "دەسلەپكى ئېكران"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
+msgid "Alarms screen"
+msgstr "قوڭغۇراق ئېكرانى"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
+msgid "Stopwatch screen"
+msgstr "دەقىقە سائەت ئېكرانى"
+
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
+msgid "Timer screen"
+msgstr "ۋاقىت خاتىرىلىگۈچ ئېكرانى"
+
+#. developer_name tag deprecated with Appstream 1.0
+#: data/org.gnome.clocks.metainfo.xml.in.in:195 src/window.vala:254
+msgid "The GNOME Project"
+msgstr "GNOME قۇرۇلۇشى"
+
+#: data/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "ئادەتتىكى"
+
+#: data/gtk/help-overlay.ui:15
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "ياردەمنى كۆرسەت"
+
+#: data/gtk/help-overlay.ui:21
+msgctxt "shortcut window"
+msgid "Open Menu"
+msgstr "تىزىملىك ئاچ"
+
+#: data/gtk/help-overlay.ui:27
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr "ھەرپتاختا تېزلەتمىسى"
+
+#: data/gtk/help-overlay.ui:33
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "چېكىن"
+
+#: data/gtk/help-overlay.ui:39
+msgctxt "shortcut window"
+msgid "Go to the Next Section"
+msgstr "كېيىنكى بۆلەككە يۆتكەل"
+
+#: data/gtk/help-overlay.ui:45
+msgctxt "shortcut window"
+msgid "Go to the Previous Section"
+msgstr "ئالدىنقى بۆلەككە يۆتكەل"
+
+#: data/gtk/help-overlay.ui:51
+msgctxt "shortcut window"
+msgid "Go to the World Section"
+msgstr "دۇنيا بۆلىكىگە يۆتكەل"
+
+#: data/gtk/help-overlay.ui:57
+msgctxt "shortcut window"
+msgid "Go to the Alarms Section"
+msgstr "قوڭغۇراق بۆلىكىگە يۆتكەل"
+
+#: data/gtk/help-overlay.ui:63
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch Section"
+msgstr "دەقىقە سائەت بۆلىكىگە يۆتكەل"
+
+#: data/gtk/help-overlay.ui:69
+msgctxt "shortcut window"
+msgid "Go to the Timer Section"
+msgstr "ۋاقىت خاتىرىلىگۈچ بۆلىكىگە يۆتكەل"
+
+#: data/gtk/help-overlay.ui:77
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr "دۇنيا سائىتى"
+
+#: data/gtk/help-overlay.ui:81
+msgctxt "shortcut window"
+msgid "Add a World Clock"
+msgstr "دۇنيا سائىتى قوش"
+
+#: data/gtk/help-overlay.ui:89
+msgctxt "shortcut window"
 msgid "Alarm"
 msgstr "قوڭغۇراق"
 
-#: ../src/alarm.vala:106 ../src/stopwatch.vala:124 ../src/alarm.ui.h:2
-msgid "Stop"
-msgstr "توختا"
+#: data/gtk/help-overlay.ui:93
+msgctxt "shortcut window"
+msgid "Add an Alarm"
+msgstr "قوڭغۇراق قوش"
 
-#: ../src/alarm.vala:109 ../src/alarm.ui.h:3
-msgid "Snooze"
-msgstr "جىرىڭلاتما"
-
-#: ../src/alarm.vala:252
-msgid "New Alarm"
-msgstr "يېڭى قوڭغۇراق"
-
-#: ../src/alarm.vala:254
-#| msgid "Done"
-msgid "_Done"
-msgstr "تامام(_D)"
-
-#. Translators: "New" refers to an alarm
-#. Translators: "New" refers to a world clock
-#: ../src/alarm.vala:618 ../src/world.vala:358
-msgid "New"
-msgstr "يېڭى"
-
-#: ../src/application.vala:24
-msgid "Print version information and exit"
-msgstr "نەشر ئۇچۇرىنى كۆرسىتىپ ئاخىرلىشىدۇ"
-
-#: ../src/stopwatch.vala:50
+#: data/gtk/help-overlay.ui:101
+msgctxt "shortcut window"
 msgid "Stopwatch"
-msgstr "Stopwatch"
+msgstr "دەقىقە سائەت"
 
-#: ../src/stopwatch.vala:127 ../src/stopwatch.ui.h:3
-msgid "Lap"
-msgstr ""
+#: data/gtk/help-overlay.ui:105
+msgctxt "shortcut window"
+msgid "Pause All"
+msgstr "ھەممىنى ۋاقىتلىق توختات"
 
-#: ../src/stopwatch.vala:134 ../src/timer.vala:85
-msgid "Continue"
-msgstr "داۋاملاشتۇر"
-
-#: ../src/stopwatch.vala:138 ../src/stopwatch.ui.h:2 ../src/timer.ui.h:4
-msgid "Reset"
-msgstr "ئەسلىگە قايتۇرۇش"
-
-#: ../src/stopwatch.vala:146 ../src/stopwatch.ui.h:1 ../src/timer.ui.h:2
-msgid "Start"
-msgstr "باشلاش"
-
-#: ../src/timer.vala:48
+#: data/gtk/help-overlay.ui:113
+msgctxt "shortcut window"
 msgid "Timer"
 msgstr "ۋاقىت ئۆلچىگۈچ"
 
-#: ../src/timer.vala:50
-msgid "Time is up!"
-msgstr "ۋاقىت توشتى!"
+#: data/gtk/help-overlay.ui:117
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr "ئەسلىگە قايتۇر"
 
-#: ../src/timer.vala:50
-msgid "Timer countdown finished"
-msgstr "تەتۈر ساناش تاماملاندى"
+#: data/gtk/help-overlay.ui:123
+msgctxt "shortcut window"
+msgid "New Timer"
+msgstr "يېڭى ۋاقىت خاتىرىلىگۈچ"
 
-#: ../src/timer.vala:90 ../src/timer.vala:100 ../src/timer.ui.h:3
-msgid "Pause"
-msgstr "ۋاقىتلىق توختا"
+#: data/ui/alarm-day-picker-row.ui:17
+msgid "Repeat"
+msgstr "قايتىلا"
 
-#: ../src/utils.vala:147
-msgid "Mondays"
-msgstr "دۈشەنبە"
+#: data/ui/alarm-face.ui:14
+msgid "Add A_larm…"
+msgstr "قوڭغۇراق قوش(_L)…"
 
-#: ../src/utils.vala:148
-msgid "Tuesdays"
-msgstr "سەيشەنبە"
+#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
+msgid "Stop"
+msgstr "توختا"
 
-#: ../src/utils.vala:149
-msgid "Wednesdays"
-msgstr "چارشەنبە"
+#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:196
+msgid "Snooze"
+msgstr "مۈگدە"
 
-#: ../src/utils.vala:150
-msgid "Thursdays"
-msgstr "پەيشەنبە"
+#: data/ui/alarm-row.ui:47
+msgid "Repeats"
+msgstr "قايتىلا"
 
-#: ../src/utils.vala:151
-msgid "Fridays"
-msgstr "جۈمە"
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "قوڭغۇراقنى قوزغات"
 
-#: ../src/utils.vala:152
-msgid "Saturdays"
-msgstr "شەنبە"
-
-#: ../src/utils.vala:153
-msgid "Sundays"
-msgstr "يەكشەنبە"
-
-#: ../src/utils.vala:233
-#| msgid "Every day"
-msgid "Every Day"
-msgstr "ھەر كۈنى"
-
-#: ../src/utils.vala:235
-msgid "Weekdays"
-msgstr "بىنەپتە كۈنلەر"
-
-#: ../src/widgets.vala:401 ../src/widgets.vala:470
-msgid "Click on items to select them"
-msgstr "تاللاش ئۈچۈن تۈرنى چېكىڭ"
-
-#: ../src/widgets.vala:403
-#, c-format
-#| msgid "{0} item selected"
-#| msgid_plural "{0} items selected"
-msgid "%d selected"
-msgid_plural "%d selected"
-msgstr[0] "%d تاللاندى"
-
-#: ../src/widgets.vala:426
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "ئۆچۈر"
 
-#: ../src/widgets.vala:469
-msgid "Done"
-msgstr "تامام"
+#. Translators: Tooltip for the + button
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:110
+msgid "New Alarm"
+msgstr "يېڭى قوڭغۇراق"
 
-#: ../src/window.vala:146
-#| msgid "GNOME Clocks"
-msgid "Gnome Clocks"
-msgstr "گىنوم سائەتلىرى"
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:16
+msgid "_Cancel"
+msgstr "ۋاز كەچ(_C)"
 
-#: ../src/window.vala:149
-msgid "Utilities to help you with the time."
-msgstr "قۇلاي بولغان سائەت قوراللىرى."
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:24
+msgid "_Add"
+msgstr "قوش(_A)"
 
-#: ../src/window.vala:154
-msgid "translator-credits"
-msgstr "Gheyret Kenji <gheyret@gmail.com>\n"
-"Sahran<sahran@live.com>\n"
-"Muhemmed Erdem <misran_erdem@hotmail.com>"
+#: data/ui/alarm-setup-dialog.ui:38
+msgid "You already have an alarm for this time"
+msgstr "سىز بۇ ۋاقىتقا قوڭغۇراق تەڭشىگەن"
 
-#. If it is Dec 31st here and Jan 1st there (d = 1), then "tomorrow"
-#: ../src/world.vala:80 ../src/world.vala:83
-msgid "Tomorrow"
-msgstr "ئەتە"
-
-#. If it is Jan 1st here and Dec 31st there (t = 1), then "yesterday"
-#: ../src/world.vala:80 ../src/world.vala:83
-msgid "Yesterday"
-msgstr "تۈنۈگۈن"
-
-#: ../src/world.vala:137
-msgid "Add a New World Clock"
-msgstr "يېڭى دۇنيا سائىتى قوشۇش"
-
-#: ../src/world.vala:234
-msgid "World"
-msgstr "دۇنيا"
-
-#. namespace World
-#. namespace Clocks
-#: ../src/alarm.ui.h:1
-msgid "Select <b>New</b> to add an alarm"
-msgstr "يېڭى قوڭغۇراق قوشۇش ئۈچۈن <b>يېڭى</b> نى تاللاڭ"
-
-#: ../src/alarm.ui.h:4 ../src/timer.ui.h:1
-msgid ":"
-msgstr ":"
-
-#: ../src/alarm.ui.h:5
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "ئاتى"
 
-#: ../src/alarm.ui.h:6
-msgid "Repeat Every"
-msgstr "تەكرار"
+#: data/ui/alarm-setup-dialog.ui:123
+msgid "Ring Duration"
+msgstr "قوڭغۇراق مۇددىتى"
 
-#: ../src/alarm.ui.h:7
-msgid "Active"
-msgstr "ئاكتىپ"
+#: data/ui/alarm-setup-dialog.ui:129
+msgid "Snooze Duration"
+msgstr "مۈگدەش مۇددىتى"
 
-#: ../src/menu.ui.h:1
-msgid "_New"
-msgstr "يېڭىدىن قۇر(_N)"
+#: data/ui/alarm-setup-dialog.ui:138
+msgid "R_emove Alarm"
+msgstr "قوڭغۇراقنى چىقىرىۋەت(_E)"
 
-#: ../src/menu.ui.h:2
-msgid "_About"
-msgstr "ھەققىدە(_A)"
+#: data/ui/header-bar.ui:6
+msgid "_Keyboard Shortcuts"
+msgstr "ھەرپتاختا تېزلەتمىسى(_K)"
 
-#: ../src/menu.ui.h:3
-#| msgid "Quit"
-msgid "_Quit"
-msgstr "ئاخىرلاشتۇر(_Q)"
+#: data/ui/header-bar.ui:10
+msgid "_Help"
+msgstr "ياردەم(_H)"
 
-#: ../src/menu.ui.h:4
-msgid "Select All"
-msgstr "ھەممىنى تاللا"
+#: data/ui/header-bar.ui:14
+msgid "_About Clocks"
+msgstr "سائەت ھەققىدە(_A)"
 
-#: ../src/menu.ui.h:5
-msgid "Select None"
-msgstr "ھەممىنى تاللىما"
+#: data/ui/header-bar.ui:56
+msgid "Main Menu"
+msgstr "ئاساسىي تىزىملىك"
 
-#: ../src/stopwatch.ui.h:4
-msgid "Split"
-msgstr "پارچىلا"
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
+msgstr "باشلا(_A)"
 
-#: ../src/stopwatch.ui.h:5
-msgid "Total"
-msgstr "جەمئىي"
+#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
+msgid "_Clear"
+msgstr "تازىلا(_C)"
 
-#: ../src/world.ui.h:1
-msgid "Select <b>New</b> to add a world clock"
-msgstr "يېڭى دۇنيا سائىتى قوشۇش ئۈچۈن <b>يېڭى</b> نى تاللاڭ"
+#: data/ui/stopwatch-laps-row.ui:14
+msgid "Time"
+msgstr "ۋاقىت"
 
-#: ../src/world.ui.h:2
-msgid "Search for a city:"
-msgstr "شەھەر ئىزدەش:"
+#: data/ui/stopwatch-laps-row.ui:25
+msgid "Difference"
+msgstr "پەرق"
 
-#: ../src/world.ui.h:3
+#: data/ui/timer-row.ui:32
+msgid "Title…"
+msgstr "ماۋزۇ…"
+
+#: data/ui/timer-row.ui:74
+msgid "Pause"
+msgstr "ۋاقىتلىق توختا"
+
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
+msgid "Start"
+msgstr "باشلا"
+
+#: data/ui/timer-row.ui:119
+msgid "Reset"
+msgstr "ئەسلىگە قايتۇر"
+
+#. Translators: Tooltip for the + button
+#: data/ui/timer-setup-dialog.ui:4 src/timer-face.vala:39
+msgid "New Timer"
+msgstr "يېڭى ۋاقىت خاتىرىلىگۈچ"
+
+#: data/ui/timer-setup.ui:31
+msgid "Quick Start"
+msgstr "تېز باشلا"
+
+#: data/ui/timer-setup.ui:47
+msgid "1 m"
+msgstr "1 مىنۇت"
+
+#: data/ui/timer-setup.ui:58
+msgid "2 m"
+msgstr "2 مىنۇت"
+
+#: data/ui/timer-setup.ui:69
+msgid "3 m"
+msgstr "3 مىنۇت"
+
+#: data/ui/timer-setup.ui:80
+msgid "5 m"
+msgstr "5 مىنۇت"
+
+#: data/ui/timer-setup.ui:91
+msgid "30 m"
+msgstr "30 مىنۇت"
+
+#: data/ui/timer-setup.ui:102
+msgid "15 m"
+msgstr "15 مىنۇت"
+
+#: data/ui/timer-setup.ui:113
+msgid "45 m"
+msgstr "45 مىنۇت"
+
+#: data/ui/timer-setup.ui:124
+msgid "1 h"
+msgstr "1 سائەت"
+
+#: data/ui/timer-setup.ui:137
+msgid "Set Timer"
+msgstr "ۋاقىت خاتىرىلىگۈچ تەڭشەك"
+
+#: data/ui/timer-setup.ui:163 data/ui/timer-setup.ui:195
+#: data/ui/timer-setup.ui:228
+msgid "0"
+msgstr "0"
+
+#: data/ui/timer-setup.ui:264
+msgid "Title"
+msgstr "ماۋزۇ"
+
+#: data/ui/window.ui:44
+msgid "_World"
+msgstr "دۇنيا(_W)"
+
+#: data/ui/window.ui:55
+msgid "Ala_rms"
+msgstr "قوڭغۇراق(_R)"
+
+#: data/ui/window.ui:66
+msgid "_Stopwatch"
+msgstr "دەقىقە سائەت(_S)"
+
+#: data/ui/window.ui:77
+msgid "_Timer"
+msgstr "ۋاقىت خاتىرىلىگۈچ(_T)"
+
+#: data/ui/window.ui:98
+msgid "Clock"
+msgstr "سائەت"
+
+#: data/ui/window.ui:106
+msgid "Alarm Ringing"
+msgstr "قوڭغۇراق جىرىڭلاش"
+
+#: data/ui/world-face.ui:15
+msgid "_Add World Clock…"
+msgstr "دۇنيا سائىتى قوش…"
+
+#: data/ui/world-location-dialog.ui:4
+msgid "Add a New World Clock"
+msgstr "يېڭى دۇنيا سائىتى قوش"
+
+#: data/ui/world-location-dialog.ui:53
+msgid "Search for a City"
+msgstr "شەھەر بويىچە ئىزدەيدۇ"
+
+#: data/ui/world-standalone.ui:97
 msgid "Sunrise"
 msgstr "كۈن چىقىش"
 
-#: ../src/world.ui.h:4
+#: data/ui/world-standalone.ui:109
 msgid "Sunset"
-msgstr "كۈن ئولتۇرۇش(Sunset)"
+msgstr "كۈن پېتىش"
 
-#~ msgid "Edit Alarm"
-#~ msgstr "قوڭغۇراقنى تەھرىرلەش"
+#: src/alarm-face.vala:157
+#, c-format
+msgid "Alarm set for %s from now"
+msgstr "قوڭغۇراق ھازىردىن باشلاپ %s دىن كېيىن ئەسكەرتىشكە تەڭشەلدى"
 
-#~ msgid "Time"
-#~ msgstr "ۋاقىت"
+#. Prior to 3.36 unamed alarms would just be called "Alarm",
+#. pretend alarms called "Alarm" don't have a name (of course
+#. this fails if the language/translation has since changed)
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
+msgid "Alarm"
+msgstr "قوڭغۇراق"
+
+#. Translators: The alarm for the time %s titled %s has been "snoozed"
+#: src/alarm-row.vala:97
+#, c-format
+msgid "%s: Snoozed until %s"
+msgstr "%s: مۈگدەش مۇددىتى %s"
+
+#. Translators: %s is a time
+#: src/alarm-row.vala:100
+#, c-format
+msgid "Snoozed until %s"
+msgstr "مۈگدەش مۇددىتى %s"
+
+#. Translators: The alarm titled %s was "missed"
+#: src/alarm-row.vala:107
+#, c-format
+msgid "Alarm %s was missed"
+msgstr "%s قوڭغۇراقنى ئۆتكۈزۈۋەتتى"
+
+#: src/alarm-row.vala:109
+msgid "Alarm was missed"
+msgstr "قوڭغۇراقنى ئۆتكۈزۈۋەتتى"
+
+#: src/alarm-setup-dialog.vala:41
+msgid "1 minute"
+msgstr "‎1‎‏ مىنۇت"
+
+#: src/alarm-setup-dialog.vala:42
+msgid "5 minutes"
+msgstr "5 مىنۇت"
+
+#: src/alarm-setup-dialog.vala:43
+msgid "10 minutes"
+msgstr "10 مىنۇت"
+
+#: src/alarm-setup-dialog.vala:44
+msgid "15 minutes"
+msgstr "15 مىنۇت"
+
+#: src/alarm-setup-dialog.vala:45
+msgid "20 minutes"
+msgstr "20 مىنۇت"
+
+#: src/alarm-setup-dialog.vala:46
+msgid "30 minutes"
+msgstr "30 مىنۇت"
+
+#: src/alarm-setup-dialog.vala:110
+msgid "Edit Alarm"
+msgstr "قوڭغۇراق تەھرىر"
+
+#: src/alarm-setup-dialog.vala:113
+msgid "_Done"
+msgstr "تامام(_D)"
+
+#: src/application.vala:23
+msgid "Print version information and exit"
+msgstr "نەشر ئۇچۇرىنى بېسىپ چېكىنىدۇ"
+
+#: src/stopwatch-face.vala:165
+msgid "_Pause"
+msgstr "ۋاقىتلىق توختا(_P)"
+
+#: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
+msgid "_Lap"
+msgstr "ئايلانما(_L)"
+
+#: src/stopwatch-face.vala:181
+msgid "R_esume"
+msgstr "داۋاملاشتۇر(_E)"
+
+#: src/stopwatch-laps-row.vala:48
+#, c-format
+msgid "Lap %i"
+msgstr "%i-ئايلانما"
+
+#: src/timer-face.vala:82
+msgid "Time is up!"
+msgstr "ۋاقىت توشتى!"
+
+#: src/timer-face.vala:83
+msgid "Timer countdown finished"
+msgstr "تەتۈر ساناش تاماملاندى"
+
+#. Translators: The time is the same as the local time
+#: src/utils.vala:67
+msgid "Current timezone"
+msgstr "نۆۋەتتىكى ۋاقىت رايونى"
+
+#. Translators: The (possibly fractical) number hours in the past
+#. (relative to local) the clock/location is
+#: src/utils.vala:72
+#, c-format
+msgid "%s hour behind"
+msgid_plural "%s hours behind"
+msgstr[0] "%s سائەت كېيىن"
+
+#. Translators: The (possibly fractical) number hours in the
+#. future (relative to local) the clock/location is
+#: src/utils.vala:78
+#, c-format
+msgid "%s hour ahead"
+msgid_plural "%s hours ahead"
+msgstr[0] "%s سائەت ئىلگىرى"
+
+#: src/utils.vala:103
+#, c-format
+msgid "%s day"
+msgid_plural "%s days"
+msgstr[0] "%s كۈن"
+
+#: src/utils.vala:105 src/utils.vala:112
+msgid " and "
+msgstr " ۋە "
+
+#: src/utils.vala:110
+#, c-format
+msgid "%s hour"
+msgid_plural "%s hours"
+msgstr[0] "%s سائەت"
+
+#: src/utils.vala:117
+#, c-format
+msgid "%s minute"
+msgid_plural "%s minutes"
+msgstr[0] "%s مىنۇت"
+
+#. Translators: This is used in the repeat toggle for Monday
+#: src/utils.vala:277
+msgctxt "Alarm|Repeat-On|Monday"
+msgid "M"
+msgstr "د"
+
+#. Translators: This is used in the repeat toggle for Tuesday
+#: src/utils.vala:279
+msgctxt "Alarm|Repeat-On|Tuesday"
+msgid "T"
+msgstr "س"
+
+#. Translators: This is used in the repeat toggle for Wednesday
+#: src/utils.vala:281
+msgctxt "Alarm|Repeat-On|Wednesday"
+msgid "W"
+msgstr "چ"
+
+#. Translators: This is used in the repeat toggle for Thursday
+#: src/utils.vala:283
+msgctxt "Alarm|Repeat-On|Thursday"
+msgid "T"
+msgstr "پ"
+
+#. Translators: This is used in the repeat toggle for Friday
+#: src/utils.vala:285
+msgctxt "Alarm|Repeat-On|Friday"
+msgid "F"
+msgstr "ج"
+
+#. Translators: This is used in the repeat toggle for Saturday
+#: src/utils.vala:287
+msgctxt "Alarm|Repeat-On|Saturday"
+msgid "S"
+msgstr "ش"
+
+#. Translators: This is used in the repeat toggle for Sunday
+#: src/utils.vala:289
+msgctxt "Alarm|Repeat-On|Sunday"
+msgid "S"
+msgstr "ي"
+
+#: src/utils.vala:303
+msgid "Mondays"
+msgstr "دۈشەنبە"
+
+#: src/utils.vala:304
+msgid "Tuesdays"
+msgstr "سەيشەنبە"
+
+#: src/utils.vala:305
+msgid "Wednesdays"
+msgstr "چارشەنبە"
+
+#: src/utils.vala:306
+msgid "Thursdays"
+msgstr "پەيشەنبە"
+
+#: src/utils.vala:307
+msgid "Fridays"
+msgstr "جۈمە"
+
+#: src/utils.vala:308
+msgid "Saturdays"
+msgstr "شەنبە"
+
+#: src/utils.vala:309
+msgid "Sundays"
+msgstr "يەكشەنبە"
+
+#: src/utils.vala:435
+msgid "Every Day"
+msgstr "ھەر كۈنى"
+
+#: src/utils.vala:437
+msgid "Weekdays"
+msgstr "مىنەپتە كۈن"
+
+#: src/utils.vala:439
+msgid "Weekends"
+msgstr "ھەپتە ئاخىرى"
+
+#: src/window.vala:260
+msgid "translator-credits"
+msgstr "تەرجىمان تۆھپىسى\n"
+" Gheyret Kenji <gheyret@gmail.com>\n"
+"ئابدۇقادىر ئابلىز <sahranbay@gmail.com>"
+
+#. Translators: Tooltip for the + button
+#: src/world-face.vala:29
+msgid "Add Location"
+msgstr "ئورۇن قوش"
+
+#. If it is Jan 1st there, and not Jan 2nd here, then it must be
+#. Dec 31st here, so return "tomorrow"
+#: src/world-item.vala:177 src/world-item.vala:181
+msgid "Tomorrow"
+msgstr "ئەتە"
+
+#. If it is Jan 1st here, and not Jan 2nd there, then it must be
+#. Dec 31st there, so return "yesterday"
+#: src/world-item.vala:177 src/world-item.vala:181
+msgid "Yesterday"
+msgstr "تۈنۈگۈن"
+
+#. Translators: This clock represents the local time
+#: src/world-row.vala:47
+msgid "Current location"
+msgstr "نۆۋەتتىكى ئورۇن"
+
+#~ msgid "GNOME Clocks"
+#~ msgstr "گىنوم سائەتلىرى"
+
+#~ msgid "New"
+#~ msgstr "يېڭى"
+
+#~ msgid "Continue"
+#~ msgstr "داۋاملاشتۇر"
+
+#~ msgid "Click on items to select them"
+#~ msgstr "تاللاش ئۈچۈن تۈرنى چېكىڭ"
+
+#, c-format
+#~| msgid "{0} item selected"
+#~| msgid_plural "{0} items selected"
+#~ msgid "%d selected"
+#~ msgid_plural "%d selected"
+#~ msgstr[0] "%d تاللاندى"
+
+#~ msgid "Done"
+#~ msgstr "تامام"
+
+#~| msgid "GNOME Clocks"
+#~ msgid "Gnome Clocks"
+#~ msgstr "گىنوم سائەتلىرى"
+
+#~ msgid "Utilities to help you with the time."
+#~ msgstr "قۇلاي بولغان سائەت قوراللىرى."
+
+#~ msgid "Select <b>New</b> to add an alarm"
+#~ msgstr "يېڭى قوڭغۇراق قوشۇش ئۈچۈن <b>يېڭى</b> نى تاللاڭ"
+
+#~ msgid ":"
+#~ msgstr ":"
+
+#~ msgid "Active"
+#~ msgstr "ئاكتىپ"
+
+#~ msgid "_New"
+#~ msgstr "يېڭىدىن قۇر(_N)"
+
+#~ msgid "_About"
+#~ msgstr "ھەققىدە(_A)"
+
+#~ msgid "Select All"
+#~ msgstr "ھەممىنى تاللا"
+
+#~ msgid "Select None"
+#~ msgstr "ھەممىنى تاللىما"
+
+#~ msgid "Split"
+#~ msgstr "پارچىلا"
+
+#~ msgid "Total"
+#~ msgstr "جەمئىي"
+
+#~ msgid "Select <b>New</b> to add a world clock"
+#~ msgstr "يېڭى دۇنيا سائىتى قوشۇش ئۈچۈن <b>يېڭى</b> نى تاللاڭ"
 
 #~ msgid "Edit"
 #~ msgstr "تەھرىرلەش"
-
-#~ msgid "About Clocks"
-#~ msgstr "سائەت ھەققىدە"
