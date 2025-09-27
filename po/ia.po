@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2025-06-12 15:58+0000\n"
-"PO-Revision-Date: 2025-07-06 14:09-0400\n"
+"POT-Creation-Date: 2025-09-20 01:07+0000\n"
+"PO-Revision-Date: 2025-09-27 10:40-0300\n"
 "Last-Translator: Emilio Sepúlveda <emism.translations@gmail.com>\n"
 "Language-Team: Interlingua <softinterlingua@gmail.com>\n"
 "Language: ia\n"
@@ -25,23 +25,23 @@ msgstr ""
 "X-DL-State: Translating\n"
 "X-Generator: Gtranslator 48.0\n"
 
-#: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
+#: data/org.gnome.clocks.desktop.in.in:2 data/org.gnome.clocks.desktop.in.in:3
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
 #: src/main.vala:26 src/window.vala:252 src/window.vala:307
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Horologios"
 
-#: data/org.gnome.clocks.desktop.in.in:5
+#: data/org.gnome.clocks.desktop.in.in:4
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr ""
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in.in:7
+#: data/org.gnome.clocks.desktop.in.in:6
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
 
-#: data/org.gnome.clocks.desktop.in.in:17
+#: data/org.gnome.clocks.desktop.in.in:16
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "Permitte al horologios mundial esser monstrate pro tu fuso horari."
 
@@ -144,7 +144,7 @@ msgid "Timer screen"
 msgstr "Schermo de temporisator"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:195 src/window.vala:254
+#: data/org.gnome.clocks.metainfo.xml.in.in:204 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "Le projecto GNOME"
 
@@ -176,22 +176,22 @@ msgstr "Quitar"
 #: data/gtk/help-overlay.ui:39
 msgctxt "shortcut window"
 msgid "Go to the Next Section"
-msgstr ""
+msgstr "Vader al section sequente"
 
 #: data/gtk/help-overlay.ui:45
 msgctxt "shortcut window"
 msgid "Go to the Previous Section"
-msgstr ""
+msgstr "Vader al section precedente"
 
 #: data/gtk/help-overlay.ui:51
 msgctxt "shortcut window"
 msgid "Go to the World Section"
-msgstr ""
+msgstr "Vader al section mundial"
 
 #: data/gtk/help-overlay.ui:57
 msgctxt "shortcut window"
 msgid "Go to the Alarms Section"
-msgstr ""
+msgstr "Vader al section de alarmas"
 
 #: data/gtk/help-overlay.ui:63
 msgctxt "shortcut window"
@@ -282,17 +282,17 @@ msgstr "Deler"
 msgid "New Alarm"
 msgstr "Nove alarma"
 
-#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:16
 msgid "_Cancel"
 msgstr "_Cancellar"
 
-#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:24
 msgid "_Add"
 msgstr "_Adder"
 
 #: data/ui/alarm-setup-dialog.ui:38
 msgid "You already have an alarm for this time"
-msgstr ""
+msgstr "Tu jam ha un alarma pro iste hora"
 
 #: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
@@ -439,13 +439,13 @@ msgstr ""
 
 #: data/ui/world-face.ui:15
 msgid "_Add World Clock…"
-msgstr ""
+msgstr "_Adder horologio mundial…"
 
 #: data/ui/world-location-dialog.ui:4
 msgid "Add a New World Clock"
 msgstr "Adder un nove horologio mundial"
 
-#: data/ui/world-location-dialog.ui:52
+#: data/ui/world-location-dialog.ui:53
 msgid "Search for a City"
 msgstr "Cerca un citate"
 
@@ -485,35 +485,35 @@ msgstr ""
 #: src/alarm-row.vala:107
 #, c-format
 msgid "Alarm %s was missed"
-msgstr ""
+msgstr "Le alarma %s ha essite perdite"
 
 #: src/alarm-row.vala:109
 msgid "Alarm was missed"
-msgstr ""
+msgstr "Le alarma ha essite perdite"
 
 #: src/alarm-setup-dialog.vala:41
 msgid "1 minute"
-msgstr ""
+msgstr "1 minuta"
 
 #: src/alarm-setup-dialog.vala:42
 msgid "5 minutes"
-msgstr ""
+msgstr "5 minutas"
 
 #: src/alarm-setup-dialog.vala:43
 msgid "10 minutes"
-msgstr ""
+msgstr "10 minutas"
 
 #: src/alarm-setup-dialog.vala:44
 msgid "15 minutes"
-msgstr ""
+msgstr "15 minutas"
 
 #: src/alarm-setup-dialog.vala:45
 msgid "20 minutes"
-msgstr ""
+msgstr "20 minutas"
 
 #: src/alarm-setup-dialog.vala:46
 msgid "30 minutes"
-msgstr ""
+msgstr "30 minutas"
 
 #: src/alarm-setup-dialog.vala:110
 msgid "Edit Alarm"
@@ -521,7 +521,7 @@ msgstr "Modificar alarma"
 
 #: src/alarm-setup-dialog.vala:113
 msgid "_Done"
-msgstr ""
+msgstr "_Facite"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
@@ -610,37 +610,37 @@ msgstr "L"
 #: src/utils.vala:279
 msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
-msgstr ""
+msgstr "M"
 
 #. Translators: This is used in the repeat toggle for Wednesday
 #: src/utils.vala:281
 msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
-msgstr ""
+msgstr "M"
 
 #. Translators: This is used in the repeat toggle for Thursday
 #: src/utils.vala:283
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
-msgstr ""
+msgstr "J"
 
 #. Translators: This is used in the repeat toggle for Friday
 #: src/utils.vala:285
 msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
-msgstr ""
+msgstr "V"
 
 #. Translators: This is used in the repeat toggle for Saturday
 #: src/utils.vala:287
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
-msgstr ""
+msgstr "S"
 
 #. Translators: This is used in the repeat toggle for Sunday
 #: src/utils.vala:289
 msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
-msgstr ""
+msgstr "D"
 
 #: src/utils.vala:303
 msgid "Mondays"
@@ -652,11 +652,11 @@ msgstr "Martedis"
 
 #: src/utils.vala:305
 msgid "Wednesdays"
-msgstr ""
+msgstr "Mercuridis"
 
 #: src/utils.vala:306
 msgid "Thursdays"
-msgstr ""
+msgstr "Jovedis"
 
 #: src/utils.vala:307
 msgid "Fridays"
@@ -664,7 +664,7 @@ msgstr ""
 
 #: src/utils.vala:308
 msgid "Saturdays"
-msgstr ""
+msgstr "Sabbatos"
 
 #: src/utils.vala:309
 msgid "Sundays"
