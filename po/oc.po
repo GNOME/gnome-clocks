@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2025-02-23 06:54+0000\n"
-"PO-Revision-Date: 2025-02-27 08:34+1100\n"
+"POT-Creation-Date: 2025-09-27 13:46+0000\n"
+"PO-Revision-Date: 2025-10-02 12:00+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: Tot En Òc\n"
 "Language: oc\n"
@@ -18,28 +18,28 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.7\n"
 "X-Project-Style: gnome\n"
 
-#: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
+#: data/org.gnome.clocks.desktop.in.in:2 data/org.gnome.clocks.desktop.in.in:3
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:26 src/window.vala:252 src/window.vala:307
+#: src/main.vala:26 src/window.vala:252 src/window.vala:304
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Relòtges"
 
-#: data/org.gnome.clocks.desktop.in.in:5
+#: data/org.gnome.clocks.desktop.in.in:4
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr ""
-"De relòtges per conéisser l'ora dins lo mond, reglar d'alarmas, cronometrar "
-"o aviar un descompte"
+"De relòtges per conéisser l'ora dins lo monde, reglar d'alarmas, "
+"cronometrar o aviar un descompte"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in.in:7
+#: data/org.gnome.clocks.desktop.in.in:6
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "ora;minutariá;descompte;alarma;relòtge mondiala;cronomètre;fus orari;"
 
-#: data/org.gnome.clocks.desktop.in.in:17
+#: data/org.gnome.clocks.desktop.in.in:16
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "Permetre al relòtge mondial de s’afichar per vòstra zòna orària."
 
@@ -113,7 +113,7 @@ msgstr ""
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:14
 msgid "Show the time in different cities around the world"
-msgstr "Afichar l'ora dins diferentas vilas a l'entorn del mond"
+msgstr "Afichar l'ora dins diferentas vilas a l'entorn del monde"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:15
 msgid "Set alarms to wake you up"
@@ -144,109 +144,9 @@ msgid "Timer screen"
 msgstr "Ecran minutador"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
+#: data/org.gnome.clocks.metainfo.xml.in.in:204 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "The GNOME Project"
-
-#: data/gtk/help-overlay.ui:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "General"
-
-#: data/gtk/help-overlay.ui:15
-msgctxt "shortcut window"
-msgid "Show Help"
-msgstr "Mostrar l’ajuda"
-
-#: data/gtk/help-overlay.ui:21
-msgctxt "shortcut window"
-msgid "Open Menu"
-msgstr "Dobrir lo menú"
-
-#: data/gtk/help-overlay.ui:27
-msgctxt "shortcut window"
-msgid "Keyboard Shortcuts"
-msgstr "Acorchis de clavièr"
-
-#: data/gtk/help-overlay.ui:33
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Quitar"
-
-#: data/gtk/help-overlay.ui:39
-msgctxt "shortcut window"
-msgid "Go to the Next Section"
-msgstr "Anar a la seccion seguenta"
-
-#: data/gtk/help-overlay.ui:45
-msgctxt "shortcut window"
-msgid "Go to the Previous Section"
-msgstr "Anar a la seccion precedenta"
-
-#: data/gtk/help-overlay.ui:51
-msgctxt "shortcut window"
-msgid "Go to the World Section"
-msgstr "Anar a la seccion Monde"
-
-#: data/gtk/help-overlay.ui:57
-msgctxt "shortcut window"
-msgid "Go to the Alarms Section"
-msgstr "Anar a la seccion Alarma"
-
-#: data/gtk/help-overlay.ui:63
-msgctxt "shortcut window"
-msgid "Go to the Stopwatch Section"
-msgstr "Anar a la seccion Stopwatch"
-
-#: data/gtk/help-overlay.ui:69
-msgctxt "shortcut window"
-msgid "Go to the Timer Section"
-msgstr "Anar a la seccion Minutador"
-
-#: data/gtk/help-overlay.ui:77
-msgctxt "shortcut window"
-msgid "World Clocks"
-msgstr "Relòtge mondial"
-
-#: data/gtk/help-overlay.ui:81
-msgctxt "shortcut window"
-msgid "Add a World Clock"
-msgstr "Apondre un relòtge mondial novèl"
-
-#: data/gtk/help-overlay.ui:89
-msgctxt "shortcut window"
-msgid "Alarm"
-msgstr "Alarma"
-
-#: data/gtk/help-overlay.ui:93
-msgctxt "shortcut window"
-msgid "Add an Alarm"
-msgstr "Apondre una alarma"
-
-#: data/gtk/help-overlay.ui:101
-msgctxt "shortcut window"
-msgid "Stopwatch"
-msgstr "Cronomètre"
-
-#: data/gtk/help-overlay.ui:105
-msgctxt "shortcut window"
-msgid "Pause All"
-msgstr "Tot en pausa"
-
-#: data/gtk/help-overlay.ui:113
-msgctxt "shortcut window"
-msgid "Timer"
-msgstr "Minutador"
-
-#: data/gtk/help-overlay.ui:117
-msgctxt "shortcut window"
-msgid "Reset"
-msgstr "Reïnicializar"
-
-#: data/gtk/help-overlay.ui:123
-msgctxt "shortcut window"
-msgid "New Timer"
-msgstr "Minutador novèl"
 
 #: data/ui/alarm-day-picker-row.ui:17
 msgid "Repeat"
@@ -282,11 +182,11 @@ msgstr "Suprimir"
 msgid "New Alarm"
 msgstr "Alarma novèla"
 
-#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:16
 msgid "_Cancel"
 msgstr "A_nullar"
 
-#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:24
 msgid "_Add"
 msgstr "_Apondre"
 
@@ -320,11 +220,111 @@ msgstr "_Ajuda"
 
 #: data/ui/header-bar.ui:14
 msgid "_About Clocks"
-msgstr "_A prepaus de Clocks"
+msgstr "_A prepaus de Relòtges"
 
 #: data/ui/header-bar.ui:56
 msgid "Main Menu"
 msgstr "Menú principal"
+
+#: data/ui/shortcuts-dialog.ui:6
+msgctxt "shortcut window"
+msgid "General"
+msgstr "General"
+
+#: data/ui/shortcuts-dialog.ui:10
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Mostrar l’ajuda"
+
+#: data/ui/shortcuts-dialog.ui:16
+msgctxt "shortcut window"
+msgid "Open Menu"
+msgstr "Dobrir lo menú"
+
+#: data/ui/shortcuts-dialog.ui:22
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr "Acorchis de clavièr"
+
+#: data/ui/shortcuts-dialog.ui:28
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Quitar"
+
+#: data/ui/shortcuts-dialog.ui:34
+msgctxt "shortcut window"
+msgid "Go to the Next Section"
+msgstr "Anar a la seccion seguenta"
+
+#: data/ui/shortcuts-dialog.ui:40
+msgctxt "shortcut window"
+msgid "Go to the Previous Section"
+msgstr "Anar a la seccion precedenta"
+
+#: data/ui/shortcuts-dialog.ui:46
+msgctxt "shortcut window"
+msgid "Go to the World Section"
+msgstr "Anar a la seccion Monde"
+
+#: data/ui/shortcuts-dialog.ui:52
+msgctxt "shortcut window"
+msgid "Go to the Alarms Section"
+msgstr "Anar a la seccion Alarma"
+
+#: data/ui/shortcuts-dialog.ui:58
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch Section"
+msgstr "Anar a la seccion Cronomètre"
+
+#: data/ui/shortcuts-dialog.ui:64
+msgctxt "shortcut window"
+msgid "Go to the Timer Section"
+msgstr "Anar a la seccion Minutador"
+
+#: data/ui/shortcuts-dialog.ui:71
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr "Relòtge mondial"
+
+#: data/ui/shortcuts-dialog.ui:75
+msgctxt "shortcut window"
+msgid "Add a World Clock"
+msgstr "Apondre un relòtge mondial novèl"
+
+#: data/ui/shortcuts-dialog.ui:82
+msgctxt "shortcut window"
+msgid "Alarm"
+msgstr "Alarma"
+
+#: data/ui/shortcuts-dialog.ui:86
+msgctxt "shortcut window"
+msgid "Add an Alarm"
+msgstr "Apondre una alarma"
+
+#: data/ui/shortcuts-dialog.ui:93
+msgctxt "shortcut window"
+msgid "Stopwatch"
+msgstr "Cronomètre"
+
+#: data/ui/shortcuts-dialog.ui:97
+msgctxt "shortcut window"
+msgid "Pause All"
+msgstr "Tot en pausa"
+
+#: data/ui/shortcuts-dialog.ui:104
+msgctxt "shortcut window"
+msgid "Timer"
+msgstr "Minutador"
+
+#: data/ui/shortcuts-dialog.ui:108
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr "Reïnicializar"
+
+#: data/ui/shortcuts-dialog.ui:114
+msgctxt "shortcut window"
+msgid "New Timer"
+msgstr "Minutador novèl"
 
 #: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
 #: src/stopwatch-face.vala:202
@@ -415,7 +415,7 @@ msgstr "Títol"
 
 #: data/ui/window.ui:44
 msgid "_World"
-msgstr "_Mond"
+msgstr "_Monde"
 
 #: data/ui/window.ui:55
 msgid "Ala_rms"
@@ -445,7 +445,7 @@ msgstr "_Apondre un relòtge mondial novèl…"
 msgid "Add a New World Clock"
 msgstr "Apondre un novèl relòtge mondial"
 
-#: data/ui/world-location-dialog.ui:52
+#: data/ui/world-location-dialog.ui:53
 msgid "Search for a City"
 msgstr "Recercar una vila"
 
@@ -465,7 +465,7 @@ msgstr "Alarma definida per %s d’ara enlà"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:300
 msgid "Alarm"
 msgstr "Alarma"
 
