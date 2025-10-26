@@ -56,6 +56,8 @@ private class Item : Object, ContentItem {
 
     public int ring_minutes { get; set; default = 5; }
 
+    public File sound_file { get; set; default = SoundModel.build_default_file (); }
+
     public string? name {
         get {
             return _name;
@@ -188,7 +190,7 @@ private class Item : Object, ContentItem {
     }
 
     private void setup_bell () {
-        bell = new Utils.Bell (SoundModel.build_default_file ());
+        bell = new Utils.Bell (sound_file);
         notification = new GLib.Notification (_("Alarm"));
         notification.set_body (name);
         notification.set_priority (HIGH);
@@ -303,6 +305,7 @@ private class Item : Object, ContentItem {
         builder.add ("{sv}", "days", ((Utils.Weekdays) days).serialize ());
         builder.add ("{sv}", "snooze_minutes", new GLib.Variant.int32 (snooze_minutes));
         builder.add ("{sv}", "ring_minutes", new GLib.Variant.int32 (ring_minutes));
+        builder.add ("{sv}", "sound_uri", new GLib.Variant.take_string (sound_file.get_uri ()));
         builder.close ();
     }
 
@@ -317,6 +320,7 @@ private class Item : Object, ContentItem {
         GLib.DateTime? ring_time = null;
         int snooze_minutes = 10;
         int ring_minutes = 5;
+        File sound_file = SoundModel.build_default_file ();
         Utils.Weekdays? days = null;
 
         var iter = alarm_variant.iterator ();
@@ -339,6 +343,8 @@ private class Item : Object, ContentItem {
                 snooze_minutes = (int32) val;
             } else if (key == "ring_minutes") {
                 ring_minutes = (int32) val;
+            } else if (key == "sound_uri") {
+                sound_file = File.new_for_uri ((string) val);
             }
         }
 
@@ -355,6 +361,7 @@ private class Item : Object, ContentItem {
             alarm.days = days;
             alarm.ring_minutes = ring_minutes;
             alarm.snooze_minutes = snooze_minutes;
+            alarm.sound_file = sound_file;
             return alarm;
         } else {
             warning ("Invalid alarm %s", name != null ? (string) name : "[unnamed]");
