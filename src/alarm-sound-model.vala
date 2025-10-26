@@ -23,10 +23,60 @@ private class SoundModel : ListModel, Object {
     ListStore store;
 
     construct {
+        var alarms_dir = File.new_build_filename (Config.DATADIR, "sounds/gnome/default/alarms");
+
         store = new ListStore (typeof (Sound));
+
+        // FIXME GtkMediaFile doesn't support gapless looping, causing audible
+        // clicks in alarm sounds. This is caused by GstPlay not supporting
+        // gapless chainup or looping.
+        // See https://gitlab.freedesktop.org/gstreamer/gstreamer/-/issues/1200
+        // for more information.
 
         // Translators: An alarm sound name
         store.append (new Sound (build_default_file (), _("Beep-Beep")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("bird.oga"), _("Bird")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("bonfire.oga"), _("Bonfire")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("boudoir.oga"), _("Boudoir")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("bouncing.oga"), _("Bouncing")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("cautious-steps.oga"), _("Cautious Steps")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("chirping.oga"), _("Chirping")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("class-act.oga"), _("Class Act")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("crossing-bell.oga"), _("Crossing Bell")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("daydreaming.oga"), _("Daydreaming")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("digitone.oga"), _("Digitone")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("enchanting.oga"), _("Enchanting")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("glass-bell.oga"), _("Glass Bell")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("guitar.oga"), _("Guitar")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("jolly.oga"), _("Jolly")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("mystery.oga"), _("Mystery")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("ping-ping.oga"), _("Ping Ping")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("school-bell.oga"), _("School Bell")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("sonar.oga"), _("Sonar")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("sparkling.oga"), _("Sparkling")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("tingling.oga"), _("Tingling")));
+        // Translators: An alarm sound name
+        store.append (new Sound (alarms_dir.get_child ("toys.oga"), _("Toys")));
 
         store.sort ((a, b) => {
             var sound_a = a as Sound;
