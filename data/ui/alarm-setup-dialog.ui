@@ -126,6 +126,35 @@
                               </object>
                             </child>
                             <child>
+                              <object class="AdwActionRow" id="sound_row">
+                                <!-- This may not be the most apropriate accessible
+                                     role, but it allows reading the sound name as the
+                                     row's value. -->
+                                <property name="accessible-role">combo-box</property>
+                                <property name="activatable">True</property>
+                                <property name="title" translatable="yes">Alarm Sound</property>
+                                <property name="action-name">navigation.push</property>
+                                <property name="action-target">'sound-chooser'</property>
+                                <child>
+                                  <object class="GtkLabel" id="sound_label">
+                                    <property name="ellipsize">end</property>
+                                    <property name="xalign">0</property>
+                                    <binding name="label">
+                                      <lookup name="label" type="ClocksSound">
+                                        <lookup name="sound">ClocksAlarmSetupDialog</lookup>
+                                      </lookup>
+                                    </binding>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkImage">
+                                    <property name="accessible-role">presentation</property>
+                                    <property name="icon-name">go-next-symbolic</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
                               <object class="AdwComboRow" id="ring_duration">
                                 <property name="activatable">False</property>
                                 <property name="title" translatable="yes">Ring Duration</property>
@@ -159,6 +188,16 @@
                 </property>
               </object>
             </property>
+          </object>
+        </child>
+        <child>
+          <object class="ClocksSoundChooser" id="sound_chooser">
+            <property name="title" translatable="yes">Alarm Sound</property>
+            <property name="tag">sound-chooser</property>
+            <property name="model">
+              <object class="ClocksAlarmSoundModel"/>
+            </property>
+            <property name="sound" bind-source="ClocksAlarmSetupDialog" bind-property="sound" bind-flags="sync-create|bidirectional"/>
           </object>
         </child>
       </object>

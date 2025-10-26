@@ -23,15 +23,7 @@ private class SoundModel : ListModel, Object {
     ListStore store;
 
     construct {
-        var alarms_dir = File.new_build_filename (Config.DATADIR, "sounds/gnome/default/alarms");
-
         store = new ListStore (typeof (Sound));
-
-        // FIXME GtkMediaFile doesn't support gapless looping, causing audible
-        // clicks in alarm sounds. This is caused by GstPlay not supporting
-        // gapless chainup or looping.
-        // See https://gitlab.freedesktop.org/gstreamer/gstreamer/-/issues/1200
-        // for more information.
 
         // Translators: An alarm sound name
         store.append (new Sound (build_default_file (), _("Beep-Beep")));
