@@ -114,7 +114,7 @@ public class Row : Gtk.ListBoxRow {
         delete_stack.visible_child_name = "button";
 
         countdown_label.remove_css_class ("accent");
-        countdown_label.add_css_class ("dim-label");
+        countdown_label.add_css_class ("dimmed");
 
         paused_animation.pause ();
 
@@ -127,7 +127,7 @@ public class Row : Gtk.ListBoxRow {
 
     private void start () {
         countdown_label.add_css_class ("accent");
-        countdown_label.remove_css_class ("dim-label");
+        countdown_label.remove_css_class ("dimmed");
 
         paused_animation.pause ();
 
@@ -149,7 +149,7 @@ public class Row : Gtk.ListBoxRow {
         paused_animation.pause ();
 
         countdown_label.remove_css_class ("accent");
-        countdown_label.add_css_class ("dim-label");
+        countdown_label.add_css_class ("dimmed");
     }
 
     private void pause () {
@@ -174,11 +174,11 @@ public class Row : Gtk.ListBoxRow {
 
     private void animation_target (double val) {
         if (val < 1.0) {
-            countdown_label.add_css_class ("dim-label");
+            countdown_label.add_css_class ("dimmed");
             countdown_label.remove_css_class ("accent");
         } else {
             countdown_label.add_css_class ("accent");
-            countdown_label.remove_css_class ("dim-label");
+            countdown_label.remove_css_class ("dimmed");
         }
     }
 }
