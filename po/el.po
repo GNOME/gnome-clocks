@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-09-02 19:23+0000\n"
+"POT-Creation-Date: 2025-10-29 18:21+0000\n"
 "PO-Revision-Date: 2024-09-03 00:32+0300\n"
 "Last-Translator: Efstathios Iosifidis <eiosifidis@gnome.org>\n"
 "Language-Team: Greek, Modern (1453-) <gnome-el-list@gnome.org>\n"
@@ -21,27 +21,27 @@ msgstr ""
 "X-Generator: Poedit 3.4.4\n"
 "X-Project-Style: gnome\n"
 
-#: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
+#: data/org.gnome.clocks.desktop.in.in:2 data/org.gnome.clocks.desktop.in.in:3
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:25 src/window.vala:244 src/window.vala:299
+#: src/main.vala:26 src/window.vala:252 src/window.vala:304
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Ρολόγια"
 
-#: data/org.gnome.clocks.desktop.in.in:5
+#: data/org.gnome.clocks.desktop.in.in:4
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr ""
 "Ρολόγια για παγκόσμιες ώρες, για ειδοποιήσεις, με χρονόμετρο και αντίστροφη "
 "μέτρηση"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in.in:7
+#: data/org.gnome.clocks.desktop.in.in:6
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
-"χρόνος;χρονόμετρο;ξυπνητήρι;παγκόσμιο ρολόι;χρονόμετρο;ώρα ζώνης;time;timer;"
-"alarm;world clock;stopwatch;time zone;"
+"χρόνος;χρονόμετρο;ξυπνητήρι;παγκόσμιο ρολόι;χρονόμετρο;ώρα "
+"ζώνης;time;timer;alarm;world clock;stopwatch;time zone;"
 
-#: data/org.gnome.clocks.desktop.in.in:17
+#: data/org.gnome.clocks.desktop.in.in:16
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "Επιτρέπει την εμφάνιση των παγκόσμιων ρολογιών για την ζώνη ώρας σας."
 
@@ -129,126 +129,26 @@ msgstr "Μετρήστε μια περιόδο χρόνου με ένα χρον
 msgid "Set timers to properly cook your food"
 msgstr "Ρυθμίστε χρονοδιακόπτες για να μαγειρέψετε κατάλληλα το φαγητό σας"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "Αρχική οθόνη"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "Οθόνη ειδοποιήσεων"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "Οθόνη χρονόμετρου"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "Οθόνη αντίστροφης μέτρησης"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
+#: data/org.gnome.clocks.metainfo.xml.in.in:204 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "Το έργο GNOME"
-
-#: data/gtk/help-overlay.ui:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Γενικά"
-
-#: data/gtk/help-overlay.ui:15
-msgctxt "shortcut window"
-msgid "Show Help"
-msgstr "Εμφάνιση βοήθειας"
-
-#: data/gtk/help-overlay.ui:21
-msgctxt "shortcut window"
-msgid "Open Menu"
-msgstr "Άνοιγμα μενού"
-
-#: data/gtk/help-overlay.ui:27
-msgctxt "shortcut window"
-msgid "Keyboard Shortcuts"
-msgstr "Συντομεύσεις πληκτρολογίου"
-
-#: data/gtk/help-overlay.ui:33
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Έξοδος"
-
-#: data/gtk/help-overlay.ui:39
-msgctxt "shortcut window"
-msgid "Go to the Next Section"
-msgstr "Μετάβαση στην επόμενη περιοχή"
-
-#: data/gtk/help-overlay.ui:45
-msgctxt "shortcut window"
-msgid "Go to the Previous Section"
-msgstr "Μετάβαση στην προηγούμενη περιοχή"
-
-#: data/gtk/help-overlay.ui:51
-msgctxt "shortcut window"
-msgid "Go to the World Section"
-msgstr "Μετάβαση στην ενότητα Παγκόσμια ρολόγια"
-
-#: data/gtk/help-overlay.ui:57
-msgctxt "shortcut window"
-msgid "Go to the Alarms Section"
-msgstr "Μετάβαση στην ενότητα Ξυπνητήρια"
-
-#: data/gtk/help-overlay.ui:63
-msgctxt "shortcut window"
-msgid "Go to the Stopwatch Section"
-msgstr "Μετάβαση στην ενότητα Χρονόμετρο"
-
-#: data/gtk/help-overlay.ui:69
-msgctxt "shortcut window"
-msgid "Go to the Timer Section"
-msgstr "Μετάβαση στην ενότητα Αντίστροφη μέτρηση"
-
-#: data/gtk/help-overlay.ui:77
-msgctxt "shortcut window"
-msgid "World Clocks"
-msgstr "Παγκόσμια ρολόγια"
-
-#: data/gtk/help-overlay.ui:81
-msgctxt "shortcut window"
-msgid "Add a World Clock"
-msgstr "Προσθήκη παγκόσμιου ρολογιού"
-
-#: data/gtk/help-overlay.ui:89
-msgctxt "shortcut window"
-msgid "Alarm"
-msgstr "Ειδοποίηση"
-
-#: data/gtk/help-overlay.ui:93
-msgctxt "shortcut window"
-msgid "Add an Alarm"
-msgstr "Προσθήκη Ξυπνητιριού"
-
-#: data/gtk/help-overlay.ui:101
-msgctxt "shortcut window"
-msgid "Stopwatch"
-msgstr "Χρονόμετρο"
-
-#: data/gtk/help-overlay.ui:105
-msgctxt "shortcut window"
-msgid "Pause All"
-msgstr "Παύση όλων"
-
-#: data/gtk/help-overlay.ui:113
-msgctxt "shortcut window"
-msgid "Timer"
-msgstr "Αντίστροφη μέτρηση"
-
-#: data/gtk/help-overlay.ui:117
-msgctxt "shortcut window"
-msgid "Reset"
-msgstr "Επαναφορά"
-
-#: data/gtk/help-overlay.ui:123
-msgctxt "shortcut window"
-msgid "New Timer"
-msgstr "Νέα αντίστροφη μέτρηση"
 
 #: data/ui/alarm-day-picker-row.ui:17
 msgid "Repeat"
@@ -270,7 +170,12 @@ msgstr "Αναβολή"
 msgid "Repeats"
 msgstr "Επαναλαμβάνεται"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+#| msgid "New Alarm"
+msgid "Enable Alarm"
+msgstr "Ενεργοποίηση ξυπνητηριού"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "Διαγραφή"
 
@@ -280,31 +185,32 @@ msgstr "Διαγραφή"
 msgid "New Alarm"
 msgstr "Νέα ειδοποίηση"
 
-#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:16
 msgid "_Cancel"
 msgstr "Ά_κυρο"
 
-#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:24
 msgid "_Add"
 msgstr "_Προσθήκη"
 
-#: data/ui/alarm-setup-dialog.ui:113
+#: data/ui/alarm-setup-dialog.ui:38
+#| msgid "You already have an alarm for this time."
+msgid "You already have an alarm for this time"
+msgstr "Έχετε ήδη ένα ξυπνητήρι για την ώρα αυτή."
+
+#: data/ui/alarm-setup-dialog.ui:116
 msgid "Name"
 msgstr "Όνομα"
 
-#: data/ui/alarm-setup-dialog.ui:120
+#: data/ui/alarm-setup-dialog.ui:123
 msgid "Ring Duration"
 msgstr "Διάρκεια κουδουνίσματος"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:129
 msgid "Snooze Duration"
 msgstr "Διάρκεια αναβολής"
 
 #: data/ui/alarm-setup-dialog.ui:138
-msgid "You already have an alarm for this time."
-msgstr "Έχετε ήδη ένα ξυπνητήρι για αυτήν την ώρα."
-
-#: data/ui/alarm-setup-dialog.ui:145
 msgid "R_emove Alarm"
 msgstr "_Αφαίρεση ξυπνητηριού"
 
@@ -324,13 +230,115 @@ msgstr "_Περί του Ρολόγια"
 msgid "Main Menu"
 msgstr "Κυρίως μενού"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
+#: data/ui/shortcuts-dialog.ui:6
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Γενικά"
+
+#: data/ui/shortcuts-dialog.ui:10
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Εμφάνιση βοήθειας"
+
+#: data/ui/shortcuts-dialog.ui:16
+msgctxt "shortcut window"
+msgid "Open Menu"
+msgstr "Άνοιγμα μενού"
+
+#: data/ui/shortcuts-dialog.ui:22
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr "Συντομεύσεις πληκτρολογίου"
+
+#: data/ui/shortcuts-dialog.ui:28
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Έξοδος"
+
+#: data/ui/shortcuts-dialog.ui:34
+msgctxt "shortcut window"
+msgid "Go to the Next Section"
+msgstr "Μετάβαση στην επόμενη περιοχή"
+
+#: data/ui/shortcuts-dialog.ui:40
+msgctxt "shortcut window"
+msgid "Go to the Previous Section"
+msgstr "Μετάβαση στην προηγούμενη περιοχή"
+
+#: data/ui/shortcuts-dialog.ui:46
+msgctxt "shortcut window"
+msgid "Go to the World Section"
+msgstr "Μετάβαση στην ενότητα Παγκόσμια ρολόγια"
+
+#: data/ui/shortcuts-dialog.ui:52
+msgctxt "shortcut window"
+msgid "Go to the Alarms Section"
+msgstr "Μετάβαση στην ενότητα Ξυπνητήρια"
+
+#: data/ui/shortcuts-dialog.ui:58
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch Section"
+msgstr "Μετάβαση στην ενότητα Χρονόμετρο"
+
+#: data/ui/shortcuts-dialog.ui:64
+msgctxt "shortcut window"
+msgid "Go to the Timer Section"
+msgstr "Μετάβαση στην ενότητα Αντίστροφη μέτρηση"
+
+#: data/ui/shortcuts-dialog.ui:71
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr "Παγκόσμια ρολόγια"
+
+#: data/ui/shortcuts-dialog.ui:75
+msgctxt "shortcut window"
+msgid "Add a World Clock"
+msgstr "Προσθήκη παγκόσμιου ρολογιού"
+
+#: data/ui/shortcuts-dialog.ui:82
+msgctxt "shortcut window"
+msgid "Alarm"
+msgstr "Ειδοποίηση"
+
+#: data/ui/shortcuts-dialog.ui:86
+msgctxt "shortcut window"
+msgid "Add an Alarm"
+msgstr "Προσθήκη Ξυπνητιριού"
+
+#: data/ui/shortcuts-dialog.ui:93
+msgctxt "shortcut window"
+msgid "Stopwatch"
+msgstr "Χρονόμετρο"
+
+#: data/ui/shortcuts-dialog.ui:97
+msgctxt "shortcut window"
+msgid "Pause All"
+msgstr "Παύση όλων"
+
+#: data/ui/shortcuts-dialog.ui:104
+msgctxt "shortcut window"
+msgid "Timer"
+msgstr "Αντίστροφη μέτρηση"
+
+#: data/ui/shortcuts-dialog.ui:108
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr "Επαναφορά"
+
+#: data/ui/shortcuts-dialog.ui:114
+msgctxt "shortcut window"
+msgid "New Timer"
+msgstr "Νέα αντίστροφη μέτρηση"
+
+#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
+#: src/stopwatch-face.vala:202
+msgid "St_art"
 msgstr "Έ_ναρξη"
 
 #: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "Εκκαθάριση"
+#| msgid "Clear"
+msgid "_Clear"
+msgstr "_Εκκαθάριση"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -340,20 +348,15 @@ msgstr "Ώρα"
 msgid "Difference"
 msgstr "Διαφορά"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "Έ_ναρξη"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "Τίτλος…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "Παύση"
 
 #: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
-#: src/stopwatch-face.vala:202
 msgid "Start"
 msgstr "Έναρξη"
 
@@ -447,7 +450,7 @@ msgstr "_Προσθήκη παγκόσμιου ρολογιού…"
 msgid "Add a New World Clock"
 msgstr "Προσθήκη παγκόσμιου ρολογιού"
 
-#: data/ui/world-location-dialog.ui:52
+#: data/ui/world-location-dialog.ui:53
 msgid "Search for a City"
 msgstr "Αναζήτηση πόλης"
 
@@ -467,7 +470,7 @@ msgstr "Το ξυπνητήρι ορίστηκε για %s από τώρα"
 #. Prior to 3.36 unamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
+#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:300
 msgid "Alarm"
 msgstr "Ειδοποίηση"
 
@@ -529,13 +532,18 @@ msgstr "Έ_τοιμο"
 msgid "Print version information and exit"
 msgstr "Προβολή πληροφοριών έκδοσης και έξοδος"
 
+#: src/stopwatch-face.vala:165
+#| msgid "Pause"
+msgid "_Pause"
+msgstr "_Παύση"
+
 #: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "Γύρος"
+msgid "_Lap"
+msgstr "_Κύκλος"
 
 #: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "Συνέχεια"
+msgid "R_esume"
+msgstr "Σ_υνέχεια"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
@@ -680,7 +688,7 @@ msgstr "Εργάσιμες"
 msgid "Weekends"
 msgstr "Σαββατοκύριακα"
 
-#: src/window.vala:252
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
@@ -713,6 +721,12 @@ msgstr "Χθές"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Τρέχουσα τοποθεσία"
+
+#~ msgid "_Start"
+#~ msgstr "Έ_ναρξη"
+
+#~ msgid "Lap"
+#~ msgstr "Γύρος"
 
 #~ msgid "Menu"
 #~ msgstr "Μενού"
