@@ -1,3 +1,5 @@
+resource_deps = []
+
 scalable_iconsdir = 'icons' / 'hicolor' / 'scalable' / 'apps'
 install_data(
   scalable_iconsdir / '@0@.svg'.format(app_id),
@@ -11,9 +13,16 @@ install_data(
   rename: '@0@-symbolic.svg'.format(app_id)
 )
 
+ffmpeg = find_program('ffmpeg')
+to_vorbis = [ffmpeg, '-i', '@INPUT@', '-c:a', 'libvorbis', '@OUTPUT@' ]
+
+subdir('sounds')
+
 resource_files = files('gnome-clocks.gresource.xml')
 resources = gnome.compile_resources('org.gnome.clocks', resource_files,
-  c_name: 'resources'
+  c_name: 'resources',
+  dependencies: resource_deps,
+  source_dir: meson.current_build_dir(),
 )
 
 desktop_conf = configuration_data()

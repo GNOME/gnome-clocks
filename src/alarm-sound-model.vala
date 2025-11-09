@@ -36,7 +36,7 @@ private class SoundModel : ListModel, Object {
     }
 
     public static File build_default_file () {
-        return File.new_for_uri ("resource:///org/gnome/clocks/sounds/alarm-clock-elapsed.oga");
+        return File.new_for_uri ("resource:///org/gnome/clocks/sounds/alarms/beep-beep.oga");
     }
 
     public Type get_item_type () {

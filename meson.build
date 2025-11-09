@@ -6,6 +6,7 @@ project(
   meson_version: '>= 0.59.0',
 )
 
+fs = import('fs')
 gnome = import('gnome')
 i18n = import('i18n')
 
