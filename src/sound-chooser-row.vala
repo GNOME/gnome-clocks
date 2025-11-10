@@ -1,0 +1,48 @@
+/*
+ * Copyright (C) 2025  Adrien Plazas <aplazas@gnome.org>
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+namespace Clocks {
+
+[GtkTemplate (ui = "/org/gnome/clocks/ui/sound-chooser-row.ui")]
+private class SoundChooserRow : Adw.ActionRow {
+    public Sound sound { get; construct set; }
+    public bool ringing { get; set; }
+    public bool selected { get; set; }
+
+    construct {
+        notify["ringing"].connect (() => update_accessibility ());
+        notify["selected"].connect (() => update_accessibility ());
+        update_accessibility ();
+    }
+
+    public SoundChooserRow (Sound sound) {
+        Object (sound: sound);
+    }
+
+    private void update_accessibility () {
+        if (selected) {
+            update_state (Gtk.AccessibleState.CHECKED, ringing,
+                          Gtk.AccessibleState.SELECTED, selected);
+        } else {
+            reset_state (Gtk.AccessibleState.CHECKED);
+            update_state (Gtk.AccessibleState.SELECTED, selected);
+        }
+    }
+}
+
+} // namespace Clocks

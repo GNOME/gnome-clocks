@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="ClocksSoundChooserRow" parent="AdwActionRow">
+    <property name="activatable">True</property>
+    <binding name="title">
+      <lookup name="label" type="ClocksSound">
+        <lookup name="sound">ClocksSoundChooserRow</lookup>
+      </lookup>
+    </binding>
+    <child>
+      <object class="GtkImage" id="pause_image">
+        <property name="accessible-role">presentation</property>
+        <property name="icon-name">media-playback-pause-symbolic</property>
+        <property name="visible" bind-source="ClocksSoundChooserRow" bind-property="ringing" bind-flags="sync-create" />
+      </object>
+    </child>
+    <child>
+      <object class="GtkImage" id="checkmark_image">
+        <property name="accessible-role">presentation</property>
+        <property name="icon-name">object-select-symbolic</property>
+        <property name="visible" bind-source="ClocksSoundChooserRow" bind-property="selected" bind-flags="sync-create" />
+      </object>
+    </child>
+  </template>
+</interface>

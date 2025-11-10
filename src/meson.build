@@ -16,6 +16,8 @@ clocks_vala_sources = files(
   'main.vala',
   'search-provider.vala',
   'sound.vala',
+  'sound-chooser.vala',
+  'sound-chooser-row.vala',
   'stopwatch-face.vala',
   'stopwatch-lap.vala',
   'stopwatch-laps-row.vala',

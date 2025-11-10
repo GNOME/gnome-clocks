@@ -9,6 +9,8 @@
     <file preprocess="xml-stripblanks">ui/alarm-row.ui</file>
     <file preprocess="xml-stripblanks">ui/alarm-setup-dialog.ui</file>
     <file preprocess="xml-stripblanks">ui/header-bar.ui</file>
+    <file preprocess="xml-stripblanks">ui/sound-chooser.ui</file>
+    <file preprocess="xml-stripblanks">ui/sound-chooser-row.ui</file>
     <file preprocess="xml-stripblanks">ui/stopwatch-face.ui</file>
     <file preprocess="xml-stripblanks">ui/stopwatch-laps-row.ui</file>
     <file preprocess="xml-stripblanks">ui/timer-face.ui</file>
@@ -23,6 +25,7 @@
     <file preprocess="xml-stripblanks">ui/world-standalone.ui</file>
     <file>sounds/complete.oga</file>
     <file>sounds/alarm-clock-elapsed.oga</file>
+    <file>sounds/silent</file>
   </gresource>
   <gresource prefix="/org/gnome/clocks/icons/16x16/actions/">
     <!-- The symbolic icons correctly centered, used in empty views -->
@@ -30,6 +33,7 @@
     <file alias="globe-centered-symbolic.svg">gtk/icons/globe-centered-symbolic.svg</file>
 
     <file alias="alarm-symbolic.svg">gtk/icons/alarm-symbolic.svg</file>
+    <file alias="bell-outline-none-symbolic.svg">gtk/icons/bell-outline-none-symbolic.svg</file>
     <file alias="globe-symbolic.svg">gtk/icons/globe-symbolic.svg</file>
     <file alias="stopwatch-symbolic.svg">gtk/icons/stopwatch-symbolic.svg</file>
     <file alias="timer-symbolic.svg">gtk/icons/timer-symbolic.svg</file>

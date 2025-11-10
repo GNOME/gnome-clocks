@@ -524,5 +524,15 @@ public class Bell : Object {
     }
 }
 
+public bool list_model_contains (ListModel model, Object? object) {
+    var n_items = model.get_n_items ();
+    for (var i = 0; i < n_items; i++) {
+        if (model.get_object (i) == object) {
+            return true;
+        }
+    }
+    return false;
+}
+
 } // namespace Utils
 } // namespace Clocks
