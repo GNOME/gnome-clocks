@@ -3,6 +3,9 @@
   <template class="ClocksAlarmDayPickerRow" parent="AdwPreferencesRow">
     <property name="activatable">False</property>
     <property name="selectable">False</property>
+    <accessibility>
+      <relation name="labelled-by">title</relation>
+    </accessibility>
     <child>
       <object class="GtkBox">
         <property name="spacing">9</property>
@@ -12,7 +15,7 @@
         <property name="margin-bottom">12</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkLabel">
+          <object class="GtkLabel" id="title">
             <property name="halign">start</property>
             <property name="label" translatable="yes">Repeat</property>
             <property name="use-underline">True</property>
