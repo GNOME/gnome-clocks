@@ -56,6 +56,13 @@ private class LocationDialogRow : Gtk.ListBoxRow {
         sensitive = !data.selected;
 
         data.bind_property ("selected", this, "clock-selected", SYNC_CREATE);
+
+        notify["clock-selected"].connect (update_accessibility);
+        update_accessibility ();
+    }
+
+    private void update_accessibility () {
+        update_state (Gtk.AccessibleState.SELECTED, clock_selected);
     }
 }
 

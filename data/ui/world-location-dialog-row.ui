@@ -57,6 +57,7 @@
         <child>
           <object class="GtkImage">
             <property name="visible" bind-source="ClocksWorldLocationDialogRow" bind-property="clock-selected" bind-flags="sync-create"/>
+            <property name="accessible-role">presentation</property>
             <property name="icon_name">object-select-symbolic</property>
           </object>
         </child>
