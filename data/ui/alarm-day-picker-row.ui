@@ -2,6 +2,7 @@
 <interface>
   <template class="ClocksAlarmDayPickerRow" parent="AdwPreferencesRow">
     <property name="activatable">False</property>
+    <property name="focusable">False</property>
     <property name="selectable">False</property>
     <accessibility>
       <relation name="labelled-by">title</relation>
