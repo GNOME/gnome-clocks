@@ -40,6 +40,7 @@
             <signal name="notify::search-mode-enabled" handler="on_search_mode_notify" swapped="no"/>
             <property name="child">
               <object class="GtkSearchEntry" id="location_entry">
+                <property name="placeholder-text" translatable="yes">City</property>
                 <signal name="search-changed" handler="on_search_changed" swapped="no"/>
               </object>
             </property>
