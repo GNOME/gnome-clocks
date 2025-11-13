@@ -44,9 +44,17 @@
                 <property name="margin-bottom">12</property>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">1 m</property>
                     <property name="action_name">timer-setup.start-timer</property>
                     <property name="action_target">1</property>
+                    <accessibility>
+                      <property name="label" translatable="yes" comments="Translators: An accessible timer quick start value">One minute</property>
+                    </accessibility>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="accessible-role">presentation</property>
+                        <property name="label" translatable="yes" comments="Translators: A timer quick start value">1 m</property>
+                      </object>
+                    </child>
                     <layout>
                       <property name="column">0</property>
                       <property name="row">0</property>
@@ -55,9 +63,17 @@
                 </child>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">2 m</property>
                     <property name="action_name">timer-setup.start-timer</property>
                     <property name="action_target">2</property>
+                    <accessibility>
+                      <property name="label" translatable="yes" comments="Translators: An accessible timer quick start value">Two minutes</property>
+                    </accessibility>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="accessible-role">presentation</property>
+                        <property name="label" translatable="yes" comments="Translators: A timer quick start value">2 m</property>
+                      </object>
+                    </child>
                     <layout>
                       <property name="column">1</property>
                       <property name="row">0</property>
@@ -66,9 +82,17 @@
                 </child>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">3 m</property>
                     <property name="action_name">timer-setup.start-timer</property>
                     <property name="action_target">3</property>
+                    <accessibility>
+                      <property name="label" translatable="yes" comments="Translators: An accessible timer quick start value">Three minutes</property>
+                    </accessibility>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="accessible-role">presentation</property>
+                        <property name="label" translatable="yes" comments="Translators: A timer quick start value">3 m</property>
+                      </object>
+                    </child>
                     <layout>
                       <property name="column">2</property>
                       <property name="row">0</property>
@@ -77,9 +101,17 @@
                 </child>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">5 m</property>
                     <property name="action_name">timer-setup.start-timer</property>
                     <property name="action_target">5</property>
+                    <accessibility>
+                      <property name="label" translatable="yes" comments="Translators: An accessible timer quick start value">Five minutes</property>
+                    </accessibility>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="accessible-role">presentation</property>
+                        <property name="label" translatable="yes" comments="Translators: A timer quick start value">5 m</property>
+                      </object>
+                    </child>
                     <layout>
                       <property name="column">3</property>
                       <property name="row">0</property>
@@ -88,9 +120,17 @@
                 </child>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">30 m</property>
                     <property name="action_name">timer-setup.start-timer</property>
                     <property name="action_target">30</property>
+                    <accessibility>
+                      <property name="label" translatable="yes" comments="Translators: An accessible timer quick start value">Thirty minutes</property>
+                    </accessibility>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="accessible-role">presentation</property>
+                        <property name="label" translatable="yes" comments="Translators: A timer quick start value">30 m</property>
+                      </object>
+                    </child>
                     <layout>
                       <property name="column">1</property>
                       <property name="row">1</property>
@@ -99,9 +139,17 @@
                 </child>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">15 m</property>
                     <property name="action_name">timer-setup.start-timer</property>
                     <property name="action_target">15</property>
+                    <accessibility>
+                      <property name="label" translatable="yes" comments="Translators: An accessible timer quick start value">Fifteen minutes</property>
+                    </accessibility>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="accessible-role">presentation</property>
+                        <property name="label" translatable="yes" comments="Translators: A timer quick start value">15 m</property>
+                      </object>
+                    </child>
                     <layout>
                       <property name="column">0</property>
                       <property name="row">1</property>
@@ -110,9 +158,17 @@
                 </child>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">45 m</property>
                     <property name="action_name">timer-setup.start-timer</property>
                     <property name="action_target">45</property>
+                    <accessibility>
+                      <property name="label" translatable="yes" comments="Translators: An accessible timer quick start value">Fortyfive minutes</property>
+                    </accessibility>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="accessible-role">presentation</property>
+                        <property name="label" translatable="yes" comments="Translators: A timer quick start value">45 m</property>
+                      </object>
+                    </child>
                     <layout>
                       <property name="column">2</property>
                       <property name="row">1</property>
@@ -121,9 +177,17 @@
                 </child>
                 <child>
                   <object class="GtkButton">
-                    <property name="label" translatable="yes">1 h</property>
                     <property name="action_name">timer-setup.start-timer</property>
                     <property name="action_target">60</property>
+                    <accessibility>
+                      <property name="label" translatable="yes" comments="Translators: An accessible timer quick start value">One hour</property>
+                    </accessibility>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="accessible-role">presentation</property>
+                        <property name="label" translatable="yes" comments="Translators: A timer quick start value">1 h</property>
+                      </object>
+                    </child>
                     <layout>
                       <property name="column">3</property>
                       <property name="row">1</property>
