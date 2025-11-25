@@ -175,6 +175,7 @@ public class SearchProvider : Object {
     }
 
     public void launch_search (string[] terms, uint32 timestamp) throws GLib.DBusError, GLib.IOError {
+        activate (timestamp);
     }
 
     private void renew_inactivity_timeout () {
