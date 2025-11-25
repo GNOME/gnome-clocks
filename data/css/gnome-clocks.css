@@ -104,6 +104,12 @@
 	background-color: color-mix(in srgb, var(--pill-color) 25%, transparent);
 }
 
+@media (prefers-contrast: more) {
+	.clock-time {
+		font-weight: bold;
+	}
+}
+
 .none {
 	--pill-color: var(--card-fg-color);
 }
