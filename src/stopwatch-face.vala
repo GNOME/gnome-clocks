@@ -91,7 +91,9 @@ public class Face : Gtk.Box, Clocks.Clock {
             var total_items = laps.get_n_items ();
             Lap? before = null;
             if (total_items > 1) {
-                before = (Lap)laps.get_item (total_items - 1); // Get the latest item
+                // Get the previous item, which is at index 1 as they
+                // are stored in reverse order.
+                before = (Lap)laps.get_item (1);
             }
             var lap_row = new LapsRow ((Lap)lap, before);
             return lap_row;
