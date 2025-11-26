@@ -159,8 +159,12 @@ public class Face : Adw.Bin, Clocks.Clock {
     }
 
     public virtual signal void ring () {
-        var app = (Clocks.Application) GLib.Application.get_default ();
-        app.send_notification ("timer-is-up", notification);
+        var window = (Clocks.Window) get_root ();
+        // Don't send a notification if the window is focused.
+        if (!window.is_active) {
+            var app = (Clocks.Application) GLib.Application.get_default ();
+            app.send_notification ("timer-is-up", notification);
+        }
         bell.ring_once ();
     }
 
