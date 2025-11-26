@@ -96,8 +96,8 @@ public class Face : Adw.Bin, Clocks.Clock {
         });
 
         listbox.row_activated.connect ((row) => {
-           var alarm = ((Row) row).alarm;
-           this.edit (alarm);
+            var alarm = ((Row) row).alarm;
+            this.edit (alarm);
         });
 
         load ();
