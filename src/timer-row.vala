@@ -137,12 +137,6 @@ public class Row : Gtk.ListBoxRow {
         start_stack.visible_child_name = "pause";
         name_revealer.reveal_child = (timer_name.label != "");
         name_stack.visible_child_name = "display";
-
-        update_countdown (
-            item.get_stored_hour (),
-            item.get_stored_minute (),
-            item.get_stored_second ()
-        );
     }
 
     private void ring () {
