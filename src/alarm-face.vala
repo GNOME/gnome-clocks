@@ -79,6 +79,7 @@ public class Face : Adw.Bin, Clocks.Clock {
             var row = new Row ((Item) item);
 
             item.notify["ring-time"].connect (() => {
+                ensure_unique_non_repeating ((Item) item);
                 show_ring_time_toast ((Item) item);
                 save ();
             });
@@ -185,6 +186,7 @@ public class Face : Adw.Bin, Clocks.Clock {
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
                 // Activate the alarm after editing it
                 alarm.active = true;
+                ensure_unique_non_repeating (alarm);
                 save ();
             } else if (response == DELETE_ALARM) {
                 alarms.delete_item (alarm);
@@ -199,12 +201,27 @@ public class Face : Adw.Bin, Clocks.Clock {
         stack.visible_child = alarms.get_n_items () == 0 ? empty_view : list_view;
     }
 
+    // This ensures that only the given active non-repeating alarm is
+    // active for its time.
+    private void ensure_unique_non_repeating (Item alarm) {
+        if (!alarm.active || !alarm.days.empty)
+            return;
+
+        alarms.foreach ((i) => {
+            var item = (Item) i;
+            if (alarm != item && alarm.time.is_eq (item.time) && item.days.empty) {
+                item.active = false;
+            }
+        });
+    }
+
     public void activate_new () {
         var dialog = new SetupDialog (null, alarms);
         dialog.response.connect ((dialog, response) => {
             if (response == SetupDialog.Response.ADD) {
                 var alarm = new Item ();
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
+                ensure_unique_non_repeating (alarm);
                 alarms.add (alarm);
                 connect_item (alarm);
                 // We need to send the toast manually since the ring time doesn't change
