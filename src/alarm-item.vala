@@ -371,7 +371,15 @@ private class Item : Object, ContentItem {
     }
 
     public static int compare (Item a, Item b) {
-        return a.time.compare (b.time);
+        int result = a.time.compare (b.time);
+        if (result != 0) {
+            return result;
+        }
+        result = a.days.compare (b.days);
+        if (result != 0) {
+            return result;
+        }
+        return a.name.collate (b.name);
     }
 }
 

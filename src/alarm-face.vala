@@ -126,6 +126,12 @@ public class Face : Adw.Bin, Clocks.Clock {
     internal signal void ring (Item item);
 
     private void connect_item (Item item) {
+        item.notify["days"].connect (() => {
+            sorted_alarms.sorter.changed (DIFFERENT);
+        });
+        item.notify["name"].connect (() => {
+            sorted_alarms.sorter.changed (DIFFERENT);
+        });
         item.notify["time"].connect (() => {
             sorted_alarms.sorter.changed (DIFFERENT);
         });

@@ -477,6 +477,25 @@ public class Weekdays {
         }
         return d;
     }
+
+    public int compare (Weekdays other) {
+        // Empty weekdays first.
+        int result = -compare_bool (this.empty, other.empty);
+        if (result != 0) {
+            return result;
+        }
+
+        // Sort by weekdays
+        for (int i = 0; i < 7; i++) {
+            Day d = (Day.get_first_weekday () + i) % 7;
+            result = -compare_bool (this.get (d), other.get (d));
+            if (result != 0) {
+                return result;
+            }
+        }
+
+        return 0;
+    }
 }
 
 public class Bell : Object {
@@ -532,6 +551,10 @@ public bool list_model_contains (ListModel model, Object? object) {
         }
     }
     return false;
+}
+
+public int compare_bool (bool a, bool b) {
+    return ((int) a) - ((int) b);
 }
 
 } // namespace Utils
