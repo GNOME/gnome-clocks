@@ -181,7 +181,7 @@ public class Face : Adw.Bin, Clocks.Clock {
         var dialog = new SetupDialog (alarm, alarms);
 
         dialog.response.connect ((dialog, response) => {
-            if (response == Gtk.ResponseType.OK) {
+            if (response == SetupDialog.Response.ADD) {
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
                 // Activate the alarm after editing it
                 alarm.active = true;
@@ -202,7 +202,7 @@ public class Face : Adw.Bin, Clocks.Clock {
     public void activate_new () {
         var dialog = new SetupDialog (null, alarms);
         dialog.response.connect ((dialog, response) => {
-            if (response == Gtk.ResponseType.OK) {
+            if (response == SetupDialog.Response.ADD) {
                 var alarm = new Item ();
                 ((SetupDialog) dialog).apply_to_alarm (alarm);
                 alarms.add (alarm);

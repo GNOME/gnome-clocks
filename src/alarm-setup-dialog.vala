@@ -74,6 +74,11 @@ private class DurationModel : ListModel, Object {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm-setup-dialog.ui")]
 private class SetupDialog : Adw.Dialog {
+    public enum Response {
+        CANCEL,
+        ADD,
+    }
+
     private Utils.WallClock.Format format;
     [GtkChild]
     private unowned Gtk.Box time_box;
@@ -295,15 +300,15 @@ private class SetupDialog : Adw.Dialog {
 
     [GtkCallback]
     private void add () {
-        response (Gtk.ResponseType.OK);
+        response (Response.ADD);
     }
 
     [GtkCallback]
     private void cancel () {
-        response (Gtk.ResponseType.CANCEL);
+        response (Response.CANCEL);
     }
 
-    public signal void response (int response);
+    public signal void response (Response response);
 }
 
 } // namespace Alarm
