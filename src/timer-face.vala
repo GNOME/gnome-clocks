@@ -76,6 +76,7 @@ public class Face : Adw.Bin, Clocks.Clock {
                 this.button_mode = NONE;
             }
             save ();
+            this.is_running = this.get_total_active_timers () != 0;
         });
 
         bell = new Utils.Bell (GLib.File.new_for_uri ("resource://org/gnome/clocks/sounds/complete.oga"));
