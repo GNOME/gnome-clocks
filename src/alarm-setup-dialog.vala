@@ -153,14 +153,14 @@ private class SetupDialog : Adw.Dialog {
 
         if (format == Utils.WallClock.Format.TWENTYFOUR) {
             h_spinbutton.set_range (0, 23);
-            am_pm_bin.hide ();
+            am_pm_bin.visible = false;
         } else {
             h_spinbutton.set_range (1, 12);
             am_pm_button.hexpand = false;
             am_pm_button.vexpand = false;
             am_pm_button.halign = Gtk.Align.CENTER;
             am_pm_button.valign = Gtk.Align.CENTER;
-            am_pm_bin.show ();
+            am_pm_bin.visible = true;
             am_pm_bin.set_child (am_pm_button);
         }
 
