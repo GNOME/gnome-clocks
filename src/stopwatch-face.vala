@@ -102,10 +102,8 @@ public class Face : Gtk.Box, Clocks.Clock {
         laps.items_changed.connect (() => {
             if (laps.get_n_items () == 0) {
                 this.container.valign = CENTER;
-                this.container.margin_top = 0;
             } else {
                 this.container.valign = FILL;
-                this.container.margin_top = 36;
             }
         });
 

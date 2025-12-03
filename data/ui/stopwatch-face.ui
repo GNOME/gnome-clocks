@@ -3,21 +3,27 @@
   <template class="ClocksStopwatchFace" parent="GtkBox">
     <property name="orientation">vertical</property>
     <child>
-      <object class="GtkScrolledWindow">
-        <property name="min_content_width">300</property>
-        <property name="vexpand">True</property>
-        <property name="hscrollbar_policy">never</property>
+      <object class="AdwToolbarView">
+        <!-- AdwToolbarView is needed to correctly draw the scrolled
+             window's bottom undershoot. Without it, it will only be
+             drawn if the window's AdwToolbarView bottom child is
+             visible. -->
         <child>
-          <object class="AdwClamp">
-            <property name="maximum_size">380</property>
+          <object class="GtkScrolledWindow">
+            <property name="hscrollbar-policy">never</property>
+            <property name="min-content-width">300</property>
+            <property name="vexpand">True</property>
             <child>
               <object class="GtkBox" id="container">
-                <property name="valign">center</property>
+                <property name="margin-bottom">18</property>
+                <property name="margin-top">18</property>
                 <property name="orientation">vertical</property>
+                <property name="valign">center</property>
                 <child>
                   <object class="GtkBox" id="time_container">
                     <property name="halign">center</property>
-                    <property name="margin_bottom">18</property>
+                    <property name="margin-bottom">18</property>
+                    <property name="margin-top">18</property>
                     <child>
                       <object class="GtkLabel" id="hours_label">
                         <property name="label">00</property>
@@ -91,56 +97,66 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkBox">
-                    <property name="spacing">12</property>
-                    <property name="margin-end">18</property>
-                    <property name="margin-start">18</property>
+                  <object class="GtkRevealer" id="laps_revealer">
+                    <property name="transition-type">crossfade</property>
                     <child>
-                      <object class="GtkButton" id="start_btn">
-                        <property name="label" translatable="yes">St_art</property>
-                        <property name="width_request">120</property>
-                        <property name="use_underline">True</property>
-                        <property name="hexpand">True</property>
-                        <property name="halign">start</property>
-                        <signal name="clicked" handler="on_start_btn_clicked" swapped="no"/>
-                        <style>
-                          <class name="suggested-action"/>
-                          <class name="large-button"/>
-                          <class name="pill"/>
-                        </style>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkButton" id="clear_btn">
-                        <property name="label" translatable="yes">_Clear</property>
-                        <property name="width_request">120</property>
-                        <property name="use_underline">True</property>
-                        <property name="halign">end</property>
-                        <signal name="clicked" handler="on_clear_btn_clicked" swapped="no"/>
-                        <style>
-                          <class name="large-button"/>
-                          <class name="pill"/>
-                        </style>
+                      <object class="AdwClamp">
+                        <property name="maximum-size">380</property>
+                        <child>
+                          <object class="GtkListBox" id="laps_list">
+                            <property name="margin-end">12</property>
+                            <property name="margin-start">12</property>
+                            <property name="selection-mode">none</property>
+                            <property name="valign">start</property>
+                            <style>
+                              <class name="boxed-list"/>
+                            </style>
+                          </object>
+                        </child>
                       </object>
                     </child>
                   </object>
                 </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child type="bottom">
+          <object class="AdwClamp">
+            <property name="maximum-size">380</property>
+            <child>
+              <object class="GtkBox">
+                <property name="margin-bottom">6</property>
+                <property name="margin-end">18</property>
+                <property name="margin-start">18</property>
+                <property name="margin-top">6</property>
+                <property name="spacing">6</property>
                 <child>
-                  <object class="GtkRevealer" id="laps_revealer">
-                    <property name="transition_type">crossfade</property>
-                    <child>
-                      <object class="GtkListBox" id="laps_list">
-                        <property name="valign">start</property>
-                        <property name="selection_mode">none</property>
-                        <property name="margin-top">18</property>
-                        <property name="margin-bottom">18</property>
-                        <property name="margin-start">12</property>
-                        <property name="margin-end">12</property>
-                        <style>
-                          <class name="boxed-list"/>
-                        </style>
-                      </object>
-                    </child>
+                  <object class="GtkButton" id="start_btn">
+                    <property name="halign">start</property>
+                    <property name="hexpand">True</property>
+                    <property name="label" translatable="yes">St_art</property>
+                    <property name="use-underline">True</property>
+                    <property name="width-request">120</property>
+                    <signal name="clicked" handler="on_start_btn_clicked" swapped="no"/>
+                    <style>
+                      <class name="large-button"/>
+                      <class name="pill"/>
+                      <class name="suggested-action"/>
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="clear_btn">
+                    <property name="halign">end</property>
+                    <property name="label" translatable="yes">_Clear</property>
+                    <property name="use-underline">True</property>
+                    <property name="width-request">120</property>
+                    <signal name="clicked" handler="on_clear_btn_clicked" swapped="no"/>
+                    <style>
+                      <class name="large-button"/>
+                      <class name="pill"/>
+                    </style>
                   </object>
                 </child>
               </object>
