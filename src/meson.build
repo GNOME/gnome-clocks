@@ -9,6 +9,7 @@ clocks_vala_sources = files(
   'alarm-ringing-panel.vala',
   'alarm-row.vala',
   'alarm-setup-dialog.vala',
+  'alarm-sound-model.vala',
   'application.vala',
   'clock.vala',
   'geocoding.vala',

@@ -188,7 +188,7 @@ private class Item : Object, ContentItem {
     }
 
     private void setup_bell () {
-        bell = new Utils.Bell (GLib.File.new_for_uri ("resource:///org/gnome/clocks/sounds/alarm-clock-elapsed.oga"));
+        bell = new Utils.Bell (SoundModel.build_default_file ());
         notification = new GLib.Notification (_("Alarm"));
         notification.set_body (name);
         notification.set_priority (HIGH);
