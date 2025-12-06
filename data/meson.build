@@ -1,13 +1,13 @@
-scalable_iconsdir = join_paths('icons', 'hicolor', 'scalable', 'apps')
+scalable_iconsdir = 'icons' / 'hicolor' / 'scalable' / 'apps'
 install_data(
-  join_paths(scalable_iconsdir, '@0@.svg'.format(app_id)),
-  install_dir: join_paths(get_option('datadir'), scalable_iconsdir)
+  scalable_iconsdir / '@0@.svg'.format(app_id),
+  install_dir: get_option('datadir') / scalable_iconsdir,
 )
 
-symbolic_iconsdir = join_paths('icons', 'hicolor', 'symbolic', 'apps')
+symbolic_iconsdir = 'icons' / 'hicolor' / 'symbolic' / 'apps'
 install_data(
-  join_paths(symbolic_iconsdir, 'org.gnome.clocks-symbolic.svg'),
-  install_dir: join_paths(get_option('datadir'), symbolic_iconsdir),
+  symbolic_iconsdir / 'org.gnome.clocks-symbolic.svg',
+  install_dir: get_option('datadir') / symbolic_iconsdir,
   rename: '@0@-symbolic.svg'.format(app_id)
 )
 
@@ -28,7 +28,7 @@ desktop_file = i18n.merge_file(
   output: '@0@.desktop'.format(app_id),
   po_dir: podir,
   install: true,
-  install_dir: join_paths(get_option('datadir'), 'applications')
+  install_dir: get_option('datadir') / 'applications',
 )
 
 # Validate Desktop file
@@ -45,14 +45,14 @@ endif
 
 
 dbusconf = configuration_data()
-dbusconf.set('bindir', join_paths(get_option('prefix'), get_option('bindir')))
+dbusconf.set('bindir', get_option('prefix') / get_option('bindir'))
 dbusconf.set('name', app_id)
 configure_file(
   input: 'org.gnome.clocks.service.in',
   output: '@0@.service'.format(app_id),
   configuration: dbusconf,
   install: true,
-  install_dir: join_paths(get_option('datadir'), 'dbus-1', 'services'),
+  install_dir: get_option('datadir') / 'dbus-1' / 'services',
 )
 
 metainfo_conf = configuration_data()
@@ -66,7 +66,7 @@ metainfo_file = i18n.merge_file (
   output: '@0@.metainfo.xml'.format(app_id),
   po_dir: podir,
   install: true,
-  install_dir: join_paths(get_option('datadir'), 'metainfo')
+  install_dir: get_option('datadir') / 'metainfo',
 )
 
 # Validate metainfo
@@ -88,7 +88,7 @@ configure_file(
   output: '@0@.search-provider.ini'.format(app_id),
   configuration: search_conf,
   install: true,
-  install_dir: join_paths(get_option('datadir'), 'gnome-shell', 'search-providers'),
+  install_dir: get_option('datadir') / 'gnome-shell' / 'search-providers',
 )
 
 gsettingsconf = configuration_data()
@@ -98,7 +98,7 @@ configure_file(
   output: '@BASENAME@',
   configuration: gsettingsconf,
   install: true,
-  install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas'),
+  install_dir: get_option('datadir') / 'glib-2.0' / 'schemas',
 )
 
 glib_compile_schemas = find_program('glib-compile-schemas', required: false)

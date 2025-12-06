@@ -37,7 +37,7 @@ int main() {
 )
 
 msgfmt = find_program('msgfmt')
-podir = join_paths(meson.project_source_root(), 'po')
+podir = meson.project_source_root() / 'po'
 
 if get_option('profile') == 'development'
   name_prefix = '(Development) '
@@ -58,8 +58,8 @@ conf.set_quoted('PACKAGE_VERSION', meson.project_version())
 conf.set_quoted('PROFILE', profile)
 conf.set_quoted('VERSION', meson.project_version())
 conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
-conf.set_quoted('DATADIR', join_paths(get_option('prefix'), get_option('datadir')))
-conf.set_quoted('GNOMELOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
+conf.set_quoted('DATADIR', get_option('prefix') / get_option('datadir'))
+conf.set_quoted('GNOMELOCALEDIR', get_option('prefix') / get_option('localedir'))
 if have_first_weekday
   conf.set('HAVE__NL_TIME_FIRST_WEEKDAY', '1')
 endif
