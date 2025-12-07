@@ -23,7 +23,8 @@
                 <property name="column_spacing">24</property>
                 <child>
                   <object class="GtkButton" id="stop_button">
-                    <property name="label" translatable="yes">Stop</property>
+                    <property name="label" translatable="yes">_Stop</property>
+                    <property name="use-underline">True</property>
                     <property name="width_request">200</property>
                     <style>
                       <class name="pill"/>
@@ -38,7 +39,8 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="snooze_button">
-                    <property name="label" translatable="yes">Snooze</property>
+                    <property name="label" translatable="yes">S_nooze</property>
+                    <property name="use-underline">True</property>
                     <property name="width_request">200</property>
                     <style>
                       <class name="pill"/>
