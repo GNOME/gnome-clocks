@@ -110,16 +110,25 @@ public class Item : Object, ContentItem {
 
         span = get_total_seconds ();
         timer = new GLib.Timer ();
+    }
 
-        timeout_id = 0;
+    ~Item () {
+        if (timeout_id != 0) {
+            Source.remove (timeout_id);
+            timeout_id = 0;
+        }
     }
 
     private void update_state () {
+        if (timeout_id != 0) {
+            Source.remove (timeout_id);
+            timeout_id = 0;
+        }
+
         switch (_state) {
         case State.STOPPED:
             span = get_total_seconds ();
             timer.reset ();
-            timeout_id = 0;
             break;
         case State.PAUSED:
             span -= timer.elapsed ();
@@ -134,6 +143,7 @@ public class Item : Object, ContentItem {
 
     private bool tick_cb () {
         if (state != State.RUNNING) {
+            timeout_id = 0;
             return Source.REMOVE;
         }
 
