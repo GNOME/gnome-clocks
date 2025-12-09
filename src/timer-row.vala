@@ -83,12 +83,7 @@ public class Row : Gtk.ListBoxRow {
         paused_animation.repeat_count = Adw.DURATION_INFINITE;
         paused_animation.easing = Adw.Easing.LINEAR;
 
-        if (item.state == RUNNING)
-            start ();
-        else if (item.state == PAUSED)
-            pause ();
-        else
-            reset ();
+        update_state ();
     }
 
     [GtkCallback]
@@ -104,6 +99,16 @@ public class Row : Gtk.ListBoxRow {
     [GtkCallback]
     private void on_reset_button_clicked () {
         item.reset ();
+    }
+
+    private void update_state () {
+        if (item == null || item.state == STOPPED) {
+            reset ();
+        } else if (item.state == PAUSED) {
+            pause ();
+        } else if (item.state == RUNNING) {
+            start ();
+        }
     }
 
     private void reset () {
