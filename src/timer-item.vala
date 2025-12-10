@@ -108,8 +108,8 @@ public class Item : Object, ContentItem {
         minutes = m;
         seconds = s;
 
-        span = get_total_seconds ();
         timer = new GLib.Timer ();
+        update_state ();
     }
 
     ~Item () {
@@ -127,8 +127,13 @@ public class Item : Object, ContentItem {
 
         switch (_state) {
         case State.STOPPED:
+            stored_hour = hours;
+            stored_minute = minutes;
+            stored_second = seconds;
             span = get_total_seconds ();
             timer.reset ();
+            state = State.STOPPED;
+            countdown_updated (stored_hour, stored_minute, stored_second);
             break;
         case State.PAUSED:
             span -= timer.elapsed ();
