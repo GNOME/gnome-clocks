@@ -27,7 +27,19 @@ public class Item : Object, ContentItem {
         PAUSED
     }
 
-    public State state { get; private set; default = State.STOPPED; }
+    private State _state;
+    public State state {
+        get { return _state; }
+
+        private set {
+            if (_state == value) {
+                return;
+            }
+
+            _state = value;
+            update_state ();
+        }
+    }
 
     public string? name { get ; set; }
     public int hours { get; set; default = 0; }
@@ -102,6 +114,24 @@ public class Item : Object, ContentItem {
         timeout_id = 0;
     }
 
+    private void update_state () {
+        switch (_state) {
+        case State.STOPPED:
+            span = get_total_seconds ();
+            timer.reset ();
+            timeout_id = 0;
+            break;
+        case State.PAUSED:
+            span -= timer.elapsed ();
+            timer.stop ();
+            break;
+        case State.RUNNING:
+            timeout_id = GLib.Timeout.add (100, tick_cb);
+            timer.start ();
+            break;
+        }
+    }
+
     private bool tick_cb () {
         if (state != State.RUNNING) {
             return Source.REMOVE;
@@ -134,8 +164,6 @@ public class Item : Object, ContentItem {
 
     public virtual signal void start () {
         state = State.RUNNING;
-        timeout_id = GLib.Timeout.add (100, tick_cb);
-        timer.start ();
     }
 
     public int get_stored_hour () {
@@ -152,15 +180,10 @@ public class Item : Object, ContentItem {
 
     public virtual signal void pause () {
         state = State.PAUSED;
-        span -= timer.elapsed ();
-        timer.stop ();
     }
 
     public virtual signal void reset () {
         state = State.STOPPED;
-        span = get_total_seconds ();
-        timer.reset ();
-        timeout_id = 0;
     }
 
     public static int compare (Item a, Item b) {
