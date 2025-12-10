@@ -105,17 +105,23 @@ public class Row : Gtk.ListBoxRow {
 
     [GtkCallback]
     private void on_start_button_clicked () {
-        item.state = Item.State.RUNNING;
+        if (item != null) {
+            item.state = Item.State.RUNNING;
+        }
     }
 
     [GtkCallback]
     private void on_pause_button_clicked () {
-        item.state = Item.State.PAUSED;
+        if (item != null) {
+            item.state = Item.State.PAUSED;
+        }
     }
 
     [GtkCallback]
     private void on_reset_button_clicked () {
-        item.state = Item.State.STOPPED;
+        if (item != null) {
+            item.state = Item.State.STOPPED;
+        }
     }
 
     private void update_state () {
@@ -146,18 +152,18 @@ public class Row : Gtk.ListBoxRow {
         }
 
         if (paused_animation != null) {
-            if (item.state == Item.State.PAUSED)
+            if (item != null && item.state == Item.State.PAUSED) {
                 paused_animation.play ();
             } else {
                 paused_animation.pause ();
             }
         }
 
-        update_countdown (
-            item.get_stored_hour (),
-            item.get_stored_minute (),
-            item.get_stored_second ()
-        );
+        if (item != null) {
+            update_countdown (item.get_stored_hour (), item.get_stored_minute (), item.get_stored_second ());
+        } else {
+            update_countdown (0, 0, 0);
+        }
     }
 
     private void ring () {
