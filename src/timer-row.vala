@@ -34,8 +34,6 @@ public class Row : Gtk.ListBoxRow {
             title.bind_property ("text", _item, "name");
             timer_name.label = (string) _item.name;
             title.bind_property ("text", timer_name, "label");
-
-            _item.notify["name"].connect (() => edited ());
         }
     }
     private Item _item;
@@ -66,7 +64,6 @@ public class Row : Gtk.ListBoxRow {
     private unowned Gtk.Entry title;
 
     public signal void deleted ();
-    public signal void edited ();
 
     public Row (Item item) {
         Object (item: item);

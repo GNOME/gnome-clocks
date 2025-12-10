@@ -59,7 +59,7 @@ public class Face : Adw.Bin, Clocks.Clock {
         timers_list.bind_model (sorted_timers, (timer) => {
             var row = new Row ((Item) timer);
             row.deleted.connect (() => remove_timer ((Item) timer));
-            row.edited.connect (() => save ());
+            ((Item)timer).notify["name"].connect (() => save ());
             ((Item)timer).ring.connect (() => ring ());
             ((Item)timer).notify["state"].connect (() => {
                 this.is_running = this.get_total_active_timers () != 0;
