@@ -142,6 +142,7 @@ public class Item : Object, ContentItem {
         case State.RUNNING:
             timeout_id = GLib.Timeout.add (100, tick_cb);
             timer.start ();
+            countdown_updated (stored_hour, stored_minute, stored_second);
             break;
         }
     }
