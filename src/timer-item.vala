@@ -42,9 +42,9 @@ public class Item : Object, ContentItem {
     }
 
     public string? name { get ; set; }
-    public int hours { get; set; default = 0; }
-    public int minutes { get; set; default = 0; }
-    public int seconds { get; set; default = 0; }
+    public int hours { get; construct set; default = 0; }
+    public int minutes { get; construct set; default = 0; }
+    public int seconds { get; construct set; default = 0; }
 
     private double span;
     private GLib.Timer timer;
@@ -56,6 +56,11 @@ public class Item : Object, ContentItem {
 
     public signal void ring ();
     public signal void countdown_updated (int hours, int minutes, int seconds);
+
+    construct {
+        timer = new GLib.Timer ();
+        update_state ();
+    }
 
     public int get_total_seconds () {
         return hours * 3600 + minutes * 60 + seconds;
@@ -95,17 +100,11 @@ public class Item : Object, ContentItem {
         int h = seconds / 3600;
         int m = (seconds / 60) % 60;
         int s = seconds % 60;
-        this (h, m, s, name);
+        Object (hours: h, minutes: m, seconds: s, name: name);
     }
 
     public Item (int h, int m, int s, string? name) {
-        Object (name: name);
-        hours = h;
-        minutes = m;
-        seconds = s;
-
-        timer = new GLib.Timer ();
-        update_state ();
+        Object (hours: h, minutes: m, seconds: s, name: name);
     }
 
     ~Item () {
