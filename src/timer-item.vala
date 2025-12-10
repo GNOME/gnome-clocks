@@ -31,7 +31,7 @@ public class Item : Object, ContentItem {
     public State state {
         get { return _state; }
 
-        private set {
+        set {
             if (_state == value) {
                 return;
             }
@@ -140,7 +140,7 @@ public class Item : Object, ContentItem {
         var e = timer.elapsed ();
         if (e >= span) {
             timeout_id = 0;
-            reset ();
+            state = Item.State.STOPPED;
             ring ();
             return Source.REMOVE;
         }
@@ -162,10 +162,6 @@ public class Item : Object, ContentItem {
         return Source.CONTINUE;
     }
 
-    public virtual signal void start () {
-        state = State.RUNNING;
-    }
-
     public int get_stored_hour () {
         return stored_hour;
     }
@@ -176,14 +172,6 @@ public class Item : Object, ContentItem {
 
     public int get_stored_second () {
         return stored_second;
-    }
-
-    public virtual signal void pause () {
-        state = State.PAUSED;
-    }
-
-    public virtual signal void reset () {
-        state = State.STOPPED;
     }
 
     public static int compare (Item a, Item b) {

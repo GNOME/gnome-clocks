@@ -34,9 +34,7 @@ public class Row : Gtk.ListBoxRow {
             if (_item != null) {
                 _item.countdown_updated.disconnect (this.update_countdown);
                 _item.ring.disconnect (this.ring);
-                _item.start.disconnect (this.start);
-                _item.pause.disconnect (this.pause);
-                _item.reset.disconnect (this.reset);
+                _item.notify["state"].disconnect (this.update_state);
                 name_binding.unbind ();
                 entry_binding.unbind ();
             }
@@ -46,9 +44,7 @@ public class Row : Gtk.ListBoxRow {
             if (_item != null) {
                 _item.countdown_updated.connect (this.update_countdown);
                 _item.ring.connect (this.ring);
-                _item.start.connect (this.start);
-                _item.pause.connect (this.pause);
-                _item.reset.connect (this.reset);
+                _item.notify["state"].connect (this.update_state);
                 name_binding = _item.bind_property ("name", timer_name, "label",
                                                     BindingFlags.SYNC_CREATE);
                 entry_binding = _item.bind_property ("name", title, "text",
@@ -109,17 +105,17 @@ public class Row : Gtk.ListBoxRow {
 
     [GtkCallback]
     private void on_start_button_clicked () {
-        item.start ();
+        item.state = Item.State.RUNNING;
     }
 
     [GtkCallback]
     private void on_pause_button_clicked () {
-        item.pause ();
+        item.state = Item.State.PAUSED;
     }
 
     [GtkCallback]
     private void on_reset_button_clicked () {
-        item.reset ();
+        item.state = Item.State.STOPPED;
     }
 
     private void update_state () {

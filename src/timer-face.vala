@@ -96,14 +96,14 @@ public class Face : Adw.Bin, Clocks.Clock {
             this.timers.add (timer);
             connect_item (timer);
 
-            timer.start ();
+            timer.state = Item.State.RUNNING;
         });
         start_button.clicked.connect (() => {
             var timer = this.timer_setup.get_timer ();
             this.timers.add (timer);
             connect_item (timer);
 
-            timer.start ();
+            timer.state = Item.State.RUNNING;
         });
         load ();
     }
@@ -128,7 +128,7 @@ public class Face : Adw.Bin, Clocks.Clock {
             var timer = ((SetupDialog) dialog).timer_setup.get_timer ();
             this.timers.add (timer);
             connect_item (timer);
-            timer.start ();
+            timer.state = Item.State.RUNNING;
             dialog.close ();
         });
         dialog.present (get_root ());
@@ -183,7 +183,7 @@ public class Face : Adw.Bin, Clocks.Clock {
         this.timers.foreach ((item) => {
                 var timer = (Item) item;
                 if (timer.state == Item.State.RUNNING) {
-                    timer.pause ();
+                    timer.state = Item.State.PAUSED;
                     res = true;
                 }
             });
