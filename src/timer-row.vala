@@ -120,46 +120,44 @@ public class Row : Gtk.ListBoxRow {
 
     private void update_state () {
         if (item == null || item.state == STOPPED) {
-            reset ();
+            delete_stack.visible_child_name = "button";
+            name_revealer.reveal_child = true;
+            name_stack.visible_child_name = "edit";
+            reset_stack.visible_child_name = "empty";
+            start_stack.visible_child_name = "start";
+
+            countdown_label.add_css_class ("dimmed");
+            countdown_label.remove_css_class ("accent");
         } else if (item.state == PAUSED) {
-            pause ();
+            delete_stack.visible_child_name = "button";
+            name_revealer.reveal_child = (timer_name.label != "");
+            name_stack.visible_child_name = "display";
+            reset_stack.visible_child_name = "button";
+            start_stack.visible_child_name = "start";
         } else if (item.state == RUNNING) {
-            start ();
+            delete_stack.visible_child_name = "empty";
+            name_revealer.reveal_child = (timer_name.label != "");
+            name_stack.visible_child_name = "display";
+            reset_stack.visible_child_name = "empty";
+            start_stack.visible_child_name = "pause";
+
+            countdown_label.add_css_class ("accent");
+            countdown_label.remove_css_class ("dimmed");
         }
-    }
-
-    private void reset () {
-        reset_stack.visible_child_name = "empty";
-        delete_stack.visible_child_name = "button";
-
-        countdown_label.remove_css_class ("accent");
-        countdown_label.add_css_class ("dimmed");
 
         if (paused_animation != null) {
-            paused_animation.pause ();
+            if (item.state == Item.State.PAUSED)
+                paused_animation.play ();
+            } else {
+                paused_animation.pause ();
+            }
         }
 
-        start_stack.visible_child_name = "start";
-        name_revealer.reveal_child = true;
-        name_stack.visible_child_name = "edit";
-
-        update_countdown (item.hours, item.minutes, item.seconds);
-    }
-
-    private void start () {
-        countdown_label.add_css_class ("accent");
-        countdown_label.remove_css_class ("dimmed");
-
-        if (paused_animation != null) {
-            paused_animation.pause ();
-        }
-
-        reset_stack.visible_child_name = "empty";
-        delete_stack.visible_child_name = "empty";
-
-        start_stack.visible_child_name = "pause";
-        name_revealer.reveal_child = (timer_name.label != "");
-        name_stack.visible_child_name = "display";
+        update_countdown (
+            item.get_stored_hour (),
+            item.get_stored_minute (),
+            item.get_stored_second ()
+        );
     }
 
     private void ring () {
@@ -169,24 +167,6 @@ public class Row : Gtk.ListBoxRow {
 
         countdown_label.remove_css_class ("accent");
         countdown_label.add_css_class ("dimmed");
-    }
-
-    private void pause () {
-        if (paused_animation != null) {
-            paused_animation.play ();
-        }
-
-        reset_stack.visible_child_name = "button";
-        delete_stack.visible_child_name = "button";
-        start_stack.visible_child_name = "start";
-        name_revealer.reveal_child = (timer_name.label != "");
-        name_stack.visible_child_name = "display";
-
-        update_countdown (
-            item.get_stored_hour (),
-            item.get_stored_minute (),
-            item.get_stored_second ()
-        );
     }
 
     private void update_countdown (int h, int m, int s ) {
