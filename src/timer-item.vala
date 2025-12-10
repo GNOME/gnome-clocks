@@ -92,13 +92,9 @@ public class Item : Object, ContentItem {
     }
 
     public Item.from_seconds (int seconds, string? name) {
-
-        int rest = 0;
         int h = seconds / 3600;
-        rest = seconds - h * 3600;
-        int m = rest / 60;
-        int s = rest - m * 60;
-
+        int m = (seconds / 60) % 60;
+        int s = seconds % 60;
         this (h, m, s, name);
     }
 
