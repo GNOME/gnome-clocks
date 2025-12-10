@@ -89,9 +89,7 @@ public class Row : Gtk.ListBoxRow {
 
     public signal void deleted ();
 
-    public Row (Item item) {
-        Object (item: item);
-
+    construct {
         // Force LTR since we do not want to reverse [hh] : [mm] : [ss]
         countdown_label.set_direction (Gtk.TextDirection.LTR);
 
@@ -103,6 +101,10 @@ public class Row : Gtk.ListBoxRow {
         paused_animation.easing = Adw.Easing.LINEAR;
 
         update_state ();
+    }
+
+    public Row (Item item) {
+        Object (item: item);
     }
 
     [GtkCallback]
