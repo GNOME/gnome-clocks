@@ -28,15 +28,39 @@ public class Row : Gtk.ListBoxRow {
         }
 
         construct set {
+            if (_item == value)
+                return;
+
+            if (_item != null) {
+                _item.countdown_updated.disconnect (this.update_countdown);
+                _item.ring.disconnect (this.ring);
+                _item.start.disconnect (this.start);
+                _item.pause.disconnect (this.pause);
+                _item.reset.disconnect (this.reset);
+                name_binding.unbind ();
+                entry_binding.unbind ();
+            }
+
             _item = value;
 
-            title.text = (string) _item.name;
-            title.bind_property ("text", _item, "name");
-            timer_name.label = (string) _item.name;
-            title.bind_property ("text", timer_name, "label");
+            if (_item != null) {
+                _item.countdown_updated.connect (this.update_countdown);
+                _item.ring.connect (this.ring);
+                _item.start.connect (this.start);
+                _item.pause.connect (this.pause);
+                _item.reset.connect (this.reset);
+                name_binding = _item.bind_property ("name", timer_name, "label",
+                                                    BindingFlags.SYNC_CREATE);
+                entry_binding = _item.bind_property ("name", title, "text",
+                                                     BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+            }
+
+            update_state ();
         }
     }
     private Item _item;
+    private Binding name_binding;
+    private Binding entry_binding;
     private Adw.TimedAnimation paused_animation;
 
 
@@ -71,11 +95,6 @@ public class Row : Gtk.ListBoxRow {
         // Force LTR since we do not want to reverse [hh] : [mm] : [ss]
         countdown_label.set_direction (Gtk.TextDirection.LTR);
 
-        item.countdown_updated.connect (this.update_countdown);
-        item.ring.connect (() => this.ring ());
-        item.start.connect (() => this.start ());
-        item.pause.connect (() => this.pause ());
-        item.reset.connect (() => this.reset ());
         delete_button.clicked.connect (() => deleted ());
 
         var target = new Adw.CallbackAnimationTarget (animation_target);
@@ -118,7 +137,9 @@ public class Row : Gtk.ListBoxRow {
         countdown_label.remove_css_class ("accent");
         countdown_label.add_css_class ("dimmed");
 
-        paused_animation.pause ();
+        if (paused_animation != null) {
+            paused_animation.pause ();
+        }
 
         start_stack.visible_child_name = "start";
         name_revealer.reveal_child = true;
@@ -131,7 +152,9 @@ public class Row : Gtk.ListBoxRow {
         countdown_label.add_css_class ("accent");
         countdown_label.remove_css_class ("dimmed");
 
-        paused_animation.pause ();
+        if (paused_animation != null) {
+            paused_animation.pause ();
+        }
 
         reset_stack.visible_child_name = "empty";
         delete_stack.visible_child_name = "empty";
@@ -142,14 +165,18 @@ public class Row : Gtk.ListBoxRow {
     }
 
     private void ring () {
-        paused_animation.pause ();
+        if (paused_animation != null) {
+            paused_animation.pause ();
+        }
 
         countdown_label.remove_css_class ("accent");
         countdown_label.add_css_class ("dimmed");
     }
 
     private void pause () {
-        paused_animation.play ();
+        if (paused_animation != null) {
+            paused_animation.play ();
+        }
 
         reset_stack.visible_child_name = "button";
         delete_stack.visible_child_name = "button";
