@@ -82,6 +82,13 @@ public string get_time_difference_message (double offset) {
     return message;
 }
 
+public GLib.TimeSpan ceil_time_span (GLib.TimeSpan time_span, GLib.TimeSpan unit) {
+    time_span = time_span.abs ();
+    unit = unit.abs ();
+    var remainder = time_span % unit;
+    return time_span - remainder + unit * (int) (remainder > 0);
+}
+
 public string format_time_span (GLib.TimeSpan diff) {
     var days = diff / GLib.TimeSpan.DAY;
     var hours = (diff - days * GLib.TimeSpan.DAY) / GLib.TimeSpan.HOUR;
