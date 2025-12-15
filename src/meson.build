@@ -1,6 +1,25 @@
-vapi_sources = files(
-  'config.vapi',
+clocks_c_sources = files('cutils.c', 'twilight.c')
+
+clocks_c_args = [
+  '-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE',
+  '-DGNOME_DESKTOP_USE_UNSTABLE_API',
+  '-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()),
+]
+
+clocks_c = static_library(
+  'clocks-c',
+  clocks_c_sources + config_h,
+  c_args: clocks_c_args,
+  include_directories: config_h_dir,
+  dependencies: [gtk, math],
+  gnu_symbol_visibility: 'hidden',
 )
+
+clocks_c_dep = declare_dependency(
+  link_with: clocks_c,
+)
+
+vapi_sources = files('config.vapi')
 
 clocks_vala_sources = files(
   'alarm-day-picker-row.vala',
@@ -39,11 +58,6 @@ clocks_vala_sources = files(
   'world-standalone.vala',
 )
 
-clocks_c_sources = files(
-  'cutils.c',
-  'twilight.c',
-)
-
 clocks_sources = [
   vapi_sources,
   clocks_vala_sources,
@@ -58,12 +72,6 @@ clocks_vala_args = [
   # '--enable-experimental-non-null',
 ]
 
-clocks_c_args = [
-  '-include', 'config.h',
-  '-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE',
-  '-DGNOME_DESKTOP_USE_UNSTABLE_API',
-]
-
 clocks_dependencies = [
   glib,
   gio,
@@ -74,15 +82,17 @@ clocks_dependencies = [
   geocodeglib,
   libgeoclue,
   libadwaita,
-  math
+  clocks_c_dep,
 ]
 
-executable('gnome-clocks', clocks_sources,
+executable(
+  'gnome-clocks',
+  clocks_sources,
   include_directories: config_h_dir,
   vala_args: clocks_vala_args,
   c_args: clocks_c_args,
   dependencies: clocks_dependencies,
-  install: true
+  install: true,
 )
 
 if get_option('docs')

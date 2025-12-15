@@ -3,7 +3,7 @@ project(
   ['vala', 'c'],
   version: '49.0',
   license: 'GPL-2.0-or-later',
-  meson_version: '>= 0.59.0',
+  meson_version: '>= 0.60.0',
 )
 
 fs = import('fs')
@@ -64,7 +64,7 @@ conf.set_quoted('GNOMELOCALEDIR', get_option('prefix') / get_option('localedir')
 if have_first_weekday
   conf.set('HAVE__NL_TIME_FIRST_WEEKDAY', '1')
 endif
-configure_file(output: 'config.h', configuration: conf)
+config_h = configure_file(output: 'config.h', configuration: conf)
 config_h_dir = include_directories('.')
 
 subdir('data')
