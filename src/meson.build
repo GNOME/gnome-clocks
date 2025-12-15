@@ -66,6 +66,7 @@ clocks_sources = [
 ]
 
 clocks_vala_args = [
+  '-X', '-w', # Disable useless C warnings so we can read the Vala ones.
   '--target-glib', '2.72',
   '--vapidir', meson.current_source_dir(),
   '--gresources', resource_files,
