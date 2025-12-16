@@ -1,0 +1,76 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ClocksWorldLocationDialog: Adw.Dialog {
+  title: _("Add World Clock");
+  content-width: 400;
+  content-height: 540;
+  focus-widget: location_entry;
+
+  child: Adw.ToolbarView {
+    [top]
+    Adw.HeaderBar dialog-header-bar {
+      show-end-title-buttons: false;
+      show-start-title-buttons: false;
+
+      Button {
+        label: _("_Cancel");
+        use-underline: true;
+        valign: center;
+        action-name: "window.close";
+      }
+
+      [end]
+      Button button_add {
+        label: _("_Add");
+        sensitive: false;
+        use-underline: true;
+        valign: center;
+        clicked => $add_button_clicked();
+
+        styles [
+          "suggested-action",
+        ]
+      }
+    }
+
+    [top]
+    SearchBar search_bar {
+      search-mode-enabled: true;
+      receives-default: true;
+      notify::search-mode-enabled => $on_search_mode_notify();
+
+      child: SearchEntry location_entry {
+        placeholder-text: _("Search cities");
+        search-changed => $on_search_changed();
+      };
+    }
+
+    Stack stack {
+      Adw.StatusPage empty_search {
+        icon-name: "edit-find-symbolic";
+        title: _("Perform a Search");
+        description: _("The search results will appear here");
+      }
+
+      Adw.StatusPage no_search_results {
+        icon-name: "edit-find-symbolic";
+        title: _("No Results Found");
+        description: _("Try a different search");
+      }
+
+      Adw.PreferencesPage search_results {
+        Adw.PreferencesGroup {
+          ListBox listbox {
+            selection-mode: none;
+            row-activated => $item_activated();
+
+            styles [
+              "boxed-list",
+            ]
+          }
+        }
+      }
+    }
+  };
+}

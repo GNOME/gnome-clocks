@@ -1,0 +1,98 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ClocksAlarmRingingPanel: Adw.Bin {
+  WindowHandle {
+    Grid {
+      margin-start: 6;
+      margin-end: 6;
+      margin-top: 6;
+      margin-bottom: 6;
+      hexpand: true;
+      vexpand: true;
+      row-spacing: 48;
+      column-spacing: 24;
+
+      Grid button_grid {
+        halign: center;
+        valign: center;
+        hexpand: true;
+        vexpand: true;
+        row-spacing: 24;
+        column-spacing: 24;
+
+        Button stop_button {
+          label: _("_Stop");
+          use-underline: true;
+          width-request: 200;
+
+          styles [
+            "pill",
+            "large-button",
+            "destructive-action",
+          ]
+
+          layout {
+            column: 0;
+            row: 0;
+          }
+        }
+
+        Button snooze_button {
+          label: _("S_nooze");
+          use-underline: true;
+          width-request: 200;
+
+          styles [
+            "pill",
+            "large-button",
+          ]
+
+          layout {
+            column: 0;
+            row: 1;
+          }
+        }
+
+        layout {
+          column: 0;
+          row: 1;
+        }
+      }
+
+      Box {
+        halign: center;
+        valign: center;
+        hexpand: true;
+        vexpand: true;
+        orientation: vertical;
+
+        Label time_label {
+          justify: center;
+          wrap: true;
+          xalign: 0.5;
+
+          styles [
+            "numeric",
+            "clocks-ringing-label",
+          ]
+        }
+
+        Label title_label {
+          justify: center;
+          wrap: true;
+          margin-top: 24;
+
+          styles [
+            "clocks-ringing-title",
+          ]
+        }
+
+        layout {
+          column: 0;
+          row: 0;
+        }
+      }
+    }
+  }
+}

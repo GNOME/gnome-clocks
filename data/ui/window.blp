@@ -1,0 +1,102 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ClocksWindow: Adw.ApplicationWindow {
+  hide-on-close: true;
+  width-request: 360;
+  height-request: 294;
+  notify::is-active => $on_window_active();
+
+  Adw.Breakpoint {
+    condition ("max-width: 600sp")
+
+    setters {
+      switcher_bar.reveal: true;
+      header_bar.title-widget: null;
+    }
+  }
+
+  EventControllerKey {
+    key-pressed => $key_press_cb();
+  }
+
+  Adw.ToastOverlay toast_overlay {
+    Adw.NavigationView navigation_view {
+      notify::visible-page => $visible_page_changed();
+
+      Adw.NavigationPage main_page {
+        title: _("Clocks");
+
+        Adw.ToolbarView {
+          [top]
+          $ClocksHeaderBar header_bar {
+            stack: stack;
+            switcher-bar: switcher_bar;
+          }
+
+          Adw.ViewStack stack {
+            hexpand: true;
+            vexpand: true;
+            notify::visible-child => $pane_changed();
+
+            Adw.ViewStackPage {
+              name: "world";
+              title: _("_World");
+              use-underline: true;
+              icon-name: "globe-symbolic";
+
+              child: $ClocksWorldFace world {};
+            }
+
+            Adw.ViewStackPage {
+              name: "alarm";
+              title: _("Ala_rms");
+              use-underline: true;
+              icon-name: "alarm-symbolic";
+
+              child: $ClocksAlarmFace alarm {};
+            }
+
+            Adw.ViewStackPage {
+              name: "stopwatch";
+              title: _("_Stopwatch");
+              use-underline: true;
+              icon-name: "stopwatch-symbolic";
+
+              child: $ClocksStopwatchFace stopwatch {};
+            }
+
+            Adw.ViewStackPage {
+              name: "timer";
+              title: _("_Timer");
+              use-underline: true;
+              icon-name: "timer-symbolic";
+
+              child: $ClocksTimerFace timer {};
+            }
+          }
+
+          [bottom]
+          Adw.ViewSwitcherBar switcher_bar {
+            stack: stack;
+          }
+        }
+      }
+
+      Adw.NavigationPage world_subpage {
+        title: _("Clock");
+
+        $ClocksWorldStandalone world_standalone {}
+      }
+
+      Adw.NavigationPage alarm_subpage {
+        title: _("Alarm Ringing");
+        can-pop: false;
+
+        $ClocksAlarmRingingPanel alarm_ringing_panel {
+          dismiss => $alarm_dismissed();
+        }
+      }
+    }
+  }
+}

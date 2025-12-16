@@ -1,0 +1,153 @@
+using Gtk 4.0;
+using Adw 1;
+using GObject 2.0;
+
+template $ClocksWorldStandalone: Adw.BreakpointBin {
+  width-request: 360;
+  height-request: 294;
+
+  Adw.Breakpoint {
+    condition ("max-width: 400sp")
+
+    setters {
+      stack.visible-child: time_label_small;
+    }
+  }
+
+  Adw.ToolbarView {
+    [top]
+    Adw.HeaderBar {
+      title-widget: Adw.WindowTitle {
+        title: bind template.title;
+        subtitle: bind template.subtitle;
+      };
+    }
+
+    Box {
+      orientation: vertical;
+
+      Grid {
+        halign: center;
+        valign: center;
+        margin-start: 12;
+        margin-end: 12;
+        hexpand: true;
+        vexpand: true;
+
+        Label dummy_label {
+          label: "  ";
+
+          layout {
+            column: 0;
+            row: 1;
+          }
+        }
+
+        Stack stack {
+          hhomogeneous: false;
+          vhomogeneous: false;
+
+          layout {
+            column: 0;
+            row: 0;
+          }
+
+          Label time_label {
+            justify: center;
+            wrap: true;
+
+            styles [
+              "clocks-standalone-label",
+              "numeric",
+            ]
+          }
+
+          Label time_label_small {
+            justify: center;
+            wrap: true;
+
+            styles [
+              "clocks-standalone-label-small",
+              "numeric",
+            ]
+          }
+        }
+
+        Label day_label {
+          styles [
+            "clocks-secondary-standalone-label",
+          ]
+
+          layout {
+            column: 0;
+            row: 2;
+          }
+        }
+      }
+
+      Grid {
+        halign: center;
+        margin-bottom: 12;
+        column-spacing: 12;
+
+        styles [
+          "clocks-secondary-standalone-label",
+        ]
+
+        Label label3 {
+          label: _("Sunrise");
+
+          styles [
+            "dimmed",
+          ]
+
+          layout {
+            column: 0;
+            row: 0;
+          }
+        }
+
+        Label label4 {
+          label: _("Sunset");
+
+          styles [
+            "dimmed",
+          ]
+
+          layout {
+            column: 0;
+            row: 1;
+          }
+        }
+
+        Label sunrise_label {
+          label: "label";
+
+          styles [
+            "numeric",
+          ]
+
+          layout {
+            column: 1;
+            row: 0;
+          }
+        }
+
+        Label sunset_label {
+          styles [
+            "numeric",
+          ]
+
+          layout {
+            column: 1;
+            row: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+GObject.BindingGroup location_binds {
+  source: bind template.location;
+}

@@ -1,0 +1,32 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ClocksSoundChooser: Adw.NavigationPage {
+  child: Adw.ToolbarView {
+    [top]
+    Adw.HeaderBar {}
+
+    content: Adw.PreferencesPage {
+      Adw.PreferencesGroup silent_group {
+        $ClocksSoundChooserRow silent_row {
+          activated => $row_activated();
+
+          sound: $ClocksSound {
+            uri: "resource:///org/gnome/clocks/sounds/silent";
+
+            /* Translators: An alarm or timer empty sound name */
+            label: _("Silent");
+          };
+
+          [prefix]
+          Image bell_image {
+            accessible-role: presentation;
+            icon-name: "bell-outline-none-symbolic";
+          }
+        }
+      }
+
+      Adw.PreferencesGroup sound_group {}
+    };
+  };
+}

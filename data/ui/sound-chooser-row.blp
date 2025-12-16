@@ -1,0 +1,19 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ClocksSoundChooserRow: Adw.ActionRow {
+  activatable: true;
+  title: bind template.sound as <$ClocksSound>.label;
+
+  Image pause_image {
+    accessible-role: presentation;
+    icon-name: "media-playback-pause-symbolic";
+    visible: bind template.ringing;
+  }
+
+  Image checkmark_image {
+    accessible-role: presentation;
+    icon-name: "object-select-symbolic";
+    visible: bind template.selected;
+  }
+}
