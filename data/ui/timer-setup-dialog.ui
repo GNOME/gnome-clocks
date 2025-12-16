@@ -10,20 +10,27 @@
           </object>
         </child>
         <property name="content">
-          <object class="GtkBox" id="timer_box">
-          <property name="orientation">vertical</property>
+          <object class="GtkScrolledWindow">
+            <property name="hscrollbar-policy">never</property>
+            <property name="propagate-natural-height">True</property>
+            <property name="propagate-natural-width">True</property>
             <child>
-              <object class="GtkButton" id="start_button">
-                <property name="halign">center</property>
-                <property name="valign">center</property>
-                <property name="margin-top">26</property>
-                <property name="margin-bottom">30</property>
-                <property name="label" translatable="yes">Start</property>
-                <style>
-                  <class name="pill"/>
-                  <class name="suggested-action"/>
-                </style>
-                <signal name="clicked" handler="create_clicked" swapped="no"/>
+              <object class="GtkBox" id="timer_box">
+              <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkButton" id="start_button">
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="margin-top">26</property>
+                    <property name="margin-bottom">30</property>
+                    <property name="label" translatable="yes">Start</property>
+                    <style>
+                      <class name="pill"/>
+                      <class name="suggested-action"/>
+                    </style>
+                    <signal name="clicked" handler="create_clicked" swapped="no"/>
+                  </object>
+                </child>
               </object>
             </child>
           </object>
