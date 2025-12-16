@@ -1,0 +1,37 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ClocksTimerSetupDialog: Adw.Dialog {
+  title: _("New Timer");
+
+  child: Adw.ToolbarView {
+    [top]
+    Adw.HeaderBar {
+      show-title: false;
+    }
+
+    content: ScrolledWindow{
+      hscrollbar-policy: never;
+      propagate-natural-height: true;
+      propagate-natural-width: true;
+
+      Box timer_box {
+        orientation: vertical;
+
+        Button start_button {
+          halign: center;
+          valign: center;
+          margin-top: 26;
+          margin-bottom: 30;
+          label: _("Start");
+          clicked => $create_clicked();
+
+          styles [
+            "pill",
+            "suggested-action",
+          ]
+        }
+      }
+    };
+  };
+}

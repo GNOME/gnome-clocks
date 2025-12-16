@@ -1,0 +1,38 @@
+using Gtk 4.0;
+using Adw 1;
+using GObject 2.0;
+
+template $ClocksWorldRow: Adw.ActionRow {
+  activatable: true;
+
+  Label time_label {
+    valign: center;
+    margin-bottom: 12;
+    margin-top: 12;
+
+    styles [
+      "clock-time",
+      "numeric",
+    ]
+  }
+
+  Button delete_button {
+    valign: center;
+    tooltip-text: _("Delete");
+    icon-name: "edit-delete-symbolic";
+    clicked => $delete();
+
+    styles [
+      "circular",
+      "flat",
+    ]
+  }
+
+  styles [
+    "clock",
+  ]
+}
+
+GObject.BindingGroup location_binds {
+  source: bind template.location;
+}

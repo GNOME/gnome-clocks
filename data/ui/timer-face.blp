@@ -1,0 +1,61 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ClocksTimerFace: Adw.Bin {
+  Adw.ViewStack stack {
+    Adw.ViewStackPage {
+      name: "empty";
+
+      child: ScrolledWindow {
+        hscrollbar-policy: never;
+
+        Box {
+          halign: center;
+          valign: center;
+          orientation: vertical;
+          spacing: 26;
+
+          Adw.Bin timer_bin {}
+
+          Button start_button {
+            halign: center;
+            valign: center;
+            use-underline: true;
+            label: _("St_art");
+
+            styles [
+              "pill",
+              "suggested-action",
+            ]
+          }
+        }
+      };
+    }
+
+    Adw.ViewStackPage {
+      name: "timers";
+
+      child: ScrolledWindow {
+        Adw.Clamp {
+          ListBox timers_list {
+            valign: start;
+            selection-mode: none;
+            activate-on-single-click: false;
+            margin-top: 18;
+            margin-bottom: 18;
+            margin-start: 12;
+            margin-end: 12;
+
+            styles [
+              "boxed-list",
+            ]
+          }
+        }
+      };
+    }
+
+    styles [
+      "timer-panel",
+    ]
+  }
+}

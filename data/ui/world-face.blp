@@ -1,0 +1,44 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ClocksWorldFace: Adw.Bin {
+  Adw.ViewStack stack {
+    hhomogeneous: false;
+    vhomogeneous: false;
+
+    Adw.StatusPage empty_view {
+      icon-name: "globe-centered-symbolic";
+
+      Button {
+        action-name: "win.new";
+        label: _("_Add World Clock…");
+        use-underline: true;
+        can-shrink: true;
+        halign: center;
+
+        styles [
+          "suggested-action",
+          "pill",
+        ]
+      }
+    }
+
+    ScrolledWindow list_view {
+      Adw.Clamp {
+        ListBox listbox {
+          valign: start;
+          selection-mode: none;
+          margin-top: 18;
+          margin-bottom: 18;
+          margin-start: 12;
+          margin-end: 12;
+          row-activated => $item_activated();
+
+          styles [
+            "boxed-list",
+          ]
+        }
+      }
+    }
+  }
+}

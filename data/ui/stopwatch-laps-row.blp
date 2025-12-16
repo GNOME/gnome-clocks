@@ -1,0 +1,49 @@
+using Gtk 4.0;
+
+template $ClocksStopwatchLapsRow: ListBoxRow {
+  activatable: false;
+
+  Box {
+    spacing: 18;
+    margin-top: 18;
+    margin-bottom: 18;
+    margin-start: 18;
+    margin-end: 18;
+
+    Label duration_label {
+      tooltip-text: _("Time");
+      halign: start;
+      valign: center;
+
+      styles [
+        "lap-time",
+        "numeric",
+      ]
+    }
+
+    Label difference_label {
+      tooltip-text: _("Difference");
+      halign: start;
+      hexpand: true;
+      valign: center;
+
+      styles [
+        "numeric",
+      ]
+    }
+
+    Label index_label {
+      halign: end;
+      valign: center;
+      width-chars: 3;
+
+      styles [
+        "dimmed",
+      ]
+    }
+  }
+
+  styles [
+    "lap-row",
+  ]
+}

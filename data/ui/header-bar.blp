@@ -1,0 +1,57 @@
+using Gtk 4.0;
+using Adw 1;
+
+menu primary-menu {
+  section {
+    item {
+      label: _("_Keyboard Shortcuts");
+      action: "app.shortcuts";
+    }
+
+    item {
+      label: _("_Help");
+      action: "win.help";
+    }
+
+    item {
+      label: _("_About Clocks");
+      action: "win.about";
+    }
+  }
+}
+
+template $ClocksHeaderBar: Adw.Bin {
+  Adw.HeaderBar header_bar {
+    [title]
+    Adw.ViewSwitcher view_switcher_title {
+      stack: bind template.stack;
+      policy: wide;
+    }
+
+    Adw.ViewStack start_button_stack {
+      Adw.ViewStackPage {
+        name: "new";
+
+        child: Button {
+          action-name: "win.new";
+          tooltip-text: bind template.new-label;
+          icon-name: "list-add-symbolic";
+        };
+      }
+
+      Adw.ViewStackPage {
+        name: "empty";
+
+        child: Adw.Bin {};
+      }
+    }
+
+    [end]
+    MenuButton {
+      menu-model: primary-menu;
+      icon-name: "open-menu-symbolic";
+      tooltip-text: _("Main Menu");
+      primary: true;
+    }
+  }
+}

@@ -1,0 +1,99 @@
+using Gtk 4.0;
+using Adw 1;
+
+Adw.ShortcutsDialog shortcuts_dialog {
+  Adw.ShortcutsSection {
+    title: C_("shortcut window", "General");
+
+    Adw.ShortcutsItem {
+      action-name: "win.help";
+      title: C_("shortcut window", "Show Help");
+    }
+
+    Adw.ShortcutsItem {
+      accelerator: "F10";
+      title: C_("shortcut window", "Open Menu");
+    }
+
+    Adw.ShortcutsItem {
+      action-name: "app.shortcuts";
+      title: C_("shortcut window", "Keyboard Shortcuts");
+    }
+
+    Adw.ShortcutsItem {
+      action-name: "app.quit";
+      title: C_("shortcut window", "Quit");
+    }
+
+    Adw.ShortcutsItem {
+      action-name: "win.navigate-forward";
+      title: C_("shortcut window", "Go to the Next Section");
+    }
+
+    Adw.ShortcutsItem {
+      action-name: "win.navigate-backward";
+      title: C_("shortcut window", "Go to the Previous Section");
+    }
+
+    Adw.ShortcutsItem {
+      accelerator: "<alt>1";
+      title: C_("shortcut window", "Go to the World Section");
+    }
+
+    Adw.ShortcutsItem {
+      accelerator: "<alt>2";
+      title: C_("shortcut window", "Go to the Alarms Section");
+    }
+
+    Adw.ShortcutsItem {
+      accelerator: "<alt>3";
+      title: C_("shortcut window", "Go to the Stopwatch Section");
+    }
+
+    Adw.ShortcutsItem {
+      accelerator: "<alt>4";
+      title: C_("shortcut window", "Go to the Timer Section");
+    }
+  }
+
+  Adw.ShortcutsSection {
+    title: C_("shortcut window", "World Clocks");
+
+    Adw.ShortcutsItem {
+      action-name: "win.new";
+      title: C_("shortcut window", "Add a World Clock");
+    }
+  }
+
+  Adw.ShortcutsSection {
+    title: C_("shortcut window", "Alarm");
+
+    Adw.ShortcutsItem {
+      action-name: "win.new";
+      title: C_("shortcut window", "Add an Alarm");
+    }
+  }
+
+  Adw.ShortcutsSection {
+    title: C_("shortcut window", "Stopwatch");
+
+    Adw.ShortcutsItem {
+      accelerator: "Escape";
+      title: C_("shortcut window", "Pause All");
+    }
+  }
+
+  Adw.ShortcutsSection {
+    title: C_("shortcut window", "Timer");
+
+    Adw.ShortcutsItem {
+      accelerator: "Escape";
+      title: C_("shortcut window", "Reset");
+    }
+
+    Adw.ShortcutsItem {
+      action-name: "win.new";
+      title: C_("shortcut window", "New Timer");
+    }
+  }
+}

@@ -1,0 +1,44 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ClocksAlarmFace: Adw.Bin {
+  Stack stack {
+    hhomogeneous: false;
+    vhomogeneous: false;
+
+    Adw.StatusPage empty_view {
+      icon-name: "alarm-centered-symbolic";
+
+      Button {
+        action-name: "win.new";
+        label: _("Add A_larm…");
+        use-underline: true;
+        can-shrink: true;
+        halign: center;
+
+        styles [
+          "suggested-action",
+          "pill",
+        ]
+      }
+    }
+
+    ScrolledWindow list_view {
+      Adw.Clamp {
+        ListBox listbox {
+          valign: start;
+          selection-mode: none;
+          activate-on-single-click: true;
+          margin-top: 18;
+          margin-bottom: 18;
+          margin-start: 12;
+          margin-end: 12;
+
+          styles [
+            "boxed-list",
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,173 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ClocksAlarmSetupDialog: Adw.Dialog {
+  content-width: 520;
+  content-height: 580;
+  title: _("New Alarm");
+  focus-widget: h_spinbutton;
+
+  child: Adw.NavigationView {
+    Adw.NavigationPage {
+      title: bind template.title;
+      tag: "setup";
+
+      child: Adw.ToolbarView {
+        [top]
+        Adw.HeaderBar {
+          show-start-title-buttons: false;
+          show-end-title-buttons: false;
+
+          Button {
+            label: _("_Cancel");
+            use-underline: true;
+            clicked => $cancel();
+          }
+
+          [end]
+          Button ok_button {
+            label: _("_Add");
+            use-underline: true;
+            clicked => $add();
+
+            styles [
+              "suggested-action",
+            ]
+          }
+        }
+
+        content: Box {
+          orientation: vertical;
+
+          Adw.Banner banner {
+            title: _("You already have an alarm for this time");
+          }
+
+          Adw.PreferencesPage {
+            Adw.PreferencesGroup {
+              Box time_box {
+                halign: center;
+                margin-bottom: 12;
+                spacing: 6;
+
+                styles [
+                  "clocks-alarm-setup-time",
+                ]
+
+                SpinButton h_spinbutton {
+                  text: "0";
+                  xalign: 0.5;
+                  orientation: vertical;
+                  numeric: true;
+                  tooltip-text: _("Hours");
+                  wrap: true;
+                  width-request: 60;
+                  value-changed => $spinbuttons_changed();
+                  output => $show_leading_zeros();
+
+                  adjustment: Adjustment {
+                    upper: 23;
+                    step-increment: 1;
+                    page-increment: 10;
+                  };
+                }
+
+                Label label2 {
+                  label: "∶";
+                }
+
+                SpinButton m_spinbutton {
+                  text: "0";
+                  xalign: 0.5;
+                  orientation: vertical;
+                  numeric: true;
+                  tooltip-text: _("Minutes");
+                  wrap: true;
+                  width-request: 60;
+                  output => $show_leading_zeros();
+                  value-changed => $spinbuttons_changed();
+
+                  adjustment: Adjustment {
+                    upper: 59;
+                    step-increment: 1;
+                    page-increment: 10;
+                  };
+                }
+
+                Adw.Bin am_pm_bin {
+                  visible: false;
+                  margin-start: 6;
+                  margin-end: 6;
+                }
+              }
+            }
+
+            Adw.PreferencesGroup {
+              $ClocksAlarmDayPickerRow repeats {
+                days_changed => $days_changed();
+              }
+
+              Adw.EntryRow name_entry {
+                title: _("Name");
+                changed => $entry_changed();
+              }
+
+              Adw.ActionRow sound_row {
+                /* This may not be the most appropriate accessible
+                 * role, but it allows reading the sound name as the
+                 * row's value. */
+                accessible-role: combo_box;
+                activatable: true;
+                title: _("Alarm Sound");
+                action-name: "navigation.push";
+                action-target: "'sound-chooser'";
+
+                Label sound_label {
+                  ellipsize: end;
+                  xalign: 0;
+                  label: bind template.sound as <$ClocksSound>.label;
+                }
+
+                Image {
+                  accessible-role: presentation;
+                  icon-name: "go-next-symbolic";
+                }
+              }
+
+              Adw.ComboRow ring_duration {
+                activatable: false;
+                title: _("Ring Duration");
+              }
+
+              Adw.ComboRow snooze_duration {
+                activatable: false;
+                title: _("Snooze Duration");
+              }
+            }
+
+            Adw.PreferencesGroup delete_group {
+              Adw.ButtonRow {
+                title: _("R_emove Alarm");
+                use-underline: true;
+                activated => $delete();
+
+                styles [
+                  "destructive-action",
+                ]
+              }
+            }
+          }
+        };
+      };
+    }
+
+    $ClocksSoundChooser sound_chooser {
+      title: _("Alarm Sound");
+      tag: "sound-chooser";
+
+      model: $ClocksAlarmSoundModel {};
+
+      sound: bind template.sound bidirectional;
+    }
+  };
+}

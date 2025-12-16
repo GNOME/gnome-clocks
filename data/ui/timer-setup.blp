@@ -1,0 +1,346 @@
+using Gtk 4.0;
+using Adw 1;
+
+Adjustment adjustment_hours {
+  upper: 99;
+  step-increment: 1;
+  page-increment: 10;
+}
+
+Adjustment adjustment_minutes {
+  upper: 59;
+  step-increment: 1;
+  page-increment: 10;
+}
+
+Adjustment adjustment_seconds {
+  upper: 59;
+  step-increment: 1;
+  page-increment: 10;
+}
+
+template $ClocksTimerSetup: Box {
+  orientation: vertical;
+
+  Adw.Clamp {
+    hexpand: true;
+    vexpand: true;
+    valign: center;
+    margin-start: 12;
+    margin-end: 12;
+    maximum-size: 336;
+    tightening-threshold: 336;
+
+    Box {
+      orientation: vertical;
+      spacing: 18;
+
+      Label {
+        label: _("Quick Start");
+
+        styles [
+          "title-4",
+        ]
+      }
+
+      Adw.WrapBox {
+        halign: center;
+        valign: start;
+        line-spacing: 12;
+        child-spacing: 12;
+        line-homogeneous: true;
+        align: 0.5;
+        margin-bottom: 12;
+
+        Button quick_1m {
+          action-name: "timer-setup.start-timer";
+          action-target: "1";
+
+          accessibility {
+            /* Translators: An accessible timer quick start value */
+            label: _("One minute");
+          }
+
+          Label {
+            accessible-role: presentation;
+
+            /* Translators: A timer quick start value */
+            label: _("1 m");
+          }
+        }
+
+        Button quick_2m {
+          action-name: "timer-setup.start-timer";
+          action-target: "2";
+
+          accessibility {
+            /* Translators: An accessible timer quick start value */
+            label: _("Two minutes");
+          }
+
+          Label {
+            accessible-role: presentation;
+
+            /* Translators: A timer quick start value */
+            label: _("2 m");
+          }
+        }
+
+        Button quick_3m {
+          action-name: "timer-setup.start-timer";
+          action-target: "3";
+
+          accessibility {
+            /* Translators: An accessible timer quick start value */
+            label: _("Three minutes");
+          }
+
+          Label {
+            accessible-role: presentation;
+
+            /* Translators: A timer quick start value */
+            label: _("3 m");
+          }
+        }
+
+        Button quick_5m {
+          action-name: "timer-setup.start-timer";
+          action-target: "5";
+
+          accessibility {
+            /* Translators: An accessible timer quick start value */
+            label: _("Five minutes");
+          }
+
+          Label {
+            accessible-role: presentation;
+
+            /* Translators: A timer quick start value */
+            label: _("5 m");
+          }
+        }
+
+        Button quick_30m {
+          action-name: "timer-setup.start-timer";
+          action-target: "30";
+
+          accessibility {
+            /* Translators: An accessible timer quick start value */
+            label: _("Thirty minutes");
+          }
+
+          Label {
+            accessible-role: presentation;
+
+            /* Translators: A timer quick start value */
+            label: _("30 m");
+          }
+        }
+
+        Button quick_15m {
+          action-name: "timer-setup.start-timer";
+          action-target: "15";
+
+          accessibility {
+            /* Translators: An accessible timer quick start value */
+            label: _("Fifteen minutes");
+          }
+
+          Label {
+            accessible-role: presentation;
+
+            /* Translators: A timer quick start value */
+            label: _("15 m");
+          }
+        }
+
+        Button quick_45m {
+          action-name: "timer-setup.start-timer";
+          action-target: "45";
+
+          accessibility {
+            /* Translators: An accessible timer quick start value */
+            label: _("Fortyfive minutes");
+          }
+
+          Label {
+            accessible-role: presentation;
+
+            /* Translators: A timer quick start value */
+            label: _("45 m");
+          }
+        }
+
+        Button quick_1h {
+          action-name: "timer-setup.start-timer";
+          action-target: "60";
+
+          accessibility {
+            /* Translators: An accessible timer quick start value */
+            label: _("One hour");
+          }
+
+          Label {
+            accessible-role: presentation;
+
+            /* Translators: A timer quick start value */
+            label: _("1 h");
+          }
+        }
+      }
+
+      Label {
+        label: _("Set Timer");
+
+        styles [
+          "title-4",
+        ]
+      }
+
+      Box {
+        margin-bottom: 12;
+
+        Grid time_grid {
+          halign: center;
+          valign: center;
+          column-spacing: 6;
+
+          Label {
+            hexpand: true;
+
+            layout {
+              column: 0;
+              row: 0;
+            }
+          }
+
+          SpinButton h_spinbutton {
+            width-chars: 2;
+            text: _("0");
+            xalign: 0.5;
+            orientation: vertical;
+            adjustment: adjustment_hours;
+            numeric: true;
+            tooltip-text: _("Hours");
+            wrap: true;
+            changed => $update_duration();
+            output => $show_leading_zeros();
+
+            styles [
+              "clocks-spinbutton",
+            ]
+
+            layout {
+              column: 1;
+              row: 0;
+            }
+          }
+
+          Label {
+            label: "∶";
+
+            styles [
+              "clocks-timer-label",
+            ]
+
+            layout {
+              column: 2;
+              row: 0;
+            }
+          }
+
+          SpinButton m_spinbutton {
+            width-chars: 2;
+            text: _("0");
+            xalign: 0.5;
+            orientation: vertical;
+            adjustment: adjustment_minutes;
+            numeric: true;
+            tooltip-text: _("Minutes");
+            wrap: true;
+            changed => $update_duration();
+            input => $input_minutes();
+            output => $show_leading_zeros();
+
+            styles [
+              "clocks-spinbutton",
+            ]
+
+            layout {
+              column: 3;
+              row: 0;
+            }
+          }
+
+          Label {
+            label: "∶";
+
+            styles [
+              "clocks-timer-label",
+            ]
+
+            layout {
+              column: 4;
+              row: 0;
+            }
+          }
+
+          SpinButton s_spinbutton {
+            width-chars: 2;
+            text: _("0");
+            xalign: 0.5;
+            orientation: vertical;
+            adjustment: adjustment_seconds;
+            numeric: true;
+            tooltip-text: _("Seconds");
+            wrap: true;
+            changed => $update_duration();
+            input => $input_seconds();
+            output => $show_leading_zeros();
+
+            styles [
+              "clocks-spinbutton",
+            ]
+
+            layout {
+              column: 5;
+              row: 0;
+            }
+          }
+
+          Label {
+            hexpand: true;
+
+            layout {
+              column: 6;
+              row: 0;
+            }
+          }
+        }
+      }
+
+      Adw.Clamp {
+        maximum-size: 302;
+
+        Entry title_entry {
+          placeholder-text: _("Title");
+        }
+      }
+    }
+  }
+}
+
+SizeGroup {
+  mode: both;
+
+  widgets [
+    quick_1m,
+    quick_2m,
+    quick_3m,
+    quick_5m,
+    quick_15m,
+    quick_30m,
+    quick_45m,
+    quick_1h,
+  ]
+}

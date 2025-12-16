@@ -1,0 +1,35 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ClocksAlarmDayPickerRow: Adw.PreferencesRow {
+  activatable: false;
+  focusable: false;
+  selectable: false;
+
+  accessibility {
+    labelled-by: [
+      title,
+    ];
+  }
+
+  Box {
+    spacing: 9;
+    margin-start: 12;
+    margin-end: 12;
+    margin-top: 12;
+    margin-bottom: 12;
+    orientation: vertical;
+
+    Label title {
+      halign: start;
+      label: _("Repeat");
+      use-underline: true;
+      hexpand: true;
+    }
+
+    Box box {
+      valign: center;
+      spacing: 6;
+    }
+  }
+}

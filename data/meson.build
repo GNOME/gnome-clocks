@@ -17,6 +17,7 @@ ffmpeg = find_program('ffmpeg')
 to_vorbis = [ffmpeg, '-i', '@INPUT@', '-c:a', 'libvorbis', '@OUTPUT@' ]
 
 subdir('sounds')
+subdir('ui')
 
 resource_files = files('gnome-clocks.gresource.xml')
 resources = gnome.compile_resources('org.gnome.clocks', resource_files,

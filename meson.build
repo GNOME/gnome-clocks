@@ -30,6 +30,8 @@ libadwaita = dependency ('libadwaita-1', version: '>=1.8.rc')
 cc = meson.get_compiler('c')
 math = cc.find_library('m', required: false)
 
+blueprint_compiler = find_program('blueprint-compiler', version: '>= 0.19')
+
 have_first_weekday = cc.compiles('''
 #include <langinfo.h>
 int main() {

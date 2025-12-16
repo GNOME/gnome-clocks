@@ -1,0 +1,160 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ClocksTimerRow: ListBoxRow {
+  activatable: false;
+
+  Box {
+    valign: start;
+    margin-top: 24;
+    margin-bottom: 24;
+    orientation: vertical;
+    spacing: 6;
+
+    Label countdown_label {
+      label: "00 ∶ 00 ∶ 00";
+
+      styles [
+        "numeric",
+        "timer-countdown",
+      ]
+    }
+
+    Revealer name_revealer {
+      Stack name_stack {
+        StackPage {
+          name: "edit";
+
+          child: Entry title {
+            halign: center;
+            width-chars: 26;
+            placeholder-text: _("Title…");
+          };
+        }
+
+        StackPage {
+          name: "display";
+
+          child: Label timer_name {
+            halign: center;
+            valign: start;
+
+            styles [
+              "dimmed",
+            ]
+          };
+        }
+      }
+    }
+
+    Grid {
+      halign: center;
+      column-spacing: 18;
+      column-homogeneous: true;
+
+      Stack start_stack {
+        halign: center;
+        valign: center;
+        hhomogeneous: false;
+        vhomogeneous: false;
+
+        StackPage {
+          name: "pause";
+
+          child: Button pause_button {
+            halign: center;
+            valign: center;
+            icon-name: "media-playback-pause-symbolic";
+            tooltip-text: _("Pause");
+            clicked => $on_pause_button_clicked();
+
+            styles [
+              "circular",
+              "large-button",
+            ]
+          };
+        }
+
+        StackPage {
+          name: "start";
+
+          child: Button start_button {
+            halign: center;
+            valign: center;
+            icon-name: "media-playback-start-symbolic";
+            tooltip-text: _("Start");
+            clicked => $on_start_button_clicked();
+
+            styles [
+              "suggested-action",
+              "circular",
+              "large-button",
+            ]
+          };
+        }
+
+        layout {
+          column: 1;
+          row: 0;
+        }
+      }
+
+      Stack reset_stack {
+        StackPage {
+          name: "button";
+
+          child: Button reset_button {
+            halign: center;
+            valign: center;
+            icon-name: "view-refresh-symbolic";
+            tooltip-text: _("Reset");
+            clicked => $on_reset_button_clicked();
+
+            styles [
+              "circular",
+            ]
+          };
+        }
+
+        StackPage {
+          name: "empty";
+
+          child: Adw.Bin {};
+        }
+
+        layout {
+          column: 0;
+          row: 0;
+        }
+      }
+
+      Stack delete_stack {
+        StackPage {
+          name: "button";
+
+          child: Button delete_button {
+            halign: center;
+            valign: center;
+            icon-name: "user-trash-symbolic";
+            tooltip-text: _("Delete");
+
+            styles [
+              "circular",
+            ]
+          };
+        }
+
+        StackPage {
+          name: "empty";
+
+          child: Adw.Bin {};
+        }
+
+        layout {
+          column: 2;
+          row: 0;
+        }
+      }
+    }
+  }
+}

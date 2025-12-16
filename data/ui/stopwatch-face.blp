@@ -1,0 +1,156 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $ClocksStopwatchFace: Box {
+  orientation: vertical;
+
+  Adw.ToolbarView {
+    /* AdwToolbarView is needed to correctly draw the scrolled
+     * window's bottom undershoot. Without it, it will only be
+     * drawn if the window's AdwToolbarView bottom child is
+     * visible. */
+    ScrolledWindow {
+      hscrollbar-policy: never;
+      min-content-width: 300;
+      vexpand: true;
+
+      Box container {
+        margin-bottom: 18;
+        margin-top: 18;
+        orientation: vertical;
+        valign: center;
+
+        Box time_container {
+          halign: center;
+          margin-bottom: 18;
+          margin-top: 18;
+
+          Label hours_label {
+            label: "00";
+            valign: baseline_fill;
+
+            styles [
+              "numeric",
+              "hours-label",
+              "dimmed",
+            ]
+          }
+
+          Label {
+            label: "∶";
+            valign: baseline_fill;
+          }
+
+          Label minutes_label {
+            label: "00";
+            valign: baseline_fill;
+
+            styles [
+              "numeric",
+              "minutes-label",
+              "dimmed",
+            ]
+          }
+
+          Label {
+            label: "∶";
+            valign: baseline_fill;
+          }
+
+          Label seconds_label {
+            label: "00";
+            valign: baseline_fill;
+
+            styles [
+              "numeric",
+              "seconds-label",
+            ]
+          }
+
+          Label {
+            label: ".";
+            valign: baseline_fill;
+          }
+
+          Label milliseconds_label {
+            label: "0";
+            valign: baseline_fill;
+
+            styles [
+              "milliseconds-label",
+              "numeric",
+            ]
+          }
+
+          styles [
+            "stopped-stopwatch",
+          ]
+        }
+
+        Revealer laps_revealer {
+          transition-type: crossfade;
+
+          Adw.Clamp {
+            maximum-size: 380;
+
+            ListBox laps_list {
+              margin-end: 12;
+              margin-start: 12;
+              selection-mode: none;
+              valign: start;
+
+              styles [
+                "boxed-list",
+              ]
+            }
+          }
+        }
+      }
+    }
+
+    [bottom]
+    Adw.Clamp {
+      maximum-size: 380;
+
+      Box {
+        margin-bottom: 6;
+        margin-end: 18;
+        margin-start: 18;
+        margin-top: 6;
+        spacing: 6;
+
+        Button start_btn {
+          halign: start;
+          hexpand: true;
+          label: _("St_art");
+          use-underline: true;
+          width-request: 120;
+          clicked => $on_start_btn_clicked();
+
+          styles [
+            "large-button",
+            "pill",
+            "suggested-action",
+          ]
+        }
+
+        Button clear_btn {
+          halign: end;
+          label: _("_Clear");
+          use-underline: true;
+          width-request: 120;
+          clicked => $on_clear_btn_clicked();
+
+          styles [
+            "large-button",
+            "pill",
+          ]
+        }
+      }
+    }
+  }
+
+  styles [
+    "stopwatch-panel",
+  ]
+}

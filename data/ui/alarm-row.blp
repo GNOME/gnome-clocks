@@ -1,0 +1,85 @@
+using Gtk 4.0;
+using GObject 2.0;
+
+template $ClocksAlarmRow: ListBoxRow {
+  activatable: true;
+  selectable: false;
+
+  Box {
+    valign: center;
+    margin-start: 12;
+    margin-end: 12;
+    margin-top: 12;
+    margin-bottom: 12;
+    hexpand: true;
+
+    Box {
+      orientation: vertical;
+
+      Revealer title_reveal {
+        transition-type: slide_up;
+
+        Label title {
+          hexpand: true;
+          label: "Name";
+          ellipsize: end;
+          xalign: 0;
+
+          styles [
+            "heading",
+          ]
+        }
+      }
+
+      Label time {
+        hexpand: true;
+        xalign: 0;
+
+        styles [
+          "alarm-time",
+          "numeric",
+        ]
+      }
+
+      Revealer repeats_reveal {
+        Label repeats {
+          tooltip-text: _("Repeats");
+          hexpand: true;
+          ellipsize: end;
+          xalign: 0;
+
+          styles [
+            "dimmed",
+            "caption",
+          ]
+        }
+      }
+    }
+
+    Box {
+      spacing: 12;
+
+      Switch toggle {
+        valign: center;
+        tooltip-text: _("Enable Alarm");
+      }
+
+      Button {
+        tooltip-text: _("Delete");
+        halign: center;
+        valign: center;
+        icon-name: "edit-delete-symbolic";
+        clicked => $delete();
+
+        styles [
+          "circular",
+          "flat",
+        ]
+      }
+    }
+  }
+}
+
+GObject.BindingGroup alarm_binds {
+  source: bind template.alarm;
+}
