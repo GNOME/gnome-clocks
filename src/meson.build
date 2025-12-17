@@ -66,11 +66,14 @@ clocks_sources = [
 ]
 
 clocks_vala_args = [
-  '-X', '-w', # Disable useless C warnings so we can read the Vala ones.
   '--target-glib', '2.72',
   '--vapidir', meson.current_source_dir(),
   '--gresources', resource_files,
   # '--enable-experimental-non-null',
+]
+
+clocks_vala_c_args = [
+  '-w', # Disable useless C warnings so we can read the Vala ones.
 ]
 
 clocks_dependencies = [
@@ -91,7 +94,7 @@ executable(
   clocks_sources,
   include_directories: config_h_dir,
   vala_args: clocks_vala_args,
-  c_args: clocks_c_args,
+  c_args: clocks_c_args + clocks_vala_c_args,
   dependencies: clocks_dependencies,
   install: true,
 )
