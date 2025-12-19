@@ -14,7 +14,16 @@ install_data(
 )
 
 ffmpeg = find_program('ffmpeg')
-to_vorbis = [ffmpeg, '-i', '@INPUT@', '-c:a', 'libvorbis', '@OUTPUT@' ]
+
+# FIXME Gtk.MediaFile doesn't support gapless looping, causing audible
+# clicks in alarm sounds. This is caused by Gst.Play not supporting
+# gapless chainup or looping.
+# See https://gitlab.freedesktop.org/gstreamer/gstreamer/-/issues/1200
+# for more information.
+# To mitigate the issue and as it won't be fixed before several GNOME
+# version, we explicitely make the sound files four times longer than
+# they should be via the `-stream_loop 3` option.
+to_vorbis = [ ffmpeg, '-stream_loop', '3', '-i', '@INPUT@', '-c:a', 'libvorbis', '@OUTPUT@' ]
 
 subdir('sounds')
 
