@@ -23,7 +23,7 @@ private class SoundModel : ListModel, Object {
     ListStore store;
 
     construct {
-        var alarms_dir = File.new_build_filename (Config.DATADIR, "sounds/gnome/default/alarms");
+        var alarms_dir = build_alarms_dir_file ();
 
         store = new ListStore (typeof (Sound));
 
@@ -85,8 +85,12 @@ private class SoundModel : ListModel, Object {
         });
     }
 
+    private static File build_alarms_dir_file () {
+        return File.new_build_filename (Config.DATADIR, "sounds/gnome/default/alarms");
+    }
+
     public static File build_default_file () {
-        return build_fallback_file ();
+        return build_alarms_dir_file ().get_child ("toys.oga");
     }
 
     // Prior to 50 alarms only used the "alarm-clock-elapsed" sound,
