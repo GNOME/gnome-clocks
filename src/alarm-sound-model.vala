@@ -23,7 +23,7 @@ private class SoundModel : ListModel, Object {
     ListStore store;
 
     construct {
-        var alarms_dir = File.new_build_filename (Config.DATADIR, "sounds/gnome/default/alarms");
+        var alarms_dir = build_alarms_dir_file ();
 
         store = new ListStore (typeof (Sound));
 
@@ -34,7 +34,7 @@ private class SoundModel : ListModel, Object {
         // for more information.
 
         // Translators: An alarm sound name
-        store.append (new Sound (build_default_file (), _("Beep-Beep")));
+        store.append (new Sound (build_embedded_file (), _("Beep-Beep")));
         // Translators: An alarm sound name
         store.append (new Sound (alarms_dir.get_child ("bird.oga"), _("Bird")));
         // Translators: An alarm sound name
@@ -85,8 +85,16 @@ private class SoundModel : ListModel, Object {
         });
     }
 
-    public static File build_default_file () {
+    private static File build_alarms_dir_file () {
+        return File.new_build_filename (Config.DATADIR, "sounds/gnome/default/alarms");
+    }
+
+    private static File build_embedded_file () {
         return File.new_for_uri ("resource:///org/gnome/clocks/sounds/alarms/beep-beep.oga");
+    }
+
+    public static File build_default_file () {
+        return build_alarms_dir_file ().get_child ("toys.oga");
     }
 
     public Type get_item_type () {
