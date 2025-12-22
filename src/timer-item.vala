@@ -127,7 +127,6 @@ public class Item : Object, ContentItem {
             stored_second = seconds;
             span = get_total_seconds ();
             timer.reset ();
-            state = State.STOPPED;
             countdown_updated (stored_hour, stored_minute, stored_second);
             break;
         case State.PAUSED:
