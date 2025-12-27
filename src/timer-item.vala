@@ -62,7 +62,7 @@ public class Item : Object, ContentItem {
         update_state ();
     }
 
-    public int get_total_seconds () {
+    private int get_total_seconds () {
         return hours * 3600 + minutes * 60 + seconds;
     }
 
