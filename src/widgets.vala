@@ -60,7 +60,7 @@ public class ContentStore : GLib.Object, GLib.ListModel {
 
     public void foreach (ForeachFunc func) {
         var n = store.get_n_items ();
-        for (int i = 0; i < n; i++) {
+        for (uint i = 0; i < n; i++) {
             func ((ContentItem) store.get_object (i));
         }
     }
@@ -78,7 +78,7 @@ public class ContentStore : GLib.Object, GLib.ListModel {
     public Variant serialize () {
         var builder = new GLib.VariantBuilder (new VariantType ("aa{sv}"));
         var n = store.get_n_items ();
-        for (int i = 0; i < n; i++) {
+        for (uint i = 0; i < n; i++) {
             ((ContentItem) store.get_object (i)).serialize (builder);
         }
         return builder.end ();
