@@ -68,12 +68,9 @@ public class ContentStore : GLib.Object, GLib.ListModel {
     public delegate bool FindFunc (ContentItem item);
 
     public ContentItem? find (FindFunc func) {
-        var n = store.get_n_items ();
-        for (int i = 0; i < n; i++) {
-            var item = (ContentItem) store.get_object (i);
-            if (func (item)) {
-                return item;
-            }
+        uint position = Gtk.INVALID_LIST_POSITION;
+        if (store.find_with_equal_func_full (null, (item) => func ((ContentItem) item), out position)) {
+            return (ContentItem) store.get_object (position);
         }
         return null;
     }
