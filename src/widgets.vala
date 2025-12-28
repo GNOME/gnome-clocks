@@ -49,23 +49,10 @@ public class ContentStore : GLib.Object, GLib.ListModel {
         store.append (item);
     }
 
-    public int get_index (ContentItem item) {
-        int position = -1;
-        var n = store.get_n_items ();
-        for (int i = 0; i < n; i++) {
-            var compared_item = (ContentItem) store.get_object (i);
-            if (compared_item == item) {
-                position = i;
-                break;
-            }
-        }
-        return position;
-    }
-
     public void remove (ContentItem item) {
-        var index = get_index (item);
-        if (index != -1) {
-            store.remove (index);
+        uint position = Gtk.INVALID_LIST_POSITION;
+        if (store.find (item, out position)) {
+            store.remove (position);
         }
     }
 
@@ -89,18 +76,6 @@ public class ContentStore : GLib.Object, GLib.ListModel {
             }
         }
         return null;
-    }
-
-    public void delete_item (ContentItem item) {
-        var n = store.get_n_items ();
-        for (int i = 0; i < n; i++) {
-            var o = store.get_object (i);
-            if (o == item) {
-                store.remove (i);
-
-                return;
-            }
-        }
     }
 
     public Variant serialize () {

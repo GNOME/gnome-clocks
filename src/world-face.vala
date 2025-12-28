@@ -64,7 +64,7 @@ public class Face : Adw.Bin, Clocks.Clock {
         listbox.bind_model (sorted_locations, (item) => {
             var row = new Row ((Item) item);
 
-            row.remove_clock.connect (() => locations.delete_item ((Item) item));
+            row.remove_clock.connect (() => locations.remove ((Item) item));
 
             return row;
         });

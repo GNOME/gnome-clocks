@@ -82,7 +82,7 @@ public class Face : Adw.Bin, Clocks.Clock {
             });
 
             row.remove_alarm.connect (() => {
-                alarms.delete_item ((Item) item);
+                alarms.remove ((Item) item);
                 if (ring_time_toast != null && item == ring_time_toast_alarm) {
                     ring_time_toast_alarm = null;
                     ring_time_toast.dismiss ();
@@ -187,7 +187,7 @@ public class Face : Adw.Bin, Clocks.Clock {
                 alarm.active = true;
                 save ();
             } else if (response == DELETE_ALARM) {
-                alarms.delete_item (alarm);
+                alarms.remove (alarm);
                 save ();
             }
             dialog.close ();
