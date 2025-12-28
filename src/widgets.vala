@@ -26,7 +26,7 @@ public interface ContentItem : GLib.Object {
 public class ContentStore : GLib.Object, GLib.ListModel {
     private ListStore store;
 
-    public ContentStore () {
+    construct {
         store = new ListStore (typeof (ContentItem));
         store.items_changed.connect ((position, removed, added) => {
             items_changed (position, removed, added);
