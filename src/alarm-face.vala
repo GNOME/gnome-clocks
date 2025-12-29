@@ -22,7 +22,7 @@ namespace Alarm {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm-face.ui")]
 public class Face : Adw.Bin, Clocks.Clock {
-    public PanelId panel_id { get; construct set; }
+    public PanelId panel_id { get { return ALARM; } }
     public ButtonMode button_mode { get; set; default = NEW; }
     // Translators: Tooltip for the + button
     public string? new_label { get; default = _("New Alarm"); }
@@ -42,8 +42,6 @@ public class Face : Adw.Bin, Clocks.Clock {
     private Alarm.Item? ring_time_toast_alarm;
 
     construct {
-        panel_id = ALARM;
-
         alarms = new ContentStore ();
         settings = new GLib.Settings ("org.gnome.clocks");
 
