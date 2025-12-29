@@ -50,7 +50,7 @@ private class Item : Object, ContentItem {
         MISSED
     }
 
-    public string id { get; construct set; }
+    public string id { get; construct; }
 
     public int snooze_minutes { get; set; default = 10; }
 
@@ -184,9 +184,14 @@ private class Item : Object, ContentItem {
     private Utils.Bell bell;
     private GLib.Notification notification;
 
+    construct {
+        if (id == null) {
+            id = GLib.DBus.generate_guid ();
+        }
+    }
+
     public Item (string? id = null) {
-        var guid = id != null ? (string) id : GLib.DBus.generate_guid ();
-        Object (id: guid);
+        Object (id: id);
     }
 
     private void setup_bell () {
