@@ -19,46 +19,19 @@
 namespace Clocks {
 
 private class Sound : GLib.Object {
-    private File? _file;
-    public File? file {
-        get {
-            return _file;
-        }
-        construct set {
-            if (value != null ) {
-                // Set the file exactly once, directly or from a URI.
-                assert (_file == null);
-                _file = value;
-            }
-        }
-    }
-
-    // Own the URI string because File.get_uri() transfers ownership of the
-    // string but method getters can't transfer ownership. But at it's all
-    // construct properties, we can at least compute it only once.
-    private string _uri;
-    public string uri {
-        get {
-            if (_file != null && _uri == null)
-                _uri = _file.get_uri ();
-
-            return _uri;
-        }
-        construct set {
-            if (value != null ) {
-                // Set the file exactly once, directly or from a URI.
-                assert (_file == null);
-                _file = File.new_for_uri (value);
-            }
-        }
-    }
-
-    public string label { get; construct set; default = ""; }
+    public File? file { get; construct; }
+    public string uri { get; construct; }
+    public string label { get; construct; default = ""; }
 
     construct {
-        // Set the file exactly once, directly or from a URI.
-        assert (file != null);
-        assert (uri != "");
+        assert ((file != null) ^ (uri != null));
+
+        if (file != null) {
+            uri = file.get_uri ();
+        } else {
+            file = File.new_for_uri (uri);
+        }
+
         if (!file.query_exists ()) {
             critical ("Sound file '%s' not found.", uri);
         }
