@@ -36,9 +36,6 @@ public class Face : Gtk.Box, Clocks.Clock {
 
     private ListStore laps;
 
-    public string label { get; construct set; }
-    public string icon_name { get; construct set; }
-    public HeaderBar header_bar { get; construct set; }
     public PanelId panel_id { get { return STOPWATCH; } }
     public ButtonMode button_mode { get; set; default = NONE; }
     public string? new_label { get; default = null; }
