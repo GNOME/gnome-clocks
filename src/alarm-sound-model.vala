@@ -34,7 +34,7 @@ private class SoundModel : ListModel, Object {
         // for more information.
 
         // Translators: An alarm sound name
-        store.append (new Sound (build_default_file (), _("Beep-Beep")));
+        store.append (new Sound (build_fallback_file (), _("Beep-Beep")));
         // Translators: An alarm sound name
         store.append (new Sound (alarms_dir.get_child ("bird.oga"), _("Bird")));
         // Translators: An alarm sound name
@@ -86,6 +86,12 @@ private class SoundModel : ListModel, Object {
     }
 
     public static File build_default_file () {
+        return build_fallback_file ();
+    }
+
+    // Prior to 50 alarms only used the "alarm-clock-elapsed" sound,
+    // "beep-beep" is the same sound without the forced repetition.
+    public static File build_fallback_file () {
         return File.new_for_uri ("resource:///org/gnome/clocks/sounds/alarms/beep-beep.oga");
     }
 

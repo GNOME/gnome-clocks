@@ -325,7 +325,7 @@ private class Item : Object, ContentItem {
         GLib.DateTime? ring_time = null;
         int snooze_minutes = 10;
         int ring_minutes = 5;
-        File sound_file = SoundModel.build_default_file ();
+        File? sound_file = null;
         Utils.Weekdays? days = null;
 
         var iter = alarm_variant.iterator ();
@@ -366,7 +366,9 @@ private class Item : Object, ContentItem {
             alarm.days = days;
             alarm.ring_minutes = ring_minutes;
             alarm.snooze_minutes = snooze_minutes;
-            alarm.sound_file = sound_file;
+            // Prior to 50 alarms only had one sound. If there is no
+            // sound stored, fall back to it.
+            alarm.sound_file = sound_file ?? SoundModel.build_fallback_file ();
             return alarm;
         } else {
             warning ("Invalid alarm %s", name != null ? (string) name : "[unnamed]");
