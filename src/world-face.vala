@@ -23,7 +23,7 @@ namespace World {
 public class Face : Adw.Bin, Clocks.Clock {
     public signal void show_standalone (Item location);
 
-    public PanelId panel_id { get; construct set; }
+    public PanelId panel_id { get { return WORLD; } }
     public ButtonMode button_mode { get; set; default = NEW; }
     // Translators: Tooltip for the + button
     public string? new_label { get; default = _("Add Location"); }
@@ -41,8 +41,6 @@ public class Face : Adw.Bin, Clocks.Clock {
     private unowned Adw.ViewStack stack;
 
     construct {
-        panel_id = WORLD;
-
         var unixtime = new GLib.DateTime.now_local ().to_unix ();
 
         locations = new ContentStore ();

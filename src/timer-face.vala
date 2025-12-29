@@ -32,7 +32,7 @@ public class Face : Adw.Bin, Clocks.Clock {
     [GtkChild]
     private unowned Adw.Bin timer_bin;
 
-    public PanelId panel_id { get; construct set; }
+    public PanelId panel_id { get { return TIMER; } }
     public ButtonMode button_mode { get; set; default = NONE; }
     public bool is_running { get; set; default = false; }
     // Translators: Tooltip for the + button
@@ -45,7 +45,6 @@ public class Face : Adw.Bin, Clocks.Clock {
     private GLib.Notification notification;
 
     construct {
-        panel_id = TIMER;
         timer_setup = new Setup ();
 
         settings = new GLib.Settings ("org.gnome.clocks");
