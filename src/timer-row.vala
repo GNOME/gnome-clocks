@@ -27,7 +27,7 @@ public class Row : Gtk.ListBoxRow {
             return _item;
         }
 
-        construct set {
+        construct {
             if (_item == value)
                 return;
 

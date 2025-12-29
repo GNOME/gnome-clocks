@@ -20,9 +20,9 @@ namespace Clocks {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/sound-chooser.ui")]
 private class SoundChooser : Adw.NavigationPage {
-    public ListModel model { get; construct set; }
+    public ListModel model { get; construct; }
     public Sound silent_sound { get { return silent_row.sound; } }
-    public Sound sound { get; construct set; }
+    public Sound sound { get; set; }
 
     [GtkChild]
     private unowned SoundChooserRow silent_row;

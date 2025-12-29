@@ -22,7 +22,7 @@ namespace Alarm {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/alarm-row.ui")]
 private class Row : Gtk.ListBoxRow {
-    public Item alarm { get; construct set; }
+    public Item alarm { get; construct; }
 
     [GtkChild]
     private unowned Gtk.Switch toggle;

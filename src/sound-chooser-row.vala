@@ -20,7 +20,7 @@ namespace Clocks {
 
 [GtkTemplate (ui = "/org/gnome/clocks/ui/sound-chooser-row.ui")]
 private class SoundChooserRow : Adw.ActionRow {
-    public Sound sound { get; construct set; }
+    public Sound sound { get; construct; }
     public bool ringing { get; set; }
     public bool selected { get; set; }
 

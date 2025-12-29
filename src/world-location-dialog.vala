@@ -20,7 +20,7 @@ namespace Clocks {
 namespace World {
 
 private class ClockLocation : Object {
-    public GWeather.Location location { get; construct set; }
+    public GWeather.Location location { get; construct; }
     public bool selected { get; set; }
 
     public ClockLocation (GWeather.Location location, bool selected) {
