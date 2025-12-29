@@ -192,7 +192,7 @@ public class Face : Adw.Bin, Clocks.Clock {
             }
             dialog.close ();
         });
-        dialog.present (get_root ());
+        dialog.present (this);
     }
 
     private void reset_view () {
@@ -213,7 +213,7 @@ public class Face : Adw.Bin, Clocks.Clock {
             }
             dialog.close ();
         });
-        dialog.present (get_root ());
+        dialog.present (this);
     }
 }
 

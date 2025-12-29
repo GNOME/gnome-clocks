@@ -130,7 +130,7 @@ public class Face : Adw.Bin, Clocks.Clock {
             timer.state = Item.State.RUNNING;
             dialog.close ();
         });
-        dialog.present (get_root ());
+        dialog.present (this);
     }
 
     private void connect_item (Item item) {

@@ -162,7 +162,7 @@ public class Face : Adw.Bin, Clocks.Clock {
 
                 dialog.force_close ();
             });
-        dialog.present (get_root ());
+        dialog.present (this);
     }
 
     private void reset_view () {
