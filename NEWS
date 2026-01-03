@@ -1,3 +1,19 @@
+gnome-clocks 50.alpha
+=====================
+* General improvements and bug fixes
+* !352 Port shortcuts dialog to AdwShortcutsDialog
+* !363 Add support for customizing the alarm bell. Requires ffmpeg on compile time
+* !368 UI improvements for the stopwatch view
+* !387 Use icu-i18n and icu-uc to format time spans
+* !388 !392 Disable vala C warnings
+* !357 Link to static.gnome.org for app screenshots
+* Bugs fixed:
+ - #158 Animate transition to lap table in stop watch
+ - #159 Don’t show timer lapsed notification when Clocks is focused
+ - #336 i18n: sentence is split
+ - #426 The New Timer dialog isn't scrollable
+* Translation updates
+
 gnome-clocks 49.0
 =================
 * help-overlay: Fix F10 shortcut not showing
