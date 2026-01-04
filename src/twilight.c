@@ -90,7 +90,7 @@ calculate_sunrise_sunset (double  lat,
   double sunrise_minute;
   double sunset_hour;
   double sunset_minute;
-  gboolean calculatable = TRUE;
+  gboolean calculable = TRUE;
 
   // first we calculate our current Julian date
   int julian_day_number = ((1461 * (year + 4800 + (month - 14) / 12)) / 4 +
@@ -134,7 +134,7 @@ calculate_sunrise_sunset (double  lat,
     sunset_hour = 23;
     sunset_minute = 59;
 
-    calculatable = FALSE;
+    calculable = FALSE;
   } else {
     double sunrise_days;
     double sunrise_day;
@@ -178,6 +178,5 @@ calculate_sunrise_sunset (double  lat,
     *set_min = sunset_minute;
   }
 
-  return calculatable;
+  return calculable;
 }
-

@@ -111,7 +111,7 @@ configure_file(
 )
 
 glib_compile_schemas = find_program('glib-compile-schemas', required: false)
-# Validata GSchema
+# Validate GSchema
 if glib_compile_schemas.found()
   test(
     'validate-gschema', glib_compile_schemas,

@@ -422,7 +422,7 @@ public class Weekdays {
         return (string) r;
     }
 
-    // Note that we serialze days according to ISO 8601
+    // Note that we serialize days according to ISO 8601
     // (1 is Monday, 2 is Tuesday... 7 is Sunday)
 
     public GLib.Variant serialize () {

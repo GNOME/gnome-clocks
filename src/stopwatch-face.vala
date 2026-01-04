@@ -50,7 +50,7 @@ public class Face : Gtk.Box, Clocks.Clock {
     private int stored_hour;
     private int stored_minute;
     private int stored_second;
-    double stored_milisecond;
+    double stored_millisecond;
     private int current_lap;
 
     [GtkChild]
@@ -60,7 +60,7 @@ public class Face : Gtk.Box, Clocks.Clock {
     [GtkChild]
     private unowned Gtk.Label seconds_label;
     [GtkChild]
-    private unowned Gtk.Label miliseconds_label;
+    private unowned Gtk.Label milliseconds_label;
     [GtkChild]
     private unowned Gtk.Box time_container;
 
@@ -270,9 +270,9 @@ public class Face : Gtk.Box, Clocks.Clock {
             seconds_label.label = "%02i".printf (s);
             stored_second = s;
         }
-        if (stored_milisecond != ds) {
-            miliseconds_label.label = "%i".printf (ds);
-            stored_milisecond = ds;
+        if (stored_millisecond != ds) {
+            milliseconds_label.label = "%i".printf (ds);
+            stored_millisecond = ds;
         }
 
         return true;

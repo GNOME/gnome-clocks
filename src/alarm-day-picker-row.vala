@@ -107,7 +107,7 @@ public class DayPickerRow : Adw.PreferencesRow {
     private unowned Gtk.Box box;
 
     construct {
-        // Create actions to control propeties from menu items
+        // Create actions to control properties from menu items
         var group = new SimpleActionGroup ();
         group.add_action (new PropertyAction ("day-0", this, "monday"));
         group.add_action (new PropertyAction ("day-1", this, "tuesday"));
