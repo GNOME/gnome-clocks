@@ -13,7 +13,10 @@ i18n = import('i18n')
 glib = dependency('glib-2.0', version: '>= 2.72')
 gio = dependency('gio-2.0', version: '>= 2.72')
 gobject = dependency('gobject-2.0', version: '>= 2.72')
-gtk = dependency('gtk4', version: '>= 4.15.3')
+# GTK 4.21.6 has a needed gapless-playback fix only when built with
+# gstreamer-play 1.27.90 or newer.
+gstreamer_play = dependency('gstreamer-play-1.0', version: '>= 1.27.90')
+gtk = dependency('gtk4', version: '>= 4.21.6')
 gweather = dependency('gweather4')
 gweather_soup_version = gweather.get_variable(pkgconfig: 'soupapiversion')
 if gweather_soup_version == '3.0'
