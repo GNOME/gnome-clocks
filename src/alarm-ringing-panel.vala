@@ -28,22 +28,22 @@ private class RingingPanel : Adw.Bin {
         }
         set {
             if (_alarm != null) {
-                ((Item) _alarm).disconnect (alarm_state_handler);
+                _alarm.disconnect (alarm_state_handler);
             }
 
             _alarm = value;
 
             if (_alarm != null) {
-                alarm_state_handler = ((Item) _alarm).notify["state"].connect (() => {
-                    if (((Item) _alarm).state != Item.State.RINGING) {
+                alarm_state_handler = _alarm.notify["state"].connect (() => {
+                    if (_alarm.state != Item.State.RINGING) {
                         dismiss ();
                     }
                 });
 
-                stop_button.action_target = ((Item) _alarm).id;
+                stop_button.action_target = _alarm.id;
                 stop_button.action_name = "app.stop-alarm";
 
-                snooze_button.action_target = ((Item) _alarm).id;
+                snooze_button.action_target = _alarm.id;
                 snooze_button.action_name = "app.snooze-alarm";
             }
 
@@ -73,11 +73,11 @@ private class RingingPanel : Adw.Bin {
 
     private void update () {
         if (alarm != null) {
-            title_label.label = (string) ((Item) alarm).name;
-            if (((Item) alarm).state == SNOOZING) {
-                time_label.label = ((Item) alarm).ring_time_label;
+            title_label.label = alarm.name;
+            if (alarm.state == SNOOZING) {
+                time_label.label = alarm.ring_time_label;
             } else {
-                time_label.label = ((Item) alarm).time_label;
+                time_label.label = alarm.time_label;
             }
         } else {
             title_label.label = "";
