@@ -42,9 +42,9 @@ public class Item : Object, ContentItem {
     }
 
     public string? name { get ; set; }
-    public int hours { get; set; }
-    public int minutes { get; set; }
-    public int seconds { get; set; }
+    public int hours { get; construct; }
+    public int minutes { get; construct; }
+    public int seconds { get; construct; }
 
     private double span;
     private GLib.Timer timer;
