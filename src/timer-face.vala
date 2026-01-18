@@ -58,11 +58,6 @@ public class Face : Adw.Bin, Clocks.Clock {
         timers_list.bind_model (sorted_timers, (timer) => {
             var row = new Row ((Item) timer);
             row.deleted.connect (() => remove_timer ((Item) timer));
-            ((Item)timer).notify["name"].connect (() => save ());
-            ((Item)timer).ring.connect (() => ring ());
-            ((Item)timer).notify["state"].connect (() => {
-                this.is_running = this.get_total_active_timers () != 0;
-            });
             return row;
         });
 
@@ -134,6 +129,11 @@ public class Face : Adw.Bin, Clocks.Clock {
     }
 
     private void connect_item (Item item) {
+        item.notify["name"].connect (() => save ());
+        item.ring.connect (() => ring ());
+        item.notify["state"].connect (() => {
+            this.is_running = this.get_total_active_timers () != 0;
+        });
         item.notify["hours"].connect (() => {
             sorted_timers.sorter.changed (DIFFERENT);
         });
