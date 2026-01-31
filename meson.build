@@ -3,7 +3,7 @@ project(
   ['vala', 'c'],
   version: '50.0',
   license: 'GPL-2.0-or-later',
-  meson_version: '>= 0.60.0',
+  meson_version: '>= 1.7',
 )
 
 fs = import('fs')
