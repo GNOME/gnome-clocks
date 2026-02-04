@@ -1,5 +1,5 @@
 # Japanese translation for gnome-clocks.
-# Copyright (C) 2012-2016, 2019-2022, 2025 gnome-clocks's COPYRIGHT HOLDER
+# Copyright (C) 2012-2016, 2019-2022, 2025-2026 gnome-clocks's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-clocks package.
 # Takeshi AIHANA <takeshi.aihana@gmail.com>, 2012.
 # Jiro Matsuzawa <jmatsuzawa@gnome.org>, 2012-2013, 2015-2016.
@@ -9,48 +9,49 @@
 # Peniel Vargas <penieru@gmail.com>, 2021.
 # 小山田 純 <oyamadajun@outlook.jp>, 2025.
 # Kusano Takayuki <https://bsky.app/profile/tkusano.jp>, 2025.
+# Makoto Sakaguchi <ycco34vx@gmail.com>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2025-05-13 06:38+0000\n"
-"PO-Revision-Date: 2025-05-14 10:11+0900\n"
+"POT-Creation-Date: 2026-01-31 11:52+0000\n"
+"PO-Revision-Date: 2026-02-04 23:13+0900\n"
 "Last-Translator: 小山田 純 <oyamadajun@outlook.jp>\n"
 "Language-Team: Japanese <https://l10n.gnome.org/teams/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-DL-Lang: ja\n"
 "X-DL-Module: gnome-clocks\n"
 "X-DL-Branch: master\n"
 "X-DL-Domain: po\n"
 "X-DL-State: Translating\n"
-"X-Generator: Gtranslator 48.0\n"
+"X-Generator: Poedit 3.8\n"
 
-#: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
+#: data/org.gnome.clocks.desktop.in.in:2 data/org.gnome.clocks.desktop.in.in:3
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:26 src/window.vala:252 src/window.vala:307
+#: src/main.vala:26 src/window.vala:252 src/window.vala:304
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "時計"
 
-#: data/org.gnome.clocks.desktop.in.in:5
+#: data/org.gnome.clocks.desktop.in.in:4
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr ""
 "世界時計、アラーム、ストップウォッチ、およびタイマー機能をもつ時計アプリケー"
 "ション"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in.in:7
+#: data/org.gnome.clocks.desktop.in.in:6
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
-"time;timer;alarm;world clock;stopwatch;time zone;時間;時刻;タイム;タイマー;ア"
-"ラーム;世界時計;時計;ストップウォッチ;ストップウオッチ;タイムゾーン;"
+"time;timer;alarm;world clock;stopwatch;time zone;時間;時刻;タイム;タイマー;"
+"アラーム;世界時計;時計;ストップウォッチ;ストップウオッチ;タイムゾーン;"
 
-#: data/org.gnome.clocks.desktop.in.in:17
+#: data/org.gnome.clocks.desktop.in.in:16
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "タイムゾーンに対応した世界時計を表示します。"
 
@@ -155,111 +156,11 @@ msgid "Timer screen"
 msgstr "タイマー画面"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:195 src/window.vala:254
+#: data/org.gnome.clocks.metainfo.xml.in.in:227 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "The GNOME Project"
 
-#: data/gtk/help-overlay.ui:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "全般"
-
-#: data/gtk/help-overlay.ui:15
-msgctxt "shortcut window"
-msgid "Show Help"
-msgstr "ヘルプを表示する"
-
-#: data/gtk/help-overlay.ui:21
-msgctxt "shortcut window"
-msgid "Open Menu"
-msgstr "メニューを開く"
-
-#: data/gtk/help-overlay.ui:27
-msgctxt "shortcut window"
-msgid "Keyboard Shortcuts"
-msgstr "キーボードショートカットを表示する"
-
-#: data/gtk/help-overlay.ui:33
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "終了する"
-
-#: data/gtk/help-overlay.ui:39
-msgctxt "shortcut window"
-msgid "Go to the Next Section"
-msgstr "次のセクションへ移動する"
-
-#: data/gtk/help-overlay.ui:45
-msgctxt "shortcut window"
-msgid "Go to the Previous Section"
-msgstr "前のセクションへ移動する"
-
-#: data/gtk/help-overlay.ui:51
-msgctxt "shortcut window"
-msgid "Go to the World Section"
-msgstr "世界時計セクションへ移動する"
-
-#: data/gtk/help-overlay.ui:57
-msgctxt "shortcut window"
-msgid "Go to the Alarms Section"
-msgstr "アラームセクションへ移動する"
-
-#: data/gtk/help-overlay.ui:63
-msgctxt "shortcut window"
-msgid "Go to the Stopwatch Section"
-msgstr "ストップウォッチセクションへ移動する"
-
-#: data/gtk/help-overlay.ui:69
-msgctxt "shortcut window"
-msgid "Go to the Timer Section"
-msgstr "タイマーセクションへ移動する"
-
-#: data/gtk/help-overlay.ui:77
-msgctxt "shortcut window"
-msgid "World Clocks"
-msgstr "世界時計"
-
-#: data/gtk/help-overlay.ui:81
-msgctxt "shortcut window"
-msgid "Add a World Clock"
-msgstr "世界時計を追加する"
-
-#: data/gtk/help-overlay.ui:89
-msgctxt "shortcut window"
-msgid "Alarm"
-msgstr "アラーム"
-
-#: data/gtk/help-overlay.ui:93
-msgctxt "shortcut window"
-msgid "Add an Alarm"
-msgstr "アラームを追加する"
-
-#: data/gtk/help-overlay.ui:101
-msgctxt "shortcut window"
-msgid "Stopwatch"
-msgstr "ストップウォッチ"
-
-#: data/gtk/help-overlay.ui:105
-msgctxt "shortcut window"
-msgid "Pause All"
-msgstr "すべて一時停止する"
-
-#: data/gtk/help-overlay.ui:113
-msgctxt "shortcut window"
-msgid "Timer"
-msgstr "タイマー"
-
-#: data/gtk/help-overlay.ui:117
-msgctxt "shortcut window"
-msgid "Reset"
-msgstr "リセットする"
-
-#: data/gtk/help-overlay.ui:123
-msgctxt "shortcut window"
-msgid "New Timer"
-msgstr "新しいタイマーを開始する"
-
-#: data/ui/alarm-day-picker-row.ui:17
+#: data/ui/alarm-day-picker-row.ui:21
 msgid "Repeat"
 msgstr "繰り返し"
 
@@ -267,13 +168,13 @@ msgstr "繰り返し"
 msgid "Add A_larm…"
 msgstr "アラームを追加…(_L)"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
-msgid "Stop"
-msgstr "停止"
+#: data/ui/alarm-ringing-panel.ui:26
+msgid "_Stop"
+msgstr "停止(_S)"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:196
-msgid "Snooze"
-msgstr "スヌーズ"
+#: data/ui/alarm-ringing-panel.ui:42
+msgid "S_nooze"
+msgstr "スヌーズ(_N)"
 
 #: data/ui/alarm-row.ui:47
 msgid "Repeats"
@@ -289,35 +190,47 @@ msgstr "削除"
 
 #. Translators: Tooltip for the + button
 #: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:110
+#: src/alarm-setup-dialog.vala:128
 msgid "New Alarm"
 msgstr "新しいアラーム"
 
-#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:16
 msgid "_Cancel"
 msgstr "キャンセル(_C)"
 
-#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:29 data/ui/world-location-dialog.ui:24
 msgid "_Add"
 msgstr "追加(_A)"
 
-#: data/ui/alarm-setup-dialog.ui:38
+#: data/ui/alarm-setup-dialog.ui:44
 msgid "You already have an alarm for this time"
 msgstr "すでに同じ時間にアラームが設定されています"
 
-#: data/ui/alarm-setup-dialog.ui:116
+#: data/ui/alarm-setup-dialog.ui:65 data/ui/timer-setup.ui:205
+msgid "Hours"
+msgstr "時"
+
+#: data/ui/alarm-setup-dialog.ui:90 data/ui/timer-setup.ui:238
+msgid "Minutes"
+msgstr "分"
+
+#: data/ui/alarm-setup-dialog.ui:124
 msgid "Name"
 msgstr "名称"
 
-#: data/ui/alarm-setup-dialog.ui:123
+#: data/ui/alarm-setup-dialog.ui:135 data/ui/alarm-setup-dialog.ui:195
+msgid "Alarm Sound"
+msgstr "アラームの音"
+
+#: data/ui/alarm-setup-dialog.ui:160
 msgid "Ring Duration"
 msgstr "アラームの長さ"
 
-#: data/ui/alarm-setup-dialog.ui:129
+#: data/ui/alarm-setup-dialog.ui:166
 msgid "Snooze Duration"
 msgstr "スヌーズの長さ"
 
-#: data/ui/alarm-setup-dialog.ui:138
+#: data/ui/alarm-setup-dialog.ui:175
 msgid "R_emove Alarm"
 msgstr "アラームを削除(_R)"
 
@@ -337,12 +250,117 @@ msgstr "“時計”について(_A)"
 msgid "Main Menu"
 msgstr "メインメニュー"
 
-#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
-#: src/stopwatch-face.vala:202
+#: data/ui/shortcuts-dialog.ui:6
+msgctxt "shortcut window"
+msgid "General"
+msgstr "全般"
+
+#: data/ui/shortcuts-dialog.ui:10
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "ヘルプを表示する"
+
+#: data/ui/shortcuts-dialog.ui:16
+msgctxt "shortcut window"
+msgid "Open Menu"
+msgstr "メニューを開く"
+
+#: data/ui/shortcuts-dialog.ui:22
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr "キーボードショートカットを表示する"
+
+#: data/ui/shortcuts-dialog.ui:28
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "終了する"
+
+#: data/ui/shortcuts-dialog.ui:34
+msgctxt "shortcut window"
+msgid "Go to the Next Section"
+msgstr "次のセクションへ移動する"
+
+#: data/ui/shortcuts-dialog.ui:40
+msgctxt "shortcut window"
+msgid "Go to the Previous Section"
+msgstr "前のセクションへ移動する"
+
+#: data/ui/shortcuts-dialog.ui:46
+msgctxt "shortcut window"
+msgid "Go to the World Section"
+msgstr "世界時計セクションへ移動する"
+
+#: data/ui/shortcuts-dialog.ui:52
+msgctxt "shortcut window"
+msgid "Go to the Alarms Section"
+msgstr "アラームセクションへ移動する"
+
+#: data/ui/shortcuts-dialog.ui:58
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch Section"
+msgstr "ストップウォッチセクションへ移動する"
+
+#: data/ui/shortcuts-dialog.ui:64
+msgctxt "shortcut window"
+msgid "Go to the Timer Section"
+msgstr "タイマーセクションへ移動する"
+
+#: data/ui/shortcuts-dialog.ui:71
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr "世界時計"
+
+#: data/ui/shortcuts-dialog.ui:75
+msgctxt "shortcut window"
+msgid "Add a World Clock"
+msgstr "世界時計を追加する"
+
+#: data/ui/shortcuts-dialog.ui:82
+msgctxt "shortcut window"
+msgid "Alarm"
+msgstr "アラーム"
+
+#: data/ui/shortcuts-dialog.ui:86
+msgctxt "shortcut window"
+msgid "Add an Alarm"
+msgstr "アラームを追加する"
+
+#: data/ui/shortcuts-dialog.ui:93
+msgctxt "shortcut window"
+msgid "Stopwatch"
+msgstr "ストップウォッチ"
+
+#: data/ui/shortcuts-dialog.ui:97
+msgctxt "shortcut window"
+msgid "Pause All"
+msgstr "すべて一時停止する"
+
+#: data/ui/shortcuts-dialog.ui:104
+msgctxt "shortcut window"
+msgid "Timer"
+msgstr "タイマー"
+
+#: data/ui/shortcuts-dialog.ui:108
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr "リセットする"
+
+#: data/ui/shortcuts-dialog.ui:114
+msgctxt "shortcut window"
+msgid "New Timer"
+msgstr "新しいタイマーを開始する"
+
+#. Translators: An alarm or timer empty sound name
+#: data/ui/sound-chooser.ui:19
+msgid "Silent"
+msgstr "なし"
+
+#: data/ui/stopwatch-face.ui:131 data/ui/timer-face.ui:26
+#: src/stopwatch-face.vala:197
 msgid "St_art"
 msgstr "開始(_A)"
 
-#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
+#: data/ui/stopwatch-face.ui:145 src/stopwatch-face.vala:180
 msgid "_Clear"
 msgstr "消去(_C)"
 
@@ -362,7 +380,7 @@ msgstr "タイトル…"
 msgid "Pause"
 msgstr "一時停止"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:26
 msgid "Start"
 msgstr "開始"
 
@@ -375,52 +393,104 @@ msgstr "リセット"
 msgid "New Timer"
 msgstr "新しいタイマー"
 
-#: data/ui/timer-setup.ui:31
+#: data/ui/timer-setup.ui:35
 msgid "Quick Start"
 msgstr "今すぐ開始"
 
-#: data/ui/timer-setup.ui:47
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:55
+msgid "One minute"
+msgstr "いっぷん"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:60
 msgid "1 m"
 msgstr "1 分"
 
-#: data/ui/timer-setup.ui:58
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:70
+msgid "Two minutes"
+msgstr "にふん"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:75
 msgid "2 m"
 msgstr "2 分"
 
-#: data/ui/timer-setup.ui:69
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:85
+msgid "Three minutes"
+msgstr "さんぷん"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:90
 msgid "3 m"
 msgstr "3 分"
 
-#: data/ui/timer-setup.ui:80
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:100
+msgid "Five minutes"
+msgstr "ごふん"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:105
 msgid "5 m"
 msgstr "5 分"
 
-#: data/ui/timer-setup.ui:91
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:115
+msgid "Thirty minutes"
+msgstr "さんじゅっぷん"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:120
 msgid "30 m"
 msgstr "30 分"
 
-#: data/ui/timer-setup.ui:102
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:130
+msgid "Fifteen minutes"
+msgstr "じゅうごふん"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:135
 msgid "15 m"
 msgstr "15 分"
 
-#: data/ui/timer-setup.ui:113
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:145
+msgid "Fortyfive minutes"
+msgstr "よんじゅうごふん"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:150
 msgid "45 m"
 msgstr "45 分"
 
-#: data/ui/timer-setup.ui:124
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:160
+msgid "One hour"
+msgstr "いちじかん"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:165
 msgid "1 h"
 msgstr "1 時間"
 
-#: data/ui/timer-setup.ui:137
+#: data/ui/timer-setup.ui:174
 msgid "Set Timer"
 msgstr "タイマーを設定"
 
-#: data/ui/timer-setup.ui:163 data/ui/timer-setup.ui:195
-#: data/ui/timer-setup.ui:228
+#: data/ui/timer-setup.ui:200 data/ui/timer-setup.ui:233
+#: data/ui/timer-setup.ui:267
 msgid "0"
 msgstr "0"
 
-#: data/ui/timer-setup.ui:264
+#: data/ui/timer-setup.ui:272
+msgid "Seconds"
+msgstr "秒"
+
+#: data/ui/timer-setup.ui:304
 msgid "Title"
 msgstr "タイトル"
 
@@ -448,17 +518,33 @@ msgstr "時計"
 msgid "Alarm Ringing"
 msgstr "アラームが鳴っています"
 
-#: data/ui/world-face.ui:15
+#: data/ui/world-face.ui:14
 msgid "_Add World Clock…"
 msgstr "世界時計を追加(_A)…"
 
 #: data/ui/world-location-dialog.ui:4
-msgid "Add a New World Clock"
-msgstr "世界時計の新規追加"
+msgid "Add World Clock"
+msgstr "世界時計を追加"
 
-#: data/ui/world-location-dialog.ui:52
-msgid "Search for a City"
-msgstr "都市の検索"
+#: data/ui/world-location-dialog.ui:43
+msgid "Search cities"
+msgstr "都市を検索"
+
+#: data/ui/world-location-dialog.ui:54
+msgid "Perform a Search"
+msgstr "検索してください"
+
+#: data/ui/world-location-dialog.ui:55
+msgid "The search results will appear here"
+msgstr "検索結果がここに表示されます"
+
+#: data/ui/world-location-dialog.ui:61
+msgid "No Results Found"
+msgstr "結果が見つかりませんでした"
+
+#: data/ui/world-location-dialog.ui:62
+msgid "Try a different search"
+msgstr "別のキーワードを試してください"
 
 #: data/ui/world-standalone.ui:97
 msgid "Sunrise"
@@ -473,12 +559,20 @@ msgstr "日の入"
 msgid "Alarm set for %s from now"
 msgstr "アラームが今から %s 後に設定されました"
 
-#. Prior to 3.36 unamed alarms would just be called "Alarm",
+#. Prior to 3.36 unnamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
+#: src/alarm-item.vala:199 src/alarm-row.vala:90 src/window.vala:300
 msgid "Alarm"
 msgstr "アラーム"
+
+#: src/alarm-item.vala:202
+msgid "Stop"
+msgstr "停止"
+
+#: src/alarm-item.vala:203
+msgid "Snooze"
+msgstr "スヌーズ"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
 #: src/alarm-row.vala:97
@@ -526,27 +620,142 @@ msgstr "20 分"
 msgid "30 minutes"
 msgstr "30 分"
 
-#: src/alarm-setup-dialog.vala:110
+#: src/alarm-setup-dialog.vala:128
 msgid "Edit Alarm"
 msgstr "アラームを編集"
 
-#: src/alarm-setup-dialog.vala:113
+#: src/alarm-setup-dialog.vala:131
 msgid "_Done"
 msgstr "完了(_D)"
+
+#. FIXME GtkMediaFile doesn't support gapless looping, causing audible
+#. clicks in alarm sounds. This is caused by GstPlay not supporting
+#. gapless chainup or looping.
+#. See https://gitlab.freedesktop.org/gstreamer/gstreamer/-/issues/1200
+#. for more information.
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:37
+msgid "Beep-Beep"
+msgstr "ピーピー"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:39
+msgid "Bird"
+msgstr "小鳥のさえずり"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:41
+msgid "Bonfire"
+msgstr "焚き火"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:43
+msgid "Boudoir"
+msgstr "寝室"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:45
+msgid "Bouncing"
+msgstr "バウンド"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:47
+msgid "Cautious Steps"
+msgstr "忍び足"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:49
+msgid "Chirping"
+msgstr "虫の音"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:51
+msgid "Class Act"
+msgstr "洗練"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:53
+msgid "Crossing Bell"
+msgstr "踏切の鐘"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:55
+msgid "Daydreaming"
+msgstr "白昼夢"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:57
+msgid "Digitone"
+msgstr "デジトーン"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:59
+msgid "Enchanting"
+msgstr "うっとりする調べ"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:61
+msgid "Glass Bell"
+msgstr "ガラスの鐘"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:63
+msgid "Guitar"
+msgstr "ギター"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:65
+msgid "Jolly"
+msgstr "ご機嫌"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:67
+msgid "Mystery"
+msgstr "ミステリー"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:69
+msgid "Ping Ping"
+msgstr "ピンピン"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:71
+msgid "School Bell"
+msgstr "学校のチャイム"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:73
+msgid "Sonar"
+msgstr "ソナー"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:75
+msgid "Sparkling"
+msgstr "きらめき"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:77
+msgid "Tingling"
+msgstr "鈴の音"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:79
+msgid "Toys"
+msgstr "おもちゃのチャチャチャ"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
 msgstr "バージョン情報を表示して終了する"
 
-#: src/stopwatch-face.vala:165
+#: src/stopwatch-face.vala:160
 msgid "_Pause"
 msgstr "一時停止(_P)"
 
-#: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
+#: src/stopwatch-face.vala:164 src/stopwatch-face.vala:201
 msgid "_Lap"
 msgstr "ラップ(_L)"
 
-#: src/stopwatch-face.vala:181
+#: src/stopwatch-face.vala:176
 msgid "R_esume"
 msgstr "再開(_E)"
 
@@ -555,11 +764,11 @@ msgstr "再開(_E)"
 msgid "Lap %i"
 msgstr "ラップ %i"
 
-#: src/timer-face.vala:82
+#: src/timer-face.vala:77
 msgid "Time is up!"
 msgstr "タイムアップ!"
 
-#: src/timer-face.vala:83
+#: src/timer-face.vala:78
 msgid "Timer countdown finished"
 msgstr "時間が来ました"
 
@@ -584,108 +793,85 @@ msgid "%s hour ahead"
 msgid_plural "%s hours ahead"
 msgstr[0] "+%s 時間"
 
-#: src/utils.vala:103
-#, c-format
-msgid "%s day"
-msgid_plural "%s days"
-msgstr[0] "%s 日"
-
-# アラームを設定したときのポップアップトースト表示で、「Alarm set for 23 hours and 54 minutes from now」のandの部分。 日本語ではandの部分は要らないので空白にした。例「アラームが今から 23 時間 54分 後に設定されました」
-#: src/utils.vala:105 src/utils.vala:112
-msgid " and "
-msgstr " "
-
-#: src/utils.vala:110
-#, c-format
-msgid "%s hour"
-msgid_plural "%s hours"
-msgstr[0] "%s 時間"
-
-#: src/utils.vala:117
-#, c-format
-msgid "%s minute"
-msgid_plural "%s minutes"
-msgstr[0] "%s 分"
-
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:277
+#: src/utils.vala:249
 msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "月"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:279
+#: src/utils.vala:251
 msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "火"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:281
+#: src/utils.vala:253
 msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "水"
 
 #. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:283
+#: src/utils.vala:255
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
 msgstr "木"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:285
+#: src/utils.vala:257
 msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "金"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:287
+#: src/utils.vala:259
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "土"
 
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:289
+#: src/utils.vala:261
 msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
 msgstr "日"
 
-#: src/utils.vala:303
+#: src/utils.vala:275
 msgid "Mondays"
 msgstr "月曜日"
 
-#: src/utils.vala:304
+#: src/utils.vala:276
 msgid "Tuesdays"
 msgstr "火曜日"
 
-#: src/utils.vala:305
+#: src/utils.vala:277
 msgid "Wednesdays"
 msgstr "水曜日"
 
-#: src/utils.vala:306
+#: src/utils.vala:278
 msgid "Thursdays"
 msgstr "木曜日"
 
-#: src/utils.vala:307
+#: src/utils.vala:279
 msgid "Fridays"
 msgstr "金曜日"
 
-#: src/utils.vala:308
+#: src/utils.vala:280
 msgid "Saturdays"
 msgstr "土曜日"
 
-#: src/utils.vala:309
+#: src/utils.vala:281
 msgid "Sundays"
 msgstr "日曜日"
 
-#: src/utils.vala:435
+#: src/utils.vala:407
 msgid "Every Day"
 msgstr "毎日"
 
-#: src/utils.vala:437
+#: src/utils.vala:409
 msgid "Weekdays"
 msgstr "平日"
 
-#: src/utils.vala:439
+#: src/utils.vala:411
 msgid "Weekends"
 msgstr "週末"
 
@@ -700,7 +886,8 @@ msgstr ""
 "Ikuya Awashiro <ikuya@fruitsbasket.info>\n"
 "sicklylife <translation@sicklylife.jp>\n"
 "小山田 純 <oyamadajun@outlook.jp>\n"
-"Kusano Takayuki https://bsky.app/profile/tkusano.jp"
+"Kusano Takayuki https://bsky.app/profile/tkusano.jp\n"
+"Makoto Sakaguchi <ycco34vx@gmail.com>"
 
 #. Translators: Tooltip for the + button
 #: src/world-face.vala:29
@@ -723,6 +910,23 @@ msgstr "昨日"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "現在の場所"
+
+#~ msgid "Add a New World Clock"
+#~ msgstr "世界時計の新規追加"
+
+#, c-format
+#~ msgid "%s day"
+#~ msgid_plural "%s days"
+#~ msgstr[0] "%s 日"
+
+# アラームを設定したときのポップアップトースト表示で、「Alarm set for 23 hours and 54 minutes from now」のandの部分。 日本語ではandの部分は要らないので空白にした。例「アラームが今から 23 時間 54分 後に設定されました」
+#~ msgid " and "
+#~ msgstr " "
+
+#, c-format
+#~ msgid "%s minute"
+#~ msgid_plural "%s minutes"
+#~ msgstr[0] "%s 分"
 
 #~ msgid "Goals:"
 #~ msgstr "目的:"
@@ -826,9 +1030,6 @@ msgstr "現在の場所"
 
 #~ msgid "Title..."
 #~ msgstr "タイトル..."
-
-#~ msgid "Add World Clock"
-#~ msgstr "世界時計を追加"
 
 #~ msgid "Failed to show help: %s"
 #~ msgstr "ヘルプの表示に失敗しました: %s"
