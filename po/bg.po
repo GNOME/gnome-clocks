@@ -1,18 +1,18 @@
 # Bulgarian translation for gnome-clocks po-file.
 # Copyright (C) 2013 Krasimir Chonov <mk2616@abv.bg>.
-# Copyright (C) 2021, 2022, 2023 Alexander Shopov <ash@kambanaria.org>.
-# Copyright (C) 2024, 2025 twlvnn kraftwerk <kraft_werk@tutanota.com>.
+# Copyright (C) 2021, 2022, 2023, 2026 Alexander Shopov <ash@kambanaria.org>.
+# Copyright (C) 2024, 2025, 2026 twlvnn kraftwerk <kraft_werk@tutanota.com>.
 # This file is distributed under the same license as the gnome-clocks package.
 # Krasimir Chonov <mk2616@abv.bg>, 2013.
-# Alexander Shopov <ash@kambanaria.org>, 2021, 2022, 2023.
+# Alexander Shopov <ash@kambanaria.org>, 2021, 2022, 2023, 2026.
 # twlvnn kraftwerk <kraft_werk@tutanota.com>, 2024, 2025, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2026-01-09 00:58+0000\n"
-"PO-Revision-Date: 2026-01-22 11:16+0100\n"
+"POT-Creation-Date: 2026-01-31 11:52+0000\n"
+"PO-Revision-Date: 2026-02-07 09:49+0100\n"
 "Last-Translator: twlvnn kraftwerk <kraft_werk@tutanota.com>\n"
 "Language-Team: Bulgarian <dict@ludost.net>\n"
 "Language: bg\n"
@@ -23,8 +23,9 @@ msgstr ""
 "X-Generator: Poedit 3.8\n"
 
 #: data/org.gnome.clocks.desktop.in.in:2 data/org.gnome.clocks.desktop.in.in:3
-#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27 src/main.vala:26 src/window.vala:252
-#: src/window.vala:304 src/world-standalone.vala:24
+#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
+#: src/main.vala:26 src/window.vala:252 src/window.vala:304
+#: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Часовници"
 
@@ -105,10 +106,11 @@ msgstr "Следене на време"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:9
 msgid ""
-"A simple and elegant clock application. It includes world clocks, alarms, a stopwatch, and timers."
+"A simple and elegant clock application. It includes world clocks, alarms, a "
+"stopwatch, and timers."
 msgstr ""
-"Просто и елегантно приложение за време. Предоставя напомняния, аларми, часовници, хронометри и "
-"обратно отброяване."
+"Просто и елегантно приложение за време. Предоставя напомняния, аларми, "
+"часовници, хронометри и обратно отброяване."
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:14
 msgid "Show the time in different cities around the world"
@@ -143,7 +145,7 @@ msgid "Timer screen"
 msgstr "Екран с отброяванията"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:216 src/window.vala:254
+#: data/org.gnome.clocks.metainfo.xml.in.in:227 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "Проектът GNOME"
 
@@ -176,7 +178,8 @@ msgid "Delete"
 msgstr "Изтриване"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28 src/alarm-setup-dialog.vala:128
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
+#: src/alarm-setup-dialog.vala:128
 msgid "New Alarm"
 msgstr "Нова аларма"
 
@@ -341,7 +344,8 @@ msgstr "Ново отброяване"
 msgid "Silent"
 msgstr "Без звук"
 
-#: data/ui/stopwatch-face.ui:131 data/ui/timer-face.ui:26 src/stopwatch-face.vala:197
+#: data/ui/stopwatch-face.ui:131 data/ui/timer-face.ui:26
+#: src/stopwatch-face.vala:197
 msgid "St_art"
 msgstr "_Старт"
 
@@ -466,7 +470,8 @@ msgstr "1 час"
 msgid "Set Timer"
 msgstr "Задаване на отброяване"
 
-#: data/ui/timer-setup.ui:200 data/ui/timer-setup.ui:233 data/ui/timer-setup.ui:267
+#: data/ui/timer-setup.ui:200 data/ui/timer-setup.ui:233
+#: data/ui/timer-setup.ui:267
 msgid "0"
 msgstr "0"
 
@@ -516,7 +521,7 @@ msgstr "Търсене на градове"
 
 #: data/ui/world-location-dialog.ui:54
 msgid "Perform a Search"
-msgstr "Извършвайте търсене"
+msgstr "Търсене"
 
 #: data/ui/world-location-dialog.ui:55
 msgid "The search results will appear here"
@@ -640,7 +645,7 @@ msgstr "Будоар"
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:45
 msgid "Bouncing"
-msgstr "Подксачане"
+msgstr "Подскачане"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:47
@@ -655,27 +660,27 @@ msgstr "Чуруликане"
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:51
 msgid "Class Act"
-msgstr ""
+msgstr "Кла̀са"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:53
 msgid "Crossing Bell"
-msgstr ""
+msgstr "Пешеходен звънец"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:55
 msgid "Daydreaming"
-msgstr "Мечтаене"
+msgstr "Мечтане"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:57
 msgid "Digitone"
-msgstr ""
+msgstr "Цифров тон"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:59
 msgid "Enchanting"
-msgstr ""
+msgstr "Очарование"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:61
@@ -715,12 +720,12 @@ msgstr "Сонар"
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:75
 msgid "Sparkling"
-msgstr ""
+msgstr "Искрене"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:77
 msgid "Tingling"
-msgstr ""
+msgstr "Мравучкане"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:79
@@ -748,11 +753,11 @@ msgstr "_Продължаване"
 msgid "Lap %i"
 msgstr "Обиколка %i"
 
-#: src/timer-face.vala:82
+#: src/timer-face.vala:77
 msgid "Time is up!"
 msgstr "Времето изтече!"
 
-#: src/timer-face.vala:83
+#: src/timer-face.vala:78
 msgid "Timer countdown finished"
 msgstr "Отброяването завърши"
 
@@ -865,14 +870,17 @@ msgstr "Почивни дни"
 msgid "translator-credits"
 msgstr ""
 "Красимир Чонов &lt;<a href='mailto:mk2616@abv.bg'>mk2616@abv.bg</a>&gt;\n"
-"Александър Шопов &lt;<a href='mailto:ash@kambanaria.org'>ash@kambanaria.org</a>&gt;\n"
-"Twlvnn Kraftwerk &lt;<a href='mailto:kraft_werk@tutanota.com'>kraft_werk@tutanota.com</a>&gt;\n"
+"Александър Шопов &lt;<a href='mailto:ash@kambanaria.org'>ash@kambanaria.org</"
+"a>&gt;\n"
+"Twlvnn Kraftwerk &lt;<a "
+"href='mailto:kraft_werk@tutanota.com'>kraft_werk@tutanota.com</a>&gt;\n"
 "\n"
 "\n"
 "Проектът за превод на GNOME има нужда от подкрепа.\n"
-"Научете повече за нас на <a href='https://fsa-bg.org/project/gtp'>уеб сайта</a> ни.\n"
-"Докладвайте за грешки в превода в <a href='https://fsa-bg.org/project/gtp/newticket'>съответния "
-"раздел</a>."
+"Научете повече за нас на <a href='https://fsa-bg.org/project/gtp'>уеб сайта</"
+"a> ни.\n"
+"Докладвайте за грешки в превода в <a href='https://fsa-bg.org/project/gtp/"
+"newticket'>съответния раздел</a>."
 
 #. Translators: Tooltip for the + button
 #: src/world-face.vala:29
@@ -895,21 +903,3 @@ msgstr "Вчера"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Текущо местоположение"
-
-#~ msgid "Add a New World Clock"
-#~ msgstr "Добавяне на часовник"
-
-#, c-format
-#~ msgid "%s day"
-#~ msgid_plural "%s days"
-#~ msgstr[0] "%s ден"
-#~ msgstr[1] "%s дни"
-
-#~ msgid " and "
-#~ msgstr " и "
-
-#, c-format
-#~ msgid "%s minute"
-#~ msgid_plural "%s minutes"
-#~ msgstr[0] "%s минута"
-#~ msgstr[1] "%s минути"
