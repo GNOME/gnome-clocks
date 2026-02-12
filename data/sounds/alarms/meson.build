@@ -1,3 +1,5 @@
+oggenc = find_program('oggenc')
+
 alarms_resources = [
   'beep-beep.flac',
 ]
@@ -7,7 +9,9 @@ foreach alarm: alarms_resources
     fs.replace_suffix(alarm, '.oga'),
     output: '@BASENAME@.oga',
     input: alarm,
-    command: to_vorbis,
+    # The default ogg serial numbers are unreproducible
+    # Set the serial number to 0
+    command: [oggenc, '@INPUT@', '--serial', '0', '-o', '@OUTPUT@' ],
   )
 endforeach
 
@@ -40,7 +44,9 @@ foreach alarm: alarms_data
     fs.replace_suffix(alarm, '.oga'),
     output: '@BASENAME@.oga',
     input: alarm,
-    command: to_vorbis,
+    # The default ogg serial numbers are unreproducible
+    # Set the serial number to 0
+    command: [oggenc, '@INPUT@', '--serial', '0', '-o', '@OUTPUT@' ],
     install: true,
     install_dir: get_option('datadir') / 'sounds' / 'gnome' / 'default' / 'alarms',
   )

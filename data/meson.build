@@ -13,9 +13,6 @@ install_data(
   rename: '@0@-symbolic.svg'.format(app_id)
 )
 
-ffmpeg = find_program('ffmpeg')
-to_vorbis = [ffmpeg, '-i', '@INPUT@', '-c:a', 'libvorbis', '@OUTPUT@' ]
-
 subdir('sounds')
 
 resource_files = files('gnome-clocks.gresource.xml')
