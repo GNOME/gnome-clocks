@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
-"POT-Creation-Date: 2015-10-03 06:48+0000\n"
+"POT-Creation-Date: 2026-02-16 21:20+0000\n"
 "PO-Revision-Date: 2015-10-03 14:27+0300\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: team@lists.gnome.gr\n"
@@ -23,7 +23,12 @@ msgctxt "_"
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME <team@gnome.gr>, 2013\n"
-"Παπαναστασίου Νικολέτα <papa.nikoleta@ymail.com>, 2013"
+" Παπαναστασίου Νικολέτα <papa.nikoleta@ymail.com>, 2013\n"
+" Ευστάθιος Ιωσηφίδης <iosifidis@opensuse.org>\n"
+"\n"
+"Για περισσότερες πληροφορίες, επισκεφθείτε τη σελίδα\n"
+"https://gr.gnome.org/"
+
 
 #. (itstool) path: credit/name
 #: C/alarm-add.page:14 C/alarm-edit.page:14 C/alarm-remove.page:15
@@ -75,40 +80,41 @@ msgstr ""
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:34
-msgid "Press <gui style=\"button\">Alarm</gui>."
-msgstr "Επιλέξτε <gui style=\"button\">Ειδοποίηση</gui>."
+msgid "Press <gui style=\"button\">Alarms</gui>."
+msgstr "Πατήστε το κουμπί <gui style=\"button\">Ειδοποιήσεις</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:37
-msgid "Press <gui style=\"button\">New</gui>."
-msgstr "Επιλέξτε <gui style=\"button\">Νέο</gui>."
+msgid "Press <gui style=\"button\">+</gui>."
+msgstr "Πατήστε το κουμπί <gui style=\"button\">+</gui>."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:40
 msgid "Set the time when you want the alarm to go off."
-msgstr "Ρυθμίστε την ώρα που θέλετε να χτυπήσει η ειδοποίηση ή το ξυπνητήρι."
+msgstr "Ρυθμίστε την ώρα που θέλετε να ηχήσει η ειδοποίηση."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:43
-msgid "You can give your new alarm a name so that it is easier to identify."
+msgid ""
+"Select the days on which you want the alarm to be repeated at the set time, "
+"or none if you only want the alarm to go off once."
 msgstr ""
-"Μπορείτε να δώσετε στην νέα ειδοποίησή σας ένα όνομα ώστε να είναι πιο "
-"εύκολο να την αναγνωρίσετε."
+"Επιλέξτε τις ημέρες που θέλετε να επαναλαμβάνεται η ειδοποίηση την "
+"καθορισμένη ώρα, ή καμία αν θέλετε η ειδοποίηση να ηχήσει μόνο μία φορά."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:47
-msgid ""
-"Select the days on which you want the alarm to be repeated at the set time."
+msgid "You can give your new alarm a name so that it is easier to identify."
 msgstr ""
-"Επιλέξτε τις μέρες που θέλετε να επαναλαμβάνεται η ειδοποίηση στην "
-"ρυθμισμένη ώρα."
+"Μπορείτε να δώσετε ένα όνομα στη νέα σας ειδοποίηση, ώστε να είναι πιο "
+"εύκολο να την αναγνωρίσετε."
 
 #. (itstool) path: item/p
 #: C/alarm-add.page:51
-msgid "Press <gui style=\"button\">Done</gui> to finish adding the alarm."
+msgid "Press <gui style=\"button\">Add</gui> to finish adding the alarm."
 msgstr ""
-"Επιλέξτε <gui style=\"button\">Ολοκλήρωση</gui> για να προσθέσετε την "
-"ειδοποίηση."
+"Πατήστε το κουμπί <gui style=\"button\">Προσθήκη</gui> για να ολοκληρώσετε "
+"την προσθήκη της ειδοποίησης."
 
 #. (itstool) path: page/p
 #: C/alarm-add.page:55
@@ -138,65 +144,75 @@ msgstr "Επεξεργασία ειδοποίησης"
 
 #. (itstool) path: page/p
 #: C/alarm-edit.page:29
-msgid ""
-"Edit your alarm to change when it goes off, rename it or to deactivate it."
+msgid "Edit your alarm to change when it goes off or to rename it."
 msgstr ""
-"Επεξεργαστείτε την ειδοποίησή σας για να αλλάξετε το πότε θα χτυπάει, για να "
-"την μετονομάσετε ή να την επανεργοποιήσετε."
+"Επεξεργαστείτε την ειδοποίησή σας για να αλλάξετε την ώρα που ηχεί ή για να "
+"την μετονομάσετε."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:34 C/alarm-remove.page:34
-msgid "Press the <gui style=\"button\">Alarm</gui> button."
-msgstr "Επιλέξτε το κουμπί <gui style=\"button\">Ειδοποίηση</gui>."
+#: C/alarm-edit.page:33 C/alarm-edit.page:48 C/alarm-remove.page:34
+msgid "Press the <gui style=\"button\">Alarms</gui> button."
+msgstr "Πατήστε το κουμπί <gui style=\"button\">Ειδοποιήσεις</gui>."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:37
-msgid "Press the alarm which you want to edit."
-msgstr "Επιλέξτε το ξυπνητήρι που θέλετε να επεξεργαστείτε."
+#: C/alarm-edit.page:36
+msgid ""
+"Find the alarm you want to change and press <gui style=\"button\">Edit</gui>."
+msgstr ""
+"Βρείτε την ειδοποίηση που θέλετε να αλλάξετε και πατήστε το κουμπί <gui "
+"style=\"button\">Επεξεργασία</gui>."
 
 #. (itstool) path: item/p
-#: C/alarm-edit.page:40
+#: C/alarm-edit.page:39
 msgid ""
 "Update the alarm and press <gui style=\"button\">Done</gui> to finish "
 "editing it."
 msgstr ""
-"Ενημερώστε την ειδοποίηση και πιέστε <gui style=\"button\">Ολοκλήρωση</gui> "
-"για να τελειώσετε με την επεξεργασία της."
+"Ενημερώστε την ειδοποίηση και πατήστε <gui style=\"button\">Τέλος</gui> για "
+"να ολοκληρώσετε την επεξεργασία της."
+
+#. (itstool) path: page/p
+#: C/alarm-edit.page:44
+msgid "You can also temporarily disable an alarm."
+msgstr "Μπορείτε επίσης να απενεργοποιήσετε προσωρινά μια ειδοποίηση."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:51
+msgid "Find the alarm you want to disable or enable and toggle the switch."
+msgstr ""
+"Βρείτε την ειδοποίηση που θέλετε να απενεργοποιήσετε ή να ενεργοποιήσετε "
+"και αλλάξτε την κατάσταση του διακόπτη."
+
+#. (itstool) path: item/p
+#: C/alarm-edit.page:54
+msgid ""
+"When the alarm is disabled, it will not go off, but it can be enabled again "
+"later."
+msgstr ""
+"Όταν μια ειδοποίηση είναι απενεργοποιημένη, δεν θα ηχήσει, αλλά μπορεί να "
+"ενεργοποιηθεί ξανά αργότερα."
 
 #. (itstool) path: info/desc
 #: C/alarm-remove.page:25
 msgid "Delete an alarm which you no longer need."
-msgstr "Διαγράψτε μια ειδοποίηση που δεν χρειάζεστε πια."
+msgstr "Διαγράψτε μια ειδοποίηση που δεν χρειάζεστε πλέον."
 
 #. (itstool) path: page/title
 #: C/alarm-remove.page:28
 msgid "Remove an alarm"
-msgstr "Διαγραφή ειδοποίησης"
+msgstr "Αφαίρεση ειδοποίησης"
 
 #. (itstool) path: page/p
 #: C/alarm-remove.page:30
 msgid "You can delete alarms which you no longer need."
-msgstr "Μπορείτε να διαγράψετε τις ειδοποιήσεις που δεν χρειάζεστε πια."
+msgstr "Μπορείτε να διαγράψετε ειδοποιήσεις που δεν χρειάζεστε πλέον."
 
 #. (itstool) path: item/p
 #: C/alarm-remove.page:37
-msgid ""
-"Right click on the alarm. You can press the button with the tick mark in the "
-"top right corner and select the alarm which you want to delete."
+msgid "Press the <gui style=\"button\">Delete</gui> button to remove an alarm."
 msgstr ""
-"Κάντε δεξί κλικ στην ειδοπίηση. Μπορείτε να πιέσετε το κουμπί με την ένδειξη "
-"επιλογής στην πάνω δεξιά γωνία και να επιλέξετε την ειδοποίηση που θέλετε να "
-"διαγράψετε."
-
-#. (itstool) path: item/p
-#: C/alarm-remove.page:42 C/world-remove.page:41
-msgid "Press the <gui style=\"button\">Delete</gui> button."
-msgstr "Πιέστε το κουμπί <gui style=\"button\">Διαγραφή</gui>."
-
-#. (itstool) path: page/p
-#: C/alarm-remove.page:46
-msgid "You can select more than one alarm at a time for deletion."
-msgstr "Μπορείτε να επιλέξετε περισσότερες από μία ειδοποιήσεις προς διαγραφή."
+"Πατήστε το κουμπί <gui style=\"button\">Διαγραφή</gui> για να αφαιρέσετε "
+"μια ειδοποίηση."
 
 #. (itstool) path: info/desc
 #: C/alarm-snooze-stop.page:24
@@ -288,21 +304,21 @@ msgstr ""
 #. (itstool) path: item/p
 #: C/stopwatch.page:51
 msgid ""
-"Press <gui style=\"button\">Stop</gui> to pause the stopwatch and <gui style="
-"\"button\">Continue</gui> when you are ready to resume timing the task."
+"Press <gui style=\"button\">Pause</gui> to pause the stopwatch and <gui "
+"style=\"button\">Resume</gui> when you are ready to resume timing the task."
 msgstr ""
-"Πιέστε το κουμπί <gui style=\"button\">Διακοπή</gui> για παύση του "
-"χρονομέτρου και <gui style=\"button\">Συνέχεια</gui> όταν είστε έτοιμος/η να "
-"συνεχίσετε την χρονομέτρηση της εργασίας."
+"Πατήστε <gui style=\"button\">Παύση</gui> για να διακόψετε προσωρινά το "
+"χρονόμετρο και <gui style=\"button\">Συνέχεια</gui> όταν είστε έτοιμοι να "
+"συνεχίσετε τη χρονομέτρηση της εργασίας."
 
 #. (itstool) path: page/p
 #: C/stopwatch.page:59
 msgid ""
-"You can use the <gui style=\"button\">Reset</gui> button to reset the "
-"stopwatch when it is stopped."
+"You can use the <gui style=\"button\">Clear</gui> button to reset the "
+"stopwatch when it is paused."
 msgstr ""
-"Μπορείτε να χρησιμοποιήσετε το κουμπί <gui style=\"button\">Επαναφορά</gui> "
-"για να μηδενίσετε το χρονόμετρο όταν είναι σταματημένο."
+"Μπορείτε να χρησιμοποιήσετε το κουμπί <gui style=\"button\">Καθαρισμός</gui> "
+"για να μηδενίσετε το χρονόμετρο όταν βρίσκεται σε παύση."
 
 #. (itstool) path: note/p
 #: C/stopwatch.page:63
@@ -328,16 +344,16 @@ msgstr "Ρύθμιση του χρονοδιακόπτη"
 #. (itstool) path: page/p
 #: C/timer.page:29
 msgid ""
-"Set the time for a second by second countdown to zero. You will be notified "
-"when the countdown has finished."
+"Set the amount of time for the timer countdown. You will be notified when "
+"the countdown has finished."
 msgstr ""
-"Ρυθμίστε την ώρα για μια δευτερόλεπτο προς δευτερόλεπτο αντίστροφη μέτρηση "
-"μέχρι το μηδέν. Θα ειδοποιηθείτε όταν η αντίστροφη μέτρηση έχει τελειώσει."
+"Ορίστε τη διάρκεια της αντίστροφης μέτρησης. Θα ειδοποιηθείτε μόλις η "
+"αντίστροφη μέτρηση ολοκληρωθεί."
 
 #. (itstool) path: item/p
 #: C/timer.page:34
 msgid "Press the <gui style=\"button\">Timer</gui> button."
-msgstr "Πιέστε το κουμπί <gui style=\"button\">Χρονοδιακόπτης</gui>."
+msgstr "Πατήστε το κουμπί <gui style=\"button\">Χρονοδιακόπτης</gui>."
 
 #. (itstool) path: item/p
 #: C/timer.page:37
@@ -359,14 +375,14 @@ msgstr "Θα ειδοποιηθείτε όταν η αντίστροφη μέτ�
 #. (itstool) path: note/p
 #: C/timer.page:47
 msgid ""
-"Once the timer has started its countdown, you can press the <gui style="
-"\"button\">Pause</gui> button to pause the timer. To reset the timer, press "
-"the <gui style=\"button\">Reset</gui> button."
+"Once the timer has started its countdown, you can press the <gui "
+"style=\"button\">Pause</gui> button to pause the timer. To reset the timer, "
+"press the <gui style=\"button\">Reset</gui> button."
 msgstr ""
 "Μόλις ο χρονοδιακόπτης ξεκινήσει την αντίστροφη μέτρηση, μπορείτε να πιέσετε "
 "το κουμπί <gui style=\"button\">Παύση</gui> για να την διακόψετε. Για να "
-"επαναρυθμίσετε τον χρονοδιακόπτη επιλέξτε το κουμπί <gui style=\"button"
-"\">Επαναφορά</gui>."
+"επαναρυθμίσετε τον χρονοδιακόπτη επιλέξτε το κουμπί <gui "
+"style=\"button\">Επαναφορά</gui>."
 
 #. (itstool) path: credit/name
 #: C/world-add.page:24
@@ -403,11 +419,11 @@ msgstr "Πιέστε το κουμπί <gui style=\"button\">Κόσμος</gui>.
 #. (itstool) path: item/p
 #: C/world-add.page:42
 msgid ""
-"Press the <gui style=\"button\">New</gui> button or <keyseq><key>Ctrl</"
+"Press the <gui style=\"button\">+</gui> button or <keyseq><key>Ctrl</"
 "key><key>N</key></keyseq> to add a new city."
 msgstr ""
-"Πιέστε το κουμπί <gui style=\"button\">Νέο</gui> ή <keyseq><key>Ctrl</"
-"key><key>N</key></keyseq> για να προσθέσετε μία νέα πόλη."
+"Πατήστε το κουμπί <gui style=\"button\">+</gui> ή τον συνδυασμό πλήκτρων "
+"<keyseq><key>Ctrl</key><key>N</key></keyseq> για να προσθέσετε μια νέα πόλη."
 
 #. (itstool) path: item/p
 #: C/world-add.page:46
@@ -494,35 +510,52 @@ msgstr "Μπορείτε να διαγράψετε ρολόγια που δεν 
 #. (itstool) path: item/p
 #: C/world-remove.page:36
 msgid ""
-"Right click on the world clock. You can press the button with the tick mark "
-"in the top right corner and select the clock which you want to delete."
+"Press the <gui style=\"button\">Delete</gui> button to remove a world clock."
 msgstr ""
-"Κάντε δεξί κλικ στο παγκόσμιο ρολόι. Μπορείτε να πιέσετε το κουμπί με την "
-"ένδειξη επιλογής στην πάνω δεξιά γωνία και να επιλέξετε το ρολόι που θέλετε "
-"να διαγράψετε."
+"Πατήστε το κουμπί <gui style=\"button\">Διαγραφή</gui> για να αφαιρέσετε ένα "
+"παγκόσμιο ρολόι."
 
-#. (itstool) path: page/p
-#: C/world-remove.page:45
-msgid "You can select more than one clock at a time for deletion."
-msgstr "Μπορείτε να επιλέξετε παραπάνω από ένα ρολόι προς διαγραφή."
+#. (itstool) path: info/title
+#: C/index.page:22
+msgctxt "link:trail"
+msgid "Clocks Help"
+msgstr "Βοήθεια για το Ρολόγια"
+
+#. (itstool) path: info/title
+#: C/index.page:23
+msgctxt "text"
+msgid "Clocks Help"
+msgstr "Βοήθεια για το Ρολόγια"
+
+#. (itstool) path: info/title
+#: C/index.page:24
+msgctxt "link"
+msgid "Clocks Help"
+msgstr "Βοήθεια για το Ρολόγια"
+
+#. (itstool) path: info/title
+#: C/index.page:25
+msgctxt "link:seealso"
+msgid "Clocks Help"
+msgstr "Βοήθεια για το Ρολόγια"
 
 #. (itstool) path: info/desc
-#: C/index.page:22
+#: C/index.page:27
 msgid ""
 "Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
 "the time in different cities around the world."
 msgstr ""
-"Χρησιμοποιήστε το <app>Ρολόγια</app> σαν χρονόμετρο, χρονοδιακόπτη, για να "
-"ρυθμίσετε ξυπνητήρια και για να ελέγξετε την ώρα σε διαφερετικές πόλεις στον "
-"κόσμο."
+"Χρησιμοποιήστε την εφαρμογή <app>Ρολόγια</app> ως χρονόμετρο, χρονοδιακόπτη, "
+"για να ρυθμίσετε ειδοποιήσεις και για να δείτε την ώρα σε διάφορες πόλεις σε "
+"όλο τον κόσμο."
 
 #. (itstool) path: page/title
-#: C/index.page:26
-msgid "<_:media-1/>Clocks"
-msgstr "<_:media-1/>Ρολόγια"
+#: C/index.page:31
+msgid "<_:media-1/> Clocks"
+msgstr "<_:media-1/> Ρολόγια"
 
 #. (itstool) path: page/p
-#: C/index.page:28
+#: C/index.page:34
 msgid ""
 "Use <app>Clocks</app> as a stopwatch, a timer, to set alarms and to check "
 "the time in different cities."
@@ -531,12 +564,12 @@ msgstr ""
 "ρυθμίσετε ξυπνητήρια και για να ελέγξετε την ώρα σε διαφερετικές πόλεις."
 
 #. (itstool) path: section/title
-#: C/index.page:32
+#: C/index.page:38
 msgid "World clocks"
 msgstr "Παγκόσμια ρολόγια"
 
 #. (itstool) path: section/p
-#: C/index.page:34
+#: C/index.page:40
 msgid ""
 "View the time in cities around the world on the same screen. You can also "
 "check if it is still the same day in those cities, and the sunrise and "
@@ -547,34 +580,35 @@ msgstr ""
 "και την ώρα ανατολής και δύσης."
 
 #. (itstool) path: section/title
-#: C/index.page:41
+#: C/index.page:47
 msgid "Alarm clocks"
 msgstr "Ξυπνητήρια"
 
 #. (itstool) path: section/p
-#: C/index.page:43
-msgid "Set customisable alarms to go off on specific days every week."
+#: C/index.page:49
+msgid "Set customizable alarms to go off on specific days every week."
 msgstr ""
-"Ρυθμίστε προσαρμόσιμες ειδοποιήσεις για συγκεκριμένες ημέρες κάθε εβδομάδα."
+"Ρυθμίστε προσαρμόσιμες ειδοποιήσεις που ηχούν συγκεκριμένες ημέρες κάθε "
+"εβδομάδα."
 
 #. (itstool) path: section/title
-#: C/index.page:48
+#: C/index.page:54
 msgid "Stopwatch"
 msgstr "Χρονόμετρο"
 
 #. (itstool) path: section/p
-#: C/index.page:50
+#: C/index.page:56
 msgid "Use the stopwatch to time how long something takes."
 msgstr ""
 "Χρησιμοποιήστε το χρονόμετρο για να χρονομετρήσετε πόση ώρα παίρνει κάτι."
 
 #. (itstool) path: section/title
-#: C/index.page:55
+#: C/index.page:61
 msgid "Timer"
 msgstr "Χρονοδιακόπτης"
 
 #. (itstool) path: section/p
-#: C/index.page:57
+#: C/index.page:63
 msgid "Set a countdown in seconds, minutes or hours."
 msgstr "Ρυθμίστε μια αντίστροφη χρονομέτρηση σε δευτερόλεπτα, λεπτά ή ώρες."
 
@@ -587,3 +621,30 @@ msgstr "Άδεια Creative Commons Attribution-ShareAlike 3.0 Unported"
 #: C/legal.xml:3
 msgid "This work is licensed under a <_:link-1/>."
 msgstr "Αυτό το έργο έχει αδειοδοτηθεί υπό την <_:link-1/>."
+
+#~ msgid "Press the alarm which you want to edit."
+#~ msgstr "Επιλέξτε το ξυπνητήρι που θέλετε να επεξεργαστείτε."
+
+#~ msgid ""
+#~ "Right click on the alarm. You can press the button with the tick mark in "
+#~ "the top right corner and select the alarm which you want to delete."
+#~ msgstr ""
+#~ "Κάντε δεξί κλικ στην ειδοπίηση. Μπορείτε να πιέσετε το κουμπί με την "
+#~ "ένδειξη επιλογής στην πάνω δεξιά γωνία και να επιλέξετε την ειδοποίηση "
+#~ "που θέλετε να διαγράψετε."
+
+#~ msgid "You can select more than one alarm at a time for deletion."
+#~ msgstr ""
+#~ "Μπορείτε να επιλέξετε περισσότερες από μία ειδοποιήσεις προς διαγραφή."
+
+#~ msgid ""
+#~ "Right click on the world clock. You can press the button with the tick "
+#~ "mark in the top right corner and select the clock which you want to "
+#~ "delete."
+#~ msgstr ""
+#~ "Κάντε δεξί κλικ στο παγκόσμιο ρολόι. Μπορείτε να πιέσετε το κουμπί με την "
+#~ "ένδειξη επιλογής στην πάνω δεξιά γωνία και να επιλέξετε το ρολόι που "
+#~ "θέλετε να διαγράψετε."
+
+#~ msgid "You can select more than one clock at a time for deletion."
+#~ msgstr "Μπορείτε να επιλέξετε παραπάνω από ένα ρολόι προς διαγραφή."
