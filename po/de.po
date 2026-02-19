@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2026-01-06 00:34+0000\n"
-"PO-Revision-Date: 2026-01-06 23:00+0100\n"
+"POT-Creation-Date: 2026-01-31 11:52+0000\n"
+"PO-Revision-Date: 2026-02-01 16:49+0100\n"
 "Last-Translator: Christian Kirbach <christian.kirbach@gmail.com>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -151,7 +151,7 @@ msgid "Timer screen"
 msgstr "Timer-Bildschirm"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:216 src/window.vala:254
+#: data/org.gnome.clocks.metainfo.xml.in.in:227 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "Das GNOME-Projekt"
 
@@ -351,11 +351,11 @@ msgid "Silent"
 msgstr "Lautlos"
 
 #: data/ui/stopwatch-face.ui:131 data/ui/timer-face.ui:26
-#: src/stopwatch-face.vala:200
+#: src/stopwatch-face.vala:197
 msgid "St_art"
 msgstr "St_art"
 
-#: data/ui/stopwatch-face.ui:145 src/stopwatch-face.vala:183
+#: data/ui/stopwatch-face.ui:145 src/stopwatch-face.vala:180
 msgid "_Clear"
 msgstr "_Leeren"
 
@@ -631,7 +631,7 @@ msgstr "_Fertig"
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:37
 msgid "Beep-Beep"
-msgstr ""
+msgstr "Piep piep"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:39
@@ -641,7 +641,7 @@ msgstr "Vogel"
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:41
 msgid "Bonfire"
-msgstr ""
+msgstr "Lagerfeuer"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:43
@@ -651,37 +651,38 @@ msgstr ""
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:45
 msgid "Bouncing"
-msgstr ""
+msgstr "Abprallen"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:47
 msgid "Cautious Steps"
-msgstr ""
+msgstr "Vorsichtige Schritte"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:49
 msgid "Chirping"
-msgstr "Zwitschern"
+msgstr "Zirpen"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:51
 msgid "Class Act"
-msgstr ""
+msgstr "Glanzleistung"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:53
 msgid "Crossing Bell"
-msgstr ""
+msgstr "Bahnübergangssignal"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:55
 msgid "Daydreaming"
-msgstr ""
+msgstr "Tagtraum"
 
+# Digitone ist ein Markenname eines FM-Synthesizers
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:57
 msgid "Digitone"
-msgstr ""
+msgstr "Digitone"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:59
@@ -701,19 +702,17 @@ msgstr "Gitarre"
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:65
 msgid "Jolly"
-msgstr ""
+msgstr "Lustig"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:67
-#, fuzzy
-#| msgid "Yesterday"
 msgid "Mystery"
-msgstr "Gestern"
+msgstr "Mysterium"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:69
 msgid "Ping Ping"
-msgstr ""
+msgstr "Ping Ping"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:71
@@ -723,17 +722,17 @@ msgstr "Schulglocke"
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:73
 msgid "Sonar"
-msgstr ""
+msgstr "Sonar"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:75
 msgid "Sparkling"
-msgstr ""
+msgstr "Prickelnd"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:77
 msgid "Tingling"
-msgstr ""
+msgstr "Kribbeln"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:79
@@ -744,15 +743,15 @@ msgstr "Spielzeug"
 msgid "Print version information and exit"
 msgstr "Versionsnummer anzeigen und beenden"
 
-#: src/stopwatch-face.vala:163
+#: src/stopwatch-face.vala:160
 msgid "_Pause"
 msgstr "_Pausieren"
 
-#: src/stopwatch-face.vala:167 src/stopwatch-face.vala:204
+#: src/stopwatch-face.vala:164 src/stopwatch-face.vala:201
 msgid "_Lap"
 msgstr "_Runde"
 
-#: src/stopwatch-face.vala:179
+#: src/stopwatch-face.vala:176
 msgid "R_esume"
 msgstr "Forts_etzen"
 
@@ -761,11 +760,11 @@ msgstr "Forts_etzen"
 msgid "Lap %i"
 msgstr "Runde %i"
 
-#: src/timer-face.vala:82
+#: src/timer-face.vala:77
 msgid "Time is up!"
 msgstr "Zeit ist abgelaufen!"
 
-#: src/timer-face.vala:83
+#: src/timer-face.vala:78
 msgid "Timer countdown finished"
 msgstr "Timer-Countdown ist abgelaufen"
 
