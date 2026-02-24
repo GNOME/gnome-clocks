@@ -1,6 +1,6 @@
 # Korean translation for gnome-clocks.
 # This file is distributed under the same license as the gnome-clocks package.
-# Seong-ho Cho <shcho@gnome.org>, 2012-2025.
+# Seong-ho Cho <shcho@gnome.org>, 2012-2026.
 #
 # 번역에 참여하신 분께서는
 # 상단 주석에 다음과 같은 형식으로
@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2025-02-23 06:54+0000\n"
-"PO-Revision-Date: 2025-03-01 04:22+0900\n"
+"POT-Creation-Date: 2026-01-31 11:52+0000\n"
+"PO-Revision-Date: 2026-02-22 21:28+0900\n"
 "Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
 "Language-Team: 한국어 <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
@@ -27,27 +27,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.7\n"
 
-#: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
+#: data/org.gnome.clocks.desktop.in.in:2 data/org.gnome.clocks.desktop.in.in:3
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:26 src/window.vala:252 src/window.vala:307
+#: src/main.vala:26 src/window.vala:252 src/window.vala:304
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "시계"
 
-#: data/org.gnome.clocks.desktop.in.in:5
+#: data/org.gnome.clocks.desktop.in.in:4
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "세계 시계, 알림, 초시계, 타이머 기능이 있는 시계"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in.in:7
+#: data/org.gnome.clocks.desktop.in.in:6
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr ""
 "time;시간;timer;타이머;alarm;알람;알림;world clock;세계 시계;stopwatch;스톱"
 "워치;초시계;time zone;시간대;"
 
-#: data/org.gnome.clocks.desktop.in.in:17
+#: data/org.gnome.clocks.desktop.in.in:16
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "현재 시간대에 해당하는 세계 시계 표시를 허용합니다."
 
@@ -152,111 +152,11 @@ msgid "Timer screen"
 msgstr "타이머 화면"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
+#: data/org.gnome.clocks.metainfo.xml.in.in:227 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "그놈 프로젝트"
 
-#: data/gtk/help-overlay.ui:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "일반"
-
-#: data/gtk/help-overlay.ui:15
-msgctxt "shortcut window"
-msgid "Show Help"
-msgstr "도움말 표시"
-
-#: data/gtk/help-overlay.ui:21
-msgctxt "shortcut window"
-msgid "Open Menu"
-msgstr "메뉴 열기"
-
-#: data/gtk/help-overlay.ui:27
-msgctxt "shortcut window"
-msgid "Keyboard Shortcuts"
-msgstr "키보드 바로 가기"
-
-#: data/gtk/help-overlay.ui:33
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "끝내기"
-
-#: data/gtk/help-overlay.ui:39
-msgctxt "shortcut window"
-msgid "Go to the Next Section"
-msgstr "다음 섹션으로 이동"
-
-#: data/gtk/help-overlay.ui:45
-msgctxt "shortcut window"
-msgid "Go to the Previous Section"
-msgstr "이전 섹션으로 이동"
-
-#: data/gtk/help-overlay.ui:51
-msgctxt "shortcut window"
-msgid "Go to the World Section"
-msgstr "세계 섹션으로 이동"
-
-#: data/gtk/help-overlay.ui:57
-msgctxt "shortcut window"
-msgid "Go to the Alarms Section"
-msgstr "알림 섹션으로 이동"
-
-#: data/gtk/help-overlay.ui:63
-msgctxt "shortcut window"
-msgid "Go to the Stopwatch Section"
-msgstr "초시계 섹션으로 이동"
-
-#: data/gtk/help-overlay.ui:69
-msgctxt "shortcut window"
-msgid "Go to the Timer Section"
-msgstr "타이머 섹션으로 이동"
-
-#: data/gtk/help-overlay.ui:77
-msgctxt "shortcut window"
-msgid "World Clocks"
-msgstr "세계 시계"
-
-#: data/gtk/help-overlay.ui:81
-msgctxt "shortcut window"
-msgid "Add a World Clock"
-msgstr "세계 시계 추가"
-
-#: data/gtk/help-overlay.ui:89
-msgctxt "shortcut window"
-msgid "Alarm"
-msgstr "알림"
-
-#: data/gtk/help-overlay.ui:93
-msgctxt "shortcut window"
-msgid "Add an Alarm"
-msgstr "알림 추가"
-
-#: data/gtk/help-overlay.ui:101
-msgctxt "shortcut window"
-msgid "Stopwatch"
-msgstr "스톱워치"
-
-#: data/gtk/help-overlay.ui:105
-msgctxt "shortcut window"
-msgid "Pause All"
-msgstr "모두 일시정지"
-
-#: data/gtk/help-overlay.ui:113
-msgctxt "shortcut window"
-msgid "Timer"
-msgstr "타이머"
-
-#: data/gtk/help-overlay.ui:117
-msgctxt "shortcut window"
-msgid "Reset"
-msgstr "초기화"
-
-#: data/gtk/help-overlay.ui:123
-msgctxt "shortcut window"
-msgid "New Timer"
-msgstr "새 타이머"
-
-#: data/ui/alarm-day-picker-row.ui:17
+#: data/ui/alarm-day-picker-row.ui:21
 msgid "Repeat"
 msgstr "반복"
 
@@ -264,13 +164,13 @@ msgstr "반복"
 msgid "Add A_larm…"
 msgstr "알림 추가(_L)…"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
-msgid "Stop"
-msgstr "정지"
+#: data/ui/alarm-ringing-panel.ui:26
+msgid "_Stop"
+msgstr "정지(_S)"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:196
-msgid "Snooze"
-msgstr "다시 알림"
+#: data/ui/alarm-ringing-panel.ui:42
+msgid "S_nooze"
+msgstr "다시 알림(_N)"
 
 #: data/ui/alarm-row.ui:47
 msgid "Repeats"
@@ -286,35 +186,47 @@ msgstr "삭제"
 
 #. Translators: Tooltip for the + button
 #: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:110
+#: src/alarm-setup-dialog.vala:128
 msgid "New Alarm"
 msgstr "새 알림"
 
-#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:16
 msgid "_Cancel"
 msgstr "취소(_C)"
 
-#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:29 data/ui/world-location-dialog.ui:24
 msgid "_Add"
 msgstr "추가(_A)"
 
-#: data/ui/alarm-setup-dialog.ui:38
+#: data/ui/alarm-setup-dialog.ui:44
 msgid "You already have an alarm for this time"
 msgstr "이미 알림을 설정했습니다"
 
-#: data/ui/alarm-setup-dialog.ui:116
+#: data/ui/alarm-setup-dialog.ui:65 data/ui/timer-setup.ui:205
+msgid "Hours"
+msgstr "시간"
+
+#: data/ui/alarm-setup-dialog.ui:90 data/ui/timer-setup.ui:238
+msgid "Minutes"
+msgstr "분"
+
+#: data/ui/alarm-setup-dialog.ui:124
 msgid "Name"
 msgstr "이름"
 
-#: data/ui/alarm-setup-dialog.ui:123
+#: data/ui/alarm-setup-dialog.ui:135 data/ui/alarm-setup-dialog.ui:195
+msgid "Alarm Sound"
+msgstr "알림음"
+
+#: data/ui/alarm-setup-dialog.ui:160
 msgid "Ring Duration"
 msgstr "알림 지속 시간"
 
-#: data/ui/alarm-setup-dialog.ui:129
+#: data/ui/alarm-setup-dialog.ui:166
 msgid "Snooze Duration"
 msgstr "다시 알림 지연"
 
-#: data/ui/alarm-setup-dialog.ui:138
+#: data/ui/alarm-setup-dialog.ui:175
 msgid "R_emove Alarm"
 msgstr "알림 제거(_E)"
 
@@ -334,12 +246,117 @@ msgstr "시계 정보(_A)"
 msgid "Main Menu"
 msgstr "주 메뉴"
 
-#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
-#: src/stopwatch-face.vala:202
+#: data/ui/shortcuts-dialog.ui:6
+msgctxt "shortcut window"
+msgid "General"
+msgstr "일반"
+
+#: data/ui/shortcuts-dialog.ui:10
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "도움말 표시"
+
+#: data/ui/shortcuts-dialog.ui:16
+msgctxt "shortcut window"
+msgid "Open Menu"
+msgstr "메뉴 열기"
+
+#: data/ui/shortcuts-dialog.ui:22
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr "키보드 바로 가기"
+
+#: data/ui/shortcuts-dialog.ui:28
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "끝내기"
+
+#: data/ui/shortcuts-dialog.ui:34
+msgctxt "shortcut window"
+msgid "Go to the Next Section"
+msgstr "다음 섹션으로 이동"
+
+#: data/ui/shortcuts-dialog.ui:40
+msgctxt "shortcut window"
+msgid "Go to the Previous Section"
+msgstr "이전 섹션으로 이동"
+
+#: data/ui/shortcuts-dialog.ui:46
+msgctxt "shortcut window"
+msgid "Go to the World Section"
+msgstr "세계 섹션으로 이동"
+
+#: data/ui/shortcuts-dialog.ui:52
+msgctxt "shortcut window"
+msgid "Go to the Alarms Section"
+msgstr "알림 섹션으로 이동"
+
+#: data/ui/shortcuts-dialog.ui:58
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch Section"
+msgstr "초시계 섹션으로 이동"
+
+#: data/ui/shortcuts-dialog.ui:64
+msgctxt "shortcut window"
+msgid "Go to the Timer Section"
+msgstr "타이머 섹션으로 이동"
+
+#: data/ui/shortcuts-dialog.ui:71
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr "세계 시계"
+
+#: data/ui/shortcuts-dialog.ui:75
+msgctxt "shortcut window"
+msgid "Add a World Clock"
+msgstr "세계 시계 추가"
+
+#: data/ui/shortcuts-dialog.ui:82
+msgctxt "shortcut window"
+msgid "Alarm"
+msgstr "알림"
+
+#: data/ui/shortcuts-dialog.ui:86
+msgctxt "shortcut window"
+msgid "Add an Alarm"
+msgstr "알림 추가"
+
+#: data/ui/shortcuts-dialog.ui:93
+msgctxt "shortcut window"
+msgid "Stopwatch"
+msgstr "스톱워치"
+
+#: data/ui/shortcuts-dialog.ui:97
+msgctxt "shortcut window"
+msgid "Pause All"
+msgstr "모두 일시정지"
+
+#: data/ui/shortcuts-dialog.ui:104
+msgctxt "shortcut window"
+msgid "Timer"
+msgstr "타이머"
+
+#: data/ui/shortcuts-dialog.ui:108
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr "초기화"
+
+#: data/ui/shortcuts-dialog.ui:114
+msgctxt "shortcut window"
+msgid "New Timer"
+msgstr "새 타이머"
+
+#. Translators: An alarm or timer empty sound name
+#: data/ui/sound-chooser.ui:19
+msgid "Silent"
+msgstr "묵음"
+
+#: data/ui/stopwatch-face.ui:131 data/ui/timer-face.ui:26
+#: src/stopwatch-face.vala:197
 msgid "St_art"
 msgstr "시작(_A)"
 
-#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
+#: data/ui/stopwatch-face.ui:145 src/stopwatch-face.vala:180
 msgid "_Clear"
 msgstr "지우기(_C)"
 
@@ -359,7 +376,7 @@ msgstr "제목…"
 msgid "Pause"
 msgstr "일시정지"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:26
 msgid "Start"
 msgstr "시작"
 
@@ -372,52 +389,104 @@ msgstr "초기화"
 msgid "New Timer"
 msgstr "새 타이머"
 
-#: data/ui/timer-setup.ui:31
+#: data/ui/timer-setup.ui:35
 msgid "Quick Start"
 msgstr "빠른 시작"
 
-#: data/ui/timer-setup.ui:47
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:55
+msgid "One minute"
+msgstr "1분"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:60
 msgid "1 m"
 msgstr "1분"
 
-#: data/ui/timer-setup.ui:58
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:70
+msgid "Two minutes"
+msgstr "2분"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:75
 msgid "2 m"
 msgstr "2분"
 
-#: data/ui/timer-setup.ui:69
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:85
+msgid "Three minutes"
+msgstr "3분"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:90
 msgid "3 m"
 msgstr "3분"
 
-#: data/ui/timer-setup.ui:80
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:100
+msgid "Five minutes"
+msgstr "5분"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:105
 msgid "5 m"
 msgstr "5분"
 
-#: data/ui/timer-setup.ui:91
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:115
+msgid "Thirty minutes"
+msgstr "30분"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:120
 msgid "30 m"
 msgstr "30분"
 
-#: data/ui/timer-setup.ui:102
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:130
+msgid "Fifteen minutes"
+msgstr "15분"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:135
 msgid "15 m"
 msgstr "15분"
 
-#: data/ui/timer-setup.ui:113
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:145
+msgid "Fortyfive minutes"
+msgstr "45분"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:150
 msgid "45 m"
 msgstr "45분"
 
-#: data/ui/timer-setup.ui:124
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:160
+msgid "One hour"
+msgstr "1시간"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:165
 msgid "1 h"
 msgstr "1시간"
 
-#: data/ui/timer-setup.ui:137
+#: data/ui/timer-setup.ui:174
 msgid "Set Timer"
 msgstr "타이머 설정"
 
-#: data/ui/timer-setup.ui:163 data/ui/timer-setup.ui:195
-#: data/ui/timer-setup.ui:228
+#: data/ui/timer-setup.ui:200 data/ui/timer-setup.ui:233
+#: data/ui/timer-setup.ui:267
 msgid "0"
 msgstr "0"
 
-#: data/ui/timer-setup.ui:264
+#: data/ui/timer-setup.ui:272
+msgid "Seconds"
+msgstr "초"
+
+#: data/ui/timer-setup.ui:304
 msgid "Title"
 msgstr "제목"
 
@@ -445,17 +514,33 @@ msgstr "시계"
 msgid "Alarm Ringing"
 msgstr "알림 소리 울리기"
 
-#: data/ui/world-face.ui:15
+#: data/ui/world-face.ui:14
 msgid "_Add World Clock…"
 msgstr "세계 시계 추가(_A)…"
 
 #: data/ui/world-location-dialog.ui:4
-msgid "Add a New World Clock"
-msgstr "새 세계 시계 추가"
+msgid "Add World Clock"
+msgstr "세계 시계 추가"
 
-#: data/ui/world-location-dialog.ui:52
-msgid "Search for a City"
+#: data/ui/world-location-dialog.ui:43
+msgid "Search cities"
 msgstr "도시 검색"
+
+#: data/ui/world-location-dialog.ui:54
+msgid "Perform a Search"
+msgstr "검색 수행"
+
+#: data/ui/world-location-dialog.ui:55
+msgid "The search results will appear here"
+msgstr "검색 결과가 여기에 나타납니다"
+
+#: data/ui/world-location-dialog.ui:61
+msgid "No Results Found"
+msgstr "결과가 없습니다"
+
+#: data/ui/world-location-dialog.ui:62
+msgid "Try a different search"
+msgstr "다른 단어로 검색하십시오"
 
 #: data/ui/world-standalone.ui:97
 msgid "Sunrise"
@@ -470,12 +555,20 @@ msgstr "일몰"
 msgid "Alarm set for %s from now"
 msgstr "지금부터 %s의 알림을 설정했습니다"
 
-#. Prior to 3.36 unamed alarms would just be called "Alarm",
+#. Prior to 3.36 unnamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
+#: src/alarm-item.vala:199 src/alarm-row.vala:90 src/window.vala:300
 msgid "Alarm"
 msgstr "알림"
+
+#: src/alarm-item.vala:202
+msgid "Stop"
+msgstr "정지"
+
+#: src/alarm-item.vala:203
+msgid "Snooze"
+msgstr "다시 알림"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
 #: src/alarm-row.vala:97
@@ -523,27 +616,142 @@ msgstr "20분"
 msgid "30 minutes"
 msgstr "30분"
 
-#: src/alarm-setup-dialog.vala:110
+#: src/alarm-setup-dialog.vala:128
 msgid "Edit Alarm"
 msgstr "알림 편집"
 
-#: src/alarm-setup-dialog.vala:113
+#: src/alarm-setup-dialog.vala:131
 msgid "_Done"
 msgstr "완료(_D)"
+
+#. FIXME GtkMediaFile doesn't support gapless looping, causing audible
+#. clicks in alarm sounds. This is caused by GstPlay not supporting
+#. gapless chainup or looping.
+#. See https://gitlab.freedesktop.org/gstreamer/gstreamer/-/issues/1200
+#. for more information.
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:37
+msgid "Beep-Beep"
+msgstr "삑삑"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:39
+msgid "Bird"
+msgstr "새소리"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:41
+msgid "Bonfire"
+msgstr "모닥불"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:43
+msgid "Boudoir"
+msgstr "실내"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:45
+msgid "Bouncing"
+msgstr "튀어오름"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:47
+msgid "Cautious Steps"
+msgstr "조심스런 걸음"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:49
+msgid "Chirping"
+msgstr "지저귐"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:51
+msgid "Class Act"
+msgstr "일류"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:53
+msgid "Crossing Bell"
+msgstr "철길건널목"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:55
+msgid "Daydreaming"
+msgstr "백일몽"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:57
+msgid "Digitone"
+msgstr "디지톤"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:59
+msgid "Enchanting"
+msgstr "매혹"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:61
+msgid "Glass Bell"
+msgstr "유리종"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:63
+msgid "Guitar"
+msgstr "기타"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:65
+msgid "Jolly"
+msgstr "행복감"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:67
+msgid "Mystery"
+msgstr "미스테리"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:69
+msgid "Ping Ping"
+msgstr "탁구"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:71
+msgid "School Bell"
+msgstr "학교종"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:73
+msgid "Sonar"
+msgstr "수중음파"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:75
+msgid "Sparkling"
+msgstr "반짝임"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:77
+msgid "Tingling"
+msgstr "땡그랑"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:79
+msgid "Toys"
+msgstr "장난감"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
 msgstr "버전 정보를 출력하고 나갑니다"
 
-#: src/stopwatch-face.vala:165
+#: src/stopwatch-face.vala:160
 msgid "_Pause"
 msgstr "일시정지(_P)"
 
-#: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
+#: src/stopwatch-face.vala:164 src/stopwatch-face.vala:201
 msgid "_Lap"
 msgstr "랩(_L)"
 
-#: src/stopwatch-face.vala:181
+#: src/stopwatch-face.vala:176
 msgid "R_esume"
 msgstr "재개(_E)"
 
@@ -553,11 +761,11 @@ msgstr "재개(_E)"
 msgid "Lap %i"
 msgstr "랩 %i번"
 
-#: src/timer-face.vala:82
+#: src/timer-face.vala:77
 msgid "Time is up!"
 msgstr "시간이 되었습니다!"
 
-#: src/timer-face.vala:83
+#: src/timer-face.vala:78
 msgid "Timer countdown finished"
 msgstr "타이머 카운트 다운이 끝났습니다"
 
@@ -582,113 +790,91 @@ msgid "%s hour ahead"
 msgid_plural "%s hours ahead"
 msgstr[0] "%s시간 후"
 
-#: src/utils.vala:103
-#, c-format
-msgid "%s day"
-msgid_plural "%s days"
-msgstr[0] "%s일"
-
-#: src/utils.vala:105 src/utils.vala:112
-msgid " and "
-msgstr " 그리고 "
-
-#: src/utils.vala:110
-#, c-format
-msgid "%s hour"
-msgid_plural "%s hours"
-msgstr[0] "%s시간"
-
-#: src/utils.vala:117
-#, c-format
-msgid "%s minute"
-msgid_plural "%s minutes"
-msgstr[0] "%s분"
-
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:277
+#: src/utils.vala:249
 msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "월"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:279
+#: src/utils.vala:251
 msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "화"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:281
+#: src/utils.vala:253
 msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "수"
 
 #. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:283
+#: src/utils.vala:255
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
 msgstr "목"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:285
+#: src/utils.vala:257
 msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "금"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:287
+#: src/utils.vala:259
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "토"
 
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:289
+#: src/utils.vala:261
 msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
 msgstr "일"
 
-#: src/utils.vala:303
+#: src/utils.vala:275
 msgid "Mondays"
 msgstr "월요일마다"
 
-#: src/utils.vala:304
+#: src/utils.vala:276
 msgid "Tuesdays"
 msgstr "화요일마다"
 
-#: src/utils.vala:305
+#: src/utils.vala:277
 msgid "Wednesdays"
 msgstr "수요일마다"
 
-#: src/utils.vala:306
+#: src/utils.vala:278
 msgid "Thursdays"
 msgstr "목요일마다"
 
-#: src/utils.vala:307
+#: src/utils.vala:279
 msgid "Fridays"
 msgstr "금요일마다"
 
-#: src/utils.vala:308
+#: src/utils.vala:280
 msgid "Saturdays"
 msgstr "토요일마다"
 
-#: src/utils.vala:309
+#: src/utils.vala:281
 msgid "Sundays"
 msgstr "일요일마다"
 
-#: src/utils.vala:435
+#: src/utils.vala:407
 msgid "Every Day"
 msgstr "매일"
 
-#: src/utils.vala:437
+#: src/utils.vala:409
 msgid "Weekdays"
 msgstr "매주"
 
-#: src/utils.vala:439
+#: src/utils.vala:411
 msgid "Weekends"
 msgstr "주말"
 
 #: src/window.vala:260
 msgid "translator-credits"
-msgstr "조성호 <shcho@gnome.org>"
+msgstr "조성호 <shcho@gnome.org>."
 
 #. Translators: Tooltip for the + button
 #: src/world-face.vala:29
@@ -711,6 +897,22 @@ msgstr "어제"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "현재 위치"
+
+#~ msgid "Add a New World Clock"
+#~ msgstr "새 세계 시계 추가"
+
+#, c-format
+#~ msgid "%s day"
+#~ msgid_plural "%s days"
+#~ msgstr[0] "%s일"
+
+#~ msgid " and "
+#~ msgstr " 그리고 "
+
+#, c-format
+#~ msgid "%s minute"
+#~ msgid_plural "%s minutes"
+#~ msgstr[0] "%s분"
 
 #~ msgid "_Start"
 #~ msgstr "시작(_S)"
