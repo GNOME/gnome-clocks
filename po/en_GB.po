@@ -3,42 +3,42 @@
 # This file is distributed under the same license as the gnome-clocks package.
 # Chris Leonard <cjlhomeaddress@gmail.com>, 2012.
 # Zander Brown <zbrown@gnome.org>, 2019-2021.
-# Bruce Cowan <bruce@bcowan.me.uk>, 2012-2024.
 # Andi Chandler <andi@gowling.com>, 2024.
+# Bruce Cowan <bruce@bcowan.me.uk>, 2012-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2025-02-04 13:23+0000\n"
-"PO-Revision-Date: 2025-02-09 18:07+0000\n"
-"Last-Translator: Andi Chandler <andi@gowling.com>\n"
-"Language-Team: English - United Kingdom <en@li.org>\n"
+"POT-Creation-Date: 2026-01-31 11:52+0000\n"
+"PO-Revision-Date: 2026-03-08 17:05+0000\n"
+"Last-Translator: Bruce Cowan <bruce@bcowan.me.uk>\n"
+"Language-Team: British English <en@li.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Gtranslator 49.0\n"
 "X-Project-Style: gnome\n"
 
-#: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
+#: data/org.gnome.clocks.desktop.in.in:2 data/org.gnome.clocks.desktop.in.in:3
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
-#: src/main.vala:26 src/window.vala:252 src/window.vala:307
+#: src/main.vala:26 src/window.vala:252 src/window.vala:304
 #: src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "Clocks"
 
-#: data/org.gnome.clocks.desktop.in.in:5
+#: data/org.gnome.clocks.desktop.in.in:4
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "Clocks for world times, plus alarms, stopwatch and a timer"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in.in:7
+#: data/org.gnome.clocks.desktop.in.in:6
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "time;timer;alarm;world clock;stopwatch;time zone;"
 
-#: data/org.gnome.clocks.desktop.in.in:17
+#: data/org.gnome.clocks.desktop.in.in:16
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "Allows world clocks to be displayed for your time zone."
 
@@ -143,111 +143,11 @@ msgid "Timer screen"
 msgstr "Timer screen"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:203 src/window.vala:254
+#: data/org.gnome.clocks.metainfo.xml.in.in:227 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "The GNOME Project"
 
-#: data/gtk/help-overlay.ui:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "General"
-
-#: data/gtk/help-overlay.ui:15
-msgctxt "shortcut window"
-msgid "Show Help"
-msgstr "Show Help"
-
-#: data/gtk/help-overlay.ui:21
-msgctxt "shortcut window"
-msgid "Open Menu"
-msgstr "Open Menu"
-
-#: data/gtk/help-overlay.ui:27
-msgctxt "shortcut window"
-msgid "Keyboard Shortcuts"
-msgstr "Keyboard Shortcuts"
-
-#: data/gtk/help-overlay.ui:33
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Quit"
-
-#: data/gtk/help-overlay.ui:39
-msgctxt "shortcut window"
-msgid "Go to the Next Section"
-msgstr "Go to the Next Section"
-
-#: data/gtk/help-overlay.ui:45
-msgctxt "shortcut window"
-msgid "Go to the Previous Section"
-msgstr "Go to the Previous Section"
-
-#: data/gtk/help-overlay.ui:51
-msgctxt "shortcut window"
-msgid "Go to the World Section"
-msgstr "Go to the World Section"
-
-#: data/gtk/help-overlay.ui:57
-msgctxt "shortcut window"
-msgid "Go to the Alarms Section"
-msgstr "Go to the Alarms Section"
-
-#: data/gtk/help-overlay.ui:63
-msgctxt "shortcut window"
-msgid "Go to the Stopwatch Section"
-msgstr "Go to the Stopwatch Section"
-
-#: data/gtk/help-overlay.ui:69
-msgctxt "shortcut window"
-msgid "Go to the Timer Section"
-msgstr "Go to the Timer Section"
-
-#: data/gtk/help-overlay.ui:77
-msgctxt "shortcut window"
-msgid "World Clocks"
-msgstr "World Clocks"
-
-#: data/gtk/help-overlay.ui:81
-msgctxt "shortcut window"
-msgid "Add a World Clock"
-msgstr "Add a World Clock"
-
-#: data/gtk/help-overlay.ui:89
-msgctxt "shortcut window"
-msgid "Alarm"
-msgstr "Alarm"
-
-#: data/gtk/help-overlay.ui:93
-msgctxt "shortcut window"
-msgid "Add an Alarm"
-msgstr "Add an Alarm"
-
-#: data/gtk/help-overlay.ui:101
-msgctxt "shortcut window"
-msgid "Stopwatch"
-msgstr "Stopwatch"
-
-#: data/gtk/help-overlay.ui:105
-msgctxt "shortcut window"
-msgid "Pause All"
-msgstr "Pause All"
-
-#: data/gtk/help-overlay.ui:113
-msgctxt "shortcut window"
-msgid "Timer"
-msgstr "Timer"
-
-#: data/gtk/help-overlay.ui:117
-msgctxt "shortcut window"
-msgid "Reset"
-msgstr "Reset"
-
-#: data/gtk/help-overlay.ui:123
-msgctxt "shortcut window"
-msgid "New Timer"
-msgstr "New Timer"
-
-#: data/ui/alarm-day-picker-row.ui:17
+#: data/ui/alarm-day-picker-row.ui:21
 msgid "Repeat"
 msgstr "Repeat"
 
@@ -255,20 +155,19 @@ msgstr "Repeat"
 msgid "Add A_larm…"
 msgstr "Add A_larm…"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
-msgid "Stop"
-msgstr "Stop"
+#: data/ui/alarm-ringing-panel.ui:26
+msgid "_Stop"
+msgstr "_Stop"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:196
-msgid "Snooze"
-msgstr "Snooze"
+#: data/ui/alarm-ringing-panel.ui:42
+msgid "S_nooze"
+msgstr "S_nooze"
 
 #: data/ui/alarm-row.ui:47
 msgid "Repeats"
 msgstr "Repeats"
 
 #: data/ui/alarm-row.ui:67
-#| msgid "New Alarm"
 msgid "Enable Alarm"
 msgstr "Enable Alarm"
 
@@ -278,36 +177,47 @@ msgstr "Delete"
 
 #. Translators: Tooltip for the + button
 #: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:110
+#: src/alarm-setup-dialog.vala:128
 msgid "New Alarm"
 msgstr "New Alarm"
 
-#: data/ui/alarm-setup-dialog.ui:16 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:16
 msgid "_Cancel"
 msgstr "_Cancel"
 
-#: data/ui/alarm-setup-dialog.ui:23 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:29 data/ui/world-location-dialog.ui:24
 msgid "_Add"
 msgstr "_Add"
 
-#: data/ui/alarm-setup-dialog.ui:38
-#| msgid "You already have an alarm for this time."
+#: data/ui/alarm-setup-dialog.ui:44
 msgid "You already have an alarm for this time"
 msgstr "You already have an alarm for this time"
 
-#: data/ui/alarm-setup-dialog.ui:116
+#: data/ui/alarm-setup-dialog.ui:65 data/ui/timer-setup.ui:205
+msgid "Hours"
+msgstr "Hours"
+
+#: data/ui/alarm-setup-dialog.ui:90 data/ui/timer-setup.ui:238
+msgid "Minutes"
+msgstr "Minutes"
+
+#: data/ui/alarm-setup-dialog.ui:124
 msgid "Name"
 msgstr "Name"
 
-#: data/ui/alarm-setup-dialog.ui:123
+#: data/ui/alarm-setup-dialog.ui:135 data/ui/alarm-setup-dialog.ui:195
+msgid "Alarm Sound"
+msgstr "Alarm Sound"
+
+#: data/ui/alarm-setup-dialog.ui:160
 msgid "Ring Duration"
 msgstr "Ring Duration"
 
-#: data/ui/alarm-setup-dialog.ui:129
+#: data/ui/alarm-setup-dialog.ui:166
 msgid "Snooze Duration"
 msgstr "Snooze Duration"
 
-#: data/ui/alarm-setup-dialog.ui:138
+#: data/ui/alarm-setup-dialog.ui:175
 msgid "R_emove Alarm"
 msgstr "R_emove Alarm"
 
@@ -327,13 +237,117 @@ msgstr "_About Clocks"
 msgid "Main Menu"
 msgstr "Main Menu"
 
-#: data/ui/stopwatch-face.ui:100 data/ui/timer-face.ui:27
-#: src/stopwatch-face.vala:202
+#: data/ui/shortcuts-dialog.ui:6
+msgctxt "shortcut window"
+msgid "General"
+msgstr "General"
+
+#: data/ui/shortcuts-dialog.ui:10
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "Show Help"
+
+#: data/ui/shortcuts-dialog.ui:16
+msgctxt "shortcut window"
+msgid "Open Menu"
+msgstr "Open Menu"
+
+#: data/ui/shortcuts-dialog.ui:22
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr "Keyboard Shortcuts"
+
+#: data/ui/shortcuts-dialog.ui:28
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Quit"
+
+#: data/ui/shortcuts-dialog.ui:34
+msgctxt "shortcut window"
+msgid "Go to the Next Section"
+msgstr "Go to the Next Section"
+
+#: data/ui/shortcuts-dialog.ui:40
+msgctxt "shortcut window"
+msgid "Go to the Previous Section"
+msgstr "Go to the Previous Section"
+
+#: data/ui/shortcuts-dialog.ui:46
+msgctxt "shortcut window"
+msgid "Go to the World Section"
+msgstr "Go to the World Section"
+
+#: data/ui/shortcuts-dialog.ui:52
+msgctxt "shortcut window"
+msgid "Go to the Alarms Section"
+msgstr "Go to the Alarms Section"
+
+#: data/ui/shortcuts-dialog.ui:58
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch Section"
+msgstr "Go to the Stopwatch Section"
+
+#: data/ui/shortcuts-dialog.ui:64
+msgctxt "shortcut window"
+msgid "Go to the Timer Section"
+msgstr "Go to the Timer Section"
+
+#: data/ui/shortcuts-dialog.ui:71
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr "World Clocks"
+
+#: data/ui/shortcuts-dialog.ui:75
+msgctxt "shortcut window"
+msgid "Add a World Clock"
+msgstr "Add a World Clock"
+
+#: data/ui/shortcuts-dialog.ui:82
+msgctxt "shortcut window"
+msgid "Alarm"
+msgstr "Alarm"
+
+#: data/ui/shortcuts-dialog.ui:86
+msgctxt "shortcut window"
+msgid "Add an Alarm"
+msgstr "Add an Alarm"
+
+#: data/ui/shortcuts-dialog.ui:93
+msgctxt "shortcut window"
+msgid "Stopwatch"
+msgstr "Stopwatch"
+
+#: data/ui/shortcuts-dialog.ui:97
+msgctxt "shortcut window"
+msgid "Pause All"
+msgstr "Pause All"
+
+#: data/ui/shortcuts-dialog.ui:104
+msgctxt "shortcut window"
+msgid "Timer"
+msgstr "Timer"
+
+#: data/ui/shortcuts-dialog.ui:108
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr "Reset"
+
+#: data/ui/shortcuts-dialog.ui:114
+msgctxt "shortcut window"
+msgid "New Timer"
+msgstr "New Timer"
+
+#. Translators: An alarm or timer empty sound name
+#: data/ui/sound-chooser.ui:19
+msgid "Silent"
+msgstr "Silent"
+
+#: data/ui/stopwatch-face.ui:131 data/ui/timer-face.ui:26
+#: src/stopwatch-face.vala:197
 msgid "St_art"
 msgstr "St_art"
 
-#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-#| msgid "Clear"
+#: data/ui/stopwatch-face.ui:145 src/stopwatch-face.vala:180
 msgid "_Clear"
 msgstr "_Clear"
 
@@ -353,7 +367,7 @@ msgstr "Title…"
 msgid "Pause"
 msgstr "Pause"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:26
 msgid "Start"
 msgstr "Start"
 
@@ -366,52 +380,104 @@ msgstr "Reset"
 msgid "New Timer"
 msgstr "New Timer"
 
-#: data/ui/timer-setup.ui:31
+#: data/ui/timer-setup.ui:35
 msgid "Quick Start"
 msgstr "Quick Start"
 
-#: data/ui/timer-setup.ui:47
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:55
+msgid "One minute"
+msgstr "One minute"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:60
 msgid "1 m"
 msgstr "1 m"
 
-#: data/ui/timer-setup.ui:58
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:70
+msgid "Two minutes"
+msgstr "Two minutes"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:75
 msgid "2 m"
 msgstr "2 m"
 
-#: data/ui/timer-setup.ui:69
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:85
+msgid "Three minutes"
+msgstr "Three minutes"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:90
 msgid "3 m"
 msgstr "3 m"
 
-#: data/ui/timer-setup.ui:80
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:100
+msgid "Five minutes"
+msgstr "Five minutes"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:105
 msgid "5 m"
 msgstr "5 m"
 
-#: data/ui/timer-setup.ui:91
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:115
+msgid "Thirty minutes"
+msgstr "Thirty minutes"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:120
 msgid "30 m"
 msgstr "30 m"
 
-#: data/ui/timer-setup.ui:102
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:130
+msgid "Fifteen minutes"
+msgstr "Fifteen minutes"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:135
 msgid "15 m"
 msgstr "15 m"
 
-#: data/ui/timer-setup.ui:113
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:145
+msgid "Fortyfive minutes"
+msgstr "Forty-five minutes"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:150
 msgid "45 m"
 msgstr "45 m"
 
-#: data/ui/timer-setup.ui:124
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:160
+msgid "One hour"
+msgstr "One hour"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:165
 msgid "1 h"
 msgstr "1 h"
 
-#: data/ui/timer-setup.ui:137
+#: data/ui/timer-setup.ui:174
 msgid "Set Timer"
 msgstr "Set Timer"
 
-#: data/ui/timer-setup.ui:163 data/ui/timer-setup.ui:195
-#: data/ui/timer-setup.ui:228
+#: data/ui/timer-setup.ui:200 data/ui/timer-setup.ui:233
+#: data/ui/timer-setup.ui:267
 msgid "0"
 msgstr "0"
 
-#: data/ui/timer-setup.ui:264
+#: data/ui/timer-setup.ui:272
+msgid "Seconds"
+msgstr "Seconds"
+
+#: data/ui/timer-setup.ui:304
 msgid "Title"
 msgstr "Title"
 
@@ -439,17 +505,33 @@ msgstr "Clock"
 msgid "Alarm Ringing"
 msgstr "Alarm Ringing"
 
-#: data/ui/world-face.ui:15
+#: data/ui/world-face.ui:14
 msgid "_Add World Clock…"
 msgstr "_Add World Clock…"
 
 #: data/ui/world-location-dialog.ui:4
-msgid "Add a New World Clock"
-msgstr "Add a New World Clock"
+msgid "Add World Clock"
+msgstr "Add World Clock"
 
-#: data/ui/world-location-dialog.ui:52
-msgid "Search for a City"
-msgstr "Search for a City"
+#: data/ui/world-location-dialog.ui:43
+msgid "Search cities"
+msgstr "Search cities"
+
+#: data/ui/world-location-dialog.ui:54
+msgid "Perform a Search"
+msgstr "Perform a Search"
+
+#: data/ui/world-location-dialog.ui:55
+msgid "The search results will appear here"
+msgstr "The search results will appear here"
+
+#: data/ui/world-location-dialog.ui:61
+msgid "No Results Found"
+msgstr "No Results Found"
+
+#: data/ui/world-location-dialog.ui:62
+msgid "Try a different search"
+msgstr "Try a different search"
 
 #: data/ui/world-standalone.ui:97
 msgid "Sunrise"
@@ -464,12 +546,20 @@ msgstr "Sunset"
 msgid "Alarm set for %s from now"
 msgstr "Alarm set for %s from now"
 
-#. Prior to 3.36 unamed alarms would just be called "Alarm",
+#. Prior to 3.36 unnamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:303
+#: src/alarm-item.vala:199 src/alarm-row.vala:90 src/window.vala:300
 msgid "Alarm"
 msgstr "Alarm"
+
+#: src/alarm-item.vala:202
+msgid "Stop"
+msgstr "Stop"
+
+#: src/alarm-item.vala:203
+msgid "Snooze"
+msgstr "Snooze"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
 #: src/alarm-row.vala:97
@@ -517,29 +607,142 @@ msgstr "20 minutes"
 msgid "30 minutes"
 msgstr "30 minutes"
 
-#: src/alarm-setup-dialog.vala:110
+#: src/alarm-setup-dialog.vala:128
 msgid "Edit Alarm"
 msgstr "Edit Alarm"
 
-#: src/alarm-setup-dialog.vala:113
+#: src/alarm-setup-dialog.vala:131
 msgid "_Done"
 msgstr "_Done"
+
+#. FIXME GtkMediaFile doesn't support gapless looping, causing audible
+#. clicks in alarm sounds. This is caused by GstPlay not supporting
+#. gapless chainup or looping.
+#. See https://gitlab.freedesktop.org/gstreamer/gstreamer/-/issues/1200
+#. for more information.
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:37
+msgid "Beep-Beep"
+msgstr "Beep-Beep"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:39
+msgid "Bird"
+msgstr "Bird"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:41
+msgid "Bonfire"
+msgstr "Bonfire"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:43
+msgid "Boudoir"
+msgstr "Boudoir"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:45
+msgid "Bouncing"
+msgstr "Bouncing"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:47
+msgid "Cautious Steps"
+msgstr "Cautious Steps"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:49
+msgid "Chirping"
+msgstr "Chirping"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:51
+msgid "Class Act"
+msgstr "Class Act"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:53
+msgid "Crossing Bell"
+msgstr "Crossing Bell"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:55
+msgid "Daydreaming"
+msgstr "Daydreaming"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:57
+msgid "Digitone"
+msgstr "Digitone"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:59
+msgid "Enchanting"
+msgstr "Enchanting"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:61
+msgid "Glass Bell"
+msgstr "Glass Bell"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:63
+msgid "Guitar"
+msgstr "Guitar"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:65
+msgid "Jolly"
+msgstr "Jolly"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:67
+msgid "Mystery"
+msgstr "Mystery "
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:69
+msgid "Ping Ping"
+msgstr "Ping Ping"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:71
+msgid "School Bell"
+msgstr "School Bell"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:73
+msgid "Sonar"
+msgstr "Sonar"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:75
+msgid "Sparkling"
+msgstr "Sparkling"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:77
+msgid "Tingling"
+msgstr "Tingling"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:79
+msgid "Toys"
+msgstr "Toys"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
 msgstr "Print version information and exit"
 
-#: src/stopwatch-face.vala:165
-#| msgid "Pause"
+#: src/stopwatch-face.vala:160
 msgid "_Pause"
 msgstr "_Pause"
 
-#: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
+#: src/stopwatch-face.vala:164 src/stopwatch-face.vala:201
 msgid "_Lap"
 msgstr "_Lap"
 
-#: src/stopwatch-face.vala:181
-#| msgid "Resume"
+#: src/stopwatch-face.vala:176
 msgid "R_esume"
 msgstr "R_esume"
 
@@ -548,11 +751,11 @@ msgstr "R_esume"
 msgid "Lap %i"
 msgstr "Lap %i"
 
-#: src/timer-face.vala:82
+#: src/timer-face.vala:77
 msgid "Time is up!"
 msgstr "Time is up!"
 
-#: src/timer-face.vala:83
+#: src/timer-face.vala:78
 msgid "Timer countdown finished"
 msgstr "Timer countdown finished"
 
@@ -579,110 +782,85 @@ msgid_plural "%s hours ahead"
 msgstr[0] "%s hour ahead"
 msgstr[1] "%s hours ahead"
 
-#: src/utils.vala:103
-#, c-format
-msgid "%s day"
-msgid_plural "%s days"
-msgstr[0] "%s day"
-msgstr[1] "%s days"
-
-#: src/utils.vala:105 src/utils.vala:112
-msgid " and "
-msgstr " and "
-
-#: src/utils.vala:110
-#, c-format
-msgid "%s hour"
-msgid_plural "%s hours"
-msgstr[0] "%s hour"
-msgstr[1] "%s hours"
-
-#: src/utils.vala:117
-#, c-format
-msgid "%s minute"
-msgid_plural "%s minutes"
-msgstr[0] "%s minute"
-msgstr[1] "%s minutes"
-
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:277
+#: src/utils.vala:249
 msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "M"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:279
+#: src/utils.vala:251
 msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "T"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:281
+#: src/utils.vala:253
 msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "W"
 
 #. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:283
+#: src/utils.vala:255
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
 msgstr "T"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:285
+#: src/utils.vala:257
 msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "F"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:287
+#: src/utils.vala:259
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "S"
 
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:289
+#: src/utils.vala:261
 msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
 msgstr "S"
 
-#: src/utils.vala:303
+#: src/utils.vala:275
 msgid "Mondays"
 msgstr "Mondays"
 
-#: src/utils.vala:304
+#: src/utils.vala:276
 msgid "Tuesdays"
 msgstr "Tuesdays"
 
-#: src/utils.vala:305
+#: src/utils.vala:277
 msgid "Wednesdays"
 msgstr "Wednesdays"
 
-#: src/utils.vala:306
+#: src/utils.vala:278
 msgid "Thursdays"
 msgstr "Thursdays"
 
-#: src/utils.vala:307
+#: src/utils.vala:279
 msgid "Fridays"
 msgstr "Fridays"
 
-#: src/utils.vala:308
+#: src/utils.vala:280
 msgid "Saturdays"
 msgstr "Saturdays"
 
-#: src/utils.vala:309
+#: src/utils.vala:281
 msgid "Sundays"
 msgstr "Sundays"
 
-#: src/utils.vala:435
+#: src/utils.vala:407
 msgid "Every Day"
 msgstr "Every Day"
 
-#: src/utils.vala:437
+#: src/utils.vala:409
 msgid "Weekdays"
 msgstr "Weekdays"
 
-#: src/utils.vala:439
+#: src/utils.vala:411
 msgid "Weekends"
 msgstr "Weekends"
 
@@ -716,160 +894,3 @@ msgstr "Yesterday"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "Current location"
-
-#~ msgid "_Start"
-#~ msgstr "_Start"
-
-#~ msgid "Lap"
-#~ msgstr "Lap"
-
-#~ msgid "Menu"
-#~ msgstr "Menu"
-
-#~ msgid "Select Duration"
-#~ msgstr "Select Duration"
-
-#, c-format
-#~ msgid "Snoozed from %s: %s"
-#~ msgstr "Snoozed from %s: %s"
-
-#~ msgid "Back"
-#~ msgstr "Back"
-
-#~ msgid "Cancel"
-#~ msgstr "Cancel"
-
-#~ msgid "Done"
-#~ msgstr "Done"
-
-#~ msgid "Add"
-#~ msgstr "Add"
-
-#~ msgid "GNOME Clocks"
-#~ msgstr "GNOME Clocks"
-
-#~ msgid "Goals:"
-#~ msgstr "Goals:"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Keyboard shortcuts"
-#~ msgstr "Keyboard shortcuts"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Add a world clock"
-#~ msgstr "Add a world clock"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Stop / Reset"
-#~ msgstr "Stop/Reset"
-
-#~ msgid "Active"
-#~ msgstr "Active"
-
-#~ msgid "Optional"
-#~ msgstr "Optional"
-
-#~ msgid "Alarms"
-#~ msgstr "Alarms"
-
-#, c-format
-#~ msgid "Failed to show help: %s"
-#~ msgstr "Failed to show help: %s"
-
-#~ msgid "Utilities to help you with the time."
-#~ msgstr "Utilities to help you with the time."
-
-#~ msgid "Edit"
-#~ msgstr "Edit"
-
-#~ msgid "Select <b>New</b> to add a world clock"
-#~ msgstr "Select <b>New</b> to add a world clock"
-
-#~ msgctxt "Repeat|Thursday"
-#~ msgid "T"
-#~ msgstr "T"
-
-#~ msgctxt "Repeat|Sunday"
-#~ msgid "S"
-#~ msgstr "S"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Select all world clocks"
-#~ msgstr "Select all world clocks"
-
-#~ msgctxt "shortcut window"
-#~ msgid "Select all alarms"
-#~ msgstr "Select all alarms"
-
-#~ msgid "Select All"
-#~ msgstr "Select All"
-
-#~ msgid "Select None"
-#~ msgstr "Select None"
-
-#~ msgid "Select <b>New</b> to add an alarm"
-#~ msgstr "Select <b>New</b> to add an alarm"
-
-#~| msgid "Select All"
-#~ msgid "Select"
-#~ msgstr "Select"
-
-#~ msgid "%i second timer"
-#~ msgstr "%i second timer"
-
-#~ msgid "%i minute %i second timer"
-#~ msgstr "%i minute %i second timer"
-
-#~ msgid "%i hour %i minute timer"
-#~ msgstr "%i hour %i minute timer"
-
-#~ msgid "%i hour %i second timer"
-#~ msgstr "%i hour %i second timer"
-
-#~ msgid "%i hour %i minute %i second timer"
-#~ msgstr "%i hour %i minute %i second timer"
-
-#~ msgid "Click on items to select them"
-#~ msgstr "Click on items to select them"
-
-#~ msgid "%u selected"
-#~ msgid_plural "%u selected"
-#~ msgstr[0] "%u selected"
-#~ msgstr[1] "%u selected"
-
-#~ msgid "Configured timer duration in seconds."
-#~ msgstr "Configured timer duration in seconds."
-
-#~| msgid "New"
-#~ msgctxt "Alarm"
-#~ msgid "New"
-#~ msgstr "New"
-
-#~ msgid "Continue"
-#~ msgstr "Continue"
-
-#~| msgid "New"
-#~ msgctxt "World clock"
-#~ msgid "New"
-#~ msgstr "New"
-
-#~ msgid "_About"
-#~ msgstr "_About"
-
-#~ msgid "_Quit"
-#~ msgstr "_Quit"
-
-#~ msgid "org.gnome.clocks"
-#~ msgstr "org.gnome.clocks"
-
-#~ msgid "_New"
-#~ msgstr "_New"
-
-#~ msgid "Split"
-#~ msgstr "Split"
-
-#~ msgid "Total"
-#~ msgstr "Total"
-
-#~ msgid "Laps"
-#~ msgstr "Laps"
