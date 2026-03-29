@@ -38,6 +38,8 @@ private class LapsRow : Gtk.ListBoxRow {
     private unowned Gtk.Label difference_label;
     [GtkChild]
     private unowned Gtk.Label duration_label;
+    [GtkChild]
+    private unowned Gtk.Revealer revealer;
 
     private Lap current;
     private Lap? before;
@@ -60,6 +62,11 @@ private class LapsRow : Gtk.ListBoxRow {
                 difference_label.add_css_class ("accent");
             }
         }
+    }
+
+    protected override void map () {
+        base.map ();
+        this.revealer.reveal_child = true;
     }
 
     private string get_duration_label () {
