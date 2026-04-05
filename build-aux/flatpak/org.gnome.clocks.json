@@ -75,6 +75,7 @@
             "name": "gnome-desktop",
             "buildsystem": "meson",
             "config-opts": [
+              "-Dqr=disabled",
               "-Ddebug_tools=false",
               "-Dudev=disabled",
               "-Dgtk_doc=false",
