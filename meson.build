@@ -45,9 +45,16 @@ podir = meson.project_source_root() / 'po'
 if get_option('profile') == 'development'
   name_prefix = '(Development) '
   profile = 'Devel'
+  rev = run_command('git', 'rev-parse', '--short', 'HEAD', check: false).stdout().strip()
+  if rev == ''
+    version_suffix = '-devel'
+  else
+    version_suffix = '-@0@'.format(rev)
+  endif
 else
   name_prefix = ''
   profile = ''
+  version_suffix = ''
 endif
 
 app_id = 'org.gnome.clocks@0@'.format(profile)
@@ -57,9 +64,9 @@ conf.set_quoted('APP_ID', app_id)
 conf.set_quoted('G_LOG_DOMAIN', 'org.gnome.Clocks@0@'.format(profile))
 conf.set_quoted('NAME_PREFIX', name_prefix)
 conf.set_quoted('PACKAGE_NAME', meson.project_name())
-conf.set_quoted('PACKAGE_VERSION', meson.project_version())
+conf.set_quoted('PACKAGE_VERSION', meson.project_version() + version_suffix)
 conf.set_quoted('PROFILE', profile)
-conf.set_quoted('VERSION', meson.project_version())
+conf.set_quoted('VERSION', meson.project_version() + version_suffix)
 conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 conf.set_quoted('DATADIR', get_option('prefix') / get_option('datadir'))
 conf.set_quoted('GNOMELOCALEDIR', get_option('prefix') / get_option('localedir'))
