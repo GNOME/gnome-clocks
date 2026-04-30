@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2024-08-31 14:18+0000\n"
-"PO-Revision-Date: 2024-09-09 16:17+0700\n"
+"POT-Creation-Date: 2026-03-11 19:57+0000\n"
+"PO-Revision-Date: 2026-04-30 22:48+0700\n"
 "Last-Translator: Akom Chotiphantawanon <knight2000@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
@@ -18,24 +18,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.9\n"
 
-#: data/org.gnome.clocks.desktop.in.in:3 data/org.gnome.clocks.desktop.in.in:4
-#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27 src/main.vala:25
-#: src/window.vala:244 src/window.vala:299 src/world-standalone.vala:24
+#: data/org.gnome.clocks.desktop.in.in:2 data/org.gnome.clocks.desktop.in.in:3
+#: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27 src/main.vala:26
+#: src/window.vala:252 src/window.vala:304 src/world-standalone.vala:24
 msgid "Clocks"
 msgstr "นาฬิกา"
 
-#: data/org.gnome.clocks.desktop.in.in:5
+#: data/org.gnome.clocks.desktop.in.in:4
 msgid "Clocks for world times, plus alarms, stopwatch and a timer"
 msgstr "นาฬิกาสำหรับเวลาทั่วโลก, พร้อมด้วยนาฬิกาปลุก, นาฬิกาจับเวลา และนาฬิกานับถอยหลัง"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.clocks.desktop.in.in:7
+#: data/org.gnome.clocks.desktop.in.in:6
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
 msgstr "เวลา;นาฬิกานับถอยหลัง;นาฬิกาปลุก;นาฬิกาทั่วโลก;นาฬิกาจับเวลา;เขตเวลา;"
 
-#: data/org.gnome.clocks.desktop.in.in:17
+#: data/org.gnome.clocks.desktop.in.in:16
 msgid "Allows world clocks to be displayed for your time zone."
 msgstr "เพื่อให้สามารถแสดงนาฬิกาทั่วโลกสำหรับเขตเวลาของคุณ"
 
@@ -101,11 +101,10 @@ msgstr "เฝ้าติดตามและสังเกตเวลา"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:9
 msgid ""
-"A simple and elegant clock application. It includes world clocks, alarms, a "
-"stopwatch, and timers."
+"A simple and elegant clock application. It includes world clocks, alarms, a stopwatch, "
+"and timers."
 msgstr ""
-"แอปพลิเคชันนาฬิกาที่เรียบง่ายและสวยงาม ซึ่งรวมถึงนาฬิกาทั่วโลก, นาฬิกาปลุก, นาฬิกาจับเวลา "
-"และนาฬิกานับถอยหลัง"
+"แอปพลิเคชันนาฬิกาที่เรียบง่ายและสวยงาม ซึ่งรวมถึงนาฬิกาทั่วโลก, นาฬิกาปลุก, นาฬิกาจับเวลา และนาฬิกานับถอยหลัง"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:14
 msgid "Show the time in different cities around the world"
@@ -123,128 +122,28 @@ msgstr "จับเวลาที่ผ่านไปด้วยนาฬิ
 msgid "Set timers to properly cook your food"
 msgstr "ตั้งเวลานับถอยหลังเพื่อทำอาหารของคุณอย่างเหมาะสม"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:39
+#: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
 msgstr "หน้าจอเริ่มแรก"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:43
+#: data/org.gnome.clocks.metainfo.xml.in.in:38
 msgid "Alarms screen"
 msgstr "หน้าจอ “นาฬิกาปลุก”"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:47
+#: data/org.gnome.clocks.metainfo.xml.in.in:42
 msgid "Stopwatch screen"
 msgstr "หน้าจอ “นาฬิกาจับเวลา”"
 
-#: data/org.gnome.clocks.metainfo.xml.in.in:51
+#: data/org.gnome.clocks.metainfo.xml.in.in:46
 msgid "Timer screen"
 msgstr "หน้าจอ “เวลานับถอยหลัง”"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:169 src/window.vala:246
+#: data/org.gnome.clocks.metainfo.xml.in.in:220 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "The GNOME Project"
 
-#: data/gtk/help-overlay.ui:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "ทั่วไป"
-
-#: data/gtk/help-overlay.ui:15
-msgctxt "shortcut window"
-msgid "Show Help"
-msgstr "แสดงวิธีใช้"
-
-#: data/gtk/help-overlay.ui:21
-msgctxt "shortcut window"
-msgid "Open Menu"
-msgstr "เปิดเมนู"
-
-#: data/gtk/help-overlay.ui:27
-msgctxt "shortcut window"
-msgid "Keyboard Shortcuts"
-msgstr "ปุ่มลัดแป้นพิมพ์"
-
-#: data/gtk/help-overlay.ui:33
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "ออก"
-
-#: data/gtk/help-overlay.ui:39
-msgctxt "shortcut window"
-msgid "Go to the Next Section"
-msgstr "ไปยังหมวดถัดไป"
-
-#: data/gtk/help-overlay.ui:45
-msgctxt "shortcut window"
-msgid "Go to the Previous Section"
-msgstr "ไปยังหมวดก่อนหน้า"
-
-#: data/gtk/help-overlay.ui:51
-msgctxt "shortcut window"
-msgid "Go to the World Section"
-msgstr "ไปยังหมวด “โลก”"
-
-#: data/gtk/help-overlay.ui:57
-msgctxt "shortcut window"
-msgid "Go to the Alarms Section"
-msgstr "ไปยังหมวด “นาฬิกาปลุก”"
-
-#: data/gtk/help-overlay.ui:63
-msgctxt "shortcut window"
-msgid "Go to the Stopwatch Section"
-msgstr "ไปยังหมวด “นาฬิกาจับเวลา”"
-
-#: data/gtk/help-overlay.ui:69
-msgctxt "shortcut window"
-msgid "Go to the Timer Section"
-msgstr "ไปยังหมวด “เวลานับถอยหลัง”"
-
-#: data/gtk/help-overlay.ui:77
-msgctxt "shortcut window"
-msgid "World Clocks"
-msgstr "เวลาทั่วโลก"
-
-#: data/gtk/help-overlay.ui:81
-msgctxt "shortcut window"
-msgid "Add a World Clock"
-msgstr "เพิ่มเวลาทั่วโลก"
-
-#: data/gtk/help-overlay.ui:89
-msgctxt "shortcut window"
-msgid "Alarm"
-msgstr "นาฬิกาปลุก"
-
-#: data/gtk/help-overlay.ui:93
-msgctxt "shortcut window"
-msgid "Add an Alarm"
-msgstr "เพิ่มเวลาปลุก"
-
-#: data/gtk/help-overlay.ui:101
-msgctxt "shortcut window"
-msgid "Stopwatch"
-msgstr "นาฬิกาจับเวลา"
-
-#: data/gtk/help-overlay.ui:105
-msgctxt "shortcut window"
-msgid "Pause All"
-msgstr "พักทั้งหมด"
-
-#: data/gtk/help-overlay.ui:113
-msgctxt "shortcut window"
-msgid "Timer"
-msgstr "เวลานับถอยหลัง"
-
-#: data/gtk/help-overlay.ui:117
-msgctxt "shortcut window"
-msgid "Reset"
-msgstr "ตั้งค่าใหม่"
-
-#: data/gtk/help-overlay.ui:123
-msgctxt "shortcut window"
-msgid "New Timer"
-msgstr "เวลานับถอยหลังใหม่"
-
-#: data/ui/alarm-day-picker-row.ui:17
+#: data/ui/alarm-day-picker-row.ui:21
 msgid "Repeat"
 msgstr "ซ้ำ"
 
@@ -252,53 +151,68 @@ msgstr "ซ้ำ"
 msgid "Add A_larm…"
 msgstr "เพิ่มเวลา_ปลุก…"
 
-#: data/ui/alarm-ringing-panel.ui:26 src/alarm-item.vala:195
-msgid "Stop"
-msgstr "หยุด"
+#: data/ui/alarm-ringing-panel.ui:26
+msgid "_Stop"
+msgstr "_หยุด"
 
-#: data/ui/alarm-ringing-panel.ui:41 src/alarm-item.vala:196
-msgid "Snooze"
-msgstr "ผัดผ่อน"
+#: data/ui/alarm-ringing-panel.ui:42
+msgid "S_nooze"
+msgstr "_ผัดผ่อน"
 
 #: data/ui/alarm-row.ui:47
 msgid "Repeats"
 msgstr "ซ้ำทุกๆ"
 
-#: data/ui/alarm-row.ui:71 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
+#: data/ui/alarm-row.ui:67
+msgid "Enable Alarm"
+msgstr "เปิดใช้การปลุกเตือน"
+
+#: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
 msgstr "ลบ"
 
 #. Translators: Tooltip for the + button
-#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
-#: src/alarm-setup-dialog.vala:110
+#: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28 src/alarm-setup-dialog.vala:128
 msgid "New Alarm"
 msgstr "สร้างการปลุกเตือน"
 
-#: data/ui/alarm-setup-dialog.ui:15 data/ui/world-location-dialog.ui:15
+#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:16
 msgid "_Cancel"
 msgstr "_ยกเลิก"
 
-#: data/ui/alarm-setup-dialog.ui:22 data/ui/world-location-dialog.ui:23
+#: data/ui/alarm-setup-dialog.ui:29 data/ui/world-location-dialog.ui:24
 msgid "_Add"
 msgstr "เ_พิ่ม"
 
-#: data/ui/alarm-setup-dialog.ui:113
+#: data/ui/alarm-setup-dialog.ui:44
+msgid "You already have an alarm for this time"
+msgstr "คุณมีการปลุกเตือน ณ เวลานี้อยู่ก่อนแล้ว"
+
+#: data/ui/alarm-setup-dialog.ui:65 data/ui/timer-setup.ui:205
+msgid "Hours"
+msgstr "ชั่วโมง"
+
+#: data/ui/alarm-setup-dialog.ui:90 data/ui/timer-setup.ui:238
+msgid "Minutes"
+msgstr "นาที"
+
+#: data/ui/alarm-setup-dialog.ui:124
 msgid "Name"
 msgstr "ชื่อ"
 
-#: data/ui/alarm-setup-dialog.ui:120
+#: data/ui/alarm-setup-dialog.ui:135 data/ui/alarm-setup-dialog.ui:195
+msgid "Alarm Sound"
+msgstr "เสียงปลุกเตือน"
+
+#: data/ui/alarm-setup-dialog.ui:160
 msgid "Ring Duration"
 msgstr "ระยะเวลาการดัง"
 
-#: data/ui/alarm-setup-dialog.ui:126
+#: data/ui/alarm-setup-dialog.ui:166
 msgid "Snooze Duration"
 msgstr "ระยะเวลาการผัดผ่อน"
 
-#: data/ui/alarm-setup-dialog.ui:138
-msgid "You already have an alarm for this time."
-msgstr "คุณมีการปลุกเตือน ณ เวลานี้อยู่ก่อนแล้ว"
-
-#: data/ui/alarm-setup-dialog.ui:145
+#: data/ui/alarm-setup-dialog.ui:175
 msgid "R_emove Alarm"
 msgstr "_ลบการปลุกเตือน"
 
@@ -318,13 +232,118 @@ msgstr "เ_กี่ยวกับ “นาฬิกา”"
 msgid "Main Menu"
 msgstr "เมนูหลัก"
 
-#: data/ui/stopwatch-face.ui:100
-msgid "_Start"
-msgstr "เ_ริ่ม"
+#: data/ui/shortcuts-dialog.ui:6
+msgctxt "shortcut window"
+msgid "General"
+msgstr "ทั่วไป"
 
-#: data/ui/stopwatch-face.ui:115 src/stopwatch-face.vala:185
-msgid "Clear"
-msgstr "ล้าง"
+#: data/ui/shortcuts-dialog.ui:10
+msgctxt "shortcut window"
+msgid "Show Help"
+msgstr "แสดงวิธีใช้"
+
+#: data/ui/shortcuts-dialog.ui:16
+msgctxt "shortcut window"
+msgid "Open Menu"
+msgstr "เปิดเมนู"
+
+#: data/ui/shortcuts-dialog.ui:22
+msgctxt "shortcut window"
+msgid "Keyboard Shortcuts"
+msgstr "ปุ่มลัดแป้นพิมพ์"
+
+#: data/ui/shortcuts-dialog.ui:28
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "ออก"
+
+#: data/ui/shortcuts-dialog.ui:34
+msgctxt "shortcut window"
+msgid "Go to the Next Section"
+msgstr "ไปยังหมวดถัดไป"
+
+#: data/ui/shortcuts-dialog.ui:40
+msgctxt "shortcut window"
+msgid "Go to the Previous Section"
+msgstr "ไปยังหมวดก่อนหน้า"
+
+#: data/ui/shortcuts-dialog.ui:46
+msgctxt "shortcut window"
+msgid "Go to the World Section"
+msgstr "ไปยังหมวด “โลก”"
+
+#: data/ui/shortcuts-dialog.ui:52
+msgctxt "shortcut window"
+msgid "Go to the Alarms Section"
+msgstr "ไปยังหมวด “นาฬิกาปลุก”"
+
+#: data/ui/shortcuts-dialog.ui:58
+msgctxt "shortcut window"
+msgid "Go to the Stopwatch Section"
+msgstr "ไปยังหมวด “นาฬิกาจับเวลา”"
+
+#: data/ui/shortcuts-dialog.ui:64
+msgctxt "shortcut window"
+msgid "Go to the Timer Section"
+msgstr "ไปยังหมวด “เวลานับถอยหลัง”"
+
+#: data/ui/shortcuts-dialog.ui:71
+msgctxt "shortcut window"
+msgid "World Clocks"
+msgstr "เวลาทั่วโลก"
+
+#: data/ui/shortcuts-dialog.ui:75
+msgctxt "shortcut window"
+msgid "Add a World Clock"
+msgstr "เพิ่มเวลาทั่วโลก"
+
+#: data/ui/shortcuts-dialog.ui:82
+msgctxt "shortcut window"
+msgid "Alarm"
+msgstr "นาฬิกาปลุก"
+
+#: data/ui/shortcuts-dialog.ui:86
+msgctxt "shortcut window"
+msgid "Add an Alarm"
+msgstr "เพิ่มเวลาปลุก"
+
+#: data/ui/shortcuts-dialog.ui:93
+msgctxt "shortcut window"
+msgid "Stopwatch"
+msgstr "นาฬิกาจับเวลา"
+
+#: data/ui/shortcuts-dialog.ui:97
+msgctxt "shortcut window"
+msgid "Pause All"
+msgstr "พักทั้งหมด"
+
+#: data/ui/shortcuts-dialog.ui:104
+msgctxt "shortcut window"
+msgid "Timer"
+msgstr "เวลานับถอยหลัง"
+
+#: data/ui/shortcuts-dialog.ui:108
+msgctxt "shortcut window"
+msgid "Reset"
+msgstr "ตั้งค่าใหม่"
+
+#: data/ui/shortcuts-dialog.ui:114
+msgctxt "shortcut window"
+msgid "New Timer"
+msgstr "เวลานับถอยหลังใหม่"
+
+#. Translators: An alarm or timer empty sound name
+#: data/ui/sound-chooser.ui:19
+msgid "Silent"
+msgstr "เงียบ"
+
+#: data/ui/stopwatch-face.ui:131 data/ui/timer-face.ui:26 src/stopwatch-face.vala:197
+msgid "St_art"
+msgstr "เริ่_ม"
+
+#: data/ui/stopwatch-face.ui:145 src/stopwatch-face.vala:180
+msgid "_Clear"
+msgstr "_ล้าง"
 
 #: data/ui/stopwatch-laps-row.ui:14
 msgid "Time"
@@ -334,19 +353,15 @@ msgstr "เวลา"
 msgid "Difference"
 msgstr "ความต่าง"
 
-#: data/ui/timer-face.ui:27
-msgid "St_art"
-msgstr "เริ่_ม"
-
 #: data/ui/timer-row.ui:32
 msgid "Title…"
 msgstr "ชื่อเรื่อง…"
 
-#: data/ui/timer-row.ui:74 src/stopwatch-face.vala:165
+#: data/ui/timer-row.ui:74
 msgid "Pause"
 msgstr "พัก"
 
-#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:21 src/stopwatch-face.vala:202
+#: data/ui/timer-row.ui:92 data/ui/timer-setup-dialog.ui:26
 msgid "Start"
 msgstr "เริ่ม"
 
@@ -359,51 +374,103 @@ msgstr "ตั้งค่าใหม่"
 msgid "New Timer"
 msgstr "เวลานับถอยหลังใหม่"
 
-#: data/ui/timer-setup.ui:31
+#: data/ui/timer-setup.ui:35
 msgid "Quick Start"
 msgstr "เริ่มแบบด่วน"
 
-#: data/ui/timer-setup.ui:47
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:55
+msgid "One minute"
+msgstr "หนึ่งนาที"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:60
 msgid "1 m"
 msgstr "1 นาที"
 
-#: data/ui/timer-setup.ui:58
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:70
+msgid "Two minutes"
+msgstr "สองนาที"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:75
 msgid "2 m"
 msgstr "2 นาที"
 
-#: data/ui/timer-setup.ui:69
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:85
+msgid "Three minutes"
+msgstr "สามนาที"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:90
 msgid "3 m"
 msgstr "3 นาที"
 
-#: data/ui/timer-setup.ui:80
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:100
+msgid "Five minutes"
+msgstr "ห้านาที"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:105
 msgid "5 m"
 msgstr "5 นาที"
 
-#: data/ui/timer-setup.ui:91
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:115
+msgid "Thirty minutes"
+msgstr "สามสิบนาที"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:120
 msgid "30 m"
 msgstr "30 นาที"
 
-#: data/ui/timer-setup.ui:102
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:130
+msgid "Fifteen minutes"
+msgstr "สิบห้านาที"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:135
 msgid "15 m"
 msgstr "15 นาที"
 
-#: data/ui/timer-setup.ui:113
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:145
+msgid "Fortyfive minutes"
+msgstr "สี่สิบห้านาที"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:150
 msgid "45 m"
 msgstr "45 นาที"
 
-#: data/ui/timer-setup.ui:124
+#. Translators: An accessible timer quick start value
+#: data/ui/timer-setup.ui:160
+msgid "One hour"
+msgstr "หนึ่งชั่วโมง"
+
+#. Translators: A timer quick start value
+#: data/ui/timer-setup.ui:165
 msgid "1 h"
 msgstr "1 ชม."
 
-#: data/ui/timer-setup.ui:137
+#: data/ui/timer-setup.ui:174
 msgid "Set Timer"
 msgstr "ตั้งเวลานับถอยหลัง"
 
-#: data/ui/timer-setup.ui:163 data/ui/timer-setup.ui:195 data/ui/timer-setup.ui:228
+#: data/ui/timer-setup.ui:200 data/ui/timer-setup.ui:233 data/ui/timer-setup.ui:267
 msgid "0"
 msgstr "0"
 
-#: data/ui/timer-setup.ui:264
+#: data/ui/timer-setup.ui:272
+msgid "Seconds"
+msgstr "วินาที"
+
+#: data/ui/timer-setup.ui:304
 msgid "Title"
 msgstr "ชื่อเรื่อง"
 
@@ -431,17 +498,33 @@ msgstr "นาฬิกา"
 msgid "Alarm Ringing"
 msgstr "นาฬิกาปลุกดัง"
 
-#: data/ui/world-face.ui:15
+#: data/ui/world-face.ui:14
 msgid "_Add World Clock…"
 msgstr "เ_พิ่มเวลาทั่วโลก…"
 
 #: data/ui/world-location-dialog.ui:4
-msgid "Add a New World Clock"
-msgstr "เพิ่มเวลาทั่วโลกใหม่"
+msgid "Add World Clock"
+msgstr "เพิ่มเวลาทั่วโลก"
 
-#: data/ui/world-location-dialog.ui:52
-msgid "Search for a City"
+#: data/ui/world-location-dialog.ui:43
+msgid "Search cities"
 msgstr "ค้นหาเมือง"
+
+#: data/ui/world-location-dialog.ui:54
+msgid "Perform a Search"
+msgstr "เริ่มค้นหา"
+
+#: data/ui/world-location-dialog.ui:55
+msgid "The search results will appear here"
+msgstr "ผลลัพธ์การค้นหาจะแสดงที่นี่"
+
+#: data/ui/world-location-dialog.ui:61
+msgid "No Results Found"
+msgstr "ไม่พบผลลัพธ์"
+
+#: data/ui/world-location-dialog.ui:62
+msgid "Try a different search"
+msgstr "ลองค้นหาด้วยคำอื่น"
 
 #: data/ui/world-standalone.ui:97
 msgid "Sunrise"
@@ -456,12 +539,20 @@ msgstr "ดวงอาทิตย์ตก"
 msgid "Alarm set for %s from now"
 msgstr "ตั้งการปลุกเตือนไว้ในอีก %s จากตอนนี้"
 
-#. Prior to 3.36 unamed alarms would just be called "Alarm",
+#. Prior to 3.36 unnamed alarms would just be called "Alarm",
 #. pretend alarms called "Alarm" don't have a name (of course
 #. this fails if the language/translation has since changed)
-#: src/alarm-item.vala:192 src/alarm-row.vala:90 src/window.vala:295
+#: src/alarm-item.vala:199 src/alarm-row.vala:90 src/window.vala:300
 msgid "Alarm"
 msgstr "การปลุกเตือน"
+
+#: src/alarm-item.vala:202
+msgid "Stop"
+msgstr "หยุด"
+
+#: src/alarm-item.vala:203
+msgid "Snooze"
+msgstr "ผัดผ่อน"
 
 #. Translators: The alarm for the time %s titled %s has been "snoozed"
 #: src/alarm-row.vala:97
@@ -509,36 +600,157 @@ msgstr "20 นาที"
 msgid "30 minutes"
 msgstr "30 นาที"
 
-#: src/alarm-setup-dialog.vala:110
+#: src/alarm-setup-dialog.vala:128
 msgid "Edit Alarm"
 msgstr "แก้ไขการปลุกเตือน"
 
-#: src/alarm-setup-dialog.vala:113
+#: src/alarm-setup-dialog.vala:131
 msgid "_Done"
 msgstr "เ_สร็จสิ้น"
+
+#. FIXME GtkMediaFile doesn't support gapless looping, causing audible
+#. clicks in alarm sounds. This is caused by GstPlay not supporting
+#. gapless chainup or looping.
+#. See https://gitlab.freedesktop.org/gstreamer/gstreamer/-/issues/1200
+#. for more information.
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:37
+msgid "Beep-Beep"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:39
+msgid "Bird"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:41
+msgid "Bonfire"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:43
+msgid "Boudoir"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:45
+msgid "Bouncing"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:47
+msgid "Cautious Steps"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:49
+msgid "Chirping"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:51
+msgid "Class Act"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:53
+msgid "Crossing Bell"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:55
+msgid "Daydreaming"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:57
+msgid "Digitone"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:59
+msgid "Enchanting"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:61
+msgid "Glass Bell"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:63
+msgid "Guitar"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:65
+msgid "Jolly"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:67
+#, fuzzy
+#| msgid "Yesterday"
+msgid "Mystery"
+msgstr "เมื่อวานนี้"
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:69
+msgid "Ping Ping"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:71
+msgid "School Bell"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:73
+msgid "Sonar"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:75
+msgid "Sparkling"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:77
+msgid "Tingling"
+msgstr ""
+
+#. Translators: An alarm sound name
+#: src/alarm-sound-model.vala:79
+msgid "Toys"
+msgstr ""
 
 #: src/application.vala:23
 msgid "Print version information and exit"
 msgstr "แสดงข้อมูลรุ่นแล้วจบการทำงาน"
 
-#: src/stopwatch-face.vala:169 src/stopwatch-face.vala:206
-msgid "Lap"
-msgstr "รอบ"
+#: src/stopwatch-face.vala:160
+msgid "_Pause"
+msgstr "_พัก"
 
-#: src/stopwatch-face.vala:181
-msgid "Resume"
-msgstr "นับต่อ"
+#: src/stopwatch-face.vala:164 src/stopwatch-face.vala:201
+msgid "_Lap"
+msgstr "_รอบ"
+
+#: src/stopwatch-face.vala:176
+msgid "R_esume"
+msgstr "_นับต่อ"
 
 #: src/stopwatch-laps-row.vala:48
 #, c-format
 msgid "Lap %i"
 msgstr "รอบ %i"
 
-#: src/timer-face.vala:82
+#: src/timer-face.vala:77
 msgid "Time is up!"
 msgstr "หมดเวลา!"
 
-#: src/timer-face.vala:83
+#: src/timer-face.vala:78
 msgid "Timer countdown finished"
 msgstr "นับเวลาถอยหลังเสร็จสิ้น"
 
@@ -563,111 +775,89 @@ msgid "%s hour ahead"
 msgid_plural "%s hours ahead"
 msgstr[0] "เร็วกว่า %s ชั่วโมง"
 
-#: src/utils.vala:103
-#, c-format
-msgid "%s day"
-msgid_plural "%s days"
-msgstr[0] "%s วัน"
-
-#: src/utils.vala:105 src/utils.vala:112
-msgid " and "
-msgstr " กับ "
-
-#: src/utils.vala:110
-#, c-format
-msgid "%s hour"
-msgid_plural "%s hours"
-msgstr[0] "%s ชั่วโมง"
-
-#: src/utils.vala:117
-#, c-format
-msgid "%s minute"
-msgid_plural "%s minutes"
-msgstr[0] "%s นาที"
-
 #. Translators: This is used in the repeat toggle for Monday
-#: src/utils.vala:277
+#: src/utils.vala:249
 msgctxt "Alarm|Repeat-On|Monday"
 msgid "M"
 msgstr "จ"
 
 #. Translators: This is used in the repeat toggle for Tuesday
-#: src/utils.vala:279
+#: src/utils.vala:251
 msgctxt "Alarm|Repeat-On|Tuesday"
 msgid "T"
 msgstr "อ"
 
 #. Translators: This is used in the repeat toggle for Wednesday
-#: src/utils.vala:281
+#: src/utils.vala:253
 msgctxt "Alarm|Repeat-On|Wednesday"
 msgid "W"
 msgstr "พ"
 
 #. Translators: This is used in the repeat toggle for Thursday
-#: src/utils.vala:283
+#: src/utils.vala:255
 msgctxt "Alarm|Repeat-On|Thursday"
 msgid "T"
 msgstr "พฤ"
 
 #. Translators: This is used in the repeat toggle for Friday
-#: src/utils.vala:285
+#: src/utils.vala:257
 msgctxt "Alarm|Repeat-On|Friday"
 msgid "F"
 msgstr "ศ"
 
 #. Translators: This is used in the repeat toggle for Saturday
-#: src/utils.vala:287
+#: src/utils.vala:259
 msgctxt "Alarm|Repeat-On|Saturday"
 msgid "S"
 msgstr "ส"
 
 #. Translators: This is used in the repeat toggle for Sunday
-#: src/utils.vala:289
+#: src/utils.vala:261
 msgctxt "Alarm|Repeat-On|Sunday"
 msgid "S"
 msgstr "อา"
 
-#: src/utils.vala:303
+#: src/utils.vala:275
 msgid "Mondays"
 msgstr "วันจันทร์"
 
-#: src/utils.vala:304
+#: src/utils.vala:276
 msgid "Tuesdays"
 msgstr "วันอังคาร"
 
-#: src/utils.vala:305
+#: src/utils.vala:277
 msgid "Wednesdays"
 msgstr "วันพุธ"
 
-#: src/utils.vala:306
+#: src/utils.vala:278
 msgid "Thursdays"
 msgstr "วันพฤหัสบดี"
 
-#: src/utils.vala:307
+#: src/utils.vala:279
 msgid "Fridays"
 msgstr "วันศุกร์"
 
-#: src/utils.vala:308
+#: src/utils.vala:280
 msgid "Saturdays"
 msgstr "วันเสาร์"
 
-#: src/utils.vala:309
+#: src/utils.vala:281
 msgid "Sundays"
 msgstr "วันอาทิตย์"
 
-#: src/utils.vala:435
+#: src/utils.vala:407
 msgid "Every Day"
 msgstr "ทุกวัน"
 
-#: src/utils.vala:437
+#: src/utils.vala:409
 msgid "Weekdays"
 msgstr "วันธรรมดา"
 
-#: src/utils.vala:439
+#: src/utils.vala:411
 msgid "Weekends"
 msgstr "สุดสัปดาห์"
 
-#: src/window.vala:252
+#: src/window.vala:260
 msgid "translator-credits"
 msgstr ""
 "Kallaya Songklang <songklang10@gmail.com>\n"
@@ -694,6 +884,28 @@ msgstr "เมื่อวานนี้"
 #: src/world-row.vala:47
 msgid "Current location"
 msgstr "ตำแหน่งปัจจุบัน"
+
+#~ msgid "_Start"
+#~ msgstr "เ_ริ่ม"
+
+#~ msgid "Add a New World Clock"
+#~ msgstr "เพิ่มเวลาทั่วโลกใหม่"
+
+#~ msgid "Lap"
+#~ msgstr "รอบ"
+
+#, c-format
+#~ msgid "%s day"
+#~ msgid_plural "%s days"
+#~ msgstr[0] "%s วัน"
+
+#~ msgid " and "
+#~ msgstr " กับ "
+
+#, c-format
+#~ msgid "%s minute"
+#~ msgid_plural "%s minutes"
+#~ msgstr[0] "%s นาที"
 
 #~ msgid "GNOME Clocks"
 #~ msgstr "นาฬิกา GNOME"
