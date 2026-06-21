@@ -5,27 +5,27 @@
       <object class="GtkWindowHandle">
         <child>
           <object class="GtkGrid">
-            <property name="margin_start">6</property>
-            <property name="margin_end">6</property>
-            <property name="margin_top">6</property>
-            <property name="margin_bottom">6</property>
+            <property name="margin-start">6</property>
+            <property name="margin-end">6</property>
+            <property name="margin-top">6</property>
+            <property name="margin-bottom">6</property>
             <property name="hexpand">True</property>
             <property name="vexpand">True</property>
-            <property name="row_spacing">48</property>
-            <property name="column_spacing">24</property>
+            <property name="row-spacing">48</property>
+            <property name="column-spacing">24</property>
             <child>
               <object class="GtkGrid" id="button_grid">
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
-                <property name="row_spacing">24</property>
-                <property name="column_spacing">24</property>
+                <property name="row-spacing">24</property>
+                <property name="column-spacing">24</property>
                 <child>
                   <object class="GtkButton" id="stop_button">
                     <property name="label" translatable="yes">_Stop</property>
                     <property name="use-underline">True</property>
-                    <property name="width_request">200</property>
+                    <property name="width-request">200</property>
                     <style>
                       <class name="pill"/>
                       <class name="large-button"/>
@@ -41,7 +41,7 @@
                   <object class="GtkButton" id="snooze_button">
                     <property name="label" translatable="yes">S_nooze</property>
                     <property name="use-underline">True</property>
-                    <property name="width_request">200</property>
+                    <property name="width-request">200</property>
                     <style>
                       <class name="pill"/>
                       <class name="large-button"/>
@@ -80,7 +80,7 @@
                   <object class="GtkLabel" id="title_label">
                     <property name="justify">center</property>
                     <property name="wrap">True</property>
-                    <property name="margin_top">24</property>
+                    <property name="margin-top">24</property>
                     <style>
                       <class name="clocks-ringing-title"/>
                     </style>

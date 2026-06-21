@@ -6,17 +6,17 @@
     <child>
       <object class="GtkBox">
         <property name="valign">center</property>
-        <property name="margin_start">12</property>
-        <property name="margin_end">12</property>
-        <property name="margin_top">12</property>
-        <property name="margin_bottom">12</property>
+        <property name="margin-start">12</property>
+        <property name="margin-end">12</property>
+        <property name="margin-top">12</property>
+        <property name="margin-bottom">12</property>
         <property name="hexpand">True</property>
         <child>
           <object class="GtkBox">
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkRevealer" id="title_reveal">
-                <property name="transition_type">slide-up</property>
+                <property name="transition-type">slide-up</property>
                 <child>
                   <object class="GtkLabel" id="title">
                     <property name="hexpand">True</property>
@@ -44,7 +44,7 @@
               <object class="GtkRevealer" id="repeats_reveal">
                 <child>
                   <object class="GtkLabel" id="repeats">
-                    <property name="tooltip_text" translatable="yes">Repeats</property>
+                    <property name="tooltip-text" translatable="yes">Repeats</property>
                     <property name="hexpand">True</property>
                     <property name="ellipsize">end</property>
                     <property name="xalign">0</property>
@@ -64,15 +64,15 @@
             <child>
               <object class="GtkSwitch" id="toggle">
                 <property name="valign">center</property>
-                <property name="tooltip_text" translatable="yes">Enable Alarm</property>
+                <property name="tooltip-text" translatable="yes">Enable Alarm</property>
               </object>
             </child>
             <child>
               <object class="GtkButton">
-                <property name="tooltip_text" translatable="yes">Delete</property>
+                <property name="tooltip-text" translatable="yes">Delete</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
-                <property name="icon_name">edit-delete-symbolic</property>
+                <property name="icon-name">edit-delete-symbolic</property>
                 <signal name="clicked" handler="delete" swapped="no"/>
                 <style>
                   <class name="circular"/>

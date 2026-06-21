@@ -11,7 +11,7 @@
         <property name="margin-end">18</property>
         <child>
           <object class="GtkLabel" id="duration_label">
-            <property name="tooltip_text" translatable="yes">Time</property>
+            <property name="tooltip-text" translatable="yes">Time</property>
             <property name="halign">start</property>
             <property name="valign">center</property>
             <style>
@@ -22,7 +22,7 @@
         </child>
         <child>
           <object class="GtkLabel" id="difference_label">
-            <property name="tooltip_text" translatable="yes">Difference</property>
+            <property name="tooltip-text" translatable="yes">Difference</property>
             <property name="halign">start</property>
             <property name="hexpand">True</property>
             <property name="valign">center</property>
@@ -35,7 +35,7 @@
           <object class="GtkLabel" id="index_label">
             <property name="halign">end</property>
             <property name="valign">center</property>
-            <property name="width_chars">3</property>
+            <property name="width-chars">3</property>
             <style>
               <class name="dimmed"/>
             </style>

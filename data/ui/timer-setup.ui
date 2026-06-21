@@ -2,18 +2,18 @@
 <interface>
   <object class="GtkAdjustment" id="adjustment_hours">
     <property name="upper">99</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">10</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">10</property>
   </object>
   <object class="GtkAdjustment" id="adjustment_minutes">
     <property name="upper">59</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">10</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">10</property>
   </object>
   <object class="GtkAdjustment" id="adjustment_seconds">
     <property name="upper">59</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">10</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">10</property>
   </object>
   <template class="ClocksTimerSetup" parent="GtkBox">
     <property name="orientation">vertical</property>
@@ -49,8 +49,8 @@
                 <property name="margin-bottom">12</property>
                 <child>
                   <object class="GtkButton" id="quick_1m">
-                    <property name="action_name">timer-setup.start-timer</property>
-                    <property name="action_target">1</property>
+                    <property name="action-name">timer-setup.start-timer</property>
+                    <property name="action-target">1</property>
                     <accessibility>
                       <property name="label" translatable="yes" comments="Translators: An accessible timer quick start value">One minute</property>
                     </accessibility>
@@ -64,8 +64,8 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="quick_2m">
-                    <property name="action_name">timer-setup.start-timer</property>
-                    <property name="action_target">2</property>
+                    <property name="action-name">timer-setup.start-timer</property>
+                    <property name="action-target">2</property>
                     <accessibility>
                       <property name="label" translatable="yes" comments="Translators: An accessible timer quick start value">Two minutes</property>
                     </accessibility>
@@ -79,8 +79,8 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="quick_3m">
-                    <property name="action_name">timer-setup.start-timer</property>
-                    <property name="action_target">3</property>
+                    <property name="action-name">timer-setup.start-timer</property>
+                    <property name="action-target">3</property>
                     <accessibility>
                       <property name="label" translatable="yes" comments="Translators: An accessible timer quick start value">Three minutes</property>
                     </accessibility>
@@ -94,8 +94,8 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="quick_5m">
-                    <property name="action_name">timer-setup.start-timer</property>
-                    <property name="action_target">5</property>
+                    <property name="action-name">timer-setup.start-timer</property>
+                    <property name="action-target">5</property>
                     <accessibility>
                       <property name="label" translatable="yes" comments="Translators: An accessible timer quick start value">Five minutes</property>
                     </accessibility>
@@ -109,8 +109,8 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="quick_30m">
-                    <property name="action_name">timer-setup.start-timer</property>
-                    <property name="action_target">30</property>
+                    <property name="action-name">timer-setup.start-timer</property>
+                    <property name="action-target">30</property>
                     <accessibility>
                       <property name="label" translatable="yes" comments="Translators: An accessible timer quick start value">Thirty minutes</property>
                     </accessibility>
@@ -124,8 +124,8 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="quick_15m">
-                    <property name="action_name">timer-setup.start-timer</property>
-                    <property name="action_target">15</property>
+                    <property name="action-name">timer-setup.start-timer</property>
+                    <property name="action-target">15</property>
                     <accessibility>
                       <property name="label" translatable="yes" comments="Translators: An accessible timer quick start value">Fifteen minutes</property>
                     </accessibility>
@@ -139,8 +139,8 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="quick_45m">
-                    <property name="action_name">timer-setup.start-timer</property>
-                    <property name="action_target">45</property>
+                    <property name="action-name">timer-setup.start-timer</property>
+                    <property name="action-target">45</property>
                     <accessibility>
                       <property name="label" translatable="yes" comments="Translators: An accessible timer quick start value">Fortyfive minutes</property>
                     </accessibility>
@@ -154,8 +154,8 @@
                 </child>
                 <child>
                   <object class="GtkButton" id="quick_1h">
-                    <property name="action_name">timer-setup.start-timer</property>
-                    <property name="action_target">60</property>
+                    <property name="action-name">timer-setup.start-timer</property>
+                    <property name="action-target">60</property>
                     <accessibility>
                       <property name="label" translatable="yes" comments="Translators: An accessible timer quick start value">One hour</property>
                     </accessibility>
@@ -179,12 +179,12 @@
             </child>
             <child>
               <object class="GtkBox">
-                <property name="margin_bottom">12</property>
+                <property name="margin-bottom">12</property>
                 <child>
                   <object class="GtkGrid" id="time_grid">
                     <property name="halign">center</property>
                     <property name="valign">center</property>
-                    <property name="column_spacing">6</property>
+                    <property name="column-spacing">6</property>
                     <child>
                       <object class="GtkLabel">
                         <property name="hexpand">True</property>
@@ -196,7 +196,7 @@
                     </child>
                     <child>
                       <object class="GtkSpinButton" id="h_spinbutton">
-                        <property name="width_chars">2</property>
+                        <property name="width-chars">2</property>
                         <property name="text" translatable="yes">0</property>
                         <property name="xalign">0.5</property>
                         <property name="orientation">vertical</property>
@@ -229,7 +229,7 @@
                     </child>
                     <child>
                       <object class="GtkSpinButton" id="m_spinbutton">
-                        <property name="width_chars">2</property>
+                        <property name="width-chars">2</property>
                         <property name="text" translatable="yes">0</property>
                         <property name="xalign">0.5</property>
                         <property name="orientation">vertical</property>
@@ -263,7 +263,7 @@
                     </child>
                     <child>
                       <object class="GtkSpinButton" id="s_spinbutton">
-                        <property name="width_chars">2</property>
+                        <property name="width-chars">2</property>
                         <property name="text" translatable="yes">0</property>
                         <property name="xalign">0.5</property>
                         <property name="orientation">vertical</property>
@@ -298,10 +298,10 @@
             </child>
             <child>
               <object class="AdwClamp">
-                <property name="maximum_size">302</property>
+                <property name="maximum-size">302</property>
                 <child>
                   <object class="GtkEntry" id="title_entry">
-                    <property name="placeholder_text" translatable="yes">Title</property>
+                    <property name="placeholder-text" translatable="yes">Title</property>
                   </object>
                 </child>
               </object>

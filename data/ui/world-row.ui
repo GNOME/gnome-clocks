@@ -16,8 +16,8 @@
     <child>
       <object class="GtkButton" id="delete_button">
         <property name="valign">center</property>
-        <property name="tooltip_text" translatable="yes">Delete</property>
-        <property name="icon_name">edit-delete-symbolic</property>
+        <property name="tooltip-text" translatable="yes">Delete</property>
+        <property name="icon-name">edit-delete-symbolic</property>
         <signal name="clicked" handler="delete" object="ClocksWorldRow" swapped="no"/>
         <style>
           <class name="circular"/>
