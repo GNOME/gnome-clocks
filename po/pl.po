@@ -5,22 +5,23 @@
 # Paweł Żołnowski <pawel@zolnowski.name>, 2014.
 # Aviary.pl <community-poland@mozilla.org>, 2012-2025.
 # Daniel <wbcwknvstb@proton.me>, 2026.
+# Marcel Mrówka <micro.mail88@gmail.com>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-clocks\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/\n"
-"POT-Creation-Date: 2026-01-31 11:52+0000\n"
-"PO-Revision-Date: 2026-03-01 15:02+0100\n"
-"Last-Translator: Daniel <wbcwknvstb@proton.me>\n"
-"Language-Team: Polish <community-poland@mozilla.org>\n"
+"POT-Creation-Date: 2026-08-01 15:49+0000\n"
+"PO-Revision-Date: 2026-08-22 16:03+0200\n"
+"Last-Translator: Marcel Mrówka <micro.mail88@gmail.com>\n"
+"Language-Team: Polish <https://l10n.gnome.org/teams/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Gtranslator 50.0\n"
 
 #: data/org.gnome.clocks.desktop.in.in:2 data/org.gnome.clocks.desktop.in.in:3
 #: data/org.gnome.clocks.metainfo.xml.in.in:6 data/ui/window.ui:27
@@ -36,7 +37,9 @@ msgstr "Zegar światowy, budzik, stoper i minutnik"
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.clocks.desktop.in.in:6
 msgid "time;timer;alarm;world clock;stopwatch;time zone;"
-msgstr "czas;minutnik;timer;budzik;alarm;zegar światowy;stoper;strefa czasowa;"
+msgstr ""
+"time;timer;alarm;world clock;stopwatch;time "
+"zone;czas;godzina;minutnik;budzik;zegar światowy;stoper;strefa czasowa;"
 
 #: data/org.gnome.clocks.desktop.in.in:16
 msgid "Allows world clocks to be displayed for your time zone."
@@ -100,31 +103,31 @@ msgstr "Bieżący panel zegara."
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:7
 msgid "Keep track of time"
-msgstr "Zarządzanie czasem"
+msgstr "Zarządzaj czasem"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:9
 msgid ""
 "A simple and elegant clock application. It includes world clocks, alarms, a "
 "stopwatch, and timers."
 msgstr ""
-"Prosty i elegancki program zegara, obejmujący zegary światowe, budzik, "
-"stoper i minutnik."
+"Prosta i elegancka aplikacja zegara, obejmująca zegary światowe, budziki, "
+"stoper i minutniki."
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:14
 msgid "Show the time in different cities around the world"
-msgstr "Podawanie czasu w różnych miastach na całym świecie"
+msgstr "Wyświetlaj czas w różnych miastach na całym świecie"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:15
 msgid "Set alarms to wake you up"
-msgstr "Ustawianie budzika"
+msgstr "Ustawiaj budziki"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:16
 msgid "Measure elapsed time with an accurate stopwatch"
-msgstr "Dokładne mierzenie czasu stoperem"
+msgstr "Dokładne mierz czas stoperem"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:17
 msgid "Set timers to properly cook your food"
-msgstr "Ustawianie minutnika, aby właściwie przygotować potrawy"
+msgstr "Ustawiaj minutniki, aby właściwie ugotować potrawy"
 
 #: data/org.gnome.clocks.metainfo.xml.in.in:34
 msgid "Initial screen"
@@ -143,13 +146,14 @@ msgid "Timer screen"
 msgstr "Minutnik"
 
 #. developer_name tag deprecated with Appstream 1.0
-#: data/org.gnome.clocks.metainfo.xml.in.in:227 src/window.vala:254
+#: data/org.gnome.clocks.metainfo.xml.in.in:220
+#: data/org.gnome.clocks.metainfo.xml.in.in:222 src/window.vala:254
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
 #: data/ui/alarm-day-picker-row.ui:21
 msgid "Repeat"
-msgstr "Powtarzanie"
+msgstr "Powtarzaj"
 
 #: data/ui/alarm-face.ui:14
 msgid "Add A_larm…"
@@ -169,11 +173,11 @@ msgstr "Powtarza się"
 
 #: data/ui/alarm-row.ui:67
 msgid "Enable Alarm"
-msgstr "Włącza budzik"
+msgstr "Włącz budzik"
 
 #: data/ui/alarm-row.ui:72 data/ui/timer-row.ui:152 data/ui/world-row.ui:19
 msgid "Delete"
-msgstr "Usuwa"
+msgstr "Usuń"
 
 #. Translators: Tooltip for the + button
 #: data/ui/alarm-setup-dialog.ui:6 src/alarm-face.vala:28
@@ -231,7 +235,7 @@ msgstr "Pomo_c"
 
 #: data/ui/header-bar.ui:14
 msgid "_About Clocks"
-msgstr "_O programie"
+msgstr "_O aplikacji"
 
 #: data/ui/header-bar.ui:56
 msgid "Main Menu"
@@ -330,7 +334,7 @@ msgstr "Minutnik"
 #: data/ui/shortcuts-dialog.ui:108
 msgctxt "shortcut window"
 msgid "Reset"
-msgstr "Resetowanie"
+msgstr "Przywrócenie"
 
 #: data/ui/shortcuts-dialog.ui:114
 msgctxt "shortcut window"
@@ -511,15 +515,15 @@ msgstr "_Dodaj zegar światowy…"
 
 #: data/ui/world-location-dialog.ui:4
 msgid "Add World Clock"
-msgstr "Dodanie zegara światowego"
+msgstr "Dodaj zegar światowy"
 
 #: data/ui/world-location-dialog.ui:43
 msgid "Search cities"
-msgstr "Wyszukiwanie miast"
+msgstr "Wyszukaj miasta"
 
 #: data/ui/world-location-dialog.ui:54
 msgid "Perform a Search"
-msgstr "Wykonanie wyszukiwania"
+msgstr "Wykonaj wyszukiwanie"
 
 #: data/ui/world-location-dialog.ui:55
 msgid "The search results will appear here"
@@ -527,7 +531,7 @@ msgstr "Wyniki wyszukiwania pojawią się tutaj"
 
 #: data/ui/world-location-dialog.ui:61
 msgid "No Results Found"
-msgstr "Nie znaleziono wyników"
+msgstr "Brak wyników"
 
 #: data/ui/world-location-dialog.ui:62
 msgid "Try a different search"
@@ -609,7 +613,7 @@ msgstr "30 minut"
 
 #: src/alarm-setup-dialog.vala:128
 msgid "Edit Alarm"
-msgstr "Modyfikacja budzika"
+msgstr "Modyfikuj budzik"
 
 #: src/alarm-setup-dialog.vala:131
 msgid "_Done"
@@ -668,7 +672,7 @@ msgstr "Dzwonek przejazdu"
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:55
 msgid "Daydreaming"
-msgstr "Marzenia dzienne"
+msgstr "Marzycielstwo"
 
 #. Translators: An alarm sound name
 #: src/alarm-sound-model.vala:57
@@ -732,7 +736,7 @@ msgstr "Zabawki"
 
 #: src/application.vala:23
 msgid "Print version information and exit"
-msgstr "Wyświetla informację o wersji i kończy działanie"
+msgstr "Wyświetla informacje o wersji i kończy działanie"
 
 #: src/stopwatch-face.vala:160
 msgid "_Pause"
@@ -762,7 +766,7 @@ msgstr "Ukończono odliczanie minutnika"
 #. Translators: The time is the same as the local time
 #: src/utils.vala:67
 msgid "Current timezone"
-msgstr "Obecna strefa czasowa"
+msgstr "Bieżąca strefa czasowa"
 
 #. Translators: The (possibly fractical) number hours in the past
 #. (relative to local) the clock/location is
@@ -872,12 +876,13 @@ msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2012-2025\n"
 "Paweł Żołnowski <pawel@zolnowski.name>, 2014\n"
 "Aviary.pl <community-poland@mozilla.org>, 2012-2025\n"
-"Daniel <wbcwknvstb@proton.me>, 2026"
+"Daniel <wbcwknvstb@proton.me>, 2026\n"
+"Marcel Mrówka <micro.mail88@gmail.com>, 2026"
 
 #. Translators: Tooltip for the + button
 #: src/world-face.vala:29
 msgid "Add Location"
-msgstr "Dodaje położenie"
+msgstr "Dodaj położenie"
 
 #. If it is Jan 1st there, and not Jan 2nd here, then it must be
 #. Dec 31st here, so return "tomorrow"
@@ -894,24 +899,4 @@ msgstr "Wczoraj"
 #. Translators: This clock represents the local time
 #: src/world-row.vala:47
 msgid "Current location"
-msgstr "Obecne położenie"
-
-#~ msgid "Add a New World Clock"
-#~ msgstr "Dodanie nowego zegara światowego"
-
-#, c-format
-#~ msgid "%s day"
-#~ msgid_plural "%s days"
-#~ msgstr[0] "%s dzień"
-#~ msgstr[1] "%s dni"
-#~ msgstr[2] "%s dni"
-
-#~ msgid " and "
-#~ msgstr " i "
-
-#, c-format
-#~ msgid "%s minute"
-#~ msgid_plural "%s minutes"
-#~ msgstr[0] "%s minutę"
-#~ msgstr[1] "%s minuty"
-#~ msgstr[2] "%s minut"
+msgstr "Bieżące położenie"
