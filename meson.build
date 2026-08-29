@@ -1,7 +1,7 @@
 project(
   'gnome-clocks',
   ['vala', 'c'],
-  version: '50.0',
+  version: '51.rc',
   license: 'GPL-2.0-or-later',
   meson_version: '>= 1.7',
 )
