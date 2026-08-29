@@ -21,11 +21,18 @@
         "prepend-path": "/usr/lib/sdk/vala-nightly/bin/",
         "prepend-ld-library-path": "/usr/lib/sdk/vala-nightly/lib"
     },
-    "cleanup": ["/include", "/lib/pkgconfig",
-                "/share/pkgconfig", "/share/aclocal",
-                "/man", "/share/man", "/share/gtk-doc",
-                "/share/vala",
-                "*.la", "*.a"],
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/share/pkgconfig",
+        "/share/aclocal",
+        "/man",
+        "/share/man",
+        "/share/gtk-doc",
+        "/share/vala",
+        "*.la",
+        "*.a"
+    ],
     "modules": [
         {
             "name": "geocode-glib",
@@ -47,18 +54,18 @@
             "name": "libgweather",
             "buildsystem": "meson",
             "config-opts": [
-              "-Dtests=false",
-              "-Dgtk_doc=false"
+                "-Dtests=false",
+                "-Dgtk_doc=false"
             ],
             "modules": [
                 {
-                    "name" : "gweather-locations",
-                    "buildsystem" : "meson",
-                    "sources" : [
+                    "name": "gweather-locations",
+                    "buildsystem": "meson",
+                    "sources": [
                         {
-                            "type" : "git",
-                            "url" : "https://gitlab.gnome.org/GNOME/gweather-locations",
-                            "branch" : "main"
+                            "type": "git",
+                            "url": "https://gitlab.gnome.org/GNOME/gweather-locations",
+                            "branch": "main"
                         }
                     ]
                 }
@@ -75,13 +82,13 @@
             "name": "gnome-desktop",
             "buildsystem": "meson",
             "config-opts": [
-              "-Dqr=disabled",
-              "-Ddebug_tools=false",
-              "-Dudev=disabled",
-              "-Dgtk_doc=false",
-              "-Ddesktop_docs=false",
-              "-Dlegacy_library=false",
-              "-Dbuild_gtk4=true"
+                "-Dqr=disabled",
+                "-Ddebug_tools=false",
+                "-Dudev=disabled",
+                "-Dgtk_doc=false",
+                "-Ddesktop_docs=false",
+                "-Dlegacy_library=false",
+                "-Dbuild_gtk4=true"
             ],
             "sources": [
                 {
